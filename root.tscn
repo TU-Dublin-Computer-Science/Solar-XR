@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://2xng5iqxysgp"]
+
+[ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drba5"]
+albedo_color = Color(1, 0.905882, 0.866667, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7vk4t"]
+material = SubResource("StandardMaterial3D_drba5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xalw"]
+albedo_color = Color(0.902517, 0.570989, 0.440581, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l77j2"]
+material = SubResource("StandardMaterial3D_5xalw")
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_2sdjv")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="RightHandMesh" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_7vk4t")
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftHandMesh" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_7vk4t")
+skeleton = NodePath("../../RightHand")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03915, -3.19723)
+mesh = SubResource("SphereMesh_l77j2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

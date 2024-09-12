@@ -1,14 +1,16 @@
 extends Node3D
 
 var xr_interface: XRInterface
-
 @onready var viewport : Viewport = get_viewport()
+
+@onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
+var hmd_synchronized:bool = false
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialized successfully")
-
+		
 		# Turn off v-sync!
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
@@ -16,5 +18,19 @@ func _ready():
 		viewport.use_xr = true
 		
 		viewport.transparent_bg = true #Must be done for AR passthrough
+		
+		xr_interface.pose_recentered.connect(_on_openxr_pose_recentered)
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
+func _on_openxr_pose_recentered() -> void:
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+	
+func _process(_delta):
+	if hmd_synchronized:
+		return
+
+	# Synchronizes headset ORIENTATION as soon as tracking information begins to arrive :
+	if uninitialized_hmd_transform != XRServer.get_hmd_transform():
+		hmd_synchronized = true
+		_on_openxr_pose_recentered()

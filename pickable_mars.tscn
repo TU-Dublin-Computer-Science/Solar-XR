@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3ydgbs6v3alt"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p5xbx"]
+[ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://mars.tscn" id="2_hq81v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2wq7w"]
+radius = 0.2
+
+[node name="PickableMars" instance=ExtResource("1_p5xbx")]
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_2wq7w")
+
+[node name="Mars" parent="." index="1" instance=ExtResource("2_hq81v")]

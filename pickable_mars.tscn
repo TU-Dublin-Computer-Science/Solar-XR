@@ -9,6 +9,7 @@ radius = 0.2
 [node name="PickableMars" instance=ExtResource("1_p5xbx")]
 lock_rotation = true
 freeze = true
+freeze_mode = 0
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("SphereShape3D_2wq7w")

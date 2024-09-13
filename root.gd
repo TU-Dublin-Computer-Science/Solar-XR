@@ -51,9 +51,9 @@ func _on_right_hand_button_pressed(name: String) -> void:
 			
 
 func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
-	if value[1] >= 0:
+	if value[1] >= 0: #Speed up on Analogue stick up
 		mars.increaseTime(remap(value[1], 0, 1, 0, 100))
-	if value[1] < 0:
+	if value[1] < 0: #Speed down on Analogue stick down
 		mars.decreaseTime(remap(value[1], 0, -1, 0, 100))
 	
 func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):

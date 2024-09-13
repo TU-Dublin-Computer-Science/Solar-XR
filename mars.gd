@@ -2,7 +2,8 @@ extends Node3D
 
 #Time taken in seconds for Mars to complete a full rotation
 #Should find more accurate value for this
-const FULL_ROT_SECS:float = 88560.0
+const FULL_ROT_HOURS = 24.622962 #Obtained from JPL Horizons System
+const FULL_ROT_SECS:float = FULL_ROT_HOURS * 60 * 60
 var startTime:float = 0.0
 
 var elapsedRealSecs = 0

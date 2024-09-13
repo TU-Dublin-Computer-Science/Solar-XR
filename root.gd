@@ -29,6 +29,11 @@ func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	
 func _process(_delta):	
+	syncHeadsetOrientation()
+	
+	updateUI(mars.timeMultiplier, mars.elapsedSimulatedSecs, mars.elapsedRealSecs)
+
+func syncHeadsetOrientation():
 	if hmd_synchronized:
 		return
 
@@ -37,25 +42,16 @@ func _process(_delta):
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
 
-
-
-func _on_right_hand_button_pressed(name: String) -> void:
-	
-	if name == "by_button":
-		print("Increasing...")
-		mars.increaseTime()
-	elif name == "ax_button":
-		print("Decreasing...")
-		mars.decreaseTime()
-		
-	
-
-
-func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:
-	
-	
+func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
 	if value[1] >= 0:
 		mars.increaseTime(remap(value[1], 0, 1, 0, 100))
 	if value[1] < 0:
 		mars.decreaseTime(remap(value[1], 0, -1, 0, 100))
+	
+func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
+	var UIText = "Sim Speed: %fx\nSim Time: %d\nReal Time: %d" % [simulationSpeed, simulatedTime, realTime]
+	print(UIText)
+	$XROrigin3D/RightHand/UI.text = UIText
+	
+	
 	

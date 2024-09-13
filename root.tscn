@@ -20,6 +20,10 @@ tracker = &"right_hand"
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/RightHand"]
 script = ExtResource("3_pcsj8")
 
+[node name="UI" type="Label3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00685453, 0.083064, 0.0948512)
+horizontal_alignment = 0
+
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cowk1sb5rws3a"]
+[gd_scene load_steps=8 format=3 uid="uid://cowk1sb5rws3a"]
 
 [ext_resource type="Script" path="res://mars.gd" id="1_8paeo"]
 [ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://8k_mars.jpg" id="1_11l5m"]
@@ -14,6 +14,13 @@ material = SubResource("StandardMaterial3D_mvvgk")
 radius = 0.2
 height = 0.4
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xma35"]
+albedo_color = Color(0.478431, 0.627451, 0.760784, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_61t8k"]
+material = SubResource("StandardMaterial3D_xma35")
+size = Vector3(0, 0.5, 0.25)
+
 [node name="Mars" type="Node3D"]
 script = ExtResource("1_8paeo")
 
@@ -25,3 +32,9 @@ shape = SubResource("SphereShape3D_rrlqr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("SphereMesh_yp3wd")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="RotationDebugPlane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000507474, 0.00207266, 0.0995949)
+visible = false
+mesh = SubResource("BoxMesh_61t8k")
+skeleton = NodePath("../..")

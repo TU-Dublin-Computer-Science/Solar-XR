@@ -8,6 +8,8 @@ var hmd_synchronized:bool = false
 
 @onready var mars = $PickableMars/Mars
 
+var debugMode = false
+
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -42,6 +44,12 @@ func syncHeadsetOrientation():
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
 
+
+func _on_right_hand_button_pressed(name: String) -> void:
+	if name == "ax_button":
+		toggleDebugMode()
+			
+
 func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
 	if value[1] >= 0:
 		mars.increaseTime(remap(value[1], 0, 1, 0, 100))
@@ -61,7 +69,6 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	var realHours = (realTime / 60 / 60) % 24
 	var realDays = (realTime / 60 / 60 / 24)
 	
-	
 	var simTimeText = "Sim Time: Day %d - %02d:%02d:%02d" % [simDays, simHours, simMins, simSecs]
 	var realTimeText = "Real Time: Day %d - %02d:%02d:%02d" % [realDays, realHours, realMins, realSecs]
 	
@@ -70,5 +77,12 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	print(UIText)
 	$XROrigin3D/RightHand/UI.text = UIText
 	
-	
-	
+func toggleDebugMode():
+	if debugMode == false:
+		debugMode = true
+		$PickableMars/RotationDebugPlane.visible = true
+		$PickableMars/Mars/RotationDebugPlane.visible = true
+	elif debugMode == true:
+		debugMode = false
+		$PickableMars/RotationDebugPlane.visible = false
+		$PickableMars/Mars/RotationDebugPlane.visible = false

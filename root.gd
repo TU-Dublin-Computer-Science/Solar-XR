@@ -49,7 +49,24 @@ func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void
 		mars.decreaseTime(remap(value[1], 0, -1, 0, 100))
 	
 func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
-	var UIText = "Sim Speed: %fx\nSim Time: %d\nReal Time: %d" % [simulationSpeed, simulatedTime, realTime]
+	var simSpeedText = "Sim Speed: %.0fx" % simulationSpeed
+	
+	var simSecs = simulatedTime % 60
+	var simMins = (simulatedTime / 60) % 60
+	var simHours = (simulatedTime / 60 / 60) % 24
+	var simDays = (simulatedTime / 60 / 60 / 24)
+	
+	var realSecs = realTime % 60
+	var realMins = (realTime / 60) % 60
+	var realHours = (realTime / 60 / 60) % 24
+	var realDays = (realTime / 60 / 60 / 24)
+	
+	
+	var simTimeText = "Sim Time: Day %d - %02d:%02d:%02d" % [simDays, simHours, simMins, simSecs]
+	var realTimeText = "Real Time: Day %d - %02d:%02d:%02d" % [realDays, realHours, realMins, realSecs]
+	
+	var UIText = simSpeedText + "\n" + simTimeText + "\n" + realTimeText
+	
 	print(UIText)
 	$XROrigin3D/RightHand/UI.text = UIText
 	

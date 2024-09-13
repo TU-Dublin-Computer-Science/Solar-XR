@@ -30,7 +30,11 @@ func rotateMars(delta:float):
 func increaseTime(value):
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):
 		timeMultiplier += (TIME_INCREMENT * (value/100))
+	else:
+		timeMultiplier = MAX_TIME_MULT
 
 func decreaseTime(value):
 	if ((timeMultiplier - (TIME_INCREMENT * (value/100))) >= 0):
 		timeMultiplier -= (TIME_INCREMENT * (value/100))
+	else:
+		timeMultiplier = MIN_TIME_MULT

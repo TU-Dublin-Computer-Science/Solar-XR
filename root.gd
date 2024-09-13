@@ -6,6 +6,8 @@ var xr_interface: XRInterface
 @onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
 var hmd_synchronized:bool = false
 
+@onready var mars = $PickableMars/Mars
+
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -26,7 +28,7 @@ func _ready():
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	
-func _process(_delta):
+func _process(_delta):	
 	if hmd_synchronized:
 		return
 
@@ -34,3 +36,26 @@ func _process(_delta):
 	if uninitialized_hmd_transform != XRServer.get_hmd_transform():
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
+
+
+
+func _on_right_hand_button_pressed(name: String) -> void:
+	
+	if name == "by_button":
+		print("Increasing...")
+		mars.increaseTime()
+	elif name == "ax_button":
+		print("Decreasing...")
+		mars.decreaseTime()
+		
+	
+
+
+func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:
+	
+	
+	if value[1] >= 0:
+		mars.increaseTime(remap(value[1], 0, 1, 0, 100))
+	if value[1] < 0:
+		mars.decreaseTime(remap(value[1], 0, -1, 0, 100))
+	

@@ -6,23 +6,30 @@ const FULL_ROT_SECS:float = 88560.0
 var startTime:float = 0.0
 var elapsedTime:float
 
-const MULTIPLIER = 2000
+var timeMultiplier = 2000
+const TIME_INCREMENT = 50
+const MAX_TIME_MULT = 6000
+const MIN_TIME_MULT = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	startTime = Time.get_ticks_msec()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var elapsedRealSecs = (Time.get_ticks_msec() - startTime) / 1000.0
 	
-	var elapsedSimulatedSecs = elapsedRealSecs * MULTIPLIER
+	var elapsedSimulatedSecs = elapsedRealSecs * timeMultiplier
 	
 	var rotationSpeed =  (2*PI)/ FULL_ROT_SECS
 	
-	var angleToRotate = rotationSpeed * delta * MULTIPLIER
+	var angleToRotate = rotationSpeed * delta * timeMultiplier
 	
 	rotate_y(angleToRotate)
-	
-	print("Full Rot Time = %f\n" % [FULL_ROT_SECS,])
-	print("ElapsedSimulatedSecs: %f\nElapsedRealSecs %f" % [elapsedSimulatedSecs,elapsedRealSecs] )
+
+func increaseTime(value):
+	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):
+		timeMultiplier += (TIME_INCREMENT * (value/100))
+
+func decreaseTime(value):
+	if ((timeMultiplier - (TIME_INCREMENT * (value/100))) >= 0):
+		timeMultiplier -= (TIME_INCREMENT * (value/100))

@@ -2,8 +2,8 @@ extends Node3D
 
 #Time taken in seconds for Mars to complete a full rotation
 #Should find more accurate value for this
-const FULL_ROT_HOURS = 24.622962 #Obtained from JPL Horizons System
-const FULL_ROT_SECS:float = FULL_ROT_HOURS * 60 * 60
+const ROT_PERIOD_HRS = 24.6229 #Obtained from JPL Horizons System
+const ROT_PERIOD_SECS:float = ROT_PERIOD_HRS * 60 * 60
 var startTime:float = 0.0
 
 var elapsedRealSecs = 0
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	rotateMars(delta)
 
 func rotateMars(delta:float):
-	var rotationSpeed =  (2*PI)/ FULL_ROT_SECS	
+	var rotationSpeed =  (2*PI)/ ROT_PERIOD_SECS	
 	var angleToRotate = rotationSpeed * delta * timeMultiplier	
 	rotate_y(angleToRotate)
 

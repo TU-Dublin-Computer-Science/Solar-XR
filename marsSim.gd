@@ -35,11 +35,10 @@ func _ready() -> void:
 	startTime = Time.get_ticks_msec()
 	
 	phobos = phobosScene.instantiate()
-
-	phobos.global_transform.origin = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)
+	phobos.global_transform.origin = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)	
+	phobos.setSize(PHOBOS_RADIUS)
 	add_child(phobos)	
-	
-	
+		
 func _process(delta: float) -> void:
 	elapsedRealSecs += 1 * delta
 	elapsedSimulatedSecs += 1 * timeMultiplier * delta	

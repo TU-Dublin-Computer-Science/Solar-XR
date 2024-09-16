@@ -2,6 +2,9 @@ extends Node3D
 
 #Time taken in seconds for Mars to complete a full rotation
 #Should find more accurate value for this
+
+
+
 const ROT_PERIOD_HRS = 24.6229 #Obtained from JPL Horizons System
 const ROT_PERIOD_SECS:float = ROT_PERIOD_HRS * 60 * 60
 var startTime:float = 0.0
@@ -13,6 +16,7 @@ var timeMultiplier = 1
 const TIME_INCREMENT = 50
 const MAX_TIME_MULT = 6000
 const MIN_TIME_MULT = 1
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

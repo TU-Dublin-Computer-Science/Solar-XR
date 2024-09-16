@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://mars.tscn" id="2_hq81v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2wq7w"]
-radius = 0.2
+margin = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4jd6"]
 albedo_color = Color(0.476746, 0.62846, 0.76219, 1)
@@ -22,6 +22,7 @@ freeze_mode = 0
 shape = SubResource("SphereShape3D_2wq7w")
 
 [node name="Mars" parent="." index="1" instance=ExtResource("2_hq81v")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="RotationDebugPlane" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)

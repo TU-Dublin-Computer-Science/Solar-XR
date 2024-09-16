@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3ydgbs6v3alt"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_p5xbx"]
-[ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://mars.tscn" id="2_hq81v"]
+[ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://marsSim.tscn" id="2_hq81v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2wq7w"]
 margin = 1.0
@@ -19,10 +19,10 @@ freeze = true
 freeze_mode = 0
 
 [node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("SphereShape3D_2wq7w")
 
-[node name="Mars" parent="." index="1" instance=ExtResource("2_hq81v")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="MarsSim" parent="." index="1" instance=ExtResource("2_hq81v")]
 
 [node name="RotationDebugPlane" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)

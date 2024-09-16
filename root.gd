@@ -6,7 +6,7 @@ var xr_interface: XRInterface
 @onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
 var hmd_synchronized:bool = false
 
-@onready var mars = $PickableMars/Mars
+@onready var marsSim = $PickableMars/MarsSim
 
 var debugMode = false
 
@@ -33,7 +33,7 @@ func _on_openxr_pose_recentered() -> void:
 func _process(_delta):	
 	syncHeadsetOrientation()
 	
-	updateUI(mars.timeMultiplier, mars.elapsedSimulatedSecs, mars.elapsedRealSecs)
+	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)
 
 func syncHeadsetOrientation():
 	if hmd_synchronized:
@@ -52,9 +52,9 @@ func _on_right_hand_button_pressed(name: String) -> void:
 
 func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
 	if value[1] >= 0: #Speed up on Analogue stick up
-		mars.increaseTime(remap(value[1], 0, 1, 0, 100))
+		marsSim.increaseTime(remap(value[1], 0, 1, 0, 100))
 	if value[1] < 0: #Speed down on Analogue stick down
-		mars.decreaseTime(remap(value[1], 0, -1, 0, 100))
+		marsSim.decreaseTime(remap(value[1], 0, -1, 0, 100))
 	
 func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	var simSpeedText = "Sim Speed: %.0fx" % simulationSpeed
@@ -74,7 +74,7 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	
 	var UIText = simSpeedText + "\n" + simTimeText + "\n" + realTimeText
 	
-	print(UIText)
+	#print(UIText)
 	$XROrigin3D/RightHand/UI.text = UIText
 	
 func toggleDebugMode():

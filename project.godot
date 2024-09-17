@@ -84,4 +84,5 @@ textures/vram_compression/import_etc2_astc=true
 
 openxr/enabled=true
 openxr/environment_blend_mode=2
+openxr/startup_alert=false
 shaders/enabled=true

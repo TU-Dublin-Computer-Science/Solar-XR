@@ -60,7 +60,7 @@ func rotateMars(delta:float):
 func movePhobos(delta):	
 	var angleToRotate = ((2*PI)/PHOBOS_ORBIT_PERIOD) * timeMultiplier * delta
 	
-	phobosOrbitAngle += angleToRotate
+	phobosOrbitAngle -= angleToRotate
 	phobosOrbitAngle = fmod(phobosOrbitAngle, 2*PI)
 		
 	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS

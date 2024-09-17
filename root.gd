@@ -10,8 +10,6 @@ var hmd_synchronized:bool = false
 
 var debugMode = false
 
-
-
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -36,8 +34,13 @@ func _on_openxr_pose_recentered() -> void:
 func _process(_delta):	
 	syncHeadsetOrientation()
 	
+	if Input.is_action_pressed("speed_up"):
+		marsSim.increaseTime(100)
+	elif Input.is_action_pressed("speed_down"):
+		marsSim.decreaseTime(100)
+	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)
-
+	
 
 func syncHeadsetOrientation():
 	if hmd_synchronized:
@@ -51,8 +54,7 @@ func syncHeadsetOrientation():
 
 func _on_right_hand_button_pressed(name: String) -> void:
 	if name == "ax_button":
-		toggleDebugMode()
-			
+		toggleDebugMode()			
 
 func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
 	if value[1] >= 0: #Speed up on Analogue stick up
@@ -80,7 +82,8 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	
 	#For non XR
 	DebugDraw2D.clear_all()
-	DebugDraw2D.set_text(realTimeText)
+	DebugDraw2D.set_text(simSpeedText)
+	DebugDraw2D.set_text(realTimeText)	
 	DebugDraw2D.set_text(simTimeText)
 	
 	#For XR

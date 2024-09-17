@@ -10,6 +10,8 @@ var hmd_synchronized:bool = false
 
 var debugMode = false
 
+
+
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -29,6 +31,7 @@ func _ready():
 
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+
 	
 func _process(_delta):	
 	syncHeadsetOrientation()

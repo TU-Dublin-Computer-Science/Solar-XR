@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=8 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_4xpk2"]
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="3_8gwt6"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="5_wufkh"]
+[ext_resource type="Script" path="res://first_person_controller.gd" id="6_mwdap"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ei85s"]
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_2sdjv")
@@ -41,6 +44,16 @@ transform = Transform3D(1, 0, 0, 0, 0.999993, 0.00370042, 0, -0.00370042, 0.9999
 
 [node name="PickableMars" parent="." instance=ExtResource("5_wufkh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -3.29192)
+
+[node name="FirstPersonController" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4784)
+script = ExtResource("6_mwdap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FirstPersonController"]
+shape = SubResource("SphereShape3D_ei85s")
+
+[node name="Camera3D" type="Camera3D" parent="FirstPersonController"]
+current = true
 
 [connection signal="button_pressed" from="XROrigin3D/RightHand" to="." method="_on_right_hand_button_pressed"]
 [connection signal="input_vector2_changed" from="XROrigin3D/RightHand" to="." method="_on_right_hand_input_vector_2_changed"]

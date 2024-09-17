@@ -15,8 +15,11 @@ const MARS_RADIUS = REAL_MARS_RADIUS * modelScalar
 
 const PHOBOS_RADIUS:float = 9100.0 * modelScalar #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
+const PHOBOS_ORBIT_PERIOD = 27553.824
 
 const PHOBOS_MOVE_SPEED_TEST = 0.1
+
+var phobosOrbitAngle = 0.0
 
 #Time Keeping
 var startTime:float = 0.0
@@ -34,8 +37,7 @@ var phobos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	startTime = Time.get_ticks_msec()
-	
+	startTime = Time.get_ticks_msec()	
 	loadPhobos()
 
 func loadPhobos():
@@ -51,21 +53,19 @@ func _process(delta: float) -> void:
 	rotateMars(delta)
 	movePhobos(delta)
 	
-func rotateMars(delta:float):
-	var rotationSpeed =  (2*PI)/ MARS_ROT_PERIOD	
-	var angleToRotate = rotationSpeed * delta * timeMultiplier	
+func rotateMars(delta:float):	
+	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	
 	planet.rotate_y(angleToRotate)
 
-var phobosOrbitAngle = 0.0
-
 func movePhobos(delta):	
-	phobosOrbitAngle += PHOBOS_MOVE_SPEED_TEST * delta
+	var angleToRotate = ((2*PI)/PHOBOS_ORBIT_PERIOD) * timeMultiplier * delta
+	
+	phobosOrbitAngle += angleToRotate
 	phobosOrbitAngle = fmod(phobosOrbitAngle, 2*PI)
 		
 	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
 	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
 	
-
 func increaseTime(value):
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):
 		timeMultiplier += (TIME_INCREMENT * (value/100))

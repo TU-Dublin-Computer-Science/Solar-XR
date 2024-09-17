@@ -38,6 +38,7 @@ func _process(_delta):
 	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)
 
+
 func syncHeadsetOrientation():
 	if hmd_synchronized:
 		return
@@ -77,8 +78,13 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	
 	var UIText = simSpeedText + "\n" + simTimeText + "\n" + realTimeText
 	
-	#print(UIText)
-	$XROrigin3D/RightHand/UI.text = UIText
+	#For non XR
+	DebugDraw2D.clear_all()
+	DebugDraw2D.set_text(realTimeText)
+	DebugDraw2D.set_text(simTimeText)
+	
+	#For XR
+	$XROrigin3D/RightHand/UI.text = UIText #For XR
 	
 func toggleDebugMode():
 	if debugMode == false:

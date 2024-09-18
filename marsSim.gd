@@ -15,7 +15,11 @@ const MARS_RADIUS = REAL_MARS_RADIUS * modelScalar
 
 const PHOBOS_RADIUS:float = 9100.0 * modelScalar #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
+const PHOBOS_ECCENTRICITY = 0.0151
 const PHOBOS_ORBIT_PERIOD = 27553.824
+
+#Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
+const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
 
 const PHOBOS_MOVE_SPEED_TEST = 0.1
 
@@ -69,19 +73,18 @@ func rotateMars(delta:float):
 var phobosPath:PackedVector3Array #Used for drawing orbit path for debugging
 func movePhobos(delta):	
 	var angleToRotate = ((2*PI)/PHOBOS_ORBIT_PERIOD) * timeMultiplier * delta
-		
+	
 	phobosOrbitAngle -= angleToRotate
 	phobosOrbitAngle = fmod(phobosOrbitAngle, 2*PI)
-		
+	
 	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
-	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
+	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMINOR_AXIS
 	
 	phobosPath.append(phobos.global_position)
 	
 	if debugMode:		
 		DebugDraw3D.draw_sphere(phobos.global_position, 0.02, Color.BLUE, delta)
-		DebugDraw3D.draw_lines(phobosPath, Color.GREEN, delta)
-	
+		DebugDraw3D.draw_lines(phobosPath, Color.GREEN, delta)	
 	
 func increaseTime(value):
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):

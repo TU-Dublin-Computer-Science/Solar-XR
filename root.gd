@@ -30,6 +30,9 @@ func _ready():
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_debug"):
+		marsSim.toggleDebugMode()
 	
 func _process(_delta):	
 	syncHeadsetOrientation()
@@ -40,8 +43,7 @@ func _process(_delta):
 		marsSim.decreaseTime(100)
 	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)
-	
-
+		
 func syncHeadsetOrientation():
 	if hmd_synchronized:
 		return
@@ -51,10 +53,9 @@ func syncHeadsetOrientation():
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
 
-
 func _on_right_hand_button_pressed(name: String) -> void:
 	if name == "ax_button":
-		toggleDebugMode()			
+		marsSim.toggleDebugMode()
 
 func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
 	if value[1] >= 0: #Speed up on Analogue stick up
@@ -89,12 +90,3 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	#For XR
 	$XROrigin3D/RightHand/UI.text = UIText #For XR
 	
-func toggleDebugMode():
-	if debugMode == false:
-		debugMode = true
-		$PickableMars/RotationDebugPlane.visible = true
-		$PickableMars/Mars/RotationDebugPlane.visible = true
-	elif debugMode == true:
-		debugMode = false
-		$PickableMars/RotationDebugPlane.visible = false
-		$PickableMars/Mars/RotationDebugPlane.visible = false

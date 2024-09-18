@@ -21,6 +21,8 @@ const PHOBOS_MOVE_SPEED_TEST = 0.1
 
 var phobosOrbitAngle = 0.0
 
+var debugMode = false
+
 #Time Keeping
 var startTime:float = 0.0
 var elapsedRealSecs = 0
@@ -52,6 +54,13 @@ func _process(delta: float) -> void:
 		
 	rotateMars(delta)
 	movePhobos(delta)
+
+func toggleDebugMode():
+	debugMode = !debugMode
+	print(debugMode)
+	$RotationDebugPlaneSystem.visible = debugMode
+	$Planet/RotationDebugPlanePlanet.visible = debugMode
+	
 	
 func rotateMars(delta:float):	
 	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	

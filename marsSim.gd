@@ -1,8 +1,10 @@
 extends Node3D
 
 #Data Parameters obtained from Nasa Planetary factsheets
+#https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html
 #Time values are in seconds
 #Distance values are in meters
+#Angle values are in degrees
 
 #Mars has a radius of 0.5 in the model, so a scalar value is calculated,
 #which is multilied by each "real" value to get the value to be used in the model
@@ -17,6 +19,7 @@ const PHOBOS_RADIUS:float = 9100.0 * modelScalar #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
 const PHOBOS_ECCENTRICITY = 0.0151
 const PHOBOS_ORBIT_PERIOD = 27553.824
+const PHOBOS_ORBIT_INCLINATION = 1.08 
 
 #Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
@@ -39,7 +42,9 @@ const MIN_TIME_MULT = 1
 @onready var planet = $Planet
 
 const phobosScene = preload("res://phobos.tscn")
+var phobosOrbitPlane
 var phobos
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,11 +52,16 @@ func _ready() -> void:
 	loadPhobos()
 
 func loadPhobos():
-	phobos = phobosScene.instantiate()
-	phobos.global_transform.origin = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)	
-	phobos.setSize(PHOBOS_RADIUS)
-	add_child(phobos)	
+	phobosOrbitPlane = Node3D.new()
+	phobosOrbitPlane.rotate(Vector3.FORWARD, -deg_to_rad(PHOBOS_ORBIT_INCLINATION))
+	add_child(phobosOrbitPlane)
 	
+	phobos = phobosScene.instantiate()
+	phobosOrbitPlane.add_child(phobos)
+	
+	phobos.position = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)	
+	phobos.setSize(PHOBOS_RADIUS)
+		
 func _process(delta: float) -> void:
 	elapsedRealSecs += 1 * delta
 	elapsedSimulatedSecs += 1 * timeMultiplier * delta	
@@ -79,6 +89,7 @@ func movePhobos(delta):
 	
 	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
 	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMINOR_AXIS
+
 	
 	localPhobosPath.append(phobos.position)
 	
@@ -88,7 +99,7 @@ func movePhobos(delta):
 		var globalPhobosPath:PackedVector3Array = []
 		
 		for point in localPhobosPath:
-			globalPhobosPath.append(global_transform * point)			
+			globalPhobosPath.append(phobosOrbitPlane.global_transform * point)
 		
 		DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta)	
 	

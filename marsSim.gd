@@ -19,7 +19,7 @@ const PHOBOS_RADIUS:float = 9100.0 * modelScalar #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
 const PHOBOS_ECCENTRICITY = 0.0151
 const PHOBOS_ORBIT_PERIOD = 27553.824
-const PHOBOS_ORBIT_INCLINATION = 1.08 
+const PHOBOS_ORBIT_INCLINATION = 1.08
 
 #Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
@@ -74,8 +74,7 @@ func toggleDebugMode():
 	print(debugMode)
 	$RotationDebugPlaneSystem.visible = debugMode
 	$Planet/RotationDebugPlanePlanet.visible = debugMode
-	
-	
+		
 func rotateMars(delta:float):	
 	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	
 	planet.rotate_y(angleToRotate)

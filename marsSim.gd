@@ -20,13 +20,15 @@ const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
 const PHOBOS_ECCENTRICITY = 0.0151
 const PHOBOS_ORBIT_PERIOD = 27553.824
 const PHOBOS_ORBIT_INCLINATION = 1.08
-
-#Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
+#Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 
-const PHOBOS_MOVE_SPEED_TEST = 0.1
-
-var phobosOrbitAngle = 0.0
+const DEIMOS_RADIUS:float = 5100.0 * modelScalar #Using polar radius for now
+const DEIMOS_SEMIMAJOR_AXIS = 2345900 * modelScalar
+const DEIMOS_ECCENTRICITY = 0.0005
+const DEIMOS_ORBIT_PERIOD = 109074.816
+const DEIMOS_ORBIT_INCLINATION = 1.79
+const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
 
 var debugMode = false
 
@@ -45,11 +47,15 @@ const phobosScene = preload("res://phobos.tscn")
 var phobosOrbitPlane
 var phobos
 
+const deimosScene = preload("res://deimos.tscn")
+var deimosOrbitPlane
+var deimos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	startTime = Time.get_ticks_msec()	
 	loadPhobos()
+	loadDeimos()
 
 func loadPhobos():
 	phobosOrbitPlane = Node3D.new()
@@ -61,6 +67,17 @@ func loadPhobos():
 	
 	phobos.position = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)	
 	phobos.setSize(PHOBOS_RADIUS)
+	
+func loadDeimos():
+	deimosOrbitPlane = Node3D.new()
+	deimosOrbitPlane.rotate(Vector3.FORWARD, -deg_to_rad(DEIMOS_ORBIT_INCLINATION))
+	add_child(deimosOrbitPlane)
+	
+	deimos = deimosScene.instantiate()
+	deimosOrbitPlane.add_child(deimos)
+	
+	deimos.position = Vector3(DEIMOS_SEMIMAJOR_AXIS, 0, 0)	
+	deimos.setSize(DEIMOS_RADIUS)
 		
 func _process(delta: float) -> void:
 	elapsedRealSecs += 1 * delta
@@ -68,10 +85,10 @@ func _process(delta: float) -> void:
 		
 	rotateMars(delta)
 	movePhobos(delta)
+	moveDeimos(delta)
 
 func toggleDebugMode():
 	debugMode = !debugMode
-	print(debugMode)
 	$RotationDebugPlaneSystem.visible = debugMode
 	$Planet/RotationDebugPlanePlanet.visible = debugMode
 		
@@ -80,6 +97,7 @@ func rotateMars(delta:float):
 	planet.rotate_y(angleToRotate)
 
 var localPhobosPath:PackedVector3Array #Used for drawing orbit path for debugging
+var phobosOrbitAngle = 0.0
 func movePhobos(delta):	
 	var angleToRotate = ((2*PI)/PHOBOS_ORBIT_PERIOD) * timeMultiplier * delta
 	
@@ -89,7 +107,6 @@ func movePhobos(delta):
 	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
 	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMINOR_AXIS
 
-	
 	localPhobosPath.append(phobos.position)
 	
 	if debugMode:		
@@ -101,6 +118,31 @@ func movePhobos(delta):
 			globalPhobosPath.append(phobosOrbitPlane.global_transform * point)
 		
 		DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta)	
+
+
+var localDeimosPath:PackedVector3Array #Used for drawing orbit path for debugging
+var deimosOrbitAngle = 0.0
+func moveDeimos(delta):	
+	print(deimos.global_position)
+	var angleToRotate = ((2*PI)/DEIMOS_ORBIT_PERIOD) * timeMultiplier * delta
+	
+	deimosOrbitAngle -= angleToRotate
+	deimosOrbitAngle = fmod(deimosOrbitAngle, 2*PI)
+	
+	deimos.position.x = cos(deimosOrbitAngle) * DEIMOS_SEMIMAJOR_AXIS
+	deimos.position.z = sin(deimosOrbitAngle) * DEIMOS_SEMIMINOR_AXIS
+
+	localDeimosPath.append(deimos.position)
+	
+	if debugMode:		
+		DebugDraw3D.draw_sphere(deimos.global_position, 0.02, Color.BLUE, delta)
+		
+		var globalDeimosPath:PackedVector3Array = []
+		
+		for point in localDeimosPath:
+			globalDeimosPath.append(deimosOrbitPlane.global_transform * point)
+		
+		DebugDraw3D.draw_lines(globalDeimosPath, Color.RED, delta)	
 	
 func increaseTime(value):
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):

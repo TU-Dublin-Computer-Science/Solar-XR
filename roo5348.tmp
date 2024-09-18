@@ -40,7 +40,7 @@ script = ExtResource("3_pcsj8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)
+transform = Transform3D(1, 0, 0, 0, 0.999993, 0.00370042, 0, -0.00370042, 0.999993, 0.12413, 1.59506, 2.54726)
 
 [node name="PickableMars" parent="." instance=ExtResource("5_wufkh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -3.29192)

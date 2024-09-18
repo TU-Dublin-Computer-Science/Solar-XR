@@ -70,7 +70,7 @@ func rotateMars(delta:float):
 	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	
 	planet.rotate_y(angleToRotate)
 
-var phobosPath:PackedVector3Array #Used for drawing orbit path for debugging
+var localPhobosPath:PackedVector3Array #Used for drawing orbit path for debugging
 func movePhobos(delta):	
 	var angleToRotate = ((2*PI)/PHOBOS_ORBIT_PERIOD) * timeMultiplier * delta
 	
@@ -80,11 +80,17 @@ func movePhobos(delta):
 	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
 	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMINOR_AXIS
 	
-	phobosPath.append(phobos.global_position)
+	localPhobosPath.append(phobos.position)
 	
 	if debugMode:		
 		DebugDraw3D.draw_sphere(phobos.global_position, 0.02, Color.BLUE, delta)
-		DebugDraw3D.draw_lines(phobosPath, Color.GREEN, delta)	
+		
+		var globalPhobosPath:PackedVector3Array = []
+		
+		for point in localPhobosPath:
+			globalPhobosPath.append(global_transform * point)			
+		
+		DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta)	
 	
 func increaseTime(value):
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):

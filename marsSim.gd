@@ -30,7 +30,11 @@ const DEIMOS_ORBIT_PERIOD = 109074.816
 const DEIMOS_ORBIT_INCLINATION = 1.79
 const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
 
-var debugMode = false
+@export var debugMode : bool = false:
+	set(state):
+		debugMode = state
+		toggleDebugSurfaces(state)
+			
 
 #Time Keeping
 var startTime:float = 0.0
@@ -56,6 +60,9 @@ func _ready() -> void:
 	startTime = Time.get_ticks_msec()	
 	loadPhobos()
 	loadDeimos()
+
+func toggleDebugMode():
+	debugMode = !debugMode
 
 func loadPhobos():
 	phobosOrbitPlane = Node3D.new()
@@ -86,11 +93,11 @@ func _process(delta: float) -> void:
 	rotateMars(delta)
 	movePhobos(delta)
 	moveDeimos(delta)
+	
 
-func toggleDebugMode():
-	debugMode = !debugMode
-	$RotationDebugPlaneSystem.visible = debugMode
-	$Planet/RotationDebugPlanePlanet.visible = debugMode
+func toggleDebugSurfaces(state:bool):	
+	$RotationDebugPlaneSystem.visible = state
+	$Planet/RotationDebugPlanePlanet.visible = state
 		
 func rotateMars(delta:float):	
 	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	
@@ -110,20 +117,20 @@ func movePhobos(delta):
 	localPhobosPath.append(phobos.position)
 	
 	if debugMode:		
-		DebugDraw3D.draw_sphere(phobos.global_position, 0.02, Color.BLUE, delta)
+		DebugDraw3D.draw_sphere(phobos.global_position, 0.02, Color.BLUE, delta*2)
 		
-		var globalPhobosPath:PackedVector3Array = []
-		
-		for point in localPhobosPath:
-			globalPhobosPath.append(phobosOrbitPlane.global_transform * point)
-		
-		DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta)	
+		if localPhobosPath.size() % 2 == 0:
+			var globalPhobosPath:PackedVector3Array = []
+			
+			for point in localPhobosPath:
+				globalPhobosPath.append(phobosOrbitPlane.global_transform * point)
+			
+			DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta*2)	
 
 
 var localDeimosPath:PackedVector3Array #Used for drawing orbit path for debugging
 var deimosOrbitAngle = 0.0
 func moveDeimos(delta):	
-	print(deimos.global_position)
 	var angleToRotate = ((2*PI)/DEIMOS_ORBIT_PERIOD) * timeMultiplier * delta
 	
 	deimosOrbitAngle -= angleToRotate
@@ -135,14 +142,15 @@ func moveDeimos(delta):
 	localDeimosPath.append(deimos.position)
 	
 	if debugMode:		
-		DebugDraw3D.draw_sphere(deimos.global_position, 0.02, Color.BLUE, delta)
+		DebugDraw3D.draw_sphere(deimos.global_position, 0.02, Color.BLUE, delta*2)
 		
-		var globalDeimosPath:PackedVector3Array = []
-		
-		for point in localDeimosPath:
-			globalDeimosPath.append(deimosOrbitPlane.global_transform * point)
-		
-		DebugDraw3D.draw_lines(globalDeimosPath, Color.RED, delta)	
+		if localDeimosPath.size() % 2 == 0:
+			var globalDeimosPath:PackedVector3Array = []
+			
+			for point in localDeimosPath:
+				globalDeimosPath.append(deimosOrbitPlane.global_transform * point)
+					
+			DebugDraw3D.draw_lines(globalDeimosPath, Color.RED, delta*2)	
 	
 func increaseTime(value):
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=13 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_4xpk2"]
@@ -6,6 +6,17 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="5_wufkh"]
 [ext_resource type="Script" path="res://first_person_controller.gd" id="6_mwdap"]
+[ext_resource type="PackedScene" uid="uid://cfdkecx31xwws" path="res://detector.tscn" id="7_poqji"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfqh8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sk3gw"]
+radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkh0d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tkdwo"]
+radius = 0.05
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ei85s"]
 
@@ -19,6 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
 [node name="RightHand2" parent="XROrigin3D/RightHand" instance=ExtResource("2_4xpk2")]
+hand_material_override = SubResource("StandardMaterial3D_hfqh8")
 
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/RightHand"]
 script = ExtResource("3_pcsj8")
@@ -27,14 +39,31 @@ script = ExtResource("3_pcsj8")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00685453, 0.083064, 0.0948512)
 horizontal_alignment = 0
 
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0.08)
+collision_mask = 2
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHand/AnimatableBody3D"]
+shape = SubResource("SphereShape3D_sk3gw")
+
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("3_8gwt6")]
+hand_material_override = SubResource("StandardMaterial3D_qkh0d")
 
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftHand"]
 script = ExtResource("3_pcsj8")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0.08)
+collision_mask = 2
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftHand/AnimatableBody3D"]
+shape = SubResource("SphereShape3D_tkdwo")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -55,5 +84,9 @@ shape = SubResource("SphereShape3D_ei85s")
 [node name="Camera3D" type="Camera3D" parent="FirstPersonController"]
 current = true
 
+[node name="DebugToggle" parent="." instance=ExtResource("7_poqji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221571, 0.847592, -0.387086)
+
 [connection signal="button_pressed" from="XROrigin3D/RightHand" to="." method="_on_right_hand_button_pressed"]
 [connection signal="input_vector2_changed" from="XROrigin3D/RightHand" to="." method="_on_right_hand_input_vector_2_changed"]
+[connection signal="toggledSignal" from="DebugToggle" to="." method="_on_debug_toggle_toggled_signal"]

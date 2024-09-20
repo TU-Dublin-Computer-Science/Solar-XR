@@ -71,7 +71,6 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	var simMins = (simulatedTime / 60) % 60
 	var simHours = (simulatedTime / 60 / 60) % 24
 	var simDays = (simulatedTime / 60 / 60 / 24)
-	
 	var realSecs = realTime % 60
 	var realMins = (realTime / 60) % 60
 	var realHours = (realTime / 60 / 60) % 24

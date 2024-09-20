@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=21 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
@@ -32,6 +32,9 @@ actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_8mqr1")])
 [sub_resource type="Resource" id="Resource_k60mp"]
 script = ExtResource("9_gysg0")
 poses = Array[ExtResource("7_ynvfr")]([ExtResource("8_jbe48")])
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jrq5p"]
+radius = 0.075
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ei85s"]
 
@@ -74,12 +77,6 @@ hand_pose_set = SubResource("Resource_k60mp")
 controller_tracker_name = "/user/hand_pose_controller/right"
 controller_action_map = SubResource("Resource_4rree")
 
-[node name="LeftVirtualController" type="XRController3D" parent="XROrigin3D"]
-tracker = &"/user/hand_tracker/left"
-
-[node name="RightVirtualController" type="XRController3D" parent="XROrigin3D"]
-tracker = &"/user/hand_tracker/right"
-
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -91,11 +88,30 @@ script = ExtResource("3_pcsj8")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00685453, 0.083064, 0.0948512)
 horizontal_alignment = 0
 
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/RightHand"]
+collision_layer = 3
+collision_mask = 3
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHand/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+shape = SubResource("SphereShape3D_jrq5p")
+
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftHand"]
 script = ExtResource("3_pcsj8")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+collision_layer = 3
+collision_mask = 3
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftHand/AnimatableBody3D"]
+shape = SubResource("SphereShape3D_jrq5p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)
@@ -115,6 +131,8 @@ current = true
 
 [node name="DebugToggle" parent="." instance=ExtResource("7_poqji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221571, 0.847592, -0.387086)
+collision_layer = 1
+collision_mask = 3
 
 [connection signal="button_pressed" from="XROrigin3D/RightHand" to="." method="_on_right_hand_button_pressed"]
 [connection signal="input_vector2_changed" from="XROrigin3D/RightHand" to="." method="_on_right_hand_input_vector_2_changed"]

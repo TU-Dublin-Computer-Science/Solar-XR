@@ -25,6 +25,7 @@ func _ready() -> void:
 	state = false
 
 func _on_body_entered(body: Node3D) -> void:
+	print("Entered")
 	toggle()
 				
 func _on_timer_timeout() -> void:

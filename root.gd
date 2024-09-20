@@ -54,6 +54,7 @@ func _input(event: InputEvent) -> void:
 		$DebugToggle.state = marsSim.debugMode
 
 func _on_right_hand_button_pressed(name: String) -> void:
+	print("Press")
 	if name == "ax_button":
 		marsSim.toggleDebugMode()
 		$DebugToggle.state = marsSim.debugMode
@@ -92,3 +93,7 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	
 func _on_debug_toggle_toggled_signal(state: Variant) -> void:
 	marsSim.debugMode = state
+
+
+func _on_xr_controller_3d_button_pressed(name: String) -> void:
+	print("Grip")

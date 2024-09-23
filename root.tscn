@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="5_js7qx"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="5_wufkh"]
-[ext_resource type="PackedScene" uid="uid://df5hynbooj1uj" path="res://addons/hand_pose_detector/hand_pose_detector.tscn" id="6_bk0nr"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="6_hiken"]
 [ext_resource type="Script" path="res://first_person_controller.gd" id="6_mwdap"]
 [ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://detector.tscn" id="7_poqji"]
@@ -13,15 +12,9 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="9_gysg0"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="10_f8b2n"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="11_jukpv"]
-[ext_resource type="Script" path="res://right_controller.gd" id="11_q7vps"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="12_yetel"]
-[ext_resource type="Script" path="res://left_controller.gd" id="13_qc751"]
 
-[sub_resource type="Resource" id="Resource_j60ts"]
-script = ExtResource("9_gysg0")
-poses = Array[ExtResource("7_ynvfr")]([ExtResource("8_jbe48")])
-
-[sub_resource type="Resource" id="Resource_fbujl"]
+[sub_resource type="Resource" id="Resource_3q6ij"]
 script = ExtResource("11_jukpv")
 pose = ExtResource("8_jbe48")
 action_type = 0
@@ -29,10 +22,25 @@ action_name = "grip"
 
 [sub_resource type="Resource" id="Resource_4rree"]
 script = ExtResource("12_yetel")
-actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_fbujl")])
+actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_3q6ij")])
+
+[sub_resource type="Resource" id="Resource_5d1y3"]
+script = ExtResource("9_gysg0")
+poses = Array[ExtResource("7_ynvfr")]([ExtResource("8_jbe48")])
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jrq5p"]
 radius = 0.075
+
+[sub_resource type="SphereMesh" id="SphereMesh_r677h"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv42q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_m8rk8"]
+material = SubResource("StandardMaterial3D_fv42q")
+radius = 0.1
+height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ei85s"]
 
@@ -52,11 +60,21 @@ tracker = &"/user/hand_tracker/left"
 
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/LeftHandTrack/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
 
-[node name="HandPoseDetector" parent="XROrigin3D/LeftHandTrack" instance=ExtResource("6_bk0nr")]
-hand_pose_set = SubResource("Resource_j60ts")
-
-[node name="HandPoseController" parent="XROrigin3D/LeftHandTrack/HandPoseDetector" instance=ExtResource("10_f8b2n")]
+[node name="HandPoseController" parent="XROrigin3D/LeftHandTrack" instance=ExtResource("10_f8b2n")]
 controller_action_map = SubResource("Resource_4rree")
+hand_pose_set = SubResource("Resource_5d1y3")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/LeftHandTrack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+collision_layer = 3
+collision_mask = 3
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftHandTrack/AnimatableBody3D"]
+shape = SubResource("SphereShape3D_jrq5p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHandTrack/AnimatableBody3D"]
+mesh = SubResource("SphereMesh_r677h")
 
 [node name="RightHandTrack" type="XRNode3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
@@ -67,51 +85,42 @@ tracker = &"/user/hand_tracker/right"
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/RightHandTrack/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
 hand_tracker = &"/user/hand_tracker/right"
 
-[node name="HandPoseDetector" parent="XROrigin3D/RightHandTrack" instance=ExtResource("6_bk0nr")]
-hand_tracker_name = "/user/hand_tracker/right"
-hand_pose_set = SubResource("Resource_j60ts")
-
-[node name="HandPoseController" parent="XROrigin3D/RightHandTrack/HandPoseDetector" instance=ExtResource("10_f8b2n")]
+[node name="HandPoseController" parent="XROrigin3D/RightHandTrack" instance=ExtResource("10_f8b2n")]
 controller_tracker_name = "/user/hand_pose_controller/right"
 controller_action_map = SubResource("Resource_4rree")
+hand_tracker_name = "/user/hand_tracker/right"
+hand_pose_set = SubResource("Resource_5d1y3")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/RightHandTrack"]
+collision_layer = 3
+collision_mask = 3
+sync_to_physics = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHandTrack/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+shape = SubResource("SphereShape3D_jrq5p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHandTrack/AnimatableBody3D"]
+mesh = SubResource("SphereMesh_m8rk8")
+
+[node name="UI" type="Label3D" parent="XROrigin3D/RightHandTrack"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00685453, 0.083064, 0.0948512)
+text = "UI"
+horizontal_alignment = 0
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/hand_pose_controller/right"
-script = ExtResource("11_q7vps")
 
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/RightController"]
 script = ExtResource("3_pcsj8")
 
-[node name="UI" type="Label3D" parent="XROrigin3D/RightController"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00685453, 0.083064, 0.0948512)
-horizontal_alignment = 0
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/RightController"]
-collision_layer = 3
-collision_mask = 3
-sync_to_physics = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-shape = SubResource("SphereShape3D_jrq5p")
-
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"/user/hand_pose_controller/left"
-script = ExtResource("13_qc751")
 
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftController"]
 script = ExtResource("3_pcsj8")
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/LeftController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-collision_layer = 3
-collision_mask = 3
-sync_to_physics = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/AnimatableBody3D"]
-shape = SubResource("SphereShape3D_jrq5p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)

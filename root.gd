@@ -94,6 +94,8 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 func _on_debug_toggle_toggled_signal(state: Variant) -> void:
 	marsSim.debugMode = state
 
+func _on_left_controller_pose_started(p_name: String) -> void:
+	print("Left: %s" % p_name)
 
-func _on_xr_controller_3d_button_pressed(name: String) -> void:
-	print("Grip")
+func _on_right_controller_pose_started(p_name: String) -> void:
+	print("Right: %s" % p_name)

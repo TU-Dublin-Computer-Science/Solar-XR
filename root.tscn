@@ -116,18 +116,26 @@ shape = SubResource("SphereShape3D_jrq5p")
 visible = false
 mesh = SubResource("SphereMesh_m8rk8")
 
-[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+[node name="RightGestureController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"/user/hand_pose_controller/right"
 
-[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/RightController"]
-script = ExtResource("3_pcsj8")
-
-[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+[node name="LeftGestureController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"/user/hand_pose_controller/left"
 
-[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftController"]
+[node name="RightPhysicalController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/RightPhysicalController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+script = ExtResource("3_pcsj8")
+
+[node name="LeftPhysicalController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftPhysicalController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 script = ExtResource("3_pcsj8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -158,7 +166,8 @@ horizontal_alignment = 0
 
 [connection signal="pose_started" from="XROrigin3D/LeftHandTrack/HandPoseController" to="." method="_on_left_controller_pose_started"]
 [connection signal="pose_started" from="XROrigin3D/RightHandTrack/HandPoseController" to="." method="right_controller_pose_started"]
-[connection signal="input_vector2_changed" from="XROrigin3D/RightController" to="." method="_on_right_hand_input_vector_2_changed"]
+[connection signal="button_pressed" from="XROrigin3D/RightPhysicalController" to="." method="_on_right_physical_controller_button_pressed"]
+[connection signal="input_vector2_changed" from="XROrigin3D/RightPhysicalController" to="." method="_on_right_physical_controller_input_vector_2_changed"]
 [connection signal="toggledSignal" from="DebugToggle" to="." method="_on_debug_toggle_toggled_signal"]
 
 [editable path="XROrigin3D/LeftHandTrack/LeftHandHumanoid2"]

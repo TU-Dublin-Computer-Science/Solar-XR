@@ -8,6 +8,13 @@ var hmd_synchronized:bool = false
 
 @onready var marsSim = $PickableMars/MarsSim
 
+@onready var rightGestureController = $XROrigin3D/RightGestureController
+@onready var leftGestureController = $XROrigin3D/LeftGestureController
+@onready var rightPhsyicalController = $XROrigin3D/RightPhysicalController
+@onready var leftPhysicalController = $XROrigin3D/LeftPhysicalController
+@onready var uiTextReadout = $UI
+@onready var debugButton = $DebugToggle
+
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -37,12 +44,11 @@ func _process(_delta):
 	elif Input.is_action_pressed("speed_down"):
 		marsSim.decreaseTime(100)
 	
-	
-	if $XROrigin3D/RightController.is_button_pressed("speed_up"):
+	#Gesture Control	
+	if rightGestureController.is_button_pressed("speed_up"):
 		marsSim.increaseTime(100)
-	if $XROrigin3D/LeftController.is_button_pressed("speed_down"):
+	if leftGestureController.is_button_pressed("speed_down"):
 		marsSim.decreaseTime(100)
-	
 	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)	
 		
@@ -58,15 +64,14 @@ func syncHeadsetOrientation():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_debug"):
 		marsSim.toggleDebugMode()
-		$DebugToggle.state = marsSim.debugMode
+		debugButton.state = marsSim.debugMode
 
-func _on_right_hand_button_pressed(name: String) -> void:
-	print("Press")
+func _on_right_physical_controller_button_pressed(name: String) -> void:
 	if name == "ax_button":
 		marsSim.toggleDebugMode()
-		$DebugToggle.state = marsSim.debugMode
+		debugButton.state = marsSim.debugMode
 
-func _on_right_hand_input_vector_2_changed(name: String, value: Vector2) -> void:	
+func _on_right_physical_controller_input_vector_2_changed(name: String, value: Vector2) -> void:
 	if value[1] >= 0: #Speed up on Analogue stick up
 		marsSim.increaseTime(remap(value[1], 0, 1, 0, 100))
 	if value[1] < 0: #Speed down on Analogue stick down
@@ -96,13 +101,7 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	DebugDraw2D.set_text(simTimeText)
 	
 	#For XR
-	$UI.text = UIText 
+	uiTextReadout.text = UIText 
 	
 func _on_debug_toggle_toggled_signal(state: Variant) -> void:
 	marsSim.debugMode = state
-
-func right_controller_pose_started(p_name: String) -> void:
-	print("Right: %s" % p_name)
-
-func _on_left_controller_pose_started(p_name: String) -> void:
-	print("Left: %s" % p_name)

@@ -10,6 +10,8 @@ var hmd_synchronized:bool = false
 
 @onready var rightGestureController = $XROrigin3D/RightGestureController
 @onready var leftGestureController = $XROrigin3D/LeftGestureController
+@onready var leftPointCollider = $XROrigin3D/LeftHandTrack/PointCollider
+@onready var rightPointCollider = $XROrigin3D/RightHandTrack/PointCollider
 @onready var rightPhsyicalController = $XROrigin3D/RightPhysicalController
 @onready var leftPhysicalController = $XROrigin3D/LeftPhysicalController
 @onready var uiTextReadout = $UI
@@ -44,11 +46,12 @@ func _process(_delta):
 	elif Input.is_action_pressed("speed_down"):
 		marsSim.decreaseTime(100)
 	
-	#Gesture Control	
+	#Gesture Speed
 	if rightGestureController.is_button_pressed("speed_up"):
 		marsSim.increaseTime(100)
 	if leftGestureController.is_button_pressed("speed_down"):
 		marsSim.decreaseTime(100)
+
 	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)	
 		
@@ -105,3 +108,19 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	
 func _on_debug_toggle_toggled_signal(state: Variant) -> void:
 	marsSim.debugMode = state
+
+func _on_left_hand_pose_controller_pose_started(p_name: String) -> void:
+	if (p_name == "Point"):
+		$XROrigin3D/LeftHandTrack/PointCollider/CollisionShape3D.disabled = false
+	
+func _on_left_hand_pose_controller_pose_ended(p_name: String) -> void:
+	if (p_name == "Point"):
+		$XROrigin3D/LeftHandTrack/PointCollider/CollisionShape3D.disabled = true
+
+func _on_right_hand_pose_controller_pose_started(p_name: String) -> void:
+	if (p_name == "Point"):
+		$XROrigin3D/RightHandTrack/PointCollider/CollisionShape3D.disabled = false
+		
+func _on_right_hand_pose_controller_pose_ended(p_name: String) -> void:
+	if (p_name == "Point"):	
+		$XROrigin3D/RightHandTrack/PointCollider/CollisionShape3D.disabled = true

@@ -1,32 +1,32 @@
-[gd_scene load_steps=22 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=24 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
+[ext_resource type="Resource" uid="uid://sy66yqr1xila" path="res://addons/hand_pose_detector/poses/thumbs_up.tres" id="5_h5gaj"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="5_js7qx"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="5_wufkh"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="6_hiken"]
 [ext_resource type="Script" path="res://first_person_controller.gd" id="6_mwdap"]
 [ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://detector.tscn" id="7_poqji"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose.gd" id="7_ynvfr"]
-[ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="8_jbe48"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="9_gysg0"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="10_f8b2n"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="11_jukpv"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="12_yetel"]
 
-[sub_resource type="Resource" id="Resource_3q6ij"]
+[sub_resource type="Resource" id="Resource_pkibb"]
 script = ExtResource("11_jukpv")
-pose = ExtResource("8_jbe48")
+pose = ExtResource("5_h5gaj")
 action_type = 0
-action_name = "grip"
+action_name = "speed_down"
 
-[sub_resource type="Resource" id="Resource_4rree"]
+[sub_resource type="Resource" id="Resource_0iy2v"]
 script = ExtResource("12_yetel")
-actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_3q6ij")])
+actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_pkibb")])
 
 [sub_resource type="Resource" id="Resource_5d1y3"]
 script = ExtResource("9_gysg0")
-poses = Array[ExtResource("7_ynvfr")]([ExtResource("8_jbe48")])
+poses = Array[ExtResource("7_ynvfr")]([ExtResource("5_h5gaj")])
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jrq5p"]
 radius = 0.075
@@ -34,6 +34,16 @@ radius = 0.075
 [sub_resource type="SphereMesh" id="SphereMesh_r677h"]
 radius = 0.1
 height = 0.2
+
+[sub_resource type="Resource" id="Resource_b8w67"]
+script = ExtResource("11_jukpv")
+pose = ExtResource("5_h5gaj")
+action_type = 0
+action_name = "speed_up"
+
+[sub_resource type="Resource" id="Resource_4rree"]
+script = ExtResource("12_yetel")
+actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_b8w67")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv42q"]
 
@@ -61,11 +71,11 @@ tracker = &"/user/hand_tracker/left"
 [node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/LeftHandTrack/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
 
 [node name="HandPoseController" parent="XROrigin3D/LeftHandTrack" instance=ExtResource("10_f8b2n")]
-controller_action_map = SubResource("Resource_4rree")
+controller_action_map = SubResource("Resource_0iy2v")
 hand_pose_set = SubResource("Resource_5d1y3")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/LeftHandTrack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0796362)
 collision_layer = 3
 collision_mask = 3
 sync_to_physics = false
@@ -74,6 +84,7 @@ sync_to_physics = false
 shape = SubResource("SphereShape3D_jrq5p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHandTrack/AnimatableBody3D"]
+visible = false
 mesh = SubResource("SphereMesh_r677h")
 
 [node name="RightHandTrack" type="XRNode3D" parent="XROrigin3D"]
@@ -92,6 +103,7 @@ hand_tracker_name = "/user/hand_tracker/right"
 hand_pose_set = SubResource("Resource_5d1y3")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="XROrigin3D/RightHandTrack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0797676)
 collision_layer = 3
 collision_mask = 3
 sync_to_physics = false
@@ -101,12 +113,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
 shape = SubResource("SphereShape3D_jrq5p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHandTrack/AnimatableBody3D"]
+visible = false
 mesh = SubResource("SphereMesh_m8rk8")
-
-[node name="UI" type="Label3D" parent="XROrigin3D/RightHandTrack"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00685453, 0.083064, 0.0948512)
-text = "UI"
-horizontal_alignment = 0
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
@@ -139,10 +147,17 @@ shape = SubResource("SphereShape3D_ei85s")
 current = true
 
 [node name="DebugToggle" parent="." instance=ExtResource("7_poqji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13622, 0.847592, -0.387086)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177573, 0.847592, -0.558123)
 collision_layer = 1
 collision_mask = 3
 
+[node name="UI" type="Label3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.131934, 1.0254, -0.572154)
+text = "UI"
+horizontal_alignment = 0
+
+[connection signal="pose_started" from="XROrigin3D/LeftHandTrack/HandPoseController" to="." method="_on_left_controller_pose_started"]
+[connection signal="pose_started" from="XROrigin3D/RightHandTrack/HandPoseController" to="." method="right_controller_pose_started"]
 [connection signal="input_vector2_changed" from="XROrigin3D/RightController" to="." method="_on_right_hand_input_vector_2_changed"]
 [connection signal="toggledSignal" from="DebugToggle" to="." method="_on_debug_toggle_toggled_signal"]
 

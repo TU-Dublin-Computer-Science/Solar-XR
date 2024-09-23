@@ -28,16 +28,23 @@ func _ready():
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
-			
 func _process(_delta):	
 	syncHeadsetOrientation()
 	
+	#Keyboard input
 	if Input.is_action_pressed("speed_up"):
 		marsSim.increaseTime(100)
 	elif Input.is_action_pressed("speed_down"):
 		marsSim.decreaseTime(100)
 	
-	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)
+	
+	if $XROrigin3D/RightController.is_button_pressed("speed_up"):
+		marsSim.increaseTime(100)
+	if $XROrigin3D/LeftController.is_button_pressed("speed_down"):
+		marsSim.decreaseTime(100)
+	
+	
+	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)	
 		
 func syncHeadsetOrientation():
 	if hmd_synchronized:
@@ -89,13 +96,13 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	DebugDraw2D.set_text(simTimeText)
 	
 	#For XR
-	$XROrigin3D/RightHand/UI.text = UIText #For XR
+	$UI.text = UIText 
 	
 func _on_debug_toggle_toggled_signal(state: Variant) -> void:
 	marsSim.debugMode = state
 
+func right_controller_pose_started(p_name: String) -> void:
+	print("Right: %s" % p_name)
+
 func _on_left_controller_pose_started(p_name: String) -> void:
 	print("Left: %s" % p_name)
-
-func _on_right_controller_pose_started(p_name: String) -> void:
-	print("Right: %s" % p_name)

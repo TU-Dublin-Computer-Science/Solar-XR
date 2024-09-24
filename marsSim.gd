@@ -33,8 +33,7 @@ const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRI
 @export var debugMode : bool = false:
 	set(state):
 		debugMode = state
-		toggleDebugSurfaces(state)
-			
+		toggleDebugSurfaces(state)			
 
 #Time Keeping
 var startTime:float = 0.0
@@ -94,7 +93,6 @@ func _process(delta: float) -> void:
 	movePhobos(delta)
 	moveDeimos(delta)
 	
-
 func toggleDebugSurfaces(state:bool):	
 	$RotationDebugPlaneSystem.visible = state
 	$Planet/RotationDebugPlanePlanet.visible = state

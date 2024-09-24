@@ -92,13 +92,15 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	var realHours = (realTime / 60 / 60) % 24
 	var realDays = (realTime / 60 / 60 / 24)
 	
+	var fpsText = "FPS: %f"  % Engine.get_frames_per_second()
 	var simTimeText = "Sim Time: Day %d - %02d:%02d:%02d" % [simDays, simHours, simMins, simSecs]
 	var realTimeText = "Real Time: Day %d - %02d:%02d:%02d" % [realDays, realHours, realMins, realSecs]
 	
-	var UIText = simSpeedText + "\n" + simTimeText + "\n" + realTimeText
+	var UIText = fpsText + "\n" + simSpeedText + "\n" + simTimeText + "\n" + realTimeText
 	
 	#For non XR
 	DebugDraw2D.clear_all()
+	DebugDraw2D.set_text(fpsText)
 	DebugDraw2D.set_text(simSpeedText)
 	DebugDraw2D.set_text(realTimeText)	
 	DebugDraw2D.set_text(simTimeText)

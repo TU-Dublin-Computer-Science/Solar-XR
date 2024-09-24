@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cowk1sb5rws3a"]
 
 [ext_resource type="Script" path="res://marsSim.gd" id="1_grcan"]
-[ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://8k_mars.jpg" id="2_4jx06"]
+[ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://textures/8k_mars.jpg" id="2_4jx06"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rrlqr"]
 

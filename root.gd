@@ -51,7 +51,6 @@ func _process(_delta):
 		marsSim.increaseTime(100)
 	if leftGestureController.is_button_pressed("speed_down"):
 		marsSim.decreaseTime(100)
-
 	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)	
 		

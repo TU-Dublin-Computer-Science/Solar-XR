@@ -77,8 +77,8 @@ hand_pose_set = SubResource("Resource_5d1y3")
 
 [node name="PointCollider" type="AnimatableBody3D" parent="XROrigin3D/LeftHandTrack"]
 transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.0109517, 0.0894287, 0.0182167)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftHandTrack/PointCollider"]
@@ -105,8 +105,8 @@ hand_pose_set = SubResource("Resource_5d1y3")
 
 [node name="PointCollider" type="AnimatableBody3D" parent="XROrigin3D/RightHandTrack"]
 transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.0109517, 0.0894287, 0.0182167)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHandTrack/PointCollider"]
@@ -142,7 +142,7 @@ script = ExtResource("3_pcsj8")
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)
 
 [node name="PickableMars" parent="." instance=ExtResource("5_wufkh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -3.29192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -2.3185)
 
 [node name="FirstPersonController" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4784)
@@ -160,7 +160,7 @@ collision_layer = 1
 collision_mask = 3
 
 [node name="UI" type="Label3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.131934, 1.0254, -0.572154)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.131934, 1.12256, -0.826545)
 text = "UI"
 horizontal_alignment = 0
 

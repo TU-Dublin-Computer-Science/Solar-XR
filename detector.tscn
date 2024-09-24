@@ -12,7 +12,8 @@ albedo_color = Color(0.999997, 0.245717, 0.300726, 1)
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Detector" type="Area3D"]
-collision_layer = 2
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_evuba")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

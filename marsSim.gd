@@ -72,7 +72,7 @@ func loadPhobos():
 	phobosOrbitPlane.add_child(phobos)
 	
 	phobos.position = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)	
-	phobos.setSize(PHOBOS_RADIUS)
+	phobos.scale *= PHOBOS_RADIUS/0.5 #Scale is desired_radius/current_radius
 	
 func loadDeimos():
 	deimosOrbitPlane = Node3D.new()
@@ -83,7 +83,7 @@ func loadDeimos():
 	deimosOrbitPlane.add_child(deimos)
 	
 	deimos.position = Vector3(DEIMOS_SEMIMAJOR_AXIS, 0, 0)	
-	deimos.setSize(DEIMOS_RADIUS)
+	deimos.scale *= DEIMOS_RADIUS/0.5
 		
 func _process(delta: float) -> void:
 	elapsedRealSecs += 1 * delta

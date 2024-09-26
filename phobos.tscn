@@ -1,16 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cprulnn0mbo1h"]
+[gd_scene load_steps=2 format=3 uid="uid://dhrxhj843h8cg"]
 
-[ext_resource type="Script" path="res://phobos.gd" id="1_kj63f"]
+[ext_resource type="PackedScene" uid="uid://1le2yoyr8p74" path="res://assets/unitPhobos.glb" id="1_r3o8h"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_6x2wr"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_bkog0"]
-
-[node name="Phobos" type="StaticBody3D"]
-script = ExtResource("1_kj63f")
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_6x2wr")
-
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_bkog0")
+[node name="unitPhobos" instance=ExtResource("1_r3o8h")]

@@ -42,9 +42,9 @@ func _process(_delta):
 	
 	#Keyboard input
 	if Input.is_action_pressed("speed_up"):
-		marsSim.increaseTime(100)
+		marsSim.increaseTime(6)
 	elif Input.is_action_pressed("speed_down"):
-		marsSim.decreaseTime(100)
+		marsSim.decreaseTime(6)
 	
 	#Gesture Speed
 	if rightGestureController.is_button_pressed("speed_up"):

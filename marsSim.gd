@@ -19,6 +19,7 @@ const PHOBOS_RADIUS:float = 9100.0 * modelScalar #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
 const PHOBOS_ECCENTRICITY = 0.0151
 const PHOBOS_ORBIT_PERIOD = 27553.824
+const PHOBOS_ROT_PERIOD = 27553.824
 const PHOBOS_ORBIT_INCLINATION = 1.08
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
 #Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
@@ -27,6 +28,7 @@ const DEIMOS_RADIUS:float = 5100.0 * modelScalar #Using polar radius for now
 const DEIMOS_SEMIMAJOR_AXIS = 2345900 * modelScalar
 const DEIMOS_ECCENTRICITY = 0.0005
 const DEIMOS_ORBIT_PERIOD = 109074.816
+const DEIMOS_ROT_PERIOD = 109074.816
 const DEIMOS_ORBIT_INCLINATION = 1.79
 const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
 
@@ -44,7 +46,7 @@ const TIME_INCREMENT = 50
 const MAX_TIME_MULT = 6000
 const MIN_TIME_MULT = 1
 
-@onready var planet = $Planet
+@onready var mars = $Planet
 
 const phobosScene = preload("res://phobos.tscn")
 var phobosOrbitPlane
@@ -89,17 +91,29 @@ func _process(delta: float) -> void:
 	elapsedRealSecs += 1 * delta
 	elapsedSimulatedSecs += 1 * timeMultiplier * delta	
 		
-	rotateMars(delta)
+	#rotateMars(delta)
+	rotatePlanetoid(mars, MARS_ROT_PERIOD, delta)
+	rotatePlanetoid(phobos, PHOBOS_ROT_PERIOD, delta)
+	rotatePlanetoid(deimos, DEIMOS_ROT_PERIOD, delta)
+	
 	movePhobos(delta)
 	moveDeimos(delta)
 	
 func toggleDebugSurfaces(state:bool):	
 	$RotationDebugPlaneSystem.visible = state
 	$Planet/RotationDebugPlanePlanet.visible = state
-		
+
+func rotatePlanetoid(planetoid:Node3D, rotPeriod:float, delta:float):
+	var angleToRotate = ((2*PI)/ rotPeriod) * delta * timeMultiplier	
+	planetoid.rotate_y(angleToRotate)
+
+"""
 func rotateMars(delta:float):	
 	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	
-	planet.rotate_y(angleToRotate)
+	mars.rotate_y(angleToRotate)
+"""		
+
+
 
 var localPhobosPath:PackedVector3Array #Used for drawing orbit path for debugging
 var phobosOrbitAngle = 0.0
@@ -149,14 +163,14 @@ func moveDeimos(delta):
 					
 			DebugDraw3D.draw_lines(globalDeimosPath, Color.RED, delta*2)	
 	
-func increaseTime(value):
-	if ((timeMultiplier + (TIME_INCREMENT * (value/100))) <= MAX_TIME_MULT):
-		timeMultiplier += (TIME_INCREMENT * (value/100))
+func increaseTime(value:float): 
+	if ((timeMultiplier + (TIME_INCREMENT * (value/100.0))) <= MAX_TIME_MULT):
+		timeMultiplier += (TIME_INCREMENT * (value/100.0))
 	else:
 		timeMultiplier = MAX_TIME_MULT
 
-func decreaseTime(value):
-	if ((timeMultiplier - (TIME_INCREMENT * (value/100))) >= 0):
-		timeMultiplier -= (TIME_INCREMENT * (value/100))
+func decreaseTime(value:float):
+	if ((timeMultiplier - (TIME_INCREMENT * (value/100.0))) >= 0):
+		timeMultiplier -= (TIME_INCREMENT * (value/100.0))
 	else:
 		timeMultiplier = MIN_TIME_MULT

@@ -2,4 +2,4 @@
 
 [ext_resource type="PackedScene" uid="uid://1le2yoyr8p74" path="res://assets/unitPhobos.glb" id="1_r3o8h"]
 
-[node name="unitPhobos" instance=ExtResource("1_r3o8h")]
+[node name="Phobos" instance=ExtResource("1_r3o8h")]

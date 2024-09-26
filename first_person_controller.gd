@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
-const MOVE_SPEED = 5.0
 const LOOK_SPEED = 200.0
+const MOVE_SPEED_FAST = 3.0
+const MOVE_SPEED_SLOW = 0.5
 
 var lookDirection:Vector2 = Vector2.ZERO
 var controlling = true
@@ -19,16 +20,18 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			controlling = false
 		else: #If escape is pressed while not in fp mode, exit application
-			get_tree().quit()
-		
+			get_tree().quit()		
 	elif event.is_action_pressed("left_mouse_click"):
 		if !controlling: #if left mouse pressed while not in fp, enter fp mode
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			controlling = true			
+
 	
 func _physics_process(delta: float) -> void:
-	if controlling:
+	if controlling:		
+		var moveSpeed = MOVE_SPEED_FAST if Input.is_action_pressed("sprint") else MOVE_SPEED_SLOW	
+		
 		#Rotate based on mouse input
 		rotate(Vector3.DOWN, deg_to_rad(lookDirection.x * deg_to_rad(LOOK_SPEED) * delta))
 		rotate(transform.basis.x,deg_to_rad(-lookDirection.y * deg_to_rad(LOOK_SPEED) * delta))
@@ -44,12 +47,12 @@ func _physics_process(delta: float) -> void:
 		var direction := (transform.basis * Vector3(input_dir.x, verticalInput, input_dir.y)).normalized()
 		
 		if direction:
-			velocity.x = direction.x * MOVE_SPEED
-			velocity.y = direction.y * MOVE_SPEED 
-			velocity.z = direction.z * MOVE_SPEED		
+			velocity.x = direction.x * moveSpeed
+			velocity.y = direction.y * moveSpeed 
+			velocity.z = direction.z * moveSpeed		
 		else:
-			velocity.x = move_toward(velocity.x, 0, MOVE_SPEED)
-			velocity.y = move_toward(velocity.y, 0, MOVE_SPEED)
-			velocity.z = move_toward(velocity.z, 0, MOVE_SPEED)
+			velocity.x = move_toward(velocity.x, 0, moveSpeed)
+			velocity.y = move_toward(velocity.y, 0, moveSpeed)
+			velocity.z = move_toward(velocity.z, 0, moveSpeed)	
 
 		move_and_slide()

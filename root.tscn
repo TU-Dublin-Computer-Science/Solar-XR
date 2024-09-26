@@ -150,6 +150,7 @@ script = ExtResource("6_mwdap")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FirstPersonController"]
 shape = SubResource("SphereShape3D_ei85s")
+disabled = true
 
 [node name="Camera3D" type="Camera3D" parent="FirstPersonController"]
 current = true

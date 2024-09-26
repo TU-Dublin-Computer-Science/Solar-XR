@@ -125,7 +125,6 @@ func movePhobos(delta):
 			
 			DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta*2)	
 
-
 var localDeimosPath:PackedVector3Array #Used for drawing orbit path for debugging
 var deimosOrbitAngle = 0.0
 func moveDeimos(delta):	

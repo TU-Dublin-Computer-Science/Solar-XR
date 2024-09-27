@@ -42,15 +42,15 @@ func _process(_delta):
 	
 	#Keyboard input
 	if Input.is_action_pressed("speed_up"):
-		marsSim.increaseTime(6)
+		marsSim.increaseTimeMult(6)
 	elif Input.is_action_pressed("speed_down"):
-		marsSim.decreaseTime(6)
+		marsSim.decreaseTimeMult(6)
 	
 	#Gesture Speed
 	if rightGestureController.is_button_pressed("speed_up"):
-		marsSim.increaseTime(100)
+		marsSim.increaseTimeMult(100)
 	if leftGestureController.is_button_pressed("speed_down"):
-		marsSim.decreaseTime(100)
+		marsSim.decreaseTimeMult(100)
 	
 	updateUI(marsSim.timeMultiplier, marsSim.elapsedSimulatedSecs, marsSim.elapsedRealSecs)	
 		
@@ -75,9 +75,9 @@ func _on_right_physical_controller_button_pressed(name: String) -> void:
 
 func _on_right_physical_controller_input_vector_2_changed(name: String, value: Vector2) -> void:
 	if value[1] >= 0: #Speed up on Analogue stick up
-		marsSim.increaseTime(remap(value[1], 0, 1, 0, 100))
+		marsSim.increaseTimeMult(remap(value[1], 0, 1, 0, 100))
 	if value[1] < 0: #Speed down on Analogue stick down
-		marsSim.decreaseTime(remap(value[1], 0, -1, 0, 100))
+		marsSim.decreaseTimeMult(remap(value[1], 0, -1, 0, 100))
 	
 func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	var simSpeedText = "Sim Speed: %.0fx" % simulationSpeed

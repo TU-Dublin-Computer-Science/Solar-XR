@@ -24,6 +24,13 @@ const PHOBOS_ORBIT_INCLINATION = 1.08
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
 #Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 
+var phobosOrbitAngle = 0.0
+var phobosOrbitArray:PackedVector3Array #Used for drawing orbit path for debugging
+
+var deimosOrbitAngle = 0.0
+var deimosOrbitPlane
+var deimosOrbitArray:PackedVector3Array #Used for drawing orbit path for debugging
+
 const DEIMOS_RADIUS:float = 5100.0 * modelScalar #Using polar radius for now
 const DEIMOS_SEMIMAJOR_AXIS = 2345900 * modelScalar
 const DEIMOS_ECCENTRICITY = 0.0005
@@ -49,128 +56,91 @@ const MIN_TIME_MULT = 1
 @onready var mars = $Planet
 
 const phobosScene = preload("res://phobos.tscn")
-var phobosOrbitPlane
 var phobos
 
 const deimosScene = preload("res://deimos.tscn")
-var deimosOrbitPlane
 var deimos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	startTime = Time.get_ticks_msec()	
-	loadPhobos()
-	loadDeimos()
-
-func toggleDebugMode():
-	debugMode = !debugMode
-
-func loadPhobos():
-	phobosOrbitPlane = Node3D.new()
-	phobosOrbitPlane.rotate(Vector3.FORWARD, -deg_to_rad(PHOBOS_ORBIT_INCLINATION))
-	add_child(phobosOrbitPlane)
+	phobos = instantiateMoon(phobosScene, PHOBOS_RADIUS, PHOBOS_ORBIT_INCLINATION, PHOBOS_SEMIMAJOR_AXIS)
+	deimos = instantiateMoon(deimosScene, DEIMOS_RADIUS, DEIMOS_ORBIT_INCLINATION, DEIMOS_SEMIMAJOR_AXIS)
 	
-	phobos = phobosScene.instantiate()
-	phobosOrbitPlane.add_child(phobos)
-	
-	phobos.position = Vector3(PHOBOS_SEMIMAJOR_AXIS, 0, 0)	
-	phobos.scale *= PHOBOS_RADIUS/0.5 #Scale is desired_radius/current_radius
-	
-func loadDeimos():
-	deimosOrbitPlane = Node3D.new()
-	deimosOrbitPlane.rotate(Vector3.FORWARD, -deg_to_rad(DEIMOS_ORBIT_INCLINATION))
-	add_child(deimosOrbitPlane)
-	
-	deimos = deimosScene.instantiate()
-	deimosOrbitPlane.add_child(deimos)
-	
-	deimos.position = Vector3(DEIMOS_SEMIMAJOR_AXIS, 0, 0)	
-	deimos.scale *= DEIMOS_RADIUS/0.5
-		
 func _process(delta: float) -> void:
-	elapsedRealSecs += 1 * delta
-	elapsedSimulatedSecs += 1 * timeMultiplier * delta	
-		
-	#rotateMars(delta)
+	increaseTime(delta)
+	animateSim(delta)
+	if debugMode: drawDebugGizmos(delta)
+
+#Returns an instantiated moon object that is a child under a orbital plane node
+func instantiateMoon(moonScene:Resource, moonRadius:float, orbitInclination:float, semiMajorAxis:float):
+	var orbitPlane = Node3D.new()
+	orbitPlane.rotate(Vector3.FORWARD, -deg_to_rad(orbitInclination))
+	add_child(orbitPlane)
+	
+	var moon = moonScene.instantiate()
+	orbitPlane.add_child(moon)
+	
+	moon.position = Vector3(semiMajorAxis, 0, 0)	
+	moon.scale *= moonRadius/0.5 #Scale is desired_radius/current_radius
+	
+	return moon
+
+func animateSim(delta:float):
 	rotatePlanetoid(mars, MARS_ROT_PERIOD, delta)
 	rotatePlanetoid(phobos, PHOBOS_ROT_PERIOD, delta)
 	rotatePlanetoid(deimos, DEIMOS_ROT_PERIOD, delta)
 	
-	movePhobos(delta)
-	moveDeimos(delta)
+	moveInOrbit(phobos, phobosOrbitAngle, PHOBOS_ORBIT_PERIOD, PHOBOS_SEMIMAJOR_AXIS, 
+				PHOBOS_SEMIMINOR_AXIS, delta, phobosOrbitArray)
 	
-func toggleDebugSurfaces(state:bool):	
-	$RotationDebugPlaneSystem.visible = state
-	$Planet/RotationDebugPlanePlanet.visible = state
+	moveInOrbit(deimos, deimosOrbitAngle, DEIMOS_ORBIT_PERIOD, DEIMOS_SEMIMAJOR_AXIS,
+				DEIMOS_SEMIMINOR_AXIS, delta, deimosOrbitArray)
 
 func rotatePlanetoid(planetoid:Node3D, rotPeriod:float, delta:float):
 	var angleToRotate = ((2*PI)/ rotPeriod) * delta * timeMultiplier	
 	planetoid.rotate_y(angleToRotate)
 
-"""
-func rotateMars(delta:float):	
-	var angleToRotate = ((2*PI)/ MARS_ROT_PERIOD) * delta * timeMultiplier	
-	mars.rotate_y(angleToRotate)
-"""		
+func moveInOrbit(planetoid:Node3D, currentOrbitAngle:float, orbitPeroid:float,  
+				 orbitMajorAxis:float, orbitMinorAxis, delta:float, debugPosArray:PackedVector3Array):
+	var rotationAngle = ((2*PI)/orbitPeroid) * timeMultiplier * delta
+	
+	#This is the angle the planet has moved around so far in relation to the x axis (parametric angle)
+	var angleSoFar = atan2(planetoid.position.z/orbitMinorAxis, planetoid.position.x/orbitMajorAxis)	
+	
+	planetoid.position.x = cos(angleSoFar - rotationAngle) * orbitMajorAxis
+	planetoid.position.z = sin(angleSoFar - rotationAngle) * orbitMinorAxis
 
+	debugPosArray.append(planetoid.global_position)
 
+func increaseTime(delta:float):
+	elapsedRealSecs += 1 * delta
+	elapsedSimulatedSecs += 1 * timeMultiplier * delta	
 
-var localPhobosPath:PackedVector3Array #Used for drawing orbit path for debugging
-var phobosOrbitAngle = 0.0
-func movePhobos(delta):	
-	var angleToRotate = ((2*PI)/PHOBOS_ORBIT_PERIOD) * timeMultiplier * delta
-	
-	phobosOrbitAngle -= angleToRotate
-	phobosOrbitAngle = fmod(phobosOrbitAngle, 2*PI)
-	
-	phobos.position.x = cos(phobosOrbitAngle) * PHOBOS_SEMIMAJOR_AXIS
-	phobos.position.z = sin(phobosOrbitAngle) * PHOBOS_SEMIMINOR_AXIS
-
-	localPhobosPath.append(phobos.position)
-	
-	if debugMode:		
-		DebugDraw3D.draw_sphere(phobos.global_position, 0.02, Color.BLUE, delta*2)
-		
-		if localPhobosPath.size() % 2 == 0:
-			var globalPhobosPath:PackedVector3Array = []
-			
-			for point in localPhobosPath:
-				globalPhobosPath.append(phobosOrbitPlane.global_transform * point)
-			
-			DebugDraw3D.draw_lines(globalPhobosPath, Color.GREEN, delta*2)	
-
-var localDeimosPath:PackedVector3Array #Used for drawing orbit path for debugging
-var deimosOrbitAngle = 0.0
-func moveDeimos(delta):	
-	var angleToRotate = ((2*PI)/DEIMOS_ORBIT_PERIOD) * timeMultiplier * delta
-	
-	deimosOrbitAngle -= angleToRotate
-	deimosOrbitAngle = fmod(deimosOrbitAngle, 2*PI)
-	
-	deimos.position.x = cos(deimosOrbitAngle) * DEIMOS_SEMIMAJOR_AXIS
-	deimos.position.z = sin(deimosOrbitAngle) * DEIMOS_SEMIMINOR_AXIS
-
-	localDeimosPath.append(deimos.position)
-	
-	if debugMode:		
-		DebugDraw3D.draw_sphere(deimos.global_position, 0.02, Color.BLUE, delta*2)
-		
-		if localDeimosPath.size() % 2 == 0:
-			var globalDeimosPath:PackedVector3Array = []
-			
-			for point in localDeimosPath:
-				globalDeimosPath.append(deimosOrbitPlane.global_transform * point)
-					
-			DebugDraw3D.draw_lines(globalDeimosPath, Color.RED, delta*2)	
-	
-func increaseTime(value:float): 
+func increaseTimeMult(value:float): 
 	if ((timeMultiplier + (TIME_INCREMENT * (value/100.0))) <= MAX_TIME_MULT):
 		timeMultiplier += (TIME_INCREMENT * (value/100.0))
 	else:
 		timeMultiplier = MAX_TIME_MULT
 
-func decreaseTime(value:float):
+func decreaseTimeMult(value:float):
 	if ((timeMultiplier - (TIME_INCREMENT * (value/100.0))) >= 0):
 		timeMultiplier -= (TIME_INCREMENT * (value/100.0))
 	else:
 		timeMultiplier = MIN_TIME_MULT
+
+func toggleDebugMode():
+	debugMode = !debugMode
+
+func toggleDebugSurfaces(state:bool):	
+	$RotationDebugPlaneSystem.visible = state
+	$Planet/RotationDebugPlanePlanet.visible = state
+
+func drawDebugGizmos(delta:float):
+	drawDebugOrbit(phobosOrbitArray, Color.GREEN, delta)
+	drawDebugOrbit(deimosOrbitArray, Color.RED, delta)
+
+func drawDebugOrbit(orbitArray:PackedVector3Array, color, delta:float):			
+	DebugDraw3D.draw_sphere(orbitArray[orbitArray.size()-1], 0.01, Color.BLUE, delta*2)
+	if orbitArray.size() % 2 == 0:
+		DebugDraw3D.draw_lines(orbitArray, color, delta*2)	

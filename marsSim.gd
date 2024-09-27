@@ -97,7 +97,6 @@ func animateSim(delta:float):
 	moveInOrbit(deimos, deimosOrbitAngle, DEIMOS_ORBIT_PERIOD, DEIMOS_SEMIMAJOR_AXIS,
 				DEIMOS_SEMIMINOR_AXIS, delta, deimosOrbitArray)
 
-
 func rotatePlanetoid(planetoid:Node3D, rotPeriod:float, delta:float):
 	var angleToRotate = ((2*PI)/ rotPeriod) * delta * timeMultiplier	
 	planetoid.rotate_y(angleToRotate)

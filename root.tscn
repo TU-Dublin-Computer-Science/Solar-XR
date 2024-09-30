@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=23 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="5_wufkh"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="6_hiken"]
 [ext_resource type="Resource" uid="uid://ceofxcl7q122" path="res://addons/hand_pose_detector/poses/point.tres" id="6_m85pr"]
-[ext_resource type="Script" path="res://first_person_controller.gd" id="6_mwdap"]
 [ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://detector.tscn" id="7_poqji"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose.gd" id="7_ynvfr"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="9_gysg0"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="10_f8b2n"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="11_jukpv"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="12_yetel"]
+[ext_resource type="PackedScene" uid="uid://cr5606dp36yxi" path="res://first_person_controller.tscn" id="13_t6cym"]
 
 [sub_resource type="Resource" id="Resource_pkibb"]
 script = ExtResource("11_jukpv")
@@ -52,8 +52,6 @@ action_name = "speed_up"
 [sub_resource type="Resource" id="Resource_4rree"]
 script = ExtResource("12_yetel")
 actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_b8w67")])
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_ei85s"]
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_2sdjv")
@@ -144,16 +142,7 @@ transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.
 [node name="PickableMars" parent="." instance=ExtResource("5_wufkh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -2.3185)
 
-[node name="FirstPersonController" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4784)
-script = ExtResource("6_mwdap")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FirstPersonController"]
-shape = SubResource("SphereShape3D_ei85s")
-disabled = true
-
-[node name="Camera3D" type="Camera3D" parent="FirstPersonController"]
-current = true
+[node name="FirstPersonController" parent="." instance=ExtResource("13_t6cym")]
 
 [node name="DebugToggle" parent="." instance=ExtResource("7_poqji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177573, 0.847592, -0.558123)

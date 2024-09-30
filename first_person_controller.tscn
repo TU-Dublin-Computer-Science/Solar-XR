@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr5606dp36yxi"]
+
+[ext_resource type="Script" path="res://first_person_controller.gd" id="1_txb6p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ei85s"]
+
+[node name="FirstPersonController" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4784)
+script = ExtResource("1_txb6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ei85s")
+disabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true

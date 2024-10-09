@@ -30,6 +30,8 @@ var lerp_duration : float = 1.0
 ## Lerp time
 var lerp_time : float = 0.0
 
+## Rotation Enabled
+var rotation_enabled : bool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta : float) -> void:
@@ -38,8 +40,12 @@ func _physics_process(delta : float) -> void:
 		return
 
 	# Set destination from primary grab
-	var destination := primary.by.global_transform * primary.transform.inverse()
-
+	var destination : Transform3D	
+	if rotation_enabled:
+		destination = primary.by.global_transform * primary.transform.inverse()
+	else:
+		destination = Transform3D(Basis(), primary.by.global_transform.origin - primary.transform.origin)
+	
 	# If present, apply secondary-node contributions
 	if is_instance_valid(secondary):
 		# Calculate lerp coefficients based on drive strengths
@@ -48,13 +54,18 @@ func _physics_process(delta : float) -> void:
 
 		# Calculate the transform from secondary grab
 		var x1 := destination
-		var x2 := secondary.by.global_transform * secondary.transform.inverse()
+		var x2 : Transform3D
+		if rotation_enabled:
+			x2 = secondary.by.global_transform * secondary.transform.inverse()
 
-		# Independently lerp the angle and position
-		destination = Transform3D(
-			x1.basis.slerp(x2.basis, angle_lerp),
-			x1.origin.lerp(x2.origin, position_lerp))
-
+			# Independently lerp the angle and position
+			destination = Transform3D(
+				x1.basis.slerp(x2.basis, angle_lerp),
+				x1.origin.lerp(x2.origin, position_lerp))
+		else:
+			x2 = Transform3D(Basis(), secondary.by.global_transform.origin - secondary.transform.origin)
+			destination.origin = x1.origin.lerp(x2.origin, position_lerp)
+			
 		# Test if we need to apply aiming
 		if secondary.drive_aim > 0.0:
 			# Convert destination from global to primary-local
@@ -83,9 +94,12 @@ func _physics_process(delta : float) -> void:
 			lerp_time += delta
 			if lerp_time < lerp_duration:
 				# Interpolate from lerp_start to destination
-				destination = lerp_start.interpolate_with(
-					destination,
-					lerp_time / lerp_duration)
+				if rotation_enabled:
+					destination = lerp_start.interpolate_with(
+						destination,
+						lerp_time / lerp_duration)
+				else:
+					destination.origin = lerp_start.origin.lerp(destination.origin, lerp_time / lerp_duration)
 			else:
 				# Lerp completed
 				state = State.SNAP
@@ -93,7 +107,11 @@ func _physics_process(delta : float) -> void:
 				if secondary: secondary.set_arrived()
 
 	# Apply the destination transform
-	global_transform = destination
+	if rotation_enabled:
+		global_transform = destination
+	else:
+		global_transform.origin = destination.origin
+		
 	force_update_transform()
 	if is_instance_valid(target):
 		target.force_update_transform()
@@ -162,6 +180,7 @@ static func create_lerp(
 	driver.state = State.LERP
 	driver.target = p_target
 	driver.primary = p_grab
+	driver.rotation_enabled = p_grab.rotation_enabled
 	driver.global_transform = p_target.global_transform
 
 	# Calculate the start and duration
@@ -194,6 +213,7 @@ static func create_snap(
 	driver.state = State.SNAP
 	driver.target = p_target
 	driver.primary = p_grab
+	driver.rotation_enabled = p_grab.rotation_enabled
 	driver.global_transform = p_grab.by.global_transform * p_grab.transform.inverse()
 
 	# Snapped to grab-point so report arrived

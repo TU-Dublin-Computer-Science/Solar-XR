@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=27 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="6_hiken"]
 [ext_resource type="Resource" uid="uid://ceofxcl7q122" path="res://addons/hand_pose_detector/poses/point.tres" id="6_m85pr"]
 [ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://detector.tscn" id="7_poqji"]
+[ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="7_vi0wi"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose.gd" id="7_ynvfr"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="9_gysg0"]
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="10_f8b2n"]
@@ -27,13 +28,19 @@ pose = ExtResource("6_m85pr")
 action_type = 0
 action_name = "point"
 
+[sub_resource type="Resource" id="Resource_qgfeq"]
+script = ExtResource("11_jukpv")
+pose = ExtResource("7_vi0wi")
+action_type = 1
+action_name = "pinch"
+
 [sub_resource type="Resource" id="Resource_0iy2v"]
 script = ExtResource("12_yetel")
-actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_pkibb"), SubResource("Resource_3kxfu")])
+actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_pkibb"), SubResource("Resource_3kxfu"), SubResource("Resource_qgfeq")])
 
 [sub_resource type="Resource" id="Resource_5d1y3"]
 script = ExtResource("9_gysg0")
-poses = Array[ExtResource("7_ynvfr")]([ExtResource("5_h5gaj"), ExtResource("6_m85pr")])
+poses = Array[ExtResource("7_ynvfr")]([ExtResource("5_h5gaj"), ExtResource("6_m85pr"), ExtResource("7_vi0wi")])
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b5qjc"]
 radius = 0.01
@@ -43,15 +50,27 @@ height = 0.1
 radius = 0.01
 height = 0.1
 
-[sub_resource type="Resource" id="Resource_b8w67"]
+[sub_resource type="Resource" id="Resource_8j2pk"]
 script = ExtResource("11_jukpv")
 pose = ExtResource("5_h5gaj")
 action_type = 0
 action_name = "speed_up"
 
-[sub_resource type="Resource" id="Resource_4rree"]
+[sub_resource type="Resource" id="Resource_hd7tm"]
+script = ExtResource("11_jukpv")
+pose = ExtResource("6_m85pr")
+action_type = 0
+action_name = "point"
+
+[sub_resource type="Resource" id="Resource_2xy2j"]
+script = ExtResource("11_jukpv")
+pose = ExtResource("7_vi0wi")
+action_type = 1
+action_name = "pinch"
+
+[sub_resource type="Resource" id="Resource_ax3pu"]
 script = ExtResource("12_yetel")
-actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_b8w67")])
+actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_8j2pk"), SubResource("Resource_hd7tm"), SubResource("Resource_2xy2j")])
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_2sdjv")
@@ -97,7 +116,7 @@ hand_tracker = &"/user/hand_tracker/right"
 
 [node name="RightHandPoseController" parent="XROrigin3D/RightHandTrack" instance=ExtResource("10_f8b2n")]
 controller_tracker_name = "/user/hand_pose_controller/right"
-controller_action_map = SubResource("Resource_4rree")
+controller_action_map = SubResource("Resource_ax3pu")
 hand_tracker_name = "/user/hand_tracker/right"
 hand_pose_set = SubResource("Resource_5d1y3")
 
@@ -133,9 +152,17 @@ ranged_enable = false
 [node name="RightGestureController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"/user/hand_pose_controller/right"
 
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/RightGestureController"]
+script = ExtResource("3_pcsj8")
+pickup_axis_action = "pinch"
+
 [node name="LeftGestureController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"/user/hand_pose_controller/left"
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftGestureController"]
+script = ExtResource("3_pcsj8")
+pickup_axis_action = "pinch"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)

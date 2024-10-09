@@ -39,13 +39,16 @@ var drive_aim : float = 0.0
 ## Has target arrived at grab point
 var _arrived : bool = false
 
+## Rotation enabled for grabbed object 
+var rotation_enabled : bool = true
 
 ## Initialize the grab
 func _init(
 	p_grabber : Grabber,
 	p_what : XRToolsPickableCustom,
 	p_point : XRToolsGrabPoint,
-	p_precise : bool) -> void:
+	p_precise : bool,
+	p_rotation : bool) -> void:
 
 	# Copy the grabber information
 	by = p_grabber.by
@@ -58,6 +61,9 @@ func _init(
 	what = p_what
 	point = p_point
 	hand_point = p_point as XRToolsGrabPointHand
+
+	#Rotation Information
+	rotation_enabled = p_rotation
 
 	# Calculate the grab transform
 	if p_point:

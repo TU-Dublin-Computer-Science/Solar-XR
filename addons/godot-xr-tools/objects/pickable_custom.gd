@@ -67,6 +67,9 @@ const DEFAULT_LAYER := 0b0000_0000_0000_0001_0000_0000_0000_0000
 ## If true, the grip control must be held to keep the object picked up
 @export var press_to_hold : bool = true
 
+## If true, the object's rotation will match the gripper
+@export var rotation_enabled : bool = true
+
 ## Layer for this object while picked up
 @export_flags_3d_physics var picked_up_layer : int = DEFAULT_LAYER
 
@@ -249,7 +252,7 @@ func pick_up(by: Node3D) -> void:
 		if second_hand_grab != SecondHandGrab.SWAP:
 			# Grab the object
 			var by_grab_point := _get_grab_point(by, _grab_driver.primary.point)
-			var grab := GrabCustom.new(grabber, self, by_grab_point, true)
+			var grab := GrabCustom.new(grabber, self, by_grab_point, true, rotation_enabled)
 			_grab_driver.add_grab(grab)
 
 			# Report the secondary grab
@@ -282,13 +285,13 @@ func pick_up(by: Node3D) -> void:
 	# Construct the grab driver
 	if by.picked_up_ranged:
 		if ranged_grab_method == RangedMethod.LERP:
-			var grab := GrabCustom.new(grabber, self, by_grab_point, false)
+			var grab := GrabCustom.new(grabber, self, by_grab_point, false, rotation_enabled)
 			_grab_driver = XRToolsGrabDriverCustom.create_lerp(self, grab, ranged_grab_speed)
 		else:
-			var grab := GrabCustom.new(grabber, self, by_grab_point, false)
+			var grab := GrabCustom.new(grabber, self, by_grab_point, false, rotation_enabled)
 			_grab_driver = XRToolsGrabDriverCustom.create_snap(self, grab)
 	else:
-		var grab := GrabCustom.new(grabber, self, by_grab_point, true)
+		var grab := GrabCustom.new(grabber, self, by_grab_point, true, rotation_enabled)
 		_grab_driver = XRToolsGrabDriverCustom.create_snap(self, grab)
 
 	# Report picked up and grabbed

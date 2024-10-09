@@ -157,6 +157,15 @@ horizontal_alignment = 0
 
 [node name="PickableObjectCustom" parent="." instance=ExtResource("15_16033")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183142, 1.00768, -1.78976)
+enabled = null
+rotation_enabled = null
+picked_up_layer = null
+release_mode = null
+ranged_grab_method = null
+second_hand_grab = null
+ranged_grab_speed = null
+picked_by_exclude = null
+picked_by_require = null
 
 [connection signal="pose_ended" from="XROrigin3D/LeftHandTrack/LeftHandPoseController" to="." method="_on_left_hand_pose_controller_pose_ended"]
 [connection signal="pose_started" from="XROrigin3D/LeftHandTrack/LeftHandPoseController" to="." method="_on_left_hand_pose_controller_pose_started"]

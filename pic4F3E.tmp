@@ -8,7 +8,6 @@ radius = 5.0
 [sub_resource type="SphereMesh" id="SphereMesh_dphb6"]
 
 [node name="PickableObjectCustom" instance=ExtResource("1_vh42a")]
-transform = Transform3D(0.999818, 0.0190578, 0, -0.0190578, 0.999818, 0, 0, 0, 1, 0, 0, 0)
 freeze = true
 
 [node name="CollisionShape3D" parent="." index="0"]

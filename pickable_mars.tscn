@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3ydgbs6v3alt"]
 
-[ext_resource type="PackedScene" uid="uid://c73nnlet16ovw" path="res://addons/godot-xr-tools/objects/pickable_custom.tscn" id="1_xwf05"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/objects/pickable_custom.tscn" id="1_xwf05"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://marsSim.tscn" id="2_hq81v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xi0rw"]

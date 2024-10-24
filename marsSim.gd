@@ -11,9 +11,11 @@ extends Node3D
 const REAL_MARS_RADIUS:float = 337620.0
 const MARS_RADIUS_IN_MODEL:float = 0.5
 const modelScalar = MARS_RADIUS_IN_MODEL/REAL_MARS_RADIUS
-
 const MARS_ROT_PERIOD = 88642.44
 const MARS_RADIUS = REAL_MARS_RADIUS * modelScalar
+
+const TRAIL_OBJECT_SCN = preload("res://trail_object.tscn")
+const TRAIL_LEN = 5
 
 const PHOBOS_RADIUS:float = 9100.0 * modelScalar #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * modelScalar
@@ -26,10 +28,7 @@ const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRI
 
 var phobosOrbitAngle = 0.0
 var phobosOrbitArray:PackedVector3Array #Used for drawing orbit path for debugging
-
-var deimosOrbitAngle = 0.0
-var deimosOrbitPlane
-var deimosOrbitArray:PackedVector3Array #Used for drawing orbit path for debugging
+var _phobos_trail = []
 
 const DEIMOS_RADIUS:float = 5100.0 * modelScalar #Using polar radius for now
 const DEIMOS_SEMIMAJOR_AXIS = 2345900 * modelScalar
@@ -38,6 +37,11 @@ const DEIMOS_ORBIT_PERIOD = 109074.816
 const DEIMOS_ROT_PERIOD = 109074.816
 const DEIMOS_ORBIT_INCLINATION = 1.79
 const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
+
+var deimosOrbitAngle = 0.0
+var deimosOrbitPlane
+var deimosOrbitArray:PackedVector3Array #Used for drawing orbit path for debugging
+var _deimos_trail = []
 
 @export var debugMode : bool = false:
 	set(state):
@@ -144,3 +148,21 @@ func drawDebugOrbit(orbitArray:PackedVector3Array, color, delta:float):
 	DebugDraw3D.draw_sphere(orbitArray[orbitArray.size()-1], 0.01, Color.BLUE, delta*2)
 	if orbitArray.size() % 2 == 0:
 		DebugDraw3D.draw_lines(orbitArray, color, delta*2)	
+
+func _add_trail_obj(planetoid:Node3D, planetoid_radius:float, trail: Array):
+	var planet_parent = planetoid.get_parent()
+	
+	if trail.size() == TRAIL_LEN: 
+		var last_trail_obj = trail.pop_front()
+		planet_parent.remove_child(last_trail_obj)
+	
+	var trail_object = TRAIL_OBJECT_SCN.instantiate()
+	trail.append(trail_object)
+	planet_parent.add_child(trail_object) 
+	trail_object.scale *= planetoid_radius/1 #Scale to half size of planetoid
+	trail_object.position = planetoid.position
+	print(trail_object.global_position)
+
+func _on_draw_trail_timeout() -> void:
+	_add_trail_obj(phobos, PHOBOS_RADIUS, _phobos_trail)
+	_add_trail_obj(deimos, DEIMOS_RADIUS, _deimos_trail)

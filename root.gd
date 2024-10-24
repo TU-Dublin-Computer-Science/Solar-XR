@@ -95,7 +95,7 @@ func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
 	var simTimeText = "Sim Time: Day %d - %02d:%02d:%02d" % [simDays, simHours, simMins, simSecs]
 	var realTimeText = "Real Time: Day %d - %02d:%02d:%02d" % [realDays, realHours, realMins, realSecs]
 	
-	var UIText = fpsText + "\n" + simSpeedText + "\n" + simTimeText + "\n" + realTimeText
+	var UIText = simSpeedText + "\n" + simTimeText + "\n" + realTimeText
 	
 	#For non XR
 	DebugDraw2D.clear_all()

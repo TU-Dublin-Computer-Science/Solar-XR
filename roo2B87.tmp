@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=30 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="12_yetel"]
 [ext_resource type="PackedScene" uid="uid://cr5606dp36yxi" path="res://first_person_controller.tscn" id="13_t6cym"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="14_ma0u0"]
+[ext_resource type="Script" path="res://trailEffect.gd" id="16_aauql"]
+[ext_resource type="Script" path="res://mesh_instance_3d.gd" id="16_gqi4c"]
 
 [sub_resource type="Resource" id="Resource_pkibb"]
 script = ExtResource("11_jukpv")
@@ -71,6 +73,13 @@ action_name = "pinch"
 [sub_resource type="Resource" id="Resource_ax3pu"]
 script = ExtResource("12_yetel")
 actions = Array[ExtResource("11_jukpv")]([SubResource("Resource_8j2pk"), SubResource("Resource_hd7tm"), SubResource("Resource_2xy2j")])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8il8y"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_2sdjv")
@@ -171,8 +180,8 @@ transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.
 
 [node name="DebugToggle" parent="." instance=ExtResource("7_poqji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177573, 0.847592, -0.558123)
-visible = false
-collision_mask = 0
+collision_layer = 1
+collision_mask = 3
 
 [node name="UI" type="Label3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.131934, 1.12256, -0.826545)
@@ -181,6 +190,15 @@ horizontal_alignment = 0
 
 [node name="PickableMars" parent="." instance=ExtResource("14_ma0u0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30539, -2.1638)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.989711)
+script = ExtResource("16_gqi4c")
+
+[node name="Trail3D" type="MeshInstance3D" parent="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_8il8y")
+skeleton = NodePath("../..")
+script = ExtResource("16_aauql")
 
 [connection signal="pose_ended" from="XROrigin3D/LeftHandTrack/LeftHandPoseController" to="." method="_on_left_hand_pose_controller_pose_ended"]
 [connection signal="pose_started" from="XROrigin3D/LeftHandTrack/LeftHandPoseController" to="." method="_on_left_hand_pose_controller_pose_started"]

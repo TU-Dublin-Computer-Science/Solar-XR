@@ -43,3 +43,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.002, 0.25)
 visible = false
 mesh = SubResource("BoxMesh_61t8k")
 skeleton = NodePath("../..")
+
+[node name="DrawTrail" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="DrawTrail" to="." method="_on_draw_trail_timeout"]

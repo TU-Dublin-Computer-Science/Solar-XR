@@ -16,66 +16,66 @@ var xr_interface: XRInterface
 @onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
 var hmd_synchronized:bool = false
 
-@onready var mars_sim = $PickableMars/MarsSim
+@onready var MarsSim = $PickableMars/MarsSim
 
-@onready var rightGestureController = $XROrigin3D/RightGestureController
-@onready var leftGestureController = $XROrigin3D/LeftGestureController
-@onready var leftPointCollider = $XROrigin3D/LeftHandTrack/PointCollider
-@onready var rightPointCollider = $XROrigin3D/RightHandTrack/PointCollider
-@onready var rightPhsyicalController = $XROrigin3D/RightPhysicalController
-@onready var leftPhysicalController = $XROrigin3D/LeftPhysicalController
-@onready var uiTextReadout = $UI
-@onready var debugButton = $DebugToggle
-@onready var menu = $MainMenu/Viewport/MainMenu
+@onready var RightGestureController = $XROrigin3D/RightGestureController
+@onready var LeftGestureController = $XROrigin3D/LeftGestureController
+@onready var LeftPointCollider = $XROrigin3D/LeftHandTrack/PointCollider
+@onready var RightPointCollider = $XROrigin3D/RightHandTrack/PointCollider
+@onready var RightPhsyicalController = $XROrigin3D/RightPhysicalController
+@onready var LeftPhysicalController = $XROrigin3D/LeftPhysicalController
+@onready var UIText = $UI
+@onready var DebugButton = $DebugToggle
+@onready var Menu = $MainMenu/Viewport/MainMenu
 
 # Rotation stored in radians (0 - TAU) 
-var mars_x_rotation : float = 0
-var mars_y_rotation : float = 0
+var _mars_x_rotation : float = 0
+var _mars_y_rotation : float = 0
 
 func _ready():
 	_setup_xr()
 	_setup_menu_signals()
 
 
-func _process(_delta):	
-	syncHeadsetOrientation()
+func _process(delta):	
+	_sync_headset_orientation()
 	
 	#Keyboard input
 	if Input.is_action_pressed("speed_up"):
-		mars_sim.increaseTimeMult(6)
+		MarsSim.increase_time_mult(6)
 	elif Input.is_action_pressed("speed_down"):
-		mars_sim.decreaseTimeMult(6)
+		MarsSim.decrease_time_mult(6)
 	
 	#Gesture Speed
-	if rightGestureController.is_button_pressed("speed_up"):
-		mars_sim.increaseTimeMult(100)
-	if leftGestureController.is_button_pressed("speed_down"):
-		mars_sim.decreaseTimeMult(100)
+	if RightGestureController.is_button_pressed("speed_up"):
+		MarsSim.increase_time_mult(100)
+	if LeftGestureController.is_button_pressed("speed_down"):
+		MarsSim.decrease_time_mult(100)
 	
-	updateUI(mars_sim.timeMultiplier, mars_sim.elapsedSimulatedSecs, mars_sim.elapsedRealSecs)	
+	_update_ui(MarsSim.time_multiplier, MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_debug"):
+		MarsSim.toggle_debug_mode()
+		DebugButton.state = MarsSim.debug_mode
 
 
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_debug"):
-		mars_sim.toggleDebugMode()
-		debugButton.state = mars_sim.debugMode
-
-
 func _on_right_physical_controller_button_pressed(name: String) -> void:
 	if name == "ax_button":
-		mars_sim.toggleDebugMode()
-		debugButton.state = mars_sim.debugMode
+		MarsSim.toggle_debug_mode()
+		DebugButton.state = MarsSim.debug_mode
 
 
 func _on_right_physical_controller_input_vector_2_changed(name: String, value: Vector2) -> void:
 	if value[1] >= 0: #Speed up on Analogue stick up
-		mars_sim.increaseTimeMult(remap(value[1], 0, 1, 0, 100))
+		MarsSim.increase_time_mult(remap(value[1], 0, 1, 0, 100))
 	if value[1] < 0: #Speed down on Analogue stick down
-		mars_sim.decreaseTimeMult(remap(value[1], 0, -1, 0, 100))
+		MarsSim.decrease_time_mult(remap(value[1], 0, -1, 0, 100))
 
 
 func _setup_xr():
@@ -85,18 +85,17 @@ func _setup_xr():
 		
 		# Turn off v-sync!
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-
+		
 		# Change our main viewport to output to the HMD
 		viewport.use_xr = true
 		
 		viewport.transparent_bg = true #Must be done for AR passthrough
-		
 		xr_interface.pose_recentered.connect(_on_openxr_pose_recentered)
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 
 
-func syncHeadsetOrientation():
+func _sync_headset_orientation():
 	if hmd_synchronized:
 		return
 
@@ -107,97 +106,102 @@ func syncHeadsetOrientation():
 
 
 func _setup_menu_signals():
-	menu.btn_move_pressed.connect(_on_btn_move_pressed)
-	menu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
-	menu.btn_scale_pressed.connect(_on_btn_scale_pressed)
-	menu.btn_time_pressed.connect(_on_btn_time_pressed)
-	menu.slider_1_changed.connect(_on_slider_1_changed)
-	menu.slider_2_changed.connect(_on_slider_2_changed)
+	Menu.btn_move_pressed.connect(_on_btn_move_pressed)
+	Menu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
+	Menu.btn_scale_pressed.connect(_on_btn_scale_pressed)
+	Menu.btn_time_pressed.connect(_on_btn_time_pressed)
+	Menu.slider_1_changed.connect(_on_slider_1_changed)
+	Menu.slider_2_changed.connect(_on_slider_2_changed)
 
 
 func _on_btn_move_pressed():
 	mode = Mode.MOVE
-	menu.slider_1_value = 0
-	menu.slider_2_value = 0
+	Menu.slider_1_value = 0
+	Menu.slider_2_value = 0
 
 
 func _on_btn_rotate_pressed():
 	mode = Mode.ROTATE
-	menu.slider_1_value = remap(mars_y_rotation, 0, TAU, 0, 100)
-	menu.slider_2_value = remap(mars_x_rotation, 0, TAU, 0, 100)
+	Menu.slider_1_value = remap(_mars_y_rotation, 0, TAU, 0, 100)
+	Menu.slider_2_value = remap(_mars_x_rotation, 0, TAU, 0, 100)
 
 
 func _on_btn_scale_pressed():
 	mode = Mode.SCALE
-	menu.slider_1_value = 0
-	menu.slider_2_value = 0
+	Menu.slider_1_value = 0
+	Menu.slider_2_value = 0
 	
 	
 func _on_btn_time_pressed():
 	mode = Mode.TIME
-	menu.slider_1_value = 0
-	menu.slider_2_value = 0
+	Menu.slider_1_value = 0
+	Menu.slider_2_value = 0
 
 
 func _on_slider_1_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on Y Axis
-			mars_y_rotation = remap(menu.slider_1_value, 0, 100, 0, TAU)
-			mars_sim.rotation.y = mars_y_rotation
+			_mars_y_rotation = remap(Menu.slider_1_value, 0, 100, 0, TAU)
+			MarsSim.rotation.y = _mars_y_rotation
 
 
 func _on_slider_2_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on X Axis
-			mars_x_rotation = remap(menu.slider_2_value, 0, 100, 0, TAU)
-			mars_sim.rotation.x = mars_x_rotation
+			_mars_x_rotation = remap(Menu.slider_2_value, 0, 100, 0, TAU)
+			MarsSim.rotation.x = _mars_x_rotation
 
 
-func updateUI(simulationSpeed:float, simulatedTime:int, realTime:int):
-	var simSpeedText = "Sim Speed: %.0fx" % simulationSpeed
+func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
+	var sim_speed_text = "Sim Speed: %.0fx" % simulation_speed
 	
-	var simSecs = simulatedTime % 60
-	var simMins = (simulatedTime / 60) % 60
-	var simHours = (simulatedTime / 60 / 60) % 24
-	var simDays = (simulatedTime / 60 / 60 / 24)
-	var realSecs = realTime % 60
-	var realMins = (realTime / 60) % 60
-	var realHours = (realTime / 60 / 60) % 24
-	var realDays = (realTime / 60 / 60 / 24)
+	var sim_secs = simulated_time % 60
+	var sim_mins = (simulated_time / 60) % 60
+	var sim_hours = (simulated_time / 60 / 60) % 24
+	var sim_days = (simulated_time / 60 / 60 / 24)
+	var real_secs = real_time % 60
+	var real_mins = (real_time / 60) % 60
+	var real_hours = (real_time / 60 / 60) % 24
+	var real_days = (real_time / 60 / 60 / 24)
 	
 	var mode_text = "Mode: " + Mode.keys()[mode]
-	var fpsText = "FPS: %f"  % Engine.get_frames_per_second()
-	var simTimeText = "Sim Time: Day %d - %02d:%02d:%02d" % [simDays, simHours, simMins, simSecs]
-	var realTimeText = "Real Time: Day %d - %02d:%02d:%02d" % [realDays, realHours, realMins, realSecs]
+	var fps_text = "FPS: %f"  % Engine.get_frames_per_second()
+	var sim_time_text = "Sim Time: Day %d - %02d:%02d:%02d" % [sim_days, sim_hours, sim_mins, sim_secs]
+	var real_time_text = "Real Time: Day %d - %02d:%02d:%02d" % [real_days, real_hours, real_mins, real_secs]
 	
-	var UIText = mode_text + "\n" + simSpeedText + "\n" + simTimeText + "\n" + realTimeText
+	var ui_text = mode_text + "\n" + sim_speed_text + "\n" + sim_time_text + "\n" + real_time_text
 	
 	#For non XR
 	DebugDraw2D.clear_all()
 	DebugDraw2D.set_text(mode_text)
-	DebugDraw2D.set_text(fpsText)
-	DebugDraw2D.set_text(simSpeedText)
-	DebugDraw2D.set_text(realTimeText)	
-	DebugDraw2D.set_text(simTimeText)
+	DebugDraw2D.set_text(fps_text)
+	DebugDraw2D.set_text(sim_speed_text)
+	DebugDraw2D.set_text(real_time_text)	
+	DebugDraw2D.set_text(sim_time_text)
 	
 	#For XR
-	uiTextReadout.text = UIText 
-	
+	UIText.text = ui_text 
+
+
 func _on_debug_toggle_toggled_signal(state: Variant) -> void:
-	mars_sim.debugMode = state
+	MarsSim.debug_mode = state
+
 
 func _on_left_hand_pose_controller_pose_started(p_name: String) -> void:
 	if (p_name == "Point"):
 		$XROrigin3D/LeftHandTrack/PointCollider/CollisionShape3D.disabled = false
-	
+
+
 func _on_left_hand_pose_controller_pose_ended(p_name: String) -> void:
 	if (p_name == "Point"):
 		$XROrigin3D/LeftHandTrack/PointCollider/CollisionShape3D.disabled = true
 
+
 func _on_right_hand_pose_controller_pose_started(p_name: String) -> void:
 	if (p_name == "Point"):
 		$XROrigin3D/RightHandTrack/PointCollider/CollisionShape3D.disabled = false
-		
+
+
 func _on_right_hand_pose_controller_pose_ended(p_name: String) -> void:
 	if (p_name == "Point"):	
 		$XROrigin3D/RightHandTrack/PointCollider/CollisionShape3D.disabled = true

@@ -139,7 +139,7 @@ func _on_btn_scale_pressed():
 	
 func _on_btn_time_pressed():
 	mode = Mode.TIME
-	Menu.slider_1_value = 0
+	Menu.slider_1_value = MarsSim.time_multiplier
 	Menu.slider_2_value = 0
 
 
@@ -148,6 +148,8 @@ func _on_slider_1_changed():
 		Mode.ROTATE: # Rotate on Y Axis
 			_mars_y_rotation = remap(Menu.slider_1_value, 0, 100, 0, TAU)
 			MarsSim.rotation.y = _mars_y_rotation
+		Mode.TIME:
+			MarsSim.time_multiplier = Menu.slider_1_value
 
 
 func _on_slider_2_changed():

@@ -1,70 +1,79 @@
 extends Node3D
 
-#Data Parameters obtained from Nasa Planetary factsheets
-#https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html
-#Time values are in seconds
-#Distance values are in meters
-#Angle values are in degrees
+"""
+Data Parameters obtained from Nasa Planetary factsheets
+https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html
+Time values are in seconds
+Distance values are in meters
+Angle values are in degrees
+"""
 
-#Mars has a radius of 0.5 in the model, so a scalar value is calculated,
-#which is multilied by each "real" value to get the value to be used in the model
+# Mars
+"""
+Mars has a radius of 0.5 in the model, so a scalar value is calculated,
+which is multilied by each "real" value to get the value to be used in the model
+"""
 const REAL_MARS_RADIUS:float = 337620.0
 const MARS_RADIUS_IN_MODEL:float = 0.5
 const MODEL_SCALER = MARS_RADIUS_IN_MODEL/REAL_MARS_RADIUS
 const MARS_ROT_PERIOD = 88642.44
 const MARS_RADIUS = REAL_MARS_RADIUS * MODEL_SCALER
 
-const TrailObjectScn = preload("res://trail_object.tscn")
-const TRAIL_LEN = 5
-
+# Phobos
 const PHOBOS_RADIUS:float = 9100.0 * MODEL_SCALER #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * MODEL_SCALER
 const PHOBOS_ECCENTRICITY = 0.0151
 const PHOBOS_ORBIT_PERIOD = 27553.824
 const PHOBOS_ROT_PERIOD = 27553.824
 const PHOBOS_ORBIT_INCLINATION = 1.08
+	# Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
-#Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
-
+const PhobosScn = preload("res://phobos.tscn")
+var _phobos
 var _phobos_orbit_angle = 0.0
 var _phobos_orbit_array:PackedVector3Array #Used for drawing orbit path for debugging
 var _phobos_trail = []
 
+# Deimos
 const DEIMOS_RADIUS:float = 5100.0 * MODEL_SCALER #Using polar radius for now
 const DEIMOS_SEMIMAJOR_AXIS = 2345900 * MODEL_SCALER
 const DEIMOS_ECCENTRICITY = 0.0005
 const DEIMOS_ORBIT_PERIOD = 109074.816
 const DEIMOS_ROT_PERIOD = 109074.816
 const DEIMOS_ORBIT_INCLINATION = 1.79
+	# Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
-
+const DeimosScn = preload("res://deimos.tscn")
+var _deimos
 var _deimos_orbit_angle = 0.0
 var _deimos_orbit_plane
 var _deimos_orbit_array:PackedVector3Array #Used for drawing orbit path for debugging
 var _deimos_trail = []
 
-@export var debug_mode : bool = false:
-	set(state):
-		debug_mode = state
-		_toggle_debug_surfaces(state)			
-
-#Time Keeping
-const TIME_INCREMENT = 50
+# Time Keeping
 const MAX_TIME_MULT = 6000
 const MIN_TIME_MULT = 1
 var elapsed_real_secs = 0
 var elapsed_simulated_secs = 0
-var time_multiplier = 1
+var time_multiplier: float: # Externally a value between 0 and 100
+	get():
+		return remap(_time_multiplier, MIN_TIME_MULT, MAX_TIME_MULT, 0, 100)
+	set(value):
+		var input = clamp(value, 0, 100)
+		_time_multiplier = remap(input, 0, 100, MIN_TIME_MULT, MAX_TIME_MULT)
+var _time_multiplier = 1
 var _start_time:float = 0.0
 
+# Trails
+const TrailObjectScn = preload("res://trail_object.tscn")
+const TRAIL_LEN = 5
+
+@export var debug_mode : bool = false:
+	set(state):
+		debug_mode = state
+		_toggle_debug_surfaces(state)		
+
 @onready var Mars = $Planet
-
-const PhobosScn = preload("res://phobos.tscn")
-var _phobos
-
-const DeimosScn = preload("res://deimos.tscn")
-var _deimos
-
 
 func _ready() -> void:
 	_start_time = Time.get_ticks_msec()	
@@ -78,19 +87,9 @@ func _process(delta: float) -> void:
 	if debug_mode: _draw_debug_gizmos(delta)
 
 
-func increase_time_mult(value:float): 
-	if ((time_multiplier + (TIME_INCREMENT * (value/100.0))) <= MAX_TIME_MULT):
-		time_multiplier += (TIME_INCREMENT * (value/100.0))
-	else:
-		time_multiplier = MAX_TIME_MULT
-
-
-func decrease_time_mult(value:float):
-	if ((time_multiplier - (TIME_INCREMENT * (value/100.0))) >= 0):
-		time_multiplier -= (TIME_INCREMENT * (value/100.0))
-	else:
-		time_multiplier = MIN_TIME_MULT
-
+func get_real_time_mult() -> float:
+	return _time_multiplier
+	
 
 func toggle_debug_mode():
 	debug_mode = !debug_mode
@@ -125,13 +124,13 @@ func _animate_sim(delta:float):
 
 
 func _rotate_planetoid(planetoid:Node3D, rot_period:float, delta:float):
-	var angle_to_rotate = ((2*PI)/ rot_period) * delta * time_multiplier	
+	var angle_to_rotate = ((2*PI)/ rot_period) * delta * _time_multiplier	
 	planetoid.rotate_y(angle_to_rotate)
 
 
 func _move_in_orbit(planetoid:Node3D, current_orbit_angle:float, orbit_period:float,  
 				 orbit_major_axis:float, orbit_minor_axis, delta:float, debug_pos_array:PackedVector3Array):
-	var rotation_angle = ((2*PI)/orbit_period) * time_multiplier * delta
+	var rotation_angle = ((2*PI)/orbit_period) * _time_multiplier * delta
 	
 	#This is the angle the planet has moved around so far in relation to the x axis (parametric angle)
 	var angle_so_far = atan2(planetoid.position.z/orbit_minor_axis, planetoid.position.x/orbit_major_axis)	
@@ -144,7 +143,7 @@ func _move_in_orbit(planetoid:Node3D, current_orbit_angle:float, orbit_period:fl
 
 func _increase_time(delta:float):
 	elapsed_real_secs += 1 * delta
-	elapsed_simulated_secs += 1 * time_multiplier * delta	
+	elapsed_simulated_secs += 1 * _time_multiplier * delta	
 
 
 func _toggle_debug_surfaces(state:bool):	

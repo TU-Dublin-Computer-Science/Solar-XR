@@ -39,26 +39,31 @@ func _ready():
 
 func _process(delta):	
 	_sync_headset_orientation()
-	
-	#Keyboard input
-	if Input.is_action_pressed("speed_up"):
-		MarsSim.increase_time_mult(6)
-	elif Input.is_action_pressed("speed_down"):
-		MarsSim.decrease_time_mult(6)
-	
-	#Gesture Speed
-	if RightGestureController.is_button_pressed("speed_up"):
-		MarsSim.increase_time_mult(100)
-	if LeftGestureController.is_button_pressed("speed_down"):
-		MarsSim.decrease_time_mult(100)
-	
-	_update_ui(MarsSim.time_multiplier, MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
+	_handle_continuous_input(delta)
+	_update_ui(MarsSim.get_real_time_mult(), MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_debug"):
 		MarsSim.toggle_debug_mode()
 		DebugButton.state = MarsSim.debug_mode
+
+
+func _handle_continuous_input(delta:float) -> void:
+	const KEY_TIME_INCREMENT = 30
+	const GESTURE_TIME_INCREMENT = 60
+	
+	#Keyboard input
+	if Input.is_action_pressed("speed_up"):
+		MarsSim.time_multiplier += KEY_TIME_INCREMENT * delta
+	elif Input.is_action_pressed("speed_down"):
+		MarsSim.time_multiplier -= KEY_TIME_INCREMENT * delta
+	
+	#Gesture Control
+	if RightGestureController.is_button_pressed("speed_up"):
+		MarsSim.time_multiplier += GESTURE_TIME_INCREMENT * delta
+	if LeftGestureController.is_button_pressed("speed_down"):
+		MarsSim.time_multiplier -= GESTURE_TIME_INCREMENT * delta
 
 
 func _on_openxr_pose_recentered() -> void:
@@ -72,10 +77,10 @@ func _on_right_physical_controller_button_pressed(name: String) -> void:
 
 
 func _on_right_physical_controller_input_vector_2_changed(name: String, value: Vector2) -> void:
-	if value[1] >= 0: #Speed up on Analogue stick up
-		MarsSim.increase_time_mult(remap(value[1], 0, 1, 0, 100))
-	if value[1] < 0: #Speed down on Analogue stick down
-		MarsSim.decrease_time_mult(remap(value[1], 0, -1, 0, 100))
+	const MIN_INCREMENT = -1
+	const MAX_INCREMENT = 1
+	
+	MarsSim.time_multiplier += remap(value[1], -1, 1, MIN_INCREMENT, MAX_INCREMENT)
 
 
 func _setup_xr():

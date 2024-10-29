@@ -32,6 +32,10 @@ var hmd_synchronized:bool = false
 var _mars_x_rotation : float = 0
 var _mars_y_rotation : float = 0
 
+const MIN_MARS_SCALE: float = 0.5 
+const MAX_MARS_SCALE: float = 4
+var _mars_scale:float = 1
+
 func _ready():
 	_setup_xr()
 	_setup_menu_signals()
@@ -133,7 +137,7 @@ func _on_btn_rotate_pressed():
 
 func _on_btn_scale_pressed():
 	mode = Mode.SCALE
-	Menu.slider_1_value = 0
+	Menu.slider_1_value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
 	Menu.slider_2_value = 0
 	
 	
@@ -148,6 +152,9 @@ func _on_slider_1_changed():
 		Mode.ROTATE: # Rotate on Y Axis
 			_mars_y_rotation = remap(Menu.slider_1_value, 0, 100, 0, TAU)
 			MarsSim.rotation.y = _mars_y_rotation
+		Mode.SCALE:
+			_mars_scale = remap(Menu.slider_1_value, 0, 100, MIN_MARS_SCALE, MAX_MARS_SCALE)
+			MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 		Mode.TIME:
 			MarsSim.time_multiplier = Menu.slider_1_value
 

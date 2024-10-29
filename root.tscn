@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=30 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
@@ -13,7 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bh8isvqs258cp" path="res://addons/hand_pose_detector/hand_pose_controller.tscn" id="10_f8b2n"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="11_jukpv"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="12_yetel"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="13_7iec6"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="13_032ey"]
 [ext_resource type="PackedScene" uid="uid://cr5606dp36yxi" path="res://first_person_controller.tscn" id="13_t6cym"]
+[ext_resource type="PackedScene" uid="uid://cord5w6w2wku8" path="res://main_menu.tscn" id="14_k4wel"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="14_ma0u0"]
 
 [sub_resource type="Resource" id="Resource_pkibb"]
@@ -94,7 +97,7 @@ hand_pose_set = SubResource("Resource_5d1y3")
 
 [node name="PointCollider" type="AnimatableBody3D" parent="XROrigin3D/LeftHandTrack"]
 transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.0109517, 0.0894287, 0.0182167)
-collision_layer = 2
+collision_layer = 256
 collision_mask = 0
 sync_to_physics = false
 
@@ -122,7 +125,7 @@ hand_pose_set = SubResource("Resource_5d1y3")
 
 [node name="PointCollider" type="AnimatableBody3D" parent="XROrigin3D/RightHandTrack"]
 transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.0109517, 0.0894287, 0.0182167)
-collision_layer = 2
+collision_layer = 256
 collision_mask = 0
 sync_to_physics = false
 
@@ -140,6 +143,8 @@ tracker = &"right_hand"
 script = ExtResource("3_pcsj8")
 grab_distance = 0.1
 ranged_enable = false
+
+[node name="FunctionPointer" parent="XROrigin3D/RightPhysicalController" instance=ExtResource("13_7iec6")]
 
 [node name="LeftPhysicalController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
@@ -163,6 +168,12 @@ tracker = &"/user/hand_pose_controller/left"
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftGestureController"]
 script = ExtResource("3_pcsj8")
 pickup_axis_action = "pinch"
+
+[node name="MainMenu" parent="." instance=ExtResource("13_032ey")]
+transform = Transform3D(0.0645364, 0, 0.0763875, 0, 0.1, 0, -0.0763875, 0, 0.0645364, -0.379958, 1, -0.408904)
+scene = ExtResource("14_k4wel")
+viewport_size = Vector2(400, 200)
+scene_properties_keys = PackedStringArray("main_menu.gd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)

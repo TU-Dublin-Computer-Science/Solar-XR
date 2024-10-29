@@ -161,7 +161,6 @@ func _add_trail_obj(planetoid:Node3D, planetoid_radius:float, trail: Array):
 	planet_parent.add_child(trail_object) 
 	trail_object.scale *= planetoid_radius/1 #Scale to half size of planetoid
 	trail_object.position = planetoid.position
-	print(trail_object.global_position)
 
 func _on_draw_trail_timeout() -> void:
 	_add_trail_obj(phobos, PHOBOS_RADIUS, _phobos_trail)

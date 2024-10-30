@@ -30,9 +30,11 @@ layout_mode = 2
 
 [node name="Slider1" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+editable = false
 
 [node name="Slider2" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+editable = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2

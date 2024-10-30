@@ -128,36 +128,46 @@ func _setup_menu_signals():
 func _on_btn_move_pressed():
 	mode = Mode.MOVE
 	PickableMars.enabled = true  # Enable Pickable
-	Menu.slider_1_value = 0
-	Menu.slider_2_value = 0
+	Menu.Slider1.editable = false
+	Menu.Slider2.editable = false
+	Menu.Slider1.value = 0
+	Menu.Slider2.value = 0
 
 
 func _on_btn_rotate_pressed():
 	mode = Mode.ROTATE
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.slider_1_value = remap(_mars_y_rotation, 0, TAU, 0, 100)
-	Menu.slider_2_value = remap(_mars_x_rotation, 0, TAU, 0, 100)
+	Menu.Slider1.editable = true
+	Menu.Slider2.editable = true
+	Menu.Slider1.value = remap(_mars_y_rotation, 0, TAU, 0, 100)
+	Menu.Slider2.value = remap(_mars_x_rotation, 0, TAU, 0, 100)
 
 
 func _on_btn_scale_pressed():
 	mode = Mode.SCALE
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.slider_1_value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
-	Menu.slider_2_value = 0
+	Menu.Slider1.editable = true
+	Menu.Slider2.editable = false
+	Menu.Slider1.value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
+	Menu.Slider2.value = 0
 	
 	
 func _on_btn_time_pressed():
 	mode = Mode.TIME
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.slider_1_value = MarsSim.time_multiplier
-	Menu.slider_2_value = 0
+	Menu.Slider1.editable = true
+	Menu.Slider2.editable = false
+	Menu.Slider1.value = MarsSim.time_multiplier
+	Menu.Slider2.value = 0
 
 
 func _on_btn_reset_pressed():
 	mode = Mode.DEFAULT	
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.slider_1_value = 0
-	Menu.slider_2_value = 0
+	Menu.Slider1.editable = false
+	Menu.Slider2.editable = false
+	Menu.Slider1.value = 0
+	Menu.Slider2.value = 0
 	
 	PickableMars.position = DEFAULT_MARS_POS
 	
@@ -176,19 +186,19 @@ func _on_btn_reset_pressed():
 func _on_slider_1_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on Y Axis
-			_mars_y_rotation = remap(Menu.slider_1_value, 0, 100, 0, TAU)
+			_mars_y_rotation = remap(Menu.Slider1.value, 0, 100, 0, TAU)
 			MarsSim.rotation.y = _mars_y_rotation
 		Mode.SCALE:
-			_mars_scale = remap(Menu.slider_1_value, 0, 100, MIN_MARS_SCALE, MAX_MARS_SCALE)
+			_mars_scale = remap(Menu.Slider1.value, 0, 100, MIN_MARS_SCALE, MAX_MARS_SCALE)
 			MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 		Mode.TIME:
-			MarsSim.time_multiplier = Menu.slider_1_value
+			MarsSim.time_multiplier = Menu.Slider1.value
 
 
 func _on_slider_2_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on X Axis
-			_mars_x_rotation = remap(Menu.slider_2_value, 0, 100, 0, TAU)
+			_mars_x_rotation = remap(Menu.Slider2.value, 0, 100, 0, TAU)
 			MarsSim.rotation.x = _mars_x_rotation
 
 

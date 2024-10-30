@@ -8,15 +8,8 @@ signal btn_reset_pressed
 signal slider_1_changed
 signal slider_2_changed
 
-var slider_1_value : float:
-	set(value):
-		slider_1_value = value
-		$ColorRect/MarginContainer/VBoxContainer/Slider1.value = value
-
-var slider_2_value : float:
-	set(value):
-		slider_2_value = value
-		$ColorRect/MarginContainer/VBoxContainer/Slider2.value = value
+@onready var Slider1 = $ColorRect/MarginContainer/VBoxContainer/Slider1
+@onready var Slider2 = $ColorRect/MarginContainer/VBoxContainer/Slider2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,10 +42,8 @@ func _on_btn_reset_pressed() -> void:
 	
 
 func _on_slider_1_value_changed(value: float) -> void:
-	slider_1_value = value
 	emit_signal("slider_1_changed")
 
 
 func _on_slider_2_value_changed(value: float) -> void:
-	slider_2_value = value
 	emit_signal("slider_2_changed")

@@ -178,9 +178,7 @@ func _on_btn_reset_pressed():
 	_mars_scale = DEFAULT_MARS_SCALE
 	MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 	
-	MarsSim.time_multiplier = 0
-	MarsSim.elapsed_real_secs = 0
-	MarsSim.elapsed_simulated_secs = 0
+	MarsSim.reset_sim()
 
 
 func _on_slider_1_changed():

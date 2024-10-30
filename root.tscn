@@ -191,7 +191,8 @@ text = "UI"
 horizontal_alignment = 0
 
 [node name="PickableMars" parent="." instance=ExtResource("14_ma0u0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30539, -2.1638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
+freeze_mode = 0
 enabled = false
 
 [connection signal="pose_ended" from="XROrigin3D/LeftHandTrack/LeftHandPoseController" to="." method="_on_left_hand_pose_controller_pose_ended"]

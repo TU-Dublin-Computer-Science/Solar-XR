@@ -4,6 +4,7 @@ signal btn_move_pressed
 signal btn_rotate_pressed
 signal btn_scale_pressed
 signal btn_time_pressed
+signal btn_reset_pressed
 signal slider_1_changed
 signal slider_2_changed
 
@@ -39,8 +40,12 @@ func _on_btn_scale_pressed() -> void:
 	emit_signal("btn_scale_pressed")
 
 
-func _on_time_pressed() -> void:
+func _on_btn_time_pressed() -> void:
 	emit_signal("btn_time_pressed")
+
+
+func _on_btn_reset_pressed() -> void:
+	emit_signal("btn_reset_pressed")
 	
 
 func _on_slider_1_value_changed(value: float) -> void:

@@ -12,13 +12,11 @@ var mode:Mode = Mode.DEFAULT
 
 var xr_interface: XRInterface
 @onready var viewport : Viewport = get_viewport()
-
 @onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
 var hmd_synchronized:bool = false
 
 @onready var PickableMars = $PickableMars
 @onready var MarsSim = $PickableMars/MarsSim
-
 @onready var RightGestureController = $XROrigin3D/RightGestureController
 @onready var LeftGestureController = $XROrigin3D/LeftGestureController
 @onready var LeftPointCollider = $XROrigin3D/LeftHandTrack/PointCollider
@@ -29,13 +27,15 @@ var hmd_synchronized:bool = false
 @onready var DebugButton = $DebugToggle
 @onready var Menu = $MainMenu/Viewport/MainMenu
 
+const MIN_MARS_SCALE: float = 0.5 
+const MAX_MARS_SCALE: float = 4
+const DEFAULT_MARS_SCALE: float = 1
+const DEFAULT_MARS_POS = Vector3(0, 1.5, -2)
+
 # Rotation stored in radians (0 - TAU) 
 var _mars_x_rotation : float = 0
 var _mars_y_rotation : float = 0
-
-const MIN_MARS_SCALE: float = 0.5 
-const MAX_MARS_SCALE: float = 4
-var _mars_scale:float = 1
+var _mars_scale:float = DEFAULT_MARS_SCALE
 
 func _ready():
 	_setup_xr()
@@ -120,6 +120,7 @@ func _setup_menu_signals():
 	Menu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
 	Menu.btn_scale_pressed.connect(_on_btn_scale_pressed)
 	Menu.btn_time_pressed.connect(_on_btn_time_pressed)
+	Menu.btn_reset_pressed.connect(_on_btn_reset_pressed)
 	Menu.slider_1_changed.connect(_on_slider_1_changed)
 	Menu.slider_2_changed.connect(_on_slider_2_changed)
 
@@ -150,6 +151,26 @@ func _on_btn_time_pressed():
 	PickableMars.enabled = false  # Disable Pickable
 	Menu.slider_1_value = MarsSim.time_multiplier
 	Menu.slider_2_value = 0
+
+
+func _on_btn_reset_pressed():
+	mode = Mode.DEFAULT	
+	PickableMars.enabled = false  # Disable Pickable
+	Menu.slider_1_value = 0
+	Menu.slider_2_value = 0
+	
+	PickableMars.position = DEFAULT_MARS_POS
+	
+	_mars_x_rotation = 0
+	_mars_y_rotation = 0
+	MarsSim.rotation = Vector3(0,0,0)
+	
+	_mars_scale = DEFAULT_MARS_SCALE
+	MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
+	
+	MarsSim.time_multiplier = 0
+	MarsSim.elapsed_real_secs = 0
+	MarsSim.elapsed_simulated_secs = 0
 
 
 func _on_slider_1_changed():

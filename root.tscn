@@ -186,7 +186,7 @@ visible = false
 collision_mask = 0
 
 [node name="UI" type="Label3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.131934, 1.12256, -0.826545)
+transform = Transform3D(0.130191, 0.00091144, 0.15182, -0.000462449, 0.199998, -0.000804105, -0.151822, 0.000172394, 0.130192, -0.488, 1.291, -0.328)
 text = "UI"
 horizontal_alignment = 0
 

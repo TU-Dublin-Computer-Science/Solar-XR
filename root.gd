@@ -57,13 +57,7 @@ func _input(event: InputEvent) -> void:
 func _handle_continuous_input(delta:float) -> void:
 	const KEY_TIME_INCREMENT = 30
 	const GESTURE_TIME_INCREMENT = 60
-	
-	#Keyboard input
-	if Input.is_action_pressed("speed_up"):
-		MarsSim.time_multiplier += KEY_TIME_INCREMENT * delta
-	elif Input.is_action_pressed("speed_down"):
-		MarsSim.time_multiplier -= KEY_TIME_INCREMENT * delta
-	
+		
 	#Gesture Control
 	if RightGestureController.is_button_pressed("speed_up"):
 		MarsSim.time_multiplier += GESTURE_TIME_INCREMENT * delta

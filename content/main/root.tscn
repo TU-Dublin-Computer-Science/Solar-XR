@@ -173,7 +173,7 @@ pickup_axis_action = "pinch"
 transform = Transform3D(0.0645364, 0, 0.0763875, 0, 0.1, 0, -0.0763875, 0, 0.0645364, -0.379958, 1, -0.408904)
 scene = ExtResource("14_k4wel")
 viewport_size = Vector2(400, 200)
-scene_properties_keys = PackedStringArray()
+scene_properties_keys = PackedStringArray("main_menu.gd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)

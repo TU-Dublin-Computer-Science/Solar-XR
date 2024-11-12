@@ -37,23 +37,28 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="BtnMove" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0895472, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117744, 0, 0)
 label = "Move"
 
 [node name="BtnRotate" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299847, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591714, 0, 0)
 label = "Rotate"
 
 [node name="BtnScale" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0301963, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00237435, 0, 0)
 label = "Scale"
 
 [node name="BtnTime" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0866156, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0633705, 0, 0)
 label = "Time"
+
+[node name="BtnReset" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, 0, 0)
+label = "Reset"
 
 [node name="Slider1" parent="." instance=ExtResource("4_unrd5")]
 unique_name_in_owner = true

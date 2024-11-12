@@ -30,7 +30,7 @@ const PHOBOS_ROT_PERIOD = 27553.824
 const PHOBOS_ORBIT_INCLINATION = 1.08
 	# Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
-const PhobosScn = preload("res://phobos.tscn")
+const PhobosScn = preload("res://content/simulation/phobos.tscn")
 var _phobos
 var _phobos_initial_pos: Vector3
 var _phobos_initial_rot: Vector3
@@ -47,7 +47,7 @@ const DEIMOS_ROT_PERIOD = 109074.816
 const DEIMOS_ORBIT_INCLINATION = 1.79
 	# Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
 const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
-const DeimosScn = preload("res://deimos.tscn")
+const DeimosScn = preload("res://content/simulation/deimos.tscn")
 var _deimos
 var _deimos_initial_pos: Vector3
 var _deimos_initial_rot: Vector3 
@@ -71,7 +71,7 @@ var _time_multiplier = 1
 var _start_time: float = 0.0
 
 # Trails
-const TrailObjectScn = preload("res://trail_object.tscn")
+const TrailObjectScn = preload("res://content/simulation/trail_object.tscn")
 const TRAIL_LEN = 5
 
 @export var debug_mode : bool = false:

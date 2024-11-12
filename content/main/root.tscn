@@ -1,12 +1,12 @@
 [gd_scene load_steps=30 format=3 uid="uid://2xng5iqxysgp"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_2sdjv"]
+[ext_resource type="Script" path="res://content/main/root.gd" id="1_2sdjv"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_pcsj8"]
 [ext_resource type="Resource" uid="uid://sy66yqr1xila" path="res://addons/hand_pose_detector/poses/thumbs_up.tres" id="5_h5gaj"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="5_js7qx"]
 [ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="6_hiken"]
 [ext_resource type="Resource" uid="uid://ceofxcl7q122" path="res://addons/hand_pose_detector/poses/point.tres" id="6_m85pr"]
-[ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://detector.tscn" id="7_poqji"]
+[ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://content/main/detector.tscn" id="7_poqji"]
 [ext_resource type="Resource" uid="uid://n6qmsq57l1g4" path="res://addons/hand_pose_detector/poses/index_pinch.tres" id="7_vi0wi"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose.gd" id="7_ynvfr"]
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="9_gysg0"]
@@ -15,8 +15,8 @@
 [ext_resource type="Script" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="12_yetel"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="13_7iec6"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="13_032ey"]
-[ext_resource type="PackedScene" uid="uid://cord5w6w2wku8" path="res://main_menu.tscn" id="14_k4wel"]
-[ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://pickable_mars.tscn" id="14_ma0u0"]
+[ext_resource type="PackedScene" uid="uid://cord5w6w2wku8" path="res://content/main/main_menu.tscn" id="14_k4wel"]
+[ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://content/main/pickable_mars.tscn" id="14_ma0u0"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="18_acbh5"]
 
 [sub_resource type="Resource" id="Resource_pkibb"]
@@ -173,7 +173,7 @@ pickup_axis_action = "pinch"
 transform = Transform3D(0.0645364, 0, 0.0763875, 0, 0.1, 0, -0.0763875, 0, 0.0645364, -0.379958, 1, -0.408904)
 scene = ExtResource("14_k4wel")
 viewport_size = Vector2(400, 200)
-scene_properties_keys = PackedStringArray("main_menu.gd")
+scene_properties_keys = PackedStringArray()
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)

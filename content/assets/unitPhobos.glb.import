@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1le2yoyr8p74"
-path="res://.godot/imported/unitPhobos.glb-b120adc69b8c6f5f9614c10ab592983a.scn"
+path="res://.godot/imported/unitPhobos.glb-9eee8eed5f17d26bfbc83488e42a53ac.scn"
 
 [deps]
 
-source_file="res://assets/unitPhobos.glb"
-dest_files=["res://.godot/imported/unitPhobos.glb-b120adc69b8c6f5f9614c10ab592983a.scn"]
+source_file="res://content/assets/unitPhobos.glb"
+dest_files=["res://.godot/imported/unitPhobos.glb-9eee8eed5f17d26bfbc83488e42a53ac.scn"]
 
 [params]
 

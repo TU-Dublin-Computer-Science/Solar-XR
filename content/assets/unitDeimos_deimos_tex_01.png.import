@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4jcuw3yas6jr"
-path.s3tc="res://.godot/imported/unitPhobos_phobos_tex_01.png-1443d6b9e4be427c64a5c3709a2892f0.s3tc.ctex"
-path.etc2="res://.godot/imported/unitPhobos_phobos_tex_01.png-1443d6b9e4be427c64a5c3709a2892f0.etc2.ctex"
+uid="uid://dklifeps5e6nt"
+path.s3tc="res://.godot/imported/unitDeimos_deimos_tex_01.png-d6bb639c4b20dbaa1ce87a5411c8d3ba.s3tc.ctex"
+path.etc2="res://.godot/imported/unitDeimos_deimos_tex_01.png-d6bb639c4b20dbaa1ce87a5411c8d3ba.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "13fcc6a345242a8089d16929edfe55cc"
+"md5": "2a47b2a454dd7cd3529093bcfbef00d8"
 }
 
 [deps]
 
-source_file="res://assets/unitPhobos_phobos_tex_01.png"
-dest_files=["res://.godot/imported/unitPhobos_phobos_tex_01.png-1443d6b9e4be427c64a5c3709a2892f0.s3tc.ctex", "res://.godot/imported/unitPhobos_phobos_tex_01.png-1443d6b9e4be427c64a5c3709a2892f0.etc2.ctex"]
+source_file="res://content/assets/unitDeimos_deimos_tex_01.png"
+dest_files=["res://.godot/imported/unitDeimos_deimos_tex_01.png-d6bb639c4b20dbaa1ce87a5411c8d3ba.s3tc.ctex", "res://.godot/imported/unitDeimos_deimos_tex_01.png-d6bb639c4b20dbaa1ce87a5411c8d3ba.etc2.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh4gsv5a7oepo"]
 
-[ext_resource type="Script" path="res://detector.gd" id="1_evuba"]
+[ext_resource type="Script" path="res://content/main/detector.gd" id="1_evuba"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eemp4"]
 size = Vector3(0.1, 0.1, 0.1)

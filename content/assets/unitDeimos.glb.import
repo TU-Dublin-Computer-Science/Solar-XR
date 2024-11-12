@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2ptq5cs2re38"
-path="res://.godot/imported/unitDeimos.glb-817866fadae096d5bc6985ccaccfff09.scn"
+path="res://.godot/imported/unitDeimos.glb-2f3664d7d4b70e0e4b45ef7d6516e101.scn"
 
 [deps]
 
-source_file="res://assets/unitDeimos.glb"
-dest_files=["res://.godot/imported/unitDeimos.glb-817866fadae096d5bc6985ccaccfff09.scn"]
+source_file="res://content/assets/unitDeimos.glb"
+dest_files=["res://.godot/imported/unitDeimos.glb-2f3664d7d4b70e0e4b45ef7d6516e101.scn"]
 
 [params]
 

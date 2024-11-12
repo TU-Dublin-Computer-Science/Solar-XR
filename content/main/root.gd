@@ -15,7 +15,6 @@ var xr_interface: XRInterface
 @onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
 var hmd_synchronized:bool = false
 
-@onready var PickableMars = $PickableMars
 @onready var MarsSim = $PickableMars/MarsSim
 @onready var RightGestureController = $XROrigin3D/RightGestureController
 @onready var LeftGestureController = $XROrigin3D/LeftGestureController
@@ -108,7 +107,7 @@ func _setup_menu_signals():
 
 func _on_btn_move_pressed():
 	mode = Mode.MOVE
-	PickableMars.enabled = true  # Enable Pickable
+	%PickableMars/Movable.disabled = false
 	%MainMenu/Slider1.visible = false
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = 0
@@ -117,7 +116,7 @@ func _on_btn_move_pressed():
 
 func _on_btn_rotate_pressed():
 	mode = Mode.ROTATE
-	PickableMars.enabled = false  # Disable Pickable
+	%PickableMars/Movable.disabled = true
 	%MainMenu/Slider1.visible = true
 	%MainMenu/Slider2.visible = true
 	%MainMenu/Slider1.value = remap(_mars_y_rotation, 0, TAU, 0, 100)
@@ -126,7 +125,7 @@ func _on_btn_rotate_pressed():
 
 func _on_btn_scale_pressed():
 	mode = Mode.SCALE
-	PickableMars.enabled = false  # Disable Pickable
+	%PickableMars/Movable.disabled = true
 	%MainMenu/Slider1.visible = true
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
@@ -135,7 +134,7 @@ func _on_btn_scale_pressed():
 	
 func _on_btn_time_pressed():
 	mode = Mode.TIME
-	PickableMars.enabled = false  # Disable Pickable
+	%PickableMars/Movable.disabled = true
 	%MainMenu/Slider1.visible = true
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = MarsSim.time_multiplier
@@ -144,13 +143,13 @@ func _on_btn_time_pressed():
 
 func _on_btn_reset_pressed():
 	mode = Mode.DEFAULT	
-	PickableMars.enabled = false  # Disable Pickable
+	%PickableMars/Movable.disabled = true
 	%MainMenu/Slider1.visible = false
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = 0
 	%MainMenu/Slider2.value = 0
 	
-	PickableMars.position = DEFAULT_MARS_POS
+	%PickableMars.position = DEFAULT_MARS_POS
 	
 	_mars_x_rotation = 0
 	_mars_y_rotation = 0

@@ -63,6 +63,7 @@ label = "Reset"
 [node name="Slider1" parent="." instance=ExtResource("4_unrd5")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0918411, 0)
+visible = false
 max = 100.0
 value = 0.0
 step = 1.0
@@ -70,6 +71,7 @@ step = 1.0
 [node name="Slider2" parent="." instance=ExtResource("4_unrd5")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000531379, 0.0504638, -1.52886e-05)
+visible = false
 max = 100.0
 value = 0.0
 step = 1.0

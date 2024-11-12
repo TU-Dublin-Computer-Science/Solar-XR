@@ -37,9 +37,8 @@ text = "UI"
 horizontal_alignment = 0
 
 [node name="PickableMars" parent="." instance=ExtResource("14_ma0u0")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
-freeze_mode = 0
-enabled = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("9_glo23")

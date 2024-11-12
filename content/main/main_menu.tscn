@@ -1,73 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://cord5w6w2wku8"]
+[gd_scene load_steps=8 format=3 uid="uid://31h07126r0qd"]
 
+[ext_resource type="Shader" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" path="res://content/main/main_menu.gd" id="1_dyq8q"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/immersive-home-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
+[ext_resource type="PackedScene" uid="uid://pk5k1q8bx0rj" path="res://addons/immersive-home-ui/content/ui/components/slider/slider.tscn" id="4_unrd5"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
+render_priority = 0
+shader = ExtResource("1_cyyat")
+shader_parameter/color = Color(1, 1, 1, 0.3)
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/border_size = 0.001
+shader_parameter/border_fade_in = 0.005
+shader_parameter/border_fade_out = 0.0
+shader_parameter/corner_radius = 0.04
+shader_parameter/roughness = 0.3
+shader_parameter/grain_amount = 0.02
+
+[sub_resource type="QuadMesh" id="QuadMesh_q0bqu"]
+size = Vector2(0.4, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60yw7"]
+size = Vector3(0.4, 0.3, 0.01)
+
+[node name="MainMenu" type="StaticBody3D"]
 script = ExtResource("1_dyq8q")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 391.0
-offset_bottom = 77.0
-color = Color(0.196078, 0.607843, 0.301961, 0.509804)
+[node name="Background" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_mw4vq")
+mesh = SubResource("QuadMesh_q0bqu")
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_60yw7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
-layout_mode = 2
+[node name="BtnMove" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0895472, 0, 0)
+label = "Move"
 
-[node name="Slider1" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-editable = false
+[node name="BtnRotate" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299847, 0, 0)
+label = "Rotate"
 
-[node name="Slider2" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-editable = false
+[node name="BtnScale" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0301963, 0, 0)
+label = "Scale"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="BtnTime" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0866156, 0, 0)
+label = "Time"
 
-[node name="BtnMove" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Move"
+[node name="Slider1" parent="." instance=ExtResource("4_unrd5")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0918411, 0)
+max = 100.0
+value = 0.0
+step = 1.0
 
-[node name="BtnRotate" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Rotate"
-
-[node name="BtnScale" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Scale"
-
-[node name="Time" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Time
-"
-
-[node name="Reset" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Reset"
-
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider1" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider1" to="." method="_on_slider_1_value_changed"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider2" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider2" to="." method="_on_slider_2_value_changed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/BtnMove" to="." method="_on_btn_move_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/BtnRotate" to="." method="_on_btn_rotate_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/BtnScale" to="." method="_on_btn_scale_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Time" to="." method="_on_btn_time_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Reset" to="." method="_on_btn_reset_pressed"]
+[node name="Slider2" parent="." instance=ExtResource("4_unrd5")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000531379, 0.0504638, -1.52886e-05)
+max = 100.0
+value = 0.0
+step = 1.0

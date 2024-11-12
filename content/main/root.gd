@@ -25,7 +25,6 @@ var hmd_synchronized:bool = false
 @onready var LeftPhysicalController = $XROrigin3D/LeftPhysicalController
 @onready var UIText = $UI
 @onready var DebugButton = $DebugToggle
-@onready var Menu = $MainMenu/Viewport/MainMenu
 
 const MIN_MARS_SCALE: float = 0.5 
 const MAX_MARS_SCALE: float = 4
@@ -98,58 +97,58 @@ func _sync_headset_orientation():
 
 
 func _setup_menu_signals():
-	Menu.btn_move_pressed.connect(_on_btn_move_pressed)
-	Menu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
-	Menu.btn_scale_pressed.connect(_on_btn_scale_pressed)
-	Menu.btn_time_pressed.connect(_on_btn_time_pressed)
-	Menu.btn_reset_pressed.connect(_on_btn_reset_pressed)
-	Menu.slider_1_changed.connect(_on_slider_1_changed)
-	Menu.slider_2_changed.connect(_on_slider_2_changed)
+	%MainMenu.btn_move_pressed.connect(_on_btn_move_pressed)
+	%MainMenu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
+	%MainMenu.btn_scale_pressed.connect(_on_btn_scale_pressed)
+	%MainMenu.btn_time_pressed.connect(_on_btn_time_pressed)
+	%MainMenu.btn_reset_pressed.connect(_on_btn_reset_pressed)
+	%MainMenu.slider_1_changed.connect(_on_slider_1_changed)
+	%MainMenu.slider_2_changed.connect(_on_slider_2_changed)
 
 
 func _on_btn_move_pressed():
 	mode = Mode.MOVE
 	PickableMars.enabled = true  # Enable Pickable
-	Menu.Slider1.editable = false
-	Menu.Slider2.editable = false
-	Menu.Slider1.value = 0
-	Menu.Slider2.value = 0
+	%MainMenu/Slider1.visible = false
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = 0
+	%MainMenu/Slider2.value = 0
 
 
 func _on_btn_rotate_pressed():
 	mode = Mode.ROTATE
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.Slider1.editable = true
-	Menu.Slider2.editable = true
-	Menu.Slider1.value = remap(_mars_y_rotation, 0, TAU, 0, 100)
-	Menu.Slider2.value = remap(_mars_x_rotation, 0, TAU, 0, 100)
+	%MainMenu/Slider1.visible = true
+	%MainMenu/Slider2.visible = true
+	%MainMenu/Slider1.value = remap(_mars_y_rotation, 0, TAU, 0, 100)
+	%MainMenu/Slider2.value = remap(_mars_x_rotation, 0, TAU, 0, 100)
 
 
 func _on_btn_scale_pressed():
 	mode = Mode.SCALE
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.Slider1.editable = true
-	Menu.Slider2.editable = false
-	Menu.Slider1.value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
-	Menu.Slider2.value = 0
+	%MainMenu/Slider1.visible = true
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
+	%MainMenu/Slider2.value = 0
 	
 	
 func _on_btn_time_pressed():
 	mode = Mode.TIME
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.Slider1.editable = true
-	Menu.Slider2.editable = false
-	Menu.Slider1.value = MarsSim.time_multiplier
-	Menu.Slider2.value = 0
+	%MainMenu/Slider1.visible = true
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = MarsSim.time_multiplier
+	%MainMenu/Slider2.value = 0
 
 
 func _on_btn_reset_pressed():
 	mode = Mode.DEFAULT	
 	PickableMars.enabled = false  # Disable Pickable
-	Menu.Slider1.editable = false
-	Menu.Slider2.editable = false
-	Menu.Slider1.value = 0
-	Menu.Slider2.value = 0
+	%MainMenu/Slider1.visible = false
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = 0
+	%MainMenu/Slider2.value = 0
 	
 	PickableMars.position = DEFAULT_MARS_POS
 	
@@ -166,19 +165,19 @@ func _on_btn_reset_pressed():
 func _on_slider_1_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on Y Axis
-			_mars_y_rotation = remap(Menu.Slider1.value, 0, 100, 0, TAU)
+			_mars_y_rotation = remap(%MainMenu/Slider1.value, 0, 100, 0, TAU)
 			MarsSim.rotation.y = _mars_y_rotation
 		Mode.SCALE:
-			_mars_scale = remap(Menu.Slider1.value, 0, 100, MIN_MARS_SCALE, MAX_MARS_SCALE)
+			_mars_scale = remap(%MainMenu/Slider1.value, 0, 100, MIN_MARS_SCALE, MAX_MARS_SCALE)
 			MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 		Mode.TIME:
-			MarsSim.time_multiplier = Menu.Slider1.value
+			MarsSim.time_multiplier = %MainMenu/Slider1.value
 
 
 func _on_slider_2_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on X Axis
-			_mars_x_rotation = remap(Menu.Slider2.value, 0, 100, 0, TAU)
+			_mars_x_rotation = remap(%MainMenu/Slider2.value, 0, 100, 0, TAU)
 			MarsSim.rotation.x = _mars_x_rotation
 
 

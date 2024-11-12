@@ -3,3 +3,9 @@
 .godot/
 /android/
 
+# Godot-specific ignores
+.import/
+export.cfg
+
+# Tmp Files
+*.tmp

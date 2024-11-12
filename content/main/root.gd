@@ -44,7 +44,6 @@ func _ready():
 
 func _process(delta):	
 	_sync_headset_orientation()
-	_handle_continuous_input(delta)
 	_update_ui(MarsSim.get_real_time_mult(), MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
 
 
@@ -52,17 +51,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_debug"):
 		MarsSim.toggle_debug_mode()
 		DebugButton.state = MarsSim.debug_mode
-
-
-func _handle_continuous_input(delta:float) -> void:
-	const KEY_TIME_INCREMENT = 30
-	const GESTURE_TIME_INCREMENT = 60
-		
-	#Gesture Control
-	if RightGestureController.is_button_pressed("speed_up"):
-		MarsSim.time_multiplier += GESTURE_TIME_INCREMENT * delta
-	if LeftGestureController.is_button_pressed("speed_down"):
-		MarsSim.time_multiplier -= GESTURE_TIME_INCREMENT * delta
 
 
 func _on_openxr_pose_recentered() -> void:

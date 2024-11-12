@@ -62,10 +62,10 @@ text = "Time
 layout_mode = 2
 text = "Reset"
 
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider1" to="." method="_on_slider_1_value_changed"]
 [connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider1" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider2" to="." method="_on_slider_2_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider1" to="." method="_on_slider_1_value_changed"]
 [connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider2" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Slider2" to="." method="_on_slider_2_value_changed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/BtnMove" to="." method="_on_btn_move_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/BtnRotate" to="." method="_on_btn_rotate_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/BtnScale" to="." method="_on_btn_scale_pressed"]

@@ -1,0 +1,12 @@
+# Blender 3.4.0 MTL File: 'ray.blend'
+# www.blender.org
+
+newmtl Material.001
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 1
+map_Kd ray.png
+map_d ray.png

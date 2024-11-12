@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=10 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://content/main/root.gd" id="1_2sdjv"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/immersive-home-ui/content/system/controller_right/controller_right.tscn" id="2_kvwgy"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/immersive-home-ui/content/system/controller_left/controller_left.tscn" id="3_4l7ve"]
 [ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://content/main/detector.tscn" id="7_poqji"]
+[ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/immersive-home-ui/assets/environment_passthrough.tres" id="9_glo23"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="13_032ey"]
 [ext_resource type="PackedScene" uid="uid://cord5w6w2wku8" path="res://content/main/main_menu.tscn" id="14_k4wel"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://content/main/pickable_mars.tscn" id="14_ma0u0"]
@@ -48,5 +49,8 @@ freeze_mode = 0
 enabled = false
 
 [node name="XRSimulator" parent="." instance=ExtResource("18_acbh5")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("9_glo23")
 
 [connection signal="toggledSignal" from="DebugToggle" to="." method="_on_debug_toggle_toggled_signal"]

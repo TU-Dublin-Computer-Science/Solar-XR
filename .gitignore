@@ -9,3 +9,7 @@ export_presets.cfg
 
 # Tmp Files
 *.tmp
+
+# Project
+addons/debug_draw_3d
+addons/godotopenxrvendors

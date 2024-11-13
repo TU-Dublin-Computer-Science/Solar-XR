@@ -85,6 +85,7 @@ func _sync_headset_orientation():
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
 
+<<<<<<< HEAD
 func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
 	%MainMenu/BtnLeft.visible = left_right
 	%MainMenu/BtnLeft.disabled = not left_right
@@ -97,6 +98,67 @@ func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
 	
 	%MainMenu/BtnDown.visible = up_down
 	%MainMenu/BtnDown.disabled = not up_down
+=======
+
+func _setup_menu_signals():
+	%MainMenu.btn_move_pressed.connect(_on_btn_move_pressed)
+	%MainMenu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
+	%MainMenu.btn_scale_pressed.connect(_on_btn_scale_pressed)
+	%MainMenu.btn_time_pressed.connect(_on_btn_time_pressed)
+	%MainMenu.btn_reset_pressed.connect(_on_btn_reset_pressed)
+
+
+func _on_btn_move_pressed():
+	mode = Mode.MOVE
+	%PickableMars/Movable.disabled = false
+	"""
+	%MainMenu/Slider1.visible = false
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = 0
+	%MainMenu/Slider2.value = 0
+	"""
+
+func _on_btn_rotate_pressed():
+	mode = Mode.ROTATE
+	%PickableMars/Movable.disabled = true
+	"""
+	%MainMenu/Slider1.visible = true
+	%MainMenu/Slider2.visible = true
+	%MainMenu/Slider1.value = remap(_mars_y_rotation, 0, TAU, 0, 100)
+	%MainMenu/Slider2.value = remap(_mars_x_rotation, 0, TAU, 0, 100)
+	"""
+
+func _on_btn_scale_pressed():
+	mode = Mode.SCALE
+	%PickableMars/Movable.disabled = true
+	"""
+	%MainMenu/Slider1.visible = true
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
+	%MainMenu/Slider2.value = 0
+	"""
+	
+func _on_btn_time_pressed():
+	mode = Mode.TIME
+	%PickableMars/Movable.disabled = true
+	"""
+	%MainMenu/Slider1.visible = true
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = MarsSim.time_multiplier
+	%MainMenu/Slider2.value = 0
+	"""
+
+func _on_btn_reset_pressed():
+	mode = Mode.DEFAULT	
+	%PickableMars/Movable.disabled = true
+	"""
+	%MainMenu/Slider1.visible = false
+	%MainMenu/Slider2.visible = false
+	%MainMenu/Slider1.value = 0
+	%MainMenu/Slider2.value = 0
+	"""
+	%PickableMars.position = DEFAULT_MARS_POS
+>>>>>>> 0206909455c9d71e434bf73f007fe7ffe8a15855
 	
 	%MainMenu/BtnForward.visible = forward_back
 	%MainMenu/BtnForward.disabled = not forward_back
@@ -107,6 +169,7 @@ func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
 
 func _setup_btn_presses():
 	
+<<<<<<< HEAD
 	%MainMenu/BtnMove.on_button_up.connect(func():
 		mode = Mode.MOVE
 		
@@ -224,6 +287,30 @@ func _handle_button_holding(delta: float):
 											DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
 											DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
 	
+=======
+	MarsSim.reset_sim()
+
+
+func _on_slider_1_changed():
+	match mode:
+		Mode.ROTATE: # Rotate on Y Axis
+			#_mars_y_rotation = remap(%MainMenu/Slider1.value, 0, 100, 0, TAU)
+			MarsSim.rotation.y = _mars_y_rotation
+		Mode.SCALE:
+			#_mars_scale = remap(%MainMenu/Slider1.value, 0, 100, MIN_MARS_SCALE, MAX_MARS_SCALE)
+			MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
+		Mode.TIME:
+			pass
+			#MarsSim.time_multiplier = %MainMenu/Slider1.value
+
+"""
+func _on_slider_2_changed():
+	match mode:
+		Mode.ROTATE: # Rotate on X Axis
+			_mars_x_rotation = remap(%MainMenu/Slider2.value, 0, 100, 0, TAU)
+			MarsSim.rotation.x = _mars_x_rotation
+"""
+>>>>>>> 0206909455c9d71e434bf73f007fe7ffe8a15855
 
 func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
 	var sim_speed_text = "Sim Speed: %.0fx" % simulation_speed

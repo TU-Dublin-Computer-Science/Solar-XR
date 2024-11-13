@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=6 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" path="res://addons/mars-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://31h07126r0qd"]
+
+[ext_resource type="Shader" path="res://addons/mars-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
+[ext_resource type="Script" path="res://content/main/main_menu.gd" id="1_dyq8q"]
+>>>>>>> 0206909455c9d71e434bf73f007fe7ffe8a15855
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
@@ -56,6 +63,7 @@ label = "Time"
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, 0, 0)
 label = "Reset"
+<<<<<<< HEAD
 
 [node name="BtnRight" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
@@ -86,3 +94,5 @@ label = "Fwd"
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.06, 0)
 label = "Back"
+=======
+>>>>>>> 0206909455c9d71e434bf73f007fe7ffe8a15855

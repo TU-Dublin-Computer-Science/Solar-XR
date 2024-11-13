@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=7 format=3 uid="uid://31h07126r0qd"]
 
-[ext_resource type="Shader" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
+[ext_resource type="Shader" path="res://addons/mars-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" path="res://content/main/main_menu.gd" id="1_dyq8q"]
-[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/immersive-home-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
-[ext_resource type="PackedScene" uid="uid://pk5k1q8bx0rj" path="res://addons/immersive-home-ui/content/ui/components/slider/slider.tscn" id="4_unrd5"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -59,19 +58,3 @@ label = "Time"
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, 0, 0)
 label = "Reset"
-
-[node name="Slider1" parent="." instance=ExtResource("4_unrd5")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0918411, 0)
-visible = false
-max = 100.0
-value = 0.0
-step = 1.0
-
-[node name="Slider2" parent="." instance=ExtResource("4_unrd5")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000531379, 0.0504638, -1.52886e-05)
-visible = false
-max = 100.0
-value = 0.0
-step = 1.0

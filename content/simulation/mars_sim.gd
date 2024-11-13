@@ -35,7 +35,6 @@ var _phobos
 var _phobos_initial_pos: Vector3
 var _phobos_initial_rot: Vector3
 var _phobos_orbit_angle = 0.0
-var _phobos_orbit_array: PackedVector3Array #Used for drawing orbit path for debugging
 var _phobos_trail = []
 
 # Deimos
@@ -53,7 +52,6 @@ var _deimos_initial_pos: Vector3
 var _deimos_initial_rot: Vector3 
 var _deimos_orbit_angle = 0.0
 var _deimos_orbit_plane
-var _deimos_orbit_array: PackedVector3Array #Used for drawing orbit path for debugging
 var _deimos_trail = []
 
 # Time Keeping
@@ -74,13 +72,6 @@ var _start_time: float = 0.0
 const TrailObjectScn = preload("res://content/simulation/trail_object.tscn")
 const TRAIL_LEN = 5
 
-@export var debug_mode : bool = false:
-	set(state):
-		debug_mode = state
-		_toggle_debug_surfaces(state)		
-
-
-
 func _ready() -> void:
 	_start_time = Time.get_ticks_msec()	
 	
@@ -98,7 +89,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_increase_time(delta)
 	_animate_sim(delta)
-	if debug_mode: _draw_debug_gizmos(delta)
 
 
 func reset_sim() -> void:
@@ -118,10 +108,6 @@ func reset_sim() -> void:
 func get_real_time_mult() -> float:
 	return _time_multiplier
 	
-
-func toggle_debug_mode():
-	debug_mode = !debug_mode
-
 
 func _instantiate_moon(moon_scene:Resource, moon_radius:float, orbit_inclination:float, semi_major_axis:float):
 	"""Returns an instantiated moon object that is a child under a orbital plane node"""
@@ -145,10 +131,10 @@ func _animate_sim(delta:float):
 	_rotate_planetoid(_deimos, DEIMOS_ROT_PERIOD, delta)
 	
 	_move_in_orbit(_phobos, _phobos_orbit_angle, PHOBOS_ORBIT_PERIOD, PHOBOS_SEMIMAJOR_AXIS, 
-				PHOBOS_SEMIMINOR_AXIS, delta, _phobos_orbit_array)
+				PHOBOS_SEMIMINOR_AXIS, delta)
 	
 	_move_in_orbit(_deimos, _deimos_orbit_angle, DEIMOS_ORBIT_PERIOD, DEIMOS_SEMIMAJOR_AXIS,
-				DEIMOS_SEMIMINOR_AXIS, delta, _deimos_orbit_array)
+				DEIMOS_SEMIMINOR_AXIS, delta)
 
 
 func _rotate_planetoid(planetoid:Node3D, rot_period:float, delta:float):
@@ -157,7 +143,7 @@ func _rotate_planetoid(planetoid:Node3D, rot_period:float, delta:float):
 
 
 func _move_in_orbit(planetoid:Node3D, current_orbit_angle:float, orbit_period:float,  
-				 orbit_major_axis:float, orbit_minor_axis, delta:float, debug_pos_array:PackedVector3Array):
+				 orbit_major_axis:float, orbit_minor_axis, delta:float):
 	var rotation_angle = ((2*PI)/orbit_period) * _time_multiplier * delta
 	
 	#This is the angle the planet has moved around so far in relation to the x axis (parametric angle)
@@ -166,29 +152,11 @@ func _move_in_orbit(planetoid:Node3D, current_orbit_angle:float, orbit_period:fl
 	planetoid.position.x = cos(angle_so_far - rotation_angle) * orbit_major_axis
 	planetoid.position.z = sin(angle_so_far - rotation_angle) * orbit_minor_axis
 
-	debug_pos_array.append(planetoid.global_position)
-
 
 func _increase_time(delta:float):
 	elapsed_real_secs += 1 * delta
 	elapsed_simulated_secs += 1 * _time_multiplier * delta	
-
-
-func _toggle_debug_surfaces(state:bool):	
-	$RotationDebugPlaneSystem.visible = state
-	$Planet/RotationDebugPlanePlanet.visible = state
-
-
-func _draw_debug_gizmos(delta:float):
-	_draw_debug_orbit(_phobos_orbit_array, Color.GREEN, delta)
-	_draw_debug_orbit(_deimos_orbit_array, Color.RED, delta)
-
-
-func _draw_debug_orbit(orbit_array:PackedVector3Array, color, delta:float):			
-	DebugDraw3D.draw_sphere(orbit_array[orbit_array.size()-1], 0.01, Color.BLUE, delta*2)
-	if orbit_array.size() % 2 == 0:
-		DebugDraw3D.draw_lines(orbit_array, color, delta*2)	
-
+	
 
 func _add_trail_obj(planetoid:Node3D, planetoid_radius:float, trail: Array):
 	var planet_parent = planetoid.get_parent()

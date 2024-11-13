@@ -23,7 +23,6 @@ var hmd_synchronized:bool = false
 @onready var RightPhsyicalController = $XROrigin3D/RightPhysicalController
 @onready var LeftPhysicalController = $XROrigin3D/LeftPhysicalController
 @onready var UIText = $UI
-@onready var DebugButton = $DebugToggle
 
 const MIN_MARS_SCALE: float = 0.5 
 const MAX_MARS_SCALE: float = 4
@@ -45,20 +44,8 @@ func _process(delta):
 	_update_ui(MarsSim.get_real_time_mult(), MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_debug"):
-		MarsSim.toggle_debug_mode()
-		DebugButton.state = MarsSim.debug_mode
-
-
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
-
-
-func _on_right_physical_controller_button_pressed(name: String) -> void:
-	if name == "ax_button":
-		MarsSim.toggle_debug_mode()
-		DebugButton.state = MarsSim.debug_mode
 
 
 func _on_right_physical_controller_input_vector_2_changed(name: String, value: Vector2) -> void:
@@ -199,20 +186,7 @@ func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
 	
 	var ui_text = mode_text + "\n" + sim_speed_text + "\n" + sim_time_text + "\n" + real_time_text
 	
-	#For non XR
-	DebugDraw2D.clear_all()
-	DebugDraw2D.set_text(mode_text)
-	DebugDraw2D.set_text(fps_text)
-	DebugDraw2D.set_text(sim_speed_text)
-	DebugDraw2D.set_text(real_time_text)	
-	DebugDraw2D.set_text(sim_time_text)
-	
-	#For XR
 	UIText.text = ui_text 
-
-
-func _on_debug_toggle_toggled_signal(state: Variant) -> void:
-	MarsSim.debug_mode = state
 
 
 func _on_left_hand_pose_controller_pose_started(p_name: String) -> void:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=8 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://content/main/root.gd" id="1_2sdjv"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/immersive-home-ui/content/system/controller_right/controller_right.tscn" id="2_kvwgy"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/immersive-home-ui/content/system/controller_left/controller_left.tscn" id="3_4l7ve"]
-[ext_resource type="PackedScene" uid="uid://bh4gsv5a7oepo" path="res://content/main/detector.tscn" id="7_poqji"]
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/immersive-home-ui/assets/environment_passthrough.tres" id="9_glo23"]
 [ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/main/main_menu.tscn" id="14_k4wel"]
 [ext_resource type="PackedScene" uid="uid://b3ydgbs6v3alt" path="res://content/main/pickable_mars.tscn" id="14_ma0u0"]
@@ -26,11 +25,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)
 
-[node name="DebugToggle" parent="." instance=ExtResource("7_poqji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177573, 0.847592, -0.558123)
-visible = false
-collision_mask = 0
-
 [node name="UI" type="Label3D" parent="."]
 transform = Transform3D(0.130191, 0.00091144, 0.15182, -0.000462449, 0.199998, -0.000804105, -0.151822, 0.000172394, 0.130192, -0.488, 1.291, -0.328)
 text = "UI"
@@ -48,5 +42,3 @@ unique_name_in_owner = true
 transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, -0.35309, 1.03652, -0.405442)
 
 [node name="XRSimulator" parent="." instance=ExtResource("18_acbh5")]
-
-[connection signal="toggledSignal" from="DebugToggle" to="." method="_on_debug_toggle_toggled_signal"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=6 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" path="res://addons/mars-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
-[ext_resource type="Script" path="res://content/main/main_menu.gd" id="1_dyq8q"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
@@ -25,7 +24,6 @@ size = Vector2(0.4, 0.3)
 size = Vector3(0.4, 0.3, 0.01)
 
 [node name="MainMenu" type="StaticBody3D"]
-script = ExtResource("1_dyq8q")
 
 [node name="Background" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_mw4vq")
@@ -61,10 +59,30 @@ label = "Reset"
 
 [node name="BtnRight" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437205, 0.0788586, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941634, 0.0788586, 0)
 label = "->"
 
 [node name="BtnLeft" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0393174, 0.0788586, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309211, 0.0788586, 0)
 label = "<-"
+
+[node name="BtnUp" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.115298, 0)
+label = "^"
+
+[node name="BtnDown" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.0597924, 0)
+label = "\\/"
+
+[node name="BtnForward" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.115, 0)
+label = "Fwd"
+
+[node name="BtnBack" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.06, 0)
+label = "Back"

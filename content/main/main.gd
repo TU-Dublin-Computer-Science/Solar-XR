@@ -18,6 +18,8 @@ var hmd_synchronized:bool = false
 @onready var MarsSim = $PickableMars/MarsSim
 @onready var UIText = $UI
 
+const ROT_CHANGE_SPEED = 1
+
 const MIN_MARS_SCALE: float = 0.5 
 const MAX_MARS_SCALE: float = 4
 const DEFAULT_MARS_SCALE: float = 1
@@ -32,13 +34,9 @@ var _mars_x_rotation : float = 0
 var _mars_y_rotation : float = 0
 var _mars_scale:float = DEFAULT_MARS_SCALE
 
-var _btn_left_down: bool = false
-var _btn_right_down: bool = false
-
-
 func _ready():
 	_setup_xr()
-	_setup_menu_signals()
+	_setup_btn_presses()
 
 
 func _process(delta):	
@@ -85,7 +83,7 @@ func _sync_headset_orientation():
 		_on_openxr_pose_recentered()
 
 
-func _setup_menu_signals():
+func _setup_btn_presses():
 	
 	%MainMenu/BtnMove.on_button_up.connect(func():
 		mode = Mode.MOVE
@@ -106,40 +104,47 @@ func _setup_menu_signals():
 	%MainMenu/BtnReset.on_button_up.connect(func():
 		mode = Mode.DEFAULT
 	)
-	
-	%MainMenu/BtnLeft.on_button_down.connect(func():
-		_btn_left_down = true
-	)
-	
-	%MainMenu/BtnLeft.on_button_up.connect(func():
-		_btn_left_down = false	
-	)
-	
-	%MainMenu/BtnRight.on_button_down.connect(func():
-		_btn_right_down = true
-	)
-	
-	%MainMenu/BtnRight.on_button_up.connect(func():
-		_btn_right_down = false
-	)
 
 func _handle_button_holding(delta: float):	
 	
-	if _btn_left_down:
+	if %MainMenu/BtnLeft.active:
 		match mode:
+			Mode.ROTATE:
+				# Rotation value always stays in range of 0-TAU
+				_mars_y_rotation = fmod(_mars_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
+				MarsSim.rotation.y = _mars_y_rotation
 			Mode.SCALE:
 				_mars_scale = clamp(_mars_scale - SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
 				MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 			Mode.TIME:
 				MarsSim.time_multiplier -= TIME_CHANGE_SPEED * delta
 	
-	if _btn_right_down:
+	if %MainMenu/BtnRight.active:
 		match mode:
+			Mode.ROTATE:
+				# Rotation value always stays in range of 0-TAU
+				_mars_y_rotation = fmod(_mars_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
+				MarsSim.rotation.y = _mars_y_rotation
 			Mode.SCALE:
 				_mars_scale = clamp(_mars_scale + SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
 				MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 			Mode.TIME:
 				MarsSim.time_multiplier += TIME_CHANGE_SPEED * delta
+	
+	if %MainMenu/BtnUp.active:
+		match mode:
+			Mode.ROTATE:
+				# Rotation value always stays in range of 0-TAU
+				_mars_x_rotation = fmod(_mars_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
+				MarsSim.rotation.x = _mars_x_rotation
+	
+	if %MainMenu/BtnDown.active:
+		match mode:
+			Mode.ROTATE:
+				# Rotation value always stays in range of 0-TAU
+				_mars_x_rotation = fmod(_mars_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
+				MarsSim.rotation.x = _mars_x_rotation
+				
 	
 	
 """

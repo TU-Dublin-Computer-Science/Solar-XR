@@ -105,6 +105,17 @@ func _setup_btn_presses():
 	
 	%MainMenu/BtnReset.on_button_up.connect(func():
 		mode = Mode.DEFAULT
+		
+		%PickableMars.position = DEFAULT_MARS_POS
+	
+		_mars_x_rotation = 0
+		_mars_y_rotation = 0
+		MarsSim.rotation = Vector3(0,0,0)
+	
+		_mars_scale = DEFAULT_MARS_SCALE
+		MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
+	
+		MarsSim.reset_sim()
 	)
 
 func _handle_button_holding(delta: float):	

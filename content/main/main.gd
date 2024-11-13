@@ -16,12 +16,6 @@ var xr_interface: XRInterface
 var hmd_synchronized:bool = false
 
 @onready var MarsSim = $PickableMars/MarsSim
-@onready var RightGestureController = $XROrigin3D/RightGestureController
-@onready var LeftGestureController = $XROrigin3D/LeftGestureController
-@onready var LeftPointCollider = $XROrigin3D/LeftHandTrack/PointCollider
-@onready var RightPointCollider = $XROrigin3D/RightHandTrack/PointCollider
-@onready var RightPhsyicalController = $XROrigin3D/RightPhysicalController
-@onready var LeftPhysicalController = $XROrigin3D/LeftPhysicalController
 @onready var UIText = $UI
 
 const MIN_MARS_SCALE: float = 0.5 
@@ -180,13 +174,12 @@ func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
 	var real_days = (real_time / 60 / 60 / 24)
 	
 	var mode_text = "Mode: " + Mode.keys()[mode]
-	var fps_text = "FPS: %f"  % Engine.get_frames_per_second()
 	var sim_time_text = "Sim Time: Day %d - %02d:%02d:%02d" % [sim_days, sim_hours, sim_mins, sim_secs]
 	var real_time_text = "Real Time: Day %d - %02d:%02d:%02d" % [real_days, real_hours, real_mins, real_secs]
 	
 	var ui_text = mode_text + "\n" + sim_speed_text + "\n" + sim_time_text + "\n" + real_time_text
 	
-	UIText.text = ui_text 
+	%UI.text = ui_text 
 
 
 func _on_left_hand_pose_controller_pose_started(p_name: String) -> void:

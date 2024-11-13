@@ -21,7 +21,11 @@ var hmd_synchronized:bool = false
 const MIN_MARS_SCALE: float = 0.5 
 const MAX_MARS_SCALE: float = 4
 const DEFAULT_MARS_SCALE: float = 1
+const SCALE_CHANGE_SPEED = 1
+
 const DEFAULT_MARS_POS = Vector3(0, 1.5, -2)
+
+const TIME_CHANGE_SPEED = 10
 
 # Rotation stored in radians (0 - TAU) 
 var _mars_x_rotation : float = 0
@@ -83,59 +87,61 @@ func _sync_headset_orientation():
 
 func _setup_menu_signals():
 	
-	%MainMenu.btn_move_pressed.connect(func():
+	%MainMenu/BtnMove.on_button_up.connect(func():
 		mode = Mode.MOVE
 	)
 	
-	%MainMenu.btn_rotate_pressed.connect(func():
+	%MainMenu/BtnRotate.on_button_up.connect(func():
 		mode = Mode.ROTATE
 	)
 	
-	%MainMenu.btn_scale_pressed.connect(func():
+	%MainMenu/BtnScale.on_button_up.connect(func():
 		mode = Mode.SCALE		
 	)
 	
-	%MainMenu.btn_time_pressed.connect(func():
+	%MainMenu/BtnTime.on_button_up.connect(func():
 		mode = Mode.TIME	
 	)
 	
-	%MainMenu.btn_reset_pressed.connect(func():
+	%MainMenu/BtnReset.on_button_up.connect(func():
 		mode = Mode.DEFAULT
 	)
 	
-	%MainMenu.btn_left_down.connect(func():
+	%MainMenu/BtnLeft.on_button_down.connect(func():
 		_btn_left_down = true
 	)
 	
-	%MainMenu.btn_left_up.connect(func():
+	%MainMenu/BtnLeft.on_button_up.connect(func():
 		_btn_left_down = false	
 	)
 	
-	%MainMenu.btn_right_down.connect(func():
+	%MainMenu/BtnRight.on_button_down.connect(func():
 		_btn_right_down = true
 	)
 	
-	%MainMenu.btn_right_up.connect(func():
+	%MainMenu/BtnRight.on_button_up.connect(func():
 		_btn_right_down = false
 	)
 
-func _handle_button_holding(delta: float):
+func _handle_button_holding(delta: float):	
+	
 	if _btn_left_down:
 		match mode:
 			Mode.SCALE:
-				_mars_scale = clamp(_mars_scale - 1*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
-				MarsSim.scale = Vector3(_mars_scale - 1*delta, _mars_scale, _mars_scale)
+				_mars_scale = clamp(_mars_scale - SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
+				MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 			Mode.TIME:
-				MarsSim.time_multiplier -= 10 * delta
+				MarsSim.time_multiplier -= TIME_CHANGE_SPEED * delta
 	
 	if _btn_right_down:
 		match mode:
 			Mode.SCALE:
-				_mars_scale = clamp(_mars_scale + 1*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
+				_mars_scale = clamp(_mars_scale + SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
 				MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 			Mode.TIME:
-				MarsSim.time_multiplier += 10 * delta
-
+				MarsSim.time_multiplier += TIME_CHANGE_SPEED * delta
+	
+	
 """
 func _on_btn_move_pressed():
 	mode = Mode.MOVE

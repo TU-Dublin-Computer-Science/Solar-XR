@@ -39,7 +39,7 @@ func _ready():
 
 func _process(delta):	
 	_sync_headset_orientation()
-	_handle_button_holding()
+	_handle_button_holding(delta)
 	_update_ui(MarsSim.get_real_time_mult(), MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
 
 
@@ -119,16 +119,22 @@ func _setup_menu_signals():
 		_btn_right_down = false
 	)
 
-func _handle_button_holding():
+func _handle_button_holding(delta: float):
 	if _btn_left_down:
 		match mode:
+			Mode.SCALE:
+				_mars_scale = clamp(_mars_scale - 1*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
+				MarsSim.scale = Vector3(_mars_scale - 1*delta, _mars_scale, _mars_scale)
 			Mode.TIME:
-				MarsSim.time_multiplier -= 1
+				MarsSim.time_multiplier -= 10 * delta
 	
 	if _btn_right_down:
 		match mode:
+			Mode.SCALE:
+				_mars_scale = clamp(_mars_scale + 1*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
+				MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 			Mode.TIME:
-				MarsSim.time_multiplier += 1
+				MarsSim.time_multiplier += 10 * delta
 
 """
 func _on_btn_move_pressed():

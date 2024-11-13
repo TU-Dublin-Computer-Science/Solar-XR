@@ -28,6 +28,10 @@ var _mars_x_rotation : float = 0
 var _mars_y_rotation : float = 0
 var _mars_scale:float = DEFAULT_MARS_SCALE
 
+var _btn_left_down: bool = false
+var _btn_right_down: bool = false
+
+
 func _ready():
 	_setup_xr()
 	_setup_menu_signals()
@@ -35,6 +39,7 @@ func _ready():
 
 func _process(delta):	
 	_sync_headset_orientation()
+	_handle_button_holding()
 	_update_ui(MarsSim.get_real_time_mult(), MarsSim.elapsed_simulated_secs, MarsSim.elapsed_real_secs)	
 
 
@@ -98,18 +103,32 @@ func _setup_menu_signals():
 		mode = Mode.DEFAULT
 	)
 	
-	%MainMenu.btn_left_pressed.connect(func():
-		match mode:
-			Mode.TIME:
-				MarsSim.time_multiplier -= 10
+	%MainMenu.btn_left_down.connect(func():
+		_btn_left_down = true
 	)
 	
-	%MainMenu.btn_right_pressed.connect(func():
-		match mode:
-			Mode.TIME:
-				MarsSim.time_multiplier += 10
+	%MainMenu.btn_left_up.connect(func():
+		_btn_left_down = false	
+	)
+	
+	%MainMenu.btn_right_down.connect(func():
+		_btn_right_down = true
+	)
+	
+	%MainMenu.btn_right_up.connect(func():
+		_btn_right_down = false
 	)
 
+func _handle_button_holding():
+	if _btn_left_down:
+		match mode:
+			Mode.TIME:
+				MarsSim.time_multiplier -= 1
+	
+	if _btn_right_down:
+		match mode:
+			Mode.TIME:
+				MarsSim.time_multiplier += 1
 
 """
 func _on_btn_move_pressed():

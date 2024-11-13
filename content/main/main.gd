@@ -18,14 +18,16 @@ var hmd_synchronized:bool = false
 @onready var MarsSim = $PickableMars/MarsSim
 @onready var UIText = $UI
 
+const DEFAULT_MARS_POS = Vector3(0, 1.5, -2)
+const MAX_MOVE_DIST = 1
+const MOVE_SPEED = 1
+
 const ROT_CHANGE_SPEED = 1
 
 const MIN_MARS_SCALE: float = 0.5 
 const MAX_MARS_SCALE: float = 4
 const DEFAULT_MARS_SCALE: float = 1
 const SCALE_CHANGE_SPEED = 1
-
-const DEFAULT_MARS_POS = Vector3(0, 1.5, -2)
 
 const TIME_CHANGE_SPEED = 10
 
@@ -108,7 +110,12 @@ func _setup_btn_presses():
 func _handle_button_holding(delta: float):	
 	
 	if %MainMenu/BtnLeft.active:
-		match mode:
+		match mode:	
+			Mode.MOVE:
+				$PickableMars.position.x = clamp(
+											$PickableMars.position.x - delta*MOVE_SPEED, 
+											DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
+											DEFAULT_MARS_POS.x + MAX_MOVE_DIST)			
 			Mode.ROTATE:
 				# Rotation value always stays in range of 0-TAU
 				_mars_y_rotation = fmod(_mars_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
@@ -121,6 +128,11 @@ func _handle_button_holding(delta: float):
 	
 	if %MainMenu/BtnRight.active:
 		match mode:
+			Mode.MOVE:
+				$PickableMars.position.x = clamp(
+											$PickableMars.position.x + delta*MOVE_SPEED, 
+											DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
+											DEFAULT_MARS_POS.x + MAX_MOVE_DIST)			
 			Mode.ROTATE:
 				# Rotation value always stays in range of 0-TAU
 				_mars_y_rotation = fmod(_mars_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
@@ -133,6 +145,11 @@ func _handle_button_holding(delta: float):
 	
 	if %MainMenu/BtnUp.active:
 		match mode:
+			Mode.MOVE:
+				$PickableMars.position.y = clamp(
+											$PickableMars.position.y + delta*MOVE_SPEED, 
+											DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
+											DEFAULT_MARS_POS.y + MAX_MOVE_DIST)		
 			Mode.ROTATE:
 				# Rotation value always stays in range of 0-TAU
 				_mars_x_rotation = fmod(_mars_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
@@ -140,11 +157,31 @@ func _handle_button_holding(delta: float):
 	
 	if %MainMenu/BtnDown.active:
 		match mode:
+			Mode.MOVE:
+				$PickableMars.position.y = clamp(
+											$PickableMars.position.y - delta*MOVE_SPEED, 
+											DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
+											DEFAULT_MARS_POS.y + MAX_MOVE_DIST)
 			Mode.ROTATE:
 				# Rotation value always stays in range of 0-TAU
 				_mars_x_rotation = fmod(_mars_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
 				MarsSim.rotation.x = _mars_x_rotation
-				
+	
+	if %MainMenu/BtnForward.active:
+		match mode:
+			Mode.MOVE:
+				$PickableMars.position.z = clamp(
+											$PickableMars.position.z - delta*MOVE_SPEED, 
+											DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
+											DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
+	
+	if %MainMenu/BtnBack.active:
+		match mode:
+			Mode.MOVE:
+				$PickableMars.position.z = clamp(
+											$PickableMars.position.z + delta*MOVE_SPEED, 
+											DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
+											DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
 	
 	
 """

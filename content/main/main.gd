@@ -77,62 +77,89 @@ func _sync_headset_orientation():
 
 
 func _setup_menu_signals():
-	%MainMenu.btn_move_pressed.connect(_on_btn_move_pressed)
-	%MainMenu.btn_rotate_pressed.connect(_on_btn_rotate_pressed)
-	%MainMenu.btn_scale_pressed.connect(_on_btn_scale_pressed)
-	%MainMenu.btn_time_pressed.connect(_on_btn_time_pressed)
-	%MainMenu.btn_reset_pressed.connect(_on_btn_reset_pressed)
+	
+	%MainMenu.btn_move_pressed.connect(func():
+		mode = Mode.MOVE
+	)
+	
+	%MainMenu.btn_rotate_pressed.connect(func():
+		mode = Mode.ROTATE
+	)
+	
+	%MainMenu.btn_scale_pressed.connect(func():
+		mode = Mode.SCALE		
+	)
+	
+	%MainMenu.btn_time_pressed.connect(func():
+		mode = Mode.TIME	
+	)
+	
+	%MainMenu.btn_reset_pressed.connect(func():
+		mode = Mode.DEFAULT
+	)
+	
+	%MainMenu.btn_left_pressed.connect(func():
+		match mode:
+			Mode.TIME:
+				MarsSim.time_multiplier -= 10
+	)
+	
+	%MainMenu.btn_right_pressed.connect(func():
+		match mode:
+			Mode.TIME:
+				MarsSim.time_multiplier += 10
+	)
 
 
+"""
 func _on_btn_move_pressed():
 	mode = Mode.MOVE
 	%PickableMars/Movable.disabled = false
-	"""
+
 	%MainMenu/Slider1.visible = false
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = 0
 	%MainMenu/Slider2.value = 0
-	"""
+
 
 func _on_btn_rotate_pressed():
 	mode = Mode.ROTATE
 	%PickableMars/Movable.disabled = true
-	"""
 	%MainMenu/Slider1.visible = true
 	%MainMenu/Slider2.visible = true
 	%MainMenu/Slider1.value = remap(_mars_y_rotation, 0, TAU, 0, 100)
 	%MainMenu/Slider2.value = remap(_mars_x_rotation, 0, TAU, 0, 100)
-	"""
+
 
 func _on_btn_scale_pressed():
 	mode = Mode.SCALE
 	%PickableMars/Movable.disabled = true
-	"""
+
 	%MainMenu/Slider1.visible = true
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = remap(_mars_scale, MIN_MARS_SCALE, MAX_MARS_SCALE, 0, 100) 
 	%MainMenu/Slider2.value = 0
-	"""
+
 	
 func _on_btn_time_pressed():
 	mode = Mode.TIME
 	%PickableMars/Movable.disabled = true
-	"""
+
 	%MainMenu/Slider1.visible = true
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = MarsSim.time_multiplier
 	%MainMenu/Slider2.value = 0
-	"""
+
 
 func _on_btn_reset_pressed():
 	mode = Mode.DEFAULT	
 	%PickableMars/Movable.disabled = true
-	"""
+
 	%MainMenu/Slider1.visible = false
 	%MainMenu/Slider2.visible = false
 	%MainMenu/Slider1.value = 0
 	%MainMenu/Slider2.value = 0
-	"""
+
 	%PickableMars.position = DEFAULT_MARS_POS
 	
 	_mars_x_rotation = 0
@@ -143,7 +170,6 @@ func _on_btn_reset_pressed():
 	MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 	
 	MarsSim.reset_sim()
-
 
 func _on_slider_1_changed():
 	match mode:
@@ -157,13 +183,14 @@ func _on_slider_1_changed():
 			pass
 			#MarsSim.time_multiplier = %MainMenu/Slider1.value
 
-"""
+
 func _on_slider_2_changed():
 	match mode:
 		Mode.ROTATE: # Rotate on X Axis
 			_mars_x_rotation = remap(%MainMenu/Slider2.value, 0, 100, 0, TAU)
 			MarsSim.rotation.x = _mars_x_rotation
 """
+
 
 func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
 	var sim_speed_text = "Sim Speed: %.0fx" % simulation_speed

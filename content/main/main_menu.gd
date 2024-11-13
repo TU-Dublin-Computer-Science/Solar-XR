@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+signal btn_right_pressed
+signal btn_left_pressed
 signal btn_move_pressed
 signal btn_rotate_pressed
 signal btn_scale_pressed
@@ -16,6 +18,14 @@ func _process(delta: float) -> void:
 
 
 func _setup_signals():
+	%BtnRight.on_button_up.connect(func():
+		btn_right_pressed.emit()
+	)
+	
+	%BtnLeft.on_button_up.connect(func():
+		btn_left_pressed.emit()
+	)
+	
 	%BtnMove.on_button_up.connect(func():
 		btn_move_pressed.emit()
 	)

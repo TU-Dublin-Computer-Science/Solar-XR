@@ -58,3 +58,13 @@ label = "Time"
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, 0, 0)
 label = "Reset"
+
+[node name="BtnRight" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437205, 0.0788586, 0)
+label = "->"
+
+[node name="BtnLeft" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0393174, 0.0788586, 0)
+label = "<-"

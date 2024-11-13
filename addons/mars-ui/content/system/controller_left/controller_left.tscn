@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://b30w6tywfj4fp"]
+
+[ext_resource type="Script" path="res://addons/mars-ui/content/system/controller_left/controller_left.gd" id="1_2j3qs"]
+[ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="4_oe7fv"]
+[ext_resource type="PackedScene" uid="uid://dhaqth6q5yw4n" path="res://addons/godot-xr-tools/hands/model/hand_l.gltf" id="5_w1pvs"]
+[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/hands.gdshader" id="6_wk733"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m58yb"]
+ao_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ir3co"]
+material = SubResource("StandardMaterial3D_m58yb")
+size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ca85m"]
+render_priority = 50
+shader = ExtResource("6_wk733")
+shader_parameter/albedo = Color(1, 1, 1, 0.4)
+shader_parameter/fade_offset = 0.0
+shader_parameter/fade_sharpness = 15.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_65k2y"]
+radius = 0.001
+height = 0.02
+
+[node name="XRControllerLeft" type="XRController3D"]
+tracker = &"left_hand"
+pose = &"aim"
+script = ExtResource("1_2j3qs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ir3co")
+
+[node name="AutoHandtracker" parent="." instance=ExtResource("4_oe7fv")]
+visible = false
+applymiddlefingerfix = null
+applyscaling = null
+coincidewristorknuckle = null
+visiblehandtrackskeleton = false
+enableautotracker = false
+
+[node name="hand_l" parent="." instance=ExtResource("5_w1pvs")]
+
+[node name="mesh_Hand_L" parent="hand_l/Armature/Skeleton3D" index="0"]
+material_override = SubResource("ShaderMaterial_ca85m")
+
+[node name="IndexTip" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.967526, 0.252326, -0.0150302, -0.0150301, 0.116784, 0.993043, 0.252326, -0.960569, 0.116784, -0.00665801, 0.0427913, -0.169868)
+bone_name = "Index_Tip_L"
+bone_idx = 9
+use_external_skeleton = true
+external_skeleton = NodePath("../hand_l/Armature/Skeleton3D")
+
+[node name="Marker3D" type="Marker3D" parent="IndexTip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+gizmo_extents = 0.02
+
+[node name="TouchArea" type="Area3D" parent="IndexTip"]
+transform = Transform3D(1, 0, 0, 1.49012e-08, 1, 0, 1.86265e-09, 0, 1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IndexTip/TouchArea"]
+transform = Transform3D(1, 0, 0, 1.49012e-08, 1, 0, 1.86265e-09, -7.45058e-09, 1, 0, -0.01, 0)
+shape = SubResource("CapsuleShape3D_65k2y")
+
+[editable path="hand_l"]

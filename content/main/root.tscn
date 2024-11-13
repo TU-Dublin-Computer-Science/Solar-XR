@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=8 format=3 uid="uid://cmbc3tkiqn0h1"]
 
 [ext_resource type="Script" path="res://content/main/main.gd" id="1_2sdjv"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/mars-ui/content/system/controller_right/controller_right.tscn" id="2_kvwgy"]

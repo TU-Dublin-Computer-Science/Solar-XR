@@ -20,7 +20,7 @@ shader_parameter/corner_radius = 0.2
 shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
-[sub_resource type="QuadMesh" id="QuadMesh_gdrkt"]
+[sub_resource type="QuadMesh" id="QuadMesh_y5gq7"]
 size = Vector2(0.04, 0.04)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xwopm"]
@@ -44,7 +44,7 @@ collision_mask = 0
 [node name="Panel3D" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
 material_override = SubResource("ShaderMaterial_w8rdk")
-mesh = SubResource("QuadMesh_gdrkt")
+mesh = SubResource("QuadMesh_y5gq7")
 skeleton = NodePath("../..")
 script = ExtResource("3_skm86")
 size = Vector2(0.04, 0.04)

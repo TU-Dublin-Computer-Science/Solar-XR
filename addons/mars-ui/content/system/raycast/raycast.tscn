@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dscp8x0ari57n"]
+
+[ext_resource type="Texture2D" uid="uid://ddagc8rwbp8m8" path="res://addons/mars-ui/assets/cursors/pointer.png" id="1_2f2iv"]
+[ext_resource type="Script" path="res://addons/mars-ui/content/system/raycast/raycast.gd" id="1_gp8nv"]
+[ext_resource type="Texture2D" uid="uid://dalx2klpf4rjx" path="res://addons/mars-ui/assets/cursors/old.png" id="3_f5ibs"]
+[ext_resource type="Shader" path="res://addons/mars-ui/content/system/raycast/raycast.gdshader" id="3_lpfe7"]
+[ext_resource type="Texture2D" uid="uid://cy5dna78q6tn6" path="res://addons/mars-ui/assets/models/ray/ray.png" id="4_fe8o8"]
+[ext_resource type="ArrayMesh" uid="uid://d3kriab522o2w" path="res://addons/mars-ui/assets/models/ray/ray.obj" id="5_3o4gy"]
+[ext_resource type="Material" uid="uid://j8dm7t25nhpu" path="res://addons/mars-ui/assets/materials/grid.tres" id="7_tnbkv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ov0gt"]
+render_priority = 0
+shader = ExtResource("3_lpfe7")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_fe8o8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cq16e"]
+orientation = 2
+
+[node name="Raycast" type="RayCast3D"]
+transform = Transform3D(0.999999, -1.39624e-11, 0, 9.48108e-12, 0.999999, 0, 0, 4.54747e-13, 0.999998, 0, 0, 0)
+target_position = Vector3(0, 0, -5)
+collision_mask = 19
+debug_shape_custom_color = Color(0, 0, 0, 0)
+script = ExtResource("1_gp8nv")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, -0.000567106, -2.5179e-05, -2.5179e-05, 4.39886e-08, -1, 0.000567106, 1, 2.97068e-08, -0.000308663, -0.00229502, -2.46601)
+size = Vector3(0.02, 4.91995, 0.02)
+texture_albedo = ExtResource("1_2f2iv")
+upper_fade = 0.000985425
+lower_fade = 0.000919435
+
+[node name="Cursor" type="Node3D" parent="."]
+
+[node name="DefaultCursor" type="Sprite3D" parent="Cursor"]
+transform = Transform3D(0.03, 2.71051e-20, 0, -5.42101e-20, 0.03, -2.03288e-21, -2.46521e-33, 2.5411e-21, 0.03, 0, 0, 0)
+pixel_size = 0.001
+texture_filter = 0
+render_priority = 90
+texture = ExtResource("1_2f2iv")
+
+[node name="RetroCursor" type="Sprite3D" parent="Cursor"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+visible = false
+offset = Vector2(5.835, -9.175)
+pixel_size = 0.03
+texture_filter = 0
+render_priority = 90
+texture = ExtResource("3_f5ibs")
+
+[node name="Ray" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -1.39624e-11, -6.10317e-19, 0, -4.37114e-08, 1, -1.39624e-11, -1, -4.37114e-08, 0, 0, -0.0182334)
+material_override = SubResource("ShaderMaterial_ov0gt")
+mesh = ExtResource("5_3o4gy")
+
+[node name="Grid" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("7_tnbkv")
+mesh = SubResource("PlaneMesh_cq16e")
+
+[node name="WallCollider" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+collision_mask = 16

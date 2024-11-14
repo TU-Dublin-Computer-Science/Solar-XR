@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://biu66ihmvmku3"]
+[gd_scene load_steps=9 format=3 uid="uid://biu66ihmvmku3"]
 
 [ext_resource type="Script" path="res://addons/mars-ui/content/system/controller_right/controller_right.gd" id="1_1oh5j"]
+[ext_resource type="PackedScene" uid="uid://dscp8x0ari57n" path="res://addons/mars-ui/content/system/raycast/raycast.tscn" id="1_3p68p"]
 [ext_resource type="PackedScene" uid="uid://ds1t8vc0kxoeo" path="res://addons/godot-xr-tools/hands/model/hand_r.gltf" id="2_kex6u"]
 [ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="3_pjmb2"]
 [ext_resource type="Material" uid="uid://chu0upvkheqlb" path="res://addons/mars-ui/content/system/controller_right/hands_material.tres" id="4_vhkya"]
@@ -23,6 +24,8 @@ script = ExtResource("1_1oh5j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ir3co")
+
+[node name="Raycast" parent="." instance=ExtResource("1_3p68p")]
 
 [node name="AutoHandtracker" parent="." instance=ExtResource("3_pjmb2")]
 visible = false
@@ -52,5 +55,25 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IndexTip/TouchArea"]
 transform = Transform3D(1, 0, 0, -1.49012e-08, 1, 0, 0, -7.45058e-09, 1, 0, -0.01, 0)
 shape = SubResource("CapsuleShape3D_66uu0")
+
+[node name="ThumbTip" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.967042, -0.24582, 0.0663439, 0.0663439, 0.494837, 0.86645, -0.24582, -0.833492, 0.494837, -0.0261569, 0.0891963, -0.0934418)
+bone_name = "Thumb_Tip_R"
+bone_idx = 4
+use_external_skeleton = true
+external_skeleton = NodePath("../hand_r/Armature/Skeleton3D")
+
+[node name="Marker3D" type="Marker3D" parent="ThumbTip"]
+gizmo_extents = 0.02
+
+[node name="MiddleTip" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.98042, -0.196912, -0.00149799, -0.001498, -0.015065, 0.999885, -0.196912, -0.980305, -0.0150651, 0.00327212, -0.00771424, -0.176318)
+bone_name = "Middle_Tip_R"
+bone_idx = 14
+use_external_skeleton = true
+external_skeleton = NodePath("../hand_r/Armature/Skeleton3D")
+
+[node name="Marker3D" type="Marker3D" parent="MiddleTip"]
+gizmo_extents = 0.02
 
 [editable path="hand_r"]

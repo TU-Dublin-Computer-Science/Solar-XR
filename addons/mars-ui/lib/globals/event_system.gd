@@ -1,5 +1,7 @@
 extends Node
 
+const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd")
+
 ## Prefix for the function names to be called
 const FN_PREFIX = "_on_"
 ## Prefix for the signal names to be emitted
@@ -7,10 +9,39 @@ const SIGNAL_PREFIX = "on_"
 ## Tick rate for the slow tick event
 const SLOW_TICK = 0.1
 
+## Emitted when a node is clicked
+signal on_click(event: EventPointer)
+
+## Emitted when a node is pressed down
+signal on_press_down(event: EventPointer)
+## Emitted when a node is moved while pressed
+signal on_press_move(event: EventPointer)
+## Emitted when a node is released
+signal on_press_up(event: EventPointer)
+
+## Emitted when a node is grabbed
+signal on_grab_down(event: EventPointer)
+## Emitted when a node is moved while grabbed
+signal on_grab_move(event: EventPointer)
+## Emitted when a node is released from being grabbed
+signal on_grab_up(event: EventPointer)
+
+## Emitted when a node is hovered
+signal on_ray_enter(event: EventPointer)
+## Emitted when a node is no longer hovered
+signal on_ray_leave(event: EventPointer)
+
 ## Emitted when a key on the virtual keyboard is pressed
 signal on_key_down(event: EventKey)
 ## Emitted when a key on the virtual keyboard is released
 signal on_key_up(event: EventKey)
+
+## Emitted when a button on the controller is pressed
+signal on_action_down(event: EventAction)
+## Emitted when a button on the controller is released
+signal on_action_up(event: EventAction)
+## Emitted when a value changes on the controller (e.g. joystick)
+signal on_action_value(event: EventAction)
 
 ## Emitted when the node gains focus
 signal on_focus_in(event: EventFocus)
@@ -52,6 +83,19 @@ func notify(message: String, type:=EventNotify.Type.INFO):
 	event.message = message
 	event.type = type
 	emit("notify", event)
+
+## Helper for emitting controller actions
+func emit_action(name: String, value, initiator: Initiator):
+	var event = EventAction.new()
+	event.name = name
+	event.value = value
+	event.initiator = initiator
+
+	match typeof(value):
+		TYPE_BOOL:
+			EventSystem.emit("action_down" if value else "action_up", event)
+		TYPE_FLOAT, TYPE_VECTOR2:
+			EventSystem.emit("action_value", event)
 
 ## Returns true when the node is focused
 func is_focused(node: Node):

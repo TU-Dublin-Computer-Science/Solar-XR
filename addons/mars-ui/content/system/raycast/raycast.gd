@@ -15,7 +15,6 @@ const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd"
 @export var with_grid: bool = false
 
 @onready var pointer: Pointer
-@onready var visual_ray: MeshInstance3D = $Ray
 
 var _event_type_map = {
 	"trigger_click": Initiator.EventType.TRIGGER,
@@ -81,16 +80,8 @@ func _handle_cursor():
 
 	if collider == null:
 		cursor.visible = false
-		visual_ray.visible = true
-		visual_ray.scale.y = 1
 		if with_decal: decal.visible = true
 		return
-
-	if distance < 0.15:
-		visual_ray.visible = false
-	else:
-		visual_ray.visible = true
-		visual_ray.scale.y = clamp(distance * 2 - 0.1, 0.15, 1)
 
 	cursor.visible = true
 	decal.visible = false

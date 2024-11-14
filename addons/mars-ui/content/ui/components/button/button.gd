@@ -144,6 +144,18 @@ func _on_press_up(event):
 		active = false
 		on_button_up.emit()
 
+
+func _on_ray_enter(_event: EventPointer):
+	if disabled:
+		return
+
+	panel.hovering = true
+
+
+func _on_ray_leave(_event: EventPointer):
+	panel.hovering = false
+
+
 func _on_touch_enter(event: EventTouch):
 	if event.target != finger_area:
 		return

@@ -2,7 +2,7 @@
 extends MeshInstance3D
 class_name Panel3D
 
-#const PanelMaterial = preload ("panel.material")
+const PanelMaterial = preload ("panel.material")
 
 const COLOR = Color(1.0, 1.0, 1.0, 0.3)
 const BORDER_COLOR = Color(1.0, 1.0, 1.0, 1.0)
@@ -38,7 +38,7 @@ const BORDER_COLOR_HOVER = Color(0.7, 0.7, 0.7, 1.0)
 
 func _ready():
 	mesh = QuadMesh.new()
-	#material_override = PanelMaterial.duplicate()
+	material_override = PanelMaterial.duplicate()
 	_update_style()
 	_update_size()
 	_update_corner_radius()

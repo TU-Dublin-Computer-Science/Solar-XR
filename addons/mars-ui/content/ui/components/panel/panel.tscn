@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnam3fe36gg62"]
 
 [ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/panel/panel.gd" id="1_2jq4a"]
-[ext_resource type="Shader" path="res://addons/mars-ui/content/ui/components/panel/glass.gdshader" id="1_mpdsy"]
+[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_mpdsy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_koby5"]
 resource_local_to_scene = true
@@ -18,11 +18,11 @@ shader_parameter/corner_radius = 0.2
 shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
-[sub_resource type="QuadMesh" id="QuadMesh_1r1mq"]
+[sub_resource type="QuadMesh" id="QuadMesh_4j7m6"]
 size = Vector2(0.04, 0.04)
 
 [node name="Panel" type="MeshInstance3D"]
 material_override = SubResource("ShaderMaterial_koby5")
-mesh = SubResource("QuadMesh_1r1mq")
+mesh = SubResource("QuadMesh_4j7m6")
 script = ExtResource("1_2jq4a")
 size = Vector2(0.04, 0.04)

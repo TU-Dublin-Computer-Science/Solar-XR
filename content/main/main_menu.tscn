@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://31h07126r0qd"]
 
-[ext_resource type="Shader" path="res://addons/mars-ui/content/ui/components/panel/glass.gdshader" id="1_cyyat"]
+[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]

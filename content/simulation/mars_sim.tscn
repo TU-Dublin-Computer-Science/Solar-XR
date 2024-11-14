@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cowk1sb5rws3a"]
+[gd_scene load_steps=7 format=3 uid="uid://cowk1sb5rws3a"]
 
 [ext_resource type="Script" path="res://content/simulation/mars_sim.gd" id="1_grcan"]
 [ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/8k_mars.jpg" id="2_4jx06"]
+[ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/node/node.tscn" id="3_e165e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rrlqr"]
 
@@ -24,6 +25,9 @@ shape = SubResource("SphereShape3D_rrlqr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Planet/StaticBody3D"]
 mesh = SubResource("SphereMesh_yp3wd")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="Node" parent="Planet" instance=ExtResource("3_e165e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351985, 0.161058, 0.348853)
 
 [node name="DrawTrail" type="Timer" parent="."]
 wait_time = 0.2

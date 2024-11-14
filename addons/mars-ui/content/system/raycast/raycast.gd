@@ -22,6 +22,7 @@ var _event_type_map = {
 }
 
 func _ready():
+
 	var initiator = Initiator.new()
 	initiator.type = Initiator.Type.CONTROLLER_RIGHT if is_right else Initiator.Type.CONTROLLER_LEFT
 	initiator.node = get_parent()
@@ -30,24 +31,24 @@ func _ready():
 	pointer = Pointer.new(initiator, self)
 	add_child(pointer)
 
-	get_parent().button_pressed.connect(func(button: String):
+	get_parent().button_pressed.connect(func(button: String): # Controller Button Pressed
 		EventSystem.emit_action(button, true, initiator)
 
-		if _event_type_map.has(button):
+		if _event_type_map.has(button): # If Trigger or Grip pressed, call pointer press
 			pointer.pressed(_event_type_map[button])
 	)
-	get_parent().button_released.connect(func(button: String):
+	get_parent().button_released.connect(func(button: String): # Controller Button Released
 		EventSystem.emit_action(button, false, initiator)
 
-		if _event_type_map.has(button):
+		if _event_type_map.has(button): # If Trigger or Grip pressed, call pointer release
 			pointer.released(_event_type_map[button])
 	)
 
-	get_parent().input_float_changed.connect(func(action_name, value):
+	get_parent().input_float_changed.connect(func(action_name, value): # Controller Trigger Changed
 		EventSystem.emit_action(action_name, value, initiator)
 	)
 
-	get_parent().input_vector2_changed.connect(func(action_name, value):
+	get_parent().input_vector2_changed.connect(func(action_name, value): # Controller Joystick Moved
 		EventSystem.emit_action(action_name, value, initiator)
 	)
 

@@ -138,7 +138,7 @@ func _setup_btn_presses():
 		
 		_enable_buttons(false, false, false)
 		
-		%PickableMars.position = DEFAULT_MARS_POS
+		%MarsSim.position = DEFAULT_MARS_POS
 	
 		_mars_x_rotation = 0
 		_mars_y_rotation = 0

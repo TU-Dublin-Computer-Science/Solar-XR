@@ -1,17 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b30w6tywfj4fp"]
+[gd_scene load_steps=8 format=3 uid="uid://b30w6tywfj4fp"]
 
 [ext_resource type="Script" path="res://addons/mars-ui/content/system/controller_left/controller_left.gd" id="1_2j3qs"]
 [ext_resource type="PackedScene" uid="uid://gbm4fxhjehpd" path="res://addons/mars-ui/content/system/raycast/raycast.tscn" id="4_n7lao"]
 [ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="4_oe7fv"]
 [ext_resource type="PackedScene" uid="uid://dhaqth6q5yw4n" path="res://addons/godot-xr-tools/hands/model/hand_l.gltf" id="5_w1pvs"]
 [ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/hands.gdshader" id="6_wk733"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m58yb"]
-ao_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_ir3co"]
-material = SubResource("StandardMaterial3D_m58yb")
-size = Vector3(0.01, 0.01, 0.01)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ca85m"]
 render_priority = 50
@@ -28,9 +21,6 @@ height = 0.02
 tracker = &"left_hand"
 pose = &"aim"
 script = ExtResource("1_2j3qs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_ir3co")
 
 [node name="Raycast" parent="." instance=ExtResource("4_n7lao")]
 is_right = false

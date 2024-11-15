@@ -29,6 +29,8 @@ unique_name_in_owner = true
 
 [node name="InfoNode1" parent="Planet/InfoNodes" instance=ExtResource("3_e165e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351985, 0.161058, 0.348853)
+title = "Olympus Mons"
+info = "Olympus Mons is a large shield volcano on Mars. It is over 21.9 km high as measured by the Mars Orbiter Laser Altimeter, about 2.5 times the elevation of Mount Everest above sea level."
 
 [node name="InfoNode2" parent="Planet/InfoNodes" instance=ExtResource("3_e165e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506831, 0)
@@ -38,7 +40,7 @@ info = "The bulk of the northern ice cap consists of water ice; it also has a th
 [node name="InfoNode3" parent="Planet/InfoNodes" instance=ExtResource("3_e165e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.515279, 0)
 title = "South Polar Ice Cap"
-info = "The south polar permanent cap is much smaller than the one in the north. It is 400 km in diameter, as compared to the 1100 km diameter of the northern cap.[22]: 154  Each southern winter, the ice cap covers the surface to a latitude of 50°.[39] Part of the ice cap consists of dry ice, solid carbon dioxide."
+info = "The south polar permanent cap is much smaller than the one in the north. It is 400 km in diameter, as compared to the 1100 km diameter of the northern cap. Each southern winter, the ice cap covers the surface to a latitude of 50°."
 
 [node name="DrawTrail" type="Timer" parent="."]
 wait_time = 0.2

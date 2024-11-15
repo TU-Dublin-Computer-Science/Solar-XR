@@ -25,6 +25,18 @@ size = Vector3(0.4, 0.3, 0.01)
 
 [node name="MainMenu" type="StaticBody3D"]
 
+[node name="LblTitle" type="Label3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.175, 0.124, 0)
+font_size = 31
+horizontal_alignment = 0
+
+[node name="LblInfo" type="Label3D" parent="."]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -0.175, 0.0794475, 0)
+font_size = 31
+horizontal_alignment = 0
+autowrap_mode = 2
+width = 950.0
+
 [node name="Background" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_mw4vq")
 mesh = SubResource("QuadMesh_q0bqu")
@@ -34,55 +46,55 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="BtnMove" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117744, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117744, -0.113685, 0)
 label = "Move"
 
 [node name="BtnRotate" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591714, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591714, -0.113685, 0)
 label = "Rotate"
 
 [node name="BtnScale" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00237435, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00237435, -0.113685, 0)
 label = "Scale"
 
 [node name="BtnTime" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0633705, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0633705, -0.113685, 0)
 label = "Time"
 
 [node name="BtnReset" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, -0.113685, 0)
 label = "Reset"
 
 [node name="BtnRight" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941634, 0.0788586, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941634, -0.034826, 0)
 label = "->"
 
 [node name="BtnLeft" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309211, 0.0788586, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309211, -0.034826, 0)
 label = "<-"
 
 [node name="BtnUp" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.115298, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.0016134, 0)
 label = "^"
 
 [node name="BtnDown" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.0597924, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, -0.0538922, 0)
 label = "\\/"
 
 [node name="BtnForward" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.115, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.0013154, 0)
 label = "Fwd"
 
 [node name="BtnBack" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.06, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, -0.0536846, 0)
 label = "Back"

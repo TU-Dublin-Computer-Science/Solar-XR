@@ -8,6 +8,9 @@ Distance values are in meters
 Angle values are in degrees
 """
 
+
+signal poi_changed
+
 # Mars
 """
 Mars has a radius of 0.5 in the model, so a scalar value is calculated,
@@ -132,12 +135,14 @@ func _setup_info_nodes():
 	for info_node in %InfoNodes.get_children():
 		info_node.on_button_down.connect(func():
 			if active_info_node != null:
-				active_info_node.active = false	
+				active_info_node.active = false
 			active_info_node = info_node
+			poi_changed.emit()
 		)
 		
 		info_node.on_button_up.connect(func():
 			active_info_node = null 
+			poi_changed.emit()
 		)
 
 

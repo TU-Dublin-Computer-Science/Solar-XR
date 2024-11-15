@@ -35,8 +35,7 @@ var _mars_scale:float = DEFAULT_MARS_SCALE
 
 func _ready():
 	_setup_xr()
-	_setup_btn_presses()
-	_enable_buttons(false, false, false)
+	_setup_menu()
 
 
 func _process(delta):	
@@ -81,6 +80,12 @@ func _sync_headset_orientation():
 	if uninitialized_hmd_transform != XRServer.get_hmd_transform():
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
+
+func _setup_menu():	
+	_setup_btn_presses()
+	_setup_poi_text()
+	_enable_buttons(false, false, false)
+	
 
 func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
 	%MainMenu/BtnLeft.visible = left_right
@@ -143,6 +148,16 @@ func _setup_btn_presses():
 		%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 	
 		%MarsSim.reset_sim()
+	)
+	
+func _setup_poi_text():
+	%MarsSim.poi_changed.connect(func():
+		if %MarsSim.active_info_node == null:
+			%MainMenu/LblTitle.text = ""
+			%MainMenu/LblInfo.text = ""
+		else:
+			%MainMenu/LblTitle.text = %MarsSim.active_info_node.title
+			%MainMenu/LblInfo.text = %MarsSim.active_info_node.info
 	)
 
 func _handle_button_holding(delta: float):	

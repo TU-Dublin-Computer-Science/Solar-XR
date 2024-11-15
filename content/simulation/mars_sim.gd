@@ -72,6 +72,8 @@ var _start_time: float = 0.0
 const TrailObjectScn = preload("res://content/simulation/trail_object.tscn")
 const TRAIL_LEN = 5
 
+var active_info_node: InfoNode
+
 func _ready() -> void:
 	_start_time = Time.get_ticks_msec()	
 	

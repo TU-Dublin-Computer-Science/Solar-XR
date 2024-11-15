@@ -15,19 +15,17 @@ material = SubResource("StandardMaterial3D_mvvgk")
 [node name="MarsSim" type="Node3D"]
 script = ExtResource("1_grcan")
 
-[node name="Planet" type="Node3D" parent="."]
+[node name="Planet" type="StaticBody3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Planet"]
+[node name="Node1" parent="Planet" instance=ExtResource("3_e165e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351985, 0.161058, 0.348853)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet"]
 shape = SubResource("SphereShape3D_rrlqr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Planet/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Planet"]
 mesh = SubResource("SphereMesh_yp3wd")
 skeleton = NodePath("../CollisionShape3D")
-
-[node name="Node" parent="Planet" instance=ExtResource("3_e165e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351985, 0.161058, 0.348853)
 
 [node name="DrawTrail" type="Timer" parent="."]
 wait_time = 0.2

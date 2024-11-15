@@ -1,7 +1,7 @@
 extends Container3D
-class_name UINode3D
+class_name InfoNode
 
-const NodeMaterial = preload("node.tres")
+const NodeMaterial = preload("info_node.tres")
 
 const COLOR = Color(1.0, 1.0, 1.0, 0.3)
 const COLOR_HOVER = Color(0.5, 0.5, 0.5, 0.3)
@@ -11,6 +11,8 @@ signal on_node_down
 signal on_node_up
 
 @export var disabled: bool = false
+@export var title: String
+@export var info: String
 
 var active: bool = false:
 	set(value):

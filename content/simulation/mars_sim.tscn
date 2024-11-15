@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://content/simulation/mars_sim.gd" id="1_grcan"]
 [ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/8k_mars.jpg" id="2_4jx06"]
-[ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/node/node.tscn" id="3_e165e"]
+[ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/info_node/info_node.tscn" id="3_e165e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rrlqr"]
 

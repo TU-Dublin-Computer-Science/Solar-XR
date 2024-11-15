@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hl7flstb3lmw"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/node/node.gd" id="2_705ry"]
-[ext_resource type="Material" uid="uid://b7ctc2sljjuem" path="res://addons/mars-ui/content/ui/components/node/node.tres" id="2_uunq6"]
+[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_node/info_node.gd" id="2_705ry"]
+[ext_resource type="Material" uid="uid://b7ctc2sljjuem" path="res://addons/mars-ui/content/ui/components/info_node/info_node.tres" id="2_uunq6"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="3_4c384"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42jtx"]
@@ -11,8 +11,10 @@ radius = 0.05
 radius = 0.05
 height = 0.1
 
-[node name="Node3D" type="Node3D"]
+[node name="InfoNode" type="Node3D"]
 script = ExtResource("2_705ry")
+title = "Olympus Mons"
+info = "Olympus Mons is a large shield volcano on Mars. It is over 21.9 km high as measured by the Mars Orbiter Laser Altimeter, about 2.5 times the elevation of Mount Everest above sea level."
 
 [node name="Body" type="StaticBody3D" parent="."]
 

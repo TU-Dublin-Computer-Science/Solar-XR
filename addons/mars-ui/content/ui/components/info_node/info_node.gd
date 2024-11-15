@@ -42,6 +42,8 @@ func _on_press_up(event):
 		event.bubbling = false
 		return
 	
+	$ClickSound.play()
+	
 	active = !active
 	
 	# Toggle

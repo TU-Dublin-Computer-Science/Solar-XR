@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=9 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://content/main/main.gd" id="1_55rk4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/main/main_menu.tscn" id="6_tomhs"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/simulation/mars_sim.tscn" id="7_2w4lq"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="7_omfkv"]
+[ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/info_node/info_node.tscn" id="8_6fily"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_55rk4")
@@ -44,3 +45,6 @@ transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, 
 [node name="MarsSim" parent="." instance=ExtResource("7_2w4lq")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39895, -2.51573)
+
+[node name="InfoNode" parent="." instance=ExtResource("8_6fily")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948822, -0.560944)

@@ -87,6 +87,7 @@ func _ready() -> void:
 	_deimos_initial_pos = _deimos.position
 	_deimos_initial_rot = _deimos.rotation
 	
+	_setup_info_nodes()
 	
 func _process(delta: float) -> void:
 	_increase_time(delta)
@@ -125,6 +126,19 @@ func _instantiate_moon(moon_scene:Resource, moon_radius:float, orbit_inclination
 	moon.scale *= moon_radius/0.5 #Scale is desired_radius/current_radius
 	
 	return moon
+
+
+func _setup_info_nodes():
+	for info_node in %InfoNodes.get_children():
+		info_node.on_button_down.connect(func():
+			if active_info_node != null:
+				active_info_node.active = false	
+			active_info_node = info_node
+		)
+		
+		info_node.on_button_up.connect(func():
+			active_info_node = null 
+		)
 
 
 func _animate_sim(delta:float):

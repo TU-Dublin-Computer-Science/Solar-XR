@@ -19,6 +19,7 @@ script = ExtResource("1_1oh5j")
 
 [node name="AutoHandtracker" parent="." instance=ExtResource("3_pjmb2")]
 visible = false
+enableautotracker = false
 
 [node name="hand_r" parent="." instance=ExtResource("2_kex6u")]
 

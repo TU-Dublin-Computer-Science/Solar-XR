@@ -72,7 +72,7 @@ func _handle_grid():
 
 	if abs(wall_collider.get_collision_normal().dot(Vector3.UP)) > 0.9:
 		grid.global_transform.basis = Basis.looking_at(wall_collider.get_collision_normal(), Vector3.FORWARD, true)
-	else:
+	elif wall_collider.get_collision_normal() != Vector3.ZERO:
 		grid.global_transform.basis = Basis.looking_at(wall_collider.get_collision_normal(), Vector3.UP, true)
 
 func _handle_cursor():

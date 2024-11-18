@@ -238,10 +238,11 @@ func _handle_button_holding(delta: float):
 	
 
 func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
+	
 	var sim_speed_text = "Sim Speed: %.0fx" % simulation_speed
 	
 	var sim_secs = simulated_time % 60
-	var sim_mins = (simulated_time / 60) % 60
+	var sim_mins = int(simulated_time / 60) % 60 
 	var sim_hours = (simulated_time / 60 / 60) % 24
 	var sim_days = (simulated_time / 60 / 60 / 24)
 	var real_secs = real_time % 60

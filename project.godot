@@ -22,10 +22,6 @@ XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 TouchManager="*res://addons/mars-ui/lib/utils/touch/touch.gd"
 EventSystem="*res://addons/mars-ui/lib/globals/event_system.gd"
 
-[debug]
-
-gdscript/warnings/integer_division=0
-
 [display]
 
 window/vsync/vsync_mode=0

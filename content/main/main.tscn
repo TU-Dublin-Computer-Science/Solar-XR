@@ -43,4 +43,4 @@ transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, 
 
 [node name="MarsSim" parent="." instance=ExtResource("7_2w4lq")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39895, -2.51573)
+transform = Transform3D(0.999999, -0.00112215, 0.000132503, 0.00112217, 0.999999, -0.000101021, -0.000132388, 0.000101173, 1, 0, 1.39895, -2.51573)

@@ -4,11 +4,9 @@ class_name InfoNode
 signal on_button_down()
 signal on_button_up()
 
-const NodeMaterial = preload("info_node.tres")
-
-const COLOR = Color(1.0, 1.0, 1.0, 0.3)
-const COLOR_HOVER = Color(0.5, 0.5, 0.5, 0.3)
-const COLOR_ACTIVE = Color(0.949, 0.353, 0.22, 0.3)
+const MatDefault = preload("res://addons/mars-ui/content/ui/components/info_node/info_node_default.tres")
+const MatHover = preload("res://addons/mars-ui/content/ui/components/info_node/info_node_hover.tres")
+const MatSelected = preload("res://addons/mars-ui/content/ui/components/info_node/info_node_selected.tres")
 
 @export var disabled: bool = false
 @export var hovering: bool = true
@@ -21,15 +19,15 @@ var active: bool = false:
 		if !is_node_ready(): return
 		if active:
 			hovering = false
-			%Mesh.material_override.set_shader_parameter("color", COLOR_ACTIVE)
+			%Mesh.material_override = MatSelected
 		else:
 			hovering = true
-			%Mesh.material_override.set_shader_parameter("color", COLOR)
+			%Mesh.material_override = MatDefault
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%Mesh.material_override = NodeMaterial.duplicate()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,12 +52,12 @@ func _on_press_up(event):
 	
 func _on_ray_enter(_event: EventPointer):
 	if !disabled and hovering:
-		%Mesh.material_override.set_shader_parameter("color", COLOR_HOVER)
+		%Mesh.material_override = MatHover
 
 
 func _on_ray_leave(_event: EventPointer):
 	if !disabled and hovering:
-		%Mesh.material_override.set_shader_parameter("color", COLOR)
+		%Mesh.material_override = MatDefault
 	
 	
 	

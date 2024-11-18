@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://hl7flstb3lmw"]
 
 [ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_node/info_node.gd" id="2_705ry"]
-[ext_resource type="Material" uid="uid://b7ctc2sljjuem" path="res://addons/mars-ui/content/ui/components/info_node/info_node.tres" id="2_uunq6"]
+[ext_resource type="Material" uid="uid://chvsjv7k1bvv0" path="res://addons/mars-ui/content/ui/components/info_node/info_node_default.tres" id="2_prdpv"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="3_4c384"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42jtx"]
 radius = 0.05
 
 [sub_resource type="SphereMesh" id="SphereMesh_x716m"]
-radius = 0.05
-height = 0.1
+radius = 0.025
+height = 0.05
 
 [node name="InfoNode" type="Node3D"]
 script = ExtResource("2_705ry")
@@ -21,7 +21,7 @@ shape = SubResource("SphereShape3D_42jtx")
 
 [node name="Mesh" type="MeshInstance3D" parent="Body"]
 unique_name_in_owner = true
-material_override = ExtResource("2_uunq6")
+material_override = ExtResource("2_prdpv")
 mesh = SubResource("SphereMesh_x716m")
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]

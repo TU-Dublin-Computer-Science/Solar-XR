@@ -36,6 +36,7 @@ var _mars_scale:float = DEFAULT_MARS_SCALE
 func _ready():
 	_setup_xr()
 	_setup_menu()
+	_reset()
 
 
 func _process(delta):	
@@ -102,46 +103,68 @@ func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
 
 func _setup_btn_presses():
 	
-	%MainMenu/BtnMove.on_button_up.connect(func():
+	%MainMenu/BtnMove.on_button_down.connect(func():
 		mode = Mode.MOVE
+		
+		%MainMenu/BtnRotate.active = false
+		%MainMenu/BtnScale.active = false
+		%MainMenu/BtnTime.active = false
 		
 		_enable_buttons(true, true, true)
 	)
 	
-	%MainMenu/BtnRotate.on_button_up.connect(func():
+	%MainMenu/BtnRotate.on_button_down.connect(func():
 		mode = Mode.ROTATE
+		
+		%MainMenu/BtnMove.active = false
+		%MainMenu/BtnScale.active = false
+		%MainMenu/BtnTime.active = false
 		
 		_enable_buttons(true, true, false)
 	)
 	
-	%MainMenu/BtnScale.on_button_up.connect(func():
+	%MainMenu/BtnScale.on_button_down.connect(func():
 		mode = Mode.SCALE		
 		
+		%MainMenu/BtnMove.active = false		
+		%MainMenu/BtnRotate.active = false
+		%MainMenu/BtnTime.active = false
+		
 		_enable_buttons(true, false, false)
 	)
 	
-	%MainMenu/BtnTime.on_button_up.connect(func():
+	%MainMenu/BtnTime.on_button_down.connect(func():
 		mode = Mode.TIME	
 		
+		%MainMenu/BtnMove.active = false
+		%MainMenu/BtnRotate.active = false
+		%MainMenu/BtnScale.active = false
+		
 		_enable_buttons(true, false, false)
 	)
 	
-	%MainMenu/BtnReset.on_button_up.connect(func():
-		mode = Mode.DEFAULT
-		
-		_enable_buttons(false, false, false)
-		
-		%MarsSim.position = DEFAULT_MARS_POS
+	%MainMenu/BtnReset.on_button_up.connect(_reset)
 	
-		_mars_x_rotation = 0
-		_mars_y_rotation = 0
-		%MarsSim.rotation = Vector3(0,0,0)
+func _reset():
+	mode = Mode.DEFAULT
 	
-		_mars_scale = DEFAULT_MARS_SCALE
-		%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
+	%MainMenu/BtnMove.active = false
+	%MainMenu/BtnRotate.active = false
+	%MainMenu/BtnScale.active = false
+	%MainMenu/BtnTime.active = false
 	
-		%MarsSim.reset_sim()
-	)
+	_enable_buttons(false, false, false)
+	
+	%MarsSim.position = DEFAULT_MARS_POS
+
+	_mars_x_rotation = 0
+	_mars_y_rotation = 0
+	%MarsSim.rotation = Vector3(0,0,0)
+
+	_mars_scale = DEFAULT_MARS_SCALE
+	%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
+
+	%MarsSim.reset_sim()
 	
 func _setup_poi_text():
 	%MarsSim.poi_changed.connect(func():

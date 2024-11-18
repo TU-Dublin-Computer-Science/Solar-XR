@@ -22,11 +22,16 @@ func _ready():
 	add_child(body_container)
 
 	tip_body = TipCollider.instantiate()
-	tip_body.global_position = tip.global_position
 	body_container.add_child(tip_body)
+	
+	# Set the global position after it's added to the scene tree
+	call_deferred("_set_tip_body_position")
 
 func _physics_process(_delta):
 		_move_tip_rigidbody_to_bone(tip_body, tip)
+
+func _set_tip_body_position():
+	tip_body.global_position = tip.global_position
 
 var last_run_active = false
 

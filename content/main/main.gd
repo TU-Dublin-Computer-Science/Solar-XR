@@ -46,14 +46,7 @@ func _process(delta):
 
 func _on_openxr_pose_recentered() -> void:
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
-
-
-func _on_right_physical_controller_input_vector_2_changed(name: String, value: Vector2) -> void:
-	const MIN_INCREMENT = -1
-	const MAX_INCREMENT = 1
 	
-	%MarsSim.time_multiplier += remap(value[1], -1, 1, MIN_INCREMENT, MAX_INCREMENT)
-
 
 func _setup_xr():
 	xr_interface = XRServer.find_interface("OpenXR")

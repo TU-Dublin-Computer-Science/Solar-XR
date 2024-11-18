@@ -37,7 +37,6 @@ const PhobosScn = preload("res://content/simulation/phobos.tscn")
 var _phobos
 var _phobos_initial_pos: Vector3
 var _phobos_initial_rot: Vector3
-var _phobos_orbit_angle = 0.0
 var _phobos_trail = []
 
 # Deimos
@@ -53,8 +52,6 @@ const DeimosScn = preload("res://content/simulation/deimos.tscn")
 var _deimos
 var _deimos_initial_pos: Vector3
 var _deimos_initial_rot: Vector3 
-var _deimos_orbit_angle = 0.0
-var _deimos_orbit_plane
 var _deimos_trail = []
 
 # Time Keeping
@@ -91,7 +88,8 @@ func _ready() -> void:
 	_deimos_initial_rot = _deimos.rotation
 	
 	_setup_info_nodes()
-	
+
+
 func _process(delta: float) -> void:
 	_increase_time(delta)
 	_animate_sim(delta)
@@ -151,10 +149,10 @@ func _animate_sim(delta:float):
 	_rotate_planetoid(_phobos, PHOBOS_ROT_PERIOD, delta)
 	_rotate_planetoid(_deimos, DEIMOS_ROT_PERIOD, delta)
 	
-	_move_in_orbit(_phobos, _phobos_orbit_angle, PHOBOS_ORBIT_PERIOD, PHOBOS_SEMIMAJOR_AXIS, 
+	_move_in_orbit(_phobos, PHOBOS_ORBIT_PERIOD, PHOBOS_SEMIMAJOR_AXIS, 
 				PHOBOS_SEMIMINOR_AXIS, delta)
 	
-	_move_in_orbit(_deimos, _deimos_orbit_angle, DEIMOS_ORBIT_PERIOD, DEIMOS_SEMIMAJOR_AXIS,
+	_move_in_orbit(_deimos, DEIMOS_ORBIT_PERIOD, DEIMOS_SEMIMAJOR_AXIS,
 				DEIMOS_SEMIMINOR_AXIS, delta)
 
 
@@ -163,7 +161,7 @@ func _rotate_planetoid(planetoid:Node3D, rot_period:float, delta:float):
 	planetoid.rotate_y(angle_to_rotate)
 
 
-func _move_in_orbit(planetoid:Node3D, current_orbit_angle:float, orbit_period:float,  
+func _move_in_orbit(planetoid:Node3D, orbit_period:float,  
 				 orbit_major_axis:float, orbit_minor_axis, delta:float):
 	var rotation_angle = ((2*PI)/orbit_period) * _time_multiplier * delta
 	

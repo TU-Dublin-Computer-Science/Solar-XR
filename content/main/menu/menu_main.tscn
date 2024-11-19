@@ -27,18 +27,6 @@ size = Vector3(0.4, 0.3, 0.01)
 [node name="MainMenu" type="StaticBody3D"]
 script = ExtResource("1_sm88u")
 
-[node name="LblTitle" type="Label3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.175, 0.124, 0)
-font_size = 31
-horizontal_alignment = 0
-
-[node name="LblInfo" type="Label3D" parent="."]
-transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -0.175, 0.0794475, 0)
-font_size = 31
-horizontal_alignment = 0
-autowrap_mode = 2
-width = 950.0
-
 [node name="Background" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_mw4vq")
 mesh = SubResource("QuadMesh_q0bqu")

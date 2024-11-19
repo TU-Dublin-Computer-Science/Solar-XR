@@ -64,7 +64,7 @@ func _ready():
 func _process(delta):	
 	_sync_headset_orientation()
 	_handle_constant_state_changes(delta)
-	_update_ui(%MarsSim.get_real_time_mult(), %MarsSim.elapsed_simulated_secs, %MarsSim.elapsed_real_secs)	
+	_update_ui()	
 
 
 func _on_openxr_pose_recentered() -> void:
@@ -262,27 +262,11 @@ func _setup_poi_text():
 	)	
 
 
-func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
+func _update_ui():
+	%MainMenu.simulation_speed = %MarsSim.get_real_time_mult()
+	%MainMenu.simulation_time = %MarsSim.elapsed_simulated_secs
+	%MainMenu.real_time = %MarsSim.elapsed_real_secs
 	
-	var sim_speed_text = "Sim Speed: %.0fx" % simulation_speed
-	
-	var sim_secs = simulated_time % 60
-	var sim_mins = int(simulated_time / 60) % 60 
-	var sim_hours = (simulated_time / 60 / 60) % 24
-	var sim_days = (simulated_time / 60 / 60 / 24)
-	var real_secs = real_time % 60
-	var real_mins = (real_time / 60) % 60
-	var real_hours = (real_time / 60 / 60) % 24
-	var real_days = (real_time / 60 / 60 / 24)
-	
-	var mode_text = "Mode: " + Mode.keys()[mode]
-	var sim_time_text = "Sim Time: Day %d - %02d:%02d:%02d" % [sim_days, sim_hours, sim_mins, sim_secs]
-	var real_time_text = "Real Time: Day %d - %02d:%02d:%02d" % [real_days, real_hours, real_mins, real_secs]
-	
-	var ui_text = mode_text + "\n" + sim_speed_text + "\n" + sim_time_text + "\n" + real_time_text
-	
-	%UI.text = ui_text 
-
 
 func _on_left_hand_pose_controller_pose_started(p_name: String) -> void:
 	if (p_name == "Point"):

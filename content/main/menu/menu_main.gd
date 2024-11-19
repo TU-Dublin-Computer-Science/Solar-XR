@@ -59,7 +59,9 @@ var MenuRotate
 var MenuScale
 var MenuTime
 
-var _tabs: Array = []
+var simulation_speed: float
+var simulation_time: int
+var real_time: int
 
 var _active_btn: Button3D = null:
 	set(value):
@@ -91,7 +93,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	_handle_ui_updates()
+
+
+func _handle_ui_updates():
+	MenuTime.simulation_speed = simulation_speed
+	MenuTime.simulation_time = simulation_time
+	MenuTime.real_time = real_time
 
 
 func _setup_menu_buttons():

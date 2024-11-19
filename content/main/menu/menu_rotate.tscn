@@ -1,21 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://ymg72saup10s"]
+[gd_scene load_steps=2 format=3 uid="uid://dfe4co05jmxvi"]
 
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="1_jvgjt"]
 
 [node name="MenuRotate" type="Node3D"]
 
 [node name="BtnRight" parent="." instance=ExtResource("1_jvgjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941634, -0.034826, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0454131, 0.0234476, 0)
 label = "->"
 
 [node name="BtnLeft" parent="." instance=ExtResource("1_jvgjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309211, -0.034826, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0445869, 0.0234476, 0)
 label = "<-"
 
 [node name="BtnUp" parent="." instance=ExtResource("1_jvgjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.0016134, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041309, 0.0684476, 0)
 label = "^"
 
 [node name="BtnDown" parent="." instance=ExtResource("1_jvgjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, -0.0538922, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041309, -0.0215524, 0)
 label = "\\/"

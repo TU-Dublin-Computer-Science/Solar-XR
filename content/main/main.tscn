@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/mars-ui/content/system/controller_right/controller_right.tscn" id="3_8bjds"]
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/mars-ui/assets/environment_passthrough.tres" id="5_rett8"]
-[ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/main/main_menu.tscn" id="6_tomhs"]
+[ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/main/menu/menu_main.tscn" id="6_tomhs"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/simulation/mars_sim.tscn" id="7_2w4lq"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="7_omfkv"]
 

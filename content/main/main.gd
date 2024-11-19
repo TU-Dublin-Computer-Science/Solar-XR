@@ -33,15 +33,37 @@ var _mars_x_rotation : float = 0
 var _mars_y_rotation : float = 0
 var _mars_scale:float = DEFAULT_MARS_SCALE
 
+# Move
+var _moving_up: bool = false
+var _moving_down: bool = false
+var _moving_left: bool = false
+var _moving_right: bool = false
+var _moving_forward: bool = false
+var _moving_back: bool = false
+
+# Rotate
+var _rot_increasing_x: bool = false
+var _rot_decreasing_x: bool = false
+var _rot_increasing_y: bool = false
+var _rot_decreasing_y: bool = false
+
+# Scale
+var _scale_increasing: bool = false
+var _scale_decreasing: bool = false
+
+# Time
+var _time_increasing: bool = false
+var _time_decreasing: bool = false
+
 func _ready():
 	_setup_xr()
-	_setup_menu()
+	_setup_signals()
 	_reset()
 
 
 func _process(delta):	
 	_sync_headset_orientation()
-	_handle_button_holding(delta)
+	_handle_constant_state_changes(delta)
 	_update_ui(%MarsSim.get_real_time_mult(), %MarsSim.elapsed_simulated_secs, %MarsSim.elapsed_real_secs)	
 
 
@@ -75,97 +97,147 @@ func _sync_headset_orientation():
 		hmd_synchronized = true
 		_on_openxr_pose_recentered()
 
-func _setup_menu():	
-	_setup_btn_presses()
-	_setup_poi_text()
-	_enable_control_buttons(false, false, false)
-	
 
-func _enable_control_buttons(left_right: bool, up_down: bool, forward_back: bool):
-	%MainMenu/BtnLeft.visible = left_right
-	%MainMenu/BtnLeft.disabled = not left_right
-	
-	%MainMenu/BtnRight.visible = left_right
-	%MainMenu/BtnRight.disabled = not left_right
-	
-	%MainMenu/BtnUp.visible = up_down
-	%MainMenu/BtnUp.disabled = not up_down
-	
-	%MainMenu/BtnDown.visible = up_down
-	%MainMenu/BtnDown.disabled = not up_down
-	
-	%MainMenu/BtnForward.visible = forward_back
-	%MainMenu/BtnForward.disabled = not forward_back
-	
-	%MainMenu/BtnBack.visible = forward_back
-	%MainMenu/BtnBack.disabled = not forward_back
+func _setup_signals():
+	_setup_move_signals()
+	_setup_rotate_signals()
+	_setup_scale_signals()
+	_setup_time_signals()
+	%MainMenu.reset.connect(_reset)
 
-func _reset_menu_buttons():
-	%MainMenu/BtnMove.disabled = false	
-	%MainMenu/BtnRotate.disabled = false
-	%MainMenu/BtnScale.disabled = false
-	%MainMenu/BtnTime.disabled = false
-	
-	%MainMenu/BtnMove.active = false	
-	%MainMenu/BtnRotate.active = false
-	%MainMenu/BtnScale.active = false
-	%MainMenu/BtnTime.active = false
-	
 
-func _setup_btn_presses():
+func _setup_move_signals():
+	$MainMenu.move_up_start.connect(func(): _moving_up = true)
+	$MainMenu.move_up_stop.connect(func(): _moving_up = false)
 	
-	%MainMenu/BtnMove.on_button_down.connect(func():
-		mode = Mode.MOVE
-		
-		_reset_menu_buttons()
-		
-		%MainMenu/BtnMove.disabled = true
-		%MainMenu/BtnMove.active = true
+	$MainMenu.move_down_start.connect(func(): _moving_down = true)
+	$MainMenu.move_down_stop.connect(func(): _moving_down = false)
+	
+	$MainMenu.move_left_start.connect(func(): _moving_left = true)
+	$MainMenu.move_left_stop.connect(func(): _moving_left = false)
+	
+	$MainMenu.move_right_start.connect(func(): _moving_right = true)
+	$MainMenu.move_right_stop.connect(func(): _moving_right = false)
+	
+	$MainMenu.move_forward_start.connect(func(): _moving_forward = true)
+	$MainMenu.move_forward_stop.connect(func(): _moving_forward = false)
+	
+	$MainMenu.move_back_start.connect(func(): _moving_back = true)
+	$MainMenu.move_back_stop.connect(func(): _moving_back = false)
 
-		_enable_control_buttons(true, true, true)
-	)
+
+func _setup_rotate_signals():
+	$MainMenu.rotate_increaseX_start.connect(func():_rot_increasing_x = true)
+	$MainMenu.rotate_increaseX_stop.connect(func(): _rot_increasing_x = false)
+
+	$MainMenu.rotate_decreaseX_start.connect(func(): _rot_decreasing_x = true)
+	$MainMenu.rotate_decreaseX_stop.connect(func(): _rot_decreasing_x = false)
+
+	$MainMenu.rotate_increaseY_start.connect(func(): _rot_increasing_y = true)
+	$MainMenu.rotate_increaseY_stop.connect(func(): _rot_increasing_y = false)
+
+	$MainMenu.rotate_decreaseY_start.connect(func(): _rot_decreasing_y = true)
+	$MainMenu.rotate_decreaseY_stop.connect(func(): _rot_decreasing_y = false)
+
+
+func _setup_scale_signals():
+	$MainMenu.scale_increase_start.connect(func():_scale_increasing = true)
+	$MainMenu.scale_increase_stop.connect(func(): _scale_increasing = false)
+
+	$MainMenu.scale_decrease_start.connect(func(): _scale_decreasing = true)
+	$MainMenu.scale_decrease_stop.connect(func(): _scale_decreasing = false)
+
+
+func _setup_time_signals():
+	$MainMenu.time_increase_start.connect(func():_time_increasing = true)
+	$MainMenu.time_increase_stop.connect(func(): _time_increasing = false)
+
+	$MainMenu.time_decrease_start.connect(func(): _time_decreasing = true)
+	$MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
+
+
+func _handle_constant_state_changes(delta: float):
+	_handle_constant_movement(delta)
+	_handle_constant_rotation(delta)
+	_handle_constant_scaling(delta)
+	_handle_constant_time_change(delta)
+
+
+func _handle_constant_movement(delta: float):
+	if _moving_up:
+		%MarsSim.position.y = clamp(
+									%MarsSim.position.y + delta*MOVE_SPEED, 
+									DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
+									DEFAULT_MARS_POS.y + MAX_MOVE_DIST)		
+	if _moving_down:
+		%MarsSim.position.y = clamp(
+									%MarsSim.position.y - delta*MOVE_SPEED, 
+									DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
+									DEFAULT_MARS_POS.y + MAX_MOVE_DIST)
+	if _moving_left:
+		%MarsSim.position.x = clamp(
+									%MarsSim.position.x - delta*MOVE_SPEED, 
+									DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
+									DEFAULT_MARS_POS.x + MAX_MOVE_DIST)
+	if _moving_right:
+		%MarsSim.position.x = clamp(
+									%MarsSim.position.x + delta*MOVE_SPEED, 
+									DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
+									DEFAULT_MARS_POS.x + MAX_MOVE_DIST)
+	if _moving_forward:
+		%MarsSim.position.z = clamp(
+							%MarsSim.position.z - delta*MOVE_SPEED, 
+							DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
+							DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
+	if _moving_back:
+		%MarsSim.position.z = clamp(
+									%MarsSim.position.z + delta*MOVE_SPEED, 
+									DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
+									DEFAULT_MARS_POS.z + MAX_MOVE_DIST)		
+
+
+func _handle_constant_rotation(delta: float):
+	if _rot_increasing_x:
+		# Rotation value always stays in range of 0-TAU
+		_mars_x_rotation = fmod(_mars_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
+		%MarsSim.rotation.x = _mars_x_rotation
 	
-	%MainMenu/BtnRotate.on_button_down.connect(func():
-		mode = Mode.ROTATE
-		
-		_reset_menu_buttons()
-		
-		%MainMenu/BtnRotate.disabled = true
-		%MainMenu/BtnRotate.active = true
-		
-		_enable_control_buttons(true, true, false)
-	)
+	if _rot_decreasing_x:
+		# Rotation value always stays in range of 0-TAU
+		_mars_x_rotation = fmod(_mars_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
+		%MarsSim.rotation.x = _mars_x_rotation
 	
-	%MainMenu/BtnScale.on_button_down.connect(func():
-		mode = Mode.SCALE		
+	if _rot_increasing_y:
+		# Rotation value always stays in range of 0-TAU
+		_mars_y_rotation = fmod(_mars_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
+		%MarsSim.rotation.y = _mars_y_rotation
 		
-		_reset_menu_buttons()
-		
-		%MainMenu/BtnScale.disabled = true
-		%MainMenu/BtnScale.active = true
-		
-		_enable_control_buttons(true, false, false)
-	)
+	if _rot_decreasing_y:
+		# Rotation value always stays in range of 0-TAU
+		_mars_y_rotation = fmod(_mars_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
+		%MarsSim.rotation.y = _mars_y_rotation
+
+
+func _handle_constant_scaling(delta: float):
+	if _scale_increasing:
+		_mars_scale = clamp(_mars_scale + SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
+		%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 	
-	%MainMenu/BtnTime.on_button_down.connect(func():
-		mode = Mode.TIME	
-		
-		_reset_menu_buttons()
-		
-		%MainMenu/BtnTime.disabled = true
-		%MainMenu/BtnTime.active = true
-		
-		_enable_control_buttons(true, false, false)
-	)
+	if _scale_decreasing:
+		_mars_scale = clamp(_mars_scale - SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
+		%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)		
+
+
+func _handle_constant_time_change(delta: float):
+	if _time_increasing:
+		%MarsSim.time_multiplier += TIME_CHANGE_SPEED * delta
 	
-	%MainMenu/BtnReset.on_button_up.connect(_reset)
-	
+	if _time_decreasing:
+		%MarsSim.time_multiplier -= TIME_CHANGE_SPEED * delta
+
+
 func _reset():
 	mode = Mode.DEFAULT
-	
-	_reset_menu_buttons()
-	
-	_enable_control_buttons(false, false, false)
 	
 	%MarsSim.position = DEFAULT_MARS_POS
 
@@ -177,7 +249,8 @@ func _reset():
 	%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 
 	%MarsSim.reset_sim()
-	
+
+
 func _setup_poi_text():
 	%MarsSim.poi_changed.connect(func():
 		if %MarsSim.active_info_node == null:
@@ -186,84 +259,8 @@ func _setup_poi_text():
 		else:
 			%MainMenu/LblTitle.text = %MarsSim.active_info_node.title
 			%MainMenu/LblInfo.text = %MarsSim.active_info_node.info
-	)
+	)	
 
-func _handle_button_holding(delta: float):	
-	
-	if %MainMenu/BtnLeft.active:
-		match mode:	
-			Mode.MOVE:
-				%MarsSim.position.x = clamp(
-											%MarsSim.position.x - delta*MOVE_SPEED, 
-											DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
-											DEFAULT_MARS_POS.x + MAX_MOVE_DIST)			
-			Mode.ROTATE:
-				# Rotation value always stays in range of 0-TAU
-				_mars_y_rotation = fmod(_mars_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
-				%MarsSim.rotation.y = _mars_y_rotation
-			Mode.SCALE:
-				_mars_scale = clamp(_mars_scale - SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
-				%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
-			Mode.TIME:
-				%MarsSim.time_multiplier -= TIME_CHANGE_SPEED * delta
-	
-	if %MainMenu/BtnRight.active:
-		match mode:
-			Mode.MOVE:
-				%MarsSim.position.x = clamp(
-											%MarsSim.position.x + delta*MOVE_SPEED, 
-											DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
-											DEFAULT_MARS_POS.x + MAX_MOVE_DIST)			
-			Mode.ROTATE:
-				# Rotation value always stays in range of 0-TAU
-				_mars_y_rotation = fmod(_mars_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
-				%MarsSim.rotation.y = _mars_y_rotation
-			Mode.SCALE:
-				_mars_scale = clamp(_mars_scale + SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
-				%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
-			Mode.TIME:
-				%MarsSim.time_multiplier += TIME_CHANGE_SPEED * delta
-	
-	if %MainMenu/BtnUp.active:
-		match mode:
-			Mode.MOVE:
-				%MarsSim.position.y = clamp(
-											%MarsSim.position.y + delta*MOVE_SPEED, 
-											DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
-											DEFAULT_MARS_POS.y + MAX_MOVE_DIST)		
-			Mode.ROTATE:
-				# Rotation value always stays in range of 0-TAU
-				_mars_x_rotation = fmod(_mars_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
-				%MarsSim.rotation.x = _mars_x_rotation
-	
-	if %MainMenu/BtnDown.active:
-		match mode:
-			Mode.MOVE:
-				%MarsSim.position.y = clamp(
-											%MarsSim.position.y - delta*MOVE_SPEED, 
-											DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
-											DEFAULT_MARS_POS.y + MAX_MOVE_DIST)
-			Mode.ROTATE:
-				# Rotation value always stays in range of 0-TAU
-				_mars_x_rotation = fmod(_mars_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
-				%MarsSim.rotation.x = _mars_x_rotation
-	
-	if %MainMenu/BtnForward.active:
-		match mode:
-			Mode.MOVE:
-				%MarsSim.position.z = clamp(
-											%MarsSim.position.z - delta*MOVE_SPEED, 
-											DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
-											DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
-	
-	if %MainMenu/BtnBack.active:
-		match mode:
-			Mode.MOVE:
-				%MarsSim.position.z = clamp(
-											%MarsSim.position.z + delta*MOVE_SPEED, 
-											DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
-											DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
-	
 
 func _update_ui(simulation_speed:float, simulated_time:int, real_time:int):
 	

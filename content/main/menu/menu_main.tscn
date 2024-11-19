@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=7 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
+[ext_resource type="Script" path="res://content/main/menu/menu_main.gd" id="1_sm88u"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
@@ -24,6 +25,7 @@ size = Vector2(0.4, 0.3)
 size = Vector3(0.4, 0.3, 0.01)
 
 [node name="MainMenu" type="StaticBody3D"]
+script = ExtResource("1_sm88u")
 
 [node name="LblTitle" type="Label3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.175, 0.124, 0)
@@ -69,32 +71,5 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, -0.113685, 0)
 label = "Reset"
 
-[node name="BtnRight" parent="." instance=ExtResource("3_f40n8")]
+[node name="Tabs" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941634, -0.034826, 0)
-label = "->"
-
-[node name="BtnLeft" parent="." instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309211, -0.034826, 0)
-label = "<-"
-
-[node name="BtnUp" parent="." instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, 0.0016134, 0)
-label = "^"
-
-[node name="BtnDown" parent="." instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0390701, -0.0538922, 0)
-label = "\\/"
-
-[node name="BtnForward" parent="." instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0.0013154, 0)
-label = "Fwd"
-
-[node name="BtnBack" parent="." instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, -0.0536846, 0)
-label = "Back"

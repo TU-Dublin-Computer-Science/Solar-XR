@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://r3gns1fkmslq"]
+[gd_scene load_steps=2 format=3 uid="uid://ckr2te4l28xw7"]
 
-[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="1_arr5p"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="1_cc83m"]
 
 [node name="MenuScale" type="Node3D"]
+transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, 0, 0)
 
-[node name="BtnRight" parent="." instance=ExtResource("1_arr5p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0941634, -0.034826, 0)
-label = "->"
+[node name="BtnDecrease" parent="." instance=ExtResource("1_cc83m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.06, 0.02, 0)
+label = "-"
 
-[node name="BtnLeft" parent="." instance=ExtResource("1_arr5p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309211, -0.034826, 0)
-label = "<-"
+[node name="BtnIncrease" parent="." instance=ExtResource("1_cc83m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.06, 0.02, 0)
+label = "+"

@@ -177,11 +177,11 @@ func _setup_rotate_tab():
 func _setup_scale_tab():
 	MenuScale = MenuScaleScn.instantiate()
 	
-	MenuScale.find_child("BtnLeft").on_button_down.connect(func(): scale_decrease_start.emit())
-	MenuScale.find_child("BtnLeft").on_button_up.connect(func(): scale_decrease_stop.emit())
+	MenuScale.find_child("BtnDecrease").on_button_down.connect(func(): scale_decrease_start.emit())
+	MenuScale.find_child("BtnDecrease").on_button_up.connect(func(): scale_decrease_stop.emit())
 
-	MenuScale.find_child("BtnRight").on_button_down.connect(func(): scale_increase_start.emit())
-	MenuScale.find_child("BtnRight").on_button_up.connect(func(): scale_increase_stop.emit())
+	MenuScale.find_child("BtnIncrease").on_button_down.connect(func(): scale_increase_start.emit())
+	MenuScale.find_child("BtnIncrease").on_button_up.connect(func(): scale_increase_stop.emit())
 
 
 func _setup_time_tab():

@@ -78,10 +78,10 @@ func _sync_headset_orientation():
 func _setup_menu():	
 	_setup_btn_presses()
 	_setup_poi_text()
-	_enable_buttons(false, false, false)
+	_enable_control_buttons(false, false, false)
 	
 
-func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
+func _enable_control_buttons(left_right: bool, up_down: bool, forward_back: bool):
 	%MainMenu/BtnLeft.visible = left_right
 	%MainMenu/BtnLeft.disabled = not left_right
 	
@@ -100,47 +100,62 @@ func _enable_buttons(left_right: bool, up_down: bool, forward_back: bool):
 	%MainMenu/BtnBack.visible = forward_back
 	%MainMenu/BtnBack.disabled = not forward_back
 
+func _reset_menu_buttons():
+	%MainMenu/BtnMove.disabled = false	
+	%MainMenu/BtnRotate.disabled = false
+	%MainMenu/BtnScale.disabled = false
+	%MainMenu/BtnTime.disabled = false
+	
+	%MainMenu/BtnMove.active = false	
+	%MainMenu/BtnRotate.active = false
+	%MainMenu/BtnScale.active = false
+	%MainMenu/BtnTime.active = false
+	
 
 func _setup_btn_presses():
 	
 	%MainMenu/BtnMove.on_button_down.connect(func():
 		mode = Mode.MOVE
 		
-		%MainMenu/BtnRotate.active = false
-		%MainMenu/BtnScale.active = false
-		%MainMenu/BtnTime.active = false
+		_reset_menu_buttons()
 		
-		_enable_buttons(true, true, true)
+		%MainMenu/BtnMove.disabled = true
+		%MainMenu/BtnMove.active = true
+
+		_enable_control_buttons(true, true, true)
 	)
 	
 	%MainMenu/BtnRotate.on_button_down.connect(func():
 		mode = Mode.ROTATE
 		
-		%MainMenu/BtnMove.active = false
-		%MainMenu/BtnScale.active = false
-		%MainMenu/BtnTime.active = false
+		_reset_menu_buttons()
 		
-		_enable_buttons(true, true, false)
+		%MainMenu/BtnRotate.disabled = true
+		%MainMenu/BtnRotate.active = true
+		
+		_enable_control_buttons(true, true, false)
 	)
 	
 	%MainMenu/BtnScale.on_button_down.connect(func():
 		mode = Mode.SCALE		
 		
-		%MainMenu/BtnMove.active = false		
-		%MainMenu/BtnRotate.active = false
-		%MainMenu/BtnTime.active = false
+		_reset_menu_buttons()
 		
-		_enable_buttons(true, false, false)
+		%MainMenu/BtnScale.disabled = true
+		%MainMenu/BtnScale.active = true
+		
+		_enable_control_buttons(true, false, false)
 	)
 	
 	%MainMenu/BtnTime.on_button_down.connect(func():
 		mode = Mode.TIME	
 		
-		%MainMenu/BtnMove.active = false
-		%MainMenu/BtnRotate.active = false
-		%MainMenu/BtnScale.active = false
+		_reset_menu_buttons()
 		
-		_enable_buttons(true, false, false)
+		%MainMenu/BtnTime.disabled = true
+		%MainMenu/BtnTime.active = true
+		
+		_enable_control_buttons(true, false, false)
 	)
 	
 	%MainMenu/BtnReset.on_button_up.connect(_reset)
@@ -148,12 +163,9 @@ func _setup_btn_presses():
 func _reset():
 	mode = Mode.DEFAULT
 	
-	%MainMenu/BtnMove.active = false
-	%MainMenu/BtnRotate.active = false
-	%MainMenu/BtnScale.active = false
-	%MainMenu/BtnTime.active = false
+	_reset_menu_buttons()
 	
-	_enable_buttons(false, false, false)
+	_enable_control_buttons(false, false, false)
 	
 	%MarsSim.position = DEFAULT_MARS_POS
 

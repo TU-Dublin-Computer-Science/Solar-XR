@@ -187,8 +187,8 @@ func _setup_scale_tab():
 func _setup_time_tab():
 	MenuTime = MenuTimeScn.instantiate()
 	
-	MenuTime.find_child("BtnLeft").on_button_down.connect(func(): time_decrease_start.emit())
-	MenuTime.find_child("BtnLeft").on_button_up.connect(func(): time_decrease_stop.emit())
+	MenuTime.find_child("BtnDecrease").on_button_down.connect(func(): time_decrease_start.emit())
+	MenuTime.find_child("BtnDecrease").on_button_up.connect(func(): time_decrease_stop.emit())
 
-	MenuTime.find_child("BtnRight").on_button_down.connect(func(): time_increase_start.emit())
-	MenuTime.find_child("BtnRight").on_button_up.connect(func(): time_increase_stop.emit())
+	MenuTime.find_child("BtnIncrease").on_button_down.connect(func(): time_increase_start.emit())
+	MenuTime.find_child("BtnIncrease").on_button_up.connect(func(): time_increase_stop.emit())

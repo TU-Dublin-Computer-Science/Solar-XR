@@ -11,7 +11,7 @@ const MatSelected = preload("res://addons/mars-ui/content/ui/components/info_nod
 @export var disabled: bool = false
 @export var hovering: bool = true
 @export var title: String
-@export var info: String
+@export var description: String
 
 var active: bool = false:
 	set(value):

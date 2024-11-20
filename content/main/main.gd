@@ -57,6 +57,7 @@ var _time_decreasing: bool = false
 
 func _ready():
 	_setup_xr()
+	
 	_setup_signals()
 	_reset()
 
@@ -98,13 +99,25 @@ func _sync_headset_orientation():
 		_on_openxr_pose_recentered()
 
 
+
+
 func _setup_signals():
+	_setup_info_screen()
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
 	%MainMenu.reset.connect(_reset)
 
+func _setup_info_screen():
+	%MarsSim.poi_changed.connect(func():
+		if %MarsSim.active_info_node == null:
+			%InfoScreen.title = ""
+			%InfoScreen.description = ""
+		else:
+			%InfoScreen.title = %MarsSim.active_info_node.title
+			%InfoScreen.description = %MarsSim.active_info_node.description
+	)
 
 func _setup_move_signals():
 	$MainMenu.move_up_start.connect(func(): _moving_up = true)
@@ -251,15 +264,7 @@ func _reset():
 	%MarsSim.reset_sim()
 
 
-func _setup_poi_text():
-	%MarsSim.poi_changed.connect(func():
-		if %MarsSim.active_info_node == null:
-			%MainMenu/LblTitle.text = ""
-			%MainMenu/LblInfo.text = ""
-		else:
-			%MainMenu/LblTitle.text = %MarsSim.active_info_node.title
-			%MainMenu/LblInfo.text = %MarsSim.active_info_node.info
-	)	
+
 
 
 func _update_ui():

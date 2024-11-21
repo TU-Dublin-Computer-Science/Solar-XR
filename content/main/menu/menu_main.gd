@@ -49,11 +49,13 @@ signal time_increase_stop
 # Reset Signal
 signal reset
 
+const MenuDefaultScn = preload("res://content/main/menu/menu_default.tscn")
 const MenuMoveScn = preload("res://content/main/menu/menu_move.tscn")
 const MenuRotateScn = preload("res://content/main/menu/menu_rotate.tscn")
 const MenuScaleScn = preload("res://content/main/menu/menu_scale.tscn")
 const MenuTimeScn = preload("res://content/main/menu/menu_time.tscn")
 
+var MenuDefault
 var MenuMove
 var MenuRotate
 var MenuScale
@@ -89,6 +91,7 @@ var _active_tab: Node3D = null:
 func _ready() -> void:
 	_setup_menu_buttons()	
 	_setup_tabs()
+	_active_tab = MenuDefault
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -125,17 +128,21 @@ func _setup_menu_buttons():
 	
 	%BtnReset.on_button_down.connect(func():
 		_active_btn = null
-		_active_tab = null
+		_active_tab = MenuDefault
 		reset.emit()
 	)
 
 
 func _setup_tabs():
+	_setup_default_tab()
 	_setup_move_tab()
 	_setup_rotate_tab()
 	_setup_scale_tab()
 	_setup_time_tab()
 
+func _setup_default_tab():
+	MenuDefault = MenuDefaultScn.instantiate()
+	
 	
 func _setup_move_tab():
 	MenuMove = MenuMoveScn.instantiate()

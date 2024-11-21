@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2hr5ffup4gbj"]
+
+[node name="MenuDefault" type="Node3D"]
+
+[node name="Lbl1" type="Label3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
+text = "Welcome to Mars XR!"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Lbl2" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.180858, 0.024216, 0)
+text = "Use the buttons below to control the simulation or click on a highlighted point on Mars for information."
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+width = 750.0

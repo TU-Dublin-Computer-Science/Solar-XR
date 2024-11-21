@@ -4,14 +4,15 @@ class_name InfoNode
 signal on_button_down()
 signal on_button_up()
 
-const MatDefault = preload("res://addons/mars-ui/content/ui/components/info_node/info_node_default.tres")
-const MatHover = preload("res://addons/mars-ui/content/ui/components/info_node/info_node_hover.tres")
-const MatSelected = preload("res://addons/mars-ui/content/ui/components/info_node/info_node_selected.tres")
+const MatDefault = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_default.tres")
+const MatHover = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_hover.tres")
+const MatSelected = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_selected.tres")
 
 @export var disabled: bool = false
 @export var hovering: bool = true
 @export var title: String
 @export var description: String
+@export var image: CompressedTexture2D
 
 var active: bool = false:
 	set(value):

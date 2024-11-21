@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/main/menu/menu_main.tscn" id="6_tomhs"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/simulation/mars_sim.tscn" id="7_2w4lq"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="7_omfkv"]
-[ext_resource type="PackedScene" uid="uid://gs122858j0nd" path="res://content/main/menu/info_screen.tscn" id="8_8upkf"]
+[ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen_spawner/info_node_screen_spawner.tscn" id="8_wkg0o"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_55rk4")
@@ -40,6 +40,6 @@ transform = Transform3D(0.999999, -0.00112215, 0.000132503, 0.00112217, 0.999999
 unique_name_in_owner = true
 transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, -0.353, 1.25, -0.405)
 
-[node name="InfoScreen" parent="." instance=ExtResource("8_8upkf")]
+[node name="InfoNodeScreenSpawner" parent="." instance=ExtResource("8_wkg0o")]
 unique_name_in_owner = true
-transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 0.42765, 1.25, -0.406063)
+transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 0.428, 1.25, -0.406)

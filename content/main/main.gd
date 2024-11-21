@@ -8,6 +8,7 @@ enum Mode {
 	TIME
 }
 
+
 var mode:Mode = Mode.DEFAULT
 
 var xr_interface: XRInterface
@@ -55,10 +56,13 @@ var _scale_decreasing: bool = false
 var _time_increasing: bool = false
 var _time_decreasing: bool = false
 
+# Scene Nodes
+var InfoScreen: Node3D
+
 func _ready():
 	_setup_xr()
-	
 	_setup_signals()
+	_setup_info_nodes()
 	_reset()
 
 
@@ -99,25 +103,17 @@ func _sync_headset_orientation():
 		_on_openxr_pose_recentered()
 
 
-
+func _setup_info_nodes():
+	%MarsSim.InfoNodeManager.InfoNodeScreenSpawner = %InfoNodeScreenSpawner
+	
 
 func _setup_signals():
-	_setup_info_screen()
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
 	%MainMenu.reset.connect(_reset)
 
-func _setup_info_screen():
-	%MarsSim.poi_changed.connect(func():
-		if %MarsSim.active_info_node == null:
-			%InfoScreen.title = ""
-			%InfoScreen.description = ""
-		else:
-			%InfoScreen.title = %MarsSim.active_info_node.title
-			%InfoScreen.description = %MarsSim.active_info_node.description
-	)
 
 func _setup_move_signals():
 	$MainMenu.move_up_start.connect(func(): _moving_up = true)
@@ -262,10 +258,7 @@ func _reset():
 	%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
 
 	%MarsSim.reset_sim()
-
-
-
-
+	
 
 func _update_ui():
 	%MainMenu.simulation_speed = %MarsSim.get_real_time_mult()

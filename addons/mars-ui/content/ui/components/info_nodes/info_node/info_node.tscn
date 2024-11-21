@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hl7flstb3lmw"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_node/info_node.gd" id="2_705ry"]
-[ext_resource type="Material" uid="uid://chvsjv7k1bvv0" path="res://addons/mars-ui/content/ui/components/info_node/info_node_default.tres" id="2_prdpv"]
+[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node.gd" id="2_705ry"]
+[ext_resource type="Material" uid="uid://chvsjv7k1bvv0" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_default.tres" id="2_prdpv"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="3_4c384"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42jtx"]

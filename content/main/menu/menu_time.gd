@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var sim_secs = simulation_time % 60
 	var sim_mins = int(simulation_time / 60) % 60 
 	var sim_hours = (simulation_time / 60 / 60) % 24

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=10 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://content/main/main.gd" id="1_55rk4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/simulation/mars_sim.tscn" id="7_2w4lq"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="7_omfkv"]
 [ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen_spawner/info_node_screen_spawner.tscn" id="8_wkg0o"]
+[ext_resource type="AudioStream" uid="uid://2vh07xq86rer" path="res://content/assets/Space-The_Mountain.mp3" id="9_4o6td"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_55rk4")
@@ -43,3 +44,9 @@ transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, 
 [node name="InfoNodeScreenSpawner" parent="." instance=ExtResource("8_wkg0o")]
 unique_name_in_owner = true
 transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 0.428, 1.25, -0.406)
+
+[node name="AudBGM" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_4o6td")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true

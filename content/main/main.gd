@@ -61,6 +61,9 @@ var InfoScreen: Node3D
 
 func _ready():
 	_setup_xr()
+	if OS.get_name() != "Android":
+		# If running in test mode
+		$AudBGM.playing = false 
 	_setup_signals()
 	_setup_info_nodes()
 	_reset()

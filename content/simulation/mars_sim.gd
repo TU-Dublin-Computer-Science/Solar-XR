@@ -55,6 +55,7 @@ var _deimos_trail = []
 
 # Time Keeping
 const MAX_TIME_MULT = 6000
+const DEFAULT_TIME_MULT = 3000
 const MIN_TIME_MULT = 1
 var elapsed_real_secs = 0
 var elapsed_simulated_secs = 0
@@ -94,7 +95,7 @@ func _process(delta: float) -> void:
 
 
 func reset_sim() -> void:
-	_time_multiplier = MIN_TIME_MULT
+	_time_multiplier = DEFAULT_TIME_MULT
 	elapsed_real_secs = 0
 	elapsed_simulated_secs = 0
 	

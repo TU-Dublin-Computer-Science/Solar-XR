@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1iitlq37osgs"]
+
+[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/xr_setup_menu/xr_setup_menu.gd" id="1_jg06h"]
+[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="2_1n3wu"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_51v84"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lv8cw"]
+size = Vector3(0.3, 0.2, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lietx"]
+render_priority = 0
+shader = ExtResource("2_1n3wu")
+shader_parameter/color = Color(1, 1, 1, 0.3)
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/border_size = 0.001
+shader_parameter/border_fade_in = 0.005
+shader_parameter/border_fade_out = 0.0
+shader_parameter/corner_radius = 0.04
+shader_parameter/roughness = 0.3
+shader_parameter/grain_amount = 0.02
+
+[sub_resource type="QuadMesh" id="QuadMesh_msx2b"]
+size = Vector2(0.3, 0.2)
+
+[node name="XRSetupMenu" type="Node3D"]
+script = ExtResource("1_jg06h")
+
+[node name="CollisionShape3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.475102)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D2"]
+shape = SubResource("BoxShape3D_lv8cw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D2"]
+material_override = SubResource("ShaderMaterial_lietx")
+mesh = SubResource("QuadMesh_msx2b")
+skeleton = NodePath("../..")
+
+[node name="LblIntro" type="Label3D" parent="CollisionShape3D2"]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0464347, 0)
+text = "e"
+
+[node name="BtnStart" parent="CollisionShape3D2" instance=ExtResource("3_51v84")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0127344, 0)
+label = "Start"

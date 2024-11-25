@@ -96,6 +96,7 @@ func _ready() -> void:
 	
 	_instantiate_orbit_visual(DEIMOS_RADIUS, _deimos_orbit_plane, DEIMOS_SEMIMAJOR_AXIS, DEIMOS_SEMIMINOR_AXIS)
 
+
 func _process(delta: float) -> void:
 	_increase_time(delta)
 	_animate_sim(delta)
@@ -138,6 +139,7 @@ func _instantiate_moon(moon_scene:Resource, orbit_plane: Node3D, moon_radius:flo
 		
 	return moon
 
+
 func _instantiate_orbit_visual( planetoid_radius: float, 
 								orbit_plane: Node3D, 
 								orbit_major_axis: float, 
@@ -150,6 +152,8 @@ func _instantiate_orbit_visual( planetoid_radius: float,
 	
 	mesh_instance.mesh = torus_mesh
 	mesh_instance.material_override = OrbitMaterial
+	mesh_instance.scale.z = orbit_minor_axis/orbit_major_axis # Morphs to 
+	
 	orbit_plane.add_child(mesh_instance)
 
 

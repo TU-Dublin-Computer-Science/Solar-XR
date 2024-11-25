@@ -23,6 +23,8 @@ const MARS_RADIUS = REAL_MARS_RADIUS * MODEL_SCALER
 @onready var Mars = $Planet
 var _mars_initial_rot: Vector3
 
+const OrbitMaterial = preload("res://content/assets/orbit_material.tres")
+
 # Phobos
 const PHOBOS_RADIUS: float = 9100.0 * MODEL_SCALER #Using polar radius for now
 const PHOBOS_SEMIMAJOR_AXIS = 937800 * MODEL_SCALER
@@ -34,9 +36,9 @@ const PHOBOS_ORBIT_INCLINATION = 1.08
 const PHOBOS_SEMIMINOR_AXIS = PHOBOS_SEMIMAJOR_AXIS * sqrt(1-pow(PHOBOS_ECCENTRICITY, 2))
 const PhobosScn = preload("res://content/simulation/phobos.tscn")
 var _phobos
+var _phobos_orbit_plane: Node3D
 var _phobos_initial_pos: Vector3
 var _phobos_initial_rot: Vector3
-var _phobos_trail = []
 
 # Deimos
 const DEIMOS_RADIUS: float = 5100.0 * MODEL_SCALER #Using polar radius for now
@@ -49,9 +51,9 @@ const DEIMOS_ORBIT_INCLINATION = 1.79
 const DEIMOS_SEMIMINOR_AXIS = DEIMOS_SEMIMAJOR_AXIS * sqrt(1-pow(DEIMOS_ECCENTRICITY, 2))
 const DeimosScn = preload("res://content/simulation/deimos.tscn")
 var _deimos
+var _deimos_orbit_plane
 var _deimos_initial_pos: Vector3
 var _deimos_initial_rot: Vector3 
-var _deimos_trail = []
 
 # Time Keeping
 const MAX_TIME_MULT = 6000
@@ -65,29 +67,34 @@ var time_multiplier: float: # Externally a value between 0 and 100
 	set(value):
 		var input = clamp(value, 0, 100)
 		_time_multiplier = remap(input, 0, 100, MIN_TIME_MULT, MAX_TIME_MULT)
-var _time_multiplier = 1
+var _time_multiplier = 3000
 var _start_time: float = 0.0
 
 # Trails
 const TrailObjectScn = preload("res://content/simulation/trail_object.tscn")
 const TRAIL_LEN = 5
 
-
 func _ready() -> void:
 	_start_time = Time.get_ticks_msec()	
 	
 	_mars_initial_rot = Mars.rotation
 	
-	_phobos = _instantiate_moon(PhobosScn, PHOBOS_RADIUS, PHOBOS_ORBIT_INCLINATION, PHOBOS_SEMIMAJOR_AXIS)
+	_phobos_orbit_plane = _create_orbit_plane(PHOBOS_ORBIT_INCLINATION)
+	
+	_phobos = _instantiate_moon(PhobosScn, _phobos_orbit_plane, PHOBOS_RADIUS, PHOBOS_SEMIMAJOR_AXIS)
 	_phobos_initial_pos = _phobos.position
 	_phobos_initial_rot = _phobos.rotation
 	
-	_deimos = _instantiate_moon(DeimosScn, DEIMOS_RADIUS, DEIMOS_ORBIT_INCLINATION, DEIMOS_SEMIMAJOR_AXIS)
+	_instantiate_orbit_visual(PHOBOS_RADIUS, _phobos_orbit_plane, PHOBOS_SEMIMAJOR_AXIS, PHOBOS_SEMIMINOR_AXIS)
+	
+	
+	_deimos_orbit_plane = _create_orbit_plane(DEIMOS_ORBIT_INCLINATION)
+	
+	_deimos = _instantiate_moon(DeimosScn, _deimos_orbit_plane, DEIMOS_RADIUS, DEIMOS_SEMIMAJOR_AXIS)
 	_deimos_initial_pos = _deimos.position
 	_deimos_initial_rot = _deimos.rotation
 	
-
-
+	_instantiate_orbit_visual(DEIMOS_RADIUS, _deimos_orbit_plane, DEIMOS_SEMIMAJOR_AXIS, DEIMOS_SEMIMINOR_AXIS)
 
 func _process(delta: float) -> void:
 	_increase_time(delta)
@@ -112,22 +119,38 @@ func reset_sim() -> void:
 
 func get_real_time_mult() -> float:
 	return _time_multiplier
-	
 
-func _instantiate_moon(moon_scene:Resource, moon_radius:float, orbit_inclination:float, semi_major_axis:float):
-	"""Returns an instantiated moon object that is a child under a orbital plane node"""
-	
+
+func _create_orbit_plane(orbit_inclination:float) -> Node3D:
 	var orbit_plane = Node3D.new()
 	orbit_plane.rotate(Vector3.FORWARD, -deg_to_rad(orbit_inclination))
 	add_child(orbit_plane)
-	
+	return orbit_plane
+
+
+func _instantiate_moon(moon_scene:Resource, orbit_plane: Node3D, moon_radius:float, semi_major_axis:float):
+	"""Returns an instantiated moon object that is a child under a orbital plane node"""	
 	var moon = moon_scene.instantiate()
 	orbit_plane.add_child(moon)
 	
 	moon.position = Vector3(semi_major_axis, 0, 0)	
 	moon.scale *= moon_radius/0.5 #Scale is desired_radius/current_radius
-	
+		
 	return moon
+
+func _instantiate_orbit_visual( planetoid_radius: float, 
+								orbit_plane: Node3D, 
+								orbit_major_axis: float, 
+								orbit_minor_axis: float):
+	var mesh_instance = MeshInstance3D.new()
+	var torus_mesh = TorusMesh.new()
+	
+	torus_mesh.inner_radius = orbit_major_axis
+	torus_mesh.outer_radius = orbit_major_axis + planetoid_radius
+	
+	mesh_instance.mesh = torus_mesh
+	mesh_instance.material_override = OrbitMaterial
+	orbit_plane.add_child(mesh_instance)
 
 
 func _animate_sim(delta:float):
@@ -161,22 +184,3 @@ func _move_in_orbit(planetoid:Node3D, orbit_period:float,
 func _increase_time(delta:float):
 	elapsed_real_secs += 1 * delta
 	elapsed_simulated_secs += 1 * _time_multiplier * delta	
-	
-
-func _add_trail_obj(planetoid:Node3D, planetoid_radius:float, trail: Array):
-	var planet_parent = planetoid.get_parent()
-	
-	if trail.size() == TRAIL_LEN: 
-		var last_trail_obj = trail.pop_front()
-		planet_parent.remove_child(last_trail_obj)
-	
-	var trail_object = TrailObjectScn.instantiate()
-	trail.append(trail_object)
-	planet_parent.add_child(trail_object) 
-	trail_object.scale *= planetoid_radius/1 #Scale to half size of planetoid
-	trail_object.position = planetoid.position
-
-
-func _on_draw_trail_timeout() -> void:
-	_add_trail_obj(_phobos, PHOBOS_RADIUS, _phobos_trail)
-	_add_trail_obj(_deimos, DEIMOS_RADIUS, _deimos_trail)

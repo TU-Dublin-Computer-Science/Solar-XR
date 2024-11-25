@@ -12,3 +12,4 @@ export_presets.cfg
 
 # Project
 addons/godotopenxrvendors
+addons/debug_draw_3d

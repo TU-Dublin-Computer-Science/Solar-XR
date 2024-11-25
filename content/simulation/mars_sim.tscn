@@ -49,8 +49,8 @@ title = "South Polar Ice Cap"
 description = "The south polar permanent cap is much smaller than the one in the north. It is 400 km in diameter, as compared to the 1100 km diameter of the northern cap. Each southern winter, the ice cap covers the surface to a latitude of 50°."
 image = ExtResource("6_fr2gx")
 
-[node name="DrawTrail" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.86, 0)
 
-[connection signal="timeout" from="DrawTrail" to="." method="_on_draw_trail_timeout"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.66, 0)

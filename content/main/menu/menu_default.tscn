@@ -4,7 +4,7 @@
 
 [node name="Lbl1" type="Label3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
-text = "Welcome to Mars XR!"
+text = "Mars XR"
 horizontal_alignment = 0
 vertical_alignment = 0
 

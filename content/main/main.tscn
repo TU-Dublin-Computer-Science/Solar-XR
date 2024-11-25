@@ -15,7 +15,6 @@ script = ExtResource("1_55rk4")
 [node name="AudBGM" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_4o6td")
 volume_db = -30.0
-autoplay = true
 parameters/looping = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -44,4 +43,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 camera = NodePath("../XROrigin3D/XRCamera3D")
-intro_text = "Welcome to Mars XR!"
+
+[node name="Lbl1" type="Label3D" parent="XRSetupMenu"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.08, -0.475)
+text = "Welcome to Mars XR!"
+
+[node name="Lbl2" type="Label3D" parent="XRSetupMenu"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.04, -0.475)
+text = "Press the button below to begin:"

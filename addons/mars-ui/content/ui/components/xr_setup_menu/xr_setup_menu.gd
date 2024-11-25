@@ -5,11 +5,6 @@ signal start_pressed
 
 @export var camera: XRCamera3D 
 
-@export var intro_text: String:
-	set(value):
-		intro_text = value
-		%LblIntro.text = value
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%BtnStart.on_button_up.connect(func():

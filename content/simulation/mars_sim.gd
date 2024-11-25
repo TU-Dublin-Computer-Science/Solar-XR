@@ -23,7 +23,10 @@ const MARS_RADIUS = REAL_MARS_RADIUS * MODEL_SCALER
 @onready var Mars = $Planet
 var _mars_initial_rot: Vector3
 
+# Orbit Visuals
 const OrbitMaterial = preload("res://content/assets/orbit_material.tres")
+const ORBIT_VISUAL_SIZE = 0.3  # Scale of 0-1
+const ORBIT_VISUAL_OPACITY = 0.2 # Scale of 0-1
 
 # Phobos
 const PHOBOS_RADIUS: float = 9100.0 * MODEL_SCALER #Using polar radius for now
@@ -69,10 +72,6 @@ var time_multiplier: float: # Externally a value between 0 and 100
 		_time_multiplier = remap(input, 0, 100, MIN_TIME_MULT, MAX_TIME_MULT)
 var _time_multiplier = 3000
 var _start_time: float = 0.0
-
-# Trails
-const TrailObjectScn = preload("res://content/simulation/trail_object.tscn")
-const TRAIL_LEN = 5
 
 func _ready() -> void:
 	_start_time = Time.get_ticks_msec()	
@@ -132,6 +131,7 @@ func _create_orbit_plane(orbit_inclination:float) -> Node3D:
 func _instantiate_moon(moon_scene:Resource, orbit_plane: Node3D, moon_radius:float, semi_major_axis:float):
 	"""Returns an instantiated moon object that is a child under a orbital plane node"""	
 	var moon = moon_scene.instantiate()
+
 	orbit_plane.add_child(moon)
 	
 	moon.position = Vector3(semi_major_axis, 0, 0)	
@@ -147,12 +147,19 @@ func _instantiate_orbit_visual( planetoid_radius: float,
 	var mesh_instance = MeshInstance3D.new()
 	var torus_mesh = TorusMesh.new()
 	
-	torus_mesh.inner_radius = orbit_major_axis
-	torus_mesh.outer_radius = orbit_major_axis + planetoid_radius
+	var scale_factor = remap(ORBIT_VISUAL_SIZE, 0, 1, 10, 1)
+	
+	torus_mesh.inner_radius = orbit_major_axis - planetoid_radius/scale_factor
+	torus_mesh.outer_radius = orbit_major_axis + planetoid_radius/scale_factor
 	
 	mesh_instance.mesh = torus_mesh
-	mesh_instance.material_override = OrbitMaterial
-	mesh_instance.scale.z = orbit_minor_axis/orbit_major_axis # Morphs to 
+	mesh_instance.scale.z = orbit_minor_axis/orbit_major_axis 
+	
+	var orbit_material = OrbitMaterial.duplicate()
+	var color = orbit_material.albedo_color
+	color.a = ORBIT_VISUAL_OPACITY
+	orbit_material.albedo_color = color
+	mesh_instance.material_override = orbit_material
 	
 	orbit_plane.add_child(mesh_instance)
 

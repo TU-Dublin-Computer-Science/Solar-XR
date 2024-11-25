@@ -13,6 +13,7 @@
 script = ExtResource("1_55rk4")
 
 [node name="AudBGM" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("9_4o6td")
 volume_db = -30.0
 parameters/looping = true

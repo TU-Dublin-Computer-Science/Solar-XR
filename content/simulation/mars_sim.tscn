@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cowk1sb5rws3a"]
+[gd_scene load_steps=11 format=3 uid="uid://cowk1sb5rws3a"]
 
 [ext_resource type="Script" path="res://content/simulation/mars_sim.gd" id="1_grcan"]
 [ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/8k_mars.jpg" id="2_4jx06"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://xxxhocwl642k" path="res://content/assets/InfoImages/OlympusMons.png" id="4_6o0n3"]
 [ext_resource type="Texture2D" uid="uid://275lkn1mg8o1" path="res://content/assets/InfoImages/NorthPolarIceCap.jpg" id="5_rjgsr"]
 [ext_resource type="Texture2D" uid="uid://blp0fah5ng4by" path="res://content/assets/InfoImages/SouthPolarIceCap.jpg" id="6_fr2gx"]
-[ext_resource type="Material" uid="uid://b07qgw3cvobtm" path="res://content/assets/orbit_material.tres" id="8_w5hno"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rrlqr"]
 
@@ -16,10 +15,6 @@ albedo_texture = ExtResource("2_4jx06")
 
 [sub_resource type="SphereMesh" id="SphereMesh_yp3wd"]
 material = SubResource("StandardMaterial3D_mvvgk")
-
-[sub_resource type="TorusMesh" id="TorusMesh_ammcw"]
-material = ExtResource("8_w5hno")
-inner_radius = 0.99
 
 [node name="MarsSim" type="Node3D"]
 script = ExtResource("1_grcan")
@@ -53,13 +48,3 @@ transform = Transform3D(0.999994, -0.00344295, 0.000154058, 0.00344335, 0.99999,
 title = "South Polar Ice Cap"
 description = "The south polar permanent cap is much smaller than the one in the north. It is 400 km in diameter, as compared to the 1100 km diameter of the northern cap. Each southern winter, the ice cap covers the surface to a latitude of 50°."
 image = ExtResource("6_fr2gx")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.37, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.37, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("TorusMesh_ammcw")

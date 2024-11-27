@@ -1,0 +1,48 @@
+{
+	"name": "Mars",
+	"scene_path": "res://content/scenes/model_scenes/mars.tscn",
+	"radius": 337620,
+	"rotation_period": 88642.44,
+	"satellites": [
+		{
+			"name": "Phobos",
+			"scene_path": "res://content/scenes/model_scenes/phobos.tscn",
+			"radius": 9100,
+			"semimajor_axis": 937800,
+			"eccentricity": 0.0151,
+			"orbit_period": 27553.824,
+			"rotation_period": 27553.824,
+			"orbit_inclination": 1.08
+		},
+		{
+			"name": "Deimos",
+			"scene_path": "res://content/scenes/model_scenes/deimos.tscn",
+			"radius": 5100,
+			"semimajor_axis": 2345900,
+			"eccentricity": 0.0005,
+			"orbit_period": 109074.816,
+			"rotation_period": 109074.816,
+			"orbit_inclination": 1.79
+		}
+	],
+	"info_points": [
+		{
+			"name": "Olympus Mons",
+			"description": "Olympus Mons is a large shield volcano on Mars. It is over 21.9 km high as measured by the Mars Orbiter Laser Altimeter, about 2.5 times the elevation of Mount Everest above sea level.",
+			"image_path": "res://content/assets/info_images/OlympusMons.png",
+			"location": {
+				"latitude": 18.65,
+				"longitude": 226.2
+			}
+		},
+		{
+			"name": "North Polar Ice Cap",
+			"description": "The bulk of the northern ice cap consists of water ice; it also has a thin seasonal veneer of dry ice, solid carbon dioxide. Each winter the ice cap grows by adding 1.5 to 2m of dry ice.",
+			"image_path": "res://content/assets/info_images/NorthPolarIceCap.jpg",
+			"location": {
+				"latitude": 88,
+				"longitude": 15
+			}
+		}
+	]
+}

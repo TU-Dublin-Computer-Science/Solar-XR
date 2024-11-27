@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://gs122858j0nd"]
+
+[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_42wqb"]
+[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.gd" id="1_rl8sr"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_5ks17"]
+[ext_resource type="Texture2D" uid="uid://xxxhocwl642k" path="res://content/assets/info_images/OlympusMons.png" id="3_gevwr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adhjk"]
+size = Vector3(0.3, 0.525, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn5wx"]
+render_priority = 0
+shader = ExtResource("1_42wqb")
+shader_parameter/color = Color(1, 1, 1, 0.3)
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/border_size = 0.001
+shader_parameter/border_fade_in = 0.005
+shader_parameter/border_fade_out = 0.0
+shader_parameter/corner_radius = 0.04
+shader_parameter/roughness = 0.3
+shader_parameter/grain_amount = 0.02
+
+[sub_resource type="QuadMesh" id="QuadMesh_uil8i"]
+size = Vector2(0.3, 0.525)
+
+[node name="DisplayScreen" type="StaticBody3D"]
+script = ExtResource("1_rl8sr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_adhjk")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_nn5wx")
+mesh = SubResource("QuadMesh_uil8i")
+skeleton = NodePath("")
+
+[node name="BtnClose" parent="." instance=ExtResource("3_5ks17")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118404, 0.231606, 0)
+font_size = 30
+label = "X"
+
+[node name="SprtImage" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.019, 0, 0, 0, 0.019, 0, 0, 0, 0.019, 0.00100279, 0.0994638, 0.00482321)
+transparent = false
+texture = ExtResource("3_gevwr")
+
+[node name="LblTitle" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.136416, -0.00873125, 0)
+text = "Title"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblDesc" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.136, -0.0475216, 0)
+text = "Description"
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+width = 575.0

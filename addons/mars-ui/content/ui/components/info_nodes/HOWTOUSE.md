@@ -1,4 +1,3 @@
-- Create an InfoNodeManager node in the scene with your info nodes
-- Create each info node as a child of the InfoNodeManager
-- Create an InfoNodeScreenSpawner node (doesn't have to be in current scene)
-- Assign InfoNodeScreenSpawner node to the InfoNodeScreenSpawner property of InfoNodeManager
+- Add an InfoNodeScreen to scene
+- Add Info Nodes to project
+- Add references to each Info Node in the array in InfoNodeScreen

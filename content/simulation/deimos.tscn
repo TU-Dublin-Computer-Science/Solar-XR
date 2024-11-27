@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu0xi08kkfdbc"]
-
-[ext_resource type="PackedScene" uid="uid://d2ptq5cs2re38" path="res://content/assets/unitDeimos.glb" id="1_lkecc"]
-
-[node name="unitDeimos" instance=ExtResource("1_lkecc")]

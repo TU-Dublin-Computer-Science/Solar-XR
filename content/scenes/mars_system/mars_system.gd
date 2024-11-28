@@ -13,7 +13,7 @@ enum Mode {
 var mode:Mode = Mode.DEFAULT
 
 const DEFAULT_MARS_POS = Vector3(0, 1.5, -2)
-const MAX_MOVE_DIST = 1
+const MAX_MOVE_DIST = 4
 const MOVE_SPEED = 1
 
 const ROT_CHANGE_SPEED = 1
@@ -25,7 +25,7 @@ const SCALE_CHANGE_SPEED = 1
 
 const MIN_TIME_SCALAR = 1
 const MAX_TIME_SCALAR = 6000
-const DEFAULT_TIME_SCALAR = 3000
+const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 1000
 
 # Rotation stored in radians (0 - TAU) 

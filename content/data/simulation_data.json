@@ -1,28 +1,28 @@
 {
 	"name": "Mars",
 	"scene_path": "res://content/scenes/model_scenes/mars.tscn",
-	"radius": 337620,
-	"rotation_period": 88642.44,
+	"radius": 3389.92,
+	"rotation_period": 88642.6632,
 	"satellites": [
 		{
 			"name": "Phobos",
 			"model_path": "res://content/scenes/model_scenes/phobos.tscn",
-			"radius": 9100,
-			"semimajor_axis": 937800,
-			"eccentricity": 0.0151,
-			"orbit_period": 27553.824,
-			"rotation_period": 27553.824,
-			"orbit_inclination": 1.08
+			"radius": 13.1,
+			"semimajor_axis": 9378.884043199467,
+			"eccentricity": 0.01488911986011352,
+			"orbit_period": 27576.60656608614,
+			"rotation_period": 27576.60656608614,
+			"orbit_inclination": 26.12626927005928
 		},
 		{
 			"name": "Deimos",
 			"model_path": "res://content/scenes/model_scenes/deimos.tscn",
-			"radius": 5100,
-			"semimajor_axis": 2345900,
-			"eccentricity": 0.0005,
-			"orbit_period": 109074.816,
-			"rotation_period": 109074.816,
-			"orbit_inclination": 1.79
+			"radius": 7.8,
+			"semimajor_axis": 23458.26597234712,
+			"eccentricity": 0.0003081896334520172,
+			"orbit_period": 109083.2165671775,
+			"rotation_period": 109083.2165671775,
+			"orbit_inclination": 24.27418930612024
 		}
 	],
 	"info_points": [

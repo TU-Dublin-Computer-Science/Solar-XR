@@ -6,7 +6,7 @@
 	"satellites": [
 		{
 			"name": "Phobos",
-			"scene_path": "res://content/scenes/model_scenes/phobos.tscn",
+			"model_path": "res://content/scenes/model_scenes/phobos.tscn",
 			"radius": 9100,
 			"semimajor_axis": 937800,
 			"eccentricity": 0.0151,
@@ -16,7 +16,7 @@
 		},
 		{
 			"name": "Deimos",
-			"scene_path": "res://content/scenes/model_scenes/deimos.tscn",
+			"model_path": "res://content/scenes/model_scenes/deimos.tscn",
 			"radius": 5100,
 			"semimajor_axis": 2345900,
 			"eccentricity": 0.0005,

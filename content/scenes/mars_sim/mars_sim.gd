@@ -77,7 +77,7 @@ func _instantiate_simulation():
 	if sim_data["satellites"]:
 		for satellite_data in sim_data["satellites"]:
 			var body = BodyScn.instantiate()
-			body.set_data(	load(satellite_data["scene_path"]), 
+			body.set_data(	load(satellite_data["model_path"]), 
 							satellite_data["radius"], 
 							satellite_data["rotation_period"], 
 							time_scalar, 

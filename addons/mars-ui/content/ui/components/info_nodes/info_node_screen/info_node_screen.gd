@@ -17,14 +17,14 @@ var _active_info_node: InfoNode = null
 func _ready() -> void:
 	DisplayScreen = DisplayScreenScn.instantiate()
 	
-	DisplayScreen.close_btn_pressed.connect(_deactivate)
+	DisplayScreen.close_btn_pressed.connect(deactivate)
 	
 	_connect_info_node_signals()
 
 func _connect_info_node_signals():
 	for info_node in info_nodes:
 		info_node.on_button_down.connect(_update_info_node.bind(info_node))
-		info_node.on_button_up.connect(_deactivate)
+		info_node.on_button_up.connect(deactivate)
 
 func _update_info_node(info_node: InfoNode):
 	if _active_info_node == null: # If no currently selected info node
@@ -36,7 +36,7 @@ func _update_info_node(info_node: InfoNode):
 		_update_screen(_active_info_node.title, _active_info_node.description, _active_info_node.image)
 
 
-func _deactivate():
+func deactivate():
 	# Deactivates current info node and destroys screen
 	if _active_info_node != null:
 		_active_info_node.active = false

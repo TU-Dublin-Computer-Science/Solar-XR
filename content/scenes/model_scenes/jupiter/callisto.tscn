@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://35vgkgmhueaw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pik6l"]
+albedo_color = Color(0.612295, 0.612295, 0.612295, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ipnm"]
+material = SubResource("StandardMaterial3D_pik6l")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rr1ae"]
+
+[node name="Moon" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0ipnm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rr1ae")

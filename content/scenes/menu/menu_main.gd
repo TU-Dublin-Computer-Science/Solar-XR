@@ -46,6 +46,9 @@ signal time_decrease_stop
 signal time_increase_start
 signal time_increase_stop
 
+# Planet Signals
+signal planet_change_pressed
+
 # Reset Signal
 signal reset
 
@@ -54,16 +57,23 @@ const MenuMoveScn = preload("res://content/scenes/menu/menu_move.tscn")
 const MenuRotateScn = preload("res://content/scenes/menu/menu_rotate.tscn")
 const MenuScaleScn = preload("res://content/scenes/menu/menu_scale.tscn")
 const MenuTimeScn = preload("res://content/scenes/menu/menu_time.tscn")
+const MenuPlanetScn = preload("res://content/scenes/menu/menu_planet.tscn")
 
 var MenuDefault
 var MenuMove
 var MenuRotate
 var MenuScale
 var MenuTime
+var MenuPlanet
 
 var simulation_speed: float
 var simulation_time: int
 var real_time: int
+var planet: GlobalEnums.Planet: 
+	set(value):
+		planet = value
+		MenuPlanet.planet = value
+		
 
 var _active_btn: Button3D = null:
 	set(value):
@@ -89,7 +99,7 @@ var _active_tab: Node3D = null:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_setup_menu_buttons()	
+	_setup_menu_buttons()
 	_setup_tabs()
 	_active_tab = MenuDefault
 
@@ -126,9 +136,13 @@ func _setup_menu_buttons():
 		_active_tab = MenuTime
 	)
 	
+	%BtnPlanet.on_button_down.connect(func():
+		_active_btn = %BtnPlanet
+		_active_tab = MenuPlanet
+	)
+	
+	
 	%BtnReset.on_button_down.connect(func():
-		_active_btn = null
-		_active_tab = MenuDefault
 		reset.emit()
 	)
 
@@ -139,6 +153,8 @@ func _setup_tabs():
 	_setup_rotate_tab()
 	_setup_scale_tab()
 	_setup_time_tab()
+	_setup_planet_tab()
+
 
 func _setup_default_tab():
 	MenuDefault = MenuDefaultScn.instantiate()
@@ -199,3 +215,10 @@ func _setup_time_tab():
 
 	MenuTime.find_child("BtnIncrease").on_button_down.connect(func(): time_increase_start.emit())
 	MenuTime.find_child("BtnIncrease").on_button_up.connect(func(): time_increase_stop.emit())
+
+
+func _setup_planet_tab():
+	MenuPlanet = MenuPlanetScn.instantiate()
+	MenuPlanet.find_child("BtnMars").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.MARS))
+	MenuPlanet.find_child("BtnJupiter").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.JUPITER))
+	

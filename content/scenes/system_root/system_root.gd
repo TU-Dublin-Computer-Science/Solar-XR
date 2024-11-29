@@ -12,26 +12,26 @@ enum Mode {
 
 var mode:Mode = Mode.DEFAULT
 
-const DEFAULT_MARS_POS = Vector3(0, 1.5, -2)
+const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
 const MAX_MOVE_DIST = 4
 const MOVE_SPEED = 1
 
 const ROT_CHANGE_SPEED = 1
 
-const MIN_MARS_SCALE: float = 0.5 
-const MAX_MARS_SCALE: float = 4
-const DEFAULT_MARS_SCALE: float = 1
+const MIN_SIM_SCALE: float = 0.5 
+const MAX_SIM_SCALE: float = 4
+const DEFAULT_SIM_SCALE: float = 1
 const SCALE_CHANGE_SPEED = 1
 
 const MIN_TIME_SCALAR = 1
 const MAX_TIME_SCALAR = 6000
-const DEFAULT_TIME_SCALAR = 1
+const DEFAULT_TIME_SCALAR = 3000
 const TIME_CHANGE_SPEED = 1000
 
 # Rotation stored in radians (0 - TAU) 
-var _mars_x_rotation : float = 0
-var _mars_y_rotation : float = 0
-var _mars_scale:float = DEFAULT_MARS_SCALE
+var _sim_x_rotation : float = 0
+var _sim_y_rotation : float = 0
+var _sim_scale:float = DEFAULT_SIM_SCALE
 
 # Move
 var _moving_up: bool = false
@@ -55,31 +55,54 @@ var _scale_decreasing: bool = false
 var _time_increasing: bool = false
 var _time_decreasing: bool = false
 
+# planet
+var _planet:GlobalEnums.Planet = GlobalEnums.Planet.MARS
+
 # Scene Nodes
 var InfoScreen: Node3D
 
 func _ready():
-	_setup_signals()
-	
-	var info_nodes = $MarsSim.info_nodes 
-	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
-	
-	_reset()
+	_setup_menu()
+	_initialise_system()
 
 
 func _process(delta):	
 	_handle_constant_state_changes(delta)
-	_update_ui()	
+	_update_ui_live_data()	
 
-func _setup_info_nodes():
-	pass
 
-func _setup_signals():
+func _initialise_system():
+	%PlanetSim.position = DEFAULT_SIM_POS
+
+	_sim_x_rotation = 0
+	_sim_y_rotation = 0
+	%PlanetSim.rotation = Vector3(0,0,0)
+
+	_sim_scale = DEFAULT_SIM_SCALE
+	%PlanetSim.scale = Vector3(_sim_scale, _sim_scale, _sim_scale)
+
+	%PlanetSim.time_scalar = DEFAULT_TIME_SCALAR
+
+	_sim_start_time = Time.get_ticks_msec()
+	
+	%PlanetSim.planet = _planet
+	%MainMenu.planet = _planet
+	
+	%InfoNodeScreen.deactivate()
+	var info_nodes = $PlanetSim.info_nodes 
+	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
+	
+	%PlanetSim.reset_sim()	
+
+
+func _setup_menu():
+	%MainMenu.planet = _planet
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
-	%MainMenu.reset.connect(_reset)
+	_setup_planet_signals()
+	%MainMenu.reset.connect(_initialise_system)
 
 
 func _setup_move_signals():
@@ -132,6 +155,13 @@ func _setup_time_signals():
 	$MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
 
 
+func _setup_planet_signals():
+	%MainMenu.planet_change_pressed.connect(func(value):
+		_planet = value
+		_initialise_system()
+	)
+
+
 func _handle_constant_state_changes(delta: float):
 	_handle_constant_movement(delta)
 	_handle_constant_rotation(delta)
@@ -141,101 +171,82 @@ func _handle_constant_state_changes(delta: float):
 
 func _handle_constant_movement(delta: float):
 	if _moving_up:
-		%MarsSim.position.y = clamp(
-									%MarsSim.position.y + delta*MOVE_SPEED, 
-									DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
-									DEFAULT_MARS_POS.y + MAX_MOVE_DIST)		
+		%PlanetSim.position.y = clamp(
+									%PlanetSim.position.y + delta*MOVE_SPEED, 
+									DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
+									DEFAULT_SIM_POS.y + MAX_MOVE_DIST)		
 	if _moving_down:
-		%MarsSim.position.y = clamp(
-									%MarsSim.position.y - delta*MOVE_SPEED, 
-									DEFAULT_MARS_POS.y - MAX_MOVE_DIST, 
-									DEFAULT_MARS_POS.y + MAX_MOVE_DIST)
+		%PlanetSim.position.y = clamp(
+									%PlanetSim.position.y - delta*MOVE_SPEED, 
+									DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
+									DEFAULT_SIM_POS.y + MAX_MOVE_DIST)
 	if _moving_left:
-		%MarsSim.position.x = clamp(
-									%MarsSim.position.x - delta*MOVE_SPEED, 
-									DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
-									DEFAULT_MARS_POS.x + MAX_MOVE_DIST)
+		%PlanetSim.position.x = clamp(
+									%PlanetSim.position.x - delta*MOVE_SPEED, 
+									DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
+									DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
 	if _moving_right:
-		%MarsSim.position.x = clamp(
-									%MarsSim.position.x + delta*MOVE_SPEED, 
-									DEFAULT_MARS_POS.x - MAX_MOVE_DIST, 
-									DEFAULT_MARS_POS.x + MAX_MOVE_DIST)
+		%PlanetSim.position.x = clamp(
+									%PlanetSim.position.x + delta*MOVE_SPEED, 
+									DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
+									DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
 	if _moving_forward:
-		%MarsSim.position.z = clamp(
-							%MarsSim.position.z - delta*MOVE_SPEED, 
-							DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
-							DEFAULT_MARS_POS.z + MAX_MOVE_DIST)
+		%PlanetSim.position.z = clamp(
+							%PlanetSim.position.z - delta*MOVE_SPEED, 
+							DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
+							DEFAULT_SIM_POS.z + MAX_MOVE_DIST)
 	if _moving_back:
-		%MarsSim.position.z = clamp(
-									%MarsSim.position.z + delta*MOVE_SPEED, 
-									DEFAULT_MARS_POS.z - MAX_MOVE_DIST, 
-									DEFAULT_MARS_POS.z + MAX_MOVE_DIST)		
+		%PlanetSim.position.z = clamp(
+									%PlanetSim.position.z + delta*MOVE_SPEED, 
+									DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
+									DEFAULT_SIM_POS.z + MAX_MOVE_DIST)		
 
 
 func _handle_constant_rotation(delta: float):
 	if _rot_increasing_x:
 		# Rotation value always stays in range of 0-TAU
-		_mars_x_rotation = fmod(_mars_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
-		%MarsSim.rotation.x = _mars_x_rotation
+		_sim_x_rotation = fmod(_sim_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
+		%PlanetSim.rotation.x = _sim_x_rotation
 	
 	if _rot_decreasing_x:
 		# Rotation value always stays in range of 0-TAU
-		_mars_x_rotation = fmod(_mars_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
-		%MarsSim.rotation.x = _mars_x_rotation
+		_sim_x_rotation = fmod(_sim_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
+		%PlanetSim.rotation.x = _sim_x_rotation
 	
 	if _rot_increasing_y:
 		# Rotation value always stays in range of 0-TAU
-		_mars_y_rotation = fmod(_mars_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
-		%MarsSim.rotation.y = _mars_y_rotation
+		_sim_y_rotation = fmod(_sim_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
+		%PlanetSim.rotation.y = _sim_y_rotation
 		
 	if _rot_decreasing_y:
 		# Rotation value always stays in range of 0-TAU
-		_mars_y_rotation = fmod(_mars_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
-		%MarsSim.rotation.y = _mars_y_rotation
+		_sim_y_rotation = fmod(_sim_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
+		%PlanetSim.rotation.y = _sim_y_rotation
 
 
 func _handle_constant_scaling(delta: float):
 	if _scale_increasing:
-		_mars_scale = clamp(_mars_scale + SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
-		%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
+		_sim_scale = clamp(_sim_scale + SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
+		%PlanetSim.scale = Vector3(_sim_scale, _sim_scale, _sim_scale)
 	
 	if _scale_decreasing:
-		_mars_scale = clamp(_mars_scale - SCALE_CHANGE_SPEED*delta, MIN_MARS_SCALE, MAX_MARS_SCALE)
-		%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)		
+		_sim_scale = clamp(_sim_scale - SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
+		%PlanetSim.scale = Vector3(_sim_scale, _sim_scale, _sim_scale)		
 
 
 func _handle_constant_time_change(delta: float):
 	if _time_increasing:
-		%MarsSim.time_scalar = clamp(	%MarsSim.time_scalar + TIME_CHANGE_SPEED * delta,
+		%PlanetSim.time_scalar = clamp(	%PlanetSim.time_scalar + TIME_CHANGE_SPEED * delta,
 										 	MIN_TIME_SCALAR, 
 											MAX_TIME_SCALAR)
 	
 	if _time_decreasing:
-		%MarsSim.time_scalar = clamp(	%MarsSim.time_scalar - TIME_CHANGE_SPEED * delta,
+		%PlanetSim.time_scalar = clamp(	%PlanetSim.time_scalar - TIME_CHANGE_SPEED * delta,
 										 	MIN_TIME_SCALAR, 
 											MAX_TIME_SCALAR)
 
-
-func _reset():
-	mode = Mode.DEFAULT
-	
-	%MarsSim.position = DEFAULT_MARS_POS
-
-	_mars_x_rotation = 0
-	_mars_y_rotation = 0
-	%MarsSim.rotation = Vector3(0,0,0)
-
-	_mars_scale = DEFAULT_MARS_SCALE
-	%MarsSim.scale = Vector3(_mars_scale, _mars_scale, _mars_scale)
-
-	%MarsSim.time_scalar = DEFAULT_TIME_SCALAR
-
-	_sim_start_time = Time.get_ticks_msec()
-	
-	%MarsSim.reset_sim()
-
-
-func _update_ui():
-	%MainMenu.simulation_speed = %MarsSim.time_scalar
-	%MainMenu.simulation_time = %MarsSim.elapsed_simulated_secs
+func _update_ui_live_data():
+	"Menu data readouts that must be updated every frame"
+	%MainMenu.simulation_speed = %PlanetSim.time_scalar
+	%MainMenu.simulation_time = %PlanetSim.elapsed_simulated_secs
 	%MainMenu.real_time = (Time.get_ticks_msec() - _sim_start_time)/1000

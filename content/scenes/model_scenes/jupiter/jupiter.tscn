@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc3y65cpkr7n2"]
+
+[ext_resource type="Texture2D" uid="uid://btopduedjh4ks" path="res://content/assets/textures/8k_jupiter.jpg" id="1_ljrm2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ui3d"]
+albedo_texture = ExtResource("1_ljrm2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_g28rc"]
+material = SubResource("StandardMaterial3D_8ui3d")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8hkcr"]
+
+[node name="Jupiter" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_g28rc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8hkcr")

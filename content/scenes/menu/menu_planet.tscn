@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi3xon8nbqn6n"]
+
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="1_nfj2r"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_planet.gd" id="1_qydcx"]
+
+[node name="MenuPlanet" type="Node3D"]
+transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, 0, 0)
+script = ExtResource("1_qydcx")
+
+[node name="BtnMars" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.06, 0.02, 0)
+label = "Mars"
+
+[node name="BtnJupiter" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.06, 0.02, 0)
+label = "Jupiter"

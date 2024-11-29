@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba48yfaoyc187"]
 
-[ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/textures/8k_mars.jpg" id="1_gpc3k"]
+[ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/textures/8k_mars.jpg" id="1_gdixw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvvgk"]
-albedo_texture = ExtResource("1_gpc3k")
+albedo_texture = ExtResource("1_gdixw")
 
 [sub_resource type="SphereMesh" id="SphereMesh_yp3wd"]
 material = SubResource("StandardMaterial3D_mvvgk")

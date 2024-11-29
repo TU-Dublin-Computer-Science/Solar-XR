@@ -1,14 +1,14 @@
 extends Node3D
 
-var MarsSystemScn = preload("res://content/scenes/mars_system/mars_system.tscn")
+var SystemRootScn = preload("res://content/scenes/system_root/system_root.tscn")
 
 func _ready():
 	%XRSetupMenu.start_pressed.connect(_setup)
 
 
 func _setup():
-	var MarsSystem = MarsSystemScn.instantiate()
-	add_child(MarsSystem)
+	var SystemRoot = SystemRootScn.instantiate()
+	add_child(SystemRoot)
 	%AudBGM.playing = true
 	
 	

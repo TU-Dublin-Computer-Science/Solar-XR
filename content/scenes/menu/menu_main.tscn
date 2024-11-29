@@ -36,27 +36,32 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="BtnMove" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117744, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156448, -0.113685, 0)
 label = "Move"
 
 [node name="BtnRotate" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0591714, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092502, -0.113685, 0)
 label = "Rotate"
 
 [node name="BtnScale" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00237435, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0309675, -0.113685, 0)
 label = "Scale"
 
 [node name="BtnTime" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0633705, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033384, -0.113685, 0)
 label = "Time"
+
+[node name="BtnPlanet" parent="." instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156298, -0.113685, 0)
+label = "Planet"
 
 [node name="BtnReset" parent="." instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1204, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0949764, -0.113685, 0)
 label = "Reset"
 
 [node name="Tabs" type="Node3D" parent="."]

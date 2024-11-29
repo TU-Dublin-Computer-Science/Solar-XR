@@ -1,0 +1,49 @@
+{
+	"name": "Jupiter",
+	"model_path": "res://content/scenes/model_scenes/jupiter/jupiter.tscn",
+	"radius": 69911,
+	"rotation_period": 35729.711,
+	"satellites": [
+        {
+            "name": "Io",
+            "model_path": "res://content/scenes/model_scenes/jupiter/io.tscn",
+            "radius": 1821.49,
+            "semimajor_axis": 422047.0440261553,
+			"eccentricity": 0.004703257397991913,
+			"orbit_period": 153054.3663261806,
+			"rotation_period": 153054.3663261806,
+			"orbit_inclination": 2.182680703188572
+        },
+        {
+            "name": "Europa",
+            "model_path": "res://content/scenes/model_scenes/jupiter/europa.tscn",
+            "radius": 1560.8,
+            "semimajor_axis": 671301.0904373353,
+			"eccentricity": 0.009223043860873748,
+			"orbit_period": 307033.0905132898,
+			"rotation_period": 307033.0905132898,
+			"orbit_inclination": 2.255010122419680
+        },
+        {
+            "name": "Ganymede",
+            "model_path": "res://content/scenes/model_scenes/jupiter/ganymede.tscn",
+            "radius": 2631.2,
+            "semimajor_axis": 1070676.678492121,
+			"eccentricity": 0.001139349840106658,
+			"orbit_period": 618422.3995695959,
+			"rotation_period": 618422.3995695959,
+			"orbit_inclination": 2.331955980079799
+        },
+        {
+            "name": "Callisto",
+            "model_path": "res://content/scenes/model_scenes/jupiter/callisto.tscn",
+            "radius": 2410.3,
+            "semimajor_axis": 1884038.446316082,
+			"eccentricity": 0.007129689804924198,
+			"orbit_period": 1443567.117132759,
+			"rotation_period": 1443567.117132759,
+			"orbit_inclination": 1.949754737518573
+        }
+    ],
+	"info_points": []
+}

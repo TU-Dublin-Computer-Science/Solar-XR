@@ -1,10 +1,27 @@
 extends Node
 
-const SIM_DATA = "res://content/data/simulation_data.json"
+const MARS_DATA_PATH = "res://content/data/mars_data.json"
+const JUPITER_DATA_PATH = "res://content/data/jupiter_data.json"
+
 const BodyScn = preload("res://content/scenes/body/body.tscn")
 const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 
 var info_nodes: Array[Node3D]
+var sim_data_path = MARS_DATA_PATH
+
+var planet:GlobalEnums.Planet:
+	set(value):
+		planet = value
+		match planet:
+			GlobalEnums.Planet.MARS:
+				sim_data_path = MARS_DATA_PATH
+			GlobalEnums.Planet.JUPITER:
+				sim_data_path = JUPITER_DATA_PATH
+		
+		for child in get_children():
+			remove_child(child)	
+	
+		_instantiate_simulation()
 
 # Time Keeping
 var elapsed_simulated_secs: float = 0
@@ -29,11 +46,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	elapsed_simulated_secs += 1 * time_scalar * delta
 
+
 func reset_sim() -> void:
 	elapsed_simulated_secs = 0
 	_central_body.reset()
 	for orbit in _orbits_array:
 		orbit.reset()
+
 
 func _read_json_file(file_path: String) -> Dictionary:
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -56,26 +75,26 @@ func _read_json_file(file_path: String) -> Dictionary:
 	return json_data.data  # Returns the parsed dictionary
 
 func _instantiate_simulation():
-	var sim_data = _read_json_file(SIM_DATA)
+	var sim_data_path = _read_json_file(sim_data_path)
 	
-	if not sim_data:
+	if not sim_data_path:
 		return
 	
 	# In the simulation the central body is 1*1*1 meter
 	# The value below is the ratio of the central body's model radius to it's actual radius
 	# Every other body is scaled using this factor
-	var model_scalar = 0.5/sim_data["radius"]
+	var model_scalar = 0.5/sim_data_path["radius"]
 	
 	_central_body = BodyScn.instantiate()
-	_central_body.set_data(	load(sim_data["scene_path"]), 
-							sim_data["radius"], 
-							sim_data["rotation_period"], 
+	_central_body.set_data(	load(sim_data_path["model_path"]), 
+							sim_data_path["radius"], 
+							sim_data_path["rotation_period"], 
 							time_scalar, 
 							model_scalar)	
 	add_child(_central_body)
 	
-	if sim_data["satellites"]:
-		for satellite_data in sim_data["satellites"]:
+	if sim_data_path["satellites"]:
+		for satellite_data in sim_data_path["satellites"]:
 			var body = BodyScn.instantiate()
 			body.set_data(	load(satellite_data["model_path"]), 
 							satellite_data["radius"], 
@@ -94,6 +113,6 @@ func _instantiate_simulation():
 			_orbits_array.append(orbit)
 			add_child(orbit)
 	
-	if sim_data["info_points"]:
-		_central_body.add_info_nodes(sim_data["info_points"])
+	if sim_data_path["info_points"]:
+		_central_body.add_info_nodes(sim_data_path["info_points"])
 		info_nodes = _central_body.info_nodes

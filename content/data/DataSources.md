@@ -68,3 +68,94 @@ Revised 2012-9-28
 #### Notes
 - Using Longest dimension as radius
 
+# Jupiter
+## Physical Data
+Revised 2024-6-30
+```
+ PHYSICAL DATA (revised 2024-Jun-30):
+  Mass x 10^22 (g)      = 189818722 +- 8817 Density (g/cm^3)  = 1.3262 +- .0003
+  Equat. radius (1 bar) = 71492+-4 km       Polar radius (km)     = 66854+-10
+  Vol. Mean Radius (km) = 69911+-6          Flattening            = 0.06487
+  Geometric Albedo      = 0.52              Rocky core mass (Mc/M)= 0.0261
+  Sid. rot. period (III)= 9h 55m 29.711 s   Sid. rot. rate (rad/s)= 0.00017585
+  Mean solar day, hrs   = ~9.9259         
+  GM (km^3/s^2)         = 126686531.900     GM 1-sigma (km^3/s^2) =  +- 1.2732
+  Equ. grav, ge (m/s^2) = 24.79             Pol. grav, gp (m/s^2) =  28.34
+  Vis. magnitude V(1,0) = -9.40
+  Vis. mag. (opposition)= -2.70             Obliquity to orbit    =  3.13 deg
+  Sidereal orbit period = 11.861982204 y    Sidereal orbit period = 4332.589 d
+  Mean daily motion     = 0.0831294 deg/d   Mean orbit speed, km/s= 13.0697
+  Atmos. temp. (1 bar)  = 165+-5 K          Escape speed, km/s    =  59.5           
+  A_roche(ice)/Rp       =  2.76             Hill's sphere rad. Rp = 740
+```
+## Satellites
+### Io
+#### Physical Data
+Revised 2021-2-12
+```
+ SATELLITE PHYSICAL PROPERTIES:
+  Mean radius (km)       = 1821.49           Density (g cm^-3) = 3.528 +- 0.006
+  GM (km^3/s^2)          = 5959.9155+- 0.004 Geometric Albedo  = 0.63  +- 0.02
+```
+#### Orbit Data
+2024-11-28
+```
+2460642.500000000 = A.D. 2024-Nov-28 00:00:00.0000 TDB 
+ EC= 4.703257397991913E-03 QR= 4.200620481440386E+05 IN= 2.182680703188572E+00
+ OM= 3.380065299287576E+02 W = 1.791565544359794E+02 Tp=  2460642.589455282316
+ N = 2.352105390007554E-03 MA= 3.418207270755089E+02 TA= 3.416516342431080E+02
+ A = 4.220470440261553E+05 AD= 4.240320399082720E+05 PR= 1.530543663261806E+05
+```
+### Europa
+#### Phsyical Data
+Revised 2021-2-12
+```
+ SATELLITE PHYSICAL PROPERTIES:
+  Mean radius (km)       = 1560.8   +- 0.3    Density (g cm^-3)= 3.013 +- 0.005
+  GM   (km^3/s^2)        = 3202.7121+- 0.0054 Geometric Albedo = 0.67 +/- 0.03  
+```
+#### Orbital Data
+2024-11-28
+```
+2460642.500000000 = A.D. 2024-Nov-28 00:00:00.0000 TDB 
+ EC= 9.223043860873748E-03 QR= 6.651096510363794E+05 IN= 2.255010122419680E+00
+ OM= 3.260672873677302E+02 W = 1.391483352270482E+01 Tp=  2460640.828997780569
+ N = 1.172512055290723E-03 MA= 1.692809493346113E+02 TA= 1.694753193966203E+02
+ A = 6.713010904373353E+05 AD= 6.774925298382912E+05 PR= 3.070330905132898E+05
+```
+### Ganymede
+#### Physical Data
+Revised 2021-02-12
+```
+ SATELLITE PHYSICAL PROPERTIES:
+  Mean radius (km)       = 2631.2   +- 1.7    Density (g cm^-3)= 1.942 +- 0.005
+  GM (km^3/s^2)          = 9887.8328+- 0.0074 Geometric Albedo = 0.43  +- 0.02
+```
+#### Orbital Data
+2024-11-28
+```
+2460642.500000000 = A.D. 2024-Nov-28 00:00:00.0000 TDB 
+ EC= 1.139349840106658E-03 QR= 1.069456803189675E+06 IN= 2.331955980079799E+00
+ OM= 3.395131650989522E+02 W = 1.646817076823103E+00 Tp=  2460640.843947666697
+ N = 5.821263916872182E-04 MA= 8.329234485959708E+01 TA= 8.342203252124935E+01
+ A = 1.070676678492121E+06 AD= 1.071896553794567E+06 PR= 6.184223995695959E+05
+ ```
+
+### Callisto
+#### Physical Data
+Revised 2021-02-12
+```
+SATELLITE PHYSICAL PROPERTIES:
+  Mean radius (km)      = 2410.3 +- 1.5       Density (g cm^-3)= 1.834 +- 0.004
+  GM (km^3/s^2)         = 7179.2834 +- 0.0097 Geometric Albedo = 0.17  +- 0.02
+```
+#### Orbital Data
+2024-11-28
+```
+2460642.500000000 = A.D. 2024-Nov-28 00:00:00.0000 TDB 
+ EC= 7.129689804924198E-03 QR= 1.870605836613297E+06 IN= 1.949754737518573E+00
+ OM= 3.367686420034709E+02 W = 3.813455262660260E+01 Tp=  2460637.529683498666
+ N = 2.493822391265319E-04 MA= 1.070935480793774E+02 TA= 1.078723956953631E+02
+ A = 1.884038446316082E+06 AD= 1.897471056018868E+06 PR= 1.443567117132759E+06
+ ```
+

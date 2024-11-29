@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://33t1mtog36ju"]
+
+[ext_resource type="Script" path="res://content/scenes/system_root/system_root.gd" id="1_khl8y"]
+[ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/scenes/menu/menu_main.tscn" id="2_tmboh"]
+[ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.tscn" id="3_uai5y"]
+[ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/scenes/planet_sim/planet_sim.tscn" id="4_jdocv"]
+
+[node name="SystemRoot" type="Node3D"]
+script = ExtResource("1_khl8y")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_tmboh")]
+unique_name_in_owner = true
+transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, -0.353, 1.25, -0.405)
+
+[node name="InfoNodeScreen" parent="." instance=ExtResource("3_uai5y")]
+unique_name_in_owner = true
+transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 0.428, 1.25, -0.406)
+
+[node name="PlanetSim" parent="." instance=ExtResource("4_jdocv")]
+unique_name_in_owner = true

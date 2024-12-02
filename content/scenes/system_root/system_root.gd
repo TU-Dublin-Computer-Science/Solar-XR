@@ -38,13 +38,13 @@ var _sim_position: Vector3:
 var _sim_x_rotation: float = 0: 
 	set(value):
 		_sim_x_rotation = value
-		%PlanetSim.rotation.x = _sim_x_rotation
+		%PlanetSim.rotation.x = value
 		%MainMenu.rot_x_readout = value
 
 var _sim_y_rotation: float = 0:
 	set(value):
 		_sim_y_rotation = value
-		%PlanetSim.rotation.y = _sim_y_rotation
+		%PlanetSim.rotation.y = value
 		%MainMenu.rot_y_readout = value
 	
 	
@@ -53,6 +53,13 @@ var _sim_scale: float = DEFAULT_SIM_SCALE:
 		_sim_scale = value
 		%PlanetSim.scale = Vector3(value, value, value)
 		%MainMenu.scale_readout = value
+
+var _planet: GlobalEnums.Planet:
+	set(value):
+		_planet = value
+		%PlanetSim.planet = value
+		%MainMenu.planet = value
+		
 # Move
 var _moving_up: bool = false
 var _moving_down: bool = false
@@ -75,14 +82,13 @@ var _scale_decreasing: bool = false
 var _time_increasing: bool = false
 var _time_decreasing: bool = false
 
-# planet
-var _planet:GlobalEnums.Planet = GlobalEnums.Planet.MARS
 
 # Scene Nodes
 var InfoScreen: Node3D
 
 func _ready():
 	_setup_menu()
+	_planet = GlobalEnums.Planet.MARS
 	_initialise_system()
 
 
@@ -103,9 +109,6 @@ func _initialise_system():
 
 	_sim_start_time = Time.get_ticks_msec()
 	
-	%PlanetSim.planet = _planet
-	%MainMenu.planet = _planet
-	
 	%InfoNodeScreen.deactivate()
 	var info_nodes = $PlanetSim.info_nodes 
 	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
@@ -114,7 +117,6 @@ func _initialise_system():
 
 
 func _setup_menu():
-	%MainMenu.planet = _planet
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()

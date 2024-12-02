@@ -32,39 +32,33 @@ label = "Back"
 
 [node name="LblX" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.064941, 0)
-visible = false
 text = "X:"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblXReadout" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.064941, 0)
-visible = false
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblY" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.0392096, 0)
-visible = false
 text = "Y:"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblYReadout" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.0392096, 0)
-visible = false
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblZ" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.0134783, 0)
-visible = false
 text = "Z:"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblZReadout" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.0134783, 0)
-visible = false
 horizontal_alignment = 0
 vertical_alignment = 0

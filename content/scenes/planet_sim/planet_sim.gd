@@ -9,6 +9,11 @@ const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 var info_nodes: Array[Node3D]
 var sim_data_path = MARS_DATA_PATH
 
+# In the simulation the central body is 1*1*1 meter
+# The value below is the ratio of the central body's model radius to it's actual radius
+# Every other body is scaled using this factor
+var model_scalar
+
 var planet:GlobalEnums.Planet:
 	set(value):
 		planet = value
@@ -40,7 +45,7 @@ var _orbits_array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_instantiate_simulation()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -74,16 +79,16 @@ func _read_json_file(file_path: String) -> Dictionary:
 
 	return json_data.data  # Returns the parsed dictionary
 
+
 func _instantiate_simulation():
 	var sim_data_path = _read_json_file(sim_data_path)
 	
 	if not sim_data_path:
 		return
 	
-	# In the simulation the central body is 1*1*1 meter
-	# The value below is the ratio of the central body's model radius to it's actual radius
-	# Every other body is scaled using this factor
-	var model_scalar = 0.5/sim_data_path["radius"]
+	model_scalar = 0.5/sim_data_path["radius"]
+	
+	print(model_scalar)
 	
 	_central_body = BodyScn.instantiate()
 	_central_body.set_data(	load(sim_data_path["model_path"]), 

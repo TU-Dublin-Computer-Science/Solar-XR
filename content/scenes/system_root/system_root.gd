@@ -47,12 +47,11 @@ var _sim_y_rotation: float = 0:
 		%PlanetSim.rotation.y = value
 		%MainMenu.rot_y_readout = value
 	
-	
 var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
 		%PlanetSim.scale = Vector3(value, value, value)
-		%MainMenu.scale_readout = value
+		%MainMenu.scale_readout = %PlanetSim.model_scalar * value
 
 var _planet: GlobalEnums.Planet:
 	set(value):

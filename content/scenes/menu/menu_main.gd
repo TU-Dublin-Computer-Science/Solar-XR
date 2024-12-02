@@ -67,11 +67,15 @@ var MenuTime
 var MenuPlanet
 
 # Below values just used for information readout on menu 
+var pos_readout: Vector3:
+	set(value):
+		pos_readout = value
+		MenuMove.pos_readout = value
+
 var scale_readout: float:
 	set(value):
 		scale_readout = value
 		MenuScale.scale_readout = value
-
 
 var sim_speed_readout: float
 var sim_time_readout: int

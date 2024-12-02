@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://diwxb7j1sa7mf"]
+[gd_scene load_steps=3 format=3 uid="uid://diwxb7j1sa7mf"]
 
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="1_7pjdx"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_move.gd" id="1_hksr3"]
 
 [node name="MenuMove" type="Node3D"]
+script = ExtResource("1_hksr3")
 
 [node name="BtnRight" parent="." instance=ExtResource("1_7pjdx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.085, 0.025, 0)
@@ -27,3 +29,42 @@ label = "Fwd"
 [node name="BtnBack" parent="." instance=ExtResource("1_7pjdx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -0.005, 0)
 label = "Back"
+
+[node name="LblX" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.064941, 0)
+visible = false
+text = "X:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblXReadout" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.064941, 0)
+visible = false
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblY" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.0392096, 0)
+visible = false
+text = "Y:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblYReadout" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.0392096, 0)
+visible = false
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblZ" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.0134783, 0)
+visible = false
+text = "Z:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblZReadout" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.0134783, 0)
+visible = false
+horizontal_alignment = 0
+vertical_alignment = 0

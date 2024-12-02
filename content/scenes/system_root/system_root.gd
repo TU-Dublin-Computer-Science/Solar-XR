@@ -28,6 +28,12 @@ const MAX_TIME_SCALAR = 6000
 const DEFAULT_TIME_SCALAR = 3000
 const TIME_CHANGE_SPEED = 1000
 
+var _sim_position: Vector3:
+	set(value):
+		_sim_position = value
+		%PlanetSim.position = value
+		%MainMenu.pos_readout = value
+
 # Rotation stored in radians (0 - TAU) 
 var _sim_x_rotation: float = 0
 var _sim_y_rotation: float = 0
@@ -75,7 +81,7 @@ func _process(delta):
 
 
 func _initialise_system():
-	%PlanetSim.position = DEFAULT_SIM_POS
+	_sim_position = DEFAULT_SIM_POS
 
 	_sim_x_rotation = 0
 	_sim_y_rotation = 0
@@ -173,35 +179,35 @@ func _handle_constant_state_changes(delta: float):
 
 func _handle_constant_movement(delta: float):
 	if _moving_up:
-		%PlanetSim.position.y = clamp(
-									%PlanetSim.position.y + delta*MOVE_SPEED, 
-									DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
-									DEFAULT_SIM_POS.y + MAX_MOVE_DIST)		
+		_sim_position.y = clamp(
+								_sim_position.y + delta*MOVE_SPEED, 
+								DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
+								DEFAULT_SIM_POS.y + MAX_MOVE_DIST)		
 	if _moving_down:
-		%PlanetSim.position.y = clamp(
-									%PlanetSim.position.y - delta*MOVE_SPEED, 
-									DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
-									DEFAULT_SIM_POS.y + MAX_MOVE_DIST)
+		_sim_position.y = clamp(
+								_sim_position.y - delta*MOVE_SPEED, 
+								DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
+								DEFAULT_SIM_POS.y + MAX_MOVE_DIST)
 	if _moving_left:
-		%PlanetSim.position.x = clamp(
-									%PlanetSim.position.x - delta*MOVE_SPEED, 
-									DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
-									DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
+		_sim_position.x = clamp(
+								_sim_position.x - delta*MOVE_SPEED, 
+								DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
+								DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
 	if _moving_right:
-		%PlanetSim.position.x = clamp(
-									%PlanetSim.position.x + delta*MOVE_SPEED, 
-									DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
-									DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
+		_sim_position.x = clamp(
+								_sim_position.x + delta*MOVE_SPEED, 
+								DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
+								DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
 	if _moving_forward:
-		%PlanetSim.position.z = clamp(
-							%PlanetSim.position.z - delta*MOVE_SPEED, 
-							DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
-							DEFAULT_SIM_POS.z + MAX_MOVE_DIST)
+		_sim_position.z = clamp(
+								_sim_position.z - delta*MOVE_SPEED, 
+								DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
+								DEFAULT_SIM_POS.z + MAX_MOVE_DIST)
 	if _moving_back:
-		%PlanetSim.position.z = clamp(
-									%PlanetSim.position.z + delta*MOVE_SPEED, 
-									DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
-									DEFAULT_SIM_POS.z + MAX_MOVE_DIST)		
+		_sim_position.z = clamp(
+								_sim_position.z + delta*MOVE_SPEED, 
+								DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
+								DEFAULT_SIM_POS.z + MAX_MOVE_DIST)		
 
 
 func _handle_constant_rotation(delta: float):

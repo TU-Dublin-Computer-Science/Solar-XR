@@ -8,8 +8,6 @@ enum Mode {
 	TIME
 }
 
-@onready var _sim_start_time = Time.get_ticks_msec()	
-
 var mode:Mode = Mode.DEFAULT
 
 const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
@@ -41,12 +39,26 @@ var _sim_scale: float = DEFAULT_SIM_SCALE:
 		%PlanetSim.scale = Vector3(value, value, value)
 		%MainMenu.scale_readout = %PlanetSim.model_scalar * value
 
+
+var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
+	set(value):
+		_sim_time_scalar = value
+		%PlanetSim.time_scalar = value
+		%MainMenu.sim_time_scalar_readout = value
+
+
+var _sim_time: float: 
+	set(value):
+		_sim_time = value
+		%MainMenu.sim_time_readout = value
+
+
 var _planet: GlobalEnums.Planet:
 	set(value):
 		_planet = value
 		%PlanetSim.planet = value
 		%MainMenu.planet = value
-		
+
 # Move
 var _moving_up: bool = false
 var _moving_down: bool = false
@@ -74,14 +86,16 @@ var _time_decreasing: bool = false
 var InfoScreen: Node3D
 
 func _ready():
+	_sim_time = Time.get_unix_time_from_system() 
+	
 	_setup_menu()
 	_planet = GlobalEnums.Planet.MARS
 	_initialise_system()
 
 
 func _process(delta):	
+	_sim_time += 1 * delta * _sim_time_scalar
 	_handle_constant_state_changes(delta)
-	_update_ui_live_data()	
 
 
 func _initialise_system():
@@ -91,9 +105,7 @@ func _initialise_system():
 
 	_sim_scale = DEFAULT_SIM_SCALE
 
-	%PlanetSim.time_scalar = DEFAULT_TIME_SCALAR
-
-	_sim_start_time = Time.get_ticks_msec()
+	_sim_time_scalar = DEFAULT_TIME_SCALAR
 	
 	%InfoNodeScreen.deactivate()
 	var info_nodes = $PlanetSim.info_nodes 
@@ -159,6 +171,8 @@ func _setup_time_signals():
 
 	$MainMenu.time_decrease_start.connect(func(): _time_decreasing = true)
 	$MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
+	
+	#%MainMenu.time_pause.connect(func(): _menu)
 
 
 func _setup_planet_signals():
@@ -232,17 +246,11 @@ func _handle_constant_scaling(delta: float):
 
 func _handle_constant_time_change(delta: float):
 	if _time_increasing:
-		%PlanetSim.time_scalar = clamp(	%PlanetSim.time_scalar + TIME_CHANGE_SPEED * delta,
-										 	MIN_TIME_SCALAR, 
-											MAX_TIME_SCALAR)
+		_sim_time_scalar = clamp(	_sim_time_scalar + TIME_CHANGE_SPEED * delta,
+								 	MIN_TIME_SCALAR, 
+									MAX_TIME_SCALAR)
 	
 	if _time_decreasing:
-		%PlanetSim.time_scalar = clamp(	%PlanetSim.time_scalar - TIME_CHANGE_SPEED * delta,
-										 	MIN_TIME_SCALAR, 
-											MAX_TIME_SCALAR)
-
-func _update_ui_live_data():
-	"Menu data readouts that must be updated every frame"
-	%MainMenu.sim_speed_readout = %PlanetSim.time_scalar
-	%MainMenu.sim_time_readout = %PlanetSim.elapsed_simulated_secs
-	%MainMenu.real_time_readout = (Time.get_ticks_msec() - _sim_start_time)/1000
+		_sim_time_scalar = clamp(	_sim_time_scalar - TIME_CHANGE_SPEED * delta,
+								 	MIN_TIME_SCALAR, 
+									MAX_TIME_SCALAR)

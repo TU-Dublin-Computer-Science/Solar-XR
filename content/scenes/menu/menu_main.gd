@@ -46,6 +46,8 @@ signal time_decrease_stop
 signal time_increase_start
 signal time_increase_stop
 
+signal time_pause
+
 # Planet Signals
 signal planet_change_pressed
 
@@ -87,9 +89,15 @@ var scale_readout: float:
 		scale_readout = value
 		MenuScale.scale_readout = value
 
-var sim_speed_readout: float
-var sim_time_readout: int
-var real_time_readout: int
+var sim_time_scalar_readout: int: 
+	set(value):
+		sim_time_scalar_readout = value
+		MenuTime.sim_time_scalar_readout = value
+
+var sim_time_readout: float:
+	set(value):
+		sim_time_readout = value
+		MenuTime.sim_time_readout = value
 
 var planet: GlobalEnums.Planet: 
 	set(value):
@@ -129,13 +137,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	_handle_ui_updates()
-
-
-func _handle_ui_updates():
-	MenuTime.sim_speed_readout = sim_speed_readout
-	MenuTime.sim_time_readout = sim_time_readout
-	MenuTime.real_time_readout = real_time_readout
+	pass
 
 
 func _setup_menu_buttons():
@@ -238,6 +240,8 @@ func _setup_time_tab():
 
 	MenuTime.find_child("BtnIncrease").on_button_down.connect(func(): time_increase_start.emit())
 	MenuTime.find_child("BtnIncrease").on_button_up.connect(func(): time_increase_stop.emit())
+	
+	MenuTime.find_child("BtnPause").on_button_up.connect(func(): time_pause.emit())
 
 
 func _setup_planet_tab():

@@ -29,10 +29,13 @@ const DEFAULT_TIME_SCALAR = 3000
 const TIME_CHANGE_SPEED = 1000
 
 # Rotation stored in radians (0 - TAU) 
-var _sim_x_rotation : float = 0
-var _sim_y_rotation : float = 0
-var _sim_scale:float = DEFAULT_SIM_SCALE
-
+var _sim_x_rotation: float = 0
+var _sim_y_rotation: float = 0
+var _sim_scale: float = DEFAULT_SIM_SCALE:
+	set(value):
+		_sim_scale = value
+		%PlanetSim.scale = Vector3(value, value, value)
+		%MainMenu.scale_readout = value
 # Move
 var _moving_up: bool = false
 var _moving_down: bool = false
@@ -79,7 +82,6 @@ func _initialise_system():
 	%PlanetSim.rotation = Vector3(0,0,0)
 
 	_sim_scale = DEFAULT_SIM_SCALE
-	%PlanetSim.scale = Vector3(_sim_scale, _sim_scale, _sim_scale)
 
 	%PlanetSim.time_scalar = DEFAULT_TIME_SCALAR
 
@@ -227,11 +229,9 @@ func _handle_constant_rotation(delta: float):
 func _handle_constant_scaling(delta: float):
 	if _scale_increasing:
 		_sim_scale = clamp(_sim_scale + SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
-		%PlanetSim.scale = Vector3(_sim_scale, _sim_scale, _sim_scale)
 	
 	if _scale_decreasing:
 		_sim_scale = clamp(_sim_scale - SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
-		%PlanetSim.scale = Vector3(_sim_scale, _sim_scale, _sim_scale)		
 
 
 func _handle_constant_time_change(delta: float):
@@ -247,6 +247,6 @@ func _handle_constant_time_change(delta: float):
 
 func _update_ui_live_data():
 	"Menu data readouts that must be updated every frame"
-	%MainMenu.simulation_speed = %PlanetSim.time_scalar
-	%MainMenu.simulation_time = %PlanetSim.elapsed_simulated_secs
-	%MainMenu.real_time = (Time.get_ticks_msec() - _sim_start_time)/1000
+	%MainMenu.sim_speed_readout = %PlanetSim.time_scalar
+	%MainMenu.sim_time_readout = %PlanetSim.elapsed_simulated_secs
+	%MainMenu.real_time_readout = (Time.get_ticks_msec() - _sim_start_time)/1000

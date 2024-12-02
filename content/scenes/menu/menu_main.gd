@@ -66,14 +66,23 @@ var MenuScale
 var MenuTime
 var MenuPlanet
 
-var simulation_speed: float
-var simulation_time: int
-var real_time: int
+# Below values just used for information readout on menu 
+var scale_readout: float:
+	set(value):
+		scale_readout = value
+		MenuScale.scale_readout = value
+
+
+var sim_speed_readout: float
+var sim_time_readout: int
+var real_time_readout: int
+
 var planet: GlobalEnums.Planet: 
 	set(value):
 		planet = value
 		MenuPlanet.planet = value
-		
+
+# ------------
 
 var _active_btn: Button3D = null:
 	set(value):
@@ -110,9 +119,9 @@ func _process(_delta: float) -> void:
 
 
 func _handle_ui_updates():
-	MenuTime.simulation_speed = simulation_speed
-	MenuTime.simulation_time = simulation_time
-	MenuTime.real_time = real_time
+	MenuTime.sim_speed_readout = sim_speed_readout
+	MenuTime.sim_time_readout = sim_time_readout
+	MenuTime.real_time_readout = real_time_readout
 
 
 func _setup_menu_buttons():

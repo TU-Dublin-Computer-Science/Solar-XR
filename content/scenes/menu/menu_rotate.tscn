@@ -24,22 +24,26 @@ label = "\\/"
 
 [node name="LblX" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175218, 0.0496247, 0)
+visible = false
 text = "X:"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblXReadout" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.150712, 0.0496247, 0)
+visible = false
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblY" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175218, 0.0245061, 0)
+visible = false
 text = "Y:"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblYReadout" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.150712, 0.0245061, 0)
+visible = false
 horizontal_alignment = 0
 vertical_alignment = 0

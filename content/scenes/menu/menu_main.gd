@@ -46,7 +46,8 @@ signal time_decrease_stop
 signal time_increase_start
 signal time_increase_stop
 
-signal time_pause
+signal time_pause_changed
+signal time_live_pressed
 
 # Planet Signals
 signal planet_change_pressed
@@ -98,6 +99,16 @@ var sim_time_readout: float:
 	set(value):
 		sim_time_readout = value
 		MenuTime.sim_time_readout = value
+		
+var sim_time_paused_readout: bool:
+	set(value):
+		sim_time_paused_readout = value
+		MenuTime.sim_time_paused_readout = value	
+
+var time_live_readout: bool:
+	set(value):
+		time_live_readout = value
+		MenuTime.time_live_readout = value	
 
 var planet: GlobalEnums.Planet: 
 	set(value):
@@ -241,7 +252,10 @@ func _setup_time_tab():
 	MenuTime.find_child("BtnIncrease").on_button_down.connect(func(): time_increase_start.emit())
 	MenuTime.find_child("BtnIncrease").on_button_up.connect(func(): time_increase_stop.emit())
 	
-	MenuTime.find_child("BtnPause").on_button_up.connect(func(): time_pause.emit())
+	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_live_pressed.emit())
+	
+	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
+	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
 
 
 func _setup_planet_tab():

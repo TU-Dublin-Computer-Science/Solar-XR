@@ -23,7 +23,7 @@ const SCALE_CHANGE_SPEED = 1
 
 const MIN_TIME_SCALAR = 1
 const MAX_TIME_SCALAR = 6000
-const DEFAULT_TIME_SCALAR = 3000
+const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 1000
 
 var _sim_position: Vector3:
@@ -51,7 +51,23 @@ var _sim_time: float:
 	set(value):
 		_sim_time = value
 		%MainMenu.sim_time_readout = value
+		
+		var sys_time = Time.get_unix_time_from_system()
+		
+		#When sim time is out of sync it's not live
+		if abs(int(_sim_time) - int(sys_time)) > 5: 
+			_sim_time_live = false
 
+var _sim_time_paused: bool:
+	set(value):
+		_sim_time_paused = value
+		%MainMenu.sim_time_paused_readout = value
+
+var _sim_time_live: bool:
+	set(value):
+		_sim_time_live = value
+		%MainMenu.time_live_readout = value
+		
 
 var _planet: GlobalEnums.Planet:
 	set(value):
@@ -85,16 +101,15 @@ var _time_decreasing: bool = false
 # Scene Nodes
 var InfoScreen: Node3D
 
-func _ready():
-	_sim_time = Time.get_unix_time_from_system() 
-	
+func _ready():	
 	_setup_menu()
 	_planet = GlobalEnums.Planet.MARS
 	_initialise_system()
 
 
 func _process(delta):	
-	_sim_time += 1 * delta * _sim_time_scalar
+	if not _sim_time_paused:
+		_sim_time += 1 * delta * _sim_time_scalar
 	_handle_constant_state_changes(delta)
 
 
@@ -105,13 +120,19 @@ func _initialise_system():
 
 	_sim_scale = DEFAULT_SIM_SCALE
 
-	_sim_time_scalar = DEFAULT_TIME_SCALAR
+	_initialise_time()
 	
 	%InfoNodeScreen.deactivate()
 	var info_nodes = $PlanetSim.info_nodes 
 	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 	
 	%PlanetSim.reset_sim()	
+
+func _initialise_time():
+	_sim_time = Time.get_unix_time_from_system() 
+	_sim_time_scalar = DEFAULT_TIME_SCALAR
+	_sim_time_paused = false
+	_sim_time_live = true
 
 
 func _setup_menu():
@@ -172,7 +193,9 @@ func _setup_time_signals():
 	$MainMenu.time_decrease_start.connect(func(): _time_decreasing = true)
 	$MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
 	
-	#%MainMenu.time_pause.connect(func(): _menu)
+	%MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
+	
+	%MainMenu.time_live_pressed.connect(func(): _initialise_time())
 
 
 func _setup_planet_signals():

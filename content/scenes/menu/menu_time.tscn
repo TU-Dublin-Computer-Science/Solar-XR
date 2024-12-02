@@ -10,10 +10,6 @@ script = ExtResource("1_bvw28")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0826867, -0.015, 0)
 label = "<<"
 
-[node name="BtnPause" parent="." instance=ExtResource("1_kc05d")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.000807337, -0.015, 0)
-label = "||"
-
 [node name="BtnIncrease" parent="." instance=ExtResource("1_kc05d")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0812186, -0.015, 0)
 label = ">>"

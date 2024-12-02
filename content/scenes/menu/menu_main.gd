@@ -72,6 +72,16 @@ var pos_readout: Vector3:
 		pos_readout = value
 		MenuMove.pos_readout = value
 
+var rot_x_readout: float:
+	set(value):
+		rot_x_readout = value
+		MenuRotate.rot_x_readout = value
+
+var rot_y_readout: float:
+	set(value):
+		rot_y_readout = value
+		MenuRotate.rot_y_readout = value
+
 var scale_readout: float:
 	set(value):
 		scale_readout = value

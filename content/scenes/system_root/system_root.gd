@@ -35,8 +35,19 @@ var _sim_position: Vector3:
 		%MainMenu.pos_readout = value
 
 # Rotation stored in radians (0 - TAU) 
-var _sim_x_rotation: float = 0
-var _sim_y_rotation: float = 0
+var _sim_x_rotation: float = 0: 
+	set(value):
+		_sim_x_rotation = value
+		%PlanetSim.rotation.x = _sim_x_rotation
+		%MainMenu.rot_x_readout = value
+
+var _sim_y_rotation: float = 0:
+	set(value):
+		_sim_y_rotation = value
+		%PlanetSim.rotation.y = _sim_y_rotation
+		%MainMenu.rot_y_readout = value
+	
+	
 var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
@@ -85,7 +96,6 @@ func _initialise_system():
 
 	_sim_x_rotation = 0
 	_sim_y_rotation = 0
-	%PlanetSim.rotation = Vector3(0,0,0)
 
 	_sim_scale = DEFAULT_SIM_SCALE
 
@@ -214,22 +224,18 @@ func _handle_constant_rotation(delta: float):
 	if _rot_increasing_x:
 		# Rotation value always stays in range of 0-TAU
 		_sim_x_rotation = fmod(_sim_x_rotation + ROT_CHANGE_SPEED*delta, TAU)
-		%PlanetSim.rotation.x = _sim_x_rotation
-	
+
 	if _rot_decreasing_x:
 		# Rotation value always stays in range of 0-TAU
 		_sim_x_rotation = fmod(_sim_x_rotation - ROT_CHANGE_SPEED*delta, TAU)
-		%PlanetSim.rotation.x = _sim_x_rotation
 	
 	if _rot_increasing_y:
 		# Rotation value always stays in range of 0-TAU
 		_sim_y_rotation = fmod(_sim_y_rotation + ROT_CHANGE_SPEED*delta, TAU)
-		%PlanetSim.rotation.y = _sim_y_rotation
 		
 	if _rot_decreasing_y:
 		# Rotation value always stays in range of 0-TAU
 		_sim_y_rotation = fmod(_sim_y_rotation - ROT_CHANGE_SPEED*delta + TAU, TAU)	
-		%PlanetSim.rotation.y = _sim_y_rotation
 
 
 func _handle_constant_scaling(delta: float):

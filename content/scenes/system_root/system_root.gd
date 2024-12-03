@@ -45,6 +45,8 @@ var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 		_sim_time_scalar = value
 		%PlanetSim.time_scalar = value
 		%MainMenu.sim_time_scalar_readout = value
+		if _sim_time_paused:
+			_sim_time_paused = false
 
 
 var _sim_time: float: 
@@ -58,10 +60,17 @@ var _sim_time: float:
 		if abs(int(_sim_time) - int(sys_time)) > 5: 
 			_sim_time_live = false
 
+
 var _sim_time_paused: bool:
-	set(value):
-		_sim_time_paused = value
-		%MainMenu.sim_time_paused_readout = value
+	set(paused):
+		_sim_time_paused = paused
+		%MainMenu.sim_time_paused_readout = paused
+		if paused:
+			$PlanetSim.time_scalar = 0
+			_sim_time_live = false
+		else:
+			$PlanetSim.time_scalar = _sim_time_scalar
+
 
 var _sim_time_live: bool:
 	set(value):

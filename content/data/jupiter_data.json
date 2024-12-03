@@ -3,6 +3,7 @@
 	"model_path": "res://content/scenes/model_scenes/jupiter/jupiter.tscn",
 	"radius": 69911,
 	"rotation_period": 35729.711,
+    "rotation_muliplier": 870.5360000,
 	"satellites": [
         {
             "name": "Io",

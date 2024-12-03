@@ -45,12 +45,12 @@ var _orbits_array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var now = Time.get_datetime_dict_from_system()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	elapsed_simulated_secs += 1 * time_scalar * delta
-
 
 func reset_sim() -> void:
 	elapsed_simulated_secs = 0
@@ -88,8 +88,6 @@ func _instantiate_simulation():
 	
 	model_scalar = 0.5/sim_data_path["radius"]
 	
-	print(model_scalar)
-	
 	_central_body = BodyScn.instantiate()
 	_central_body.set_data(	load(sim_data_path["model_path"]), 
 							sim_data_path["radius"], 
@@ -121,3 +119,23 @@ func _instantiate_simulation():
 	if sim_data_path["info_points"]:
 		_central_body.add_info_nodes(sim_data_path["info_points"])
 		info_nodes = _central_body.info_nodes
+
+
+func _greg_to_julian(greg_date: Dictionary):
+	
+	var year = greg_date.year
+	var month = greg_date.month
+	var day = greg_date.day
+	var hour = greg_date.hour
+	var minute = greg_date.minute
+	var second = greg_date.second
+
+	if month <= 2:
+		year -= 1
+		month += 12
+
+	var A = int(year / 100)
+	var B = 2 - A + int(A / 4)
+	var JD = int(365.25 * (year + 4716)) + int(30.6001 * (month + 1)) + day + B - 1524.5
+	JD += (hour + (minute + second / 60.0) / 60.0) / 24.0
+	return JD

@@ -64,6 +64,6 @@ func _geographical_to_cartesian(lat: float, long: float) -> Vector3:
 	var cart = Vector3.ZERO
 	cart.x = radius * cos(lat_rad) * cos(long_rad)
 	cart.y = radius * sin(lat_rad)
-	cart.z = radius * cos(lat_rad) * sin(long_rad)
+	cart.z = radius * cos(lat_rad) * sin(long_rad) * -1  #In Godot -z is forward
 	
 	return cart

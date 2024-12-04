@@ -36,7 +36,9 @@ var model_scalar
 		if _central_body:
 			_central_body.julian_time = _unix_to_julian(time)
 			
-		# TODO Orbits
+		if _orbits_array:
+			for orbit in _orbits_array:
+				orbit.julian_time = _unix_to_julian(time)
 
 var _central_body: Node3D
 var _orbits_array = []

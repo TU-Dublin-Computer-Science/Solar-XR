@@ -7,6 +7,9 @@ const ORBIT_VISUAL_OPACITY = 0.2 # Scale of 0-1
 var julian_time: float:
 	set(value):
 		julian_time = value
+		if _initialised:
+			_update_body_position()
+			
 		
 var _body: Node3D
 var _model_scalar: float
@@ -21,12 +24,7 @@ var _periapsis_passage_time: float
 
 
 var _initialised: bool = false
-
-		
-
-func _get_body_position():
-	pass
-
+	
 
 func init(	p_body: Node3D, 
 			p_julian_time: float,
@@ -45,7 +43,7 @@ func init(	p_body: Node3D,
 	
 	_period = p_period
 	_inclination = p_inclination
-	_semimajor_axis = p_semimajor_axis * p_model_scalar
+	_semimajor_axis = p_semimajor_axis
 	_eccentricity = p_eccentricity
 	_mean_anomaly = p_mean_anomaly
 	_mean_motion = p_mean_motion
@@ -57,7 +55,51 @@ func init(	p_body: Node3D,
 		
 	#_instantiate_orbit_visual()
 	
+	_update_body_position()
+	
 	_initialised = true
+	
+	
+
+func _update_body_position():
+	
+	# 1. Get Current Mean anomaly 
+	# This is angle of body from periapsis (closest point to body) at the current time
+	var t = julian_time - _periapsis_passage_time
+	t *= 86400 #Convert days to seconds, as mean motion is deg/s
+	var current_mean_anomaly = _mean_anomaly + _mean_motion * t
+	current_mean_anomaly = deg_to_rad(fmod(current_mean_anomaly, 360)) # Convert to radians and wrap to [0, 2π]
+
+	# 2. Solve Kepler's equation for the eccentric anomaly
+	# This relates the current mean anomaly to orbit eccentricity
+	var eccentric_anomaly = _solve_keplers_equation(current_mean_anomaly, _eccentricity)
+
+	# 3: Calculate the true anomaly (this is the actual value, not the mean)
+	var true_anomaly = 2 * atan(sqrt((1 + _eccentricity) / (1 - _eccentricity)) * tan(eccentric_anomaly / 2))	
+
+	# 4: Calculate the orbital radius
+	var orbital_radius = _semimajor_axis * (1 - _eccentricity ** 2) / (1 + _eccentricity * cos(true_anomaly))
+	
+	# 5: Scale down orbital radius for model
+	orbital_radius *= _model_scalar
+	
+	# 6: Compute the x, y position in the orbital plane
+	var x = orbital_radius * cos(true_anomaly)
+	var y = orbital_radius * sin(true_anomaly)
+	
+	_body.position = Vector3(x, 0, -y)
+
+# Solve Kepler's equation iteratively
+func _solve_keplers_equation(mean_anomaly, eccentricity):
+	var eccentric_anomaly = mean_anomaly  # Initial guess: E ≈ M
+	var epsilon = 1e-6  # Convergence tolerance	
+	while true:
+		var delta = eccentric_anomaly - eccentricity * sin(eccentric_anomaly) - mean_anomaly
+		if abs(delta) < epsilon:
+			break
+		eccentric_anomaly -= delta / (1 - eccentricity * cos(eccentric_anomaly))
+	return eccentric_anomaly
+
 
 """
 func _instantiate_orbit_visual():

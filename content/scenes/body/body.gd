@@ -8,7 +8,8 @@ var radius: float
 var julian_time: float:
 	set(value):
 		julian_time = value
-		_update_rotation()
+		if _initialised:
+			_update_rotation()
 
 var _scene: PackedScene
 var _rot_multiplier: float
@@ -19,13 +20,12 @@ var _total_rotation: float = 0
 
 var _initialised: bool = false
 
-func _update_rotation():
-	if _initialised:
-		var new_rotation = deg_to_rad(_rot_multiplier * julian_time)
-		var rot_angle = new_rotation - _total_rotation
-		rotate_y(rot_angle)
-		
-		_total_rotation = new_rotation
+func _update_rotation():		
+	var new_rotation = deg_to_rad(_rot_multiplier * julian_time)
+	var rot_angle = new_rotation - _total_rotation
+	rotate_y(rot_angle)
+	
+	_total_rotation = new_rotation
 
 
 func init(p_scene: PackedScene, p_radius: float, p_rot_mulitplier: float, p_julian_time: float, p_model_scalar: float):
@@ -39,8 +39,9 @@ func init(p_scene: PackedScene, p_radius: float, p_rot_mulitplier: float, p_juli
 	add_child(_model)
 	scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	
-	_initialised = true
 	_update_rotation()
+	
+	_initialised = true
 	
 
 func add_info_nodes(info_point_array: Array) -> void:

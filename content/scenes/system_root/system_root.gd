@@ -21,7 +21,7 @@ const MAX_SIM_SCALE: float = 4
 const DEFAULT_SIM_SCALE: float = 1
 const SCALE_CHANGE_SPEED = 1
 
-const MIN_TIME_SCALAR = 1
+const MIN_TIME_SCALAR = -6000
 const MAX_TIME_SCALAR = 6000
 const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 1000
@@ -103,7 +103,6 @@ var _scale_decreasing: bool = false
 var _time_increasing: bool = false
 var _time_decreasing: bool = false
 
-
 # Scene Nodes
 var InfoScreen: Node3D
 
@@ -131,6 +130,7 @@ func _initialise_system():
 	%InfoNodeScreen.deactivate()
 	var info_nodes = $PlanetSim.info_nodes 
 	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
+
 
 func _initialise_time():
 	_sim_time = Time.get_unix_time_from_system() 

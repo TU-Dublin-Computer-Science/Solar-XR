@@ -9,7 +9,7 @@
 			"name": "Phobos",
 			"body": {
 				"model_path": "res://content/scenes/model_scenes/mars/phobos.tscn",
-				"radius": 13.1,
+				"radius": 200,
 				"rotation_period": 27576.60656608614,
 				"rotation_multiplier": 0.0
 			},
@@ -27,7 +27,7 @@
 			"name": "Deimos",
 			"body": {
 				"model_path": "res://content/scenes/model_scenes/mars/deimos.tscn",
-				"radius": 7.8,
+				"radius": 200,
 				"rotation_period": 109083.2165671775,
 				"rotation_multiplier": 0.0
 			},

@@ -14,7 +14,7 @@ var sim_data_path = MARS_DATA_PATH
 # Every other body is scaled using this factor
 var model_scalar
 
-var planet:GlobalEnums.Planet:
+@export var planet:GlobalEnums.Planet:
 	set(value):
 		planet = value
 		match planet:
@@ -29,7 +29,7 @@ var planet:GlobalEnums.Planet:
 		_instantiate_simulation()
 
 # Time Keeping
-var time: float:
+@export var time: float:
 	set(value):
 		time = value
 		
@@ -43,8 +43,8 @@ var _orbits_array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var now = Time.get_datetime_dict_from_system()
-
+	_instantiate_simulation()
+	
 
 func _read_json_file(file_path: String) -> Dictionary:
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -76,7 +76,7 @@ func _instantiate_simulation():
 	model_scalar = 0.5/sim_data_path["radius"]
 	
 	_central_body = BodyScn.instantiate()
-	_central_body.set_data(	load(sim_data_path["model_path"]), 
+	_central_body.init(	load(sim_data_path["model_path"]), 
 							sim_data_path["radius"], 
 							sim_data_path["rotation_multiplier"], 
 							_unix_to_julian(time), 

@@ -17,19 +17,10 @@ var _model: Node3D
 
 var _total_rotation: float = 0
 
-var _data_is_set: bool = false
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if _data_is_set:
-		_model = _scene.instantiate()
-		add_child(_model)
-		scale *= radius/0.5 # Scale is (desired radius)/(current radius)
-
+var _initialised: bool = false
 
 func _update_rotation():
-	if _data_is_set:
+	if _initialised:
 		var new_rotation = deg_to_rad(_rot_multiplier * julian_time)
 		var rot_angle = new_rotation - _total_rotation
 		rotate_y(rot_angle)
@@ -37,14 +28,19 @@ func _update_rotation():
 		_total_rotation = new_rotation
 
 
-func set_data(p_scene: PackedScene, p_radius: float, p_rot_mulitplier: float, p_julian_time: float, p_model_scalar: float):
+func init(p_scene: PackedScene, p_radius: float, p_rot_mulitplier: float, p_julian_time: float, p_model_scalar: float):
 	_scene = p_scene
 	radius = p_radius * p_model_scalar # Scale radius from real units to model units
 	_rot_multiplier = p_rot_mulitplier
 	_model_scalar = p_model_scalar
 	julian_time = p_julian_time
 	
-	_data_is_set = true
+	_model = _scene.instantiate()
+	add_child(_model)
+	scale *= radius/0.5 # Scale is (desired radius)/(current radius)
+	
+	_initialised = true
+	_update_rotation()
 	
 
 func add_info_nodes(info_point_array: Array) -> void:

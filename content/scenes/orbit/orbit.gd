@@ -53,7 +53,7 @@ func init(	p_body: Node3D,
 		
 	add_child(_body)
 		
-	#_instantiate_orbit_visual()
+	_instantiate_orbit_visual()
 	
 	_update_body_position()
 	
@@ -101,18 +101,21 @@ func _solve_keplers_equation(mean_anomaly, eccentricity):
 	return eccentric_anomaly
 
 
-"""
-func _instantiate_orbit_visual():
+func _instantiate_orbit_visual():	
+	 # Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
+	var scaled_semimajor_axis = _semimajor_axis * _model_scalar
+	var scaled_semiminor_axis = scaled_semimajor_axis * sqrt(1-pow(_eccentricity, 2))
+	
 	var mesh_instance = MeshInstance3D.new()
 	var torus_mesh = TorusMesh.new()
 	
 	var orbit_visual_thickness = remap(ORBIT_VISUAL_THICKNESS, 0, 1, 10, 1)
 	
-	torus_mesh.inner_radius = _semimajor_axis - _body.radius/orbit_visual_thickness
-	torus_mesh.outer_radius = _semimajor_axis + _body.radius/orbit_visual_thickness
+	torus_mesh.inner_radius = scaled_semimajor_axis - _body.radius/orbit_visual_thickness
+	torus_mesh.outer_radius = scaled_semimajor_axis + _body.radius/orbit_visual_thickness
 	
 	mesh_instance.mesh = torus_mesh
-	mesh_instance.scale.z = _semiminor_axis/_semimajor_axis 
+	mesh_instance.scale.z = scaled_semiminor_axis/scaled_semimajor_axis 
 	
 	var orbit_material = OrbitMaterial.duplicate()
 	var color = orbit_material.albedo_color
@@ -121,4 +124,3 @@ func _instantiate_orbit_visual():
 	mesh_instance.material_override = orbit_material
 	
 	add_child(mesh_instance)
-"""

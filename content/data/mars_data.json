@@ -3,7 +3,7 @@
 	"model_path": "res://content/scenes/model_scenes/mars/mars.tscn",
 	"radius": 3389.92,
 	"rotation_period": 88642.6632,
-	"rotation_mulitplier": 350.891982443297,
+	"rotation_multiplier": 350.891982443297,
 	"satellites": [
 		{
 			"name": "Phobos",

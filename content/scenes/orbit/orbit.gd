@@ -4,7 +4,9 @@ const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tre
 const ORBIT_VISUAL_THICKNESS = 0.3  # Scale of 0-1
 const ORBIT_VISUAL_OPACITY = 0.2 # Scale of 0-1 
 
-var time_scalar: float
+var julian_time: float:
+	set(value):
+		julian_time = value
 
 var _body: Node3D
 var _eccentricity: float
@@ -30,33 +32,27 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var rotation_angle = (TAU/_period) * time_scalar * delta
-	
-	#This is the angle the planet has moved around so far in relation to the x axis (parametric angle)
-	var angle_so_far = atan2(_body.position.z/_semiminor_axis, _body.position.x/_semimajor_axis)	
-	
-	_body.position.x = cos(angle_so_far - rotation_angle) * _semimajor_axis
-	_body.position.z = sin(angle_so_far - rotation_angle) * _semiminor_axis
+	pass
 
 
-func set_data(	body: Node3D, 
-				eccentricity: float, 
-				period: float, 
-				inclination: float, 
-				semimajor_axis: float,
-				p_time_scalar: float,
-				model_scalar: float):
-	_body = body
-	_eccentricity = eccentricity
-	_period = period
-	_inclination = inclination
-	_semimajor_axis = semimajor_axis * model_scalar
+func set_data(	p_body: Node3D, 
+				p_eccentricity: float, 
+				p_period: float, 
+				p_inclination: float, 
+				p_simimajor_axis: float,
+				p_julian_time: float,
+				p_model_scalar: float):
+	_body = p_body
+	_eccentricity = p_eccentricity
+	_period = p_period
+	_inclination = p_inclination
+	_semimajor_axis = p_simimajor_axis * p_model_scalar
 	
 	# Formula for calculating semi-minor axis: b = a*sqrt(1-e^2)
-	_semiminor_axis = (semimajor_axis * model_scalar) * sqrt(1-pow(eccentricity, 2))
+	_semiminor_axis = (p_simimajor_axis * p_model_scalar) * sqrt(1-pow(p_eccentricity, 2))
 	
-	_model_scalar = model_scalar
-	time_scalar = p_time_scalar
+	_model_scalar = p_model_scalar
+	julian_time = p_julian_time
 	
 	_data_is_set = true
 

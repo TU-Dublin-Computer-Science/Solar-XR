@@ -43,7 +43,6 @@ var _sim_scale: float = DEFAULT_SIM_SCALE:
 var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 	set(value):
 		_sim_time_scalar = value
-		%PlanetSim.time_scalar = value
 		%MainMenu.sim_time_scalar_readout = value
 		if _sim_time_paused:
 			_sim_time_paused = false
@@ -52,6 +51,7 @@ var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 var _sim_time: float: 
 	set(value):
 		_sim_time = value
+		%PlanetSim.time = value
 		%MainMenu.sim_time_readout = value
 		
 		var sys_time = Time.get_unix_time_from_system()
@@ -66,11 +66,8 @@ var _sim_time_paused: bool:
 		_sim_time_paused = paused
 		%MainMenu.sim_time_paused_readout = paused
 		if paused:
-			$PlanetSim.time_scalar = 0
 			_sim_time_live = false
-		else:
-			$PlanetSim.time_scalar = _sim_time_scalar
-
+			
 
 var _sim_time_live: bool:
 	set(value):
@@ -134,8 +131,6 @@ func _initialise_system():
 	%InfoNodeScreen.deactivate()
 	var info_nodes = $PlanetSim.info_nodes 
 	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
-	
-	%PlanetSim.reset_sim()	
 
 func _initialise_time():
 	_sim_time = Time.get_unix_time_from_system() 

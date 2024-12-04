@@ -4,15 +4,21 @@ const InfoNodeScn = preload("res://addons/mars-ui/content/ui/components/info_nod
 
 var info_nodes: Array[Node3D]
 var radius: float
-var time_scalar: float
+
+var julian_time: float:
+	set(value):
+		julian_time = value
+		_update_rotation()
 
 var _scene: PackedScene
-var _rotation_period: float
+var _rot_multiplier: float
 var _model_scalar: float
 var _model: Node3D
 
+var _total_rotation: float = 0
+
 var _data_is_set: bool = false
-var _initial_rotation: Vector3
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,27 +26,25 @@ func _ready() -> void:
 		_model = _scene.instantiate()
 		add_child(_model)
 		scale *= radius/0.5 # Scale is (desired radius)/(current radius)
-		_initial_rotation = rotation
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+
+func _update_rotation():
 	if _data_is_set:
-		var angle_to_rotate = (TAU/_rotation_period) * time_scalar * delta
-		rotate_y(angle_to_rotate)
+		var new_rotation = deg_to_rad(_rot_multiplier * julian_time)
+		var rot_angle = new_rotation - _total_rotation
+		rotate_y(rot_angle)
+		
+		_total_rotation = new_rotation
 
 
-func set_data(scene: PackedScene, p_radius: float, rotation_period: float, p_time_scalar: float, model_scalar: float):
-	_scene = scene
-	radius = p_radius * model_scalar # Scale radius from real units to model units
-	_rotation_period = rotation_period
-	_model_scalar = model_scalar
-	time_scalar = p_time_scalar
+func set_data(p_scene: PackedScene, p_radius: float, p_rot_mulitplier: float, p_julian_time: float, p_model_scalar: float):
+	_scene = p_scene
+	radius = p_radius * p_model_scalar # Scale radius from real units to model units
+	_rot_multiplier = p_rot_mulitplier
+	_model_scalar = p_model_scalar
+	julian_time = p_julian_time
 	
 	_data_is_set = true
-	
-
-func reset() -> void:
-	rotation = _initial_rotation
 	
 
 func add_info_nodes(info_point_array: Array) -> void:
@@ -55,7 +59,7 @@ func add_info_nodes(info_point_array: Array) -> void:
 		
 		info_nodes.append(info_node)
 		add_child(info_node)
-		
+
 		
 func _geographical_to_cartesian(lat: float, long: float) -> Vector3:
 	var lat_rad = deg_to_rad(lat)

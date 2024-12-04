@@ -29,16 +29,14 @@ var planet:GlobalEnums.Planet:
 		_instantiate_simulation()
 
 # Time Keeping
-var elapsed_simulated_secs: float = 0
-var time_scalar: float = 1:
+var time: float:
 	set(value):
-		time_scalar = value
+		time = value
 		
 		if _central_body:
-			_central_body.time_scalar = value
-		
-		for orbit in _orbits_array:
-			orbit.time_scalar = value
+			_central_body.julian_time = _unix_to_julian(time)
+			
+		# TODO Orbits
 
 var _central_body: Node3D
 var _orbits_array = []
@@ -46,17 +44,6 @@ var _orbits_array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var now = Time.get_datetime_dict_from_system()
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	elapsed_simulated_secs += 1 * time_scalar * delta
-
-func reset_sim() -> void:
-	elapsed_simulated_secs = 0
-	_central_body.reset()
-	for orbit in _orbits_array:
-		orbit.reset()
 
 
 func _read_json_file(file_path: String) -> Dictionary:
@@ -91,17 +78,18 @@ func _instantiate_simulation():
 	_central_body = BodyScn.instantiate()
 	_central_body.set_data(	load(sim_data_path["model_path"]), 
 							sim_data_path["radius"], 
-							sim_data_path["rotation_period"], 
-							time_scalar, 
+							sim_data_path["rotation_multiplier"], 
+							_unix_to_julian(time), 
 							model_scalar)	
 	add_child(_central_body)
 	
+	"""
 	if sim_data_path["satellites"]:
 		for satellite_data in sim_data_path["satellites"]:
 			var body = BodyScn.instantiate()
 			body.set_data(	load(satellite_data["model_path"]), 
 							satellite_data["radius"], 
-							satellite_data["rotation_period"], 
+							satellite_data["rotation_mulitplier"], 
 							time_scalar, 
 							model_scalar)
 			
@@ -115,13 +103,14 @@ func _instantiate_simulation():
 							model_scalar)
 			_orbits_array.append(orbit)
 			add_child(orbit)
-	
+	"""
 	if sim_data_path["info_points"]:
 		_central_body.add_info_nodes(sim_data_path["info_points"])
 		info_nodes = _central_body.info_nodes
 
 
-func _greg_to_julian(greg_date: Dictionary):
+func _unix_to_julian(unix_time: float):
+	var greg_date = Time.get_datetime_dict_from_unix_time(unix_time)
 	
 	var year = greg_date.year
 	var month = greg_date.month

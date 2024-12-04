@@ -77,33 +77,39 @@ func _instantiate_simulation():
 	
 	_central_body = BodyScn.instantiate()
 	_central_body.init(	load(sim_data_path["model_path"]), 
-							sim_data_path["radius"], 
-							sim_data_path["rotation_multiplier"], 
-							_unix_to_julian(time), 
-							model_scalar)	
+						sim_data_path["radius"], 
+						sim_data_path["rotation_multiplier"], 
+						_unix_to_julian(time), 
+						model_scalar)	
 	add_child(_central_body)
 	
-	"""
+	
 	if sim_data_path["satellites"]:
 		for satellite_data in sim_data_path["satellites"]:
+			var satellite_body_data = satellite_data["body"]
+			var satellite_orbit_data = satellite_data["orbit"]
 			var body = BodyScn.instantiate()
-			body.set_data(	load(satellite_data["model_path"]), 
-							satellite_data["radius"], 
-							satellite_data["rotation_mulitplier"], 
-							time_scalar, 
-							model_scalar)
+			body.init(	load(satellite_body_data["model_path"]), 
+						satellite_body_data["radius"], 
+						satellite_body_data["rotation_multiplier"], 
+						_unix_to_julian(time), 
+						model_scalar)
 			
 			var orbit = OrbitScn.instantiate()
-			orbit.set_data(	body, 
-							satellite_data["eccentricity"], 
-							satellite_data["orbit_period"], 
-							satellite_data["orbit_inclination"], 
-							satellite_data["semimajor_axis"],
-							time_scalar,
-							model_scalar)
+			orbit.init(	body, 
+						_unix_to_julian(time),
+						model_scalar,
+						satellite_orbit_data["orbit_period"], 
+						satellite_orbit_data["orbit_inclination"], 
+						satellite_orbit_data["semimajor_axis"],
+						satellite_orbit_data["eccentricity"], 
+						satellite_orbit_data["mean_anomaly"],
+						satellite_orbit_data["mean_motion"],
+						satellite_orbit_data["periapsis_passage_time"])
+
 			_orbits_array.append(orbit)
 			add_child(orbit)
-	"""
+	
 	if sim_data_path["info_points"]:
 		_central_body.add_info_nodes(sim_data_path["info_points"])
 		info_nodes = _central_body.info_nodes

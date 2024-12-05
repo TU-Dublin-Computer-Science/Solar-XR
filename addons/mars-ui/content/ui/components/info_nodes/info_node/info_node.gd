@@ -59,7 +59,22 @@ func _on_ray_enter(_event: EventPointer):
 func _on_ray_leave(_event: EventPointer):
 	if !disabled and hovering:
 		%Mesh.material_override = MatDefault
+
+
+func _on_touch_enter(event: EventTouch):
+	print("Touched")
+	if event.target != $FingerArea:
+		return
+
+	if disabled:
+		event.bubbling = false
+		return
+
+	%ClickSound.play()
+
+	active = !active
 	
-	
-	
-	
+	if active:
+		on_button_down.emit()
+	else:
+		on_button_up.emit()

@@ -21,10 +21,12 @@ func _ready() -> void:
 	
 	_connect_info_node_signals()
 
+
 func _connect_info_node_signals():
 	for info_node in info_nodes:
 		info_node.on_button_down.connect(_update_info_node.bind(info_node))
 		info_node.on_button_up.connect(deactivate)
+
 
 func _update_info_node(info_node: InfoNode):
 	if _active_info_node == null: # If no currently selected info node

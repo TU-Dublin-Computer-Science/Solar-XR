@@ -10,7 +10,7 @@ script = ExtResource("1_khl8y")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_tmboh")]
 unique_name_in_owner = true
-transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, -0.353, 1.25, -0.405)
+transform = Transform3D(0.636078, 0, 0.771625, 0, 1, 0, -0.771625, 0, 0.636078, -0.353, 1.1965, -0.355944)
 
 [node name="InfoNodeScreen" parent="." instance=ExtResource("3_uai5y")]
 unique_name_in_owner = true

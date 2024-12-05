@@ -271,13 +271,31 @@ func _handle_constant_scaling(delta: float):
 		_sim_scale = clamp(_sim_scale - SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
 
 
+var _time_increase_start: float = -1
+var _time_decrease_start: float = -1
 func _handle_constant_time_change(delta: float):
+	
 	if _time_increasing:
-		_sim_time_scalar = clamp(	_sim_time_scalar + TIME_CHANGE_SPEED * delta,
+		if _time_increase_start == -1: # If not set yet
+			_time_increase_start = Time.get_unix_time_from_system()
+		
+		var increase_time_held = Time.get_unix_time_from_system() - _time_increase_start
+		
+		_sim_time_scalar = clamp(	_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
 								 	MIN_TIME_SCALAR, 
 									MAX_TIME_SCALAR)
+	else:
+		_time_increase_start = -1
+		
 	
 	if _time_decreasing:
-		_sim_time_scalar = clamp(	_sim_time_scalar - TIME_CHANGE_SPEED * delta,
+		if _time_decrease_start == -1:
+			_time_decrease_start = Time.get_unix_time_from_system()
+			
+		var decrease_time_held = Time.get_unix_time_from_system() - _time_decrease_start
+		
+		_sim_time_scalar = clamp(	_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
 								 	MIN_TIME_SCALAR, 
 									MAX_TIME_SCALAR)
+	else:
+		_time_decrease_start = -1

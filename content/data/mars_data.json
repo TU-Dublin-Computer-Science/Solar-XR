@@ -73,7 +73,7 @@
 		{
 			"title": "Airy-0",
 			"description": "Airy-0 is a crater inside the larger Airy Crater on Mars, whose location historically defined the Martian prime meridian. It is about 0.5 km (0.3 mile) across and lies within the dark region Sinus Meridiani, one of the early albedo features to be identified on Mars.",
-			"image_path": "res://content/assets/info_images/SouthPolarIceCap.jpg",
+			"image_path": "res://content/assets/info_images/Airy0.jpg",
 			"location": {
 				"latitude": -5.1,
 				"longitude": 0

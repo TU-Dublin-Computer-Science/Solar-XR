@@ -1,6 +1,6 @@
 extends Node
 
-const MARS_DATA_PATH = "res://content/data/mars_data_test.json"
+const MARS_DATA_PATH = "res://content/data/mars_data.json"
 const JUPITER_DATA_PATH = "res://content/data/jupiter_data.json"
 
 const BodyScn = preload("res://content/scenes/body/body.tscn")

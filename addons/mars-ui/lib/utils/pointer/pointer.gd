@@ -14,12 +14,15 @@ var is_grabbed := false
 var time_pressed := 0.0
 var moved := false
 var click_point := Vector3.ZERO
+var _distance
+var _too_close: bool = false
 
 func _init(initiator: Initiator, ray: RayCast3D):
 	self.initiator = initiator
 	self.ray = ray
 
 func _physics_process(_delta):
+	_distance = ray.get_collision_point().distance_to(ray.global_position)
 	_handle_enter_leave()
 	_handle_move()
 
@@ -44,18 +47,31 @@ func _handle_move():
 func _handle_enter_leave():
 	var collider = ray.get_collider()
 
-	if collider == last_collided||is_grabbed||is_pressed:
+	if (is_grabbed||is_pressed):		
 		return
+	
+	if not _too_close:
+		if _distance < ray.min_dist:
+			_too_close = true
+			_emit_event("ray_leave", collider)
+	else:
+		if _distance >= ray.min_dist:
+			_too_close = false
+			_emit_event("ray_enter", collider)
+	
+	if not _too_close:
+		if collider != last_collided:
+			_emit_event("ray_leave", last_collided)
+			
+			_emit_event("ray_enter", collider)
 
-	_emit_event("ray_enter", collider)
-	_emit_event("ray_leave", last_collided)
+			last_collided = collider	
 
-	last_collided = collider
 
 func pressed(type: Initiator.EventType):
 	var collider = ray.get_collider()
-
-	if collider == null:
+	
+	if collider == null or _distance < ray.min_dist:
 		return
 
 	match type:

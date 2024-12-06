@@ -16,6 +16,8 @@ const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd"
 
 @onready var pointer: Pointer
 
+var min_dist = 0.15
+
 var _event_type_map = {
 	"trigger_click": Initiator.EventType.TRIGGER,
 	"grip_click": Initiator.EventType.GRIP,
@@ -37,6 +39,7 @@ func _ready():
 		if _event_type_map.has(button): # If Trigger or Grip pressed, call pointer press
 			pointer.pressed(_event_type_map[button])
 	)
+	
 	get_parent().button_released.connect(func(button: String): # Controller Button Released
 		EventSystem.emit_action(button, false, initiator)
 
@@ -79,7 +82,7 @@ func _handle_cursor():
 	var collider = get_collider()
 	var distance = get_collision_point().distance_to(global_position)
 
-	if collider == null:
+	if collider == null or distance < min_dist:
 		cursor.visible = false
 		if with_decal: decal.visible = true
 		return
@@ -95,6 +98,6 @@ func _handle_cursor():
 	else:
 		cursor.global_transform.basis = Basis.looking_at(get_collision_normal(), Vector3.UP, true)
 		
-	var cursor_scale = clamp(distance * 1.5 - 0.75, 1.0, 3.0)
+	var cursor_scale = clamp(distance * 1.5, 1.0, 10.0)
 
 	cursor.scale = Vector3(cursor_scale, cursor_scale, cursor_scale)

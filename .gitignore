@@ -1,15 +1,15 @@
 # Godot 4+ specific ignores
-.godot/
-/android/
+GodotProject/.godot/
+GodotProject/android/
 
 # Godot-specific ignores
-.import/
-export.cfg
-export_presets.cfg
+GodotProject/.import/
+GodotProject/export.cfg
+GodotProject/export_presets.cfg
 
 # Tmp Files
 *.tmp
 
 # Project
-addons/godotopenxrvendors
-addons/debug_draw_3d
+GodotProject/addons/godotopenxrvendors
+GodotProject/addons/debug_draw_3d

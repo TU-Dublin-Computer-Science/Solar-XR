@@ -6,8 +6,8 @@
 	"rotation_multiplier": 350.891982443297,
 	"satellites": [
 		{
-			"name": "Phobos",
 			"body": {
+				"name": "Phobos",
 				"model_path": "res://content/scenes/model_scenes/mars/phobos.tscn",
 				"radius": 13.1,
 				"rotation_period": 27576.60656608614,
@@ -24,8 +24,8 @@
 			}
 		},
 		{
-			"name": "Deimos",
 			"body": {
+				"name": "Deimos",
 				"model_path": "res://content/scenes/model_scenes/mars/deimos.tscn",
 				"radius": 7.8,
 				"rotation_period": 109083.2165671775,

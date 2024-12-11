@@ -6,13 +6,7 @@ const JUPITER_DATA_PATH = "res://content/data/jupiter_data.json"
 const BodyScn = preload("res://content/scenes/body/body.tscn")
 const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 
-var info_nodes: Array[Node3D]
-var sim_data_path = MARS_DATA_PATH
-
-# In the simulation the central body is 1*1*1 meter
-# The value below is the ratio of the central body's model radius to it's actual radius
-# Every other body is scaled using this factor
-var model_scalar
+@export var camera: XRCamera3D = null
 
 @export var planet:GlobalEnums.Planet:
 	set(value):
@@ -39,6 +33,14 @@ var model_scalar
 		if _orbits_array:
 			for orbit in _orbits_array:
 				orbit.julian_time = _unix_to_julian(time)
+
+var info_nodes: Array[Node3D]
+var sim_data_path = MARS_DATA_PATH
+
+# In the simulation the central body is 1*1*1 meter
+# The value below is the ratio of the central body's model radius to it's actual radius
+# Every other body is scaled using this factor
+var model_scalar
 
 var _central_body: Node3D
 var _orbits_array = []
@@ -78,24 +80,29 @@ func _instantiate_simulation():
 	model_scalar = 0.5/sim_data_path["radius"]
 	
 	_central_body = BodyScn.instantiate()
-	_central_body.init(	load(sim_data_path["model_path"]), 
+	_central_body.init(	_unix_to_julian(time),
+						model_scalar,
+						sim_data_path["name"],
+						load(sim_data_path["model_path"]), 
 						sim_data_path["radius"], 
 						sim_data_path["rotation_multiplier"], 
-						_unix_to_julian(time), 
-						model_scalar)	
+						camera,
+						false)
 	add_child(_central_body)
-	
 	
 	if sim_data_path["satellites"]:
 		for satellite_data in sim_data_path["satellites"]:
 			var satellite_body_data = satellite_data["body"]
 			var satellite_orbit_data = satellite_data["orbit"]
 			var body = BodyScn.instantiate()
-			body.init(	load(satellite_body_data["model_path"]), 
+			body.init(	_unix_to_julian(time), 
+						model_scalar,
+						satellite_body_data["name"],
+						load(satellite_body_data["model_path"]), 
 						satellite_body_data["radius"], 
-						satellite_body_data["rotation_multiplier"], 
-						_unix_to_julian(time), 
-						model_scalar)
+						satellite_body_data["rotation_multiplier"],
+						camera,
+						true)
 			
 			var orbit = OrbitScn.instantiate()
 			orbit.init(	body, 

@@ -8,6 +8,7 @@ func _ready():
 
 func _setup():
 	var SystemRoot = SystemRootScn.instantiate()
+	SystemRoot.camera = $XROrigin3D/XRCamera3D
 	add_child(SystemRoot)
 	%AudBGM.playing = true
 	

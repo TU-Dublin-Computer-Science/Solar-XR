@@ -36,7 +36,7 @@ func init(	p_body: Node3D,
 			p_mean_anomaly: float,
 			p_mean_motion: float,
 			p_periapsis_passage_time:float):
-				
+
 	_body = p_body
 	julian_time = p_julian_time
 	_model_scalar = p_model_scalar
@@ -50,15 +50,14 @@ func init(	p_body: Node3D,
 	_periapsis_passage_time = p_periapsis_passage_time
 	
 	rotate(Vector3.FORWARD, -deg_to_rad(_inclination))
-		
+
 	add_child(_body)
-		
+
 	_instantiate_orbit_visual()
 	
 	_update_body_position()
 	
 	_initialised = true
-	
 	
 
 func _update_body_position():
@@ -88,6 +87,7 @@ func _update_body_position():
 	var y = orbital_radius * sin(true_anomaly)
 	
 	_body.position = Vector3(x, 0, -y)
+
 
 # Solve Kepler's equation iteratively
 func _solve_keplers_equation(mean_anomaly, eccentricity):

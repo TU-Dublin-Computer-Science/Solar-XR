@@ -1,16 +1,20 @@
-[gd_scene format=3 uid="uid://2hr5ffup4gbj"]
+[gd_scene load_steps=2 format=3 uid="uid://2hr5ffup4gbj"]
+
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/Orbitron-VariableFont_wght.ttf" id="1_epshr"]
 
 [node name="MenuDefault" type="Node3D"]
 
 [node name="Lbl1" type="Label3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
 text = "Mars XR"
+font = ExtResource("1_epshr")
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="Lbl2" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.180858, 0.024216, 0)
 text = "Use the buttons below to control the simulation or click on a highlighted point on Mars for information."
+font = ExtResource("1_epshr")
 horizontal_alignment = 0
 vertical_alignment = 0
 autowrap_mode = 2

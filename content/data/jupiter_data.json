@@ -5,9 +5,9 @@
 	"rotation_period": 35729.711,
     "rotation_multiplier": 870.5360000,
 	"satellites": [
-        {
-            "name": "Io",
+        {        
             "body": {
+                "name": "Io",
                 "model_path": "res://content/scenes/model_scenes/jupiter/io.tscn",
                 "radius": 1821.49,
                 "rotation_period": 153054.3663261806,
@@ -24,8 +24,8 @@
             }
         },
         {
-            "name": "Europa",
             "body": {
+                "name": "Europa",
                 "model_path": "res://content/scenes/model_scenes/jupiter/europa.tscn",
                 "radius": 1560.8,
                 "rotation_period": 307033.0905132898,
@@ -41,9 +41,9 @@
                 "periapsis_passage_time": 2460640.828997780569
             }
         },
-        {
-            "name": "Ganymede",
+        {            
             "body": {
+                "name": "Ganymede",
                 "model_path": "res://content/scenes/model_scenes/jupiter/ganymede.tscn",
                 "radius": 2631.2,
                 "rotation_period": 618422.3995695959,
@@ -59,9 +59,9 @@
                 "periapsis_passage_time": 2460640.843947666697     		
             }            
         },
-        {
-            "name": "Callisto",
+        {            
             "body": {
+                "name": "Callisto",
                 "model_path": "res://content/scenes/model_scenes/jupiter/callisto.tscn",
                 "radius": 2410.3,
                 "rotation_period": 1443567.117132759,

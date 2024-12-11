@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk3r7wtndcu7"]
+[gd_scene load_steps=4 format=3 uid="uid://dk3r7wtndcu7"]
 
 [ext_resource type="Script" path="res://content/scenes/body/body.gd" id="1_a0gbj"]
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/Orbitron-VariableFont_wght.ttf" id="2_c2wu1"]
+[ext_resource type="Texture2D" uid="uid://bcnp325ml8mgy" path="res://content/assets/circle.png" id="2_tpdgu"]
 
 [node name="Body" type="Node3D"]
 script = ExtResource("1_a0gbj")
+
+[node name="Label" type="Node3D" parent="."]
+
+[node name="LlbName" type="Label3D" parent="Label"]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.055679, 0)
+text = "Label"
+font = ExtResource("2_c2wu1")
+
+[node name="Sprite3D" type="Sprite3D" parent="Label"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+texture = ExtResource("2_tpdgu")

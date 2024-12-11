@@ -26,6 +26,12 @@ const MAX_TIME_SCALAR = 6000
 const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 1000
 
+var camera: XRCamera3D = null:
+	set(value):
+		camera = value
+		%PlanetSim.camera = value
+
+
 var _sim_position: Vector3:
 	set(value):
 		_sim_position = value

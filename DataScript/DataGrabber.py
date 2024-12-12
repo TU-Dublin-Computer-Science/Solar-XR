@@ -89,6 +89,6 @@ if __name__ == "__main__":
     
     #create_satellite_files(satellite_list)
     
-    #print_planet_satellites(satellite_list, "Mars")
+    print_planet_satellites(satellite_list, "uranus")
 
 

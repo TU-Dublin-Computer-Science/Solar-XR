@@ -1,0 +1,14 @@
+{
+    "name": "S2004_S44",
+    "horizons_code": 65112,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19515400,
+    "eccentricity": 0.129,
+    "argument_of_periapsis": 176.8,
+    "mean_anomaly": 202.6,
+    "inclination": 167.7,
+    "lon_ascending_node": 49.9,
+    "orbital_period": 1026.158033,
+    "radius": -1
+}

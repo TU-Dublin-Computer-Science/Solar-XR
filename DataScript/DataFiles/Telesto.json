@@ -1,0 +1,14 @@
+{
+    "name": "Telesto",
+    "horizons_code": 613,
+    "central_body": "Saturn",
+    "frame": "Laplace",
+    "semimajor_axis": 295000,
+    "eccentricity": 0.001,
+    "argument_of_periapsis": 66.2,
+    "mean_anomaly": 360.0,
+    "inclination": 1.2,
+    "lon_ascending_node": 242.1,
+    "orbital_period": 1.887802,
+    "radius": -1
+}

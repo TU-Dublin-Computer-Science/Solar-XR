@@ -1,0 +1,14 @@
+{
+    "name": "S2017_J1",
+    "horizons_code": 559,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23744800,
+    "eccentricity": 0.328,
+    "argument_of_periapsis": 252.2,
+    "mean_anomaly": 286.5,
+    "inclination": 145.8,
+    "lon_ascending_node": 255.0,
+    "orbital_period": 756.406342,
+    "radius": -1
+}

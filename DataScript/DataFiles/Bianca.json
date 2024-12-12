@@ -1,0 +1,14 @@
+{
+    "name": "Bianca",
+    "horizons_code": 708,
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 59200,
+    "eccentricity": 0.001,
+    "argument_of_periapsis": 97.0,
+    "mean_anomaly": 236.2,
+    "inclination": 0.1,
+    "lon_ascending_node": 209.5,
+    "orbital_period": 0.435007,
+    "radius": -1
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Styx",
+    "horizons_code": 905,
+    "central_body": "Pluto",
+    "frame": "equatorial",
+    "semimajor_axis": 43200,
+    "eccentricity": 0.025,
+    "argument_of_periapsis": 322.5,
+    "mean_anomaly": 358.1,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 20.16,
+    "radius": 5.2
+}

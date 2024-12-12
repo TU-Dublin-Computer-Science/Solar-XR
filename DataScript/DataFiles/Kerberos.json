@@ -1,0 +1,14 @@
+{
+    "name": "Kerberos",
+    "horizons_code": 904,
+    "central_body": "Pluto",
+    "frame": "equatorial",
+    "semimajor_axis": 58300,
+    "eccentricity": 0.01,
+    "argument_of_periapsis": 32.1,
+    "mean_anomaly": 276.1,
+    "inclination": 0.4,
+    "lon_ascending_node": 314.3,
+    "orbital_period": 32.17,
+    "radius": 6.0
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Autonoe",
+    "horizons_code": 528,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23792500,
+    "eccentricity": 0.33,
+    "argument_of_periapsis": 228.3,
+    "mean_anomaly": 145.7,
+    "inclination": 150.8,
+    "lon_ascending_node": 271.8,
+    "orbital_period": 761.001946,
+    "radius": -1
+}

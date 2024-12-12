@@ -1,0 +1,14 @@
+{
+    "name": "Margaret",
+    "horizons_code": 723,
+    "central_body": "Uranus",
+    "frame": "ecliptic",
+    "semimajor_axis": 14425000,
+    "eccentricity": 0.642,
+    "argument_of_periapsis": 90.7,
+    "mean_anomaly": 115.9,
+    "inclination": 60.5,
+    "lon_ascending_node": 0.9,
+    "orbital_period": 1655.0,
+    "radius": -1
+}

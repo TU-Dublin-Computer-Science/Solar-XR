@@ -1,0 +1,14 @@
+{
+    "name": "S2006_S09",
+    "horizons_code": 65100,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 14406600,
+    "eccentricity": 0.248,
+    "argument_of_periapsis": 355.7,
+    "mean_anomaly": 328.6,
+    "inclination": 173.0,
+    "lon_ascending_node": 46.2,
+    "orbital_period": 647.89256,
+    "radius": -1
+}

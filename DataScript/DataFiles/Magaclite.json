@@ -1,0 +1,14 @@
+{
+    "name": "Magaclite",
+    "horizons_code": 519,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23644600,
+    "eccentricity": 0.421,
+    "argument_of_periapsis": 85.1,
+    "mean_anomaly": 138.1,
+    "inclination": 149.8,
+    "lon_ascending_node": 280.3,
+    "orbital_period": 752.861984,
+    "radius": -1
+}

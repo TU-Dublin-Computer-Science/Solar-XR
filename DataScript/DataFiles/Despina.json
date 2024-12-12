@@ -1,0 +1,14 @@
+{
+    "name": "Despina",
+    "horizons_code": 805,
+    "central_body": "Neptune",
+    "frame": "Laplace",
+    "semimajor_axis": 52500,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 125.1,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.334656,
+    "radius": 74.0
+}

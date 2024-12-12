@@ -1,0 +1,14 @@
+{
+    "name": "Philophrosyne",
+    "horizons_code": 558,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 22604600,
+    "eccentricity": 0.229,
+    "argument_of_periapsis": 271.6,
+    "mean_anomaly": 69.5,
+    "inclination": 146.3,
+    "lon_ascending_node": 233.1,
+    "orbital_period": 702.535939,
+    "radius": -1
+}

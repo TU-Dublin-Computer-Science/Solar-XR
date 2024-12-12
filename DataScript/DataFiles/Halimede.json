@@ -1,0 +1,14 @@
+{
+    "name": "Halimede",
+    "horizons_code": 809,
+    "central_body": "Neptune",
+    "frame": "ecliptic",
+    "semimajor_axis": 16590500,
+    "eccentricity": 0.521,
+    "argument_of_periapsis": 157.9,
+    "mean_anomaly": 135.8,
+    "inclination": 119.6,
+    "lon_ascending_node": 198.5,
+    "orbital_period": 1879.0,
+    "radius": -1
+}

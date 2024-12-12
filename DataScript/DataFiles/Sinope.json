@@ -1,0 +1,14 @@
+{
+    "name": "Sinope",
+    "horizons_code": 509,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23683900,
+    "eccentricity": 0.264,
+    "argument_of_periapsis": 96.6,
+    "mean_anomaly": 167.5,
+    "inclination": 157.3,
+    "lon_ascending_node": 304.6,
+    "orbital_period": 758.849903,
+    "radius": -1
+}

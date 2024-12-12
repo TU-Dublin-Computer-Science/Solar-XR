@@ -1,0 +1,14 @@
+{
+    "name": "Chaldene",
+    "horizons_code": 521,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 22930500,
+    "eccentricity": 0.265,
+    "argument_of_periapsis": 335.0,
+    "mean_anomaly": 266.2,
+    "inclination": 164.7,
+    "lon_ascending_node": 134.4,
+    "orbital_period": 723.712689,
+    "radius": -1
+}

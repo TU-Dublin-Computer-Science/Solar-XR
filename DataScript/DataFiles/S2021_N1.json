@@ -1,0 +1,14 @@
+{
+    "name": "S2021_N1",
+    "horizons_code": 85052,
+    "central_body": "Neptune",
+    "frame": "ecliptic",
+    "semimajor_axis": 50700200,
+    "eccentricity": 0.503,
+    "argument_of_periapsis": 90.4,
+    "mean_anomaly": 237.1,
+    "inclination": 135.2,
+    "lon_ascending_node": 258.9,
+    "orbital_period": 10043.0,
+    "radius": -1
+}

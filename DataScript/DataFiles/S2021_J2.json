@@ -1,0 +1,14 @@
+{
+    "name": "S2021_J2",
+    "horizons_code": 55513,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 20926600,
+    "eccentricity": 0.242,
+    "argument_of_periapsis": 28.5,
+    "mean_anomaly": 282.2,
+    "inclination": 148.1,
+    "lon_ascending_node": 272.6,
+    "orbital_period": 625.13919,
+    "radius": -1
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Caliban",
+    "horizons_code": 716,
+    "central_body": "Uranus",
+    "frame": "ecliptic",
+    "semimajor_axis": 7167000,
+    "eccentricity": 0.2,
+    "argument_of_periapsis": 349.7,
+    "mean_anomaly": 241.2,
+    "inclination": 141.4,
+    "lon_ascending_node": 174.9,
+    "orbital_period": 580.0,
+    "radius": -1
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Nix",
+    "horizons_code": 902,
+    "central_body": "Pluto",
+    "frame": "equatorial",
+    "semimajor_axis": 49300,
+    "eccentricity": 0.015,
+    "argument_of_periapsis": 31.4,
+    "mean_anomaly": 338.2,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 24.85,
+    "radius": 18.0
+}

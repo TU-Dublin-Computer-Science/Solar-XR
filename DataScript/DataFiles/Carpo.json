@@ -1,0 +1,14 @@
+{
+    "name": "Carpo",
+    "horizons_code": 546,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 17042300,
+    "eccentricity": 0.416,
+    "argument_of_periapsis": 86.6,
+    "mean_anomaly": 339.8,
+    "inclination": 53.2,
+    "lon_ascending_node": 54.0,
+    "orbital_period": 456.286617,
+    "radius": -1
+}

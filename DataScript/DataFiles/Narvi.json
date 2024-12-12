@@ -1,0 +1,14 @@
+{
+    "name": "Narvi",
+    "horizons_code": 631,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19285600,
+    "eccentricity": 0.441,
+    "argument_of_periapsis": 177.9,
+    "mean_anomaly": 109.3,
+    "inclination": 142.2,
+    "lon_ascending_node": 179.0,
+    "orbital_period": 1003.946106,
+    "radius": -1
+}

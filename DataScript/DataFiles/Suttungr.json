@@ -1,0 +1,14 @@
+{
+    "name": "Suttungr",
+    "horizons_code": 623,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19392000,
+    "eccentricity": 0.116,
+    "argument_of_periapsis": 65.1,
+    "mean_anomaly": 317.1,
+    "inclination": 175.7,
+    "lon_ascending_node": 253.2,
+    "orbital_period": 1016.697887,
+    "radius": -1
+}

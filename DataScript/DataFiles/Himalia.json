@@ -1,0 +1,14 @@
+{
+    "name": "Himalia",
+    "horizons_code": 506,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 11440600,
+    "eccentricity": 0.16,
+    "argument_of_periapsis": 328.4,
+    "mean_anomaly": 66.5,
+    "inclination": 28.1,
+    "lon_ascending_node": 68.2,
+    "orbital_period": 250.56221,
+    "radius": 85.0
+}

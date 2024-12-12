@@ -1,0 +1,14 @@
+{
+    "name": "Pandia",
+    "horizons_code": 565,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 11481000,
+    "eccentricity": 0.179,
+    "argument_of_periapsis": 194.3,
+    "mean_anomaly": 153.9,
+    "inclination": 29.0,
+    "lon_ascending_node": 249.1,
+    "orbital_period": 251.911064,
+    "radius": -1
+}

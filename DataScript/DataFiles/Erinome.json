@@ -1,0 +1,14 @@
+{
+    "name": "Erinome",
+    "horizons_code": 525,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23032900,
+    "eccentricity": 0.276,
+    "argument_of_periapsis": 98.2,
+    "mean_anomaly": 265.5,
+    "inclination": 164.4,
+    "lon_ascending_node": 314.3,
+    "orbital_period": 728.482799,
+    "radius": -1
+}

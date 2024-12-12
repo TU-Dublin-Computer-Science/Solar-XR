@@ -1,0 +1,14 @@
+{
+    "name": "S2010_J2",
+    "horizons_code": 552,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 20793000,
+    "eccentricity": 0.248,
+    "argument_of_periapsis": 15.1,
+    "mean_anomaly": 306.3,
+    "inclination": 148.1,
+    "lon_ascending_node": 3.0,
+    "orbital_period": 618.841217,
+    "radius": -1
+}

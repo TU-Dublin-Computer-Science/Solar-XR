@@ -1,0 +1,14 @@
+{
+    "name": "S2018_J2",
+    "horizons_code": 55510,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 11419700,
+    "eccentricity": 0.152,
+    "argument_of_periapsis": 293.6,
+    "mean_anomaly": 108.3,
+    "inclination": 28.3,
+    "lon_ascending_node": 93.2,
+    "orbital_period": 249.923847,
+    "radius": -1
+}

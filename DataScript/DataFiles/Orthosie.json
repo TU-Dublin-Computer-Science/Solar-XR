@@ -1,0 +1,14 @@
+{
+    "name": "Orthosie",
+    "horizons_code": 535,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 20901000,
+    "eccentricity": 0.299,
+    "argument_of_periapsis": 140.1,
+    "mean_anomaly": 200.7,
+    "inclination": 144.3,
+    "lon_ascending_node": 219.1,
+    "orbital_period": 622.585958,
+    "radius": -1
+}

@@ -1,0 +1,14 @@
+{
+    "name": "S2002_N5",
+    "horizons_code": 85051,
+    "central_body": "Neptune",
+    "frame": "ecliptic",
+    "semimajor_axis": 23414700,
+    "eccentricity": 0.433,
+    "argument_of_periapsis": 59.1,
+    "mean_anomaly": 303.2,
+    "inclination": 46.3,
+    "lon_ascending_node": 258.3,
+    "orbital_period": 3151.0,
+    "radius": -1
+}

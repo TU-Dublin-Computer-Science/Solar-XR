@@ -1,0 +1,14 @@
+{
+    "name": "Galatea",
+    "horizons_code": 806,
+    "central_body": "Neptune",
+    "frame": "Laplace",
+    "semimajor_axis": 62000,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 86.7,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.428744,
+    "radius": 79.0
+}

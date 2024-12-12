@@ -1,0 +1,14 @@
+{
+    "name": "S2003_J2",
+    "horizons_code": 55501,
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 20997700,
+    "eccentricity": 0.225,
+    "argument_of_periapsis": 200.4,
+    "mean_anomaly": 35.2,
+    "inclination": 150.2,
+    "lon_ascending_node": 350.8,
+    "orbital_period": 628.78946,
+    "radius": -1
+}

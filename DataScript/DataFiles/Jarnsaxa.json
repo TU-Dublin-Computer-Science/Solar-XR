@@ -1,0 +1,14 @@
+{
+    "name": "Jarnsaxa",
+    "horizons_code": 650,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19273200,
+    "eccentricity": 0.218,
+    "argument_of_periapsis": 236.0,
+    "mean_anomaly": 156.2,
+    "inclination": 163.0,
+    "lon_ascending_node": 21.1,
+    "orbital_period": 1006.46334,
+    "radius": -1
+}

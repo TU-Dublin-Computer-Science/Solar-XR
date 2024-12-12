@@ -1,0 +1,14 @@
+{
+    "name": "Laomedeia",
+    "horizons_code": 812,
+    "central_body": "Neptune",
+    "frame": "ecliptic",
+    "semimajor_axis": 23499900,
+    "eccentricity": 0.419,
+    "argument_of_periapsis": 146.2,
+    "mean_anomaly": 248.1,
+    "inclination": 36.9,
+    "lon_ascending_node": 57.6,
+    "orbital_period": 3168.0,
+    "radius": -1
+}

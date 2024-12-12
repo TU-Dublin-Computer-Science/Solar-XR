@@ -1,0 +1,14 @@
+{
+    "name": "S2020_S04",
+    "horizons_code": 65105,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 18236000,
+    "eccentricity": 0.495,
+    "argument_of_periapsis": 163.7,
+    "mean_anomaly": 167.0,
+    "inclination": 40.1,
+    "lon_ascending_node": 74.2,
+    "orbital_period": 926.962759,
+    "radius": -1
+}

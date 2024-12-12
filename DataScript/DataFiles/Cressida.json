@@ -1,0 +1,14 @@
+{
+    "name": "Cressida",
+    "horizons_code": 709,
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 61800,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 332.8,
+    "inclination": 0.1,
+    "lon_ascending_node": 304.0,
+    "orbital_period": 0.463154,
+    "radius": -1
+}

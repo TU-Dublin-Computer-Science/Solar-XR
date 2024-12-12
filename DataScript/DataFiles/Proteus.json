@@ -1,0 +1,14 @@
+{
+    "name": "Proteus",
+    "horizons_code": 808,
+    "central_body": "Neptune",
+    "frame": "Laplace",
+    "semimajor_axis": 117600,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 276.8,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 1.122315,
+    "radius": 208.0
+}

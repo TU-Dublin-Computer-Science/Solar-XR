@@ -1,0 +1,14 @@
+{
+    "name": "Ariel",
+    "horizons_code": 701,
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 190900,
+    "eccentricity": 0.001,
+    "argument_of_periapsis": 83.3,
+    "mean_anomaly": 119.8,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 2.52068,
+    "radius": 578.9
+}

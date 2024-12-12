@@ -1,0 +1,14 @@
+{
+    "name": "S2019_S12",
+    "horizons_code": 65126,
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 20894700,
+    "eccentricity": 0.475,
+    "argument_of_periapsis": 261.6,
+    "mean_anomaly": 252.9,
+    "inclination": 167.1,
+    "lon_ascending_node": 336.6,
+    "orbital_period": 1138.01906,
+    "radius": -1
+}

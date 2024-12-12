@@ -1,0 +1,14 @@
+{
+    "name": "Dione",
+    "horizons_code": 604,
+    "central_body": "Saturn",
+    "frame": "Laplace",
+    "semimajor_axis": 377700,
+    "eccentricity": 0.002,
+    "argument_of_periapsis": 116.0,
+    "mean_anomaly": 212.0,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 2.736916,
+    "radius": 561.4
+}

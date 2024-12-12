@@ -7,7 +7,7 @@
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/mars-ui/assets/environment_passthrough.tres" id="5_rett8"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="7_omfkv"]
 [ext_resource type="AudioStream" uid="uid://2vh07xq86rer" path="res://content/assets/music/Space-The_Mountain.mp3" id="9_4o6td"]
-[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/Orbitron-VariableFont_wght.ttf" id="9_qck1j"]
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="9_qck1j"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="10_vverm"]
 
 [node name="Main" type="Node3D"]

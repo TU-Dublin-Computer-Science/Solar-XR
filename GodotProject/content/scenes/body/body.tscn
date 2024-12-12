@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk3r7wtndcu7"]
 
 [ext_resource type="Script" path="res://content/scenes/body/body.gd" id="1_a0gbj"]
-[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/Orbitron-VariableFont_wght.ttf" id="2_c2wu1"]
-[ext_resource type="Texture2D" uid="uid://bcnp325ml8mgy" path="res://content/assets/circle.png" id="2_tpdgu"]
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_c2wu1"]
+[ext_resource type="Texture2D" uid="uid://bcnp325ml8mgy" path="res://content/assets/sprites/circle.png" id="2_tpdgu"]
 
 [node name="Body" type="Node3D"]
 script = ExtResource("1_a0gbj")

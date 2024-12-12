@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2hr5ffup4gbj"]
 
-[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/Orbitron-VariableFont_wght.ttf" id="1_epshr"]
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="1_epshr"]
 
 [node name="MenuDefault" type="Node3D"]
 

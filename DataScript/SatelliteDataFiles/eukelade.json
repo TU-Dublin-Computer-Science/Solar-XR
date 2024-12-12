@@ -1,0 +1,16 @@
+{
+    "name": "Eukelade",
+    "horizons_code": 547,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23067400,
+    "eccentricity": 0.277,
+    "argument_of_periapsis": 283.7,
+    "mean_anomaly": 203.6,
+    "inclination": 164.6,
+    "lon_ascending_node": 192.2,
+    "orbital_period": 730.301672,
+    "satellites": []
+}

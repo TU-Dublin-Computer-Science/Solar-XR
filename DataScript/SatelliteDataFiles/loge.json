@@ -1,0 +1,16 @@
+{
+    "name": "Loge",
+    "horizons_code": 646,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 22919200,
+    "eccentricity": 0.191,
+    "argument_of_periapsis": 31.7,
+    "mean_anomaly": 12.5,
+    "inclination": 168.1,
+    "lon_ascending_node": 342.6,
+    "orbital_period": 1311.79803,
+    "satellites": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "S2003_J19",
+    "horizons_code": 561,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23156400,
+    "eccentricity": 0.265,
+    "argument_of_periapsis": 123.4,
+    "mean_anomaly": 218.4,
+    "inclination": 164.7,
+    "lon_ascending_node": 26.9,
+    "orbital_period": 734.778675,
+    "satellites": []
+}

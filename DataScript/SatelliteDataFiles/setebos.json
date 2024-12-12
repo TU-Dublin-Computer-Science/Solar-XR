@@ -1,0 +1,16 @@
+{
+    "name": "Setebos",
+    "horizons_code": 719,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "ecliptic",
+    "semimajor_axis": 17519800,
+    "eccentricity": 0.579,
+    "argument_of_periapsis": 356.1,
+    "mean_anomaly": 148.0,
+    "inclination": 153.9,
+    "lon_ascending_node": 244.7,
+    "orbital_period": 2215.0,
+    "satellites": []
+}

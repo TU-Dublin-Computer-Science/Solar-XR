@@ -1,0 +1,16 @@
+{
+    "name": "S2004_S39",
+    "horizons_code": 65084,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 23192200,
+    "eccentricity": 0.101,
+    "argument_of_periapsis": 202.2,
+    "mean_anomaly": 132.7,
+    "inclination": 165.9,
+    "lon_ascending_node": 164.4,
+    "orbital_period": 1335.882236,
+    "satellites": []
+}

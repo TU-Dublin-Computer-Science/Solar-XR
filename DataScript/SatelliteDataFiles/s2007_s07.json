@@ -1,0 +1,16 @@
+{
+    "name": "S2007_S07",
+    "horizons_code": 65130,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 15931600,
+    "eccentricity": 0.217,
+    "argument_of_periapsis": 157.5,
+    "mean_anomaly": 41.4,
+    "inclination": 169.2,
+    "lon_ascending_node": 10.1,
+    "orbital_period": 754.285806,
+    "satellites": []
+}

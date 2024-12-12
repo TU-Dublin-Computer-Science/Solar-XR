@@ -1,0 +1,16 @@
+{
+    "name": "Ersa",
+    "horizons_code": 571,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 11401000,
+    "eccentricity": 0.116,
+    "argument_of_periapsis": 304.7,
+    "mean_anomaly": 263.4,
+    "inclination": 29.1,
+    "lon_ascending_node": 116.9,
+    "orbital_period": 249.228928,
+    "satellites": []
+}

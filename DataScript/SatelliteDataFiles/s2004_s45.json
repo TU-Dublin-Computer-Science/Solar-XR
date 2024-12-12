@@ -1,0 +1,16 @@
+{
+    "name": "S2004_S45",
+    "horizons_code": 65113,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19693600,
+    "eccentricity": 0.551,
+    "argument_of_periapsis": 346.8,
+    "mean_anomaly": 197.3,
+    "inclination": 154.0,
+    "lon_ascending_node": 299.8,
+    "orbital_period": 1038.696711,
+    "satellites": []
+}

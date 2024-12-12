@@ -1,0 +1,16 @@
+{
+    "name": "Deimos",
+    "horizons_code": 402,
+    "radius": 6.2,
+    "model_path": "",
+    "central_body": "Mars",
+    "frame": "Laplace",
+    "semimajor_axis": 23500,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 205.0,
+    "inclination": 1.8,
+    "lon_ascending_node": 54.4,
+    "orbital_period": 1.262361,
+    "satellites": []
+}

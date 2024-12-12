@@ -1,0 +1,16 @@
+{
+    "name": "Hati",
+    "horizons_code": 643,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19695400,
+    "eccentricity": 0.372,
+    "argument_of_periapsis": 20.2,
+    "mean_anomaly": 248.2,
+    "inclination": 165.4,
+    "lon_ascending_node": 323.6,
+    "orbital_period": 1040.051211,
+    "satellites": []
+}

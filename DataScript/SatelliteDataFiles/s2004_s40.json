@@ -1,0 +1,16 @@
+{
+    "name": "S2004_S40",
+    "horizons_code": 65098,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 16075600,
+    "eccentricity": 0.297,
+    "argument_of_periapsis": 139.7,
+    "mean_anomaly": 199.0,
+    "inclination": 169.2,
+    "lon_ascending_node": 42.4,
+    "orbital_period": 764.6038,
+    "satellites": []
+}

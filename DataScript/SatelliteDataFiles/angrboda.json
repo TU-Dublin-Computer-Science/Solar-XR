@@ -1,0 +1,16 @@
+{
+    "name": "Angrboda",
+    "horizons_code": 655,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 20591200,
+    "eccentricity": 0.216,
+    "argument_of_periapsis": 105.6,
+    "mean_anomaly": 247.4,
+    "inclination": 177.7,
+    "lon_ascending_node": 293.0,
+    "orbital_period": 1114.059593,
+    "satellites": []
+}

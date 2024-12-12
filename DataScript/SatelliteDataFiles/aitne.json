@@ -1,0 +1,16 @@
+{
+    "name": "Aitne",
+    "horizons_code": 531,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23064400,
+    "eccentricity": 0.277,
+    "argument_of_periapsis": 81.3,
+    "mean_anomaly": 106.0,
+    "inclination": 164.6,
+    "lon_ascending_node": 8.2,
+    "orbital_period": 730.10012,
+    "satellites": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "S2006_S20",
+    "horizons_code": 65157,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 13193700,
+    "eccentricity": 0.206,
+    "argument_of_periapsis": 80.7,
+    "mean_anomaly": 19.4,
+    "inclination": 173.1,
+    "lon_ascending_node": 70.2,
+    "orbital_period": 567.265764,
+    "satellites": []
+}

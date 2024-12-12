@@ -1,0 +1,16 @@
+{
+    "name": "Cordelia",
+    "horizons_code": 706,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 49800,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 95.0,
+    "inclination": 0.2,
+    "lon_ascending_node": 271.4,
+    "orbital_period": 0.334569,
+    "satellites": []
+}

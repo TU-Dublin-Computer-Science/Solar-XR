@@ -1,0 +1,16 @@
+{
+    "name": "Kallichore",
+    "horizons_code": 544,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23021800,
+    "eccentricity": 0.252,
+    "argument_of_periapsis": 310.1,
+    "mean_anomaly": 54.2,
+    "inclination": 164.8,
+    "lon_ascending_node": 30.3,
+    "orbital_period": 728.259347,
+    "satellites": []
+}

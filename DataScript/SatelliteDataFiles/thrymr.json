@@ -1,0 +1,16 @@
+{
+    "name": "Thrymr",
+    "horizons_code": 630,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 20330900,
+    "eccentricity": 0.467,
+    "argument_of_periapsis": 92.2,
+    "mean_anomaly": 350.7,
+    "inclination": 175.0,
+    "lon_ascending_node": 247.3,
+    "orbital_period": 1092.170793,
+    "satellites": []
+}

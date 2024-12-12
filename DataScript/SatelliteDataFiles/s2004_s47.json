@@ -1,0 +1,16 @@
+{
+    "name": "S2004_S47",
+    "horizons_code": 65123,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 16050700,
+    "eccentricity": 0.291,
+    "argument_of_periapsis": 288.5,
+    "mean_anomaly": 167.1,
+    "inclination": 160.9,
+    "lon_ascending_node": 290.2,
+    "orbital_period": 762.493185,
+    "satellites": []
+}

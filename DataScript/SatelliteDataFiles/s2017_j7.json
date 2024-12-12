@@ -1,0 +1,16 @@
+{
+    "name": "S2017_J7",
+    "horizons_code": 568,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 20964800,
+    "eccentricity": 0.233,
+    "argument_of_periapsis": 119.4,
+    "mean_anomaly": 359.1,
+    "inclination": 147.3,
+    "lon_ascending_node": 258.1,
+    "orbital_period": 626.562241,
+    "satellites": []
+}

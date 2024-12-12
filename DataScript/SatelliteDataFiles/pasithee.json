@@ -1,0 +1,16 @@
+{
+    "name": "Pasithee",
+    "horizons_code": 538,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 22846700,
+    "eccentricity": 0.27,
+    "argument_of_periapsis": 295.2,
+    "mean_anomaly": 216.0,
+    "inclination": 164.6,
+    "lon_ascending_node": 329.1,
+    "orbital_period": 719.465077,
+    "satellites": []
+}

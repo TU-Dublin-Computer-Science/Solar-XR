@@ -1,0 +1,16 @@
+{
+    "name": "Adrastea",
+    "horizons_code": 515,
+    "radius": 8.2,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "Laplace",
+    "semimajor_axis": 129000,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 214.5,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.29826,
+    "satellites": []
+}

@@ -26,14 +26,15 @@ var _total_rotation: float = 0
 var _initialised: bool = false
 
 func _process(delta: float) -> void:
-	pass
 	if _initialised and _show_label and _camera != null:
 		$Label.look_at(_camera.global_transform.origin, Vector3.UP)
 		
-		# Scale up as model gets further away
-		var scale_change =  global_position.distance_to(_camera.global_position)
-		if scale_change >= MIN_SCALE:
-			$Label.scale = Vector3(scale_change, scale_change, scale_change)
+			# Scale up as model gets further away
+			#var scale_change = dist
+			#if scale_change >= MIN_SCALE:
+			#	$Label.scale = Vector3(scale_change, scale_change, scale_change)
+			
+		
 
 """
 func _update_rotation():		

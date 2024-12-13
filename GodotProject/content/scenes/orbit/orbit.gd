@@ -21,19 +21,26 @@ var _eccentricity: float
 var _mean_anomaly: float
 var _mean_motion: float
 var _periapsis_passage_time: float
+var _camera: XRCamera3D = null
 
 
 var _initialised: bool = false
+
+func _process(delta: float) -> void:
+	var dist =  global_position.distance_to(_camera.global_position)
 	
+	visible = dist < 40
+
 
 func init(	p_body: Node3D, 
-			p_julian_time: float,
-			p_model_scalar: float,
 			p_period: float,
 			p_inclination: float, 
 			p_semimajor_axis: float,
 			p_eccentricity: float, 
-			p_mean_anomaly: float):
+			p_mean_anomaly: float,
+			p_julian_time: float,
+			p_model_scalar: float,
+			p_camera: XRCamera3D):
 
 	_body = p_body
 	julian_time = p_julian_time
@@ -46,6 +53,8 @@ func init(	p_body: Node3D,
 	_mean_anomaly = p_mean_anomaly
 	#_mean_motion = p_mean_motion
 	#_periapsis_passage_time = p_periapsis_passage_time
+	
+	_camera = p_camera
 	
 	rotate(Vector3.FORWARD, -deg_to_rad(_inclination))
 

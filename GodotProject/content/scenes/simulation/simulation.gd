@@ -93,13 +93,14 @@ func instantiate_simulation():
 		
 		var orbit = OrbitScn.instantiate()
 		orbit.init(	body, 
-					_unix_to_julian(time),
-					model_scalar,
 					satellite_data["orbital_period"], 
 					satellite_data["inclination"], 
 					satellite_data["semimajor_axis"],
 					satellite_data["eccentricity"], 
-					satellite_data["mean_anomaly"])
+					satellite_data["mean_anomaly"],
+					_unix_to_julian(time),
+					model_scalar,
+					camera,)
 
 		_orbits_array.append(orbit)
 		add_child(orbit)

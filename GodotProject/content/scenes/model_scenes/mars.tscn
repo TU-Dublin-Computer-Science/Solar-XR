@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba48yfaoyc187"]
+
+[ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/textures/8k_mars.jpg" id="1_6l5v8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvvgk"]
+albedo_texture = ExtResource("1_6l5v8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_yp3wd"]
+material = SubResource("StandardMaterial3D_mvvgk")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3jxr8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhqg7"]
+size = Vector3(0.5, 1, 0.001)
+
+[node name="Mars" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_yp3wd")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3jxr8")
+
+[node name="PrimeMeridian" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_bhqg7")

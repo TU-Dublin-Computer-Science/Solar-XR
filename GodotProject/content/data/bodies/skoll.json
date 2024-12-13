@@ -1,0 +1,16 @@
+{
+    "name": "Skoll",
+    "horizons_code": 647,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 17623700,
+    "eccentricity": 0.463,
+    "argument_of_periapsis": 193.2,
+    "mean_anomaly": 169.3,
+    "inclination": 159.4,
+    "lon_ascending_node": 297.1,
+    "orbital_period": 878.37584,
+    "satellites": []
+}

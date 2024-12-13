@@ -1,0 +1,16 @@
+{
+    "name": "Ferdinand",
+    "horizons_code": 724,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "ecliptic",
+    "semimajor_axis": 20421400,
+    "eccentricity": 0.395,
+    "argument_of_periapsis": 166.9,
+    "mean_anomaly": 172.3,
+    "inclination": 169.2,
+    "lon_ascending_node": 223.9,
+    "orbital_period": 2788.0,
+    "satellites": []
+}

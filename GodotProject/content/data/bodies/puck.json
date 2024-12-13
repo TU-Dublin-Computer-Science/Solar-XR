@@ -1,0 +1,16 @@
+{
+    "name": "Puck",
+    "horizons_code": 715,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 86000,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 174.5,
+    "inclination": 0.3,
+    "lon_ascending_node": 215.5,
+    "orbital_period": 0.761477,
+    "satellites": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Titan",
+    "horizons_code": 606,
+    "radius": 2574.76,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "Laplace",
+    "semimajor_axis": 1221900,
+    "eccentricity": 0.029,
+    "argument_of_periapsis": 78.3,
+    "mean_anomaly": 11.7,
+    "inclination": 0.3,
+    "lon_ascending_node": 78.6,
+    "orbital_period": 15.945448,
+    "satellites": []
+}

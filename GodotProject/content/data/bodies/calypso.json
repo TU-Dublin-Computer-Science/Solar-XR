@@ -1,0 +1,16 @@
+{
+    "name": "Calypso",
+    "horizons_code": 614,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "Laplace",
+    "semimajor_axis": 295000,
+    "eccentricity": 0.001,
+    "argument_of_periapsis": 221.6,
+    "mean_anomaly": -0.0,
+    "inclination": 1.5,
+    "lon_ascending_node": 326.6,
+    "orbital_period": 1.887803,
+    "satellites": []
+}

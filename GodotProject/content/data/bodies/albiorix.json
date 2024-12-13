@@ -1,0 +1,16 @@
+{
+    "name": "Albiorix",
+    "horizons_code": 626,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 16329100,
+    "eccentricity": 0.482,
+    "argument_of_periapsis": 62.8,
+    "mean_anomaly": 17.0,
+    "inclination": 36.8,
+    "lon_ascending_node": 111.1,
+    "orbital_period": 783.459219,
+    "satellites": []
+}

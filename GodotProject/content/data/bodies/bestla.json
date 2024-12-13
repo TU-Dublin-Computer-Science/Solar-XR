@@ -1,0 +1,16 @@
+{
+    "name": "Bestla",
+    "horizons_code": 639,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 20338300,
+    "eccentricity": 0.486,
+    "argument_of_periapsis": 78.5,
+    "mean_anomaly": 41.6,
+    "inclination": 138.3,
+    "lon_ascending_node": 284.4,
+    "orbital_period": 1087.172365,
+    "satellites": []
+}

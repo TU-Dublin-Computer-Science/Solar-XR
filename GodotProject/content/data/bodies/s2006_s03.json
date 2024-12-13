@@ -1,0 +1,16 @@
+{
+    "name": "S2006_S03",
+    "horizons_code": 65090,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 21353300,
+    "eccentricity": 0.432,
+    "argument_of_periapsis": 179.8,
+    "mean_anomaly": 74.1,
+    "inclination": 156.1,
+    "lon_ascending_node": 208.5,
+    "orbital_period": 1174.784401,
+    "satellites": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Arche",
+    "horizons_code": 543,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 23097800,
+    "eccentricity": 0.261,
+    "argument_of_periapsis": 213.5,
+    "mean_anomaly": 39.8,
+    "inclination": 164.6,
+    "lon_ascending_node": 339.7,
+    "orbital_period": 731.879533,
+    "satellites": []
+}

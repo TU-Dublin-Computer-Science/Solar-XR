@@ -1,0 +1,16 @@
+{
+    "name": "S2004_S13",
+    "horizons_code": 65087,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 18453300,
+    "eccentricity": 0.265,
+    "argument_of_periapsis": 348.6,
+    "mean_anomaly": 352.5,
+    "inclination": 169.0,
+    "lon_ascending_node": 207.8,
+    "orbital_period": 942.566739,
+    "satellites": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Eggther",
+    "horizons_code": 659,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 19843900,
+    "eccentricity": 0.157,
+    "argument_of_periapsis": 144.2,
+    "mean_anomaly": 94.3,
+    "inclination": 165.0,
+    "lon_ascending_node": 87.0,
+    "orbital_period": 1052.323857,
+    "satellites": []
+}

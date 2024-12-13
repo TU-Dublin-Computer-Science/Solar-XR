@@ -1,0 +1,16 @@
+{
+    "name": "Gerd",
+    "horizons_code": 657,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 20948500,
+    "eccentricity": 0.518,
+    "argument_of_periapsis": 278.0,
+    "mean_anomaly": 103.8,
+    "inclination": 174.4,
+    "lon_ascending_node": 230.0,
+    "orbital_period": 1142.966402,
+    "satellites": []
+}

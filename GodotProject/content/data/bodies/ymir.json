@@ -1,0 +1,16 @@
+{
+    "name": "Ymir",
+    "horizons_code": 619,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 22954500,
+    "eccentricity": 0.338,
+    "argument_of_periapsis": 45.3,
+    "mean_anomaly": 216.3,
+    "inclination": 172.3,
+    "lon_ascending_node": 204.5,
+    "orbital_period": 1315.07801,
+    "satellites": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Fornjot",
+    "horizons_code": 642,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 24936700,
+    "eccentricity": 0.213,
+    "argument_of_periapsis": 320.7,
+    "mean_anomaly": 62.4,
+    "inclination": 170.0,
+    "lon_ascending_node": 256.0,
+    "orbital_period": 1494.105551,
+    "satellites": []
+}

@@ -38,7 +38,7 @@ var _sim_position: Vector3:
 		%PlanetSim.position = value
 		%MainMenu.pos_readout = value
 
-	
+
 var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
@@ -81,11 +81,11 @@ var _sim_time_live: bool:
 		%MainMenu.time_live_readout = value
 		
 
-var _planet: GlobalEnums.Planet:
+var _central_body: GlobalEnums.Planet:
 	set(value):
-		_planet = value
-		%PlanetSim.planet = value
-		%MainMenu.planet = value
+		_central_body = value
+		%PlanetSim.central_body_enum = value
+		%MainMenu.central_body = value
 
 # Move
 var _moving_up: bool = false
@@ -114,7 +114,7 @@ var InfoScreen: Node3D
 
 func _ready():	
 	_setup_menu()
-	_planet = GlobalEnums.Planet.MARS
+	_central_body = GlobalEnums.Planet.MARS
 	_initialise_system()
 
 
@@ -210,7 +210,7 @@ func _setup_time_signals():
 
 func _setup_planet_signals():
 	%MainMenu.planet_change_pressed.connect(func(value):
-		_planet = value
+		_central_body = value
 		_initialise_system()
 	)
 

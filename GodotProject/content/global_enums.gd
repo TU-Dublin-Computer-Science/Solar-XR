@@ -1,6 +1,12 @@
 class_name GlobalEnums
 
 enum Planet {
+	MERCURY,
+	VENUS,
+	EARTH,
 	MARS,
-	JUPITER
+	JUPITER,
+	SATURN,
+	URANUS,
+	NEPTUNE
 }

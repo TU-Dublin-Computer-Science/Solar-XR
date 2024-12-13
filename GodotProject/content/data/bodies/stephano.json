@@ -1,0 +1,16 @@
+{
+    "name": "Stephano",
+    "horizons_code": 720,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "ecliptic",
+    "semimajor_axis": 7951400,
+    "eccentricity": 0.235,
+    "argument_of_periapsis": 17.1,
+    "mean_anomaly": 164.4,
+    "inclination": 143.6,
+    "lon_ascending_node": 193.3,
+    "orbital_period": 677.0,
+    "satellites": []
+}

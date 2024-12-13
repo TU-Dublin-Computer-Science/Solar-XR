@@ -1,0 +1,16 @@
+{
+    "name": "S2020_S07",
+    "horizons_code": 65132,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 17394000,
+    "eccentricity": 0.5,
+    "argument_of_periapsis": 290.6,
+    "mean_anomaly": 244.4,
+    "inclination": 161.4,
+    "lon_ascending_node": 163.8,
+    "orbital_period": 861.2483,
+    "satellites": []
+}

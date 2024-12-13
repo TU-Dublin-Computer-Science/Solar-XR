@@ -1,0 +1,16 @@
+{
+    "name": "Pandora",
+    "horizons_code": 617,
+    "radius": 40.6,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "Laplace",
+    "semimajor_axis": 141700,
+    "eccentricity": 0.004,
+    "argument_of_periapsis": 217.9,
+    "mean_anomaly": 123.9,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.631369,
+    "satellites": []
+}

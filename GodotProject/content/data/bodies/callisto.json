@@ -1,0 +1,16 @@
+{
+    "name": "Callisto",
+    "horizons_code": 504,
+    "radius": 2410.3,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "Laplace",
+    "semimajor_axis": 1882700,
+    "eccentricity": 0.007,
+    "argument_of_periapsis": 43.8,
+    "mean_anomaly": 87.4,
+    "inclination": 0.3,
+    "lon_ascending_node": 309.1,
+    "orbital_period": 16.69044,
+    "satellites": []
+}

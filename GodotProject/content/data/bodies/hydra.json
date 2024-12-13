@@ -1,0 +1,16 @@
+{
+    "name": "Hydra",
+    "horizons_code": 903,
+    "radius": 18.5,
+    "model_path": "",
+    "central_body": "Pluto",
+    "frame": "equatorial",
+    "semimajor_axis": 65200,
+    "eccentricity": 0.009,
+    "argument_of_periapsis": 139.3,
+    "mean_anomaly": 335.0,
+    "inclination": 0.3,
+    "lon_ascending_node": 114.3,
+    "orbital_period": 38.2,
+    "satellites": []
+}

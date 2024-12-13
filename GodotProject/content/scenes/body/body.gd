@@ -11,7 +11,8 @@ var julian_time: float:
 	set(value):
 		julian_time = value
 		if _initialised:
-			_update_rotation()
+			pass
+			#_update_rotation()
 
 var _scene: PackedScene
 var _rot_multiplier: float
@@ -34,27 +35,26 @@ func _process(delta: float) -> void:
 		if scale_change >= MIN_SCALE:
 			$Label.scale = Vector3(scale_change, scale_change, scale_change)
 
+"""
 func _update_rotation():		
 	var new_rotation = deg_to_rad(_rot_multiplier * julian_time)
 	var rot_angle = new_rotation - _total_rotation
 	rotate_y(rot_angle)
 
 	_total_rotation = new_rotation
+"""
 
-
-func init(	p_julian_time: float,
-			p_model_scalar: float,
-			p_name: String,
+func init(	p_name: String,
 			p_scene: PackedScene, 
-			p_radius: float, 
-			p_rot_mulitplier: float, 
+			p_radius: float,
+			p_julian_time: float,
+			p_model_scalar: float,
 			p_camera: XRCamera3D,
 			p_show_label: bool):
 	julian_time = p_julian_time
 	_model_scalar = p_model_scalar
 	_scene = p_scene
 	radius = p_radius * p_model_scalar # Scale radius from real units to model units
-	_rot_multiplier = p_rot_mulitplier
 	_camera = p_camera
 	_show_label = p_show_label
 
@@ -67,7 +67,7 @@ func init(	p_julian_time: float,
 	add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	
-	_update_rotation()
+	#_update_rotation()
 	
 	_initialised = true
 

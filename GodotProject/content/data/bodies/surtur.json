@@ -1,0 +1,16 @@
+{
+    "name": "Surtur",
+    "horizons_code": 648,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 22745700,
+    "eccentricity": 0.448,
+    "argument_of_periapsis": 301.3,
+    "mean_anomaly": 33.8,
+    "inclination": 168.4,
+    "lon_ascending_node": 234.3,
+    "orbital_period": 1295.595736,
+    "satellites": []
+}

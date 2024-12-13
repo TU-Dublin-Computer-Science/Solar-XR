@@ -1,0 +1,16 @@
+{
+    "name": "S2016_J1",
+    "horizons_code": 554,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 20802600,
+    "eccentricity": 0.232,
+    "argument_of_periapsis": 197.8,
+    "mean_anomaly": 192.4,
+    "inclination": 144.7,
+    "lon_ascending_node": 231.7,
+    "orbital_period": 618.491978,
+    "satellites": []
+}

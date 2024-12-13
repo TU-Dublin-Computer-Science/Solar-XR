@@ -1,21 +1,13 @@
 extends Node
 
-const MARS_DATA_PATH = "res://content/data/mars_data.json"
-const JUPITER_DATA_PATH = "res://content/data/jupiter_data.json"
-
 const BodyScn = preload("res://content/scenes/body/body.tscn")
 const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 
 @export var camera: XRCamera3D = null
 
-@export var planet:GlobalEnums.Planet:
+@export var central_body_enum:GlobalEnums.Planet: 
 	set(value):
-		planet = value
-		match planet:
-			GlobalEnums.Planet.MARS:
-				sim_data_path = MARS_DATA_PATH
-			GlobalEnums.Planet.JUPITER:
-				sim_data_path = JUPITER_DATA_PATH
+		central_body_enum = value
 		
 		for child in get_children():
 			remove_child(child)	
@@ -35,7 +27,6 @@ const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 				orbit.julian_time = _unix_to_julian(time)
 
 var info_nodes: Array[Node3D]
-var sim_data_path = MARS_DATA_PATH
 
 # In the simulation the central body is 1*1*1 meter
 # The value below is the ratio of the central body's model radius to it's actual radius
@@ -48,7 +39,7 @@ var _orbits_array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_instantiate_simulation()
-	
+
 
 func _read_json_file(file_path: String) -> Dictionary:
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -72,24 +63,26 @@ func _read_json_file(file_path: String) -> Dictionary:
 
 
 func _instantiate_simulation():
-	var sim_data_path = _read_json_file(sim_data_path)
+	var data_path = "res://content/data/bodies/%s.json" % GlobalEnums.Planet.keys()[central_body_enum].to_lower()
 	
-	if not sim_data_path:
+	var body_data = _read_json_file(data_path)
+	
+	if not body_data:
 		return
 	
-	model_scalar = 0.5/sim_data_path["radius"]
+	model_scalar = 0.5/body_data["radius"]
 	
 	_central_body = BodyScn.instantiate()
-	_central_body.init(	_unix_to_julian(time),
+	_central_body.init(	body_data["name"],
+						load(body_data["model_path"]), 
+						body_data["radius"], 
+						_unix_to_julian(time),
 						model_scalar,
-						sim_data_path["name"],
-						load(sim_data_path["model_path"]), 
-						sim_data_path["radius"], 
-						sim_data_path["rotation_multiplier"], 
 						camera,
 						false)
 	add_child(_central_body)
 	
+	"""
 	if sim_data_path["satellites"]:
 		for satellite_data in sim_data_path["satellites"]:
 			var satellite_body_data = satellite_data["body"]
@@ -122,7 +115,7 @@ func _instantiate_simulation():
 	if sim_data_path["info_points"]:
 		_central_body.add_info_nodes(sim_data_path["info_points"])
 		info_nodes = _central_body.info_nodes
-
+	"""
 
 func _unix_to_julian(unix_time: float):
 	var greg_date = Time.get_datetime_dict_from_unix_time(unix_time)

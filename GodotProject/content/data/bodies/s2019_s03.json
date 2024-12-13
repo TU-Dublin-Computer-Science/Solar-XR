@@ -1,0 +1,16 @@
+{
+    "name": "S2019_S03",
+    "horizons_code": 65095,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "ecliptic",
+    "semimajor_axis": 17077100,
+    "eccentricity": 0.249,
+    "argument_of_periapsis": 129.3,
+    "mean_anomaly": 29.7,
+    "inclination": 166.9,
+    "lon_ascending_node": 234.6,
+    "orbital_period": 837.74243,
+    "satellites": []
+}

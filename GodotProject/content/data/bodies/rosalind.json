@@ -1,0 +1,16 @@
+{
+    "name": "Rosalind",
+    "horizons_code": 713,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 69900,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 79.4,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.558459,
+    "satellites": []
+}

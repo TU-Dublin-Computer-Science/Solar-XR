@@ -1,0 +1,16 @@
+{
+    "name": "Aegaeon",
+    "horizons_code": 653,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "frame": "Laplace",
+    "semimajor_axis": 167500,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 4.4,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.808115,
+    "satellites": []
+}

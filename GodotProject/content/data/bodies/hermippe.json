@@ -1,0 +1,16 @@
+{
+    "name": "Hermippe",
+    "horizons_code": 530,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "frame": "ecliptic",
+    "semimajor_axis": 21108500,
+    "eccentricity": 0.219,
+    "argument_of_periapsis": 356.6,
+    "mean_anomaly": 134.7,
+    "inclination": 150.2,
+    "lon_ascending_node": 331.0,
+    "orbital_period": 633.904723,
+    "satellites": []
+}

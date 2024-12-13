@@ -18,3 +18,4 @@ transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 
 
 [node name="PlanetSim" parent="." instance=ExtResource("4_jdocv")]
 unique_name_in_owner = true
+central_body_enum = 3

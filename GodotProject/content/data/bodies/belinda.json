@@ -1,0 +1,16 @@
+{
+    "name": "Belinda",
+    "horizons_code": 714,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "Laplace",
+    "semimajor_axis": 75300,
+    "eccentricity": 0.0,
+    "argument_of_periapsis": 0.0,
+    "mean_anomaly": 121.3,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 0.623527,
+    "satellites": []
+}

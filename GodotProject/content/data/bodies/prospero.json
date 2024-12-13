@@ -1,0 +1,16 @@
+{
+    "name": "Prospero",
+    "horizons_code": 718,
+    "radius": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "frame": "ecliptic",
+    "semimajor_axis": 16221000,
+    "eccentricity": 0.441,
+    "argument_of_periapsis": 180.4,
+    "mean_anomaly": 197.6,
+    "inclination": 149.4,
+    "lon_ascending_node": 324.5,
+    "orbital_period": 1974.0,
+    "satellites": []
+}

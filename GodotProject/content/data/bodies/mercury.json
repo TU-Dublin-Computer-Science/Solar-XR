@@ -1,0 +1,16 @@
+{
+    "name": "Mercury",
+    "horizons_code": 199,
+    "radius": 2439.4,
+    "model_path": "res://content/scenes/model_scenes/mercury.tscn",
+    "central_body": "Sun",
+    "frame": "",
+    "semimajor_axis": -1,
+    "eccentricity": -1,
+    "argument_of_periapsis": -1,
+    "mean_anomaly": -1,
+    "inclination": -1,
+    "lon_ascending_node": -1,
+    "orbital_period": -1,
+    "satellites": [] 
+}

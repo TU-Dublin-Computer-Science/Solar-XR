@@ -89,7 +89,7 @@ func instantiate_simulation():
 					_unix_to_julian(time),
 					model_scalar,
 					camera,
-					false)
+					true)
 		
 		var orbit = OrbitScn.instantiate()
 		orbit.init(	body, 

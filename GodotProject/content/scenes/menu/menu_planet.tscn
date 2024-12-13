@@ -4,13 +4,39 @@
 [ext_resource type="Script" path="res://content/scenes/menu/menu_planet.gd" id="1_qydcx"]
 
 [node name="MenuPlanet" type="Node3D"]
-transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, 0, 0)
+transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
 script = ExtResource("1_qydcx")
 
+[node name="BtnMercury" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0749947, 0.114982, 1.62988e-06)
+font_size = 8
+label = "Mercury"
+
+[node name="BtnVenus" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 2.94391e-05, 0.114982, 9.00695e-06)
+label = "Venus"
+
+[node name="BtnEarth" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, 0.0750053, 0.114982, 1.62987e-06)
+label = "Earth"
+
 [node name="BtnMars" parent="." instance=ExtResource("1_nfj2r")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.06, 0.02, 0)
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0749947, 0.0399822, 1.62988e-06)
 label = "Mars"
 
 [node name="BtnJupiter" parent="." instance=ExtResource("1_nfj2r")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.06, 0.02, 0)
+transform = Transform3D(1.5, -2.7832e-10, 3.49246e-10, 2.17383e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 2.94391e-05, 0.0399822, 9.00696e-06)
 label = "Jupiter"
+
+[node name="BtnSaturn" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, -2.78291e-10, 2.32831e-10, 1.47534e-09, 1.5, 0, -4.65661e-10, -8.73115e-11, 1.5, 0.0750053, 0.0399822, 1.62987e-06)
+label = "Saturn"
+
+[node name="BtnUranus" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0384801, -0.0350567, 1.66231e-05)
+label = "Uranus"
+
+[node name="BtnNeptune" parent="." instance=ExtResource("1_nfj2r")]
+transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 0.036544, -0.0350567, 2.40002e-05)
+font_size = 8
+label = "Neptune"

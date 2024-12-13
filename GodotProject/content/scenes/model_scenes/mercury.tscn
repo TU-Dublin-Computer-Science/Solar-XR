@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c01267t2om56h"]
+
+[ext_resource type="Texture2D" uid="uid://bsfeyhkosjjx8" path="res://content/assets/textures/8k_mercury.jpg" id="1_5i1i2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8plv1"]
+albedo_texture = ExtResource("1_5i1i2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_yjdeo"]
+material = SubResource("StandardMaterial3D_8plv1")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3h8g4"]
+
+[node name="Mercury" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_yjdeo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3h8g4")

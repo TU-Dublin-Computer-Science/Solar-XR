@@ -260,6 +260,11 @@ func _setup_time_tab():
 
 func _setup_planet_tab():
 	MenuPlanet = MenuPlanetScn.instantiate()
+	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.MERCURY))
+	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.VENUS))
+	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.EARTH))
 	MenuPlanet.find_child("BtnMars").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.MARS))
 	MenuPlanet.find_child("BtnJupiter").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.JUPITER))
-	
+	MenuPlanet.find_child("BtnSaturn").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.SATURN))
+	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.URANUS))
+	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.NEPTUNE))

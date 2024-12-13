@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwivtt3gf2hyj"]
+
+[ext_resource type="Texture2D" uid="uid://bmlyc7cfichlk" path="res://content/assets/textures/8k_earth_daymap.jpg" id="1_ldxii"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hrr6u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc16e"]
+albedo_texture = ExtResource("1_ldxii")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hlxb3"]
+material = SubResource("StandardMaterial3D_fc16e")
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_hrr6u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_hlxb3")

@@ -8,6 +8,7 @@
 script = ExtResource("1_a0gbj")
 
 [node name="Label" type="Node3D" parent="."]
+visible = false
 
 [node name="LlbName" type="Label3D" parent="Label"]
 transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.055679, 0)

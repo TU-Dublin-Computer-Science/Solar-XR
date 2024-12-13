@@ -68,7 +68,9 @@ func init(	p_name: String,
 		$Label.visible = true
 		$Label/LlbName.text = p_name
 		$Label.transform.origin.y += radius * 1.5
-
+	else:
+		$Label.visible = false
+		
 	_model = _model_scene.instantiate()
 	add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)

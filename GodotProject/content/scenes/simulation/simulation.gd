@@ -93,11 +93,13 @@ func instantiate_simulation():
 		
 		var orbit = OrbitScn.instantiate()
 		orbit.init(	body, 
-					satellite_data["orbital_period"], 
-					satellite_data["inclination"], 
 					satellite_data["semimajor_axis"],
 					satellite_data["eccentricity"], 
+					satellite_data["argument_of_periapsis"],
 					satellite_data["mean_anomaly"],
+					satellite_data["inclination"],
+					satellite_data["lon_ascending_node"],
+					satellite_data["orbital_period"], 
 					_unix_to_julian(time),
 					model_scalar,
 					camera,)

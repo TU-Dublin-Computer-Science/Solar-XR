@@ -4,25 +4,26 @@ const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tre
 const ORBIT_MIN_THICKNESS = 0.001
 const ORBIT_VISUAL_OPACITY = 0.2 # Scale of 0-1 
 
+const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
+
 var julian_time: float:
 	set(value):
 		julian_time = value
 		if _initialised:
 			_update_body_position()
-			
-		
-var _body: Node3D
-var _model_scalar: float
 
-var _period: float
-var _inclination: float
 var _semimajor_axis: float
 var _eccentricity: float
+var _arg_of_periapsis: float
 var _mean_anomaly: float
+var _inclination: float
+var _lon_ascending_node: float
+var _orbital_period: float
 var _mean_motion: float
-var _periapsis_passage_time: float
-var _camera: XRCamera3D = null
 
+var _body: Node3D
+var _model_scalar: float
+var _camera: XRCamera3D = null
 
 var _initialised: bool = false
 
@@ -33,27 +34,30 @@ func _process(delta: float) -> void:
 
 
 func init(	p_body: Node3D, 
-			p_period: float,
-			p_inclination: float, 
 			p_semimajor_axis: float,
-			p_eccentricity: float, 
+			p_eccentricity: float,
+			p_arg_of_periapsis: float, 
 			p_mean_anomaly: float,
+			p_inclination: float, 
+			p_lon_ascending_node: float,
+			p_orbital_period: float,
 			p_julian_time: float,
 			p_model_scalar: float,
 			p_camera: XRCamera3D):
 
 	_body = p_body
-	julian_time = p_julian_time
-	_model_scalar = p_model_scalar
-	
-	_period = p_period
-	_inclination = p_inclination
 	_semimajor_axis = p_semimajor_axis
 	_eccentricity = p_eccentricity
+	_arg_of_periapsis = p_arg_of_periapsis
 	_mean_anomaly = p_mean_anomaly
-	#_mean_motion = p_mean_motion
-	#_periapsis_passage_time = p_periapsis_passage_time
-	
+	_inclination = p_inclination
+	_lon_ascending_node = p_lon_ascending_node
+	_orbital_period = p_orbital_period
+
+	_mean_motion = TAU/(p_orbital_period * 86400)
+
+	julian_time = p_julian_time
+	_model_scalar = p_model_scalar	
 	_camera = p_camera
 	
 	rotate(Vector3.FORWARD, -deg_to_rad(_inclination))
@@ -62,7 +66,7 @@ func init(	p_body: Node3D,
 
 	_instantiate_orbit_visual()
 	
-	#_update_body_position()
+	_update_body_position()
 	
 	_initialised = true
 	
@@ -71,7 +75,7 @@ func _update_body_position():
 	
 	# 1. Get Current Mean anomaly 
 	# This is angle of body from periapsis (closest point to body) at the current time
-	var t = julian_time - _periapsis_passage_time
+	var t = julian_time - EPOCH_JULIAN_DATE
 	t *= 86400 #Convert days to seconds, as mean motion is deg/s
 	var current_mean_anomaly = _mean_anomaly + _mean_motion * t
 	current_mean_anomaly = deg_to_rad(fmod(current_mean_anomaly, 360)) # Convert to radians and wrap to [0, 2π]

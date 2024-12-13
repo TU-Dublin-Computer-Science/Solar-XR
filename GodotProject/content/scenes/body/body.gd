@@ -14,7 +14,7 @@ var julian_time: float:
 			pass
 			#_update_rotation()
 
-var _scene: PackedScene
+var _model_scene: PackedScene
 var _rot_multiplier: float
 var _model_scalar: float
 var _model: Node3D
@@ -45,7 +45,7 @@ func _update_rotation():
 """
 
 func init(	p_name: String,
-			p_scene: PackedScene, 
+			p_model_path: String, 
 			p_radius: float,
 			p_julian_time: float,
 			p_model_scalar: float,
@@ -53,7 +53,13 @@ func init(	p_name: String,
 			p_show_label: bool):
 	julian_time = p_julian_time
 	_model_scalar = p_model_scalar
-	_scene = p_scene
+	
+	if p_model_path != "":
+		_model_scene = load(p_model_path)
+	else:
+		_model_scene = load("res://content/scenes/model_scenes/default_moon.tscn")
+	
+	
 	radius = p_radius * p_model_scalar # Scale radius from real units to model units
 	_camera = p_camera
 	_show_label = p_show_label
@@ -63,7 +69,7 @@ func init(	p_name: String,
 		$Label/LlbName.text = p_name
 		$Label.transform.origin.y += radius * 1.5
 
-	_model = _scene.instantiate()
+	_model = _model_scene.instantiate()
 	add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	

@@ -33,9 +33,7 @@ func init(	p_body: Node3D,
 			p_inclination: float, 
 			p_semimajor_axis: float,
 			p_eccentricity: float, 
-			p_mean_anomaly: float,
-			p_mean_motion: float,
-			p_periapsis_passage_time:float):
+			p_mean_anomaly: float):
 
 	_body = p_body
 	julian_time = p_julian_time
@@ -46,8 +44,8 @@ func init(	p_body: Node3D,
 	_semimajor_axis = p_semimajor_axis
 	_eccentricity = p_eccentricity
 	_mean_anomaly = p_mean_anomaly
-	_mean_motion = p_mean_motion
-	_periapsis_passage_time = p_periapsis_passage_time
+	#_mean_motion = p_mean_motion
+	#_periapsis_passage_time = p_periapsis_passage_time
 	
 	rotate(Vector3.FORWARD, -deg_to_rad(_inclination))
 
@@ -55,7 +53,7 @@ func init(	p_body: Node3D,
 
 	_instantiate_orbit_visual()
 	
-	_update_body_position()
+	#_update_body_position()
 	
 	_initialised = true
 	

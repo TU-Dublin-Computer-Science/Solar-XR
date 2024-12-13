@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://is8laowcu1iu"]
+
+[ext_resource type="Texture2D" uid="uid://6860xcmthfi4" path="res://content/assets/textures/8k_saturn.jpg" id="1_hyxe4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kirx"]
+albedo_texture = ExtResource("1_hyxe4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hiycs"]
+material = SubResource("StandardMaterial3D_7kirx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nedws"]
+
+[node name="Saturn" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_hiycs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_nedws")

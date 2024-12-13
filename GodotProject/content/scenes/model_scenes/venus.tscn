@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://boochoa4kmn0w"]
+
+[ext_resource type="Texture2D" uid="uid://hmrlru3uplb0" path="res://content/assets/textures/8k_venus_surface.jpg" id="1_7owf4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcadx"]
+albedo_texture = ExtResource("1_7owf4")
+
+[sub_resource type="SphereMesh" id="SphereMesh_j4olh"]
+material = SubResource("StandardMaterial3D_lcadx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w8sja"]
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_j4olh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_w8sja")

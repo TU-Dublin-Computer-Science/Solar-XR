@@ -29,21 +29,21 @@ const TIME_CHANGE_SPEED = 1000
 var camera: XRCamera3D = null:
 	set(value):
 		camera = value
-		%PlanetSim.camera = value
+		%Simulation.camera = value
 
 
 var _sim_position: Vector3:
 	set(value):
 		_sim_position = value
-		%PlanetSim.position = value
+		%Simulation.position = value
 		%MainMenu.pos_readout = value
 
 
 var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
-		%PlanetSim.scale = Vector3(value, value, value)
-		%MainMenu.scale_readout = %PlanetSim.model_scalar * value
+		%Simulation.scale = Vector3(value, value, value)
+		%MainMenu.scale_readout = %Simulation.model_scalar * value
 
 
 var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
@@ -57,7 +57,7 @@ var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 var _sim_time: float: 
 	set(value):
 		_sim_time = value
-		%PlanetSim.time = value
+		%Simulation.time = value
 		%MainMenu.sim_time_readout = value
 		
 		var sys_time = Time.get_unix_time_from_system()
@@ -84,7 +84,7 @@ var _sim_time_live: bool:
 var _central_body: GlobalEnums.Planet:
 	set(value):
 		_central_body = value
-		%PlanetSim.central_body_enum = value
+		%Simulation.central_body_enum = value
 		%MainMenu.central_body = value
 
 # Move
@@ -115,6 +115,7 @@ var InfoScreen: Node3D
 func _ready():	
 	_setup_menu()
 	_central_body = GlobalEnums.Planet.MARS
+	$Simulation.instantiate_simulation()	
 	_initialise_system()
 
 
@@ -127,14 +128,14 @@ func _process(delta):
 func _initialise_system():
 	_sim_position = DEFAULT_SIM_POS
 
-	%PlanetSim.transform.basis = Basis()
+	%Simulation.transform.basis = Basis()
 
 	_sim_scale = DEFAULT_SIM_SCALE
 
 	_initialise_time()
 	
 	%InfoNodeScreen.deactivate()
-	var info_nodes = $PlanetSim.info_nodes 
+	var info_nodes = $Simulation.info_nodes 
 	%InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 
 
@@ -257,16 +258,16 @@ func _handle_constant_movement(delta: float):
 
 func _handle_constant_rotation(delta: float):
 	if _rot_increasing_x:
-		$PlanetSim.rotate_x(ROT_CHANGE_SPEED*delta)
+		$Simulation.rotate_x(ROT_CHANGE_SPEED*delta)
 
 	if _rot_decreasing_x:
-		$PlanetSim.rotate_x(-ROT_CHANGE_SPEED*delta)
+		$Simulation.rotate_x(-ROT_CHANGE_SPEED*delta)
 	
 	if _rot_increasing_y:
-		$PlanetSim.rotate_y(ROT_CHANGE_SPEED*delta)
+		$Simulation.rotate_y(ROT_CHANGE_SPEED*delta)
 		
 	if _rot_decreasing_y:
-		$PlanetSim.rotate_y(-ROT_CHANGE_SPEED*delta)
+		$Simulation.rotate_y(-ROT_CHANGE_SPEED*delta)
 
 	
 func _handle_constant_scaling(delta: float):

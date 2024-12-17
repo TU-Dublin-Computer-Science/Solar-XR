@@ -88,7 +88,7 @@ def print_planet_satellites(satellite_list: list, planet_name: str):
 if __name__ == "__main__":
     satellite_list = create_satellite_list()
     
-    create_satellite_files(satellite_list)
+    #create_satellite_files(satellite_list)
     
     #print_planet_satellites(satellite_list, "uranus")
 

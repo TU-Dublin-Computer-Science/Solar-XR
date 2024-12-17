@@ -115,7 +115,6 @@ var InfoScreen: Node3D
 func _ready():	
 	_setup_menu()
 	_central_body = GlobalEnums.Planet.MARS
-	$Simulation.instantiate_simulation()	
 	_initialise_system()
 
 

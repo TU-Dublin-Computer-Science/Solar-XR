@@ -66,12 +66,13 @@ func instantiate_simulation():
 	if not body_data:
 		return
 	
-	model_scalar = 0.5/body_data["radius"]
+	model_scalar = 0.5 / body_data["radius"]
 	
 	_central_body = BodyScn.instantiate()
 	_central_body.init(	body_data["name"],
 						body_data["model_path"], 
-						body_data["radius"], 
+						body_data["radius"],
+						body_data["rotation_factor"],
 						_unix_to_julian(time),
 						model_scalar,
 						camera,
@@ -86,6 +87,7 @@ func instantiate_simulation():
 		body.init(	satellite_data["name"],
 					satellite_data["model_path"], 
 					satellite_data["radius"], 
+					satellite_data["rotation_factor"],
 					_unix_to_julian(time),
 					model_scalar,
 					camera,

@@ -10,12 +10,11 @@ var radius: float
 var julian_time: float:
 	set(value):
 		julian_time = value
-		if _initialised:
-			pass
-			#_update_rotation()
+		if _initialised and _rotation_enabled:
+			_update_rotation()
 
 var _model_scene: PackedScene
-var _rot_multiplier: float
+var _rotation_factor: float
 var _model_scalar: float
 var _model: Node3D
 var _camera: XRCamera3D = null
@@ -24,6 +23,7 @@ var _show_label: bool
 var _total_rotation: float = 0
 
 var _initialised: bool = false
+var _rotation_enabled: bool = false
 
 func _process(delta: float) -> void:
 	if _initialised and _show_label and _camera != null:
@@ -33,21 +33,20 @@ func _process(delta: float) -> void:
 			#var scale_change = dist
 			#if scale_change >= MIN_SCALE:
 			#	$Label.scale = Vector3(scale_change, scale_change, scale_change)
-			
-		
 
-"""
+
 func _update_rotation():		
-	var new_rotation = deg_to_rad(_rot_multiplier * julian_time)
+	var new_rotation = deg_to_rad(_rotation_factor * julian_time)
 	var rot_angle = new_rotation - _total_rotation
 	rotate_y(rot_angle)
 
 	_total_rotation = new_rotation
-"""
+
 
 func init(	p_name: String,
 			p_model_path: String, 
 			p_radius: float,
+			p_rotation_factor: float,
 			p_julian_time: float,
 			p_model_scalar: float,
 			p_camera: XRCamera3D,
@@ -60,8 +59,11 @@ func init(	p_name: String,
 	else:
 		_model_scene = load("res://content/scenes/model_scenes/default_moon.tscn")
 	
+	if p_rotation_factor != -1:
+		_rotation_factor = p_rotation_factor
+		_rotation_enabled = true
 	
-	radius = p_radius * p_model_scalar # Scale radius from real units to model units
+	radius = p_radius * p_model_scalar # Scale radius from real units to model units	
 	_camera = p_camera
 	_show_label = p_show_label
 
@@ -76,7 +78,8 @@ func init(	p_name: String,
 	add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	
-	#_update_rotation()
+	if _rotation_enabled:
+		_update_rotation()
 	
 	_initialised = true
 

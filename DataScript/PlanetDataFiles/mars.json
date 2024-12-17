@@ -2,6 +2,7 @@
     "name": "Mars",
     "horizons_code": 499,
     "radius": 3389.50,
+    "rotation_factor": 350.891982443297,
     "model_path": "res://content/scenes/model_scenes/mars.tscn",
     "central_body": "Sun",
     "frame": "",

@@ -2,6 +2,7 @@
     "name": "Venus",
     "horizons_code": 299,
     "radius": 6051.8,
+    "rotation_factor": 1.4813688,
     "model_path": "res://content/scenes/model_scenes/venus.tscn",
     "central_body": "Sun",
     "frame": "",

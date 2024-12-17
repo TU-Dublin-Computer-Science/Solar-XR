@@ -2,6 +2,7 @@
     "name": "Neptune",
     "horizons_code": 899,
     "radius": 24622,
+    "rotation_factor": 541.1397757,
     "model_path": "res://content/scenes/model_scenes/neptune.tscn",
     "central_body": "Sun",
     "frame": "",

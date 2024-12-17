@@ -2,6 +2,7 @@
     "name": "Uranus",
     "horizons_code": 799,
     "radius": 25362,
+    "rotation_factor": 501.1600928,
     "model_path": "res://content/scenes/model_scenes/uranus.tscn",
     "central_body": "Sun",
     "frame": "",

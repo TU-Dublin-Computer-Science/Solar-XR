@@ -74,9 +74,9 @@ func _update_body_position():
 	# 1. Get Current Mean anomaly 
 	# This is angle of body from periapsis (closest point to body) at the current time
 	var t = julian_time - EPOCH_JULIAN_DATE
-	t *= 86400 #Convert days to seconds, as mean motion is deg/s
+	t *= 86400 #Convert days to seconds, as mean motion is rad/s
 	var current_mean_anomaly = _mean_anomaly + mean_motion * t
-	current_mean_anomaly = fmod(current_mean_anomaly, 360) # Convert to radians and wrap to [0, 2π]
+	current_mean_anomaly = fmod(current_mean_anomaly, 360) # wrap to [0, 2π]
 
 	# 2. Solve Kepler's equation for the eccentric anomaly
 	# This relates the current mean anomaly to orbit eccentricity

@@ -15,11 +15,10 @@ var julian_time: float:
 var _semimajor_axis: float
 var _eccentricity: float
 var _arg_of_periapsis: float
-var _mean_anomaly: float
-var _inclination: float
-var _lon_ascending_node: float
+var _mean_anomaly: float		# Radians
+var _inclination: float			# Radians
+var _lon_ascending_node: float  # Radians
 var _orbital_period: float
-var _mean_motion: float
 
 var _body: Node3D
 var _model_scalar: float
@@ -48,19 +47,17 @@ func init(	p_body: Node3D,
 	_body = p_body
 	_semimajor_axis = p_semimajor_axis
 	_eccentricity = p_eccentricity
-	_arg_of_periapsis = p_arg_of_periapsis
-	_mean_anomaly = p_mean_anomaly
-	_inclination = p_inclination
-	_lon_ascending_node = p_lon_ascending_node
+	_arg_of_periapsis = deg_to_rad(p_arg_of_periapsis)
+	_mean_anomaly = deg_to_rad(p_mean_anomaly)
+	_inclination = deg_to_rad(p_inclination)
+	_lon_ascending_node = deg_to_rad(p_lon_ascending_node)
 	_orbital_period = p_orbital_period
-
-	_mean_motion = TAU/(p_orbital_period * 86400)
 
 	julian_time = p_julian_time
 	_model_scalar = p_model_scalar	
 	_camera = p_camera
 	
-	rotate(Vector3.FORWARD, -deg_to_rad(_inclination))
+	rotate(Vector3.FORWARD, _inclination)
 
 	add_child(_body)
 
@@ -72,13 +69,14 @@ func init(	p_body: Node3D,
 	
 
 func _update_body_position():
+	var mean_motion = TAU/(_orbital_period * 86400)
 	
 	# 1. Get Current Mean anomaly 
 	# This is angle of body from periapsis (closest point to body) at the current time
 	var t = julian_time - EPOCH_JULIAN_DATE
 	t *= 86400 #Convert days to seconds, as mean motion is deg/s
-	var current_mean_anomaly = _mean_anomaly + _mean_motion * t
-	current_mean_anomaly = deg_to_rad(fmod(current_mean_anomaly, 360)) # Convert to radians and wrap to [0, 2π]
+	var current_mean_anomaly = _mean_anomaly + mean_motion * t
+	current_mean_anomaly = fmod(current_mean_anomaly, 360) # Convert to radians and wrap to [0, 2π]
 
 	# 2. Solve Kepler's equation for the eccentric anomaly
 	# This relates the current mean anomaly to orbit eccentricity

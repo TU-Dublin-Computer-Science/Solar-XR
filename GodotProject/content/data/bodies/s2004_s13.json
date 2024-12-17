@@ -2,6 +2,7 @@
     "name": "S2004_S13",
     "horizons_code": 65087,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "ecliptic",

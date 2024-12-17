@@ -2,6 +2,7 @@
     "name": "Hippocamp",
     "horizons_code": 814,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
     "frame": "Laplace",

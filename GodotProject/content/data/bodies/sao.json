@@ -2,6 +2,7 @@
     "name": "Sao",
     "horizons_code": 811,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
     "frame": "ecliptic",

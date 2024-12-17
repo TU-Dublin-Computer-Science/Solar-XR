@@ -2,6 +2,7 @@
     "name": "Ijiraq",
     "horizons_code": 622,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "ecliptic",

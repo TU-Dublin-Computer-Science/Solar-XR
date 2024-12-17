@@ -2,6 +2,7 @@
     "name": "Titan",
     "horizons_code": 606,
     "radius": 2574.76,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "Laplace",

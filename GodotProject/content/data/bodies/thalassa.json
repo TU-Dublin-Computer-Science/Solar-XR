@@ -2,6 +2,7 @@
     "name": "Thalassa",
     "horizons_code": 804,
     "radius": 40.0,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
     "frame": "Laplace",

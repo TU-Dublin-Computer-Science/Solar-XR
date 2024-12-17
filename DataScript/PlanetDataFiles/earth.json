@@ -2,6 +2,7 @@
     "name": "Earth",
     "horizons_code": 399,
     "radius": 6371.0084,
+    "rotation_factor": -1,
     "model_path": "res://content/scenes/model_scenes/earth.tscn",
     "central_body": "Sun",
     "frame": "",

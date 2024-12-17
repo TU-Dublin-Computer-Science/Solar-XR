@@ -2,6 +2,7 @@
     "name": "S2017_J2",
     "horizons_code": 563,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
     "frame": "ecliptic",

@@ -2,6 +2,7 @@
     "name": "Polydeuces",
     "horizons_code": 634,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "Laplace",

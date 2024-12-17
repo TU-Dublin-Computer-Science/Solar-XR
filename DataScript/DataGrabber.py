@@ -41,6 +41,7 @@ def create_satellite_list() -> list:
                 "horizons_code": int(cells[2].get_text(strip=True)),
                 
                 "radius": -1,
+                "rotation_factor": -1,
                 "model_path": "",
 
                 "central_body": cells[0].get_text(strip=True),
@@ -87,8 +88,8 @@ def print_planet_satellites(satellite_list: list, planet_name: str):
 if __name__ == "__main__":
     satellite_list = create_satellite_list()
     
-    #create_satellite_files(satellite_list)
+    create_satellite_files(satellite_list)
     
-    print_planet_satellites(satellite_list, "uranus")
+    #print_planet_satellites(satellite_list, "uranus")
 
 

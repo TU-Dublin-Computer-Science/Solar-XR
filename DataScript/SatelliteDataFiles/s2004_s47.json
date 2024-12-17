@@ -2,6 +2,7 @@
     "name": "S2004_S47",
     "horizons_code": 65123,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "ecliptic",

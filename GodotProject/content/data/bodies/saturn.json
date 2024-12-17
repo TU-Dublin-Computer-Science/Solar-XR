@@ -2,6 +2,7 @@
     "name": "Saturn",
     "horizons_code": 699,
     "radius": 58232,
+    "rotation_factor": 810.7939024,
     "model_path": "res://content/scenes/model_scenes/saturn.tscn",
     "central_body": "Sun",
     "frame": "",

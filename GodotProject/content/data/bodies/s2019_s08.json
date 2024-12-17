@@ -2,6 +2,7 @@
     "name": "S2019_S08",
     "horizons_code": 65119,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "ecliptic",

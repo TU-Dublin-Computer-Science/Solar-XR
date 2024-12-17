@@ -2,6 +2,7 @@
     "name": "Proteus",
     "horizons_code": 808,
     "radius": 208.0,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
     "frame": "Laplace",

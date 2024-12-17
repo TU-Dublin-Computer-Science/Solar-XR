@@ -2,6 +2,7 @@
     "name": "Dione",
     "horizons_code": 604,
     "radius": 561.4,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "Laplace",

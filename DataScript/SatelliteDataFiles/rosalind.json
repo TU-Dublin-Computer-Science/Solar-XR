@@ -2,6 +2,7 @@
     "name": "Rosalind",
     "horizons_code": 713,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
     "frame": "Laplace",

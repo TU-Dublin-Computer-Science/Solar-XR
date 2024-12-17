@@ -2,6 +2,7 @@
     "name": "Titania",
     "horizons_code": 703,
     "radius": 788.9,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
     "frame": "Laplace",

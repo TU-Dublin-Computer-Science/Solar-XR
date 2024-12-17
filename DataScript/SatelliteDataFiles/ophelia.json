@@ -2,6 +2,7 @@
     "name": "Ophelia",
     "horizons_code": 707,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
     "frame": "Laplace",

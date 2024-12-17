@@ -2,6 +2,7 @@
     "name": "Mercury",
     "horizons_code": 199,
     "radius": 2439.4,
+    "rotation_factor": 6.1385108,
     "model_path": "res://content/scenes/model_scenes/mercury.tscn",
     "central_body": "Sun",
     "frame": "",

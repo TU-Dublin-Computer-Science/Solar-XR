@@ -2,6 +2,7 @@
     "name": "Nix",
     "horizons_code": 902,
     "radius": 18.0,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Pluto",
     "frame": "equatorial",

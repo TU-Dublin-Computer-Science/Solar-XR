@@ -2,6 +2,7 @@
     "name": "Phobos",
     "horizons_code": 401,
     "radius": 11.08,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Mars",
     "frame": "Laplace",

@@ -2,6 +2,7 @@
     "name": "Callisto",
     "horizons_code": 504,
     "radius": 2410.3,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
     "frame": "Laplace",

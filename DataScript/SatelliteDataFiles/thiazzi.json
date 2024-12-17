@@ -2,6 +2,7 @@
     "name": "Thiazzi",
     "horizons_code": 663,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "ecliptic",

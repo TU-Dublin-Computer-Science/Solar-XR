@@ -2,6 +2,7 @@
     "name": "Umbriel",
     "horizons_code": 702,
     "radius": 584.7,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
     "frame": "Laplace",

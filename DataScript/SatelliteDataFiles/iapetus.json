@@ -2,6 +2,7 @@
     "name": "Iapetus",
     "horizons_code": 608,
     "radius": 734.3,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "Laplace",

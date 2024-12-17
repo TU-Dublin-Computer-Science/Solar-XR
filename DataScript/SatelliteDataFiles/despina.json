@@ -2,6 +2,7 @@
     "name": "Despina",
     "horizons_code": 805,
     "radius": 74.0,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
     "frame": "Laplace",

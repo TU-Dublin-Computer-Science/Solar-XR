@@ -2,6 +2,7 @@
     "name": "S2003_J19",
     "horizons_code": 561,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
     "frame": "ecliptic",

@@ -2,6 +2,7 @@
     "name": "Hydra",
     "horizons_code": 903,
     "radius": 18.5,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Pluto",
     "frame": "equatorial",

@@ -2,6 +2,7 @@
     "name": "S2006_S10",
     "horizons_code": 65109,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "ecliptic",

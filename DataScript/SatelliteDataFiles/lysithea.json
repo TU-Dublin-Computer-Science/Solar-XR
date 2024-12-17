@@ -2,6 +2,7 @@
     "name": "Lysithea",
     "horizons_code": 510,
     "radius": -1,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
     "frame": "ecliptic",

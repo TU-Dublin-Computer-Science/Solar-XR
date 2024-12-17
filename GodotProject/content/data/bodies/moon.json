@@ -2,6 +2,7 @@
     "name": "Moon",
     "horizons_code": 301,
     "radius": 1737.4,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Earth",
     "frame": "ecliptic",

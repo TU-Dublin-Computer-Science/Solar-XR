@@ -2,6 +2,7 @@
     "name": "Io",
     "horizons_code": 501,
     "radius": 1821.49,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
     "frame": "Laplace",

@@ -2,6 +2,7 @@
     "name": "Janus",
     "horizons_code": 610,
     "radius": 89.2,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
     "frame": "Laplace",

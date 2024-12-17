@@ -2,6 +2,7 @@
     "name": "Jupiter",
     "horizons_code": 599,
     "radius": 69911,
+    "rotation_factor": 870.5360000,
     "model_path": "res://content/scenes/model_scenes/jupiter.tscn",
     "central_body": "Sun",
     "frame": "",

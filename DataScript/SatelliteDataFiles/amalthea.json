@@ -2,6 +2,7 @@
     "name": "Amalthea",
     "horizons_code": 505,
     "radius": 83.5,
+    "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
     "frame": "Laplace",

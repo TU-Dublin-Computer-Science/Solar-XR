@@ -73,10 +73,14 @@ func instantiate_simulation():
 						body_data["model_path"], 
 						body_data["radius"],
 						body_data["rotation_factor"],
+						body_data["info_points"],
 						_unix_to_julian(time),
 						model_scalar,
 						camera,
 						false)
+	
+	info_nodes = _central_body.info_nodes
+	
 	add_child(_central_body)
 	
 	for satellite_name in body_data["satellites"]:
@@ -88,6 +92,7 @@ func instantiate_simulation():
 					satellite_data["model_path"], 
 					satellite_data["radius"], 
 					satellite_data["rotation_factor"],
+					satellite_data["info_points"],
 					_unix_to_julian(time),
 					model_scalar,
 					camera,
@@ -109,11 +114,6 @@ func instantiate_simulation():
 		_orbits_array.append(orbit)
 		add_child(orbit)
 
-	"""
-	if sim_data_path["info_points"]:
-		_central_body.add_info_nodes(sim_data_path["info_points"])
-		info_nodes = _central_body.info_nodes
-	"""
 
 func _unix_to_julian(unix_time: float):
 	var greg_date = Time.get_datetime_dict_from_unix_time(unix_time)

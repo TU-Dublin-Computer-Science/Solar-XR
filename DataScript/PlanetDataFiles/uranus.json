@@ -13,6 +13,7 @@
     "inclination": -1,
     "lon_ascending_node": -1,
     "orbital_period": -1,
+    "info_points": [],
     "satellites": [
         "ariel",
         "umbriel",

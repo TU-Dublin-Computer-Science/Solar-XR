@@ -13,6 +13,7 @@ var julian_time: float:
 		if _initialised and _rotation_enabled:
 			_update_rotation()
 
+var _name: String
 var _model_scene: PackedScene
 var _rotation_factor: float
 var _model_scalar: float
@@ -47,44 +48,54 @@ func init(	p_name: String,
 			p_model_path: String, 
 			p_radius: float,
 			p_rotation_factor: float,
+			p_info_nodes: Array,
 			p_julian_time: float,
 			p_model_scalar: float,
 			p_camera: XRCamera3D,
 			p_show_label: bool):
-	julian_time = p_julian_time
-	_model_scalar = p_model_scalar
+	
+	_name = p_name
 	
 	if p_model_path != "":
 		_model_scene = load(p_model_path)
 	else:
 		_model_scene = load("res://content/scenes/model_scenes/default_moon.tscn")
 	
+	radius = p_radius * p_model_scalar # Scale radius from real units to model units	
+	
 	if p_rotation_factor != -1:
 		_rotation_factor = p_rotation_factor
 		_rotation_enabled = true
 	
-	radius = p_radius * p_model_scalar # Scale radius from real units to model units	
+	julian_time = p_julian_time
+	_model_scalar = p_model_scalar
 	_camera = p_camera
+	
 	_show_label = p_show_label
+	
+	_setup_info_nodes(p_info_nodes)
+	_setup_model()
+	
+	_initialised = true
 
-	if p_show_label:
+
+func _setup_model():
+	if _show_label:
 		$Label.visible = true
-		$Label/LlbName.text = p_name
+		$Label/LlbName.text = _name
 		$Label.transform.origin.y += radius * 1.5
 	else:
 		$Label.visible = false
-		
+	
 	_model = _model_scene.instantiate()
 	add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	
 	if _rotation_enabled:
 		_update_rotation()
-	
-	_initialised = true
 
 
-func add_info_nodes(info_point_array: Array) -> void:
+func _setup_info_nodes(info_point_array: Array) -> void:
 	for info_point in info_point_array:
 		
 		var info_node = InfoNodeScn.instantiate()

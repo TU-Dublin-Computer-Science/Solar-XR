@@ -53,6 +53,7 @@ def create_satellite_list() -> list:
                 "inclination": float(cells[10].get_text(strip=True)),
                 "lon_ascending_node": float(cells[11].get_text(strip=True)),
                 "orbital_period": float(cells[12].get_text(strip=True)),
+                "info_points": [],
                 "satellites": []
             }
 
@@ -77,6 +78,8 @@ def create_satellite_files(satellite_list: list):
         file = open(file_path, "w")
         file.write(json_string)
         file.close()
+    
+    print("Files created.")
 
 
 def print_planet_satellites(satellite_list: list, planet_name: str):
@@ -88,7 +91,7 @@ def print_planet_satellites(satellite_list: list, planet_name: str):
 if __name__ == "__main__":
     satellite_list = create_satellite_list()
     
-    #create_satellite_files(satellite_list)
+    create_satellite_files(satellite_list)
     
     #print_planet_satellites(satellite_list, "uranus")
 

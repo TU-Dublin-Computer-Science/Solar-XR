@@ -13,5 +13,6 @@
     "inclination": 0.1,
     "lon_ascending_node": 30.5,
     "orbital_period": 13.463606,
+    "info_points": [],
     "satellites": []
 }

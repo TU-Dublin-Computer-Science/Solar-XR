@@ -86,33 +86,35 @@ func instantiate_simulation():
 	for satellite_name in body_data["satellites"]:
 		var satellite_data_path = "res://content/data/bodies/%s.json" % satellite_name
 		var satellite_data = _read_json_file(satellite_data_path)
-
-		var body = BodyScn.instantiate()
-		body.init(	satellite_data["name"],
-					satellite_data["model_path"], 
-					satellite_data["radius"], 
-					satellite_data["rotation_factor"],
-					satellite_data["info_points"],
-					_unix_to_julian(time),
-					model_scalar,
-					camera,
-					true)
 		
-		var orbit = OrbitScn.instantiate()
-		orbit.init(	body, 
-					satellite_data["semimajor_axis"],
-					satellite_data["eccentricity"], 
-					satellite_data["argument_of_periapsis"],
-					satellite_data["mean_anomaly"],
-					satellite_data["inclination"],
-					satellite_data["lon_ascending_node"],
-					satellite_data["orbital_period"], 
-					_unix_to_julian(time),
-					model_scalar,
-					camera,)
+		if satellite_data["semimajor_axis"] < 1000000:
+		
+			var body = BodyScn.instantiate()
+			body.init(	satellite_data["name"],
+						satellite_data["model_path"], 
+						satellite_data["radius"], 
+						satellite_data["rotation_factor"],
+						satellite_data["info_points"],
+						_unix_to_julian(time),
+						model_scalar,
+						camera,
+						true)
+			
+			var orbit = OrbitScn.instantiate()
+			orbit.init(	body, 
+						satellite_data["semimajor_axis"],
+						satellite_data["eccentricity"], 
+						satellite_data["argument_of_periapsis"],
+						satellite_data["mean_anomaly"],
+						satellite_data["inclination"],
+						satellite_data["lon_ascending_node"],
+						satellite_data["orbital_period"], 
+						_unix_to_julian(time),
+						model_scalar,
+						camera,)
 
-		_orbits_array.append(orbit)
-		add_child(orbit)
+			_orbits_array.append(orbit)
+			add_child(orbit)
 
 
 func _unix_to_julian(unix_time: float):

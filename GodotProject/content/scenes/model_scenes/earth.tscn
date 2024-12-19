@@ -16,4 +16,5 @@ material = SubResource("StandardMaterial3D_fc16e")
 shape = SubResource("SphereShape3D_hrr6u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.0155029, 0.0164795, -0.000541687)
 mesh = SubResource("SphereMesh_hlxb3")

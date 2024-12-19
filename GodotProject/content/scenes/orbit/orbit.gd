@@ -1,7 +1,7 @@
 extends Node3D
 
 const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tres")
-const ORBIT_MIN_THICKNESS = 0.001
+const ORBIT_MIN_THICKNESS = 0.002
 const ORBIT_VISUAL_OPACITY = 0.2 # Scale of 0-1 
 
 const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
@@ -118,12 +118,8 @@ func _instantiate_orbit_visual():
 	var mesh_instance = MeshInstance3D.new()
 	var torus_mesh = TorusMesh.new()
 	
-	if _body.radius < ORBIT_MIN_THICKNESS:
-		torus_mesh.inner_radius = scaled_semimajor_axis - ORBIT_MIN_THICKNESS
-		torus_mesh.outer_radius = scaled_semimajor_axis + ORBIT_MIN_THICKNESS
-	else:		
-		torus_mesh.inner_radius = scaled_semimajor_axis - _body.radius
-		torus_mesh.outer_radius = scaled_semimajor_axis + _body.radius
+	torus_mesh.inner_radius = scaled_semimajor_axis - ORBIT_MIN_THICKNESS
+	torus_mesh.outer_radius = scaled_semimajor_axis + ORBIT_MIN_THICKNESS
 	
 	mesh_instance.mesh = torus_mesh
 	mesh_instance.scale.z = scaled_semiminor_axis/scaled_semimajor_axis 

@@ -99,11 +99,17 @@ func _setup_info_nodes(info_point_array: Array) -> void:
 	for info_point in info_point_array:
 		
 		var info_node = InfoNodeScn.instantiate()
-		info_node.position = _geographical_to_cartesian(info_point["location"]["latitude"], 
-														info_point["location"]["longitude"])
+		var surface_location = _geographical_to_cartesian(	info_point["location"]["latitude"], 
+															info_point["location"]["longitude"])
+		
+		# Have info node be positioned slightly above surface
+		var direction = surface_location.normalized()
+		info_node.position = direction * (surface_location.length() + 0.06)
+		
 		info_node.title = info_point["title"]
 		info_node.image = load(info_point["image_path"])
 		info_node.description = info_point["description"]
+		info_node.camera = _camera
 		
 		info_nodes.append(info_node)
 		add_child(info_node)

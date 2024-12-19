@@ -4,15 +4,16 @@ class_name InfoNode
 signal on_button_down()
 signal on_button_up()
 
-const MatDefault = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_default.tres")
-const MatHover = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_hover.tres")
-const MatSelected = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node_selected.tres")
+const IconDefault = preload("res://content/assets/sprites/locationWhite.png")
+const IconHover = preload("res://content/assets/sprites/locationGrey.png")
+const IconSelected = preload("res://content/assets/sprites/locationRed.png")
 
 @export var disabled: bool = false
 @export var hovering: bool = true
 @export var title: String
 @export var description: String
 @export var image: CompressedTexture2D
+@export var camera: XRCamera3D = null
 
 var active: bool = false:
 	set(value):
@@ -20,20 +21,19 @@ var active: bool = false:
 		if !is_node_ready(): return
 		if active:
 			hovering = false
-			%Mesh.material_override = MatSelected
+			%Icon.texture = IconSelected
 		else:
 			hovering = true
-			%Mesh.material_override = MatDefault
-	
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
+			%Icon.texture = IconDefault
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+		%Icon.look_at(camera.global_transform.origin, Vector3.UP)
+		
+		# Scale up as model gets further away
+		var scale_change = %Icon.global_position.distance_to(camera.global_position)
+		
+		#%Icon.scale = Vector3(scale_change, scale_change, scale_change)
 	
 func _on_press_up(event):
 	
@@ -53,12 +53,12 @@ func _on_press_up(event):
 	
 func _on_ray_enter(_event: EventPointer):
 	if !disabled and hovering:
-		%Mesh.material_override = MatHover
+		%Icon.texture = IconHover
 
 
 func _on_ray_leave(_event: EventPointer):
 	if !disabled and hovering:
-		%Mesh.material_override = MatDefault
+		%Icon.texture = IconDefault
 
 
 func _on_touch_enter(event: EventTouch):

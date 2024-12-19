@@ -83,7 +83,7 @@ func _setup_model():
 	if _show_label:
 		$Label.visible = true
 		$Label/LlbName.text = _name
-		$Label.transform.origin.y += radius * 1.5
+		$Label.transform.origin.y += radius
 	else:
 		$Label.visible = false
 	

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://content/scenes/body/body.gd" id="1_a0gbj"]
 [ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_c2wu1"]
-[ext_resource type="Texture2D" uid="uid://bcnp325ml8mgy" path="res://content/assets/sprites/circle.png" id="2_tpdgu"]
+[ext_resource type="Texture2D" uid="uid://fuax0i6343le" path="res://content/assets/sprites/Arrow.png" id="3_ur33e"]
 
 [node name="Body" type="Node3D"]
 script = ExtResource("1_a0gbj")
@@ -11,10 +11,10 @@ script = ExtResource("1_a0gbj")
 visible = false
 
 [node name="LlbName" type="Label3D" parent="Label"]
-transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.055679, 0)
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.0508113, 0)
 text = "Label"
 font = ExtResource("2_c2wu1")
 
 [node name="Sprite3D" type="Sprite3D" parent="Label"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-texture = ExtResource("2_tpdgu")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.0150932, 0)
+texture = ExtResource("3_ur33e")

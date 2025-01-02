@@ -62,10 +62,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.04, -0.475)
 text = "Press the button below to begin:"
 font = ExtResource("9_qck1j")
 
-[node name="InfoNodeScreen" parent="." instance=ExtResource("11_8ofab")]
-unique_name_in_owner = true
-transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 0.428, 1.25, -0.406)
-
 [node name="Simulation" parent="." instance=ExtResource("12_7npen")]
 unique_name_in_owner = true
 central_body_enum = 3
@@ -77,3 +73,7 @@ script = ExtResource("12_qv2iw")
 [node name="MainMenu" parent="MainMenuTracker" instance=ExtResource("10_ikula")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -0.4, -0.35)
+
+[node name="InfoNodeScreen" parent="MainMenuTracker" instance=ExtResource("11_8ofab")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.318226, -0.4, -0.35)

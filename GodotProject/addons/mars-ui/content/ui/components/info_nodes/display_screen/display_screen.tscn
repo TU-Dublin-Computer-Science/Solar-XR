@@ -23,7 +23,7 @@ shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
 [sub_resource type="QuadMesh" id="QuadMesh_uil8i"]
-size = Vector2(0.3, 0.525)
+size = Vector2(0.2, 0.3)
 
 [node name="DisplayScreen" type="StaticBody3D"]
 script = ExtResource("1_rl8sr")
@@ -38,26 +38,26 @@ skeleton = NodePath("")
 
 [node name="BtnClose" parent="." instance=ExtResource("3_5ks17")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118404, 0.231606, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.0781473, 0.127223, -6.58184e-05)
 font_size = 30
 label = "X"
 
 [node name="SprtImage" type="Sprite3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.019, 0, 0, 0, 0.019, 0, 0, 0, 0.019, 0.00100279, 0.0994638, 0.00482321)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, 0.00100279, 0.046281, 0.00482321)
 transparent = false
 texture = ExtResource("3_gevwr")
 
 [node name="LblTitle" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.136416, -0.00873125, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0923938, -0.0182879, 0)
 text = "Title"
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="LblDesc" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.136, -0.0475216, 0)
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -0.0924856, -0.0383924, 0)
 text = "Description"
 horizontal_alignment = 0
 vertical_alignment = 0

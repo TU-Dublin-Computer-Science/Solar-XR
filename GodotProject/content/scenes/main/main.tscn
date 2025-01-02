@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=14 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://content/scenes/main/main.gd" id="1_55rk4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="10_vverm"]
 [ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.tscn" id="11_8ofab"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/scenes/simulation/simulation.tscn" id="12_7npen"]
+[ext_resource type="Script" path="res://content/scenes/main/main_menu_tracker.gd" id="12_qv2iw"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_55rk4")
@@ -25,6 +26,7 @@ parameters/looping = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("5_rett8")
@@ -68,6 +70,10 @@ transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 
 unique_name_in_owner = true
 central_body_enum = 3
 
-[node name="MainMenu" parent="." instance=ExtResource("10_ikula")]
+[node name="MainMenuTracker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+script = ExtResource("12_qv2iw")
+
+[node name="MainMenu" parent="MainMenuTracker" instance=ExtResource("10_ikula")]
 unique_name_in_owner = true
-transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -0.33, 1.2, -0.3)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -0.4, -0.35)

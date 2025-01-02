@@ -124,6 +124,7 @@ func _ready():
 	remove_child(InfoNodeScreen)
 	remove_child(Simulation)
 	
+	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	%XRSetupMenu.start_pressed.connect(_setup)
 	_setup_menu()

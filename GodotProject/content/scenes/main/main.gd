@@ -113,6 +113,7 @@ var _time_decreasing: bool = false
 var InfoScreen: Node3D
 
 func _setup():
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	%AudBGM.playing = true
 	add_child(MainMenu)
 	add_child(InfoNodeScreen)
@@ -126,7 +127,6 @@ func _ready():
 	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
-	%XRSetupMenu.start_pressed.connect(_setup)
 	_setup_menu()
 	_central_body = GlobalEnums.Planet.MARS
 	_initialise_system()
@@ -160,6 +160,8 @@ func _initialise_time():
 
 
 func _setup_menu():
+	MainMenu.start.connect(_setup)
+	
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()

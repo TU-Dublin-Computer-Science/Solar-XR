@@ -1,5 +1,8 @@
 extends StaticBody3D
 
+# Start Signal
+signal start
+
 # Move Signals
 signal move_up_start
 signal move_up_stop
@@ -55,19 +58,18 @@ signal planet_change_pressed
 # Reset Signal
 signal reset
 
-const MenuDefaultScn = preload("res://content/scenes/menu/menu_default.tscn")
-const MenuMoveScn = preload("res://content/scenes/menu/menu_move.tscn")
-const MenuRotateScn = preload("res://content/scenes/menu/menu_rotate.tscn")
-const MenuScaleScn = preload("res://content/scenes/menu/menu_scale.tscn")
-const MenuTimeScn = preload("res://content/scenes/menu/menu_time.tscn")
-const MenuPlanetScn = preload("res://content/scenes/menu/menu_planet.tscn")
+@onready var MenuButtons = $ControlMenu/Tabs/MenuButtons
 
-var MenuDefault
-var MenuMove
-var MenuRotate
-var MenuScale
-var MenuTime
-var MenuPlanet
+@onready var MenuDefault = $ControlMenu/Tabs/MenuDefault
+@onready var MenuMove = $ControlMenu/Tabs/MenuMove
+@onready var MenuRotate = $ControlMenu/Tabs/MenuRotate
+@onready var MenuScale = $ControlMenu/Tabs/MenuScale
+@onready var MenuTime = $ControlMenu/Tabs/MenuTime
+@onready var MenuPlanet = $ControlMenu/Tabs/MenuPlanet
+
+@onready var ControlMenu = $ControlMenu
+@onready var StartMenu = $StartMenu
+
 
 # Below values just used for information readout on menu 
 var pos_readout: Vector3:
@@ -133,23 +135,37 @@ var _active_btn: Button3D = null:
 var _active_tab: Node3D = null:
 	set(value):
 		if _active_tab != null:
-			remove_child(_active_tab)
+			$ControlMenu/Tabs.remove_child(_active_tab)
 		
 		_active_tab = value
-		add_child(_active_tab)
+		$ControlMenu/Tabs.add_child(_active_tab)
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void:	
+	_setup_start_menu()
+	_setup_control_menu()
+	remove_child(ControlMenu)
+
+
+func _setup_start_menu():
+	StartMenu.find_child("BtnStart").on_button_up.connect(func():
+		start.emit()
+		remove_child(StartMenu)
+		add_child(ControlMenu)
+	)
+
+func _setup_control_menu():
 	_setup_menu_buttons()
 	_setup_tabs()
+	
+	for tab in $ControlMenu/Tabs.get_children():
+		tab.visible = true
+		$ControlMenu/Tabs.remove_child(tab)
+	
 	_active_tab = MenuDefault
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 
 func _setup_menu_buttons():
 	%BtnMove.on_button_down.connect(func():
@@ -177,14 +193,12 @@ func _setup_menu_buttons():
 		_active_tab = MenuPlanet
 	)
 	
-	
 	%BtnReset.on_button_down.connect(func():
 		reset.emit()
 	)
 
 
 func _setup_tabs():
-	_setup_default_tab()
 	_setup_move_tab()
 	_setup_rotate_tab()
 	_setup_scale_tab()
@@ -192,12 +206,7 @@ func _setup_tabs():
 	_setup_planet_tab()
 
 
-func _setup_default_tab():
-	MenuDefault = MenuDefaultScn.instantiate()
-	
-	
 func _setup_move_tab():
-	MenuMove = MenuMoveScn.instantiate()
 	MenuMove.find_child("BtnUp").on_button_down.connect(func():move_up_start.emit())	
 	MenuMove.find_child("BtnUp").on_button_up.connect(func():move_up_stop.emit())	
 	
@@ -217,9 +226,7 @@ func _setup_move_tab():
 	MenuMove.find_child("BtnBack").on_button_up.connect(func(): move_back_stop.emit())
 
 
-func _setup_rotate_tab():
-	MenuRotate = MenuRotateScn.instantiate()
-	
+func _setup_rotate_tab():	
 	MenuRotate.find_child("BtnUp").on_button_down.connect(func(): rotate_decreaseX_start.emit())
 	MenuRotate.find_child("BtnUp").on_button_up.connect(func(): rotate_decreaseX_stop.emit())
 
@@ -233,9 +240,7 @@ func _setup_rotate_tab():
 	MenuRotate.find_child("BtnRight").on_button_up.connect(func(): rotate_increaseY_stop.emit())
 
 
-func _setup_scale_tab():
-	MenuScale = MenuScaleScn.instantiate()
-	
+func _setup_scale_tab():	
 	MenuScale.find_child("BtnDecrease").on_button_down.connect(func(): scale_decrease_start.emit())
 	MenuScale.find_child("BtnDecrease").on_button_up.connect(func(): scale_decrease_stop.emit())
 
@@ -243,9 +248,7 @@ func _setup_scale_tab():
 	MenuScale.find_child("BtnIncrease").on_button_up.connect(func(): scale_increase_stop.emit())
 
 
-func _setup_time_tab():
-	MenuTime = MenuTimeScn.instantiate()
-	
+func _setup_time_tab():	
 	MenuTime.find_child("BtnDecrease").on_button_down.connect(func(): time_decrease_start.emit())
 	MenuTime.find_child("BtnDecrease").on_button_up.connect(func(): time_decrease_stop.emit())
 
@@ -259,7 +262,6 @@ func _setup_time_tab():
 
 
 func _setup_planet_tab():
-	MenuPlanet = MenuPlanetScn.instantiate()
 	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.MERCURY))
 	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.VENUS))
 	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.EARTH))

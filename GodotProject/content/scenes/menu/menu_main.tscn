@@ -1,8 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=13 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="4_8lqmu"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_move.gd" id="5_awrke"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_rotate.gd" id="6_l1ol1"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_scale.gd" id="7_cecho"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_time.gd" id="8_dwy47"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -34,35 +40,264 @@ mesh = SubResource("QuadMesh_q0bqu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_60yw7")
 
-[node name="BtnMove" parent="." instance=ExtResource("3_f40n8")]
+[node name="ControlMenu" type="Node3D" parent="."]
+
+[node name="MenuButtons" type="Node3D" parent="ControlMenu"]
+
+[node name="BtnMove" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156448, -0.113685, 0)
 label = "Move"
 
-[node name="BtnRotate" parent="." instance=ExtResource("3_f40n8")]
+[node name="BtnRotate" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092502, -0.113685, 0)
 label = "Rotate"
 
-[node name="BtnScale" parent="." instance=ExtResource("3_f40n8")]
+[node name="BtnScale" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0309675, -0.113685, 0)
 label = "Scale"
 
-[node name="BtnTime" parent="." instance=ExtResource("3_f40n8")]
+[node name="BtnTime" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033384, -0.113685, 0)
 label = "Time"
 
-[node name="BtnPlanet" parent="." instance=ExtResource("3_f40n8")]
+[node name="BtnPlanet" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156298, -0.113685, 0)
 label = "Planet"
 
-[node name="BtnReset" parent="." instance=ExtResource("3_f40n8")]
+[node name="BtnReset" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0949764, -0.113685, 0)
 label = "Reset"
 
-[node name="Tabs" type="Node3D" parent="."]
-unique_name_in_owner = true
+[node name="Tabs" type="Node3D" parent="ControlMenu"]
+
+[node name="MenuDefault" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
+
+[node name="Lbl1" type="Label3D" parent="ControlMenu/Tabs/MenuDefault"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
+text = "Mars XR"
+font = ExtResource("4_8lqmu")
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Lbl2" type="Label3D" parent="ControlMenu/Tabs/MenuDefault"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.180858, 0.024216, 0)
+text = "Use the buttons below to control the simulation or click on a highlighted point on Mars for information."
+font = ExtResource("4_8lqmu")
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="MenuMove" type="Node3D" parent="ControlMenu/Tabs"]
+script = ExtResource("5_awrke")
+
+[node name="BtnRight" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.085, 0.025, 0)
+label = "->"
+
+[node name="BtnLeft" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.025, 0)
+label = "<-"
+
+[node name="BtnBack" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.07, 0)
+label = "^"
+
+[node name="BtnForward" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, -0.02, 0)
+label = "\\/"
+
+[node name="BtnUp" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0.053, 0)
+label = "Up"
+
+[node name="BtnDown" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -0.005, 0)
+label = "Down"
+
+[node name="LblX" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.064941, 0)
+text = "X:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblXReadout" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.064941, 0)
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblY" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.0392096, 0)
+text = "Y:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblYReadout" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.0392096, 0)
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblZ" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.0134783, 0)
+text = "Z:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblZReadout" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.166641, 0.0134783, 0)
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="MenuRotate" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
+script = ExtResource("6_l1ol1")
+
+[node name="BtnRight" parent="ControlMenu/Tabs/MenuRotate" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0454131, 0.0234476, 0)
+label = "->"
+
+[node name="BtnLeft" parent="ControlMenu/Tabs/MenuRotate" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0445869, 0.0234476, 0)
+label = "<-"
+
+[node name="BtnUp" parent="ControlMenu/Tabs/MenuRotate" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041309, 0.0684476, 0)
+label = "^"
+
+[node name="BtnDown" parent="ControlMenu/Tabs/MenuRotate" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00041309, -0.0215524, 0)
+label = "\\/"
+
+[node name="LblX" type="Label3D" parent="ControlMenu/Tabs/MenuRotate"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175218, 0.0496247, 0)
+visible = false
+text = "X:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblXReadout" type="Label3D" parent="ControlMenu/Tabs/MenuRotate"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.150712, 0.0496247, 0)
+visible = false
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblY" type="Label3D" parent="ControlMenu/Tabs/MenuRotate"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175218, 0.0245061, 0)
+visible = false
+text = "Y:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblYReadout" type="Label3D" parent="ControlMenu/Tabs/MenuRotate"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.150712, 0.0245061, 0)
+visible = false
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="MenuScale" type="Node3D" parent="ControlMenu/Tabs"]
+transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, 0, 0)
+visible = false
+script = ExtResource("7_cecho")
+
+[node name="BtnDecrease" parent="ControlMenu/Tabs/MenuScale" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.06, 0.02, 0)
+label = "-"
+
+[node name="BtnIncrease" parent="ControlMenu/Tabs/MenuScale" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.06, 0.02, 0)
+label = "+"
+
+[node name="LblScale" type="Label3D" parent="ControlMenu/Tabs/MenuScale"]
+transform = Transform3D(0.0999999, -8.40359e-11, 0, 1.27462e-10, 0.0999999, 0, -2.91038e-11, 0, 0.1, -0.0340973, 0.111898, 2.23908e-05)
+text = "Scale:"
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="LblReadout" type="Label3D" parent="ControlMenu/Tabs/MenuScale"]
+transform = Transform3D(0.0999999, -1.27698e-10, 0, 2.00223e-10, 0.0999999, 0, -5.09317e-11, 0, 0.1, 0.0138012, 0.111847, 4.20583e-05)
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="MenuTime" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
+script = ExtResource("8_dwy47")
+
+[node name="BtnDecrease" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0826867, -0.015, 0)
+label = "<<"
+
+[node name="BtnIncrease" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0812186, -0.015, 0)
+label = ">>"
+
+[node name="BtnLive" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.120586, 0.0557469, 0)
+label = "Live"
+
+[node name="LblDateTime" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0838694, 0)
+
+[node name="LblScalar" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 0)
+
+[node name="MenuPlanet" type="Node3D" parent="ControlMenu/Tabs"]
+transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
+visible = false
+script = ExtResource("9_6i5p8")
+
+[node name="BtnMercury" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0749947, 0.114982, 1.62988e-06)
+font_size = 8
+label = "Mercury"
+
+[node name="BtnVenus" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 2.94391e-05, 0.114982, 9.00695e-06)
+label = "Venus"
+
+[node name="BtnEarth" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, 0.0750053, 0.114982, 1.62987e-06)
+label = "Earth"
+
+[node name="BtnMars" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0749947, 0.0399822, 1.62988e-06)
+label = "Mars"
+
+[node name="BtnJupiter" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.7832e-10, 3.49246e-10, 2.17383e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 2.94391e-05, 0.0399822, 9.00696e-06)
+label = "Jupiter"
+
+[node name="BtnSaturn" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78291e-10, 2.32831e-10, 1.47534e-09, 1.5, 0, -4.65661e-10, -8.73115e-11, 1.5, 0.0750053, 0.0399822, 1.62987e-06)
+label = "Saturn"
+
+[node name="BtnUranus" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0384801, -0.0350567, 1.66231e-05)
+label = "Uranus"
+
+[node name="BtnNeptune" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 0.036544, -0.0350567, 2.40002e-05)
+font_size = 8
+label = "Neptune"
+
+[node name="StartMenu" type="Node3D" parent="."]
+visible = false
+
+[node name="BtnStart" parent="StartMenu" instance=ExtResource("3_f40n8")]
+label = "Start"
+
+[node name="Lbl1" type="Label3D" parent="StartMenu"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.08, 0)
+text = "Welcome !"
+font = ExtResource("4_8lqmu")
+
+[node name="Lbl2" type="Label3D" parent="StartMenu"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.04, 0)
+text = "Press the button below to begin:"
+font = ExtResource("4_8lqmu")

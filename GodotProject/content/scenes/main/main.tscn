@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://content/scenes/main/main.gd" id="1_55rk4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
-[ext_resource type="PackedScene" uid="uid://d1iitlq37osgs" path="res://addons/mars-ui/content/ui/components/xr_setup_menu/xr_setup_menu.tscn" id="2_ij3kw"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/mars-ui/content/system/controller_right/controller_right.tscn" id="3_8bjds"]
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/mars-ui/assets/environment_passthrough.tres" id="5_rett8"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="7_omfkv"]
 [ext_resource type="AudioStream" uid="uid://2vh07xq86rer" path="res://content/assets/music/Space-The_Mountain.mp3" id="9_4o6td"]
-[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="9_qck1j"]
 [ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/scenes/menu/menu_main.tscn" id="10_ikula"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="10_vverm"]
 [ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.tscn" id="11_8ofab"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/scenes/simulation/simulation.tscn" id="12_7npen"]
+[ext_resource type="Script" path="res://content/scenes/main/main_menu_tracker.gd" id="12_qv2iw"]
+[ext_resource type="PackedScene" uid="uid://gs122858j0nd" path="res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.tscn" id="12_xl8ae"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_55rk4")
@@ -25,6 +25,7 @@ parameters/looping = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0.000440091, -0.000161113, -0.000439484, 0.999993, 0.00374974, 0.000162764, -0.00374966, 0.999993, 0.12413, 1.59506, 2.54726)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("5_rett8")
@@ -45,29 +46,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 0)
 
 [node name="XRSimulator" parent="." instance=ExtResource("7_omfkv")]
 
-[node name="XRSetupMenu" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ij3kw")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
-camera = NodePath("../XROrigin3D/XRCamera3D")
-
-[node name="Lbl1" type="Label3D" parent="XRSetupMenu"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.08, -0.475)
-text = "Welcome to Mars XR!"
-font = ExtResource("9_qck1j")
-
-[node name="Lbl2" type="Label3D" parent="XRSetupMenu"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.04, -0.475)
-text = "Press the button below to begin:"
-font = ExtResource("9_qck1j")
-
-[node name="InfoNodeScreen" parent="." instance=ExtResource("11_8ofab")]
-unique_name_in_owner = true
-transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 0.428, 1.25, -0.406)
-
 [node name="Simulation" parent="." instance=ExtResource("12_7npen")]
 unique_name_in_owner = true
 central_body_enum = 3
 
-[node name="MainMenu" parent="." instance=ExtResource("10_ikula")]
+[node name="MainMenuTracker" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+script = ExtResource("12_qv2iw")
+
+[node name="MainMenu" parent="MainMenuTracker" instance=ExtResource("10_ikula")]
 unique_name_in_owner = true
-transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -0.33, 1.2, -0.3)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -0.4, -0.35)
+
+[node name="InfoNodeScreen" parent="MainMenuTracker" instance=ExtResource("11_8ofab")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000708371, -0.133997, -0.453979)
+
+[node name="DisplayScreen" parent="MainMenuTracker/InfoNodeScreen" instance=ExtResource("12_xl8ae")]

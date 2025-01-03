@@ -2,22 +2,22 @@ extends Node3D
 
 signal close_btn_pressed
 
-const DisplayScreenScn = preload("res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.tscn")
+
+@onready var DisplayScreen = $DisplayScreen
+
 
 @export var info_nodes: Array[Node3D]: 
 	set(value):
 		info_nodes = value
 		_connect_info_node_signals()
 
-var DisplayScreen: Node3D
-
 var _active_info_node: InfoNode = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DisplayScreen = DisplayScreenScn.instantiate()
-	
+		
 	DisplayScreen.close_btn_pressed.connect(deactivate)
+	remove_child(DisplayScreen)
 	
 	_connect_info_node_signals()
 

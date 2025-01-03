@@ -112,7 +112,12 @@ var _time_decreasing: bool = false
 # Scene Nodes
 var InfoScreen: Node3D
 
+# Player Location
+var _saved_player_location: Vector3
+var _to_sim: Vector3
+
 func _setup():
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	%AudBGM.playing = true
 	add_child(MainMenu)
 	add_child(InfoNodeScreen)
@@ -124,21 +129,37 @@ func _ready():
 	remove_child(InfoNodeScreen)
 	remove_child(Simulation)
 	
+	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
-	%XRSetupMenu.start_pressed.connect(_setup)
 	_setup_menu()
 	_central_body = GlobalEnums.Planet.MARS
 	_initialise_system()
-	
+
 
 func _process(delta):	
+	_check_if_player_moved()
+	
 	if not _sim_time_paused:
 		_sim_time += 1 * delta * _sim_time_scalar
 	_handle_constant_state_changes(delta)
 
 
+func _check_if_player_moved():
+	"""When the player moves a certain distance the direction vector from them to the sim is updated"""
+	"""This is done to have moving the simulation left and right work correctly"""
+	var current_player_location = Vector3(Camera.global_position.x, 0, Camera.global_position.z)
+	
+	if current_player_location.distance_to(_saved_player_location) >= 0.2:
+		_saved_player_location = current_player_location
+		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))	
+
+
 func _initialise_system():
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+	
 	_sim_position = DEFAULT_SIM_POS
+
+	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 	Simulation.transform.basis = Basis()
 
@@ -159,6 +180,8 @@ func _initialise_time():
 
 
 func _setup_menu():
+	MainMenu.start.connect(_setup)
+	
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()
@@ -236,45 +259,43 @@ func _handle_constant_state_changes(delta: float):
 
 
 func _handle_constant_movement(delta: float):
-	if _moving_up:
-		_sim_position.y = clamp(
-								_sim_position.y + delta*MOVE_SPEED, 
-								DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
-								DEFAULT_SIM_POS.y + MAX_MOVE_DIST)		
-	if _moving_down:
-		_sim_position.y = clamp(
-								_sim_position.y - delta*MOVE_SPEED, 
-								DEFAULT_SIM_POS.y - MAX_MOVE_DIST, 
-								DEFAULT_SIM_POS.y + MAX_MOVE_DIST)
-	if _moving_left:
-		_sim_position.x = clamp(
-								_sim_position.x - delta*MOVE_SPEED, 
-								DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
-								DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
-	if _moving_right:
-		_sim_position.x = clamp(
-								_sim_position.x + delta*MOVE_SPEED, 
-								DEFAULT_SIM_POS.x - MAX_MOVE_DIST, 
-								DEFAULT_SIM_POS.x + MAX_MOVE_DIST)
-	if _moving_forward:
-		_sim_position.z = clamp(
-								_sim_position.z - delta*MOVE_SPEED, 
-								DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
-								DEFAULT_SIM_POS.z + MAX_MOVE_DIST)
-	if _moving_back:
-		_sim_position.z = clamp(
-								_sim_position.z + delta*MOVE_SPEED, 
-								DEFAULT_SIM_POS.z - MAX_MOVE_DIST, 
-								DEFAULT_SIM_POS.z + MAX_MOVE_DIST)		
 
+	if _moving_up:
+		_sim_position.y += MOVE_SPEED * delta
+	
+	if _moving_down:
+		_sim_position.y -= MOVE_SPEED * delta
+	
+	if _moving_left:
+		_sim_position += _to_sim.rotated(Vector3.UP, deg_to_rad(90)) * MOVE_SPEED * delta
+	
+	if _moving_right:
+		_sim_position += _to_sim.rotated(Vector3.UP, -deg_to_rad(90)) * MOVE_SPEED * delta
+		
+	if _moving_forward:	
+		_sim_position += -_to_sim * MOVE_SPEED * delta
+		
+	if _moving_back:
+		_sim_position += _to_sim * MOVE_SPEED * delta
+		
 
 func _handle_constant_rotation(delta: float):
 	if _rot_increasing_x:
-		Simulation.rotate_x(ROT_CHANGE_SPEED*delta)
+		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()		
+		var rotation_inc = Basis(horizontal_axis, ROT_CHANGE_SPEED*delta)
+		
+		var new_transform = Simulation.global_transform
+		new_transform.basis = rotation_inc * new_transform.basis
+		Simulation.global_transform = new_transform
 
-	if _rot_decreasing_x:
-		Simulation.rotate_x(-ROT_CHANGE_SPEED*delta)
-	
+	if _rot_decreasing_x:		
+		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()		
+		var rotation_inc = Basis(horizontal_axis, -ROT_CHANGE_SPEED*delta)
+		
+		var new_transform = Simulation.global_transform
+		new_transform.basis = rotation_inc * new_transform.basis
+		Simulation.global_transform = new_transform
+		
 	if _rot_increasing_y:
 		Simulation.rotate_y(ROT_CHANGE_SPEED*delta)
 		

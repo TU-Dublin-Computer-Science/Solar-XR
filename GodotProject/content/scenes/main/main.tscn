@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2xng5iqxysgp"]
+[gd_scene load_steps=13 format=3 uid="uid://2xng5iqxysgp"]
 
 [ext_resource type="Script" path="res://content/scenes/main/main.gd" id="1_55rk4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.tscn" id="11_8ofab"]
 [ext_resource type="PackedScene" uid="uid://cowk1sb5rws3a" path="res://content/scenes/simulation/simulation.tscn" id="12_7npen"]
 [ext_resource type="Script" path="res://content/scenes/main/main_menu_tracker.gd" id="12_qv2iw"]
+[ext_resource type="PackedScene" uid="uid://gs122858j0nd" path="res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.tscn" id="12_xl8ae"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_55rk4")
@@ -59,4 +60,6 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="InfoNodeScreen" parent="MainMenuTracker" instance=ExtResource("11_8ofab")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.318226, -0.4, -0.35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000708371, -0.133997, -0.453979)
+
+[node name="DisplayScreen" parent="MainMenuTracker/InfoNodeScreen" instance=ExtResource("12_xl8ae")]

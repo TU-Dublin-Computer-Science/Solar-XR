@@ -96,7 +96,6 @@ autowrap_mode = 2
 width = 750.0
 
 [node name="MenuMove" type="Node3D" parent="ControlMenu/Tabs"]
-visible = false
 script = ExtResource("5_awrke")
 
 [node name="BtnRight" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
@@ -107,21 +106,21 @@ label = "->"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.025, 0)
 label = "<-"
 
-[node name="BtnUp" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+[node name="BtnBack" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.07, 0)
 label = "^"
 
-[node name="BtnDown" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+[node name="BtnForward" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, -0.02, 0)
 label = "\\/"
 
-[node name="BtnForward" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+[node name="BtnUp" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0.053, 0)
-label = "Fwd"
+label = "Up"
 
-[node name="BtnBack" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
+[node name="BtnDown" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -0.005, 0)
-label = "Back"
+label = "Down"
 
 [node name="LblX" type="Label3D" parent="ControlMenu/Tabs/MenuMove"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.186859, 0.064941, 0)
@@ -288,6 +287,7 @@ font_size = 8
 label = "Neptune"
 
 [node name="StartMenu" type="Node3D" parent="."]
+visible = false
 
 [node name="BtnStart" parent="StartMenu" instance=ExtResource("3_f40n8")]
 label = "Start"

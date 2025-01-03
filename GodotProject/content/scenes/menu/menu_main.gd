@@ -149,6 +149,7 @@ func _ready() -> void:
 
 
 func _setup_start_menu():
+	StartMenu.visible = true
 	StartMenu.find_child("BtnStart").on_button_up.connect(func():
 		start.emit()
 		remove_child(StartMenu)
@@ -156,6 +157,7 @@ func _setup_start_menu():
 	)
 
 func _setup_control_menu():
+	ControlMenu.visible = true
 	_setup_menu_buttons()
 	_setup_tabs()
 	

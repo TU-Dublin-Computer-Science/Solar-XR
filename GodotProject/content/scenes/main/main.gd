@@ -155,6 +155,8 @@ func _check_if_player_moved():
 
 
 func _initialise_system():
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+	
 	_sim_position = DEFAULT_SIM_POS
 
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))

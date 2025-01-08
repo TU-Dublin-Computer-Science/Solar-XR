@@ -1,17 +1,13 @@
 {
     "name": "Kalyke",
-    "horizons_code": 523,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 23302600,
     "eccentricity": 0.26,
-    "argument_of_periapsis": 130.3,
     "mean_anomaly": 256.0,
     "inclination": 164.8,
-    "lon_ascending_node": 45.3,
     "orbital_period": 742.015252,
     "info_points": [],
     "satellites": []

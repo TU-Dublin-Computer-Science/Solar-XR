@@ -1,17 +1,13 @@
 {
     "name": "Thebe",
-    "horizons_code": 514,
     "radius": 49.3,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "Laplace",
     "semimajor_axis": 221900,
     "eccentricity": 0.018,
-    "argument_of_periapsis": 26.6,
     "mean_anomaly": 182.1,
     "inclination": 1.1,
-    "lon_ascending_node": 340.4,
     "orbital_period": 0.676105,
     "info_points": [],
     "satellites": []

@@ -1,17 +1,13 @@
 {
     "name": "Eupheme",
-    "horizons_code": 560,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 20768600,
     "eccentricity": 0.241,
-    "argument_of_periapsis": 316.6,
     "mean_anomaly": 359.1,
     "inclination": 148.0,
-    "lon_ascending_node": 230.6,
     "orbital_period": 617.726175,
     "info_points": [],
     "satellites": []

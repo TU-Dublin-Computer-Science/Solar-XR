@@ -1,17 +1,13 @@
 {
     "name": "Enceladus",
-    "horizons_code": 602,
     "radius": 252.1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "Laplace",
     "semimajor_axis": 238400,
     "eccentricity": 0.005,
-    "argument_of_periapsis": 119.5,
     "mean_anomaly": 57.0,
     "inclination": 0.0,
-    "lon_ascending_node": 0.0,
     "orbital_period": 1.370218,
     "info_points": [],
     "satellites": []

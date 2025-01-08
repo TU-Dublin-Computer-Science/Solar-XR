@@ -1,17 +1,13 @@
 {
     "name": "S2004_S07",
-    "horizons_code": 65085,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 21328200,
     "eccentricity": 0.511,
-    "argument_of_periapsis": 54.9,
     "mean_anomaly": 116.8,
     "inclination": 164.9,
-    "lon_ascending_node": 323.8,
     "orbital_period": 1173.927204,
     "info_points": [],
     "satellites": []

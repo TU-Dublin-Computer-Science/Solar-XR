@@ -1,17 +1,13 @@
 {
     "name": "Mab",
-    "horizons_code": 726,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
-    "frame": "Laplace",
     "semimajor_axis": 97700,
     "eccentricity": 0.003,
-    "argument_of_periapsis": 237.9,
     "mean_anomaly": 348.0,
     "inclination": 0.1,
-    "lon_ascending_node": 188.2,
     "orbital_period": 0.923293,
     "info_points": [],
     "satellites": []

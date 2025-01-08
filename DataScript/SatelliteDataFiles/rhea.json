@@ -1,17 +1,13 @@
 {
     "name": "Rhea",
-    "horizons_code": 605,
     "radius": 763.5,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "Laplace",
     "semimajor_axis": 527200,
     "eccentricity": 0.001,
-    "argument_of_periapsis": 44.3,
     "mean_anomaly": 31.5,
     "inclination": 0.3,
-    "lon_ascending_node": 133.7,
     "orbital_period": 4.517503,
     "info_points": [],
     "satellites": []

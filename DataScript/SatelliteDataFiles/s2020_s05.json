@@ -1,17 +1,13 @@
 {
     "name": "S2020_S05",
-    "horizons_code": 65106,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 18391400,
     "eccentricity": 0.22,
-    "argument_of_periapsis": 271.9,
     "mean_anomaly": 238.1,
     "inclination": 48.2,
-    "lon_ascending_node": 226.5,
     "orbital_period": 933.894069,
     "info_points": [],
     "satellites": []

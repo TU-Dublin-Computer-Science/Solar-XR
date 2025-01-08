@@ -1,17 +1,13 @@
 {
     "name": "Callirrhoe",
-    "horizons_code": 517,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 23795500,
     "eccentricity": 0.297,
-    "argument_of_periapsis": 180.5,
     "mean_anomaly": 107.1,
     "inclination": 145.1,
-    "lon_ascending_node": 281.5,
     "orbital_period": 758.860222,
     "info_points": [],
     "satellites": []

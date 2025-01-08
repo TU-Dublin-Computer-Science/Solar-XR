@@ -1,28 +1,14 @@
 {
     "name": "Earth",
-    "horizons_code": 399,
     "radius": 6371.0084,
     "rotation_factor": 360.9856235,
     "model_path": "res://content/scenes/model_scenes/earth.tscn",
     "central_body": "Sun",
-    "frame": "",
-    "semimajor_axis": -1,
-    "eccentricity": -1,
-    "argument_of_periapsis": -1,
-    "mean_anomaly": -1,
-    "inclination": -1,
-    "lon_ascending_node": -1,
-    "orbital_period": -1,
-    "info_points": [
-        {
-            "title": "TU Dublin",
-            "description": "Technological University Dublin is Ireland's first technological University. With a student population of over 28,500, it is the second-largest third level institution in Ireland.",
-            "image_path": "res://content/assets/info_images/TUDublin.jpg",
-            "location": {
-                "latitude": 53.35645131485057,
-                "longitude": -6.28172481271005
-            }
-        }
-    ],
+    "semimajor_axis": 149598261.1504,
+    "eccentricity": 0.01671123,
+    "mean_anomaly": 357.52688973,
+    "inclination": 0,
+    "orbital_period": 365.006351,
+    "info_points": [],
     "satellites": ["moon"] 
 }

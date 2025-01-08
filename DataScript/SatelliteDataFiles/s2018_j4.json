@@ -1,17 +1,13 @@
 {
     "name": "S2018_J4",
-    "horizons_code": 55520,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 16328500,
     "eccentricity": 0.177,
-    "argument_of_periapsis": 272.1,
     "mean_anomaly": 147.7,
     "inclination": 50.2,
-    "lon_ascending_node": 62.0,
     "orbital_period": 427.63107,
     "info_points": [],
     "satellites": []

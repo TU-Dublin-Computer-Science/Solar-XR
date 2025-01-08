@@ -1,17 +1,13 @@
 {
     "name": "Lysithea",
-    "horizons_code": 510,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 11700800,
     "eccentricity": 0.117,
-    "argument_of_periapsis": 47.4,
     "mean_anomaly": 331.5,
     "inclination": 27.2,
-    "lon_ascending_node": 7.1,
     "orbital_period": 259.198081,
     "info_points": [],
     "satellites": []

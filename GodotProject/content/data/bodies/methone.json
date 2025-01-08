@@ -1,17 +1,13 @@
 {
     "name": "Methone",
-    "horizons_code": 632,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "Laplace",
     "semimajor_axis": 194700,
     "eccentricity": 0.002,
-    "argument_of_periapsis": 315.5,
     "mean_anomaly": 0.0,
     "inclination": 0.0,
-    "lon_ascending_node": 0.0,
     "orbital_period": 1.009549,
     "info_points": [],
     "satellites": []

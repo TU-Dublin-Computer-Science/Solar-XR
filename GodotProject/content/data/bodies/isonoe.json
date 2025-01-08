@@ -1,17 +1,13 @@
 {
     "name": "Isonoe",
-    "horizons_code": 526,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 22981300,
     "eccentricity": 0.249,
-    "argument_of_periapsis": 213.5,
     "mean_anomaly": 124.9,
     "inclination": 164.8,
-    "lon_ascending_node": 132.2,
     "orbital_period": 726.273223,
     "info_points": [],
     "satellites": []

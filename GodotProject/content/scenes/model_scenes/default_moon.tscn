@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://82akpgpi4y4l"]
 
-[ext_resource type="Texture2D" uid="uid://njnku4glgwg8" path="res://content/assets/textures/8k_moon.jpg" id="1_i8bws"]
+[ext_resource type="Texture2D" uid="uid://dp4puqoqj0n1l" path="res://content/assets/textures/8k_moon.jpg" id="1_i8bws"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32hfc"]
 albedo_texture = ExtResource("1_i8bws")

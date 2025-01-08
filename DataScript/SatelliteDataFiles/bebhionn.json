@@ -1,17 +1,13 @@
 {
     "name": "Bebhionn",
-    "horizons_code": 637,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 17027200,
     "eccentricity": 0.459,
-    "argument_of_periapsis": 358.1,
     "mean_anomaly": 167.5,
     "inclination": 38.5,
-    "lon_ascending_node": 199.8,
     "orbital_period": 834.848338,
     "info_points": [],
     "satellites": []

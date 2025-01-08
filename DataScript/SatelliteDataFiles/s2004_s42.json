@@ -1,17 +1,13 @@
 {
     "name": "S2004_S42",
-    "horizons_code": 65108,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 18240800,
     "eccentricity": 0.157,
-    "argument_of_periapsis": 118.2,
     "mean_anomaly": 299.1,
     "inclination": 165.7,
-    "lon_ascending_node": 11.0,
     "orbital_period": 925.912112,
     "info_points": [],
     "satellites": []

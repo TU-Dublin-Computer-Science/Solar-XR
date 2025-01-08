@@ -1,17 +1,13 @@
 {
     "name": "Eurydome",
-    "horizons_code": 532,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 22899000,
     "eccentricity": 0.294,
-    "argument_of_periapsis": 340.2,
     "mean_anomaly": 286.3,
     "inclination": 149.1,
-    "lon_ascending_node": 302.5,
     "orbital_period": 717.308142,
     "info_points": [],
     "satellites": []

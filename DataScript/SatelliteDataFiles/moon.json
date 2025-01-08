@@ -1,17 +1,13 @@
 {
     "name": "Moon",
-    "horizons_code": 301,
     "radius": 1737.4,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Earth",
-    "frame": "ecliptic",
     "semimajor_axis": 384400,
     "eccentricity": 0.0554,
-    "argument_of_periapsis": 318.15,
     "mean_anomaly": 135.27,
     "inclination": 5.16,
-    "lon_ascending_node": 125.08,
     "orbital_period": 27.322,
     "info_points": [],
     "satellites": []

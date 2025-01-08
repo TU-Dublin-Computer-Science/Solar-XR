@@ -1,17 +1,13 @@
 {
     "name": "S2004_S48",
-    "horizons_code": 65139,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 22136800,
     "eccentricity": 0.374,
-    "argument_of_periapsis": 290.9,
     "mean_anomaly": 164.1,
     "inclination": 161.9,
-    "lon_ascending_node": 185.6,
     "orbital_period": 1242.40527,
     "info_points": [],
     "satellites": []

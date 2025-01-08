@@ -1,17 +1,13 @@
 {
     "name": "S2004_S51",
-    "horizons_code": 65150,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 25208000,
     "eccentricity": 0.201,
-    "argument_of_periapsis": 78.8,
     "mean_anomaly": 212.7,
     "inclination": 171.2,
-    "lon_ascending_node": 290.3,
     "orbital_period": 1519.410709,
     "info_points": [],
     "satellites": []

@@ -1,17 +1,13 @@
 {
     "name": "Io",
-    "horizons_code": 501,
     "radius": 1821.49,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "Laplace",
     "semimajor_axis": 421800,
     "eccentricity": 0.004,
-    "argument_of_periapsis": 49.1,
     "mean_anomaly": 330.9,
     "inclination": 0.0,
-    "lon_ascending_node": 0.0,
     "orbital_period": 1.762732,
     "info_points": [],
     "satellites": []

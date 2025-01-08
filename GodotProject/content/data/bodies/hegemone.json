@@ -1,17 +1,13 @@
 {
     "name": "Hegemone",
-    "horizons_code": 539,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 23348700,
     "eccentricity": 0.358,
-    "argument_of_periapsis": 282.2,
     "mean_anomaly": 233.7,
     "inclination": 152.6,
-    "lon_ascending_node": 320.1,
     "orbital_period": 739.80682,
     "info_points": [],
     "satellites": []

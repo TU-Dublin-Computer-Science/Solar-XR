@@ -1,17 +1,13 @@
 {
     "name": "Tarvos",
-    "horizons_code": 621,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 18215600,
     "eccentricity": 0.522,
-    "argument_of_periapsis": 282.9,
     "mean_anomaly": 255.7,
     "inclination": 37.8,
-    "lon_ascending_node": 95.7,
     "orbital_period": 926.425784,
     "info_points": [],
     "satellites": []

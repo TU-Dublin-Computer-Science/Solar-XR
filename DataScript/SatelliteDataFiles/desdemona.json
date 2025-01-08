@@ -1,17 +1,13 @@
 {
     "name": "Desdemona",
-    "horizons_code": 710,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
-    "frame": "Laplace",
     "semimajor_axis": 62700,
     "eccentricity": 0.0,
-    "argument_of_periapsis": 0.0,
     "mean_anomaly": 160.4,
     "inclination": 0.1,
-    "lon_ascending_node": 96.3,
     "orbital_period": 0.473228,
     "info_points": [],
     "satellites": []

@@ -1,17 +1,13 @@
 {
     "name": "Trinculo",
-    "horizons_code": 721,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
-    "frame": "ecliptic",
     "semimajor_axis": 8502600,
     "eccentricity": 0.22,
-    "argument_of_periapsis": 162.2,
     "mean_anomaly": 55.6,
     "inclination": 167.1,
-    "lon_ascending_node": 196.5,
     "orbital_period": 749.0,
     "info_points": [],
     "satellites": []

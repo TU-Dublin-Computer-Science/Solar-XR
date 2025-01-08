@@ -1,17 +1,13 @@
 {
     "name": "Ganymede",
-    "horizons_code": 503,
     "radius": 2631.2,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "Laplace",
     "semimajor_axis": 1070400,
     "eccentricity": 0.001,
-    "argument_of_periapsis": 198.3,
     "mean_anomaly": 324.8,
     "inclination": 0.2,
-    "lon_ascending_node": 58.5,
     "orbital_period": 7.155588,
     "info_points": [],
     "satellites": []

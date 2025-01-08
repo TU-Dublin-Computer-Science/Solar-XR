@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2fpatyrlo6nj"]
+[gd_scene load_steps=5 format=3 uid="uid://cft25dh7u778h"]
 
-[ext_resource type="Texture2D" uid="uid://b5jko316ln2dy" path="res://content/assets/textures/8k_sun.jpg" id="1_h13go"]
+[ext_resource type="Texture2D" uid="uid://cnvxmo3lrfugq" path="res://content/assets/textures/8k_sun.jpg" id="1_h13go"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j4k16"]
 

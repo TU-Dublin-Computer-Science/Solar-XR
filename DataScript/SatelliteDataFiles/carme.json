@@ -1,17 +1,13 @@
 {
     "name": "Carme",
-    "horizons_code": 511,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 23144400,
     "eccentricity": 0.256,
-    "argument_of_periapsis": 155.0,
     "mean_anomaly": 234.0,
     "inclination": 164.6,
-    "lon_ascending_node": 117.5,
     "orbital_period": 734.18528,
     "info_points": [],
     "satellites": []

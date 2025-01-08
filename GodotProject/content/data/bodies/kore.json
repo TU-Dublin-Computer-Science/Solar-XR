@@ -1,17 +1,13 @@
 {
     "name": "Kore",
-    "horizons_code": 549,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 24205200,
     "eccentricity": 0.328,
-    "argument_of_periapsis": 229.3,
     "mean_anomaly": 31.8,
     "inclination": 141.5,
-    "lon_ascending_node": 314.6,
     "orbital_period": 776.763241,
     "info_points": [],
     "satellites": []

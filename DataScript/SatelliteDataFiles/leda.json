@@ -1,17 +1,13 @@
 {
     "name": "Leda",
-    "horizons_code": 513,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 11146400,
     "eccentricity": 0.162,
-    "argument_of_periapsis": 270.9,
     "mean_anomaly": 233.4,
     "inclination": 28.6,
-    "lon_ascending_node": 215.7,
     "orbital_period": 240.926609,
     "info_points": [],
     "satellites": []

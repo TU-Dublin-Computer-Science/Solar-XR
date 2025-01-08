@@ -1,17 +1,13 @@
 {
     "name": "Gridr",
-    "horizons_code": 654,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 19250900,
     "eccentricity": 0.187,
-    "argument_of_periapsis": 285.5,
     "mean_anomaly": 176.3,
     "inclination": 163.9,
-    "lon_ascending_node": 334.9,
     "orbital_period": 1004.748101,
     "info_points": [],
     "satellites": []

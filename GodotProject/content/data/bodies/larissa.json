@@ -1,17 +1,13 @@
 {
     "name": "Larissa",
-    "horizons_code": 807,
     "radius": 96.0,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
-    "frame": "Laplace",
     "semimajor_axis": 73500,
     "eccentricity": 0.001,
-    "argument_of_periapsis": 247.3,
     "mean_anomaly": 165.5,
     "inclination": 0.2,
-    "lon_ascending_node": 312.0,
     "orbital_period": 0.554989,
     "info_points": [],
     "satellites": []

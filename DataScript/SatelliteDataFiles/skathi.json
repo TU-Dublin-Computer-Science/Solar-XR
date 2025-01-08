@@ -1,17 +1,13 @@
 {
     "name": "Skathi",
-    "horizons_code": 627,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 15575400,
     "eccentricity": 0.281,
-    "argument_of_periapsis": 202.2,
     "mean_anomaly": 117.3,
     "inclination": 151.6,
-    "lon_ascending_node": 284.1,
     "orbital_period": 728.088602,
     "info_points": [],
     "satellites": []

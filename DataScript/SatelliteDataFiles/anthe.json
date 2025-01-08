@@ -1,17 +1,13 @@
 {
     "name": "Anthe",
-    "horizons_code": 649,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "Laplace",
     "semimajor_axis": 198100,
     "eccentricity": 0.002,
-    "argument_of_periapsis": 293.4,
     "mean_anomaly": 351.4,
     "inclination": 0.0,
-    "lon_ascending_node": 0.0,
     "orbital_period": 1.038898,
     "info_points": [],
     "satellites": []

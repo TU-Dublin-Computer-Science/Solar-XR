@@ -1,17 +1,13 @@
 {
     "name": "S2011_J2",
-    "horizons_code": 556,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 22909200,
     "eccentricity": 0.355,
-    "argument_of_periapsis": 218.7,
     "mean_anomaly": 284.0,
     "inclination": 151.9,
-    "lon_ascending_node": 28.5,
     "orbital_period": 718.316562,
     "info_points": [],
     "satellites": []

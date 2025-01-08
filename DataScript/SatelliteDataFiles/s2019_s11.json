@@ -1,17 +1,13 @@
 {
     "name": "S2019_S11",
-    "horizons_code": 65124,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 20663600,
     "eccentricity": 0.513,
-    "argument_of_periapsis": 43.2,
     "mean_anomaly": 214.0,
     "inclination": 144.6,
-    "lon_ascending_node": 349.0,
     "orbital_period": 1114.995357,
     "info_points": [],
     "satellites": []

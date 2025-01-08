@@ -1,17 +1,13 @@
 {
     "name": "Janus",
-    "horizons_code": 610,
     "radius": 89.2,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "Laplace",
     "semimajor_axis": 151500,
     "eccentricity": 0.007,
-    "argument_of_periapsis": 11.1,
     "mean_anomaly": 111.7,
     "inclination": 0.2,
-    "lon_ascending_node": 159.9,
     "orbital_period": 0.697353,
     "info_points": [],
     "satellites": []

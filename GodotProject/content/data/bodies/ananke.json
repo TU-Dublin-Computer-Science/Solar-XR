@@ -1,17 +1,13 @@
 {
     "name": "Ananke",
-    "horizons_code": 512,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 21034500,
     "eccentricity": 0.237,
-    "argument_of_periapsis": 56.2,
     "mean_anomaly": 259.4,
     "inclination": 147.6,
-    "lon_ascending_node": 17.6,
     "orbital_period": 629.791691,
     "info_points": [],
     "satellites": []

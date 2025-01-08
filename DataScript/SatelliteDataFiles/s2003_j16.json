@@ -1,17 +1,13 @@
 {
     "name": "S2003_J16",
-    "horizons_code": 55506,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 20882600,
     "eccentricity": 0.243,
-    "argument_of_periapsis": 24.6,
     "mean_anomaly": 307.4,
     "inclination": 148.0,
-    "lon_ascending_node": 16.1,
     "orbital_period": 622.876561,
     "info_points": [],
     "satellites": []

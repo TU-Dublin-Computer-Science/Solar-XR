@@ -1,17 +1,13 @@
 {
     "name": "Helike",
-    "horizons_code": 545,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 20915700,
     "eccentricity": 0.153,
-    "argument_of_periapsis": 118.1,
     "mean_anomaly": 44.2,
     "inclination": 154.4,
-    "lon_ascending_node": 91.7,
     "orbital_period": 626.325893,
     "info_points": [],
     "satellites": []

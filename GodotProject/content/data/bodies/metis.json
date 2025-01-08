@@ -1,17 +1,13 @@
 {
     "name": "Metis",
-    "horizons_code": 516,
     "radius": 21.5,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "Laplace",
     "semimajor_axis": 128000,
     "eccentricity": 0.0,
-    "argument_of_periapsis": 0.0,
     "mean_anomaly": 166.0,
     "inclination": 0.0,
-    "lon_ascending_node": 0.0,
     "orbital_period": 0.294779,
     "info_points": [],
     "satellites": []

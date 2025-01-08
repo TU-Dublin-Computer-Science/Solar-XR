@@ -1,17 +1,13 @@
 {
     "name": "Neso",
-    "horizons_code": 813,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Neptune",
-    "frame": "ecliptic",
     "semimajor_axis": 49897800,
     "eccentricity": 0.455,
-    "argument_of_periapsis": 89.8,
     "mean_anomaly": 13.8,
     "inclination": 128.4,
-    "lon_ascending_node": 55.4,
     "orbital_period": 9805.0,
     "info_points": [],
     "satellites": []

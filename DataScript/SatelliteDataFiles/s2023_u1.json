@@ -1,17 +1,13 @@
 {
     "name": "S2023_U1",
-    "horizons_code": 75051,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
-    "frame": "ecliptic",
     "semimajor_axis": 7976600,
     "eccentricity": 0.25,
-    "argument_of_periapsis": 158.7,
     "mean_anomaly": 101.8,
     "inclination": 143.9,
-    "lon_ascending_node": 260.2,
     "orbital_period": 681.0,
     "info_points": [],
     "satellites": []

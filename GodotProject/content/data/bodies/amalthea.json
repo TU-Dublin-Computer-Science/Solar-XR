@@ -1,17 +1,13 @@
 {
     "name": "Amalthea",
-    "horizons_code": 505,
     "radius": 83.5,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "Laplace",
     "semimajor_axis": 181400,
     "eccentricity": 0.003,
-    "argument_of_periapsis": 180.1,
     "mean_anomaly": 310.6,
     "inclination": 0.4,
-    "lon_ascending_node": 282.9,
     "orbital_period": 0.499918,
     "info_points": [],
     "satellites": []

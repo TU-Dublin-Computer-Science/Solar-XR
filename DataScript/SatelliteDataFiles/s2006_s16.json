@@ -1,17 +1,13 @@
 {
     "name": "S2006_S16",
-    "horizons_code": 65137,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Saturn",
-    "frame": "ecliptic",
     "semimajor_axis": 21720600,
     "eccentricity": 0.204,
-    "argument_of_periapsis": 290.3,
     "mean_anomaly": 86.8,
     "inclination": 164.1,
-    "lon_ascending_node": 161.1,
     "orbital_period": 1207.520293,
     "info_points": [],
     "satellites": []

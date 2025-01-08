@@ -1,17 +1,13 @@
 {
     "name": "Sycorax",
-    "horizons_code": 717,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Uranus",
-    "frame": "ecliptic",
     "semimajor_axis": 12193200,
     "eccentricity": 0.52,
-    "argument_of_periapsis": 25.4,
     "mean_anomaly": 332.1,
     "inclination": 157.0,
-    "lon_ascending_node": 267.1,
     "orbital_period": 1286.0,
     "info_points": [],
     "satellites": []

@@ -1,17 +1,13 @@
 {
     "name": "Harpalyke",
-    "horizons_code": 522,
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
     "central_body": "Jupiter",
-    "frame": "ecliptic",
     "semimajor_axis": 20892100,
     "eccentricity": 0.232,
-    "argument_of_periapsis": 71.3,
     "mean_anomaly": 219.3,
     "inclination": 147.7,
-    "lon_ascending_node": 30.2,
     "orbital_period": 623.316099,
     "info_points": [],
     "satellites": []

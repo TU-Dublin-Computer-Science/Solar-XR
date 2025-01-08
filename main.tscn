@@ -1,16 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://do4immo7js5ge"]
+[gd_scene load_steps=12 format=3 uid="uid://do4immo7js5ge"]
 
 [ext_resource type="Script" path="res://camera_pivot.gd" id="1_8i1ei"]
+[ext_resource type="Script" path="res://main.gd" id="1_jsi4b"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_dcs00"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tii2"]
+albedo_color = Color(0.101961, 0.34902, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5w0ti"]
+material = SubResource("StandardMaterial3D_4tii2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxtnj"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.298039, 0.847059, 0.360784, 0.231373)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jy1xe"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_wxtnj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvr1n"]
+albedo_color = Color(0.648863, 0.000327193, 0.652033, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ejpla"]
+material = SubResource("StandardMaterial3D_uvr1n")
+top_radius = 0.01
+bottom_radius = 0.01
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ov754"]
+top_radius = 0.01
+bottom_radius = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6wo8"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 0.0431373, 0.054902, 0.639216)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ohqh4"]
+material = SubResource("StandardMaterial3D_a6wo8")
 
 [node name="Main" type="Node3D"]
-
-[node name="CentralBody" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_dcs00")
+script = ExtResource("1_jsi4b")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 script = ExtResource("1_8i1ei")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.30779)
+
+[node name="Sim" type="Node3D" parent="."]
+
+[node name="CentalBody" type="Node3D" parent="Sim"]
+
+[node name="CentralBody" type="MeshInstance3D" parent="Sim/CentalBody"]
+mesh = SubResource("SphereMesh_5w0ti")
+skeleton = NodePath("../../..")
+
+[node name="EquatorialPlane" type="MeshInstance3D" parent="Sim/CentalBody"]
+mesh = SubResource("PlaneMesh_jy1xe")
+skeleton = NodePath("../..")
+
+[node name="PolarAxis" type="MeshInstance3D" parent="Sim/CentalBody"]
+mesh = SubResource("CylinderMesh_ejpla")
+
+[node name="VernalEquinox" type="MeshInstance3D" parent="Sim/CentalBody"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ov754")
+
+[node name="Orbit" type="Node3D" parent="Sim"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0)
+
+[node name="OrbitalPlane" type="MeshInstance3D" parent="Sim/Orbit"]
+mesh = SubResource("PlaneMesh_ohqh4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.771791, 0.635876, 0, -0.635876, 0.771791, 0, 1.30152, 1.21896)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+offset_right = 175.0
+offset_bottom = 52.0
+
+[node name="SemimajorSlider" type="HSlider" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="value_changed" from="CanvasLayer/Control/VBoxContainer/SemimajorSlider" to="." method="_on_semimajor_slider_value_changed"]

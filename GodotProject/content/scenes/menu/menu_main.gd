@@ -171,27 +171,27 @@ func _setup_control_menu():
 
 func _setup_menu_buttons():
 	%BtnMove.on_button_down.connect(func():
-		_active_btn = %BtnMove
+		_active_btn = $ControlMenu/MenuButtons/BtnMove
 		_active_tab = MenuMove
 	)
 	
 	%BtnRotate.on_button_down.connect(func():
-		_active_btn = %BtnRotate
+		_active_btn = $ControlMenu/MenuButtons/BtnRotate
 		_active_tab = MenuRotate
 	)
 	
 	%BtnScale.on_button_down.connect(func():
-		_active_btn = %BtnScale
+		_active_btn = $ControlMenu/MenuButtons/BtnScale
 		_active_tab = MenuScale
 	)
 	
 	%BtnTime.on_button_down.connect(func():
-		_active_btn = %BtnTime
+		_active_btn = $ControlMenu/MenuButtons/BtnTime
 		_active_tab = MenuTime
 	)
 	
 	%BtnPlanet.on_button_down.connect(func():
-		_active_btn = %BtnPlanet
+		_active_btn = $ControlMenu/MenuButtons/BtnPlanet
 		_active_tab = MenuPlanet
 	)
 	

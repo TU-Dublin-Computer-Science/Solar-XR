@@ -247,7 +247,6 @@ func _setup_time_signals():
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(value):
 		_central_body = value
-		_initialise_system()
 	)
 
 

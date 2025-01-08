@@ -22,7 +22,7 @@ const MOVE_SPEED = 1
 
 const ROT_CHANGE_SPEED = 1
 
-const MIN_SIM_SCALE: float = 0.5 
+const MIN_SIM_SCALE: float = 0
 const MAX_SIM_SCALE: float = 4
 const DEFAULT_SIM_SCALE: float = 1
 const SCALE_CHANGE_SPEED = 1

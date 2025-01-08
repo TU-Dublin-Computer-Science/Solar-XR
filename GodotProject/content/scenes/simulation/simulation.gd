@@ -80,14 +80,15 @@ func instantiate_simulation():
 						false)
 	
 	info_nodes = _central_body.info_nodes
-	
+
 	add_child(_central_body)
 	
 	for satellite_name in body_data["satellites"]:
 		var satellite_data_path = "res://content/data/bodies/%s.json" % satellite_name
 		var satellite_data = _read_json_file(satellite_data_path)
 		
-		if satellite_data["semimajor_axis"] < 1000000:
+		# This distance chosen for now as Neptune is this far away from Sun
+		if satellite_data["semimajor_axis"] < 4500000000: 
 		
 			var body = BodyScn.instantiate()
 			body.init(	satellite_data["name"],
@@ -104,10 +105,8 @@ func instantiate_simulation():
 			orbit.init(	body, 
 						satellite_data["semimajor_axis"],
 						satellite_data["eccentricity"], 
-						satellite_data["argument_of_periapsis"],
 						satellite_data["mean_anomaly"],
 						satellite_data["inclination"],
-						satellite_data["lon_ascending_node"],
 						satellite_data["orbital_period"], 
 						_unix_to_julian(time),
 						model_scalar,

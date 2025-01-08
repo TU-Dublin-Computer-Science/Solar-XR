@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2fpatyrlo6nj"]
+
+[ext_resource type="Texture2D" uid="uid://b5jko316ln2dy" path="res://content/assets/textures/8k_sun.jpg" id="1_h13go"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j4k16"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmr72"]
+albedo_texture = ExtResource("1_h13go")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wjihl"]
+material = SubResource("StandardMaterial3D_pmr72")
+
+[node name="Uranus" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_j4k16")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_wjihl")

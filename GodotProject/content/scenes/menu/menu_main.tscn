@@ -96,6 +96,7 @@ autowrap_mode = 2
 width = 750.0
 
 [node name="MenuMove" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 script = ExtResource("5_awrke")
 
 [node name="BtnRight" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
@@ -249,7 +250,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 
 
 [node name="MenuPlanet" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
-visible = false
 script = ExtResource("9_6i5p8")
 
 [node name="BtnMercury" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
@@ -269,20 +269,24 @@ label = "Earth"
 transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0749947, 0.0399822, 1.62988e-06)
 label = "Mars"
 
-[node name="BtnJupiter" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+[node name="BtnSun" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.7832e-10, 3.49246e-10, 2.17383e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 2.94391e-05, 0.0399822, 9.00696e-06)
+label = "Sun"
+
+[node name="BtnJupiter" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, -2.7832e-10, 3.49246e-10, 2.17383e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 0.075, 0.04, 0)
 label = "Jupiter"
 
 [node name="BtnSaturn" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78291e-10, 2.32831e-10, 1.47534e-09, 1.5, 0, -4.65661e-10, -8.73115e-11, 1.5, 0.0750053, 0.0399822, 1.62987e-06)
+transform = Transform3D(1.5, -2.78291e-10, 2.32831e-10, 1.47534e-09, 1.5, 0, -4.65661e-10, -8.73115e-11, 1.5, -0.075, -0.035, 0)
 label = "Saturn"
 
 [node name="BtnUranus" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, -0.0384801, -0.0350567, 1.66231e-05)
+transform = Transform3D(1.5, -2.78305e-10, 2.91038e-10, 1.70817e-09, 1.5, 0, -5.23869e-10, -8.73115e-11, 1.5, 0, -0.035, 0)
 label = "Uranus"
 
 [node name="BtnNeptune" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 0.036544, -0.0350567, 2.40002e-05)
+transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.40284e-10, -1.16415e-10, 1.5, 0.075, -0.035, 0)
 font_size = 8
 label = "Neptune"
 

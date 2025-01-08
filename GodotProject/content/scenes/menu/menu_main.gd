@@ -272,3 +272,4 @@ func _setup_planet_tab():
 	MenuPlanet.find_child("BtnSaturn").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.SATURN))
 	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.URANUS))
 	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.NEPTUNE))
+	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.SUN))

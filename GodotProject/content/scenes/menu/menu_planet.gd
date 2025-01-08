@@ -20,6 +20,8 @@ var planet: GlobalEnums.Planet:
 				_active_btn = $BtnUranus
 			GlobalEnums.Planet.NEPTUNE:
 				_active_btn = $BtnNeptune
+			GlobalEnums.Planet.SUN:
+				_active_btn = $BtnSun
 
 var _active_btn: Button3D = null:
 	set(value): # Logic for toggling buttons

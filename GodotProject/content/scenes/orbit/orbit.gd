@@ -17,7 +17,6 @@ var _eccentricity: float
 var _arg_of_periapsis: float
 var _mean_anomaly: float		# Radians
 var _inclination: float			# Radians
-var _lon_ascending_node: float  # Radians
 var _orbital_period: float
 
 var _body: Node3D
@@ -35,10 +34,8 @@ func _process(delta: float) -> void:
 func init(	p_body: Node3D, 
 			p_semimajor_axis: float,
 			p_eccentricity: float,
-			p_arg_of_periapsis: float, 
 			p_mean_anomaly: float,
 			p_inclination: float, 
-			p_lon_ascending_node: float,
 			p_orbital_period: float,
 			p_julian_time: float,
 			p_model_scalar: float,
@@ -47,10 +44,8 @@ func init(	p_body: Node3D,
 	_body = p_body
 	_semimajor_axis = p_semimajor_axis
 	_eccentricity = p_eccentricity
-	_arg_of_periapsis = deg_to_rad(p_arg_of_periapsis)
 	_mean_anomaly = deg_to_rad(p_mean_anomaly)
 	_inclination = deg_to_rad(p_inclination)
-	_lon_ascending_node = deg_to_rad(p_lon_ascending_node)
 	_orbital_period = p_orbital_period
 
 	julian_time = p_julian_time

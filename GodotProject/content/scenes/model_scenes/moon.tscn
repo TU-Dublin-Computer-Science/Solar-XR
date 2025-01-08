@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsnmwthcdi53j"]
 
-[ext_resource type="Texture2D" uid="uid://bsfeyhkosjjx8" path="res://content/assets/textures/8k_mercury.jpg" id="1_1uc8o"]
+[ext_resource type="Texture2D" uid="uid://njnku4glgwg8" path="res://content/assets/textures/8k_moon.jpg" id="1_6dxqg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nk8v"]
-albedo_color = Color(0.523, 0.523, 0.523, 1)
-albedo_texture = ExtResource("1_1uc8o")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjprj"]
+albedo_texture = ExtResource("1_6dxqg")
 
 [sub_resource type="SphereMesh" id="SphereMesh_vrv1f"]
-material = SubResource("StandardMaterial3D_3nk8v")
+material = SubResource("StandardMaterial3D_rjprj")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_y87p6"]
 

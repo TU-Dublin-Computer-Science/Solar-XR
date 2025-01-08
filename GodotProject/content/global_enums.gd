@@ -8,5 +8,6 @@ enum Planet {
 	JUPITER,
 	SATURN,
 	URANUS,
-	NEPTUNE
+	NEPTUNE,
+	SUN
 }

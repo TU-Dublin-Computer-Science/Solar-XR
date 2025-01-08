@@ -38,28 +38,24 @@ def create_satellite_list() -> list:
             
             data_object = {
                 "name": cells[1].get_text(strip=True),
-                "horizons_code": int(cells[2].get_text(strip=True)),
                 
                 "radius": -1,
                 "rotation_factor": -1,
                 "model_path": "",
 
                 "central_body": cells[0].get_text(strip=True),
-                "frame": cells[4].get_text(strip=True),
                 "semimajor_axis": int(cells[6].get_text(strip=True).strip(".")),
                 "eccentricity": float(cells[7].get_text(strip=True)),
-                "argument_of_periapsis": float(cells[8].get_text(strip=True)),
                 "mean_anomaly": float(cells[9].get_text(strip=True)),
                 "inclination": float(cells[10].get_text(strip=True)),
-                "lon_ascending_node": float(cells[11].get_text(strip=True)),
                 "orbital_period": float(cells[12].get_text(strip=True)),
                 "info_points": [],
                 "satellites": []
             }
 
-
+            horizons_code = int(cells[2].get_text(strip=True))
             for item in physical_satellite_data_list:
-                if item["horizons_code"] == data_object["horizons_code"]:
+                if item["horizons_code"] == horizons_code:
                     data_object["radius"] = item["radius"]
 
 

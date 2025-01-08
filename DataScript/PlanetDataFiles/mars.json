@@ -1,18 +1,14 @@
 {
     "name": "Mars",
-    "horizons_code": 499,
     "radius": 3389.50,
     "rotation_factor": 350.891982443297,
     "model_path": "res://content/scenes/model_scenes/mars.tscn",
     "central_body": "Sun",
-    "frame": "",
-    "semimajor_axis": -1,
-    "eccentricity": -1,
-    "argument_of_periapsis": -1,
-    "mean_anomaly": -1,
-    "inclination": -1,
-    "lon_ascending_node": -1,
-    "orbital_period": -1,
+    "semimajor_axis": 227943822.4276,
+    "eccentricity": 0.09339410,
+    "mean_anomaly": 19.39019754,
+    "inclination": 1.84969142,
+    "orbital_period": 686.509374,
     "info_points": [
         {
 			"title": "Olympus Mons",

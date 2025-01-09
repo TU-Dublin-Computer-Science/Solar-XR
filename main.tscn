@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://do4immo7js5ge"]
+[gd_scene load_steps=14 format=3 uid="uid://do4immo7js5ge"]
 
 [ext_resource type="Script" path="res://camera_pivot.gd" id="1_8i1ei"]
 [ext_resource type="Script" path="res://main.gd" id="1_jsi4b"]
@@ -27,7 +27,11 @@ material = SubResource("StandardMaterial3D_uvr1n")
 top_radius = 0.01
 bottom_radius = 0.01
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urpfv"]
+albedo_color = Color(0.223529, 1, 0.0666667, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_ov754"]
+material = SubResource("StandardMaterial3D_urpfv")
 top_radius = 0.01
 bottom_radius = 0.01
 
@@ -60,26 +64,23 @@ mesh = SubResource("SphereMesh_5w0ti")
 skeleton = NodePath("../../..")
 
 [node name="EquatorialPlane" type="MeshInstance3D" parent="Sim/CentalBody"]
-visible = false
 mesh = SubResource("PlaneMesh_jy1xe")
 skeleton = NodePath("../..")
 
 [node name="PolarAxis" type="MeshInstance3D" parent="Sim/CentalBody"]
-visible = false
 mesh = SubResource("CylinderMesh_ejpla")
 
 [node name="VernalEquinox" type="MeshInstance3D" parent="Sim/CentalBody"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.025)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.543212, 0, 0)
 mesh = SubResource("CylinderMesh_ov754")
 
-[node name="Orbit" type="Node3D" parent="Sim"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="OrbitPlane" type="Node3D" parent="Sim"]
+unique_name_in_owner = true
 
-[node name="OrbitalPlane" type="MeshInstance3D" parent="Sim/Orbit"]
-visible = false
+[node name="OrbitalPlane" type="MeshInstance3D" parent="Sim/OrbitPlane"]
 mesh = SubResource("PlaneMesh_ohqh4")
 
-[node name="Orbit" type="MeshInstance3D" parent="Sim/Orbit"]
+[node name="Orbit" type="MeshInstance3D" parent="Sim/OrbitPlane"]
 unique_name_in_owner = true
 mesh = SubResource("ImmediateMesh_01hec")
 
@@ -120,25 +121,53 @@ offset_bottom = 25.0
 text = "0"
 
 [node name="EccentricityLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_top = 25.0
 offset_right = 157.0
 offset_bottom = 48.0
 text = "Eccentricity (e): "
 
 [node name="EccentricitySlider" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 173.0
 offset_top = 31.0
 offset_right = 348.0
 offset_bottom = 47.0
-max_value = 0.99
+max_value = 1.0
 step = 0.01
 
 [node name="EccentricityValue" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 360.0
 offset_top = 27.0
 offset_right = 400.0
 offset_bottom = 50.0
 text = "0"
 
+[node name="InclinationLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 157.0
+offset_bottom = 74.0
+text = "Inclination (i): "
+
+[node name="InclinationSlider" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 57.0
+offset_right = 348.0
+offset_bottom = 73.0
+max_value = 180.0
+step = 0.01
+
+[node name="InclinationValue" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 53.0
+offset_right = 400.0
+offset_bottom = 76.0
+text = "0"
+
 [connection signal="value_changed" from="CanvasLayer/Control/SemimajorSlider" to="." method="_on_semimajor_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/EccentricitySlider" to="." method="_on_eccentricity_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/InclinationSlider" to="." method="_on_inclination_slider_value_changed"]

@@ -17,6 +17,5 @@ func _input(event):
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		yaw -= event.relative.x * rotation_speed
 		pitch -= event.relative.y * rotation_speed
-		pitch = clamp(pitch, -1.5, 1.5)  # Limit pitch to avoid flipping
 
 		rotation_degrees = Vector3(pitch * 180 / PI, yaw * 180 / PI, 0)

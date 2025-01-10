@@ -6,8 +6,10 @@
     "central_body": "Sun",
     "semimajor_axis": 149598261.1504,
     "eccentricity": 0.01671123,
+    "argument_periapsis": 102.93768193,
     "mean_anomaly": 357.52688973,
     "inclination": 0,
+    "lon_ascending_node": 0,
     "orbital_period": 365.006351,
     "info_points": [],
     "satellites": ["moon"] 

@@ -6,8 +6,10 @@
     "central_body": "Jupiter",
     "semimajor_axis": 22870300,
     "eccentricity": 0.271,
+    "argument_periapsis": 148.9,
     "mean_anomaly": 33.5,
     "inclination": 164.9,
+    "lon_ascending_node": 80.2,
     "orbital_period": 720.968561,
     "info_points": [],
     "satellites": []

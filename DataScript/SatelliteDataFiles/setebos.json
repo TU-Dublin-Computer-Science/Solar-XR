@@ -6,8 +6,10 @@
     "central_body": "Uranus",
     "semimajor_axis": 17519800,
     "eccentricity": 0.579,
+    "argument_periapsis": 356.1,
     "mean_anomaly": 148.0,
     "inclination": 153.9,
+    "lon_ascending_node": 244.7,
     "orbital_period": 2215.0,
     "info_points": [],
     "satellites": []

@@ -6,8 +6,10 @@
     "central_body": "Saturn",
     "semimajor_axis": 21254200,
     "eccentricity": 0.48,
+    "argument_periapsis": 41.4,
     "mean_anomaly": 220.5,
     "inclination": 166.9,
+    "lon_ascending_node": 30.0,
     "orbital_period": 1167.944497,
     "info_points": [],
     "satellites": []

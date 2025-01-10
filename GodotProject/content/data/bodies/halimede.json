@@ -6,8 +6,10 @@
     "central_body": "Neptune",
     "semimajor_axis": 16590500,
     "eccentricity": 0.521,
+    "argument_periapsis": 157.9,
     "mean_anomaly": 135.8,
     "inclination": 119.6,
+    "lon_ascending_node": 198.5,
     "orbital_period": 1879.0,
     "info_points": [],
     "satellites": []

@@ -46,8 +46,10 @@ def create_satellite_list() -> list:
                 "central_body": cells[0].get_text(strip=True),
                 "semimajor_axis": int(cells[6].get_text(strip=True).strip(".")),
                 "eccentricity": float(cells[7].get_text(strip=True)),
+                "argument_periapsis": float(cells[8].get_text(strip=True)),
                 "mean_anomaly": float(cells[9].get_text(strip=True)),
                 "inclination": float(cells[10].get_text(strip=True)),
+                "lon_ascending_node": float(cells[11].get_text(strip=True)),
                 "orbital_period": float(cells[12].get_text(strip=True)),
                 "info_points": [],
                 "satellites": []

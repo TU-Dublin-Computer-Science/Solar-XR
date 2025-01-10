@@ -6,8 +6,10 @@
     "central_body": "Mars",
     "semimajor_axis": 9400,
     "eccentricity": 0.015,
+    "argument_periapsis": 216.3,
     "mean_anomaly": 189.6,
     "inclination": 1.1,
+    "lon_ascending_node": 169.2,
     "orbital_period": 0.319033,
     "info_points": [],
     "satellites": []

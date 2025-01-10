@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://do4immo7js5ge"]
+[gd_scene load_steps=16 format=3 uid="uid://do4immo7js5ge"]
 
 [ext_resource type="Script" path="res://camera_pivot.gd" id="1_8i1ei"]
 [ext_resource type="Script" path="res://main.gd" id="1_jsi4b"]
@@ -26,6 +26,7 @@ albedo_color = Color(0.648863, 0.000327193, 0.652033, 1)
 material = SubResource("StandardMaterial3D_uvr1n")
 top_radius = 0.01
 bottom_radius = 0.01
+height = 8.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urpfv"]
 albedo_color = Color(0.223529, 1, 0.0666667, 1)
@@ -38,13 +39,22 @@ bottom_radius = 0.01
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6wo8"]
 transparency = 1
 cull_mode = 2
-albedo_color = Color(1, 0.0431373, 0.054902, 0.639216)
+albedo_color = Color(1, 0.415686, 0.0627451, 0.639216)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ohqh4"]
 material = SubResource("StandardMaterial3D_a6wo8")
 size = Vector2(5, 5)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_01hec"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1lcn"]
+albedo_color = Color(0.0862745, 0.278431, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nwedj"]
+material = SubResource("StandardMaterial3D_o1lcn")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 8.0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jsi4b")
@@ -84,6 +94,10 @@ mesh = SubResource("PlaneMesh_ohqh4")
 unique_name_in_owner = true
 mesh = SubResource("ImmediateMesh_01hec")
 
+[node name="LineOfAscendingNode" type="MeshInstance3D" parent="Sim/OrbitPlane"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nwedj")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.771791, 0.635876, 0, -0.635876, 0.771791, 0, 1.30152, 1.21896)
 
@@ -103,10 +117,10 @@ text = "Semi-major Axis (a): "
 
 [node name="SemimajorSlider" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 2
-offset_left = 173.0
-offset_top = 6.0
-offset_right = 348.0
-offset_bottom = 22.0
+offset_left = 261.0
+offset_top = 4.0
+offset_right = 436.0
+offset_bottom = 20.0
 min_value = 0.1
 max_value = 2.0
 step = 0.01
@@ -114,10 +128,9 @@ value = 1.0
 
 [node name="SemiamajorValue" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 2.0
-offset_right = 400.0
-offset_bottom = 25.0
+offset_left = 448.0
+offset_right = 488.0
+offset_bottom = 23.0
 text = "0"
 
 [node name="EccentricityLabel" type="Label" parent="CanvasLayer/Control"]
@@ -129,19 +142,19 @@ text = "Eccentricity (e): "
 
 [node name="EccentricitySlider" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 173.0
-offset_top = 31.0
-offset_right = 348.0
-offset_bottom = 47.0
+offset_left = 261.0
+offset_top = 29.0
+offset_right = 436.0
+offset_bottom = 45.0
 max_value = 1.0
 step = 0.01
 
 [node name="EccentricityValue" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 27.0
-offset_right = 400.0
-offset_bottom = 50.0
+offset_left = 448.0
+offset_top = 25.0
+offset_right = 488.0
+offset_bottom = 48.0
 text = "0"
 
 [node name="InclinationLabel" type="Label" parent="CanvasLayer/Control"]
@@ -153,21 +166,108 @@ text = "Inclination (i): "
 
 [node name="InclinationSlider" type="HSlider" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 173.0
-offset_top = 57.0
-offset_right = 348.0
-offset_bottom = 73.0
+offset_left = 261.0
+offset_top = 55.0
+offset_right = 436.0
+offset_bottom = 71.0
 max_value = 180.0
 step = 0.01
 
 [node name="InclinationValue" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 53.0
-offset_right = 400.0
-offset_bottom = 76.0
+offset_left = 448.0
+offset_top = 51.0
+offset_right = 488.0
+offset_bottom = 74.0
 text = "0"
+
+[node name="LonAscendingLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 76.0
+offset_right = 158.0
+offset_bottom = 99.0
+text = "Longitude of Ascending Node (Ω)"
+
+[node name="LonAscendingSlider" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 80.0
+offset_right = 437.0
+offset_bottom = 96.0
+max_value = 360.0
+step = 0.01
+
+[node name="LonAscendingValue" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 76.0
+offset_right = 489.0
+offset_bottom = 99.0
+text = "0"
+
+[node name="ArgPeriapsisLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 102.0
+offset_right = 158.0
+offset_bottom = 125.0
+text = "Argument of Periapsis (ω)"
+
+[node name="ArgPeriapsisSlider" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 106.0
+offset_right = 437.0
+offset_bottom = 122.0
+max_value = 180.0
+step = 0.01
+
+[node name="ArgPeriapsisValue" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 102.0
+offset_right = 489.0
+offset_bottom = 125.0
+text = "0"
+
+[node name="TrueAnomalyLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 125.0
+offset_right = 158.0
+offset_bottom = 148.0
+text = "True Anomaly (v)"
+
+[node name="TrueAnomalySlider" type="HSlider" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 129.0
+offset_right = 437.0
+offset_bottom = 145.0
+max_value = 180.0
+step = 0.01
+
+[node name="TrueAnomalyValue" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 125.0
+offset_right = 489.0
+offset_bottom = 148.0
+text = "0"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 158.0
+offset_right = 212.0
+offset_bottom = 195.0
+text = "Set"
 
 [connection signal="value_changed" from="CanvasLayer/Control/SemimajorSlider" to="." method="_on_semimajor_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/EccentricitySlider" to="." method="_on_eccentricity_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/InclinationSlider" to="." method="_on_inclination_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/LonAscendingSlider" to="." method="_on_lon_ascending_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/ArgPeriapsisSlider" to="." method="_on_arg_periapsis_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/TrueAnomalySlider" to="." method="_on_true_anomaly_slider_value_changed"]
+[connection signal="button_up" from="CanvasLayer/Control/Button" to="." method="_on_button_button_up"]

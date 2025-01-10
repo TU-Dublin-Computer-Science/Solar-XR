@@ -232,7 +232,7 @@ offset_left = 262.0
 offset_top = 129.0
 offset_right = 437.0
 offset_bottom = 145.0
-max_value = 360.0
+max_value = 180.0
 step = 0.01
 
 [node name="TrueAnomalyValue" type="Label" parent="CanvasLayer/Control"]
@@ -243,9 +243,18 @@ offset_right = 489.0
 offset_bottom = 148.0
 text = "0"
 
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 158.0
+offset_right = 212.0
+offset_bottom = 195.0
+text = "Set"
+
 [connection signal="value_changed" from="CanvasLayer/Control/SemimajorSlider" to="." method="_on_semimajor_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/EccentricitySlider" to="." method="_on_eccentricity_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/InclinationSlider" to="." method="_on_inclination_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/LonAscendingSlider" to="." method="_on_lon_ascending_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/ArgPeriapsisSlider" to="." method="_on_arg_periapsis_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/TrueAnomalySlider" to="." method="_on_true_anomaly_slider_value_changed"]
+[connection signal="button_up" from="CanvasLayer/Control/Button" to="." method="_on_button_button_up"]

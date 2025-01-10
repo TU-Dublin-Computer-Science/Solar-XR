@@ -9,6 +9,8 @@ var lon_ascending_node: float = 0
 var arg_periapsis: float = 0
 var true_anomaly: float = 0
 
+var object_instance: MeshInstance3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CanvasLayer/Control/SemimajorSlider.value = semimajor_axis
@@ -32,7 +34,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#pass
 	_reset()
 	_create_orbit()
 
@@ -40,11 +41,12 @@ func _process(delta: float) -> void:
 func _reset():	
 	%Orbit.mesh.clear_surfaces()	
 	%OrbitPlane.transform.basis = Basis()
-
+	%OrbitPlane.remove_child(object_instance)
 
 func _create_orbit():
 	_orient_orbital_plane()
 	_draw_orbit()
+	_draw_obejct()
 	
 
 func _orient_orbital_plane():
@@ -62,33 +64,44 @@ func _draw_orbit():
 	# Handling of the semi-major axis and eccentricity parameters
 	%Orbit.mesh.surface_begin(Mesh.PRIMITIVE_LINE_STRIP)
 	
+	var first_point: Vector3
+	
+	for i in range(ORBIT_POINTS):	
+		
+		var angle = (i / ORBIT_POINTS) * TAU
+		
+		%Orbit.mesh.surface_add_vertex(get_orbit_point(angle))
+
+	%Orbit.mesh.surface_add_vertex(get_orbit_point(0))  # Add first point to close loop
+	
+	%Orbit.mesh.surface_end()
+
+
+func get_orbit_point(angle: float):
+	# Note: Precalulate these two values if performance becomes issue
 	# Calculate the semi-minor axis based on eccentricity
 	var semiminor_axis = semimajor_axis * sqrt(1 - eccentricity * eccentricity)
 	
 	# Calculate focal offset, which ensures central body remains at one focal point of the ellipse
 	var focal_offset = semimajor_axis * eccentricity
 	
-	var first_point: Vector3
-	
-	for i in range(ORBIT_POINTS):	
-		
-		var angle = (i / ORBIT_POINTS) * TAU
-		var x = cos(angle) *  semimajor_axis + focal_offset
-		var z = sin(angle) * semiminor_axis
+	var x = cos(angle) *  semimajor_axis + focal_offset
+	var z = sin(angle) * semiminor_axis
 
-		var point = Vector3(x, 0, z)
-		
-		if i == 0: 
-			first_point = point
-		
-		%Orbit.mesh.surface_add_vertex(point)
-		
-	%Orbit.mesh.surface_add_vertex(first_point)  # Add first point to close loop
-	
-	%Orbit.mesh.surface_end()
+	return Vector3(x, 0, z)
 
-func _on_button_button_up() -> void:
-	_create_orbit()
+
+func _draw_obejct():
+	# Create new spherical mesh instance
+	object_instance = MeshInstance3D.new()	
+	var object_mesh = SphereMesh.new()
+	object_mesh.radius = 0.1
+	object_mesh.height = 0.2
+	object_instance.mesh = object_mesh
+	
+	object_instance.position = get_orbit_point(deg_to_rad(true_anomaly))
+	
+	%OrbitPlane.add_child(object_instance)
 
 
 func _on_semimajor_slider_value_changed(value: float) -> void:

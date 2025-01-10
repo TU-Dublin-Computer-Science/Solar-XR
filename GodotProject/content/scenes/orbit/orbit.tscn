@@ -4,3 +4,6 @@
 
 [node name="Orbit" type="Node3D"]
 script = ExtResource("1_k5xa2")
+
+[node name="OrbitalPlane" type="Node3D" parent="."]
+unique_name_in_owner = true

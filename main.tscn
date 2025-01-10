@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://do4immo7js5ge"]
+[gd_scene load_steps=14 format=3 uid="uid://do4immo7js5ge"]
 
 [ext_resource type="Script" path="res://camera_pivot.gd" id="1_8i1ei"]
 [ext_resource type="Script" path="res://main.gd" id="1_jsi4b"]
@@ -47,15 +47,6 @@ size = Vector2(5, 5)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_01hec"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1lcn"]
-albedo_color = Color(0.0862745, 0.278431, 1, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_nwedj"]
-material = SubResource("StandardMaterial3D_o1lcn")
-top_radius = 0.01
-bottom_radius = 0.01
-height = 8.0
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jsi4b")
 
@@ -93,10 +84,6 @@ mesh = SubResource("PlaneMesh_ohqh4")
 [node name="Orbit" type="MeshInstance3D" parent="Sim/OrbitPlane"]
 unique_name_in_owner = true
 mesh = SubResource("ImmediateMesh_01hec")
-
-[node name="LineOfAscendingNode" type="MeshInstance3D" parent="Sim/OrbitPlane"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_nwedj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.771791, 0.635876, 0, -0.635876, 0.771791, 0, 1.30152, 1.21896)
@@ -220,7 +207,7 @@ offset_left = 262.0
 offset_top = 106.0
 offset_right = 437.0
 offset_bottom = 122.0
-max_value = 180.0
+max_value = 360.0
 step = 0.01
 
 [node name="ArgPeriapsisValue" type="Label" parent="CanvasLayer/Control"]

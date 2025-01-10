@@ -9,10 +9,6 @@ var lon_ascending_node: float = 0
 var arg_periapsis: float = 0
 var true_anomaly: float = 0
 
-var polar_axis = Vector3(0,1,0)
-var vernal_equinix: Vector3 = Vector3(-1, 0, 0)
-#var line_of_ascending_node = vernal_equinix
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CanvasLayer/Control/SemimajorSlider.value = semimajor_axis
@@ -32,9 +28,6 @@ func _ready() -> void:
 	
 	$CanvasLayer/Control/TrueAnomalySlider.value = true_anomaly
 	$CanvasLayer/Control/TrueAnomalyValue.text = "%.2f" % true_anomaly
-	
-	
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,61 +36,26 @@ func _process(delta: float) -> void:
 	_reset()
 	_create_orbit()
 
+
 func _reset():	
 	%Orbit.mesh.clear_surfaces()	
 	%OrbitPlane.transform.basis = Basis()
 
-func _create_orbit():
-	_set_orbital_plane()
-	_draw_orbit()
 
-func _set_orbital_plane():
-	#%OrbitPlane.transform.basis = Basis() # Reset rotation
+func _create_orbit():
+	_orient_orbital_plane()
+	_draw_orbit()
 	
-	# Rotate object around the global y axis (The Polar Axis)
+
+func _orient_orbital_plane():
+	# Rotate orbital plane around the equatorial plane y axis (The Polar Axis)
 	%OrbitPlane.rotate(Vector3(0,1,0), deg_to_rad(lon_ascending_node))
 	
-	# Rotate object around the new local x axis (Line of Ascending Node)
+	# Rotate orbital plane around the orbital plane x-axis (Line of Ascending Node)
 	%OrbitPlane.rotate_object_local(Vector3(1, 0, 0), deg_to_rad(inclination))
 	
-	"""
-	var transform = Transform3D()
-	DebugDraw3D.draw_gizmo(transform)
-	var rotation_longitude = Basis(Vector3(0,1,0), deg_to_rad(lon_ascending_node))
-	transform.basis = rotation_longitude * transform.basis	
-	
-	
-	var rotation_inclindation = Basis(Vector3(1, 0, 0), deg_to_rad(inclination))
-	transform.basis = rotation_inclindation * transform.basis
-	
-	
-	
-	%OrbitPlane.transform.basis = transform.basis
-	"""
-
-
-"""
-func _adjust_ascending_node():
-	var new_transform = %OrbitPlane.transform
-	
-	new_transform.basis = Basis(polar_axis, deg_to_rad(lon_ascending_node))
-	
-	%OrbitPlane.transform = new_transform 
-
-func _adjust_inclination():
-	var new_transform = %OrbitPlane.transform
-	
-	var line_of_ascending_node = (vernal_equinix * new_transform.basis).normalized()
-	
-	# Create a rotation basis to apply the inclination angle
-	var rotation_basis = Basis(line_of_ascending_node, deg_to_rad(inclination))
-	
-	# Apply the rotation to the orbit plane's current transform
-	new_transform.basis = rotation_basis * new_transform.basis
-	
-	%OrbitPlane.transform = new_transform
-"""
-
+	# Rotate orbital plane around the orbital plane y-axis
+	%OrbitPlane.rotate_object_local(Vector3(0, 1, 0), deg_to_rad(arg_periapsis))
 
 
 func _draw_orbit():

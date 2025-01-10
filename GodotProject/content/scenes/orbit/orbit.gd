@@ -1,6 +1,7 @@
 extends Node3D
 
 const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tres")
+
 const ORBIT_POINTS: float = 1024 # Greater the number the smoother the orbit visuals
 
 const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5

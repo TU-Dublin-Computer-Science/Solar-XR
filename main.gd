@@ -85,8 +85,8 @@ func get_orbit_point(angle: float):
 	# Calculate focal offset, which ensures central body remains at one focal point of the ellipse
 	var focal_offset = semimajor_axis * eccentricity
 	
-	var x = cos(angle) *  semimajor_axis + focal_offset
-	var z = sin(angle) * semiminor_axis
+	var x = cos(angle) *  semimajor_axis - focal_offset
+	var z = -sin(angle) * semiminor_axis
 
 	return Vector3(x, 0, z)
 

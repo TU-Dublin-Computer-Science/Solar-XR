@@ -20,16 +20,16 @@ func _ready() -> void:
 	$CanvasLayer/Control/EccentricityValue.text = "%.2f" % eccentricity
 	
 	$CanvasLayer/Control/InclinationSlider.value = inclination
-	$CanvasLayer/Control/InclinationValue.text = "%.2f" % inclination
+	$CanvasLayer/Control/InclinationValue.text = "%.2f°" % inclination
 	
 	$CanvasLayer/Control/LonAscendingSlider.value = lon_ascending_node
-	$CanvasLayer/Control/LonAscendingValue.text = "%.2f" % lon_ascending_node
+	$CanvasLayer/Control/LonAscendingValue.text = "%.2f°" % lon_ascending_node
 	
 	$CanvasLayer/Control/ArgPeriapsisSlider.value = arg_periapsis
-	$CanvasLayer/Control/ArgPeriapsisValue.text = "%.2f" % arg_periapsis
+	$CanvasLayer/Control/ArgPeriapsisValue.text = "%.2f°" % arg_periapsis
 	
 	$CanvasLayer/Control/TrueAnomalySlider.value = true_anomaly
-	$CanvasLayer/Control/TrueAnomalyValue.text = "%.2f" % true_anomaly
+	$CanvasLayer/Control/TrueAnomalyValue.text = "%.2f°" % true_anomaly
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -116,19 +116,19 @@ func _on_eccentricity_slider_value_changed(value: float) -> void:
 
 func _on_inclination_slider_value_changed(value: float) -> void:
 	inclination = value
-	$CanvasLayer/Control/InclinationValue.text = "%.2f" % value
+	$CanvasLayer/Control/InclinationValue.text = "%.2f°" % value
 
 
 func _on_lon_ascending_slider_value_changed(value: float) -> void:
 	lon_ascending_node = value
-	$CanvasLayer/Control/LonAscendingValue.text = "%.2f" % value
+	$CanvasLayer/Control/LonAscendingValue.text = "%.2f°" % value
 
 
 func _on_arg_periapsis_slider_value_changed(value: float) -> void:
 	arg_periapsis = value
-	$CanvasLayer/Control/ArgPeriapsisValue.text = "%.2f" % value
+	$CanvasLayer/Control/ArgPeriapsisValue.text = "%.2f°" % value
 
 
 func _on_true_anomaly_slider_value_changed(value: float) -> void:
 	true_anomaly = value
-	$CanvasLayer/Control/TrueAnomalyValue.text = "%.2f" % value
+	$CanvasLayer/Control/TrueAnomalyValue.text = "%.2f°" % value

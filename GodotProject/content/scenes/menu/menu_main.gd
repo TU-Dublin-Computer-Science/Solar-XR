@@ -112,9 +112,9 @@ var time_live_readout: bool:
 		time_live_readout = value
 		MenuTime.time_live_readout = value	
 
-var focused_body: GlobalEnums.Planet: 
+var focused_body_ID: int: 
 	set(value):
-		focused_body = value
+		focused_body_ID = value
 		MenuPlanet.selected_planet_ID = value
 
 # ------------
@@ -264,12 +264,12 @@ func _setup_time_tab():
 
 
 func _setup_planet_tab():
-	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.MERCURY))
-	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.VENUS))
-	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.EARTH))
-	MenuPlanet.find_child("BtnMars").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.MARS))
-	MenuPlanet.find_child("BtnJupiter").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.JUPITER))
-	MenuPlanet.find_child("BtnSaturn").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.SATURN))
-	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.URANUS))
-	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.NEPTUNE))
-	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit(GlobalEnums.Planet.SUN))
+	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Mercury"]))
+	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Venus"]))
+	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Earth"]))
+	MenuPlanet.find_child("BtnMars").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Mars"]))
+	MenuPlanet.find_child("BtnJupiter").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Jupiter"]))
+	MenuPlanet.find_child("BtnSaturn").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Saturn"]))
+	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Uranus"]))
+	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Neptune"]))
+	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["Sun"]))

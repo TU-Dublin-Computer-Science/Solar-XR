@@ -54,7 +54,7 @@ var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 			_sim_time_paused = false
 
 
-var _sim_time: float: 
+var _sim_time: float:
 	set(value):
 		_sim_time = value
 		Simulation.time = value
@@ -63,7 +63,7 @@ var _sim_time: float:
 		var sys_time = Time.get_unix_time_from_system()
 		
 		#When sim time is out of sync it's not live
-		if abs(int(_sim_time) - int(sys_time)) > 5: 
+		if abs(int(_sim_time) - int(sys_time)) > 5:
 			_sim_time_live = false
 
 
@@ -81,10 +81,11 @@ var _sim_time_live: bool:
 		MainMenu.time_live_readout = value
 
 
-var _focused_body: GlobalEnums.Planet:
+var _focused_body: Body:
 	set(value):
 		_focused_body = value
-		MainMenu.focused_body = value
+		MainMenu.focused_body_ID = _focused_body.ID
+		print(_focused_body._name)
 
 # Move
 var _moving_up: bool = false
@@ -123,7 +124,7 @@ func _setup():
 	add_child(Simulation)
 
 
-func _ready():	
+func _ready():
 	remove_child(MainMenu)
 	remove_child(InfoNodeScreen)
 	remove_child(Simulation)
@@ -131,11 +132,11 @@ func _ready():
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()
-	_focused_body = GlobalEnums.Planet.SUN
 	_initialise_system()
+	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
 
 
-func _process(delta):	
+func _process(delta):
 	_check_if_player_moved()
 	
 	if not _sim_time_paused:
@@ -150,10 +151,12 @@ func _check_if_player_moved():
 	
 	if current_player_location.distance_to(_saved_player_location) >= 0.2:
 		_saved_player_location = current_player_location
-		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))	
+		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 
 func _initialise_system():
+	Simulation.instantiate_simulation()
+	
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	
 	_sim_position = DEFAULT_SIM_POS
@@ -167,12 +170,12 @@ func _initialise_system():
 	_initialise_time()
 	
 	InfoNodeScreen.deactivate()
-	var info_nodes = Simulation.info_nodes 
+	var info_nodes = Simulation.info_nodes
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 
 
 func _initialise_time():
-	_sim_time = Time.get_unix_time_from_system() 
+	_sim_time = Time.get_unix_time_from_system()
 	_sim_time_scalar = DEFAULT_TIME_SCALAR
 	_sim_time_paused = false
 	_sim_time_live = true
@@ -245,7 +248,7 @@ func _setup_time_signals():
 
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(value):
-		_focused_body = value
+		_focused_body = Simulation.get_body(value)
 	)
 
 
@@ -270,7 +273,7 @@ func _handle_constant_movement(delta: float):
 	if _moving_right:
 		_sim_position += _to_sim.rotated(Vector3.UP, -deg_to_rad(90)) * MOVE_SPEED * delta
 		
-	if _moving_forward:	
+	if _moving_forward:
 		_sim_position += -_to_sim * MOVE_SPEED * delta
 		
 	if _moving_back:
@@ -279,15 +282,15 @@ func _handle_constant_movement(delta: float):
 
 func _handle_constant_rotation(delta: float):
 	if _rot_increasing_x:
-		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()		
+		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()
 		var rotation_inc = Basis(horizontal_axis, ROT_CHANGE_SPEED*delta)
 		
 		var new_transform = Simulation.global_transform
 		new_transform.basis = rotation_inc * new_transform.basis
 		Simulation.global_transform = new_transform
 
-	if _rot_decreasing_x:		
-		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()		
+	if _rot_decreasing_x:
+		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()
 		var rotation_inc = Basis(horizontal_axis, -ROT_CHANGE_SPEED*delta)
 		
 		var new_transform = Simulation.global_transform
@@ -320,8 +323,8 @@ func _handle_constant_time_change(delta: float):
 		var increase_time_held = Time.get_unix_time_from_system() - _time_increase_start
 		
 		_sim_time_scalar = clamp(	_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
-								 	MIN_TIME_SCALAR, 
-									MAX_TIME_SCALAR)
+			MIN_TIME_SCALAR,
+			MAX_TIME_SCALAR)
 	else:
 		_time_increase_start = -1
 		
@@ -333,7 +336,7 @@ func _handle_constant_time_change(delta: float):
 		var decrease_time_held = Time.get_unix_time_from_system() - _time_decrease_start
 		
 		_sim_time_scalar = clamp(	_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
-								 	MIN_TIME_SCALAR, 
-									MAX_TIME_SCALAR)
+			MIN_TIME_SCALAR,
+			MAX_TIME_SCALAR)
 	else:
 		_time_decrease_start = -1

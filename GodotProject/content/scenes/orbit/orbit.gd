@@ -20,7 +20,7 @@ var _inclination: float    # Radians
 var _lon_ascending_node: float  # Radians
 var _orbital_period: float
 
-var _body: Node3D
+var body: Body
 var _model_scalar: float
 var _camera: XRCamera3D = null
 
@@ -44,7 +44,7 @@ func init(	p_body: Node3D,
 			p_model_scalar: float,
 			p_camera: XRCamera3D):
 
-	_body = p_body
+	body = p_body
 	_semimajor_axis = p_semimajor_axis * p_model_scalar
 	_eccentricity = p_eccentricity
 	_arg_periapsis = deg_to_rad(p_arg_periapsis)
@@ -61,7 +61,7 @@ func init(	p_body: Node3D,
 	
 	_draw_orbit_visual()
 
-	%OrbitalPlane.add_child(_body)
+	%OrbitalPlane.add_child(body)
 	
 	_update_body_position()
 	
@@ -120,7 +120,7 @@ func get_orbit_point(angle: float):
 func _update_body_position():
 	var true_anomaly = _get_true_anomaly()
 
-	_body.position = get_orbit_point(true_anomaly)
+	body.position = get_orbit_point(true_anomaly)
 
 
 func _get_true_anomaly():

@@ -1,4 +1,5 @@
 extends Node3D
+class_name Body
 
 const InfoNodeScn = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node.tscn")
 
@@ -13,6 +14,7 @@ var julian_time: float:
 		if _initialised and _rotation_enabled:
 			_update_rotation()
 
+var ID: int
 var _name: String
 var _model_scene: PackedScene
 var _rotation_factor: float
@@ -44,7 +46,8 @@ func _update_rotation():
 	_total_rotation = new_rotation
 
 
-func init(	p_name: String,
+func init(	p_ID: int,
+			p_name: String,
 			p_model_path: String, 
 			p_radius: float,
 			p_rotation_factor: float,
@@ -54,6 +57,7 @@ func init(	p_name: String,
 			p_camera: XRCamera3D,
 			p_show_label: bool):
 	
+	ID = p_ID
 	_name = p_name
 	
 	if p_model_path != "":

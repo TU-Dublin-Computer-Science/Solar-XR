@@ -5,7 +5,6 @@ const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 
 @export var camera: XRCamera3D = null
 
-
 # Time Keeping
 @export var time: float:
 	set(value):
@@ -14,8 +13,8 @@ const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 		if _sun:
 			_sun.julian_time = _unix_to_julian(time)
 			
-		if _planet_array:
-			for orbit in _planet_array:
+		if _planet_orbit_array:
+			for orbit in _planet_orbit_array:
 				orbit.julian_time = _unix_to_julian(time)
 
 var info_nodes: Array[Node3D]
@@ -26,39 +25,27 @@ var info_nodes: Array[Node3D]
 var model_scalar
 var focused_body
 
-var _sun: Node3D
-var _planet_array = []
-
-
-func _read_json_file(file_path: String) -> Dictionary:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	
-	if file == null:
-		print("Failed to open file: ", file_path)
-		return {}
-	
-	var json_string = file.get_as_text()  # Read the file as text
-	file.close()  # Close the file after reading
-
-	# Parse JSON
-	var json_data = JSON.new()
-	var error = json_data.parse(json_string)
-	
-	if error != OK:
-		print("Failed to parse JSON: ", json_data.error_string)
-		return {}
-
-	return json_data.data  # Returns the parsed dictionary
+var _sun: Body
+var _planet_orbit_array = []
 
 
 func instantiate_simulation():
-	var sun_path = "res://content/data/bodies/sun.json"
+	var sun_path = "res://content/data/bodies/Sun.json"
 	var sun_data = _read_json_file(sun_path)
 	
-	instantiate_body(sun_data)
+	_instantiate_body(sun_data)
 
 
-func instantiate_body(body_data: Variant):
+func get_body(ID: int):
+	if ID == Mappings.planet_ID["Sun"]:
+		return _sun
+	else:
+		for orbit in _planet_orbit_array:
+			if ID == orbit.body.ID:
+				return orbit.body
+
+
+func _instantiate_body(body_data: Variant):
 
 	if not body_data:
 		return
@@ -66,15 +53,16 @@ func instantiate_body(body_data: Variant):
 	model_scalar = 0.5 / body_data["radius"]
 
 	_sun = BodyScn.instantiate()
-	_sun.init(	body_data["name"],
-						body_data["model_path"], 
-						body_data["radius"],
-						body_data["rotation_factor"],
-						body_data["info_points"],
-						_unix_to_julian(time),
-						model_scalar,
-						camera,
-						false)
+	_sun.init(	body_data["ID"],
+				body_data["name"],
+				body_data["model_path"], 
+				body_data["radius"],
+				body_data["rotation_factor"],
+				body_data["info_points"],
+				_unix_to_julian(time),
+				model_scalar,
+				camera,
+				false)
 	
 	info_nodes = _sun.info_nodes
 
@@ -88,7 +76,8 @@ func instantiate_body(body_data: Variant):
 		if satellite_data["semimajor_axis"] < 4500000000: 
 			
 			var body = BodyScn.instantiate()
-			body.init(	satellite_data["name"],
+			body.init(	satellite_data["ID"],
+						satellite_data["name"],
 						satellite_data["model_path"], 
 						satellite_data["radius"], 
 						satellite_data["rotation_factor"],
@@ -111,8 +100,29 @@ func instantiate_body(body_data: Variant):
 						model_scalar,
 						camera,)
 
-			_planet_array.append(orbit)
+			_planet_orbit_array.append(orbit)
 			add_child(orbit)
+
+
+func _read_json_file(file_path: String) -> Dictionary:
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	
+	if file == null:
+		print("Failed to open file: ", file_path)
+		return {}
+	
+	var json_string = file.get_as_text()  # Read the file as text
+	file.close()  # Close the file after reading
+
+	# Parse JSON
+	var json_data = JSON.new()
+	var error = json_data.parse(json_string)
+	
+	if error != OK:
+		print("Failed to parse JSON: ", json_data.error_string)
+		return {}
+
+	return json_data.data  # Returns the parsed dictionary
 
 
 func _unix_to_julian(unix_time: float):

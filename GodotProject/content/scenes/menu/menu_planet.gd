@@ -1,27 +1,26 @@
 extends Node3D
 
-var planet: int:
+var selected_planet_ID: int:
 	set(value):
-		planet = value
-		match planet:
-			GlobalEnums.Planet.MERCURY:
-				_active_btn = $BtnMercury
-			GlobalEnums.Planet.VENUS:
-				_active_btn = $BtnVenus
-			GlobalEnums.Planet.EARTH:
-				_active_btn = $BtnEarth
-			GlobalEnums.Planet.MARS:
-				_active_btn = $BtnMars
-			GlobalEnums.Planet.JUPITER:
-				_active_btn = $BtnJupiter
-			GlobalEnums.Planet.SATURN:
-				_active_btn = $BtnSaturn
-			GlobalEnums.Planet.URANUS:
-				_active_btn = $BtnUranus
-			GlobalEnums.Planet.NEPTUNE:
-				_active_btn = $BtnNeptune
-			GlobalEnums.Planet.SUN:
-				_active_btn = $BtnSun
+		selected_planet_ID = value
+		if selected_planet_ID == Mappings.planet_ID["Mercury"]:
+			_active_btn = $BtnMercury
+		elif selected_planet_ID == Mappings.planet_ID["Venus"]:
+			_active_btn = $BtnVenus
+		elif selected_planet_ID == Mappings.planet_ID["Earth"]:
+			_active_btn = $BtnEarth
+		elif selected_planet_ID ==Mappings.planet_ID["Mars"]:
+			_active_btn = $BtnMars
+		elif selected_planet_ID == Mappings.planet_ID["Jupiter"]:
+			_active_btn = $BtnJupiter
+		elif selected_planet_ID == Mappings.planet_ID["Saturn"]:
+			_active_btn = $BtnSaturn
+		elif selected_planet_ID == Mappings.planet_ID["Uranus"]:
+			_active_btn = $BtnUranus
+		elif selected_planet_ID == Mappings.planet_ID["Neptune"]:
+			_active_btn = $BtnNeptune
+		elif selected_planet_ID == Mappings.planet_ID["Sun"]:
+			_active_btn = $BtnSun
 
 var _active_btn: Button3D = null:
 	set(value): # Logic for toggling buttons
@@ -47,8 +46,3 @@ func _ready() -> void:
 	$BtnSaturn.on_button_down.connect(func():_active_btn = $BtnSaturn)
 	$BtnUranus.on_button_down.connect(func():_active_btn = $BtnUranus)
 	$BtnNeptune.on_button_down.connect(func():_active_btn = $BtnNeptune)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

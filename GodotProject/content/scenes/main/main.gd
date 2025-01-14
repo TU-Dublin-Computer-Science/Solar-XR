@@ -132,7 +132,7 @@ func _ready():
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()
-	_central_body = GlobalEnums.Planet.MARS
+	_central_body = GlobalEnums.Planet.SUN
 	_initialise_system()
 
 

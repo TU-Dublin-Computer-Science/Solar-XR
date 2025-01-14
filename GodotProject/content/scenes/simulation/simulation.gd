@@ -88,9 +88,8 @@ func instantiate_simulation():
 		var satellite_data = _read_json_file(satellite_data_path)
 		
 		# This distance chosen for now as Neptune is this far away from Sun
-		#if satellite_data["semimajor_axis"] < 4500000000: 
-		if satellite_data["semimajor_axis"] < 1000000: 
-		
+		if satellite_data["semimajor_axis"] < 4500000000: 
+			
 			var body = BodyScn.instantiate()
 			body.init(	satellite_data["name"],
 						satellite_data["model_path"], 

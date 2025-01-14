@@ -83,7 +83,7 @@ var _sim_time_live: bool:
 
 var _focused_body: GlobalEnums.Planet:
 	set(value):
-		_focused_body = value		
+		_focused_body = value
 		MainMenu.focused_body = value
 
 # Move

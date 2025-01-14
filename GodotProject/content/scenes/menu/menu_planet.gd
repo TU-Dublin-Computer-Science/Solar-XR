@@ -1,6 +1,6 @@
 extends Node3D
 
-var planet: GlobalEnums.Planet:
+var planet: int:
 	set(value):
 		planet = value
 		match planet:

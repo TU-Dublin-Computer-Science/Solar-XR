@@ -1,5 +1,6 @@
 {
-    "name": "Mars",
+    "ID": 499,
+	"name": "Mars",
     "radius": 3389.50,
     "rotation_factor": 350.891982443297,
     "model_path": "res://content/scenes/model_scenes/mars.tscn",

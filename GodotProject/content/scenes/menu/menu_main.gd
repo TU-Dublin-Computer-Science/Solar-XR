@@ -115,7 +115,7 @@ var time_live_readout: bool:
 var focused_body: GlobalEnums.Planet: 
 	set(value):
 		focused_body = value
-		MenuPlanet.planet = value
+		MenuPlanet.selected_planet_ID = value
 
 # ------------
 

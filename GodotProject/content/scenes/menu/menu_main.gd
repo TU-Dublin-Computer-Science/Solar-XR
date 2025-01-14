@@ -112,9 +112,9 @@ var time_live_readout: bool:
 		time_live_readout = value
 		MenuTime.time_live_readout = value	
 
-var central_body: GlobalEnums.Planet: 
+var focused_body: GlobalEnums.Planet: 
 	set(value):
-		central_body = value
+		focused_body = value
 		MenuPlanet.planet = value
 
 # ------------

@@ -5,25 +5,17 @@ const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
 
 @export var camera: XRCamera3D = null
 
-@export var central_body_enum:GlobalEnums.Planet: 
-	set(value):
-		central_body_enum = value
-		
-		for child in get_children():
-			remove_child(child)	
-	
-		instantiate_simulation()
 
 # Time Keeping
 @export var time: float:
 	set(value):
 		time = value
-		
-		if _central_body:
-			_central_body.julian_time = _unix_to_julian(time)
+
+		if _sun:
+			_sun.julian_time = _unix_to_julian(time)
 			
-		if _orbits_array:
-			for orbit in _orbits_array:
+		if _planet_array:
+			for orbit in _planet_array:
 				orbit.julian_time = _unix_to_julian(time)
 
 var info_nodes: Array[Node3D]
@@ -32,9 +24,10 @@ var info_nodes: Array[Node3D]
 # The value below is the ratio of the central body's model radius to it's actual radius
 # Every other body is scaled using this factor
 var model_scalar
+var focused_body
 
-var _central_body: Node3D
-var _orbits_array = []
+var _sun: Node3D
+var _planet_array = []
 
 
 func _read_json_file(file_path: String) -> Dictionary:
@@ -59,17 +52,21 @@ func _read_json_file(file_path: String) -> Dictionary:
 
 
 func instantiate_simulation():
-	var data_path = "res://content/data/bodies/%s.json" % GlobalEnums.Planet.keys()[central_body_enum].to_lower()
+	var sun_path = "res://content/data/bodies/sun.json"
+	var sun_data = _read_json_file(sun_path)
 	
-	var body_data = _read_json_file(data_path)
-	
+	instantiate_body(sun_data)
+
+
+func instantiate_body(body_data: Variant):
+
 	if not body_data:
 		return
 	
 	model_scalar = 0.5 / body_data["radius"]
-	
-	_central_body = BodyScn.instantiate()
-	_central_body.init(	body_data["name"],
+
+	_sun = BodyScn.instantiate()
+	_sun.init(	body_data["name"],
 						body_data["model_path"], 
 						body_data["radius"],
 						body_data["rotation_factor"],
@@ -79,9 +76,9 @@ func instantiate_simulation():
 						camera,
 						false)
 	
-	info_nodes = _central_body.info_nodes
+	info_nodes = _sun.info_nodes
 
-	add_child(_central_body)
+	add_child(_sun)
 	
 	for satellite_name in body_data["satellites"]:
 		var satellite_data_path = "res://content/data/bodies/%s.json" % satellite_name
@@ -114,7 +111,7 @@ func instantiate_simulation():
 						model_scalar,
 						camera,)
 
-			_orbits_array.append(orbit)
+			_planet_array.append(orbit)
 			add_child(orbit)
 
 

@@ -73,19 +73,18 @@ var _sim_time_paused: bool:
 		MainMenu.sim_time_paused_readout = paused
 		if paused:
 			_sim_time_live = false
-			
+
 
 var _sim_time_live: bool:
 	set(value):
 		_sim_time_live = value
 		MainMenu.time_live_readout = value
-		
 
-var _central_body: GlobalEnums.Planet:
+
+var _focused_body: GlobalEnums.Planet:
 	set(value):
-		_central_body = value
-		Simulation.central_body_enum = value
-		MainMenu.central_body = value
+		_focused_body = value		
+		MainMenu.focused_body = value
 
 # Move
 var _moving_up: bool = false
@@ -132,7 +131,7 @@ func _ready():
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()
-	_central_body = GlobalEnums.Planet.SUN
+	_focused_body = GlobalEnums.Planet.SUN
 	_initialise_system()
 
 
@@ -246,7 +245,7 @@ func _setup_time_signals():
 
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(value):
-		_central_body = value
+		_focused_body = value
 	)
 
 

@@ -86,6 +86,7 @@ func _instantiate_body(body_data: Variant):
 						model_scalar,
 						camera,
 						true)
+
 			
 			var orbit = OrbitScn.instantiate()
 			orbit.init(	body, 
@@ -102,7 +103,6 @@ func _instantiate_body(body_data: Variant):
 
 			_planet_orbit_array.append(orbit)
 			add_child(orbit)
-
 
 func _read_json_file(file_path: String) -> Dictionary:
 	var file = FileAccess.open(file_path, FileAccess.READ)

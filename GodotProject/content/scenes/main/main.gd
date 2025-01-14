@@ -18,14 +18,14 @@ var mode:Mode = Mode.DEFAULT
 
 const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
 const MAX_MOVE_DIST = 4
-const MOVE_SPEED = 1
+const MOVE_SPEED = 10
 
 const ROT_CHANGE_SPEED = 1
 
 const MIN_SIM_SCALE: float = 0
-const MAX_SIM_SCALE: float = 4
+const MAX_SIM_SCALE: float = 100
 const DEFAULT_SIM_SCALE: float = 1
-const SCALE_CHANGE_SPEED = 1
+const SCALE_CHANGE_SPEED = 10
 
 const MIN_TIME_SCALAR = -6000
 const MAX_TIME_SCALAR = 6000
@@ -35,14 +35,14 @@ const TIME_CHANGE_SPEED = 1000
 var _sim_position: Vector3:
 	set(value):
 		_sim_position = value
-		Simulation.position = value
+		$SimParent.position = value
 		MainMenu.pos_readout = value
 
 
 var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
-		Simulation.scale = Vector3(value, value, value)
+		$SimParent.scale = Vector3(value, value, value)
 		MainMenu.scale_readout = Simulation.model_scalar * value
 
 
@@ -85,7 +85,25 @@ var _focused_body: Body:
 	set(value):
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID
-		print(_focused_body._name)
+		
+		print($SimParent.global_position)
+		print(Simulation.global_position)
+		print(_focused_body.global_position)
+		
+		var _focused_body_pos = $SimParent.to_local(_focused_body.global_position)
+		
+		print(_focused_body_pos)
+		
+		
+		var body_to_center = Simulation.position - _focused_body_pos
+		
+		
+		Simulation.position = body_to_center
+
+
+
+		
+		
 
 # Move
 var _moving_up: bool = false
@@ -122,6 +140,8 @@ func _setup():
 	add_child(MainMenu)
 	add_child(InfoNodeScreen)
 	add_child(Simulation)
+	_initialise_system()
+	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
 
 
 func _ready():
@@ -132,11 +152,13 @@ func _ready():
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()
-	_initialise_system()
-	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
 
 
 func _process(delta):
+	if _focused_body:
+		DebugDraw3D.draw_sphere(_focused_body.global_position)
+		DebugDraw3D.draw_line(Vector3(0,0,0), _focused_body.global_position)
+	
 	_check_if_player_moved()
 	
 	if not _sim_time_paused:
@@ -158,7 +180,7 @@ func _initialise_system():
 	Simulation.instantiate_simulation()
 	
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
-	
+
 	_sim_position = DEFAULT_SIM_POS
 
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))

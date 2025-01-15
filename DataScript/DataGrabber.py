@@ -37,7 +37,7 @@ def create_satellite_list() -> list:
         if cells and len(cells) >= 13: 
             
             data_object = {
-                "ID": cells[2].get_text(strip=True),
+                "ID": int(cells[2].get_text(strip=True)),
                 "name": cells[1].get_text(strip=True),
                 
                 "radius": -1,

@@ -122,13 +122,13 @@ var _to_sim: Vector3
 func _setup():
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	%AudBGM.playing = true
-
-	_initialise_system()
-	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
+	
+	Simulation.init()
+	_reset_state()
 
 
 func _ready():
-
+	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()
@@ -152,8 +152,7 @@ func _check_if_player_moved():
 		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 
-func _initialise_system():
-	Simulation.instantiate_simulation()
+func _reset_state():
 	
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
@@ -170,6 +169,8 @@ func _initialise_system():
 	InfoNodeScreen.deactivate()
 	var info_nodes = Simulation.info_nodes
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
+	
+	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
 
 
 func _initialise_time():
@@ -187,7 +188,7 @@ func _setup_menu():
 	_setup_scale_signals()
 	_setup_time_signals()
 	_setup_planet_signals()
-	MainMenu.reset.connect(_initialise_system)
+	MainMenu.reset.connect(_reset_state)
 
 
 func _setup_move_signals():

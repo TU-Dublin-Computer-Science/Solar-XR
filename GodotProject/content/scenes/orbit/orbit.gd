@@ -80,8 +80,6 @@ func _draw_orbit_visual():
 	
 	orbit_mesh.surface_begin(Mesh.PRIMITIVE_LINE_STRIP)
 	
-	var first_point: Vector3
-	
 	for i in range(ORBIT_POINTS):	
 		
 		var angle = (i / ORBIT_POINTS) * TAU

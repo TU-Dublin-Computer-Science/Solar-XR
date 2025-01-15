@@ -122,18 +122,13 @@ var _to_sim: Vector3
 func _setup():
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	%AudBGM.playing = true
-	add_child(MainMenu)
-	add_child(InfoNodeScreen)
-	add_child(Simulation)
+
 	_initialise_system()
 	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
 
 
 func _ready():
-	remove_child(MainMenu)
-	remove_child(InfoNodeScreen)
-	remove_child(Simulation)
-	
+
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()

@@ -28,7 +28,7 @@ var _total_rotation: float = 0
 var _initialised: bool = false
 var _rotation_enabled: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _initialised and _show_label and _camera != null:
 		$Label.look_at(_camera.global_transform.origin, Vector3.UP)
 		

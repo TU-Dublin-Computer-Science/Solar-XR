@@ -30,7 +30,7 @@ var _planet_orbit_array = []
 
 
 func instantiate_simulation():
-	var sun_path = "res://content/data/bodies/Sun.json"
+	var sun_path = "res://content/data/bodies/sun.json"
 	var sun_data = _read_json_file(sun_path)
 	
 	_instantiate_body(sun_data)

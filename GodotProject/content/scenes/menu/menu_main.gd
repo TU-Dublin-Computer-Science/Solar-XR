@@ -58,8 +58,6 @@ signal planet_change_pressed
 # Reset Signal
 signal reset
 
-@onready var MenuButtons = $ControlMenu/Tabs/MenuButtons
-
 @onready var MenuDefault = $ControlMenu/Tabs/MenuDefault
 @onready var MenuMove = $ControlMenu/Tabs/MenuMove
 @onready var MenuRotate = $ControlMenu/Tabs/MenuRotate

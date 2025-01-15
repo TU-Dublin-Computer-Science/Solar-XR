@@ -26,12 +26,6 @@ var _camera: XRCamera3D = null
 
 var _initialised: bool = false
 
-func _process(delta: float) -> void:
-	var dist =  global_position.distance_to(_camera.global_position)
-	
-	visible = dist < 40
-
-
 func init(	p_body: Node3D, 
 			p_semimajor_axis: float,
 			p_eccentricity: float,

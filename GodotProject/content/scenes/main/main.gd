@@ -86,24 +86,9 @@ var _focused_body: Body:
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID
 		
-		print($SimParent.global_position)
-		print(Simulation.global_position)
-		print(_focused_body.global_position)
-		
 		var _focused_body_pos = $SimParent.to_local(_focused_body.global_position)
-		
-		print(_focused_body_pos)
-		
-		
 		var body_to_center = Simulation.position - _focused_body_pos
-		
-		
 		Simulation.position = body_to_center
-
-
-
-		
-		
 
 # Move
 var _moving_up: bool = false
@@ -155,10 +140,6 @@ func _ready():
 
 
 func _process(delta):
-	if _focused_body:
-		DebugDraw3D.draw_sphere(_focused_body.global_position)
-		DebugDraw3D.draw_line(Vector3(0,0,0), _focused_body.global_position)
-	
 	_check_if_player_moved()
 	
 	if not _sim_time_paused:

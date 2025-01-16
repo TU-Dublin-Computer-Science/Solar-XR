@@ -86,9 +86,14 @@ var _focused_body: Body:
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID
 		
-		var _focused_body_pos = $SimParent.to_local(_focused_body.global_position)
+		# Move Simulation position so that focused planet is at center
+		var _focused_body_pos = $SimParent.to_local(_focused_body.global_position) # Get focused body pos local to parent node
 		var body_to_center = Simulation.position - _focused_body_pos
 		Simulation.position = body_to_center
+		
+		 # Scale the simulation so that the focused body has a radius of 0.5
+		_sim_scale = 0.5 / _focused_body.radius 
+
 
 # Move
 var _moving_up: bool = false

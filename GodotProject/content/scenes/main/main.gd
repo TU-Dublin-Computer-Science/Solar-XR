@@ -100,6 +100,7 @@ var sim_move_target: Vector3
 var sim_move_direction: Vector3
 
 const FOCUS_MOVE_SPEED = 200
+const FOCUS_ZOOM_SPEED = 100
 var _moving_to_focus: bool = false
 var _scaling_to_focus: bool = false
 
@@ -171,9 +172,10 @@ func _check_if_player_moved():
 
 func _handle_focus_on_body(delta: float):
 	if _moving_to_focus:	
-		if Simulation.position.distance_to(sim_move_target) < 0.5: # Body focused
+		if Simulation.position.distance_to(sim_move_target) < 5: # Body focused
 			_moving_to_focus = false
 			Simulation.position = sim_move_target
+			print("Focus Move Finished")
 		else:
 			# Moving the simulation so that the focused body's position is at the origin of SimParent
 			Simulation.position += sim_move_direction * FOCUS_MOVE_SPEED * delta
@@ -181,12 +183,14 @@ func _handle_focus_on_body(delta: float):
 	if _scaling_to_focus:
 		var target_scale =  0.5 / _focused_body.radius 
 		
-		if abs(target_scale - _sim_scale) < 0.01:
+		if abs(target_scale - _sim_scale) < 1:
 			_scaling_to_focus = false
 			_sim_scale = target_scale
+			print("Focus Scale Finished")
 		else:
 			var scale_direction = sign(target_scale - _sim_scale)
-			_sim_scale += scale_direction * FOCUS_MOVE_SPEED * delta
+			_sim_scale += scale_direction * FOCUS_ZOOM_SPEED * delta
+			print(target_scale - _sim_scale)
 	
 	
 func _reset_state():

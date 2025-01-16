@@ -86,21 +86,28 @@ var _focused_body: Body:
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID
 		
-		var local_focused = $SimParent.to_local(_focused_body.global_position)
+		var local_focused: Vector3 = $SimParent.to_local(_focused_body.global_position)
 		
 		#  Below calculates the target, and direction to move to reach said target, that the simulation
 		#  should move to in order for the focused object to come into view.
-		sim_move_target = Simulation.position - local_focused  
-		sim_move_direction = -local_focused.normalized()
+		focus_sim_move_target = Simulation.position - local_focused  
+		focus_sim_move_dir = -local_focused.normalized()
+		focus_sim_move_speed = local_focused.length() / FOCUS_TIME
+	
+		focus_sim_scale_target =  0.5 / _focused_body.radius 
+		focus_sim_scale_speed = abs(focus_sim_scale_target - _sim_scale) / FOCUS_TIME
 		
 		_moving_to_focus = true
 		_scaling_to_focus = true
 
-var sim_move_target: Vector3
-var sim_move_direction: Vector3
+var focus_sim_move_target: Vector3
+var focus_sim_move_dir: Vector3
+var focus_sim_move_speed: float
 
-const FOCUS_MOVE_SPEED = 200
-const FOCUS_ZOOM_SPEED = 100
+var focus_sim_scale_target: float
+var focus_sim_scale_speed: float
+
+const FOCUS_TIME = 1
 var _moving_to_focus: bool = false
 var _scaling_to_focus: bool = false
 
@@ -161,7 +168,7 @@ func _process(delta):
 
 
 func _check_if_player_moved():
-	"""When the player moves a certain distance the sim_move_direction vector from them to the sim is updated"""
+	"""When the player moves a certain distance the focus_sim_move_dir vector from them to the sim is updated"""
 	"""This is done to have moving the simulation left and right work correctly"""
 	var current_player_location = Vector3(Camera.global_position.x, 0, Camera.global_position.z)
 	
@@ -172,25 +179,22 @@ func _check_if_player_moved():
 
 func _handle_focus_on_body(delta: float):
 	if _moving_to_focus:	
-		if Simulation.position.distance_to(sim_move_target) < 5: # Body focused
+		if Simulation.position.distance_to(focus_sim_move_target) < 5: # Body focused
 			_moving_to_focus = false
-			Simulation.position = sim_move_target
+			Simulation.position = focus_sim_move_target
 			print("Focus Move Finished")
 		else:
 			# Moving the simulation so that the focused body's position is at the origin of SimParent
-			Simulation.position += sim_move_direction * FOCUS_MOVE_SPEED * delta
+			Simulation.position += focus_sim_move_dir * focus_sim_move_speed * delta
 	
 	if _scaling_to_focus:
-		var target_scale =  0.5 / _focused_body.radius 
-		
-		if abs(target_scale - _sim_scale) < 1:
+		if abs(focus_sim_scale_target - _sim_scale) < 1:
 			_scaling_to_focus = false
-			_sim_scale = target_scale
+			_sim_scale = focus_sim_scale_target
 			print("Focus Scale Finished")
 		else:
-			var scale_direction = sign(target_scale - _sim_scale)
-			_sim_scale += scale_direction * FOCUS_ZOOM_SPEED * delta
-			print(target_scale - _sim_scale)
+			var scale_direction = sign(focus_sim_scale_target - _sim_scale)
+			_sim_scale += scale_direction * focus_sim_scale_speed * delta
 	
 	
 func _reset_state():

@@ -86,14 +86,10 @@ var _focused_body: Body:
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID
 		
-		# Move Simulation position so that focused planet is at center
-		var _focused_body_pos = $SimParent.to_local(_focused_body.global_position) # Get focused body pos local to parent node
-		var body_to_center = Simulation.position - _focused_body_pos  # Get vector from focused body to center of sim
-		Simulation.position = body_to_center  #move simulation by this vector
-		
-		 # Scale the simulation so that the focused body has a radius of 0.5
-		_sim_scale = 0.5 / _focused_body.radius 
+		body_in_focus = false
 
+const FOCUS_MOVE_SPEED = 200
+var body_in_focus: bool = true
 
 # Move
 var _moving_up: bool = false
@@ -143,7 +139,11 @@ func _process(delta):
 	_check_if_player_moved()
 	
 	if not _sim_time_paused:
-		_sim_time += 1 * delta * _sim_time_scalar
+		_sim_time += delta * _sim_time_scalar
+	
+	if not body_in_focus:
+		_focus_on_body(delta)
+	
 	_handle_constant_state_changes(delta)
 
 
@@ -157,6 +157,23 @@ func _check_if_player_moved():
 		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 
+func _focus_on_body(delta: float):
+	# Move Simulation position so that focused planet is at center
+	
+	var _focused_body_pos = $SimParent.to_local(_focused_body.global_position) # Get focused body pos local to parent node
+	
+	# Moving the simulation so that the focused body's position is at the origin of SimParent
+	var direction = (Vector3.ZERO - _focused_body_pos).normalized() 
+
+	Simulation.position += direction * FOCUS_MOVE_SPEED * delta
+	
+	if _focused_body_pos.distance_to(Vector3.ZERO) < 0.01:
+		body_in_focus = true
+	
+	 # Scale the simulation so that the focused body has a radius of 0.5
+	#_sim_scale = 0.5 / _focused_body.radius 
+	
+	
 func _reset_state():
 	
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)

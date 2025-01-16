@@ -329,23 +329,23 @@ func _handle_constant_rotation(delta: float):
 		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()
 		var rotation_inc = Basis(horizontal_axis, ROT_CHANGE_SPEED*delta)
 		
-		var new_transform = Simulation.global_transform
+		var new_transform = $SimParent.global_transform
 		new_transform.basis = rotation_inc * new_transform.basis
-		Simulation.global_transform = new_transform
+		$SimParent.global_transform = new_transform
 
 	if _rot_decreasing_x:
 		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()
 		var rotation_inc = Basis(horizontal_axis, -ROT_CHANGE_SPEED*delta)
 		
-		var new_transform = Simulation.global_transform
+		var new_transform = $SimParent.global_transform
 		new_transform.basis = rotation_inc * new_transform.basis
-		Simulation.global_transform = new_transform
+		$SimParent.global_transform = new_transform
 		
 	if _rot_increasing_y:
-		Simulation.rotate_y(ROT_CHANGE_SPEED*delta)
+		$SimParent.rotate_y(ROT_CHANGE_SPEED*delta)
 		
 	if _rot_decreasing_y:
-		Simulation.rotate_y(-ROT_CHANGE_SPEED*delta)
+		$SimParent.rotate_y(-ROT_CHANGE_SPEED*delta)
 
 	
 func _handle_constant_scaling(delta: float):

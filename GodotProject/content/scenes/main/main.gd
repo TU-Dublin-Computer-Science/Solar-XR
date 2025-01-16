@@ -103,6 +103,7 @@ const FOCUS_MOVE_SPEED = 200
 var _moving_to_focus: bool = false
 var _scaling_to_focus: bool = false
 
+
 # Move
 var _moving_up: bool = false
 var _moving_down: bool = false

@@ -68,15 +68,19 @@ func _instantiate_body(body_data: Variant):
 
 	add_child(_sun)
 	
-	for satellite_name in body_data["satellites"]:
+	_add_satellites(_sun, body_data["satellites"])
+	
+
+func _add_satellites(central_body: Body, satellite_array: Array):
+	for satellite_name in satellite_array:
 		var satellite_data_path = "res://content/data/bodies/%s.json" % satellite_name
 		var satellite_data = _read_json_file(satellite_data_path)
 		
 		# This distance chosen for now as Neptune is this far away from Sun
 		if satellite_data["semimajor_axis"] < 4500000000: 
 			
-			var body = BodyScn.instantiate()
-			body.init(	satellite_data["ID"],
+			var satellite_body = BodyScn.instantiate()
+			satellite_body.init(	satellite_data["ID"],
 						satellite_data["name"],
 						satellite_data["model_path"], 
 						satellite_data["radius"], 
@@ -86,10 +90,11 @@ func _instantiate_body(body_data: Variant):
 						model_scalar,
 						camera,
 						true)
-
 			
+			_add_satellites(satellite_body, satellite_data["satellites"])
+
 			var orbit = OrbitScn.instantiate()
-			orbit.init(	body, 
+			orbit.init(	satellite_body, 
 						satellite_data["semimajor_axis"],
 						satellite_data["eccentricity"], 
 						satellite_data["argument_periapsis"],
@@ -102,7 +107,8 @@ func _instantiate_body(body_data: Variant):
 						camera,)
 
 			_planet_orbit_array.append(orbit)
-			add_child(orbit)
+			central_body.add_child(orbit)
+
 
 func _read_json_file(file_path: String) -> Dictionary:
 	var file = FileAccess.open(file_path, FileAccess.READ)

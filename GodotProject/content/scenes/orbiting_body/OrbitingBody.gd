@@ -1,5 +1,7 @@
 extends Node3D
+class_name OrbitingBody
 
+const OrbitingBodyScn = preload("res://content/scenes/orbiting_body/OrbitingBody.tscn")
 const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tres")
 
 const ORBIT_POINTS: float = 1024 # Greater the number the smoother the orbit visuals
@@ -9,9 +11,16 @@ const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
 var julian_time: float:
 	set(value):
 		julian_time = value
+		"""
 		if _initialised:
 			_update_body_position()
-
+		"""
+		
+var ID: int
+var _name: String
+var radius: float
+var _rotation_factor: float
+var _model_scene: PackedScene
 var _semimajor_axis: float
 var _eccentricity: float
 var _arg_periapsis: float  # Radians
@@ -20,47 +29,72 @@ var _inclination: float    # Radians
 var _lon_ascending_node: float  # Radians
 var _orbital_period: float
 
-var body: Body
 var _model_scalar: float
 var _camera: XRCamera3D = null
 
+var _rotation_enabled: bool = false
 var _initialised: bool = false
 
-func init(	p_body: Node3D, 
-			p_semimajor_axis: float,
-			p_eccentricity: float,
-			p_arg_periapsis: float,
-			p_mean_anomaly: float,
-			p_inclination: float, 
-			p_lon_ascending_node: float,
-			p_orbital_period: float,
-			p_julian_time: float,
-			p_model_scalar: float,
-			p_camera: XRCamera3D):
+var _total_rotation: float = 0
 
-	body = p_body
-	_semimajor_axis = p_semimajor_axis * p_model_scalar
-	_eccentricity = p_eccentricity
-	_arg_periapsis = deg_to_rad(p_arg_periapsis)
-	_mean_anomaly = deg_to_rad(p_mean_anomaly)
-	_inclination = deg_to_rad(p_inclination)
-	_lon_ascending_node = deg_to_rad(p_lon_ascending_node)
-	_orbital_period = p_orbital_period
-
-	julian_time = p_julian_time
-	_model_scalar = p_model_scalar	
+func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
+	var body_data_path = "res://content/data/bodies/%s.json" % body_name
+	var body_data = _read_json_file(body_data_path)
+	
 	_camera = p_camera
+	_model_scalar = p_model_scalar
+	
+	ID = body_data["ID"]
+	_name = body_data["name"]
+	radius = body_data["radius"] * p_model_scalar
+	
+	if body_data["rotation_factor"] != -1:
+		_rotation_factor = body_data["rotation_factor"]
+		_rotation_enabled = true
+
+	if body_data["model_path"] != "":
+		_model_scene = load(body_data["model_path"])
+	else:
+		_model_scene = load("res://content/scenes/model_scenes/default_moon.tscn")
+	
+	_semimajor_axis = body_data["semimajor_axis"] * p_model_scalar
+	_eccentricity = body_data["eccentricity"]
+	_arg_periapsis = deg_to_rad(body_data["argument_periapsis"])
+	_mean_anomaly = deg_to_rad(body_data["mean_anomaly"])
+	_inclination = deg_to_rad(body_data["inclination"])
+	_lon_ascending_node = deg_to_rad(body_data["lon_ascending_node"])
+	_orbital_period = body_data["orbital_period"]
+	
+	# TODO Julian time?
+	# TODO _setup_info_nodes
+	_setup_body()
 	
 	_orient_orbital_plane()
 	
-	_draw_orbit_visual()
-
-	%OrbitalPlane.add_child(body)
+	if body_data["semimajor_axis"] != -1:
+		_draw_orbit_visual()
 	
 	_update_body_position()
 	
-	_initialised = true
+	for orbiting_body_name in body_data["satellites"]:
+		var orbiting_body = OrbitingBodyScn.instantiate()
+		orbiting_body.init(orbiting_body_name, _camera, _model_scalar)
+		%Body.add_child(orbiting_body)
 	
+	_initialised = true
+
+func _setup_body():
+	%Label.visible = true
+	%Label/LlbName.text = _name
+	%Label.transform.origin.y += radius
+	
+	var _model = _model_scene.instantiate()
+	add_child(_model)
+	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
+	
+	if _rotation_enabled:
+		_update_model_rotation()
+
 
 func _orient_orbital_plane(): 
 	%OrbitalPlane.transform.basis = Basis()  #Reset to initial orientation
@@ -109,10 +143,18 @@ func get_orbit_point(angle: float):
 	return Vector3(x, 0, z)
 
 
+func _update_model_rotation():		
+	var new_rotation = deg_to_rad(_rotation_factor * julian_time)
+	var rot_angle = new_rotation - _total_rotation
+	rotate_y(rot_angle)
+
+	_total_rotation = new_rotation
+
+
 func _update_body_position():
 	var true_anomaly = _get_true_anomaly()
 
-	body.position = get_orbit_point(true_anomaly)
+	%Body.position = get_orbit_point(true_anomaly)
 
 
 func _get_true_anomaly():
@@ -145,3 +187,24 @@ func _solve_keplers_equation(mean_anomaly, eccentricity):
 			break
 		eccentric_anomaly -= delta / (1 - eccentricity * cos(eccentric_anomaly))
 	return eccentric_anomaly
+
+
+func _read_json_file(file_path: String) -> Dictionary:
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	
+	if file == null:
+		print("Failed to open file: ", file_path)
+		return {}
+	
+	var json_string = file.get_as_text()  # Read the file as text
+	file.close()  # Close the file after reading
+
+	# Parse JSON
+	var json_data = JSON.new()
+	var error = json_data.parse(json_string)
+	
+	if error != OK:
+		print("Failed to parse JSON: ", json_data.error_string)
+		return {}
+
+	return json_data.data  # Returns the parsed dictionary

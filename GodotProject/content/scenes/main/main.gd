@@ -81,7 +81,7 @@ var _sim_time_live: bool:
 		MainMenu.time_live_readout = value
 
 
-var _focused_body: Body:
+var _focused_body: OrbitingBody:
 	set(value):
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID

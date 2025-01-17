@@ -1,7 +1,7 @@
 extends Node
 
-const BodyScn = preload("res://content/scenes/body/body.tscn")
-const OrbitScn = preload("res://content/scenes/orbit/orbit.tscn")
+const OrbitingBodyScn = preload("res://content/scenes/orbiting_body/OrbitingBody.tscn")
+const SUN_RADIUS = 696340 # TODO Read this value from json instead
 
 @export var camera: XRCamera3D = null
 
@@ -25,15 +25,17 @@ var info_nodes: Array[Node3D]
 var model_scalar
 var focused_body
 
-var _sun: Body
+var _sun: OrbitingBody
 var _planet_orbit_array = []
 
 
 func init():
-	var sun_path = "res://content/data/bodies/sun.json"
-	var sun_data = _read_json_file(sun_path)
+	model_scalar = 0.5 / SUN_RADIUS
 	
-	_instantiate_body(sun_data)
+	_sun = OrbitingBodyScn.instantiate()
+	_sun.init("sun", camera, model_scalar)
+	add_child(_sun)
+	
 
 
 func get_body(ID: int):
@@ -43,34 +45,9 @@ func get_body(ID: int):
 		for orbit in _planet_orbit_array:
 			if ID == orbit.body.ID:
 				return orbit.body
-
-
-func _instantiate_body(body_data: Variant):
-
-	if not body_data:
-		return
 	
-	model_scalar = 0.5 / body_data["radius"]
-
-	_sun = BodyScn.instantiate()
-	_sun.init(	body_data["ID"],
-				body_data["name"],
-				body_data["model_path"], 
-				body_data["radius"],
-				body_data["rotation_factor"],
-				body_data["info_points"],
-				_unix_to_julian(time),
-				model_scalar,
-				camera,
-				false)
 	
-	info_nodes = _sun.info_nodes
-
-	add_child(_sun)
-	
-	_add_satellites(_sun, body_data["satellites"])
-	
-
+"""
 func _add_satellites(central_body: Body, satellite_array: Array):
 	for satellite_name in satellite_array:
 		var satellite_data_path = "res://content/data/bodies/%s.json" % satellite_name
@@ -110,26 +87,8 @@ func _add_satellites(central_body: Body, satellite_array: Array):
 			central_body.add_child(orbit)
 
 
-func _read_json_file(file_path: String) -> Dictionary:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	
-	if file == null:
-		print("Failed to open file: ", file_path)
-		return {}
-	
-	var json_string = file.get_as_text()  # Read the file as text
-	file.close()  # Close the file after reading
 
-	# Parse JSON
-	var json_data = JSON.new()
-	var error = json_data.parse(json_string)
-	
-	if error != OK:
-		print("Failed to parse JSON: ", json_data.error_string)
-		return {}
-
-	return json_data.data  # Returns the parsed dictionary
-
+"""
 
 func _unix_to_julian(unix_time: float):
 	var greg_date = Time.get_datetime_dict_from_unix_time(unix_time)

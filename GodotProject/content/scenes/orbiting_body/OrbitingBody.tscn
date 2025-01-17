@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy2tcoqvgf0gl"]
+
+[ext_resource type="Script" path="res://content/scenes/orbiting_body/OrbitingBody.gd" id="1_wms6u"]
+[ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_el1vm"]
+[ext_resource type="Texture2D" uid="uid://fuax0i6343le" path="res://content/assets/sprites/Arrow.png" id="3_jbmpu"]
+
+[node name="Orbit" type="Node3D"]
+script = ExtResource("1_wms6u")
+
+[node name="OrbitalPlane" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Body" type="Node3D" parent="OrbitalPlane"]
+unique_name_in_owner = true
+
+[node name="Label" type="Node3D" parent="OrbitalPlane/Body"]
+unique_name_in_owner = true
+visible = false
+
+[node name="LlbName" type="Label3D" parent="OrbitalPlane/Body/Label"]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.0508113, 0)
+text = "Label"
+font = ExtResource("2_el1vm")
+
+[node name="Sprite3D" type="Sprite3D" parent="OrbitalPlane/Body/Label"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.0150932, 0)
+texture = ExtResource("3_jbmpu")

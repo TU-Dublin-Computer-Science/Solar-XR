@@ -7,9 +7,11 @@
     "central_body": "Sun",
     "semimajor_axis": -1,
     "eccentricity": -1,
+    "argument_periapsis": -1,
     "mean_anomaly": -1,
     "inclination": -1,
     "orbital_period": -1,
+    "lon_ascending_node": -1,
     "info_points": [],
     "satellites": [
         "mercury",

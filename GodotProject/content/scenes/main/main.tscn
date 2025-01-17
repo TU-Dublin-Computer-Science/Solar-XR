@@ -51,7 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
 
 [node name="Simulation" parent="SimParent" instance=ExtResource("12_7npen")]
 unique_name_in_owner = true
-time = 0.0
 
 [node name="MainMenuTracker" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)

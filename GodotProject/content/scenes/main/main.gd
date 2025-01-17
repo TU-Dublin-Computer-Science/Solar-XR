@@ -22,10 +22,10 @@ const MOVE_SPEED = 10
 
 const ROT_CHANGE_SPEED = 1
 
-const MIN_SIM_SCALE: float = 0
+const MIN_SIM_SCALE: float = 0.01
 const MAX_SIM_SCALE: float = 100
 const DEFAULT_SIM_SCALE: float = 1
-const SCALE_CHANGE_SPEED = 10
+const SCALE_CHANGE_SPEED = 1
 
 const MIN_TIME_SCALAR = -6000
 const MAX_TIME_SCALAR = 6000
@@ -95,10 +95,11 @@ var _focused_body: OrbitingBody:
 		focus_sim_move_speed = local_focused.length() / FOCUS_TIME
 	
 		focus_sim_scale_target =  0.5 / _focused_body.radius 
-		focus_sim_scale_speed = abs(focus_sim_scale_target - _sim_scale) / FOCUS_TIME
+		focus_sim_scale_speed = abs(focus_sim_scale_target - _sim_scale) / ZOOM_TIME
 		
-		_moving_to_focus = true
-		_scaling_to_focus = true
+		_zoom_out_speed = abs(ZOOM_OUT_TARGET - _sim_scale) / ZOOM_TIME
+		_zooming_out = true
+		
 
 var focus_sim_move_target: Vector3
 var focus_sim_move_dir: Vector3
@@ -108,6 +109,11 @@ var focus_sim_scale_target: float
 var focus_sim_scale_speed: float
 
 const FOCUS_TIME = 1
+const ZOOM_TIME = 2
+const ZOOM_OUT_TARGET = 0.05
+var _zoom_out_speed: float
+
+var _zooming_out: bool = false
 var _moving_to_focus: bool = false
 var _scaling_to_focus: bool = false
 
@@ -178,24 +184,32 @@ func _check_if_player_moved():
 
 
 func _handle_focus_on_body(delta: float):
-	if _moving_to_focus:	
-		if Simulation.position.distance_to(focus_sim_move_target) < 5: # Body focused
-			_moving_to_focus = false
+	if _zooming_out:
+		if abs(ZOOM_OUT_TARGET - _sim_scale) < 0.1:
+			_sim_scale = ZOOM_OUT_TARGET
+			_zooming_out = false
+			_moving_to_focus = true
+			print("Zoom Out Finished")	
+		else:
+			_sim_scale -= _zoom_out_speed * delta	
+	elif _moving_to_focus:	
+		if Simulation.position.distance_to(focus_sim_move_target) < 5: # Body focused			
 			Simulation.position = focus_sim_move_target
+			_moving_to_focus = false
+			_scaling_to_focus = true
 			print("Focus Move Finished")
 		else:
 			# Moving the simulation so that the focused body's position is at the origin of SimParent
 			Simulation.position += focus_sim_move_dir * focus_sim_move_speed * delta
-	
-	if _scaling_to_focus:
+	elif _scaling_to_focus:
 		if abs(focus_sim_scale_target - _sim_scale) < 1:
-			_scaling_to_focus = false
 			_sim_scale = focus_sim_scale_target
+			_scaling_to_focus = false			
 			print("Focus Scale Finished")
 		else:
 			var scale_direction = sign(focus_sim_scale_target - _sim_scale)
 			_sim_scale += scale_direction * focus_sim_scale_speed * delta
-	
+
 	
 func _reset_state():
 	

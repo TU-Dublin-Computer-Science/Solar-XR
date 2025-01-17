@@ -86,7 +86,7 @@ var _focused_body: OrbitingBody:
 		_focused_body = value
 		MainMenu.focused_body_ID = _focused_body.ID
 		
-		var local_focused: Vector3 = $SimParent.to_local(_focused_body.global_position)
+		var local_focused: Vector3 = $SimParent.to_local(_focused_body.body.global_position)
 		
 		#  Below calculates the target, and direction to move to reach said target, that the simulation
 		#  should move to in order for the focused object to come into view.

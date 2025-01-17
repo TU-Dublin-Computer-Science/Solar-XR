@@ -35,60 +35,16 @@ func init():
 	_sun = OrbitingBodyScn.instantiate()
 	_sun.init("sun", camera, model_scalar)
 	add_child(_sun)
-	
 
 
 func get_body(ID: int):
 	if ID == Mappings.planet_ID["Sun"]:
 		return _sun
 	else:
-		for orbit in _planet_orbit_array:
-			if ID == orbit.body.ID:
-				return orbit.body
-	
-	
-"""
-func _add_satellites(central_body: Body, satellite_array: Array):
-	for satellite_name in satellite_array:
-		var satellite_data_path = "res://content/data/bodies/%s.json" % satellite_name
-		var satellite_data = _read_json_file(satellite_data_path)
-		
-		# This distance chosen for now as Neptune is this far away from Sun
-		if satellite_data["semimajor_axis"] < 4500000000: 
-			
-			var satellite_body = BodyScn.instantiate()
-			satellite_body.init(	satellite_data["ID"],
-						satellite_data["name"],
-						satellite_data["model_path"], 
-						satellite_data["radius"], 
-						satellite_data["rotation_factor"],
-						satellite_data["info_points"],
-						_unix_to_julian(time),
-						model_scalar,
-						camera,
-						true)
-			
-			_add_satellites(satellite_body, satellite_data["satellites"])
+		for orbiting_body in _sun.orbiting_bodies:
+			if ID == orbiting_body.ID:
+				return orbiting_body
 
-			var orbit = OrbitScn.instantiate()
-			orbit.init(	satellite_body, 
-						satellite_data["semimajor_axis"],
-						satellite_data["eccentricity"], 
-						satellite_data["argument_periapsis"],
-						satellite_data["mean_anomaly"],
-						satellite_data["inclination"],
-						satellite_data["lon_ascending_node"],
-						satellite_data["orbital_period"], 
-						_unix_to_julian(time),
-						model_scalar,
-						camera,)
-
-			_planet_orbit_array.append(orbit)
-			central_body.add_child(orbit)
-
-
-
-"""
 
 func _unix_to_julian(unix_time: float):
 	var greg_date = Time.get_datetime_dict_from_unix_time(unix_time)

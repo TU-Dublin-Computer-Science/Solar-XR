@@ -11,16 +11,18 @@ const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
 var julian_time: float:
 	set(value):
 		julian_time = value
-		"""
 		if _initialised:
+			for orbiting_body in orbiting_bodies:
+				orbiting_body.julian_time = value
+			
 			_update_body_position()
-		"""
 		
 var ID: int
 var _name: String
 var radius: float
 var _rotation_factor: float
 var _model_scene: PackedScene
+var _central_body_name: String
 var _semimajor_axis: float
 var _eccentricity: float
 var _arg_periapsis: float  # Radians
@@ -34,8 +36,16 @@ var _camera: XRCamera3D = null
 
 var _rotation_enabled: bool = false
 var _initialised: bool = false
+var _orbiting: bool = false
 
 var _total_rotation: float = 0
+
+var orbiting_bodies = []
+@onready var body = %Body
+
+func _process(delta: float) -> void:
+	_billboard_label()
+
 
 func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 	var body_data_path = "res://content/data/bodies/%s.json" % body_name
@@ -57,6 +67,8 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 	else:
 		_model_scene = load("res://content/scenes/model_scenes/default_moon.tscn")
 	
+	_central_body_name = body_data["central_body"]
+	
 	_semimajor_axis = body_data["semimajor_axis"] * p_model_scalar
 	_eccentricity = body_data["eccentricity"]
 	_arg_periapsis = deg_to_rad(body_data["argument_periapsis"])
@@ -65,31 +77,42 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 	_lon_ascending_node = deg_to_rad(body_data["lon_ascending_node"])
 	_orbital_period = body_data["orbital_period"]
 	
+	_orbiting = (_semimajor_axis != -1 and 
+				_eccentricity != -1 and 
+				_arg_periapsis != -1 and 
+				_mean_anomaly != -1 and 
+				_inclination != -1 and
+				_lon_ascending_node != -1 and
+				_orbital_period != -1)
+	
 	# TODO Julian time?
 	# TODO _setup_info_nodes
 	_setup_body()
 	
 	_orient_orbital_plane()
 	
-	if body_data["semimajor_axis"] != -1:
+	if _orbiting:
 		_draw_orbit_visual()
 	
-	_update_body_position()
-	
+
 	for orbiting_body_name in body_data["satellites"]:
 		var orbiting_body = OrbitingBodyScn.instantiate()
 		orbiting_body.init(orbiting_body_name, _camera, _model_scalar)
+		orbiting_bodies.append(orbiting_body)
 		%Body.add_child(orbiting_body)
 	
 	_initialised = true
 
+
 func _setup_body():
-	%Label.visible = true
+	if _central_body_name == "Sun":
+		%Label.visible = true
+	
 	%Label/LlbName.text = _name
 	%Label.transform.origin.y += radius
 	
 	var _model = _model_scene.instantiate()
-	add_child(_model)
+	%Body.add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	
 	if _rotation_enabled:
@@ -152,9 +175,10 @@ func _update_model_rotation():
 
 
 func _update_body_position():
-	var true_anomaly = _get_true_anomaly()
+	if _orbiting:
+		var true_anomaly = _get_true_anomaly()
 
-	%Body.position = get_orbit_point(true_anomaly)
+		%Body.position = get_orbit_point(true_anomaly)
 
 
 func _get_true_anomaly():
@@ -177,6 +201,7 @@ func _get_true_anomaly():
 	
 	return true_anomaly
 
+
 # Solve Kepler's equation iteratively
 func _solve_keplers_equation(mean_anomaly, eccentricity):
 	var eccentric_anomaly = mean_anomaly  # Initial guess: E ≈ M
@@ -187,6 +212,16 @@ func _solve_keplers_equation(mean_anomaly, eccentricity):
 			break
 		eccentric_anomaly -= delta / (1 - eccentricity * cos(eccentric_anomaly))
 	return eccentric_anomaly
+
+
+func _billboard_label():
+	if _initialised and _camera != null:
+		%Label.look_at(_camera.global_transform.origin, Vector3.UP)
+		
+		# Scale up as model gets further away
+		var scale_change = %Label.global_position.distance_to(_camera.global_position)
+		
+		%Label.scale = Vector3(scale_change, scale_change, scale_change)
 
 
 func _read_json_file(file_path: String) -> Dictionary:

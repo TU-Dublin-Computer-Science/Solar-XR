@@ -13,17 +13,17 @@ unique_name_in_owner = true
 [node name="Body" type="Node3D" parent="OrbitalPlane"]
 unique_name_in_owner = true
 
-[node name="LabelPos" type="Node3D" parent="OrbitalPlane/Body"]
+[node name="LabelParent" type="Node3D" parent="OrbitalPlane/Body"]
 unique_name_in_owner = true
 
-[node name="Label" type="Node3D" parent="OrbitalPlane/Body/LabelPos"]
+[node name="Label" type="Node3D" parent="OrbitalPlane/Body/LabelParent"]
 unique_name_in_owner = true
 
-[node name="LlbName" type="Label3D" parent="OrbitalPlane/Body/LabelPos/Label"]
+[node name="LlbName" type="Label3D" parent="OrbitalPlane/Body/LabelParent/Label"]
 transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0, 0.0508113, 0)
 text = "Label"
 font = ExtResource("2_el1vm")
 
-[node name="Sprite3D" type="Sprite3D" parent="OrbitalPlane/Body/LabelPos/Label"]
+[node name="Sprite3D" type="Sprite3D" parent="OrbitalPlane/Body/LabelParent/Label"]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.0150932, 0)
 texture = ExtResource("3_jbmpu")

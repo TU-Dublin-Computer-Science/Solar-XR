@@ -20,7 +20,7 @@ var julian_time: float:
 var label_scale: float:
 	set(value):
 		label_scale = value
-		%Label.scale = Vector3(label_scale, label_scale, label_scale)
+		%LabelParent.scale = Vector3(label_scale, label_scale, label_scale)
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.label_scale = label_scale
 		
@@ -113,7 +113,7 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 
 func _setup_body():
 	%Label/LlbName.text = _name
-	%LabelPos.transform.origin.y += radius
+	%LabelParent.transform.origin.y += radius
 	
 	var _model = _model_scene.instantiate()
 	%Body.add_child(_model)
@@ -223,9 +223,9 @@ func _billboard_label():
 		%Label.look_at(_camera.global_transform.origin, Vector3.UP)
 		
 		# Scale up as model gets further away
-		#var scale_change = %Label.global_position.distance_to(_camera.global_position)
+		var scale_change = %Label.global_position.distance_to(_camera.global_position)
 		
-		#%Label.scale = Vector3(scale_change, scale_change, scale_change)
+		%Label.scale = Vector3(scale_change, scale_change, scale_change)
 
 
 func _read_json_file(file_path: String) -> Dictionary:

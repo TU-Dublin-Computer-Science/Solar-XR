@@ -107,13 +107,15 @@ enum FocusState {
 	ZOOM_OUT,
 	MOVE,
 	ZOOM_IN,
+	WAIT,
 	FOCUSED
 }
 
 var _focus_state: FocusState = FocusState.FOCUSED
 
 const FOCUS_MOVE_TIME: float = 1
-const FOCUS_ZOOM_TIME: float = 2
+const FOCUS_ZOOM_TIME: float = 1.2
+const FOCUS_WAIT_TIME: float = 0.2
 const FOCUS_ZOOM_OUT_TARGET = 0.05
 
 var focus_zoom_out_speed: float
@@ -190,33 +192,42 @@ func _check_if_player_moved():
 		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 
+var _wait_timer: float = 0
+var _action_after_wait: FocusState
 func _handle_focus_on_body(delta: float):
 	match(_focus_state):
 		FocusState.ZOOM_OUT:
-			if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
-				_sim_scale -= focus_zoom_out_speed * delta
-			else:
+			if _sim_scale <= FOCUS_ZOOM_OUT_TARGET:
 				_sim_scale = FOCUS_ZOOM_OUT_TARGET
-				_focus_state = FocusState.MOVE
-				print("Focus Zoom Out Finished")
+				
+				_action_after_wait = FocusState.MOVE
+				_wait_timer = 0
+				_focus_state = FocusState.WAIT
+			else:
+				_sim_scale -= focus_zoom_out_speed * delta	
 		FocusState.MOVE:
 			var step = focus_sim_move_dir * focus_sim_move_speed * delta
 			# Check if at target, accounting for overshooting
 			if step.length() >= Simulation.position.distance_to(focus_sim_move_target):
 				Simulation.position = focus_sim_move_target
-				_focus_state = FocusState.ZOOM_IN
-				print("Focus Move Finished")		
+				
+				_action_after_wait = FocusState.ZOOM_IN
+				_wait_timer = 0
+				_focus_state = FocusState.WAIT
 			else:
 				Simulation.position += step
-				
 		FocusState.ZOOM_IN:
-			if _sim_scale <= focus_zoom_in_target:
-				_sim_scale += focus_zoom_in_speed * delta
-			else:
+			if _sim_scale >= focus_zoom_in_target:
 				_sim_scale = focus_zoom_in_target
+				
 				_focus_state = FocusState.FOCUSED
-				print("Focus Zoom In Finished")
-				print("------")
+			else:
+				_sim_scale += focus_zoom_in_speed * delta
+		FocusState.WAIT:
+			if _wait_timer >= FOCUS_WAIT_TIME:
+				_focus_state = _action_after_wait
+			else:
+				_wait_timer += delta
 
 
 func _reset_state():

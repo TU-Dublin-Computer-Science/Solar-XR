@@ -16,6 +16,13 @@ var julian_time: float:
 				orbiting_body.julian_time = value
 			
 			_update_body_position()
+
+var label_scale: float:
+	set(value):
+		label_scale = value
+		%Label.scale = Vector3(label_scale, label_scale, label_scale)
+		for orbiting_body in orbiting_bodies:
+			orbiting_body.label_scale = label_scale
 		
 var ID: int
 var _name: String
@@ -43,7 +50,7 @@ var _total_rotation: float = 0
 var orbiting_bodies = []
 @onready var body = %Body
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_billboard_label()
 
 
@@ -93,7 +100,6 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 	
 	if _orbiting:
 		_draw_orbit_visual()
-	
 
 	for orbiting_body_name in body_data["satellites"]:
 		var orbiting_body = OrbitingBodyScn.instantiate()
@@ -105,11 +111,8 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 
 
 func _setup_body():
-	if _central_body_name == "Sun":
-		%Label.visible = true
-	
 	%Label/LlbName.text = _name
-	%Label.transform.origin.y += radius
+	%LabelPos.transform.origin.y += radius
 	
 	var _model = _model_scene.instantiate()
 	%Body.add_child(_model)
@@ -123,7 +126,7 @@ func _orient_orbital_plane():
 	%OrbitalPlane.transform.basis = Basis()  #Reset to initial orientation
 	
 	# Rotate orbital plane around the equatorial plane y axis (The Polar Axis)
-	%OrbitalPlane.rotate(Vector3(0,1,0), _lon_ascending_node)
+	%OrbitalPlane.rotate(Vector3(0 ,1, 0), _lon_ascending_node)
 	
 	# Rotate orbital plane around the orbital plane x-axis (Line of Ascending Node)
 	%OrbitalPlane.rotate_object_local(Vector3(1, 0, 0), _inclination)
@@ -219,9 +222,9 @@ func _billboard_label():
 		%Label.look_at(_camera.global_transform.origin, Vector3.UP)
 		
 		# Scale up as model gets further away
-		var scale_change = %Label.global_position.distance_to(_camera.global_position)
+		#var scale_change = %Label.global_position.distance_to(_camera.global_position)
 		
-		%Label.scale = Vector3(scale_change, scale_change, scale_change)
+		#%Label.scale = Vector3(scale_change, scale_change, scale_change)
 
 
 func _read_json_file(file_path: String) -> Dictionary:

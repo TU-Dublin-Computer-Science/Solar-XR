@@ -12,10 +12,13 @@ const SUN_RADIUS = 696340 # TODO Read this value from json instead
 
 		if _sun:
 			_sun.julian_time = _unix_to_julian(time)
-			
-		if _planet_orbit_array:
-			for orbit in _planet_orbit_array:
-				orbit.julian_time = _unix_to_julian(time)
+
+@export var label_scale: float:
+	set(value):
+		label_scale = value
+		
+		if _sun:
+			_sun.label_scale = label_scale
 
 var info_nodes: Array[Node3D]
 
@@ -26,8 +29,6 @@ var model_scalar
 var focused_body
 
 var _sun: OrbitingBody
-var _planet_orbit_array = []
-
 
 func init():
 	model_scalar = 0.5 / SUN_RADIUS

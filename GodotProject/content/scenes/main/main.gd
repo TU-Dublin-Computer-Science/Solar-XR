@@ -43,6 +43,7 @@ var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
 		$SimParent.scale = Vector3(value, value, value)
+		Simulation.label_scale = 1 / _sim_scale
 		MainMenu.scale_readout = Simulation.model_scalar * value
 
 

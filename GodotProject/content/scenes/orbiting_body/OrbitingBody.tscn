@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_el1vm"]
 [ext_resource type="Texture2D" uid="uid://fuax0i6343le" path="res://content/assets/sprites/Arrow.png" id="3_jbmpu"]
 
-[node name="Orbit" type="Node3D"]
+[node name="OrbitingBody" type="Node3D"]
 script = ExtResource("1_wms6u")
 
 [node name="OrbitalPlane" type="Node3D" parent="."]

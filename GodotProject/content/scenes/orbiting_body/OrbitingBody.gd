@@ -51,6 +51,7 @@ var orbiting_bodies = []
 @onready var body = %Body
 
 func _process(_delta: float) -> void:
+	#DebugDraw3D.draw_sphere(%Body.global_position, radius * 3, Color.RED, _delta)
 	_billboard_label()
 
 
@@ -202,7 +203,7 @@ func _get_true_anomaly():
 	# 3: Calculate the true anomaly (this is the actual value, not the mean)
 	var true_anomaly = 2 * atan(sqrt((1 + _eccentricity) / (1 - _eccentricity)) * tan(eccentric_anomaly / 2))	
 	
-	return true_anomaly
+	return fmod(true_anomaly + TAU, TAU)  #Return a positive value between 0 and 2π
 
 
 # Solve Kepler's equation iteratively

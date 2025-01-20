@@ -88,18 +88,20 @@ var _focused_body: OrbitingBody:
 		
 		var local_focused: Vector3 = $SimParent.to_local(_focused_body.body.global_position)
 		
-		#  Below calculates the target, and direction to move to reach said target, that the simulation
-		#  should move to in order for the focused object to come into view.
-		focus_sim_move_target = Simulation.position - local_focused  
-		focus_sim_move_dir = -local_focused.normalized()
-		focus_sim_move_speed = local_focused.length() / FOCUS_TIME
-	
-		focus_zoom_in_target =  0.5 / _focused_body.radius 
-		focus_zoom_in_speed = abs(focus_zoom_in_target - _sim_scale) / ZOOM_TIME
+		if local_focused != Vector3.ZERO:  #If Focused body isn't at center
 		
-		focus_zoom_out_speed = abs(ZOOM_OUT_TARGET - _sim_scale) / ZOOM_TIME
+			#  Below calculates the target, and direction to move to reach said target, that the simulation
+			#  should move to in order for the focused object to come into view.
+			focus_sim_move_target = Simulation.position - local_focused  
+			focus_sim_move_dir = -local_focused.normalized()
+			focus_sim_move_speed = local_focused.length() / FOCUS_MOVE_TIME
 		
-		_focus_state = FocusState.ZOOM_OUT
+			focus_zoom_in_target =  0.5 / _focused_body.radius 
+			focus_zoom_in_speed = abs(focus_zoom_in_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
+			
+			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
+			
+			_focus_state = FocusState.ZOOM_OUT
 
 enum FocusState {
 	ZOOM_OUT,
@@ -110,9 +112,9 @@ enum FocusState {
 
 var _focus_state: FocusState = FocusState.FOCUSED
 
-const FOCUS_TIME = 1
-const ZOOM_TIME = 2
-const ZOOM_OUT_TARGET = 0.05
+const FOCUS_MOVE_TIME = 1
+const FOCUS_ZOOM_TIME = 2
+const FOCUS_ZOOM_OUT_TARGET = 0.05
 
 var focus_zoom_out_speed: float
 
@@ -191,14 +193,16 @@ func _check_if_player_moved():
 func _handle_focus_on_body(delta: float):
 	match(_focus_state):
 		FocusState.ZOOM_OUT:
-			if abs(ZOOM_OUT_TARGET - _sim_scale) > 0.1:
+			if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
 				_sim_scale -= focus_zoom_out_speed * delta
 			else:
-				_sim_scale = ZOOM_OUT_TARGET
+				_sim_scale = FOCUS_ZOOM_OUT_TARGET
 				_focus_state = FocusState.MOVE
-				print("Zoom Out Finished")
+				print("Focus Zoom Out Finished")
 		FocusState.MOVE:
-			if Simulation.position.distance_to(focus_sim_move_target) > 5: # Body focused			
+			#if	Simulation.position.length() < focus_sim_move_target.length() and Simulation.position.dot(focus_sim_move_target) <= 0:
+			
+			if Simulation.position.distance_to(focus_sim_move_target) > 5: 
 				# Moving the simulation so that the focused body's position is at the origin of SimParent
 				Simulation.position += focus_sim_move_dir * focus_sim_move_speed * delta
 			else:
@@ -206,12 +210,13 @@ func _handle_focus_on_body(delta: float):
 				_focus_state = FocusState.ZOOM_IN
 				print("Focus Move Finished")
 		FocusState.ZOOM_IN:
-			if abs(focus_zoom_in_target - _sim_scale) > 1:
+			if _sim_scale <= focus_zoom_in_target:
 				_sim_scale += focus_zoom_in_speed * delta
 			else:
 				_sim_scale = focus_zoom_in_target
 				_focus_state = FocusState.FOCUSED
-				print("Focus Scale Finished")
+				print("Focus Zoom In Finished")
+				print("------")
 
 
 func _reset_state():

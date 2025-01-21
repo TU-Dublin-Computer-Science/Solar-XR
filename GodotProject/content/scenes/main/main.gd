@@ -85,24 +85,13 @@ var _sim_time_live: bool:
 		MainMenu.time_live_readout = value
 
 
-var _focused_body_id: int:
+var _focused_body: OrbitingBody:
 	set(value):
-		_focused_body_id = value
-		MainMenu.focused_body_ID = _focused_body_id
+		_focused_body = value
 		
-		var focused_body: OrbitingBody
+		MainMenu.focused_body_ID = _focused_body.ID
 		
-		if _focused_body_id == Mappings.planet_ID["Sun"]:
-			focused_body = %CentralBody
-		else:
-			for orbiting_body in %CentralBody.orbiting_bodies:
-				if _focused_body_id == orbiting_body.ID:
-					focused_body = orbiting_body
-		
-		if not focused_body:
-			return
-		
-		var local_focused: Vector3 = %Simulation.to_local(focused_body.body.global_position)
+		var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
 		
 		if local_focused != Vector3.ZERO:  #If Focused body isn't at center
 		
@@ -112,12 +101,13 @@ var _focused_body_id: int:
 			focus_sim_move_dir = -local_focused.normalized()
 			focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / FOCUS_MOVE_TIME
 		
-			focus_zoom_in_target =  0.5 / focused_body.radius 
+			focus_zoom_in_target =  0.5 / _focused_body.radius 
 			focus_zoom_in_speed = abs(focus_zoom_in_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
 			
 			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
 			
 			_focus_state = FocusState.ZOOM_OUT
+
 
 enum FocusState {
 	ZOOM_OUT,
@@ -183,7 +173,9 @@ func _process(delta):
 	if not _sim_time_paused:
 		_sim_time += delta * _sim_time_scalar
 	
-	_handle_focus_on_body(delta)
+	_keep_focused_object_at_center()
+	
+	_handle_focus_body_transition(delta)
 	
 	_handle_constant_state_changes(delta)
 
@@ -215,9 +207,15 @@ func _check_if_player_moved():
 		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 
+func _keep_focused_object_at_center():
+	if _focused_body and _focus_state == FocusState.FOCUSED:
+		var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
+		%CentralBody.position =  %CentralBody.position - local_focused  
+
+
 var _wait_timer: float = 0
 var _action_after_wait: FocusState
-func _handle_focus_on_body(delta: float):
+func _handle_focus_body_transition(delta: float):
 	match(_focus_state):
 		FocusState.ZOOM_OUT:
 			if _sim_scale <= FOCUS_ZOOM_OUT_TARGET:
@@ -273,7 +271,20 @@ func _reset_state():
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 	"""
 	
-	_focused_body_id = Mappings.planet_ID["Sun"]
+	_focused_body = _get_body(Mappings.planet_ID["Sun"])
+
+
+func _get_body(ID: int):
+	var focused_body: OrbitingBody
+	
+	if ID == Mappings.planet_ID["Sun"]:
+		focused_body = %CentralBody
+	else:
+		for orbiting_body in %CentralBody.orbiting_bodies:
+			if ID == orbiting_body.ID:
+				focused_body = orbiting_body
+	
+	return focused_body
 
 
 func _initialise_time():
@@ -349,8 +360,8 @@ func _setup_time_signals():
 
 
 func _setup_planet_signals():
-	MainMenu.planet_change_pressed.connect(func(value):
-		_focused_body_id = value
+	MainMenu.planet_change_pressed.connect(func(ID):
+		_focused_body = _get_body(ID)
 	)
 
 

@@ -68,6 +68,7 @@ signal reset
 @onready var ControlMenu = $ControlMenu
 @onready var StartMenu = $StartMenu
 
+@onready var FPSCounter = %FPSCounter
 
 # Below values just used for information readout on menu 
 var pos_readout: Vector3:
@@ -144,6 +145,10 @@ func _ready() -> void:
 	_setup_start_menu()
 	_setup_control_menu()
 	remove_child(ControlMenu)
+
+func _process(delta: float) -> void:
+	if FPSCounter != null and FPSCounter.visible:
+		FPSCounter.text = "FPS: %d" % Engine.get_frames_per_second()    
 
 
 func _setup_start_menu():

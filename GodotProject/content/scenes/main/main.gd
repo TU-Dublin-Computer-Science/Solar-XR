@@ -87,7 +87,7 @@ var _sim_time_live: bool:
 
 var _focused_body: OrbitingBody:
 	set(value):
-		if _focused_body and _focused_body.ID != Mappings.planet_ID["Sun"]:
+		if _focused_body and _focused_body.ID != Mappings.planet_ID["sun"]:
 			_focused_body.satellites_visible = false  #Hide satellites on old focused body
 		_focused_body = value
 		
@@ -275,13 +275,13 @@ func _reset_state():
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 	"""
 	
-	_focused_body = _get_body(Mappings.planet_ID["Sun"])
+	_focused_body = _get_body(Mappings.planet_ID["sun"])
 
 
 func _get_body(ID: int):
 	var focused_body: OrbitingBody
 	
-	if ID == Mappings.planet_ID["Sun"]:
+	if ID == Mappings.planet_ID["sun"]:
 		focused_body = %CentralBody
 	else:
 		for orbiting_body in %CentralBody.orbiting_bodies:

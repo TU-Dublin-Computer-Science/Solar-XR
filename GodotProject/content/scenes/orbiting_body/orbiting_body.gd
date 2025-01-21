@@ -8,6 +8,8 @@ const ORBIT_POINTS: float = 1024 # Greater the number the smoother the orbit vis
 
 const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
 
+const MAX_SATELLITE_DIST = 1000000
+
 var time: float:
 	set(value):
 		time = value
@@ -112,10 +114,15 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 		var json_path = "res://content/data/bodies/%s.json" % orbiting_body_name
 		var orbiting_body_data = Utils.load_json_file(json_path)
 		
-		orbiting_body.init(orbiting_body_data, _camera, _model_scalar, time)
-		orbiting_bodies.append(orbiting_body)
-		%Body.add_child(orbiting_body)
-		orbiting_body.visible = satellites_visible
+		# If not planet, only show satellites within a set distance
+		# This is done as there is a lot of tiny moons we would rather not show
+		#print(Mappings.planet_ID.has([orbiting_body_name])
+		
+		if Mappings.planet_ID.has(orbiting_body_name) or orbiting_body_data["semimajor_axis"] < MAX_SATELLITE_DIST:
+			orbiting_body.init(orbiting_body_data, _camera, _model_scalar, time)
+			orbiting_bodies.append(orbiting_body)
+			%Body.add_child(orbiting_body)
+			orbiting_body.visible = satellites_visible
 	
 	_initialised = true
 	

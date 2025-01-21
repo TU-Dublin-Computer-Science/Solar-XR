@@ -3,23 +3,23 @@ extends Node3D
 var selected_planet_ID: int:
 	set(value):
 		selected_planet_ID = value
-		if selected_planet_ID == Mappings.planet_ID["Mercury"]:
+		if selected_planet_ID == Mappings.planet_ID["mercury"]:
 			_active_btn = $BtnMercury
-		elif selected_planet_ID == Mappings.planet_ID["Venus"]:
+		elif selected_planet_ID == Mappings.planet_ID["venus"]:
 			_active_btn = $BtnVenus
-		elif selected_planet_ID == Mappings.planet_ID["Earth"]:
+		elif selected_planet_ID == Mappings.planet_ID["earth"]:
 			_active_btn = $BtnEarth
-		elif selected_planet_ID ==Mappings.planet_ID["Mars"]:
+		elif selected_planet_ID ==Mappings.planet_ID["mars"]:
 			_active_btn = $BtnMars
-		elif selected_planet_ID == Mappings.planet_ID["Jupiter"]:
+		elif selected_planet_ID == Mappings.planet_ID["jupiter"]:
 			_active_btn = $BtnJupiter
-		elif selected_planet_ID == Mappings.planet_ID["Saturn"]:
+		elif selected_planet_ID == Mappings.planet_ID["saturn"]:
 			_active_btn = $BtnSaturn
-		elif selected_planet_ID == Mappings.planet_ID["Uranus"]:
+		elif selected_planet_ID == Mappings.planet_ID["uranus"]:
 			_active_btn = $BtnUranus
-		elif selected_planet_ID == Mappings.planet_ID["Neptune"]:
+		elif selected_planet_ID == Mappings.planet_ID["neptune"]:
 			_active_btn = $BtnNeptune
-		elif selected_planet_ID == Mappings.planet_ID["Sun"]:
+		elif selected_planet_ID == Mappings.planet_ID["sun"]:
 			_active_btn = $BtnSun
 
 var _active_btn: Button3D = null:

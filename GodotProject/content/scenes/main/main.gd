@@ -1,9 +1,10 @@
 extends Node3D
 
+var _model_scalar: float
+
 @onready var Camera: XRCamera3D = $XROrigin3D/XRCamera3D
 @onready var MainMenu = %MainMenu
 @onready var InfoNodeScreen = %InfoNodeScreen
-@onready var Simulation = %Simulation
 
 enum Mode {
 	DEFAULT,
@@ -12,7 +13,6 @@ enum Mode {
 	SCALE,
 	TIME
 }
-
 
 var mode:Mode = Mode.DEFAULT
 
@@ -35,19 +35,19 @@ const TIME_CHANGE_SPEED = 1000
 var _sim_position: Vector3:
 	set(value):
 		_sim_position = value
-		$SimParent.position = value
+		%Simulation.position = value
 		MainMenu.pos_readout = value
 
 
 var _sim_scale: float = DEFAULT_SIM_SCALE:
 	set(value):
 		_sim_scale = value
-		$SimParent.scale = Vector3(value, value, value)
+		%Simulation.scale = Vector3(value, value, value)
 		
 		#Inverse scale applied to labels to keep them from being scaled with model
-		Simulation.label_scale = 1 / _sim_scale  
+		%CentralBody.label_scale = 1 / _sim_scale  
 		
-		MainMenu.scale_readout = Simulation.model_scalar * value
+		MainMenu.scale_readout = _model_scalar * value
 
 
 var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
@@ -61,7 +61,7 @@ var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 var _sim_time: float:
 	set(value):
 		_sim_time = value
-		Simulation.time = value
+		%CentralBody.time = value
 		MainMenu.sim_time_readout = value
 		
 		var sys_time = Time.get_unix_time_from_system()
@@ -85,22 +85,34 @@ var _sim_time_live: bool:
 		MainMenu.time_live_readout = value
 
 
-var _focused_body: OrbitingBody:
+var _focused_body_id: int:
 	set(value):
-		_focused_body = value
-		MainMenu.focused_body_ID = _focused_body.ID
+		_focused_body_id = value
+		MainMenu.focused_body_ID = _focused_body_id
 		
-		var local_focused: Vector3 = $SimParent.to_local(_focused_body.body.global_position)
+		var focused_body: OrbitingBody
+		
+		if _focused_body_id == Mappings.planet_ID["Sun"]:
+			focused_body = %CentralBody
+		else:
+			for orbiting_body in %CentralBody.orbiting_bodies:
+				if _focused_body_id == orbiting_body.ID:
+					focused_body = orbiting_body
+		
+		if not focused_body:
+			return
+		
+		var local_focused: Vector3 = %Simulation.to_local(focused_body.body.global_position)
 		
 		if local_focused != Vector3.ZERO:  #If Focused body isn't at center
 		
 			#  Below calculates the target, and direction to move to reach said target, that the simulation
 			#  should move to in order for the focused object to come into view.
-			focus_sim_move_target = Simulation.position - local_focused  
+			focus_sim_move_target = %CentralBody.position - local_focused  
 			focus_sim_move_dir = -local_focused.normalized()
-			focus_sim_move_speed = (focus_sim_move_target - Simulation.position).length() / FOCUS_MOVE_TIME
+			focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / FOCUS_MOVE_TIME
 		
-			focus_zoom_in_target =  0.5 / _focused_body.radius 
+			focus_zoom_in_target =  0.5 / focused_body.radius 
 			focus_zoom_in_speed = abs(focus_zoom_in_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
 			
 			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
@@ -160,18 +172,8 @@ var InfoScreen: Node3D
 var _saved_player_location: Vector3
 var _to_sim: Vector3
 
-func _setup():
-	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
-	%AudBGM.playing = true
-	
-	Simulation.init()
-	_reset_state()
-
-
-func _ready():
-	
+func _ready():	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
-	Simulation.camera = $XROrigin3D/XRCamera3D
 	_setup_menu()
 
 
@@ -184,6 +186,23 @@ func _process(delta):
 	_handle_focus_on_body(delta)
 	
 	_handle_constant_state_changes(delta)
+
+
+func _setup():
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
+	%AudBGM.playing = true
+	
+	_init_sim()
+	
+	_reset_state()
+
+
+func _init_sim():
+	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
+	_model_scalar = 0.5 / sun_data["radius"]
+	
+	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
+	%CentralBody.visible = true
 
 
 func _check_if_player_moved():
@@ -212,14 +231,14 @@ func _handle_focus_on_body(delta: float):
 		FocusState.MOVE:
 			var step = focus_sim_move_dir * focus_sim_move_speed * delta
 			# Check if at target, accounting for overshooting
-			if step.length() >= Simulation.position.distance_to(focus_sim_move_target):
-				Simulation.position = focus_sim_move_target
+			if step.length() >= %CentralBody.position.distance_to(focus_sim_move_target):
+				%CentralBody.position = focus_sim_move_target
 				
 				_action_after_wait = FocusState.ZOOM_IN
 				_wait_timer = 0
 				_focus_state = FocusState.WAIT
 			else:
-				Simulation.position += step
+				%CentralBody.position += step
 		FocusState.ZOOM_IN:
 			if _sim_scale >= focus_zoom_in_target:
 				_sim_scale = focus_zoom_in_target
@@ -242,17 +261,19 @@ func _reset_state():
 
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
-	Simulation.transform.basis = Basis()
+	%CentralBody.transform.basis = Basis()
 
 	_sim_scale = DEFAULT_SIM_SCALE
 
 	_initialise_time()
 	
+	"""
 	InfoNodeScreen.deactivate()
-	var info_nodes = Simulation.info_nodes
+	var info_nodes = %CentralBody.info_nodes
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
+	"""
 	
-	_focused_body = Simulation.get_body(Mappings.planet_ID["Sun"])
+	_focused_body_id = Mappings.planet_ID["Sun"]
 
 
 func _initialise_time():
@@ -329,7 +350,7 @@ func _setup_time_signals():
 
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(value):
-		_focused_body = Simulation.get_body(value)
+		_focused_body_id = value
 	)
 
 
@@ -366,23 +387,23 @@ func _handle_constant_rotation(delta: float):
 		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()
 		var rotation_inc = Basis(horizontal_axis, ROT_CHANGE_SPEED*delta)
 		
-		var new_transform = $SimParent.global_transform
+		var new_transform = %Simulation.global_transform
 		new_transform.basis = rotation_inc * new_transform.basis
-		$SimParent.global_transform = new_transform
+		%Simulation.global_transform = new_transform
 
 	if _rot_decreasing_x:
 		var horizontal_axis = _to_sim.cross(Vector3.UP).normalized()
 		var rotation_inc = Basis(horizontal_axis, -ROT_CHANGE_SPEED*delta)
 		
-		var new_transform = $SimParent.global_transform
+		var new_transform = %Simulation.global_transform
 		new_transform.basis = rotation_inc * new_transform.basis
-		$SimParent.global_transform = new_transform
+		%Simulation.global_transform = new_transform
 		
 	if _rot_increasing_y:
-		$SimParent.rotate_y(ROT_CHANGE_SPEED*delta)
+		%Simulation.rotate_y(ROT_CHANGE_SPEED*delta)
 		
 	if _rot_decreasing_y:
-		$SimParent.rotate_y(-ROT_CHANGE_SPEED*delta)
+		%Simulation.rotate_y(-ROT_CHANGE_SPEED*delta)
 
 	
 func _handle_constant_scaling(delta: float):

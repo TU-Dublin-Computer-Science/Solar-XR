@@ -1,19 +1,20 @@
 extends Node3D
 class_name OrbitingBody
 
-const OrbitingBodyScn = preload("res://content/scenes/orbiting_body/OrbitingBody.tscn")
+const OrbitingBodyScn = preload("res://content/scenes/orbiting_body/orbiting_body.tscn")
 const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tres")
 
 const ORBIT_POINTS: float = 1024 # Greater the number the smoother the orbit visuals
 
 const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
 
-var julian_time: float:
+var time: float:
 	set(value):
-		julian_time = value
+		time = value
+		_julian_time = _unix_to_julian(time)
 		if _initialised:
 			for orbiting_body in orbiting_bodies:
-				orbiting_body.julian_time = value
+				orbiting_body.time = time
 			
 			_update_body_position()
 
@@ -23,7 +24,10 @@ var label_scale: float:
 		%LabelParent.scale = Vector3(label_scale, label_scale, label_scale)
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.label_scale = label_scale
-		
+
+var orbiting_bodies = []
+@onready var body = %Body
+
 var ID: int
 var _name: String
 var radius: float
@@ -47,18 +51,13 @@ var _orbiting: bool = false
 
 var _total_rotation: float = 0
 
-var orbiting_bodies = []
-@onready var body = %Body
+var _julian_time: float
 
 func _process(_delta: float) -> void:
-	#DebugDraw3D.draw_sphere(%Body.global_position, radius * 3, Color.RED, _delta)
 	_billboard_label()
 
 
-func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
-	var body_data_path = "res://content/data/bodies/%s.json" % body_name
-	var body_data = _read_json_file(body_data_path)
-	
+func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_time: float):
 	_camera = p_camera
 	_model_scalar = p_model_scalar
 	
@@ -93,7 +92,6 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 				_lon_ascending_node != -1 and
 				_orbital_period != -1)
 	
-	# TODO Julian time?
 	# TODO _setup_info_nodes
 	_setup_body()
 	
@@ -104,11 +102,26 @@ func init(body_name: String, p_camera: XRCamera3D, p_model_scalar: float):
 
 	for orbiting_body_name in body_data["satellites"]:
 		var orbiting_body = OrbitingBodyScn.instantiate()
-		orbiting_body.init(orbiting_body_name, _camera, _model_scalar)
+		var json_path = "res://content/data/bodies/%s.json" % orbiting_body_name
+		var orbiting_body_data = Utils.load_json_file(json_path)
+		
+		orbiting_body.init(orbiting_body_data, _camera, _model_scalar, time)
 		orbiting_bodies.append(orbiting_body)
 		%Body.add_child(orbiting_body)
 	
 	_initialised = true
+	
+	time = p_time
+
+
+func _billboard_label():
+	if _initialised and _camera != null:
+		%Label.look_at(_camera.global_transform.origin, Vector3.UP)
+		
+		# Scale up as model gets further away
+		var scale_change = %Label.global_position.distance_to(_camera.global_position)
+		
+		%Label.scale = Vector3(scale_change, scale_change, scale_change)
 
 
 func _setup_body():
@@ -171,7 +184,7 @@ func get_orbit_point(angle: float):
 
 
 func _update_model_rotation():		
-	var new_rotation = deg_to_rad(_rotation_factor * julian_time)
+	var new_rotation = deg_to_rad(_rotation_factor * _julian_time)
 	var rot_angle = new_rotation - _total_rotation
 	rotate_y(rot_angle)
 
@@ -190,7 +203,7 @@ func _get_true_anomaly():
 	
 	# 1. Get Current Mean anomaly 
 	# This is angle of body from periapsis (closest point to body) at the current time
-	var t = julian_time - EPOCH_JULIAN_DATE
+	var t = _julian_time - EPOCH_JULIAN_DATE
 	
 	t *= 86400 #Convert days to seconds, as mean motion is rad/s
 	var current_mean_anomaly = _mean_anomaly + (mean_motion * t)
@@ -218,32 +231,22 @@ func _solve_keplers_equation(mean_anomaly, eccentricity):
 	return eccentric_anomaly
 
 
-func _billboard_label():
-	if _initialised and _camera != null:
-		%Label.look_at(_camera.global_transform.origin, Vector3.UP)
-		
-		# Scale up as model gets further away
-		var scale_change = %Label.global_position.distance_to(_camera.global_position)
-		
-		%Label.scale = Vector3(scale_change, scale_change, scale_change)
+func _unix_to_julian(unix_time: float):
+	var greg_date = Time.get_datetime_dict_from_unix_time(unix_time)
 
+	var year = greg_date.year
+	var month = greg_date.month
+	var day = greg_date.day
+	var hour = greg_date.hour
+	var minute = greg_date.minute
+	var second = greg_date.second
 
-func _read_json_file(file_path: String) -> Dictionary:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	
-	if file == null:
-		print("Failed to open file: ", file_path)
-		return {}
-	
-	var json_string = file.get_as_text()  # Read the file as text
-	file.close()  # Close the file after reading
+	if month <= 2:
+		year -= 1
+		month += 12
 
-	# Parse JSON
-	var json_data = JSON.new()
-	var error = json_data.parse(json_string)
-	
-	if error != OK:
-		print("Failed to parse JSON: ", json_data.error_string)
-		return {}
-
-	return json_data.data  # Returns the parsed dictionary
+	var A = int(year / 100)
+	var B = 2 - A + int(A / 4)
+	var JD = int(365.25 * (year + 4716)) + int(30.6001 * (month + 1)) + day + B - 1524.5
+	JD += (hour + (minute + second / 60.0) / 60.0) / 24.0
+	return JD

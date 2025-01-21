@@ -25,6 +25,13 @@ var label_scale: float:
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.label_scale = label_scale
 
+var satellites_visible: bool = false:
+	set(value):
+		satellites_visible = value
+		for orbiting_body in orbiting_bodies:
+			orbiting_body.visible = satellites_visible
+	
+
 var orbiting_bodies = []
 @onready var body = %Body
 
@@ -108,6 +115,7 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 		orbiting_body.init(orbiting_body_data, _camera, _model_scalar, time)
 		orbiting_bodies.append(orbiting_body)
 		%Body.add_child(orbiting_body)
+		orbiting_body.visible = satellites_visible
 	
 	_initialised = true
 	

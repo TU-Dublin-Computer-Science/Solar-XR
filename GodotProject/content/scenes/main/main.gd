@@ -87,6 +87,8 @@ var _sim_time_live: bool:
 
 var _focused_body: OrbitingBody:
 	set(value):
+		if _focused_body and _focused_body.ID != Mappings.planet_ID["Sun"]:
+			_focused_body.satellites_visible = false  #Hide satellites on old focused body
 		_focused_body = value
 		
 		MainMenu.focused_body_ID = _focused_body.ID
@@ -194,6 +196,7 @@ func _init_sim():
 	_model_scalar = 0.5 / sun_data["radius"]
 	
 	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
+	%CentralBody.satellites_visible = true
 	%CentralBody.visible = true
 
 
@@ -242,6 +245,7 @@ func _handle_focus_body_transition(delta: float):
 				_sim_scale = focus_zoom_in_target
 				
 				_focus_state = FocusState.FOCUSED
+				_focused_body.satellites_visible = true
 			else:
 				_sim_scale += focus_zoom_in_speed * delta
 		FocusState.WAIT:

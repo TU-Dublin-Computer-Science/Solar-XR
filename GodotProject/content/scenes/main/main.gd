@@ -23,9 +23,9 @@ const MOVE_SPEED = 10
 const ROT_CHANGE_SPEED = 1
 
 const MIN_SIM_SCALE: float = 0.01
-const MAX_SIM_SCALE: float = 100
+const MAX_SIM_SCALE: float = 500
 const DEFAULT_SIM_SCALE: float = 1
-const SCALE_CHANGE_SPEED = 1
+const SCALE_CHANGE_SPEED = 2
 
 const MIN_TIME_SCALAR = -6000
 const MAX_TIME_SCALAR = 6000
@@ -419,11 +419,12 @@ func _handle_constant_rotation(delta: float):
 	
 func _handle_constant_scaling(delta: float):
 	if _scale_increasing:
-		_sim_scale = clamp(_sim_scale + SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
+		var base_change = SCALE_CHANGE_SPEED * delta
+		_sim_scale = clamp(_sim_scale * (1.0 + base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 	
 	if _scale_decreasing:
-		_sim_scale = clamp(_sim_scale - SCALE_CHANGE_SPEED*delta, MIN_SIM_SCALE, MAX_SIM_SCALE)
-
+		var base_change = SCALE_CHANGE_SPEED * delta
+		_sim_scale = clamp(_sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 
 var _time_increase_start: float = -1
 var _time_decrease_start: float = -1

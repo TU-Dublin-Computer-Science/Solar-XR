@@ -14,10 +14,12 @@ var time: float:
 	set(value):
 		time = value
 		_julian_time = _unix_to_julian(time)
+		
 		if _initialised:
-			for orbiting_body in orbiting_bodies:
-				orbiting_body.time = time
-			
+			if satellites_visible:
+				for orbiting_body in orbiting_bodies:
+					orbiting_body.time = time
+				
 			_update_body_position()
 
 var label_scale: float:
@@ -32,7 +34,8 @@ var satellites_visible: bool = false:
 		satellites_visible = value
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.visible = satellites_visible
-	
+
+
 
 var orbiting_bodies = []
 @onready var body = %Body

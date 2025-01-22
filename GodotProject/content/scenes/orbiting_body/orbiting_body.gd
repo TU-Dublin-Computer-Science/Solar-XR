@@ -35,10 +35,16 @@ var satellites_visible: bool = false:
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.visible = satellites_visible
 
+var satellite_orbits_visible: bool = true:
+	set(value):
+		satellite_orbits_visible = value
+		for orbiting_body in orbiting_bodies:
+			orbiting_body.OrbitVisual.visible = value
 
 
 var orbiting_bodies = []
 @onready var body = %Body
+@onready var OrbitVisual = %OrbitVisual
 
 var ID: int
 var _name: String
@@ -182,9 +188,7 @@ func _draw_orbit_visual():
 	
 	orbit_mesh.surface_end()
 	
-	var orbit_visual = MeshInstance3D.new()
-	orbit_visual.mesh = orbit_mesh
-	%OrbitalPlane.add_child(orbit_visual)
+	%OrbitVisual.mesh = orbit_mesh
 
 
 func get_orbit_point(angle: float):

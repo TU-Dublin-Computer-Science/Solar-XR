@@ -10,6 +10,9 @@ script = ExtResource("1_hyuvt")
 [node name="OrbitalPlane" type="Node3D" parent="."]
 unique_name_in_owner = true
 
+[node name="OrbitVisual" type="MeshInstance3D" parent="OrbitalPlane"]
+unique_name_in_owner = true
+
 [node name="Body" type="Node3D" parent="OrbitalPlane"]
 unique_name_in_owner = true
 

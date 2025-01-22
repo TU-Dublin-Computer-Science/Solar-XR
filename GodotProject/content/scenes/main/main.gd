@@ -22,10 +22,11 @@ const MOVE_SPEED = 10
 
 const ROT_CHANGE_SPEED = 1
 
-const MIN_SIM_SCALE: float = 0.01
+const MIN_SIM_SCALE: float = 0.0005
 const MAX_SIM_SCALE: float = 500
 const DEFAULT_SIM_SCALE: float = 1
 const SCALE_CHANGE_SPEED = 2
+const SUN_ORBIT_VISIBLE_SCALE = 60
 
 const MIN_TIME_SCALAR = -6000
 const MAX_TIME_SCALAR = 6000
@@ -46,6 +47,8 @@ var _sim_scale: float = DEFAULT_SIM_SCALE:
 		
 		#Inverse scale applied to labels to keep them from being scaled with model
 		%CentralBody.label_scale = 1 / _sim_scale  
+		
+		%CentralBody.satellite_orbits_visible = (_sim_scale <= SUN_ORBIT_VISIBLE_SCALE)
 		
 		MainMenu.scale_readout = _model_scalar * value
 

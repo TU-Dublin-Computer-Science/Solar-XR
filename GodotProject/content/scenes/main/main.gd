@@ -24,9 +24,9 @@ const ROT_CHANGE_SPEED = 1
 
 const MIN_SIM_SCALE: float = 0.0005
 const MAX_SIM_SCALE: float = 500
-const DEFAULT_SIM_SCALE: float = 1
+const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
-const SUN_ORBIT_VISIBLE_SCALE = 60
+const SUN_ORBIT_VISIBLE = 0.7
 
 const MIN_TIME_SCALAR = -6000
 const MAX_TIME_SCALAR = 6000
@@ -40,7 +40,7 @@ var _sim_position: Vector3:
 		MainMenu.pos_readout = value
 
 
-var _sim_scale: float = DEFAULT_SIM_SCALE:
+var _sim_scale: float:
 	set(value):
 		_sim_scale = value
 		%Simulation.scale = Vector3(value, value, value)
@@ -48,7 +48,8 @@ var _sim_scale: float = DEFAULT_SIM_SCALE:
 		#Inverse scale applied to labels to keep them from being scaled with model
 		%CentralBody.label_scale = 1 / _sim_scale  
 		
-		%CentralBody.satellite_orbits_visible = (_sim_scale <= SUN_ORBIT_VISIBLE_SCALE)
+		#if _focused_body.ID != Mappings.planet_ID["sun"]:
+		%CentralBody.satellite_orbits_visible = (_sim_scale <= (focus_scale_target - (focus_scale_target * SUN_ORBIT_VISIBLE)))
 		
 		MainMenu.scale_readout = _model_scalar * value
 
@@ -97,6 +98,7 @@ var _focused_body: OrbitingBody:
 		MainMenu.focused_body_ID = _focused_body.ID
 		
 		var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
+		focus_scale_target =  0.5 / _focused_body.radius 
 		
 		if local_focused != Vector3.ZERO:  #If Focused body isn't at center
 		
@@ -106,8 +108,7 @@ var _focused_body: OrbitingBody:
 			focus_sim_move_dir = -local_focused.normalized()
 			focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / FOCUS_MOVE_TIME
 		
-			focus_zoom_in_target =  0.5 / _focused_body.radius 
-			focus_zoom_in_speed = abs(focus_zoom_in_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
+			focus_zoom_in_speed = abs(focus_scale_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
 			
 			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
 			
@@ -135,7 +136,7 @@ var focus_sim_move_target: Vector3
 var focus_sim_move_dir: Vector3
 var focus_sim_move_speed: float
 
-var focus_zoom_in_target: float
+var focus_scale_target: float
 var focus_zoom_in_speed: float
 
 # Move
@@ -244,8 +245,8 @@ func _handle_focus_body_transition(delta: float):
 			else:
 				%CentralBody.position += step
 		FocusState.ZOOM_IN:
-			if _sim_scale >= focus_zoom_in_target:
-				_sim_scale = focus_zoom_in_target
+			if _sim_scale >= focus_scale_target:
+				_sim_scale = focus_scale_target
 				
 				_focus_state = FocusState.FOCUSED
 				_focused_body.satellites_visible = true
@@ -267,10 +268,14 @@ func _reset_state():
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 	%CentralBody.transform.basis = Basis()
-
+	
+	_initialise_time()
+	
+	_focused_body = _get_body(Mappings.planet_ID["sun"])
+	
 	_sim_scale = DEFAULT_SIM_SCALE
 
-	_initialise_time()
+	
 	
 	"""
 	InfoNodeScreen.deactivate()
@@ -278,7 +283,7 @@ func _reset_state():
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 	"""
 	
-	_focused_body = _get_body(Mappings.planet_ID["sun"])
+	
 
 
 func _get_body(ID: int):

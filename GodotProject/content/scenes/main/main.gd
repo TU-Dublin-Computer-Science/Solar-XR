@@ -21,6 +21,7 @@ const MAX_MOVE_DIST = 4
 const MOVE_SPEED = 10
 
 const ROT_CHANGE_SPEED = 1
+const DEFAULT_ROT:Vector3 = Vector3(-20, 0, 0)
 
 const MIN_SIM_SCALE: float = 0.0005
 const MAX_SIM_SCALE: float = 500
@@ -268,22 +269,19 @@ func _reset_state():
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
 	%CentralBody.transform.basis = Basis()
-	
-	_initialise_time()
+	%CentralBody.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
+	%CentralBody.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
+	%CentralBody.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_focused_body = _get_body(Mappings.planet_ID["sun"])
 	
 	_sim_scale = DEFAULT_SIM_SCALE
-
-	
 	
 	"""
 	InfoNodeScreen.deactivate()
 	var info_nodes = %CentralBody.info_nodes
 	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
 	"""
-	
-	
 
 
 func _get_body(ID: int):
@@ -403,7 +401,7 @@ func _handle_constant_movement(delta: float):
 		
 	if _moving_back:
 		_sim_position += _to_sim * MOVE_SPEED * delta
-		
+
 
 func _handle_constant_rotation(delta: float):
 	if _rot_increasing_x:
@@ -437,6 +435,7 @@ func _handle_constant_scaling(delta: float):
 	if _scale_decreasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
 		_sim_scale = clamp(_sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
+
 
 var _time_increase_start: float = -1
 var _time_decrease_start: float = -1

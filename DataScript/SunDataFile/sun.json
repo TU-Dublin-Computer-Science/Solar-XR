@@ -2,7 +2,7 @@
     "ID": 10,
     "name": "Sun",
     "radius": 696340,
-    "rotation_factor": -1,
+    "rotation_factor": 14.1844000,
     "model_path": "res://content/scenes/model_scenes/sun.tscn",
     "central_body": "Sun",
     "semimajor_axis": -1,

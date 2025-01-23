@@ -21,7 +21,7 @@ var time: float:
 				for orbiting_body in orbiting_bodies:
 					orbiting_body.time = time
 				
-			_update_body_position()
+			_update()
 
 var label_scale: float:
 	set(value):
@@ -169,9 +169,6 @@ func _setup_body():
 	%Body.add_child(_model)	
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	%Label/LlbName.text = _name
-	
-	if _rotation_enabled:
-		_update_model_rotation()
 
 
 func _orient_orbital_plane(): 
@@ -219,21 +216,19 @@ func get_orbit_point(angle: float):
 	return Vector3(x, 0, z)
 
 
-func _update_model_rotation():		
-	var new_rotation = deg_to_rad(_rotation_factor * _julian_time)
-	var rot_angle = new_rotation - _total_rotation
-	rotate_y(rot_angle)
-
-	_total_rotation = new_rotation
-
-
-func _update_body_position():
+func _update():
 	if _orbiting:
 		var true_anomaly = _get_true_anomaly()
 
 		%Body.position = get_orbit_point(true_anomaly)
+	
+	if _rotation_enabled:
+		var new_rotation = deg_to_rad(_rotation_factor * _julian_time)
+		var rot_angle = new_rotation - _total_rotation
+		_model.rotate_y(rot_angle)
 
-
+		_total_rotation = new_rotation
+		
 func _get_true_anomaly():
 	var mean_motion = TAU/(_orbital_period * 86400)
 	

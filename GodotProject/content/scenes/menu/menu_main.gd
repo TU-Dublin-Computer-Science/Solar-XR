@@ -54,6 +54,8 @@ signal time_live_pressed
 
 # Planet Signals
 signal planet_change_pressed
+signal planet_scale_up
+signal planet_scale_true
 
 # Reset Signal
 signal reset
@@ -116,6 +118,11 @@ var focused_body_ID: int:
 		focused_body_ID = value
 		MenuPlanet.selected_planet_ID = value
 
+var body_scale_up_selected: bool:
+	set(value):
+		body_scale_up_selected = value
+		MenuPlanet.body_scale_up_selected = body_scale_up_selected
+
 # ------------
 
 var _active_btn: Button3D = null:
@@ -146,6 +153,7 @@ func _ready() -> void:
 	_setup_control_menu()
 	remove_child(ControlMenu)
 
+
 func _process(delta: float) -> void:
 	if FPSCounter != null and FPSCounter.visible:
 		FPSCounter.text = "FPS: %d" % Engine.get_frames_per_second()    
@@ -159,6 +167,7 @@ func _setup_start_menu():
 		add_child(ControlMenu)
 	)
 
+
 func _setup_control_menu():
 	ControlMenu.visible = true
 	_setup_menu_buttons()
@@ -169,7 +178,6 @@ func _setup_control_menu():
 		$ControlMenu/Tabs.remove_child(tab)
 	
 	_active_tab = MenuDefault
-
 
 
 func _setup_menu_buttons():
@@ -276,3 +284,6 @@ func _setup_planet_tab():
 	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["uranus"]))
 	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["neptune"]))
 	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["sun"]))
+
+	MenuPlanet.find_child("BtnScaleUp").on_button_down.connect(func(): planet_scale_up.emit())
+	MenuPlanet.find_child("BtnScaleTrue").on_button_down.connect(func(): planet_scale_true.emit())

@@ -1,7 +1,5 @@
 extends Node3D
 
-var _model_scalar: float
-
 @onready var Camera: XRCamera3D = $XROrigin3D/XRCamera3D
 @onready var MainMenu = %MainMenu
 @onready var InfoNodeScreen = %InfoNodeScreen
@@ -28,9 +26,10 @@ const MAX_SIM_SCALE: float = 500
 const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const SUN_ORBIT_VISIBLE = 0.7
+const BODY_SCALE_UP = 800
 
-const MIN_TIME_SCALAR = -6000
-const MAX_TIME_SCALAR = 6000
+const MIN_TIME_SCALAR = -10000000
+const MAX_TIME_SCALAR = 10000000
 const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 1000
 
@@ -49,7 +48,6 @@ var _sim_scale: float:
 		#Inverse scale applied to labels to keep them from being scaled with model
 		%CentralBody.label_scale = 1 / _sim_scale  
 		
-		#if _focused_body.ID != Mappings.planet_ID["sun"]:
 		%CentralBody.satellite_orbits_visible = (_sim_scale <= (focus_scale_target - (focus_scale_target * SUN_ORBIT_VISIBLE)))
 		
 		MainMenu.scale_readout = _model_scalar * value
@@ -113,6 +111,7 @@ var _focused_body: OrbitingBody:
 			
 			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
 			
+			_body_scale_up = false
 			_focus_state = FocusState.ZOOM_OUT
 
 
@@ -169,6 +168,18 @@ var InfoScreen: Node3D
 var _saved_player_location: Vector3
 var _to_sim: Vector3
 
+var _model_scalar: float
+
+var _body_scale_up: bool:
+	set(value):
+		_body_scale_up = value
+		MainMenu.body_scale_up_selected = value
+		
+		if _body_scale_up:
+			%CentralBody.body_scalar = BODY_SCALE_UP
+		else:
+			%CentralBody.body_scalar = 1
+
 func _ready():	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	_setup_menu()
@@ -202,6 +213,7 @@ func _init_sim():
 	
 	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
 	%CentralBody.satellites_visible = true
+	%CentralBody.satellite_bodies_will_scale = true
 	%CentralBody.visible = true
 
 
@@ -275,8 +287,11 @@ func _reset_state():
 	
 	_focused_body = _get_body(Mappings.planet_ID["sun"])
 	
+	_body_scale_up = false
+	
 	_sim_scale = DEFAULT_SIM_SCALE
 	
+	_initialise_time()
 	"""
 	InfoNodeScreen.deactivate()
 	var info_nodes = %CentralBody.info_nodes
@@ -372,6 +387,14 @@ func _setup_time_signals():
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(ID):
 		_focused_body = _get_body(ID)
+	)
+	
+	MainMenu.planet_scale_up.connect(func():
+		_body_scale_up = true
+	)
+	
+	MainMenu.planet_scale_true.connect(func():
+		_body_scale_up = false
 	)
 
 

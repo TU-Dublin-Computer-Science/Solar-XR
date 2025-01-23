@@ -9,6 +9,7 @@ const ORBIT_POINTS: float = 1024 # Greater the number the smoother the orbit vis
 const EPOCH_JULIAN_DATE = 2451545.0  # 2000-01-01.5
 
 const MAX_SATELLITE_DIST = 1000000
+const MAX_BODY_SCALAR = 30
 
 var time: float:
 	set(value):
@@ -29,6 +30,22 @@ var label_scale: float:
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.label_scale = label_scale
 
+var body_scalar: float:
+	set(value):
+		body_scalar = value
+	
+		var model_scale = clamp(radius/0.5 * body_scalar, 0, MAX_BODY_SCALAR)
+	
+		_model.scale = Vector3(model_scale, model_scale, model_scale)
+	
+		%LabelParent.transform.origin.y = model_scale/2
+		
+		if satellite_bodies_will_scale:
+			for orbiting_body in orbiting_bodies:
+				orbiting_body.body_scalar = body_scalar
+
+var satellite_bodies_will_scale: bool = false
+
 var satellites_visible: bool = false:
 	set(value):
 		satellites_visible = value
@@ -40,7 +57,6 @@ var satellite_orbits_visible: bool = true:
 		satellite_orbits_visible = value
 		for orbiting_body in orbiting_bodies:
 			orbiting_body.OrbitVisual.visible = value
-
 
 var orbiting_bodies = []
 @onready var body = %Body
@@ -70,6 +86,8 @@ var _orbiting: bool = false
 var _total_rotation: float = 0
 
 var _julian_time: float
+
+var _model: StaticBody3D
 
 func _process(_delta: float) -> void:
 	_billboard_label()
@@ -124,9 +142,7 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 		var orbiting_body_data = Utils.load_json_file(json_path)
 		
 		# If not planet, only show satellites within a set distance
-		# This is done as there is a lot of tiny moons we would rather not show
-		#print(Mappings.planet_ID.has([orbiting_body_name])
-		
+		# This is done as there is a lot of tiny moons we would rather not show		
 		if Mappings.planet_ID.has(orbiting_body_name) or orbiting_body_data["semimajor_axis"] < MAX_SATELLITE_DIST:
 			orbiting_body.init(orbiting_body_data, _camera, _model_scalar, time)
 			orbiting_bodies.append(orbiting_body)
@@ -149,12 +165,10 @@ func _billboard_label():
 
 
 func _setup_body():
-	%Label/LlbName.text = _name
-	%LabelParent.transform.origin.y += radius
-	
-	var _model = _model_scene.instantiate()
-	%Body.add_child(_model)
+	_model = _model_scene.instantiate()
+	%Body.add_child(_model)	
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
+	%Label/LlbName.text = _name
 	
 	if _rotation_enabled:
 		_update_model_rotation()

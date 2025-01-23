@@ -290,6 +290,14 @@ transform = Transform3D(1.5, -2.78348e-10, 3.49246e-10, 2.40667e-09, 1.5, 0, -6.
 font_size = 8
 label = "Neptune"
 
+[node name="BtnScaleUp" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.32831e-10, 0, 0, 1, 0.15226, 0.0543636, 8.02581e-05)
+label = "Scale Up"
+
+[node name="BtnScaleTrue" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.45519e-10, 0, 0, 1, 0.153416, -0.00064086, 6.28388e-05)
+label = "True Scale"
+
 [node name="FPSCounter" type="Label3D" parent="ControlMenu"]
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.159589, 0.13104, 0)

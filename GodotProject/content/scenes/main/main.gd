@@ -292,11 +292,17 @@ func _reset_state():
 	_sim_scale = DEFAULT_SIM_SCALE
 	
 	_initialise_time()
-	"""
+	
 	InfoNodeScreen.deactivate()
-	var info_nodes = %CentralBody.info_nodes
-	InfoNodeScreen.info_nodes = info_nodes  # Doesn't work if assign directly
-	"""
+	_connect_info_nodes(%CentralBody)
+
+	
+func _connect_info_nodes(orbiting_body: OrbitingBody):
+	for info_node in orbiting_body.info_nodes:
+		InfoNodeScreen.connect_info_node(info_node)
+	
+	for satellite in orbiting_body.satellites:
+		_connect_info_nodes(satellite)
 
 
 func _get_body(ID: int):
@@ -305,9 +311,9 @@ func _get_body(ID: int):
 	if ID == Mappings.planet_ID["sun"]:
 		focused_body = %CentralBody
 	else:
-		for orbiting_body in %CentralBody.orbiting_bodies:
-			if ID == orbiting_body.ID:
-				focused_body = orbiting_body
+		for satellite in %CentralBody.satellites:
+			if ID == satellite.ID:
+				focused_body = satellite
 	
 	return focused_body
 

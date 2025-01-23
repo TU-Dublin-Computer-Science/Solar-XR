@@ -3,6 +3,7 @@ class_name OrbitingBody
 
 const OrbitingBodyScn = preload("res://content/scenes/orbiting_body/orbiting_body.tscn")
 const OrbitMaterial = preload("res://content/assets/materials/orbit_material.tres")
+const InfoNodeScn = preload("res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node.tscn")
 
 const ORBIT_POINTS: float = 1024 # Greater the number the smoother the orbit visuals
 
@@ -18,8 +19,8 @@ var time: float:
 		
 		if _initialised:
 			if satellites_visible:
-				for orbiting_body in orbiting_bodies:
-					orbiting_body.time = time
+				for satellite in satellites:
+					satellite.time = time
 				
 			_update()
 
@@ -27,8 +28,8 @@ var label_scale: float:
 	set(value):
 		label_scale = value
 		%LabelParent.scale = Vector3(label_scale, label_scale, label_scale)
-		for orbiting_body in orbiting_bodies:
-			orbiting_body.label_scale = label_scale
+		for satellite in satellites:
+			satellite.label_scale = label_scale
 
 var body_scalar: float:
 	set(value):
@@ -41,24 +42,25 @@ var body_scalar: float:
 		%LabelParent.transform.origin.y = model_scale/2
 		
 		if satellite_bodies_will_scale:
-			for orbiting_body in orbiting_bodies:
-				orbiting_body.body_scalar = body_scalar
+			for satellite in satellites:
+				satellite.body_scalar = body_scalar
 
 var satellite_bodies_will_scale: bool = false
 
 var satellites_visible: bool = false:
 	set(value):
 		satellites_visible = value
-		for orbiting_body in orbiting_bodies:
-			orbiting_body.visible = satellites_visible
+		for satellite in satellites:
+			satellite.visible = satellites_visible
 
 var satellite_orbits_visible: bool = true:
 	set(value):
 		satellite_orbits_visible = value
-		for orbiting_body in orbiting_bodies:
-			orbiting_body.OrbitVisual.visible = value
+		for satellite in satellites:
+			satellite.OrbitVisual.visible = value
 
-var orbiting_bodies = []
+var satellites = []
+var info_nodes: Array[Node3D]
 @onready var body = %Body
 @onready var OrbitVisual = %OrbitVisual
 
@@ -128,26 +130,27 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 				_lon_ascending_node != -1 and
 				_orbital_period != -1)
 	
-	# TODO _setup_info_nodes
 	_setup_body()
+	
+	_setup_info_nodes(body_data["info_points"])
 	
 	_orient_orbital_plane()
 	
 	if _orbiting:
 		_draw_orbit_visual()
 
-	for orbiting_body_name in body_data["satellites"]:
-		var orbiting_body = OrbitingBodyScn.instantiate()
-		var json_path = "res://content/data/bodies/%s.json" % orbiting_body_name
-		var orbiting_body_data = Utils.load_json_file(json_path)
+	for satellite_name in body_data["satellites"]:
+		var satellite = OrbitingBodyScn.instantiate()
+		var json_path = "res://content/data/bodies/%s.json" % satellite_name
+		var satellite_data = Utils.load_json_file(json_path)
 		
 		# If not planet, only show satellites within a set distance
 		# This is done as there is a lot of tiny moons we would rather not show		
-		if Mappings.planet_ID.has(orbiting_body_name) or orbiting_body_data["semimajor_axis"] < MAX_SATELLITE_DIST:
-			orbiting_body.init(orbiting_body_data, _camera, _model_scalar, time)
-			orbiting_bodies.append(orbiting_body)
-			%Body.add_child(orbiting_body)
-			orbiting_body.visible = satellites_visible
+		if Mappings.planet_ID.has(satellite_name) or satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST:
+			satellite.init(satellite_data, _camera, _model_scalar, time)
+			satellites.append(satellite)
+			%Body.add_child(satellite)
+			satellite.visible = satellites_visible
 	
 	_initialised = true
 	
@@ -169,6 +172,26 @@ func _setup_body():
 	%Body.add_child(_model)	
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	%Label/LlbName.text = _name
+
+
+func _setup_info_nodes(info_point_array: Array) -> void:
+	for info_point in info_point_array:
+		
+		var info_node = InfoNodeScn.instantiate()
+		var surface_location = _geographical_to_cartesian(	info_point["location"]["latitude"], 
+															info_point["location"]["longitude"])
+		
+		# Have info node be positioned slightly above surface
+		var direction = surface_location.normalized()
+		info_node.position = direction * (surface_location.length() + 0.06)
+		
+		info_node.title = info_point["title"]
+		info_node.image = load(info_point["image_path"])
+		info_node.description = info_point["description"]
+		info_node.camera = _camera
+		
+		info_nodes.append(info_node)
+		_model.add_child(info_node)
 
 
 func _orient_orbital_plane(): 
@@ -228,7 +251,8 @@ func _update():
 		_model.rotate_y(rot_angle)
 
 		_total_rotation = new_rotation
-		
+
+
 func _get_true_anomaly():
 	var mean_motion = TAU/(_orbital_period * 86400)
 	
@@ -281,3 +305,15 @@ func _unix_to_julian(unix_time: float):
 	var JD = int(365.25 * (year + 4716)) + int(30.6001 * (month + 1)) + day + B - 1524.5
 	JD += (hour + (minute + second / 60.0) / 60.0) / 24.0
 	return JD
+
+
+func _geographical_to_cartesian(lat: float, long: float) -> Vector3:
+	var lat_rad = deg_to_rad(lat)
+	var long_rad = deg_to_rad(long)
+	
+	var cart = Vector3.ZERO
+	cart.x = 0.5 * cos(lat_rad) * cos(long_rad)
+	cart.y = 0.5 * sin(lat_rad)
+	cart.z = 0.5 * cos(lat_rad) * sin(long_rad) * -1  #In Godot -z is forward
+	
+	return cart

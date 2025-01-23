@@ -5,12 +5,6 @@ signal close_btn_pressed
 
 @onready var DisplayScreen = $DisplayScreen
 
-
-@export var info_nodes: Array[Node3D]: 
-	set(value):
-		info_nodes = value
-		_connect_info_node_signals()
-
 var _active_info_node: InfoNode = null
 
 # Called when the node enters the scene tree for the first time.
@@ -18,14 +12,11 @@ func _ready() -> void:
 		
 	DisplayScreen.close_btn_pressed.connect(deactivate)
 	remove_child(DisplayScreen)
-	
-	_connect_info_node_signals()
 
 
-func _connect_info_node_signals():
-	for info_node in info_nodes:
-		info_node.on_button_down.connect(_update_info_node.bind(info_node))
-		info_node.on_button_up.connect(deactivate)
+func connect_info_node(info_node: InfoNode):
+	info_node.on_button_down.connect(_update_info_node.bind(info_node))
+	info_node.on_button_up.connect(deactivate)
 
 
 func _update_info_node(info_node: InfoNode):

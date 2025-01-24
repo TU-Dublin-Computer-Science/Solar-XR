@@ -31,7 +31,7 @@ const BODY_SCALE_UP = 800
 const MIN_TIME_SCALAR = -10000000
 const MAX_TIME_SCALAR = 10000000
 const DEFAULT_TIME_SCALAR = 1
-const TIME_CHANGE_SPEED = 1000
+const TIME_CHANGE_SPEED = 3000
 
 var _sim_position: Vector3:
 	set(value):

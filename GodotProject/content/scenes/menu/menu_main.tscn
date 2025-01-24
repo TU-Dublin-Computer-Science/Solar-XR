@@ -46,7 +46,7 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="BtnMove" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300177, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0684761, -0.113685, 0)
 label = "Move"
 
 [node name="BtnRotate" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
@@ -56,7 +56,7 @@ label = "Rotate"
 
 [node name="BtnScale" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0708997, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272168, -0.113685, 0)
 label = "Scale"
 
 [node name="BtnTime" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]

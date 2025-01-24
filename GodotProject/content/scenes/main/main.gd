@@ -280,11 +280,12 @@ func _reset_state():
 
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
-	%CentralBody.transform.basis = Basis()
-	%CentralBody.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
-	%CentralBody.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
-	%CentralBody.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
+	%Simulation.transform.basis = Basis()
 	
+	%Simulation.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
+	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
+	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
+
 	_focused_body = _get_body(Mappings.planet_ID["sun"])
 	
 	_body_scale_up = false

@@ -112,8 +112,11 @@ var _focused_body: OrbitingBody:
 			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
 			
 			_body_scale_up = false
-			_focus_state = FocusState.ZOOM_OUT
-
+			
+			if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
+				_focus_state = FocusState.ZOOM_OUT
+			else:
+				_focus_state = FocusState.MOVE
 
 enum FocusState {
 	ZOOM_OUT,
@@ -238,9 +241,8 @@ var _action_after_wait: FocusState
 func _handle_focus_body_transition(delta: float):
 	match(_focus_state):
 		FocusState.ZOOM_OUT:
-			if _sim_scale <= FOCUS_ZOOM_OUT_TARGET:
+			if _sim_scale <= FOCUS_ZOOM_OUT_TARGET:	 # Zoom out if less than target
 				_sim_scale = FOCUS_ZOOM_OUT_TARGET
-				
 				_action_after_wait = FocusState.MOVE
 				_wait_timer = 0
 				_focus_state = FocusState.WAIT

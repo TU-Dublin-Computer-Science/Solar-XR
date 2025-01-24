@@ -16,7 +16,7 @@ var mode:Mode = Mode.DEFAULT
 
 const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
 const MAX_MOVE_DIST = 4
-const MOVE_SPEED = 10
+const MOVE_SPEED = 1
 
 const ROT_CHANGE_SPEED = 1
 const DEFAULT_ROT:Vector3 = Vector3(-20, 0, 0)

@@ -46,32 +46,32 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="BtnMove" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156448, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0300177, -0.113685, 0)
 label = "Move"
 
 [node name="BtnRotate" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092502, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0199751, -0.113685, 0)
 label = "Rotate"
 
 [node name="BtnScale" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0309675, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0708997, -0.113685, 0)
 label = "Scale"
 
 [node name="BtnTime" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033384, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105621, -0.113685, 0)
 label = "Time"
 
 [node name="BtnPlanet" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156298, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.154042, -0.113685, 0)
 label = "Planet"
 
 [node name="BtnReset" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0949764, -0.113685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141907, -0.113685, 0)
 label = "Reset"
 
 [node name="Tabs" type="Node3D" parent="ControlMenu"]

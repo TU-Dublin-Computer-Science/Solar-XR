@@ -48,7 +48,7 @@ var _sim_scale: float:
 		#Inverse scale applied to labels to keep them from being scaled with model
 		%CentralBody.label_scale = 1 / _sim_scale  
 		
-		%CentralBody.satellite_orbits_visible = (_sim_scale <= (focus_scale_target - (focus_scale_target * SUN_ORBIT_VISIBLE)))
+		%CentralBody.satellite_orbits_visible = (_sim_scale <= (focus_zoom_in_target - (focus_zoom_in_target * SUN_ORBIT_VISIBLE)))
 		
 		MainMenu.scale_readout = _model_scalar * value
 
@@ -87,53 +87,7 @@ var _sim_time_live: bool:
 		_sim_time_live = value
 		MainMenu.time_live_readout = value
 
-var focus_move_time_left: float
-var _focused_body: OrbitingBody:
-	set(value):
-		if _focused_body and _focused_body.ID != Mappings.planet_ID["sun"]:
-			_focused_body.satellites_visible = false  #Hide satellites on old focused body
-		_focused_body = value
-		
-		MainMenu.focused_body_ID = _focused_body.ID
-		
-		var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-		focus_scale_target =  0.5 / _focused_body.radius 
-		
-		if local_focused != Vector3.ZERO:  #If Focused body isn't at center
-			focus_move_time_left = FOCUS_MOVE_TIME
-			
-			focus_zoom_in_speed = abs(focus_scale_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
-			
-			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
-			
-			_body_scale_up = false
-			
-			#if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
-			#	_focus_state = FocusState.ZOOM_OUT
-			#else:
-			_focus_state = FocusState.MOVE
 
-enum FocusState {
-	ZOOM_OUT,
-	MOVE,
-	ZOOM_IN,
-	WAIT,
-	FOCUSED
-}
-
-var _focus_state: FocusState = FocusState.FOCUSED
-
-const FOCUS_MOVE_TIME: float = 1
-const FOCUS_ZOOM_TIME: float = 1.2
-const FOCUS_WAIT_TIME: float = 0.2
-const FOCUS_ZOOM_OUT_TARGET = 0.05
-
-var focus_zoom_out_speed: float
-
-var focus_sim_move_speed: float
-
-var focus_scale_target: float
-var focus_zoom_in_speed: float
 
 # Move
 var _moving_up: bool = false
@@ -186,10 +140,8 @@ func _process(delta):
 	
 	if not _sim_time_paused:
 		_sim_time += delta * _sim_time_scalar
-	
-	_keep_focused_object_at_center()
-	
-	_handle_focus_body_transition(delta)
+		
+	_handle_body_focusing(delta)
 	
 	_handle_constant_state_changes(delta)
 
@@ -222,64 +174,110 @@ func _check_if_player_moved():
 		_saved_player_location = current_player_location
 		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
+# --- Start of Focus Logic ---
+enum FocusState {
+	ZOOM_OUT,
+	MOVE,
+	ZOOM_IN,
+	WAIT,
+	FOCUSED
+}
 
-func _keep_focused_object_at_center():
-	if _focused_body and _focus_state == FocusState.FOCUSED:
-		var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-		%CentralBody.position =  %CentralBody.position - local_focused  
+const FOCUS_MOVE_TIME: float = 1
+const FOCUS_ZOOM_TIME: float = 1.2
+const FOCUS_WAIT_TIME: float = 0.2
+const FOCUS_ZOOM_OUT_TARGET = 0.05
+
+var _focus_zoom_out_speed: float
+var focus_zoom_in_target: float
+var _focus_zoom_in_speed: float
+
+var _focus_move_time_remaining: float
+var _focus_wait_timer: float = 0
+var _focus_action_after_wait: FocusState
+
+var _focus_state: FocusState = FocusState.FOCUSED
+var _focused_body: OrbitingBody
+var _new_focused_body: OrbitingBody
 
 
-var _wait_timer: float = 0
-var _action_after_wait: FocusState
-func _handle_focus_body_transition(delta: float):
+func _focus_body(p_new_focused_body: OrbitingBody):
+	"""This function sets up the transition to a new focused body, which _handle_body_focusing() finishes"""
+	
+	if p_new_focused_body == _focused_body:
+		return
+
+	_new_focused_body = p_new_focused_body
+	
+	MainMenu.focused_body_ID = _new_focused_body.ID  #Update Menu Readout
+	
+	if _focused_body and _focused_body.ID != Mappings.planet_ID["sun"]:
+		_focused_body.satellites_visible = false  #Hide satellites on old focused body
+	
+	_body_scale_up = false  #Set bodies to true scale if not already
+	
+	
+	_focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
+	
+	_focus_move_time_remaining = FOCUS_MOVE_TIME
+	
+	focus_zoom_in_target =  0.5 / _new_focused_body.radius 
+	_focus_zoom_in_speed = abs(focus_zoom_in_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
+	
+	if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
+		_focus_state = FocusState.ZOOM_OUT  # Zoom out if too close
+	else:
+		_focused_body = _new_focused_body
+		_focus_state = FocusState.MOVE  # Else move to new body
+
+
+func _handle_body_focusing(delta: float):
 	match(_focus_state):
 		FocusState.ZOOM_OUT:
 			if _sim_scale <= FOCUS_ZOOM_OUT_TARGET:	 # Zoom out if less than target
 				_sim_scale = FOCUS_ZOOM_OUT_TARGET
-				_action_after_wait = FocusState.MOVE
-				_wait_timer = 0
+				_focused_body = _new_focused_body
+				_focus_action_after_wait = FocusState.MOVE
+				_focus_wait_timer = 0
 				_focus_state = FocusState.WAIT
 			else:
-				_sim_scale -= focus_zoom_out_speed * delta	
+				_sim_scale -= _focus_zoom_out_speed * delta	
 		FocusState.MOVE:
-			focus_move_time_left -= delta
-			var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-			var focus_sim_move_target = %CentralBody.position - local_focused  
-			var focus_sim_move_dir = -local_focused.normalized()
-			var focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / focus_move_time_left
-			
-			"""
-			print("Move Target:")
-			print(focus_sim_move_target)
-			print("Local Body:")
-			print(local_focused)
-			print("-----")
-			"""
-			
-			var step = focus_sim_move_dir * focus_sim_move_speed * delta
+			_focus_move_time_remaining -= delta
+			var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
+			var focus_sim_move_target = %CentralBody.position - body_position  
+			var focus_sim_move_dir = -body_position.normalized()
+			var _focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / _focus_move_time_remaining
+		
+			var step = focus_sim_move_dir * _focus_sim_move_speed * delta
 			# Check if at target, accounting for overshooting
 			if step.length() >= %CentralBody.position.distance_to(focus_sim_move_target):
 				%CentralBody.position = focus_sim_move_target
 				
-				#_action_after_wait = FocusState.ZOOM_IN
-				#_wait_timer = 0
-				_focus_state = FocusState.FOCUSED #FocusState.WAIT
+				_focus_action_after_wait = FocusState.ZOOM_IN
+				_focus_wait_timer = 0
+				_focus_state = FocusState.WAIT
 			else:
 				%CentralBody.position += step
 		FocusState.ZOOM_IN:
-			if _sim_scale >= focus_scale_target:
-				_sim_scale = focus_scale_target
+			if _sim_scale >= focus_zoom_in_target:
+				_sim_scale = focus_zoom_in_target
 				
 				_focus_state = FocusState.FOCUSED
 				_focused_body.satellites_visible = true
 			else:
-				_sim_scale += focus_zoom_in_speed * delta
+				_sim_scale += _focus_zoom_in_speed * delta
 		FocusState.WAIT:
-			if _wait_timer >= FOCUS_WAIT_TIME:
-				_focus_state = _action_after_wait
+			if _focus_wait_timer >= FOCUS_WAIT_TIME:
+				_focus_state = _focus_action_after_wait
 			else:
-				_wait_timer += delta
+				_focus_wait_timer += delta
+	
+	if _focused_body and _focus_state != FocusState.MOVE and _focus_action_after_wait != FocusState.MOVE: # Keep body in focus
+		var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
+		%CentralBody.position =  %CentralBody.position - body_position  
 
+# End of Focus Logic
 
 func _reset_state():
 	
@@ -294,8 +292,8 @@ func _reset_state():
 	%Simulation.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
-
-	_focused_body = _get_body(Mappings.planet_ID["sun"])
+	
+	_focus_body(_get_body(Mappings.planet_ID["sun"]))
 	
 	_body_scale_up = false
 	
@@ -402,7 +400,7 @@ func _setup_time_signals():
 
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(ID):
-		_focused_body = _get_body(ID)
+		_focus_body(_get_body(ID))
 	)
 	
 	MainMenu.planet_scale_up.connect(func():

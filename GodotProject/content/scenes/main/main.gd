@@ -30,7 +30,7 @@ const BODY_SCALE_UP = 800
 
 const MIN_TIME_SCALAR = -10000000
 const MAX_TIME_SCALAR = 10000000
-const DEFAULT_TIME_SCALAR = 1
+const DEFAULT_TIME_SCALAR = 100000
 const TIME_CHANGE_SPEED = 3000
 
 var _sim_position: Vector3:
@@ -87,7 +87,7 @@ var _sim_time_live: bool:
 		_sim_time_live = value
 		MainMenu.time_live_readout = value
 
-
+var focus_move_time_left: float
 var _focused_body: OrbitingBody:
 	set(value):
 		if _focused_body and _focused_body.ID != Mappings.planet_ID["sun"]:
@@ -100,23 +100,18 @@ var _focused_body: OrbitingBody:
 		focus_scale_target =  0.5 / _focused_body.radius 
 		
 		if local_focused != Vector3.ZERO:  #If Focused body isn't at center
-		
-			#  Below calculates the target, and direction to move to reach said target, that the simulation
-			#  should move to in order for the focused object to come into view.
-			focus_sim_move_target = %CentralBody.position - local_focused  
-			focus_sim_move_dir = -local_focused.normalized()
-			focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / FOCUS_MOVE_TIME
-		
+			focus_move_time_left = FOCUS_MOVE_TIME
+			
 			focus_zoom_in_speed = abs(focus_scale_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
 			
 			focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
 			
 			_body_scale_up = false
 			
-			if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
-				_focus_state = FocusState.ZOOM_OUT
-			else:
-				_focus_state = FocusState.MOVE
+			#if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
+			#	_focus_state = FocusState.ZOOM_OUT
+			#else:
+			_focus_state = FocusState.MOVE
 
 enum FocusState {
 	ZOOM_OUT,
@@ -135,8 +130,6 @@ const FOCUS_ZOOM_OUT_TARGET = 0.05
 
 var focus_zoom_out_speed: float
 
-var focus_sim_move_target: Vector3
-var focus_sim_move_dir: Vector3
 var focus_sim_move_speed: float
 
 var focus_scale_target: float
@@ -249,14 +242,28 @@ func _handle_focus_body_transition(delta: float):
 			else:
 				_sim_scale -= focus_zoom_out_speed * delta	
 		FocusState.MOVE:
+			focus_move_time_left -= delta
+			var local_focused: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
+			var focus_sim_move_target = %CentralBody.position - local_focused  
+			var focus_sim_move_dir = -local_focused.normalized()
+			var focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / focus_move_time_left
+			
+			"""
+			print("Move Target:")
+			print(focus_sim_move_target)
+			print("Local Body:")
+			print(local_focused)
+			print("-----")
+			"""
+			
 			var step = focus_sim_move_dir * focus_sim_move_speed * delta
 			# Check if at target, accounting for overshooting
 			if step.length() >= %CentralBody.position.distance_to(focus_sim_move_target):
 				%CentralBody.position = focus_sim_move_target
 				
-				_action_after_wait = FocusState.ZOOM_IN
-				_wait_timer = 0
-				_focus_state = FocusState.WAIT
+				#_action_after_wait = FocusState.ZOOM_IN
+				#_wait_timer = 0
+				_focus_state = FocusState.FOCUSED #FocusState.WAIT
 			else:
 				%CentralBody.position += step
 		FocusState.ZOOM_IN:

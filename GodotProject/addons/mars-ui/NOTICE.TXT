@@ -1,0 +1,9 @@
+This project includes code originally from the "Immersive Home" project (https://github.com/Nitwel/Immersive-Home),  
+which is licensed under the Apache License, Version 2.0.  
+
+Modifications made by Technological University Dublin include:
+- Extracting the UI components into a standalone library
+- Refactoring and restructuring the UI for improved reusability  
+- Addition of UI components, such as Info Nodes.
+
+The original license and copyright remain intact.  

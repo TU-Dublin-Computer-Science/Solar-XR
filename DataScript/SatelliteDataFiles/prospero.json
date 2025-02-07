@@ -1,10 +1,10 @@
 {
     "ID": 718,
-    "name": "Prospero",
+    "name": "prospero",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 16221000,
     "eccentricity": 0.441,
     "argument_periapsis": 180.4,

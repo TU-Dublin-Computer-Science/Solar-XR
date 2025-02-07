@@ -1,10 +1,10 @@
 {
     "ID": 527,
-    "name": "Praxidike",
+    "name": "praxidike",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 20935400,
     "eccentricity": 0.246,
     "argument_periapsis": 357.2,

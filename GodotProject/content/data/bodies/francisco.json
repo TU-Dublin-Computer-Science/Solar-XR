@@ -1,10 +1,10 @@
 {
     "ID": 722,
-    "name": "Francisco",
+    "name": "francisco",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 4275700,
     "eccentricity": 0.144,
     "argument_periapsis": 137.6,

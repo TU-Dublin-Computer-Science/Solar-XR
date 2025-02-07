@@ -1,10 +1,10 @@
 {
     "ID": 560,
-    "name": "Eupheme",
+    "name": "eupheme",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 20768600,
     "eccentricity": 0.241,
     "argument_periapsis": 316.6,

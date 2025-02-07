@@ -1,10 +1,10 @@
 {
     "ID": 702,
-    "name": "Umbriel",
+    "name": "umbriel",
     "radius": 584.7,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 266000,
     "eccentricity": 0.004,
     "argument_periapsis": 157.5,

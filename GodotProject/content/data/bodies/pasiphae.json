@@ -1,10 +1,10 @@
 {
     "ID": 508,
-    "name": "Pasiphae",
+    "name": "pasiphae",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23468200,
     "eccentricity": 0.412,
     "argument_periapsis": 264.8,

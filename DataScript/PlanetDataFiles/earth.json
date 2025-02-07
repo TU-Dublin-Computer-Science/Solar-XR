@@ -1,10 +1,10 @@
 {
     "ID": 399,
-    "name": "Earth",
+    "name": "earth",
     "radius": 6371.0084,
     "rotation_factor": 360.9856235,
     "model_path": "res://content/scenes/model_scenes/earth.tscn",
-    "central_body": "Sun",
+    "central_body": "sun",
     "semimajor_axis": 149598261.1504,
     "eccentricity": 0.01671123,
     "argument_periapsis": 102.93768193,

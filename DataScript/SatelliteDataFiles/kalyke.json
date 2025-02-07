@@ -1,10 +1,10 @@
 {
     "ID": 523,
-    "name": "Kalyke",
+    "name": "kalyke",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23302600,
     "eccentricity": 0.26,
     "argument_periapsis": 130.3,

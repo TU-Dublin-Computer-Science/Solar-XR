@@ -1,10 +1,10 @@
 {
     "ID": 901,
-    "name": "Charon",
+    "name": "charon",
     "radius": 606.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Pluto",
+    "central_body": "pluto",
     "semimajor_axis": 19600,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

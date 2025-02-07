@@ -1,10 +1,10 @@
 {
     "ID": 532,
-    "name": "Eurydome",
+    "name": "eurydome",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 22899000,
     "eccentricity": 0.294,
     "argument_periapsis": 340.2,

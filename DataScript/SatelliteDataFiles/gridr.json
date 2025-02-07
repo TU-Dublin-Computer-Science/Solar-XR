@@ -1,10 +1,10 @@
 {
     "ID": 654,
-    "name": "Gridr",
+    "name": "gridr",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 19250900,
     "eccentricity": 0.187,
     "argument_periapsis": 285.5,

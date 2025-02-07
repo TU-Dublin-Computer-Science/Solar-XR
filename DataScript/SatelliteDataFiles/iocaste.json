@@ -1,10 +1,10 @@
 {
     "ID": 524,
-    "name": "Iocaste",
+    "name": "iocaste",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 21066700,
     "eccentricity": 0.227,
     "argument_periapsis": 244.7,

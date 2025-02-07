@@ -1,10 +1,10 @@
 {
     "ID": 604,
-    "name": "Dione",
+    "name": "dione",
     "radius": 561.4,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 377700,
     "eccentricity": 0.002,
     "argument_periapsis": 116.0,

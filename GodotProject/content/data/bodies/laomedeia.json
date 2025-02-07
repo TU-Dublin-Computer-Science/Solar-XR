@@ -1,10 +1,10 @@
 {
     "ID": 812,
-    "name": "Laomedeia",
+    "name": "laomedeia",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Neptune",
+    "central_body": "neptune",
     "semimajor_axis": 23499900,
     "eccentricity": 0.419,
     "argument_periapsis": 146.2,

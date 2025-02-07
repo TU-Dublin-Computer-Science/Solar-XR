@@ -1,10 +1,10 @@
 {
     "ID": 509,
-    "name": "Sinope",
+    "name": "sinope",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23683900,
     "eccentricity": 0.264,
     "argument_periapsis": 96.6,

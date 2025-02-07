@@ -1,10 +1,10 @@
 {
     "ID": 606,
-    "name": "Titan",
+    "name": "titan",
     "radius": 2574.76,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 1221900,
     "eccentricity": 0.029,
     "argument_periapsis": 78.3,

@@ -209,9 +209,9 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 
 	_new_focused_body = p_new_focused_body
 	
-	MainMenu.focused_body_ID = _new_focused_body.ID  #Update Menu Readout
+	MainMenu.focused_body_name = _new_focused_body.body_name  #Update Menu Readout
 	
-	if _focused_body and _focused_body.ID != Mappings.planet_ID["sun"]:
+	if _focused_body and _focused_body.body_name != "sun":
 		_focused_body.satellites_visible = false  #Hide satellites on old focused body
 	
 	_body_scale_up = false  #Set bodies to true scale if not already
@@ -293,7 +293,7 @@ func _reset_state():
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
-	_focus_body(_get_body(Mappings.planet_ID["sun"]))
+	_focus_body(_get_body("sun"))
 	
 	_body_scale_up = false
 	
@@ -313,14 +313,15 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 		_connect_info_nodes(satellite)
 
 
-func _get_body(ID: int):
+func _get_body(body_name: String):
 	var focused_body: OrbitingBody
 	
-	if ID == Mappings.planet_ID["sun"]:
+	if body_name == "sun":
 		focused_body = %CentralBody
 	else:
 		for satellite in %CentralBody.satellites:
-			if ID == satellite.ID:
+			print(satellite.body_name)
+			if body_name == satellite.body_name:
 				focused_body = satellite
 	
 	return focused_body
@@ -399,8 +400,8 @@ func _setup_time_signals():
 
 
 func _setup_planet_signals():
-	MainMenu.planet_change_pressed.connect(func(ID):
-		_focus_body(_get_body(ID))
+	MainMenu.planet_change_pressed.connect(func(body_name):
+		_focus_body(_get_body(body_name))
 	)
 	
 	MainMenu.planet_scale_up.connect(func():

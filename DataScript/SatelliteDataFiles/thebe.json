@@ -1,10 +1,10 @@
 {
     "ID": 514,
-    "name": "Thebe",
+    "name": "thebe",
     "radius": 49.3,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 221900,
     "eccentricity": 0.018,
     "argument_periapsis": 26.6,

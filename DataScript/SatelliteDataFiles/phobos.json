@@ -1,10 +1,10 @@
 {
     "ID": 401,
-    "name": "Phobos",
+    "name": "phobos",
     "radius": 11.08,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Mars",
+    "central_body": "mars",
     "semimajor_axis": 9400,
     "eccentricity": 0.015,
     "argument_periapsis": 216.3,

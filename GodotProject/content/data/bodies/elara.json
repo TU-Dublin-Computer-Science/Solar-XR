@@ -1,10 +1,10 @@
 {
     "ID": 507,
-    "name": "Elara",
+    "name": "elara",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 11712300,
     "eccentricity": 0.211,
     "argument_periapsis": 140.1,

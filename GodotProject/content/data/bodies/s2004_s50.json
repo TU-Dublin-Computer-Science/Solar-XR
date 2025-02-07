@@ -1,10 +1,10 @@
 {
     "ID": 65142,
-    "name": "S2004_S50",
+    "name": "s2004_s50",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 22346000,
     "eccentricity": 0.45,
     "argument_periapsis": 182.4,

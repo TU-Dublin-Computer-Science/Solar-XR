@@ -1,10 +1,10 @@
 {
     "ID": 643,
-    "name": "Hati",
+    "name": "hati",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 19695400,
     "eccentricity": 0.372,
     "argument_periapsis": 20.2,

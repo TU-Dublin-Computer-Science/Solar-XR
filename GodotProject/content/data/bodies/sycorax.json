@@ -1,10 +1,10 @@
 {
     "ID": 717,
-    "name": "Sycorax",
+    "name": "sycorax",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 12193200,
     "eccentricity": 0.52,
     "argument_periapsis": 25.4,

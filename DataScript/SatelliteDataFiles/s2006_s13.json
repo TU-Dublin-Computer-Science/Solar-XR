@@ -1,10 +1,10 @@
 {
     "ID": 65117,
-    "name": "S2006_S13",
+    "name": "s2006_s13",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 19953800,
     "eccentricity": 0.313,
     "argument_periapsis": 259.1,

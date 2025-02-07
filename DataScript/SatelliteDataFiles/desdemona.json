@@ -1,10 +1,10 @@
 {
     "ID": 710,
-    "name": "Desdemona",
+    "name": "desdemona",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 62700,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

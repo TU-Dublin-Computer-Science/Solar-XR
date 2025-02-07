@@ -1,10 +1,10 @@
 {
     "ID": 653,
-    "name": "Aegaeon",
+    "name": "aegaeon",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 167500,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

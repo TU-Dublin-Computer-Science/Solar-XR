@@ -1,10 +1,10 @@
 {
     "ID": 526,
-    "name": "Isonoe",
+    "name": "isonoe",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 22981300,
     "eccentricity": 0.249,
     "argument_periapsis": 213.5,

@@ -1,10 +1,10 @@
 {
     "ID": 55515,
-    "name": "S2021_J4",
+    "name": "s2021_j4",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23019700,
     "eccentricity": 0.265,
     "argument_periapsis": 109.8,

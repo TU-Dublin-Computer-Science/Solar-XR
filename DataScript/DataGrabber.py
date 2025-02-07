@@ -38,13 +38,13 @@ def create_satellite_list() -> list:
             
             data_object = {
                 "ID": int(cells[2].get_text(strip=True)),
-                "name": cells[1].get_text(strip=True),
+                "name": cells[1].get_text(strip=True).lower(),
                 
                 "radius": -1,
                 "rotation_factor": -1,
                 "model_path": "",
 
-                "central_body": cells[0].get_text(strip=True),
+                "central_body": cells[0].get_text(strip=True).lower(),
                 "semimajor_axis": int(cells[6].get_text(strip=True).strip(".")),
                 "eccentricity": float(cells[7].get_text(strip=True)),
                 "argument_periapsis": float(cells[8].get_text(strip=True)),

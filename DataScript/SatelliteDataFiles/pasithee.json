@@ -1,10 +1,10 @@
 {
     "ID": 538,
-    "name": "Pasithee",
+    "name": "pasithee",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 22846700,
     "eccentricity": 0.27,
     "argument_periapsis": 295.2,

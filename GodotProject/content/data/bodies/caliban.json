@@ -1,10 +1,10 @@
 {
     "ID": 716,
-    "name": "Caliban",
+    "name": "caliban",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 7167000,
     "eccentricity": 0.2,
     "argument_periapsis": 349.7,

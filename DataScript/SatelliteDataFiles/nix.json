@@ -1,10 +1,10 @@
 {
     "ID": 902,
-    "name": "Nix",
+    "name": "nix",
     "radius": 18.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Pluto",
+    "central_body": "pluto",
     "semimajor_axis": 49300,
     "eccentricity": 0.015,
     "argument_periapsis": 31.4,

@@ -1,10 +1,10 @@
 {
     "ID": 609,
-    "name": "Phoebe",
+    "name": "phoebe",
     "radius": 106.5,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 12929400,
     "eccentricity": 0.164,
     "argument_periapsis": 240.3,

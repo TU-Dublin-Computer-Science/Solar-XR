@@ -1,10 +1,10 @@
 {
     "ID": 801,
-    "name": "Triton",
+    "name": "triton",
     "radius": 1352.6,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Neptune",
+    "central_body": "neptune",
     "semimajor_axis": 354800,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

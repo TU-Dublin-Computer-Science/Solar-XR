@@ -1,10 +1,10 @@
 {
     "ID": 623,
-    "name": "Suttungr",
+    "name": "suttungr",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 19392000,
     "eccentricity": 0.116,
     "argument_periapsis": 65.1,

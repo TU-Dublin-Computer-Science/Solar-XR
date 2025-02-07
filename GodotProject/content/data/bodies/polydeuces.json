@@ -1,10 +1,10 @@
 {
     "ID": 634,
-    "name": "Polydeuces",
+    "name": "polydeuces",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 377600,
     "eccentricity": 0.019,
     "argument_periapsis": 94.1,

@@ -1,10 +1,10 @@
 {
     "ID": 544,
-    "name": "Kallichore",
+    "name": "kallichore",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23021800,
     "eccentricity": 0.252,
     "argument_periapsis": 310.1,

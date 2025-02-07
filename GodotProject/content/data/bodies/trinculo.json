@@ -1,10 +1,10 @@
 {
     "ID": 721,
-    "name": "Trinculo",
+    "name": "trinculo",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 8502600,
     "eccentricity": 0.22,
     "argument_periapsis": 162.2,

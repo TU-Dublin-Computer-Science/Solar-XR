@@ -1,10 +1,10 @@
 {
     "ID": 605,
-    "name": "Rhea",
+    "name": "rhea",
     "radius": 763.5,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 527200,
     "eccentricity": 0.001,
     "argument_periapsis": 44.3,

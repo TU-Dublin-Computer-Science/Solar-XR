@@ -1,10 +1,10 @@
 {
     "ID": 541,
-    "name": "Aoede",
+    "name": "aoede",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23778200,
     "eccentricity": 0.436,
     "argument_periapsis": 72.9,

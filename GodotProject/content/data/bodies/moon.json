@@ -1,10 +1,10 @@
 {
     "ID": 301,
-    "name": "Moon",
+    "name": "moon",
     "radius": 1737.4,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Earth",
+    "central_body": "earth",
     "semimajor_axis": 384400,
     "eccentricity": 0.0554,
     "argument_periapsis": 318.15,

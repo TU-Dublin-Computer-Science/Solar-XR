@@ -1,10 +1,10 @@
 {
     "ID": 799,
-    "name": "Uranus",
+    "name": "uranus",
     "radius": 25362,
     "rotation_factor": 501.1600928,
     "model_path": "res://content/scenes/model_scenes/uranus.tscn",
-    "central_body": "Sun",
+    "central_body": "sun",
     "semimajor_axis": 2870658170.6557,
     "eccentricity": 0.04725744,
     "argument_periapsis": 96.93735127,

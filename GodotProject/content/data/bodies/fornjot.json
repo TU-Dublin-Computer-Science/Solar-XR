@@ -1,10 +1,10 @@
 {
     "ID": 642,
-    "name": "Fornjot",
+    "name": "fornjot",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 24936700,
     "eccentricity": 0.213,
     "argument_periapsis": 320.7,

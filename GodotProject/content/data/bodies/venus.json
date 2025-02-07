@@ -1,10 +1,10 @@
 {
     "ID": 299,
-    "name": "Venus",
+    "name": "venus",
     "radius": 6051.8,
     "rotation_factor": 1.4813688,
     "model_path": "res://content/scenes/model_scenes/venus.tscn",
-    "central_body": "Sun",
+    "central_body": "sun",
     "semimajor_axis": 108209474.5374,
     "eccentricity": 0.00677672,
     "argument_periapsis": 54.92262463,

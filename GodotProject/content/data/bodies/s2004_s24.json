@@ -1,10 +1,10 @@
 {
     "ID": 65070,
-    "name": "S2004_S24",
+    "name": "s2004_s24",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 23339000,
     "eccentricity": 0.071,
     "argument_periapsis": 203.9,

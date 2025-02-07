@@ -1,10 +1,10 @@
 {
     "ID": 723,
-    "name": "Margaret",
+    "name": "margaret",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 14425000,
     "eccentricity": 0.642,
     "argument_periapsis": 90.7,

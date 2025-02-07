@@ -1,10 +1,10 @@
 {
     "ID": 55502,
-    "name": "S2003_J4",
+    "name": "s2003_j4",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 22926500,
     "eccentricity": 0.328,
     "argument_periapsis": 194.4,

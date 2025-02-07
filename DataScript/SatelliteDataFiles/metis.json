@@ -1,10 +1,10 @@
 {
     "ID": 516,
-    "name": "Metis",
+    "name": "metis",
     "radius": 21.5,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 128000,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

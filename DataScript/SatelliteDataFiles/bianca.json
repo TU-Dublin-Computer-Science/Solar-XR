@@ -1,10 +1,10 @@
 {
     "ID": 708,
-    "name": "Bianca",
+    "name": "bianca",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 59200,
     "eccentricity": 0.001,
     "argument_periapsis": 97.0,

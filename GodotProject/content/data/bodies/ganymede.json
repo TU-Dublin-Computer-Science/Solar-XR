@@ -1,10 +1,10 @@
 {
     "ID": 503,
-    "name": "Ganymede",
+    "name": "ganymede",
     "radius": 2631.2,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 1070400,
     "eccentricity": 0.001,
     "argument_periapsis": 198.3,

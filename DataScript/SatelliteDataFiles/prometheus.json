@@ -1,10 +1,10 @@
 {
     "ID": 616,
-    "name": "Prometheus",
+    "name": "prometheus",
     "radius": 43.1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 139400,
     "eccentricity": 0.002,
     "argument_periapsis": 341.9,

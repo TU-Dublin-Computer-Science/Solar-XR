@@ -1,10 +1,10 @@
 {
     "ID": 10,
-    "name": "Sun",
+    "name": "sun",
     "radius": 696340,
     "rotation_factor": 14.1844000,
     "model_path": "res://content/scenes/model_scenes/sun.tscn",
-    "central_body": "Sun",
+    "central_body": "sun",
     "semimajor_axis": -1,
     "eccentricity": -1,
     "argument_periapsis": -1,

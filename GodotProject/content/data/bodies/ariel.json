@@ -1,10 +1,10 @@
 {
     "ID": 701,
-    "name": "Ariel",
+    "name": "ariel",
     "radius": 578.9,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 190900,
     "eccentricity": 0.001,
     "argument_periapsis": 83.3,

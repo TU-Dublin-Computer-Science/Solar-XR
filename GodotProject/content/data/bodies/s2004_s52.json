@@ -1,10 +1,10 @@
 {
     "ID": 65152,
-    "name": "S2004_S52",
+    "name": "s2004_s52",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 26446800,
     "eccentricity": 0.292,
     "argument_periapsis": 290.4,

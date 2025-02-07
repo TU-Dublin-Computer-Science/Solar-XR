@@ -1,10 +1,10 @@
 {
     "ID": 719,
-    "name": "Setebos",
+    "name": "setebos",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 17519800,
     "eccentricity": 0.579,
     "argument_periapsis": 356.1,

@@ -1,10 +1,10 @@
 {
     "ID": 715,
-    "name": "Puck",
+    "name": "puck",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 86000,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

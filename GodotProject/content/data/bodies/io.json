@@ -1,10 +1,10 @@
 {
     "ID": 501,
-    "name": "Io",
+    "name": "io",
     "radius": 1821.49,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 421800,
     "eccentricity": 0.004,
     "argument_periapsis": 49.1,

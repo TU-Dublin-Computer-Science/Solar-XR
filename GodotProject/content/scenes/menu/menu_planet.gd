@@ -1,25 +1,25 @@
 extends Node3D
 
-var selected_planet_ID: int:
+var focused_body_name: String:
 	set(value):
-		selected_planet_ID = value
-		if selected_planet_ID == Mappings.planet_ID["mercury"]:
+		focused_body_name = value
+		if focused_body_name == "mercury":
 			_active_planet_btn = $BtnMercury
-		elif selected_planet_ID == Mappings.planet_ID["venus"]:
+		elif focused_body_name == "venus":
 			_active_planet_btn = $BtnVenus
-		elif selected_planet_ID == Mappings.planet_ID["earth"]:
+		elif focused_body_name == "earth":
 			_active_planet_btn = $BtnEarth
-		elif selected_planet_ID ==Mappings.planet_ID["mars"]:
+		elif focused_body_name == "mars":
 			_active_planet_btn = $BtnMars
-		elif selected_planet_ID == Mappings.planet_ID["jupiter"]:
+		elif focused_body_name == "jupiter":
 			_active_planet_btn = $BtnJupiter
-		elif selected_planet_ID == Mappings.planet_ID["saturn"]:
+		elif focused_body_name == "saturn":
 			_active_planet_btn = $BtnSaturn
-		elif selected_planet_ID == Mappings.planet_ID["uranus"]:
+		elif focused_body_name == "uranus":
 			_active_planet_btn = $BtnUranus
-		elif selected_planet_ID == Mappings.planet_ID["neptune"]:
+		elif focused_body_name == "neptune":
 			_active_planet_btn = $BtnNeptune
-		elif selected_planet_ID == Mappings.planet_ID["sun"]:
+		elif focused_body_name == "sun":
 			_active_planet_btn = $BtnSun
 
 var body_scale_up_selected: bool:

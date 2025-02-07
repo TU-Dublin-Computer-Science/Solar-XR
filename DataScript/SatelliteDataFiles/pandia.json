@@ -1,10 +1,10 @@
 {
     "ID": 565,
-    "name": "Pandia",
+    "name": "pandia",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 11481000,
     "eccentricity": 0.179,
     "argument_periapsis": 194.3,

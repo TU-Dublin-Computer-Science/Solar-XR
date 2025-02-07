@@ -1,10 +1,10 @@
 {
     "ID": 639,
-    "name": "Bestla",
+    "name": "bestla",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 20338300,
     "eccentricity": 0.486,
     "argument_periapsis": 78.5,

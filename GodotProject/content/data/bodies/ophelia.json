@@ -1,10 +1,10 @@
 {
     "ID": 707,
-    "name": "Ophelia",
+    "name": "ophelia",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 53800,
     "eccentricity": 0.011,
     "argument_periapsis": 344.3,

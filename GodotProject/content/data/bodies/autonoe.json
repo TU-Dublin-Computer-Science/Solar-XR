@@ -1,10 +1,10 @@
 {
     "ID": 528,
-    "name": "Autonoe",
+    "name": "autonoe",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23792500,
     "eccentricity": 0.33,
     "argument_periapsis": 228.3,

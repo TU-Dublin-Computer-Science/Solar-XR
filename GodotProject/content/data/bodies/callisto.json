@@ -1,10 +1,10 @@
 {
     "ID": 504,
-    "name": "Callisto",
+    "name": "callisto",
     "radius": 2410.3,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 1882700,
     "eccentricity": 0.007,
     "argument_periapsis": 43.8,

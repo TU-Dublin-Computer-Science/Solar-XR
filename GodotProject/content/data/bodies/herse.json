@@ -1,10 +1,10 @@
 {
     "ID": 550,
-    "name": "Herse",
+    "name": "herse",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23150500,
     "eccentricity": 0.262,
     "argument_periapsis": 101.2,

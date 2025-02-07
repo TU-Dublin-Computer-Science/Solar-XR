@@ -1,10 +1,10 @@
 {
     "ID": 602,
-    "name": "Enceladus",
+    "name": "enceladus",
     "radius": 252.1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 238400,
     "eccentricity": 0.005,
     "argument_periapsis": 119.5,

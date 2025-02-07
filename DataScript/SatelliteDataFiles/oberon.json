@@ -1,10 +1,10 @@
 {
     "ID": 704,
-    "name": "Oberon",
+    "name": "oberon",
     "radius": 761.4,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 583400,
     "eccentricity": 0.001,
     "argument_periapsis": 182.4,

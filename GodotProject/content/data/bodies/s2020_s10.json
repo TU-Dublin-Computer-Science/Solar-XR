@@ -1,10 +1,10 @@
 {
     "ID": 65155,
-    "name": "S2020_S10",
+    "name": "s2020_s10",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 25314700,
     "eccentricity": 0.296,
     "argument_periapsis": 196.6,

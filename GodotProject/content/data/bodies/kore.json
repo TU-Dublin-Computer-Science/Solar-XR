@@ -1,10 +1,10 @@
 {
     "ID": 549,
-    "name": "Kore",
+    "name": "kore",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 24205200,
     "eccentricity": 0.328,
     "argument_periapsis": 229.3,

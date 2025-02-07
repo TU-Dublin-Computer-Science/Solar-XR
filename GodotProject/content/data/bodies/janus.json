@@ -1,10 +1,10 @@
 {
     "ID": 610,
-    "name": "Janus",
+    "name": "janus",
     "radius": 89.2,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 151500,
     "eccentricity": 0.007,
     "argument_periapsis": 11.1,

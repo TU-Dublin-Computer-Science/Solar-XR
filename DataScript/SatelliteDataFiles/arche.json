@@ -1,10 +1,10 @@
 {
     "ID": 543,
-    "name": "Arche",
+    "name": "arche",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Jupiter",
+    "central_body": "jupiter",
     "semimajor_axis": 23097800,
     "eccentricity": 0.261,
     "argument_periapsis": 213.5,

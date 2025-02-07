@@ -1,10 +1,10 @@
 {
     "ID": 621,
-    "name": "Tarvos",
+    "name": "tarvos",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Saturn",
+    "central_body": "saturn",
     "semimajor_axis": 18215600,
     "eccentricity": 0.522,
     "argument_periapsis": 282.9,

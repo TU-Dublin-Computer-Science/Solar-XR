@@ -1,10 +1,10 @@
 {
     "ID": 726,
-    "name": "Mab",
+    "name": "mab",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 97700,
     "eccentricity": 0.003,
     "argument_periapsis": 237.9,

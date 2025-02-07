@@ -1,10 +1,10 @@
 {
     "ID": 727,
-    "name": "Cupid",
+    "name": "cupid",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "Uranus",
+    "central_body": "uranus",
     "semimajor_axis": 74400,
     "eccentricity": 0.005,
     "argument_periapsis": 13.5,

@@ -1,10 +1,10 @@
 {
     "ID": 547,
-    "name": "eukelade",
+    "name": "Eukelade",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 23067400,
     "eccentricity": 0.277,
     "argument_periapsis": 283.7,

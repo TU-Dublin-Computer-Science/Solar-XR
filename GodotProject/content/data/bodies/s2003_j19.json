@@ -1,10 +1,10 @@
 {
     "ID": 561,
-    "name": "s2003_j19",
+    "name": "S2003_J19",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 23156400,
     "eccentricity": 0.265,
     "argument_periapsis": 123.4,

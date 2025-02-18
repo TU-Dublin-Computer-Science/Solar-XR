@@ -1,10 +1,10 @@
 {
     "ID": 601,
-    "name": "mimas",
+    "name": "Mimas",
     "radius": 198.2,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 186000,
     "eccentricity": 0.02,
     "argument_periapsis": 160.4,

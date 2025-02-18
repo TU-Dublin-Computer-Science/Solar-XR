@@ -1,10 +1,10 @@
 {
     "ID": 85052,
-    "name": "s2021_n1",
+    "name": "S2021_N1",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 50700200,
     "eccentricity": 0.503,
     "argument_periapsis": 90.4,

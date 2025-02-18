@@ -1,10 +1,10 @@
 {
     "ID": 505,
-    "name": "amalthea",
+    "name": "Amalthea",
     "radius": 83.5,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 181400,
     "eccentricity": 0.003,
     "argument_periapsis": 180.1,

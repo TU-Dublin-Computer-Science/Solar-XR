@@ -1,10 +1,10 @@
 {
     "ID": 570,
-    "name": "s2017_j9",
+    "name": "S2017_J9",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 21768700,
     "eccentricity": 0.2,
     "argument_periapsis": 130.7,

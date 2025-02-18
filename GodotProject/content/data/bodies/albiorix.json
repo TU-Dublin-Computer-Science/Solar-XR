@@ -1,10 +1,10 @@
 {
     "ID": 626,
-    "name": "albiorix",
+    "name": "Albiorix",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 16329100,
     "eccentricity": 0.482,
     "argument_periapsis": 62.8,

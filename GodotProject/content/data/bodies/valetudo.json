@@ -1,10 +1,10 @@
 {
     "ID": 562,
-    "name": "valetudo",
+    "name": "Valetudo",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 18694200,
     "eccentricity": 0.217,
     "argument_periapsis": 344.2,

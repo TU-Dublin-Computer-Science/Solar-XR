@@ -1,10 +1,10 @@
 {
     "ID": 65129,
-    "name": "s2005_s04",
+    "name": "S2005_S04",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 11324500,
     "eccentricity": 0.315,
     "argument_periapsis": 99.2,

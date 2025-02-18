@@ -1,10 +1,10 @@
 {
     "ID": 515,
-    "name": "adrastea",
+    "name": "Adrastea",
     "radius": 8.2,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 129000,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

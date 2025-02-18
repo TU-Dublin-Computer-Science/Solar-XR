@@ -1,10 +1,10 @@
 {
     "ID": 814,
-    "name": "hippocamp",
+    "name": "Hippocamp",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 105300,
     "eccentricity": 0.001,
     "argument_periapsis": 346.4,

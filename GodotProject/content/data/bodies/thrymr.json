@@ -1,10 +1,10 @@
 {
     "ID": 630,
-    "name": "thrymr",
+    "name": "Thrymr",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 20330900,
     "eccentricity": 0.467,
     "argument_periapsis": 92.2,

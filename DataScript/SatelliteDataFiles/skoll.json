@@ -1,10 +1,10 @@
 {
     "ID": 647,
-    "name": "skoll",
+    "name": "Skoll",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 17623700,
     "eccentricity": 0.463,
     "argument_periapsis": 193.2,

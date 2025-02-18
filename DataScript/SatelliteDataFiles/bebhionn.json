@@ -1,10 +1,10 @@
 {
     "ID": 637,
-    "name": "bebhionn",
+    "name": "Bebhionn",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 17027200,
     "eccentricity": 0.459,
     "argument_periapsis": 358.1,

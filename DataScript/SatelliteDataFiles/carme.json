@@ -1,10 +1,10 @@
 {
     "ID": 511,
-    "name": "carme",
+    "name": "Carme",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 23144400,
     "eccentricity": 0.256,
     "argument_periapsis": 155.0,

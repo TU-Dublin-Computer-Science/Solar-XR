@@ -1,10 +1,10 @@
 {
     "ID": 905,
-    "name": "styx",
+    "name": "Styx",
     "radius": 5.2,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "pluto",
+    "central_body": "Pluto",
     "semimajor_axis": 43200,
     "eccentricity": 0.025,
     "argument_periapsis": 322.5,

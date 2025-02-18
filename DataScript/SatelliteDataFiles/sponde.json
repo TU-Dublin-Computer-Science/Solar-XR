@@ -1,10 +1,10 @@
 {
     "ID": 536,
-    "name": "sponde",
+    "name": "Sponde",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 23543300,
     "eccentricity": 0.322,
     "argument_periapsis": 184.9,

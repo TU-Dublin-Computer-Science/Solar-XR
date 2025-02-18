@@ -1,10 +1,10 @@
 {
     "ID": 631,
-    "name": "narvi",
+    "name": "Narvi",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 19285600,
     "eccentricity": 0.441,
     "argument_periapsis": 177.9,

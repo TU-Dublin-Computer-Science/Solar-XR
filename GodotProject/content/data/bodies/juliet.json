@@ -1,10 +1,10 @@
 {
     "ID": 711,
-    "name": "juliet",
+    "name": "Juliet",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "uranus",
+    "central_body": "Uranus",
     "semimajor_axis": 64400,
     "eccentricity": 0.001,
     "argument_periapsis": 291.5,

@@ -1,10 +1,10 @@
 {
     "ID": 648,
-    "name": "surtur",
+    "name": "Surtur",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 22745700,
     "eccentricity": 0.448,
     "argument_periapsis": 301.3,

@@ -1,10 +1,10 @@
 {
     "ID": 199,
-    "name": "mercury",
+    "name": "Mercury",
     "radius": 2439.4,
     "rotation_factor": 6.1385108,
     "model_path": "res://content/scenes/model_scenes/mercury.tscn",
-    "central_body": "sun",
+    "central_body": "Sun",
     "semimajor_axis": 57909226.54152,
     "eccentricity": 0.20563593,
     "argument_periapsis": 29.12703035,

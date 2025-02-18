@@ -1,10 +1,10 @@
 {
     "ID": 802,
-    "name": "nereid",
+    "name": "Nereid",
     "radius": 170.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 5513900,
     "eccentricity": 0.751,
     "argument_periapsis": 296.8,

@@ -1,10 +1,10 @@
 {
     "ID": 666,
-    "name": "geirrod",
+    "name": "Geirrod",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 22260000,
     "eccentricity": 0.539,
     "argument_periapsis": 342.8,

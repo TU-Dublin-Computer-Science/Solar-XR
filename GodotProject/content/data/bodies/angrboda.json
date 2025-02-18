@@ -1,10 +1,10 @@
 {
     "ID": 655,
-    "name": "angrboda",
+    "name": "Angrboda",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 20591200,
     "eccentricity": 0.216,
     "argument_periapsis": 105.6,

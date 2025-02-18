@@ -1,10 +1,10 @@
 {
     "ID": 804,
-    "name": "thalassa",
+    "name": "Thalassa",
     "radius": 40.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 50100,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

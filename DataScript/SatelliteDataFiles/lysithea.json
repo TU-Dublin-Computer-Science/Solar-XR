@@ -1,10 +1,10 @@
 {
     "ID": 510,
-    "name": "lysithea",
+    "name": "Lysithea",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 11700800,
     "eccentricity": 0.117,
     "argument_periapsis": 47.4,

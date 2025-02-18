@@ -1,10 +1,10 @@
 {
     "ID": 55519,
-    "name": "s2016_j4",
+    "name": "S2016_J4",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 23113800,
     "eccentricity": 0.294,
     "argument_periapsis": 238.8,

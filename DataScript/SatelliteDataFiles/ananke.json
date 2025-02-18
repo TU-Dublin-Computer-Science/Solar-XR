@@ -1,10 +1,10 @@
 {
     "ID": 512,
-    "name": "ananke",
+    "name": "Ananke",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 21034500,
     "eccentricity": 0.237,
     "argument_periapsis": 56.2,

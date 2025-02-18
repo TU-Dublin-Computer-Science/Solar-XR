@@ -1,10 +1,10 @@
 {
     "ID": 65116,
-    "name": "s2019_s06",
+    "name": "S2019_S06",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 18205500,
     "eccentricity": 0.12,
     "argument_periapsis": 288.6,

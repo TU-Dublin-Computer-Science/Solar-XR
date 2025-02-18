@@ -1,10 +1,10 @@
 {
     "ID": 85051,
-    "name": "s2002_n5",
+    "name": "S2002_N5",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 23414700,
     "eccentricity": 0.433,
     "argument_periapsis": 59.1,

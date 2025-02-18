@@ -1,10 +1,10 @@
 {
     "ID": 55521,
-    "name": "s2022_j1",
+    "name": "S2022_J1",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 22725200,
     "eccentricity": 0.257,
     "argument_periapsis": 139.2,

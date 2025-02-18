@@ -65,7 +65,7 @@ var info_nodes: Array[Node3D]
 @onready var OrbitVisual = %OrbitVisual
 
 var ID: int
-var body_name: String
+var _name: String
 var radius: float
 var _rotation_factor: float
 var _model_scene: PackedScene
@@ -100,7 +100,7 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	_model_scalar = p_model_scalar
 	
 	ID = body_data["ID"]
-	body_name = body_data["name"]
+	_name = body_data["name"]
 	radius = body_data["radius"] * p_model_scalar
 	
 	if body_data["rotation_factor"] != -1:
@@ -144,18 +144,9 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 		var json_path = "res://content/data/bodies/%s.json" % satellite_name
 		var satellite_data = Utils.load_json_file(json_path)
 		
-		# Show Planets, and show Moons within a maximum distance
+		# If not planet, only show satellites within a set distance
 		# This is done as there is a lot of tiny moons we would rather not show		
-		if	(satellite_name == "mercury" or 
-			satellite_name == "venus" or 
-			satellite_name == "earth" or 
-			satellite_name == "mars" or 
-			satellite_name == "jupiter" or 
-			satellite_name == "saturn" or 
-			satellite_name == "uranus" or 
-			satellite_name == "neptune" or
-			satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST):
-				
+		if Mappings.planet_ID.has(satellite_name) or satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST:
 			satellite.init(satellite_data, _camera, _model_scalar, time)
 			satellites.append(satellite)
 			%Body.add_child(satellite)
@@ -180,7 +171,7 @@ func _setup_body():
 	_model = _model_scene.instantiate()
 	%Body.add_child(_model)	
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
-	%Label/LlbName.text = body_name
+	%Label/LlbName.text = _name
 
 
 func _setup_info_nodes(info_point_array: Array) -> void:

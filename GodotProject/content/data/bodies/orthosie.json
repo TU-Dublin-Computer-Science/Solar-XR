@@ -1,10 +1,10 @@
 {
     "ID": 535,
-    "name": "orthosie",
+    "name": "Orthosie",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 20901000,
     "eccentricity": 0.299,
     "argument_periapsis": 140.1,

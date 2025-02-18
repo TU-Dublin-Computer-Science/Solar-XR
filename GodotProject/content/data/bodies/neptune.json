@@ -1,10 +1,10 @@
 {
     "ID": 899,
-    "name": "neptune",
+    "name": "Neptune",
     "radius": 24622,
     "rotation_factor": 541.1397757,
     "model_path": "res://content/scenes/model_scenes/neptune.tscn",
-    "central_body": "sun",
+    "central_body": "Sun",
     "semimajor_axis": 4498396417.0095,
     "eccentricity": 0.00859048,
     "argument_periapsis": 273.18053653,

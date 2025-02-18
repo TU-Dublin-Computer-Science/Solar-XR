@@ -1,10 +1,10 @@
 {
     "ID": 807,
-    "name": "larissa",
+    "name": "Larissa",
     "radius": 96.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 73500,
     "eccentricity": 0.001,
     "argument_periapsis": 247.3,

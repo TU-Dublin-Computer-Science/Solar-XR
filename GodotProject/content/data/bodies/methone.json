@@ -1,10 +1,10 @@
 {
     "ID": 632,
-    "name": "methone",
+    "name": "Methone",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 194700,
     "eccentricity": 0.002,
     "argument_periapsis": 315.5,

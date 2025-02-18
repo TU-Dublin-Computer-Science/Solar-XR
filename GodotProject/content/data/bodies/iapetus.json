@@ -1,10 +1,10 @@
 {
     "ID": 608,
-    "name": "iapetus",
+    "name": "Iapetus",
     "radius": 734.3,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 3561700,
     "eccentricity": 0.028,
     "argument_periapsis": 254.5,

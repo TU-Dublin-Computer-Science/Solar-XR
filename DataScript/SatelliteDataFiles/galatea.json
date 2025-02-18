@@ -1,10 +1,10 @@
 {
     "ID": 806,
-    "name": "galatea",
+    "name": "Galatea",
     "radius": 79.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 62000,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

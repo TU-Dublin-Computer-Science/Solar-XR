@@ -1,10 +1,10 @@
 {
     "ID": 809,
-    "name": "halimede",
+    "name": "Halimede",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 16590500,
     "eccentricity": 0.521,
     "argument_periapsis": 157.9,

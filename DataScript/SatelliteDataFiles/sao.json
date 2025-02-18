@@ -1,10 +1,10 @@
 {
     "ID": 811,
-    "name": "sao",
+    "name": "Sao",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 22239900,
     "eccentricity": 0.296,
     "argument_periapsis": 93.5,

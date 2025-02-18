@@ -1,10 +1,10 @@
 {
     "ID": 546,
-    "name": "carpo",
+    "name": "Carpo",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 17042300,
     "eccentricity": 0.416,
     "argument_periapsis": 86.6,

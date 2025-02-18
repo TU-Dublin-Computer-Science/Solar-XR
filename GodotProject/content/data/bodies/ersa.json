@@ -1,10 +1,10 @@
 {
     "ID": 571,
-    "name": "ersa",
+    "name": "Ersa",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 11401000,
     "eccentricity": 0.116,
     "argument_periapsis": 304.7,

@@ -1,10 +1,10 @@
 {
     "ID": 644,
-    "name": "hyrrokkin",
+    "name": "Hyrrokkin",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 18341000,
     "eccentricity": 0.336,
     "argument_periapsis": 272.7,

@@ -1,10 +1,10 @@
 {
     "ID": 904,
-    "name": "kerberos",
+    "name": "Kerberos",
     "radius": 6.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "pluto",
+    "central_body": "Pluto",
     "semimajor_axis": 58300,
     "eccentricity": 0.01,
     "argument_periapsis": 32.1,

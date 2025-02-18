@@ -1,10 +1,10 @@
 {
     "ID": 599,
-    "name": "jupiter",
+    "name": "Jupiter",
     "radius": 69911,
     "rotation_factor": 870.5360000,
     "model_path": "res://content/scenes/model_scenes/jupiter.tscn",
-    "central_body": "sun",
+    "central_body": "Sun",
     "semimajor_axis": 778340816.69,
     "eccentricity": 0.04838624,
     "argument_periapsis": 274.25457074,

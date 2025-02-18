@@ -1,10 +1,10 @@
 {
     "ID": 499,
-	"name": "mars",
+	"name": "Mars",
     "radius": 3389.50,
     "rotation_factor": 350.891982443297,
     "model_path": "res://content/scenes/model_scenes/mars.tscn",
-    "central_body": "sun",
+    "central_body": "Sun",
     "semimajor_axis": 227943822.4276,
     "eccentricity": 0.09339410,
 	"argument_periapsis": 286.4968315,

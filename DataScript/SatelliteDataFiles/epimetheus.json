@@ -1,10 +1,10 @@
 {
     "ID": 611,
-    "name": "epimetheus",
+    "name": "Epimetheus",
     "radius": 58.2,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "saturn",
+    "central_body": "Saturn",
     "semimajor_axis": 151400,
     "eccentricity": 0.02,
     "argument_periapsis": 96.3,

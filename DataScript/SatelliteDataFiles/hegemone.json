@@ -1,10 +1,10 @@
 {
     "ID": 539,
-    "name": "hegemone",
+    "name": "Hegemone",
     "radius": -1,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "jupiter",
+    "central_body": "Jupiter",
     "semimajor_axis": 23348700,
     "eccentricity": 0.358,
     "argument_periapsis": 282.2,

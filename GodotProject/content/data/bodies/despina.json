@@ -1,10 +1,10 @@
 {
     "ID": 805,
-    "name": "despina",
+    "name": "Despina",
     "radius": 74.0,
     "rotation_factor": -1,
     "model_path": "",
-    "central_body": "neptune",
+    "central_body": "Neptune",
     "semimajor_axis": 52500,
     "eccentricity": 0.0,
     "argument_periapsis": 0.0,

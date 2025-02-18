@@ -320,7 +320,6 @@ func _get_body(body_name: String):
 		focused_body = %CentralBody
 	else:
 		for satellite in %CentralBody.satellites:
-			print(satellite.body_name)
 			if body_name == satellite.body_name:
 				focused_body = satellite
 	

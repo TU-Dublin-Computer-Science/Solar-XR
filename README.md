@@ -9,7 +9,7 @@ An extended reality model of the solar system written in Godot and designed for 
 - Speed up and slow down time, see the state of the solar system at specific dates and times.
 - Focus view on specific planets.
 - Scale, rotate and move the model.
-- System can be controlled entirely through hand tracking
+- System can be controlled entirely through hand tracking.
 
 ## Installation
 The project targets the Meta Quest 3 for deployment.

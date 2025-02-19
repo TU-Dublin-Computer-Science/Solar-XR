@@ -3,6 +3,7 @@ An extended reality model of the solar system written in Godot and designed for 
 
 **Note: This project is in a pre-alpha state, with more features and bug-fixes to come.**
 
+## Demonstration Video
 [![Feature Demonstration Video](https://img.youtube.com/vi/dO7rRDLmElw/0.jpg)](https://youtu.be/dO7rRDLmElw?si=Wt81rAEHF_lyOEj5)
 
 ## Features

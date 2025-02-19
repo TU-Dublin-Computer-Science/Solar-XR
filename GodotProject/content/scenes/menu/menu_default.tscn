@@ -6,14 +6,14 @@
 
 [node name="Lbl1" type="Label3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
-text = "Mars XR"
+text = "Solar XR"
 font = ExtResource("1_epshr")
 horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="Lbl2" type="Label3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.180858, 0.024216, 0)
-text = "Use the buttons below to control the simulation or click on a highlighted point on Mars for information."
+text = "Use the buttons below to control the simulation."
 font = ExtResource("1_epshr")
 horizontal_alignment = 0
 vertical_alignment = 0

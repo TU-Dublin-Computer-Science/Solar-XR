@@ -7,9 +7,6 @@ GodotProject/.import/
 GodotProject/export.cfg
 GodotProject/export_presets.cfg
 
-# Android Export Ignores
-export_presets.cfg
-
 # Tmp Files
 *.tmp
 

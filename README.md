@@ -15,7 +15,8 @@ An augmented reality model of the solar system written in Godot and designed for
 - System can be controlled entirely through hand tracking.
 
 ## Installation
-The project targets the Meta Quest 3 for deployment.
+- Deployment Target: Meta Quest 3
+- Godot Version: 4.3
 
 After cloning the repository, the following addons must be installed from the asset library:
 

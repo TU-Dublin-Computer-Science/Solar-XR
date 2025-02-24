@@ -26,5 +26,9 @@ After cloning the repository, the following addons must be installed from the as
 
 Follow the documentation for [deploying to Android](https://docs.godotengine.org/en/stable/tutorials/xr/deploying_to_android.html) to get it onto your headset!
 
+## Known Issues
+- Visual Shakiness when focused on some planets
+  - Currently experimenting with creating a build using double precision floats to alleviate this.
+
 ## References
 Virtual Menu used is an extracted and modified version of the one created for the [Immersive Home Project](https://github.com/Nitwel/Immersive-Home).

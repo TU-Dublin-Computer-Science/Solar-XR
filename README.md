@@ -35,4 +35,7 @@ Follow the documentation for [deploying to Android](https://docs.godotengine.org
 - [Planet Textures](https://www.solarsystemscope.com/textures/)
 - [Solar System Data](https://ssd.jpl.nasa.gov/horizons)
 - [BGM](https://pixabay.com/music/ambient-space-158081/)
-- Models: [Phobos](https://science.nasa.gov/resource/phobos-mars-moon-3d-model/), [Deimos](https://science.nasa.gov/resource/deimos-mars-moon-3d-model/)
+- Models:
+    - [Phobos](https://science.nasa.gov/resource/phobos-mars-moon-3d-model/)
+    - [Deimos](https://science.nasa.gov/resource/deimos-mars-moon-3d-model/)
+    - [Saturn](https://science.nasa.gov/resource/saturn-3d-model/)

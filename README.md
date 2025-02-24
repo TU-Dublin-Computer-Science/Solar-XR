@@ -27,8 +27,12 @@ After cloning the repository, the following addons must be installed from the as
 Follow the documentation for [deploying to Android](https://docs.godotengine.org/en/stable/tutorials/xr/deploying_to_android.html) to get it onto your headset!
 
 ## Known Issues
-- Visual Shakiness when focused on some planets
+- Visual Shakiness when focused on some planets.
   - Currently experimenting with creating a build using double precision floats to alleviate this.
 
 ## References
-Virtual Menu used is an extracted and modified version of the one created for the [Immersive Home Project](https://github.com/Nitwel/Immersive-Home).
+- Virtual Menu (extracted and modified): [Immersive Home Project](https://github.com/Nitwel/Immersive-Home)
+- [Planet Textures](https://www.solarsystemscope.com/textures/)
+- [Solar System Data](https://ssd.jpl.nasa.gov/horizons)
+- [BGM](https://pixabay.com/music/ambient-space-158081/)
+- Models: [Phobos](https://science.nasa.gov/resource/phobos-mars-moon-3d-model/), [Deimos](https://science.nasa.gov/resource/deimos-mars-moon-3d-model/)

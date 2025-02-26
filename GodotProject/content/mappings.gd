@@ -11,3 +11,9 @@ static var planet_ID = {
 	"neptune": 899,
 	"sun": 10
 }
+
+enum InputMethod {
+	TOUCH,
+	RAYCAST,
+	RAYCAST_TOUCH
+}

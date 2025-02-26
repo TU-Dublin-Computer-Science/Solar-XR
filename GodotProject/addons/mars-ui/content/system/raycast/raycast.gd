@@ -19,6 +19,11 @@ const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd"
 
 var min_dist = 0.15
 
+var active: bool: 
+	set(value):
+		active = value
+		visible = value
+
 var _event_type_map = {
 	"trigger_click": Initiator.EventType.TRIGGER,
 	"grip_click": Initiator.EventType.GRIP,

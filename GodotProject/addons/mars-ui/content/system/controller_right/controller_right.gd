@@ -6,7 +6,7 @@ const Finger = preload ("res://addons/mars-ui/lib/utils/touch/finger.gd")
 const Touch = preload ("res://addons/mars-ui/lib/utils/touch/touch.gd")
 const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 
-@onready var ray: RayCast3D = $Raycast
+@onready var raycast: RayCast3D = $Raycast
 @onready var hand: Node3D = $hand_r
 @onready var hand_mesh = $hand_r/Armature/Skeleton3D/mesh_Hand_R
 @onready var auto_hand = $AutoHandtracker
@@ -19,8 +19,8 @@ const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 	set(value):
 		show_grid = value
 
-		if ray != null:
-			ray.with_grid = value
+		if raycast != null:
+			raycast.with_grid = value
 
 var hand_active = false:
 	set(value):
@@ -28,6 +28,9 @@ var hand_active = false:
 
 		if pointer != null:
 			pointer.set_physics_process(value)
+
+
+			
 var initiator: Initiator = Initiator.new()
 var collide: Collide
 var pointer: Pointer
@@ -49,7 +52,7 @@ func _setup_hand():
 	initiator.type = Initiator.Type.HAND_RIGHT
 	initiator.node = self
 
-	pointer = Pointer.new(initiator, ray)
+	pointer = Pointer.new(initiator, raycast)
 	add_child(pointer)
 
 	auto_hand.hand_active_changed.connect(func(hand: int, active: bool):

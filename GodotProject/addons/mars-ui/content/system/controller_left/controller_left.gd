@@ -14,14 +14,15 @@ const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 @onready var thumb_tip = $ThumbTip
 @onready var middle_tip = $MiddleTip
 
-@onready var ray: RayCast3D = $Raycast
+@onready var raycast: RayCast3D = $Raycast
 
 @export var show_grid = false:
 	set(value):
 		show_grid = value
 
-		if ray != null:
-			ray.with_grid = value
+		if raycast != null:
+			raycast.with_grid = value
+
 
 var hand_active = false:
 	set(value):
@@ -83,7 +84,7 @@ func _setup_hand():
 	initiator.type = Initiator.Type.HAND_LEFT
 	initiator.node = self
 
-	pointer = Pointer.new(initiator, ray)
+	pointer = Pointer.new(initiator, raycast)
 	add_child(pointer)
 
 func _is_hand_simulated():

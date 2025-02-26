@@ -15,6 +15,7 @@ const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd"
 @export var with_grid: bool = false
 
 @onready var pointer: Pointer
+@onready var visual_ray: MeshInstance3D = $Ray
 
 var min_dist = 0.15
 

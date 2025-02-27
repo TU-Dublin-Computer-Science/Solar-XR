@@ -4,21 +4,25 @@ extends Node
 const Finger = preload ("res://addons/mars-ui/lib/utils/touch/finger.gd")
 
 ## Record<Finger.Type, Area3D>
+## Keeps a record of the collision areas associated with a finger
 var finger_areas: Dictionary
 
+## Record<Area3D, Array<Finger.Type>>
+## Keeps a record of areas a finger has entered, two fingers can be in the same area
 var areas_entered = {}
 
 func is_touching() -> bool:
 	return areas_entered.keys().size() > 0
 
-func add_finger(finger_type: Finger.Type, area: Area3D):
-	finger_areas[finger_type] = area
+func add_finger(finger_type: Finger.Type, finger_area: Area3D):	
+	"""Called at setup to register fingers"""
+	finger_areas[finger_type] = finger_area
 
-	area.area_entered.connect(func(entered_area):
+	finger_area.area_entered.connect(func(entered_area):
 		_on_area_entered(finger_type, entered_area)
 	)
 
-	area.area_exited.connect(func(entered_area):
+	finger_area.area_exited.connect(func(entered_area):
 		_on_area_exited(finger_type, entered_area)
 	)
 
@@ -33,15 +37,19 @@ func _physics_process(_delta):
 		_emit_event("touch_move", area)
 
 func _on_area_entered(finger_type, area):
-	if areas_entered.has(area):
+	"""Emit 'touch_enter' event and register to areas_entered, when a finger enters
+	an area that it wasn't already in"""
+	if areas_entered.has(area): 
 		if !areas_entered[area].has(finger_type):
 			areas_entered[area].append(finger_type)
 			_emit_event("touch_enter", area)
-	else:
+	else: 
 		areas_entered[area] = [finger_type]
 		_emit_event("touch_enter", area)
 
 func _on_area_exited(finger_type, area):
+	"""Unregister finger when finger exited, 
+	unregister area when area exited."""
 	if areas_entered.has(area):
 		if areas_entered[area].has(finger_type):
 			areas_entered[area].erase(finger_type)

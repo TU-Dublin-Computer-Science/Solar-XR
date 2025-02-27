@@ -7,13 +7,16 @@ const Touch = preload ("res://addons/mars-ui/lib/utils/touch/touch.gd")
 const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 
 @onready var raycast: RayCast3D = $Raycast
-@onready var hand: Node3D = $hand_r
-@onready var hand_mesh = $hand_r/Armature/Skeleton3D/mesh_Hand_R
 @onready var auto_hand = $AutoHandtracker
 
 @onready var index_tip = $IndexTip
 @onready var thumb_tip = $ThumbTip
 @onready var middle_tip = $MiddleTip
+
+#@export var left_hand: bool
+
+var hand_mesh: MeshInstance3D
+var tracker_hand: XRHandTracker.TrackerHand
 
 @export var show_grid = false:
 	set(value):
@@ -22,15 +25,15 @@ const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 		if raycast != null:
 			raycast.with_grid = value
 
-var hand_active = false:
+
+var hand_tracking_active = false:
 	set(value):
-		hand_active = value
+		hand_tracking_active = value
 
 		if pointer != null:
 			pointer.set_physics_process(value)
 
 
-			
 var initiator: Initiator = Initiator.new()
 var collide: Collide
 var pointer: Pointer
@@ -44,28 +47,43 @@ func _ready():
 	_setup_hand()
 
 func _setup_hand():
-	TouchManager.add_finger(Finger.Type.INDEX_RIGHT, $IndexTip/TouchArea)
-
-	collide = Collide.new(hand, hand_mesh, index_tip.get_node("Marker3D"))
+	if tracker == "left_hand":
+		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_L
+		
+		initiator.type = Initiator.Type.HAND_LEFT
+		initiator.node = self
+		
+		# Setup touch checking
+		TouchManager.add_finger(Finger.Type.INDEX_LEFT, $IndexTip/TouchArea)
+	elif tracker == "right_hand": # Right Hand
+		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_R
+		
+		initiator.type = Initiator.Type.HAND_RIGHT
+		initiator.node = self
+		
+		# Setup touch checking
+		TouchManager.add_finger(Finger.Type.INDEX_RIGHT, $IndexTip/TouchArea)
+	
+	# Setup Collisions (So hand doesn't immediatly pass through buttons, etc.)
+	collide = Collide.new($hand, hand_mesh, index_tip.get_node("Marker3D"))
 	add_child(collide)
-
-	initiator.type = Initiator.Type.HAND_RIGHT
-	initiator.node = self
-
+	
+	# Setup pointer
 	pointer = Pointer.new(initiator, raycast)
 	add_child(pointer)
-
+	
 	auto_hand.hand_active_changed.connect(func(hand: int, active: bool):
-		if hand != 1: return
+		# Hand tracking function triggered when there is a change in state between a hand being tracked or untracked
+		# hand is 0 for left, 1 for right, active is if being tracked or not
+		
+		hand_tracking_active = active and not _using_controllers()
 			
-		hand_active=active&&_is_hand_simulated() == false
-
-		$IndexTip/TouchArea/CollisionShape3D.disabled=!hand_active
+		$IndexTip/TouchArea/CollisionShape3D.disabled = !hand_tracking_active
 		hand_mesh.visible=active
 	)
 
 func _physics_process(_delta):
-	if !hand_active: return
+	if !hand_tracking_active: return
 
 	var distance_trigger = index_tip.global_position.distance_to(thumb_tip.global_position)
 	var distance_grab = middle_tip.global_position.distance_to(thumb_tip.global_position)
@@ -87,13 +105,12 @@ func _physics_process(_delta):
 		pointer.released(Initiator.EventType.GRIP)
 		grabbed = false
 
-func _is_hand_simulated():
+
+func _using_controllers():
 	var hand_trackers = XRServer.get_trackers(XRServer.TRACKER_HAND)
 
-	for tracker in hand_trackers.values():
-		if tracker.hand != XRPositionalTracker.TrackerHand.TRACKER_HAND_RIGHT:
-			continue
-
-		return tracker.hand_tracking_source == XRHandTracker.HAND_TRACKING_SOURCE_CONTROLLER
+	for tracker in hand_trackers.values():	
+		if 	tracker.hand_tracking_source == XRHandTracker.HAND_TRACKING_SOURCE_CONTROLLER:
+			return true
 
 	return false

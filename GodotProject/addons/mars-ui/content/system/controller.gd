@@ -13,6 +13,11 @@ const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 @onready var thumb_tip = $ThumbTip
 @onready var middle_tip = $MiddleTip
 
+<<<<<<< HEAD
+=======
+#@export var left_hand: bool
+
+>>>>>>> 8837fef5c487c1f12e693272cb20ca10694db8a6
 var hand_mesh: MeshInstance3D
 var tracker_hand: XRHandTracker.TrackerHand
 

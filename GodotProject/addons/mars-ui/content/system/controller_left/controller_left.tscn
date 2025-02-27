@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b30w6tywfj4fp"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/system/controller_left/controller_left.gd" id="1_2j3qs"]
+[ext_resource type="Script" path="res://addons/mars-ui/content/system/controller.gd" id="1_7j75d"]
 [ext_resource type="PackedScene" uid="uid://gbm4fxhjehpd" path="res://addons/mars-ui/content/system/raycast/raycast.tscn" id="4_n7lao"]
 [ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="4_oe7fv"]
 [ext_resource type="PackedScene" uid="uid://dhaqth6q5yw4n" path="res://addons/godot-xr-tools/hands/model/hand_l.gltf" id="5_w1pvs"]
@@ -20,7 +20,7 @@ height = 0.02
 [node name="XRControllerLeft" type="XRController3D"]
 tracker = &"left_hand"
 pose = &"aim"
-script = ExtResource("1_2j3qs")
+script = ExtResource("1_7j75d")
 
 [node name="Raycast" parent="." instance=ExtResource("4_n7lao")]
 is_right = false
@@ -29,9 +29,9 @@ is_right = false
 visible = false
 enableautotracker = false
 
-[node name="hand_l" parent="." instance=ExtResource("5_w1pvs")]
+[node name="hand" parent="." instance=ExtResource("5_w1pvs")]
 
-[node name="mesh_Hand_L" parent="hand_l/Armature/Skeleton3D" index="0"]
+[node name="mesh_Hand_L" parent="hand/Armature/Skeleton3D" index="0"]
 material_override = SubResource("ShaderMaterial_ca85m")
 
 [node name="IndexTip" type="BoneAttachment3D" parent="."]
@@ -39,7 +39,7 @@ transform = Transform3D(0.967526, 0.252326, -0.0150302, -0.0150301, 0.116784, 0.
 bone_name = "Index_Tip_L"
 bone_idx = 9
 use_external_skeleton = true
-external_skeleton = NodePath("../hand_l/Armature/Skeleton3D")
+external_skeleton = NodePath("../hand/Armature/Skeleton3D")
 
 [node name="Marker3D" type="Marker3D" parent="IndexTip"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
@@ -60,7 +60,7 @@ transform = Transform3D(0.967042, 0.24582, -0.0663439, -0.0663439, 0.494837, 0.8
 bone_name = "Thumb_Tip_L"
 bone_idx = 4
 use_external_skeleton = true
-external_skeleton = NodePath("../hand_l/Armature/Skeleton3D")
+external_skeleton = NodePath("../hand/Armature/Skeleton3D")
 
 [node name="Marker3D" type="Marker3D" parent="ThumbTip"]
 gizmo_extents = 0.02
@@ -70,9 +70,9 @@ transform = Transform3D(0.98042, 0.196912, 0.00149799, 0.001498, -0.015065, 0.99
 bone_name = "Middle_Tip_L"
 bone_idx = 14
 use_external_skeleton = true
-external_skeleton = NodePath("../hand_l/Armature/Skeleton3D")
+external_skeleton = NodePath("../hand/Armature/Skeleton3D")
 
 [node name="Marker3D" type="Marker3D" parent="MiddleTip"]
 gizmo_extents = 0.02
 
-[editable path="hand_l"]
+[editable path="hand"]

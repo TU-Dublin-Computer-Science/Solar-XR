@@ -14,6 +14,7 @@ static var planet_ID = {
 
 enum InputMethod {
 	TOUCH,
-	RAYCAST,
-	RAYCAST_TOUCH
+	POINTER,
+	CONTROLLER,
+	ALL
 }

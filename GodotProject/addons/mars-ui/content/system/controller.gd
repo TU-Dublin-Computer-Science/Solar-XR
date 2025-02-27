@@ -13,11 +13,6 @@ const Collide = preload ("res://addons/mars-ui/lib/utils/touch/collide.gd")
 @onready var thumb_tip = $ThumbTip
 @onready var middle_tip = $MiddleTip
 
-<<<<<<< HEAD
-=======
-#@export var left_hand: bool
-
->>>>>>> 8837fef5c487c1f12e693272cb20ca10694db8a6
 var hand_mesh: MeshInstance3D
 var tracker_hand: XRHandTracker.TrackerHand
 
@@ -46,6 +41,19 @@ var grip_distance = 0.02
 var pressed = false
 var grabbed = false
 
+var touch_enabled: bool = true
+var pointer_enabled: bool = true
+
+var input_method: Mappings.InputMethod = Mappings.InputMethod.ALL:
+	set(value):
+		input_method = value
+		
+		touch_enabled = input_method == Mappings.InputMethod.ALL or input_method == Mappings.InputMethod.TOUCH
+		pointer_enabled = input_method == Mappings.InputMethod.ALL or input_method == Mappings.InputMethod.POINTER
+		
+		_setup_hand()
+
+
 func _ready():
 	_setup_hand()
 
@@ -57,7 +65,8 @@ func _setup_hand():
 		initiator.node = self
 		
 		# Setup touch checking
-		TouchManager.add_finger(Finger.Type.INDEX_LEFT, $IndexTip/TouchArea)
+		if touch_enabled:
+			TouchManager.add_finger(Finger.Type.INDEX_LEFT, $IndexTip/TouchArea)
 	elif tracker == "right_hand": # Right Hand
 		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_R
 		
@@ -65,15 +74,20 @@ func _setup_hand():
 		initiator.node = self
 		
 		# Setup touch checking
-		TouchManager.add_finger(Finger.Type.INDEX_RIGHT, $IndexTip/TouchArea)
+		if touch_enabled:
+			TouchManager.add_finger(Finger.Type.INDEX_RIGHT, $IndexTip/TouchArea)
 	
 	# Setup Collisions (So hand doesn't immediatly pass through buttons, etc.)
-	collide = Collide.new($hand, hand_mesh, index_tip.get_node("Marker3D"))
-	add_child(collide)
+	if touch_enabled:
+		collide = Collide.new($hand, hand_mesh, index_tip.get_node("Marker3D"))
+		add_child(collide)
 	
-	# Setup pointer
-	pointer = Pointer.new(initiator, raycast)
-	add_child(pointer)
+	# Setup Pointer
+	if pointer_enabled:
+		pointer = Pointer.new(initiator, raycast)
+		add_child(pointer)
+		
+	$Raycast.visible = pointer_enabled
 	
 	auto_hand.hand_active_changed.connect(func(hand: int, active: bool):
 		# Hand tracking function triggered when there is a change in state between a hand being tracked or untracked

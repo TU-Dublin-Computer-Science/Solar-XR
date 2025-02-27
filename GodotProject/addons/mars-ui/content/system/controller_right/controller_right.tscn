@@ -14,6 +14,7 @@ height = 0.02
 tracker = &"right_hand"
 pose = &"aim"
 script = ExtResource("1_yrtk0")
+show_grid = null
 
 [node name="Raycast" parent="." instance=ExtResource("1_3p68p")]
 

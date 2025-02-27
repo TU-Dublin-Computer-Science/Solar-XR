@@ -34,7 +34,7 @@ const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 3000
 
 # Start of Settings Variables
-@onready var input_method: Mappings.InputMethod:
+var input_method: Mappings.InputMethod:
 	set(value):
 		input_method = value
 		$XROrigin3D/XRControllerLeft.input_method = value
@@ -140,7 +140,7 @@ var _body_scale_up: bool:
 
 func _ready():	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
-	#raycast_active = true
+	input_method = Mappings.InputMethod.POINTER
 	_setup_menu()
 
 

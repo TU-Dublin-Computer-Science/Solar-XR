@@ -140,7 +140,7 @@ var _body_scale_up: bool:
 
 func _ready():	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
-	input_method = Mappings.InputMethod.ALL
+	input_method = Mappings.InputMethod.TOUCH
 	_setup_menu()
 
 

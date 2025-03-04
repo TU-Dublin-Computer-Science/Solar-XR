@@ -17,8 +17,6 @@ const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd"
 @onready var pointer: Pointer
 @onready var visual_ray: MeshInstance3D = $Ray
 
-var min_dist = 0.15
-
 var active: bool: 
 	set(value):
 		active = value
@@ -88,7 +86,7 @@ func _handle_cursor():
 	var collider = get_collider()
 	var distance = get_collision_point().distance_to(global_position)
 
-	if collider == null or distance < min_dist:
+	if collider == null:
 		cursor.visible = false
 		if with_decal: decal.visible = true
 		return

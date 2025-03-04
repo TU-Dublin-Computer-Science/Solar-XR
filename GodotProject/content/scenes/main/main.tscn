@@ -39,9 +39,11 @@ far = 100000.0
 
 [node name="XRControllerLeft" parent="XROrigin3D" instance=ExtResource("2_5cg1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
+show_grid = false
 
 [node name="XRControllerRight" parent="XROrigin3D" instance=ExtResource("3_8bjds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 0)
+show_grid = false
 
 [node name="StartXR" parent="." instance=ExtResource("10_vverm")]
 

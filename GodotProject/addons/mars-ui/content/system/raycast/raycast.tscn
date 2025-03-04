@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://gbm4fxhjehpd"]
+[gd_scene load_steps=10 format=3 uid="uid://gbm4fxhjehpd"]
 
 [ext_resource type="Texture2D" uid="uid://ddagc8rwbp8m8" path="res://addons/mars-ui/assets/cursors/pointer.png" id="1_2f2iv"]
 [ext_resource type="Script" path="res://addons/mars-ui/content/system/raycast/raycast.gd" id="1_gp8nv"]
 [ext_resource type="Texture2D" uid="uid://dalx2klpf4rjx" path="res://addons/mars-ui/assets/cursors/old.png" id="3_f5ibs"]
+[ext_resource type="Shader" path="res://addons/mars-ui/content/system/raycast/raycast.gdshader" id="3_lpfe7"]
+[ext_resource type="Texture2D" uid="uid://cy5dna78q6tn6" path="res://addons/mars-ui/assets/models/ray/ray.png" id="4_fe8o8"]
+[ext_resource type="ArrayMesh" uid="uid://d3kriab522o2w" path="res://addons/mars-ui/assets/models/ray/ray.obj" id="5_3o4gy"]
 [ext_resource type="Material" uid="uid://j8dm7t25nhpu" path="res://addons/mars-ui/assets/materials/grid.tres" id="7_tnbkv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ov0gt"]
+render_priority = 0
+shader = ExtResource("3_lpfe7")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_fe8o8")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cq16e"]
 orientation = 2
@@ -39,6 +48,11 @@ pixel_size = 0.03
 texture_filter = 0
 render_priority = 90
 texture = ExtResource("3_f5ibs")
+
+[node name="Ray" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -1.39624e-11, -6.10317e-19, 0, -4.37114e-08, 1, -1.39624e-11, -1, -4.37114e-08, 0, 0, -0.0182334)
+material_override = SubResource("ShaderMaterial_ov0gt")
+mesh = ExtResource("5_3o4gy")
 
 [node name="Grid" type="MeshInstance3D" parent="."]
 visible = false

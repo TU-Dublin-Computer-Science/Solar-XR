@@ -33,6 +33,15 @@ const MAX_TIME_SCALAR = 10000000
 const DEFAULT_TIME_SCALAR = 1
 const TIME_CHANGE_SPEED = 3000
 
+# Start of Settings Variables
+var input_method: Mappings.InputMethod:
+	set(value):
+		input_method = value
+		$XROrigin3D/XRControllerLeft.input_method = value
+		$XROrigin3D/XRControllerRight.input_method = value
+
+# End of Settings Variables
+
 var _sim_position: Vector3:
 	set(value):
 		_sim_position = value
@@ -88,7 +97,6 @@ var _sim_time_live: bool:
 		MainMenu.time_live_readout = value
 
 
-
 # Move
 var _moving_up: bool = false
 var _moving_down: bool = false
@@ -132,6 +140,7 @@ var _body_scale_up: bool:
 
 func _ready():	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
+	input_method = Mappings.InputMethod.TOUCH
 	_setup_menu()
 
 

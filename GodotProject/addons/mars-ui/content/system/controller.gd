@@ -60,7 +60,7 @@ func _ready():
 
 func _setup_hand():
 		
-	# Remove added children if exist
+	# Reset hand
 	if collide:
 		remove_child(collide)
 	if pointer:
@@ -68,6 +68,9 @@ func _setup_hand():
 	if raycast:
 		remove_child(raycast)
 	
+	
+	
+		
 	if tracker == "left_hand":
 		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_L
 		
@@ -77,6 +80,8 @@ func _setup_hand():
 		# Setup touch checking
 		if touch_enabled:
 			TouchManager.add_finger(Finger.Type.INDEX_LEFT, $IndexTip/TouchArea)
+		else:
+			TouchManager.remove_finger(Finger.Type.INDEX_LEFT)
 	elif tracker == "right_hand": # Right Hand
 		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_R
 		
@@ -86,7 +91,8 @@ func _setup_hand():
 		# Setup touch checking
 		if touch_enabled:
 			TouchManager.add_finger(Finger.Type.INDEX_RIGHT, $IndexTip/TouchArea)
-	
+		else:
+			TouchManager.remove_finger(Finger.Type.INDEX_RIGHT)
 	# Setup Collisions (So hand doesn't immediatly pass through buttons, etc.)
 	if touch_enabled:
 		collide = Collide.new($hand, hand_mesh, index_tip.get_node("Marker3D"))

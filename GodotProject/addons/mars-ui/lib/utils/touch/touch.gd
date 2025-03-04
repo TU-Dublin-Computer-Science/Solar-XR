@@ -17,17 +17,14 @@ func is_touching() -> bool:
 func add_finger(finger_type: Finger.Type, finger_area: Area3D):	
 	"""Called at setup to register fingers"""
 	finger_areas[finger_type] = finger_area
+	finger_area.area_entered.connect(_on_area_entered.bind(finger_type))
+	finger_area.area_exited.connect(_on_area_exited.bind(finger_type))
 
-	finger_area.area_entered.connect(func(entered_area):
-		_on_area_entered(finger_type, entered_area)
-	)
-
-	finger_area.area_exited.connect(func(entered_area):
-		_on_area_exited(finger_type, entered_area)
-	)
 
 func remove_finger(finger_type: Finger.Type):
 	if finger_areas.has(finger_type):
+		finger_areas[finger_type].area_entered.disconnect(_on_area_entered)
+		finger_areas[finger_type].area_exited.disconnect(_on_area_exited)
 		finger_areas.erase(finger_type)
 
 func _physics_process(_delta):
@@ -36,7 +33,7 @@ func _physics_process(_delta):
 			return
 		_emit_event("touch_move", area)
 
-func _on_area_entered(finger_type, area):
+func _on_area_entered(area, finger_type):
 	"""Emit 'touch_enter' event and register to areas_entered, when a finger enters
 	an area that it wasn't already in"""
 	if areas_entered.has(area): 
@@ -47,7 +44,7 @@ func _on_area_entered(finger_type, area):
 		areas_entered[area] = [finger_type]
 		_emit_event("touch_enter", area)
 
-func _on_area_exited(finger_type, area):
+func _on_area_exited(area, finger_type):
 	"""Unregister finger when finger exited, 
 	unregister area when area exited."""
 	if areas_entered.has(area):

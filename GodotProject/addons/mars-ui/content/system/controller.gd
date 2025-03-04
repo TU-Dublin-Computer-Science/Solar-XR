@@ -58,6 +58,13 @@ func _ready():
 	_setup_hand()
 
 func _setup_hand():
+		
+	# Remove added children if exist
+	if collide:
+		remove_child(collide)
+	if pointer:
+		remove_child(pointer)
+	
 	if tracker == "left_hand":
 		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_L
 		
@@ -87,7 +94,7 @@ func _setup_hand():
 		pointer = Pointer.new(initiator, raycast)
 		add_child(pointer)
 		
-	$Raycast.visible = pointer_enabled
+	$Raycast.active = pointer_enabled
 	
 	auto_hand.hand_active_changed.connect(func(hand: int, active: bool):
 		# Hand tracking function triggered when there is a change in state between a hand being tracked or untracked

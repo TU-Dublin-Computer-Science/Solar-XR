@@ -1,5 +1,6 @@
 extends XRController3D
 
+const RaycastScn = preload ("res://addons/mars-ui/content/system/raycast/raycast.tscn")
 const Pointer = preload ("res://addons/mars-ui/lib/utils/pointer/pointer.gd")
 const Initiator = preload ("res://addons/mars-ui/lib/utils/pointer/initiator.gd")
 const Finger = preload ("res://addons/mars-ui/lib/utils/touch/finger.gd")
@@ -64,6 +65,8 @@ func _setup_hand():
 		remove_child(collide)
 	if pointer:
 		remove_child(pointer)
+	if raycast:
+		remove_child(raycast)
 	
 	if tracker == "left_hand":
 		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_L
@@ -91,10 +94,13 @@ func _setup_hand():
 	
 	# Setup Pointer
 	if pointer_enabled:
+		raycast = RaycastScn.instantiate()
+		add_child(raycast)
+		
 		pointer = Pointer.new(initiator, raycast)
 		add_child(pointer)
-		
-	$Raycast.active = pointer_enabled
+			
+	
 	
 	auto_hand.hand_active_changed.connect(func(hand: int, active: bool):
 		# Hand tracking function triggered when there is a change in state between a hand being tracked or untracked

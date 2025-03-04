@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b30w6tywfj4fp"]
+[gd_scene load_steps=7 format=3 uid="uid://b30w6tywfj4fp"]
 
 [ext_resource type="Script" path="res://addons/mars-ui/content/system/controller.gd" id="1_7j75d"]
-[ext_resource type="PackedScene" uid="uid://gbm4fxhjehpd" path="res://addons/mars-ui/content/system/raycast/raycast.tscn" id="4_n7lao"]
 [ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="4_oe7fv"]
 [ext_resource type="PackedScene" uid="uid://dhaqth6q5yw4n" path="res://addons/godot-xr-tools/hands/model/hand_l.gltf" id="5_w1pvs"]
 [ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/hands.gdshader" id="6_wk733"]
@@ -21,10 +20,6 @@ height = 0.02
 tracker = &"left_hand"
 pose = &"aim"
 script = ExtResource("1_7j75d")
-show_grid = null
-
-[node name="Raycast" parent="." instance=ExtResource("4_n7lao")]
-is_right = false
 
 [node name="AutoHandtracker" parent="." instance=ExtResource("4_oe7fv")]
 visible = false

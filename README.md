@@ -16,13 +16,13 @@ An augmented reality model of the solar system written in Godot and designed for
 
 ## Installation
 - Deployment Target: Meta Quest 3
-- Godot Version: 4.3
+- Godot Version: 4.4
 
 After cloning the repository, the following addons must be installed from the asset library:
 
-| Name                       | Installation Path         |
-| -------------------------- | ------------------------- |
-| Godot Open XR Vendors      | addons/godotopenxrvendors |
+| Name                           | Version     | Installation Path          |
+| ------------------------------ | ----------- | -------------------------- |
+| Godot OpenXR Vendors plugin v4 | 4.0.0-beta1 | addons/godotopenxrvendors  |
 
 Follow the documentation for [deploying to Android](https://docs.godotengine.org/en/stable/tutorials/xr/deploying_to_android.html) to get it onto your headset!
 

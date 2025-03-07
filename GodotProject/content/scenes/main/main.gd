@@ -139,8 +139,12 @@ var _body_scale_up: bool:
 			%CentralBody.body_scalar = 1
 
 func _ready():	
-	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
-	input_method = Mappings.InputMethod.TOUCH
+	if OS.get_name() == "Android":
+		input_method = Mappings.InputMethod.TOUCH
+	else:
+		input_method = Mappings.InputMethod.POINTER
+	
+	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
 	_setup_menu()
 
 

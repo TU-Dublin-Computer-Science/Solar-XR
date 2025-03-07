@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://biu66ihmvmku3"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/system/controller.gd" id="1_yrtk0"]
+[ext_resource type="Script" uid="uid://dpwymlus3r6xb" path="res://addons/mars-ui/content/system/controller.gd" id="1_yrtk0"]
 [ext_resource type="PackedScene" uid="uid://ds1t8vc0kxoeo" path="res://addons/godot-xr-tools/hands/model/hand_r.gltf" id="2_kex6u"]
 [ext_resource type="PackedScene" uid="uid://bufelcry36rw1" path="res://addons/xr-autohandtracker/auto_handtracker.tscn" id="3_pjmb2"]
 [ext_resource type="Material" uid="uid://chu0upvkheqlb" path="res://addons/mars-ui/content/system/controller_right/hands_material.tres" id="4_vhkya"]

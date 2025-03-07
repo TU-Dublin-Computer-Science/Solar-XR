@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MarsXR"
 run/main_scene="res://content/scenes/main/main.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -115,4 +115,9 @@ textures/vram_compression/import_etc2_astc=true
 openxr/enabled=true
 openxr/environment_blend_mode=2
 openxr/startup_alert=false
+openxr/extensions/hand_tracking=true
+openxr/extensions/hand_tracking_unobstructed_data_source=true
+openxr/extensions/hand_tracking_controller_data_source=true
+openxr/extensions/hand_interaction_profile=true
 shaders/enabled=true
+openxr/extensions/hand_tracking_aim=true

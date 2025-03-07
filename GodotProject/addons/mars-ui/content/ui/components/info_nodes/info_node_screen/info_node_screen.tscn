@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkfi865sp5164"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.gd" id="1_004mf"]
+[ext_resource type="Script" uid="uid://7qyiooxkyy5e" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.gd" id="1_004mf"]
 [ext_resource type="AudioStream" uid="uid://bdh37tnn3l31g" path="res://addons/mars-ui/assets/sounds/open_menu.wav" id="2_wfrcg"]
 [ext_resource type="AudioStream" uid="uid://ddqa3v4nbiobj" path="res://addons/mars-ui/assets/sounds/close_menu.wav" id="3_lrm5n"]
 
@@ -53,9 +53,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hbym"]
 _data = {
-"RESET": SubResource("Animation_0prac"),
-"menu_appear": SubResource("Animation_nlfrn"),
-"menu_disappear": SubResource("Animation_t3tge")
+&"RESET": SubResource("Animation_0prac"),
+&"menu_appear": SubResource("Animation_nlfrn"),
+&"menu_disappear": SubResource("Animation_t3tge")
 }
 
 [node name="InfoNodeScreen" type="Node3D"]

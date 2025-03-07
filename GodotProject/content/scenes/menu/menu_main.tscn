@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://31h07126r0qd"]
 
-[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
+[ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
+[ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_f40n8"]
 [ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="4_8lqmu"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_move.gd" id="5_awrke"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_rotate.gd" id="6_l1ol1"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_scale.gd" id="7_cecho"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_time.gd" id="8_dwy47"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
+[ext_resource type="Script" uid="uid://ca6m2v6ey2xht" path="res://content/scenes/menu/menu_move.gd" id="5_awrke"]
+[ext_resource type="Script" uid="uid://ds52nopaipv6" path="res://content/scenes/menu/menu_rotate.gd" id="6_l1ol1"]
+[ext_resource type="Script" uid="uid://cxmec8j3fxc6j" path="res://content/scenes/menu/menu_scale.gd" id="7_cecho"]
+[ext_resource type="Script" uid="uid://cl57mw17dje3i" path="res://content/scenes/menu/menu_time.gd" id="8_dwy47"]
+[ext_resource type="Script" uid="uid://bfvy16q8fsegk" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0

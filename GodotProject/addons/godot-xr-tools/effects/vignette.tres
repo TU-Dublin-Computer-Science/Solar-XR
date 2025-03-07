@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cesiqdvdfojle"]
 
-[ext_resource type="Shader" path="res://addons/godot-xr-tools/effects/vignette.gdshader" id="1_x02h0"]
+[ext_resource type="Shader" uid="uid://bv8mevxbjevg2" path="res://addons/godot-xr-tools/effects/vignette.gdshader" id="1_x02h0"]
 
 [resource]
 render_priority = 99

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bsjqdvkt0u87c"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/button/button.gd" id="1_74x7g"]
-[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="2_db5by"]
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/panel/panel.gd" id="3_skm86"]
+[ext_resource type="Script" uid="uid://bhb2ihlxhv54g" path="res://addons/mars-ui/content/ui/components/button/button.gd" id="1_74x7g"]
+[ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="2_db5by"]
+[ext_resource type="Script" uid="uid://dmeyijxsdsd45" path="res://addons/mars-ui/content/ui/components/panel/panel.gd" id="3_skm86"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="4_51sb0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qvsp3"]

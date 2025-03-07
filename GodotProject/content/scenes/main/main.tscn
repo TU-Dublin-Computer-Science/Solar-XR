@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://2xng5iqxysgp"]
 
-[ext_resource type="Script" path="res://content/scenes/main/main.gd" id="1_55rk4"]
+[ext_resource type="Script" uid="uid://cqr1p7w2g45gh" path="res://content/scenes/main/main.gd" id="1_55rk4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/mars-ui/content/system/controller_left/controller_left.tscn" id="2_5cg1x"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/mars-ui/content/system/controller_right/controller_right.tscn" id="3_8bjds"]
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/mars-ui/assets/environment_passthrough.tres" id="5_rett8"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://31h07126r0qd" path="res://content/scenes/menu/menu_main.tscn" id="10_ikula"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="10_vverm"]
 [ext_resource type="PackedScene" uid="uid://dkfi865sp5164" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node_screen/info_node_screen.tscn" id="11_8ofab"]
-[ext_resource type="Script" path="res://content/scenes/main/main_menu_tracker.gd" id="12_qv2iw"]
+[ext_resource type="Script" uid="uid://bsiv2p08o35qw" path="res://content/scenes/main/main_menu_tracker.gd" id="12_qv2iw"]
 [ext_resource type="PackedScene" uid="uid://gs122858j0nd" path="res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.tscn" id="12_xl8ae"]
 
 [node name="Main" type="Node3D"]
@@ -39,11 +39,9 @@ far = 100000.0
 
 [node name="XRControllerLeft" parent="XROrigin3D" instance=ExtResource("2_5cg1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0)
-show_grid = false
 
 [node name="XRControllerRight" parent="XROrigin3D" instance=ExtResource("3_8bjds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 0)
-show_grid = false
 
 [node name="StartXR" parent="." instance=ExtResource("10_vverm")]
 

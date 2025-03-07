@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1iitlq37osgs"]
 
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/xr_setup_menu/xr_setup_menu.gd" id="1_jg06h"]
-[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="2_1n3wu"]
+[ext_resource type="Script" uid="uid://dw1b5k714i5d1" path="res://addons/mars-ui/content/ui/components/xr_setup_menu/xr_setup_menu.gd" id="1_jg06h"]
+[ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="2_1n3wu"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_51v84"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lv8cw"]

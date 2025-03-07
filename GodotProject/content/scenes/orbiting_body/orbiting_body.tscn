@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy2tcoqvgf0gl"]
 
-[ext_resource type="Script" path="res://content/scenes/orbiting_body/orbiting_body.gd" id="1_hyuvt"]
+[ext_resource type="Script" uid="uid://dxa0bvww0bgfl" path="res://content/scenes/orbiting_body/orbiting_body.gd" id="1_hyuvt"]
 [ext_resource type="FontFile" uid="uid://b7ba66x8nedqd" path="res://content/assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_ijimx"]
 [ext_resource type="Texture2D" uid="uid://fuax0i6343le" path="res://content/assets/sprites/Arrow.png" id="3_4u6h1"]
 

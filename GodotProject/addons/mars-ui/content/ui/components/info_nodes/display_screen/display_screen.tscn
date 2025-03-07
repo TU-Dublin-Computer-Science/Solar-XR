@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://gs122858j0nd"]
 
-[ext_resource type="Shader" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_42wqb"]
-[ext_resource type="Script" path="res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.gd" id="1_rl8sr"]
+[ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_42wqb"]
+[ext_resource type="Script" uid="uid://conjnp03aks14" path="res://addons/mars-ui/content/ui/components/info_nodes/display_screen/display_screen.gd" id="1_rl8sr"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/mars-ui/content/ui/components/button/button.tscn" id="3_5ks17"]
 [ext_resource type="Texture2D" uid="uid://xxxhocwl642k" path="res://content/assets/info_images/OlympusMons.png" id="3_gevwr"]
 

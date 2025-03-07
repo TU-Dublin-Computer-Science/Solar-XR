@@ -77,6 +77,7 @@ label = "Reset"
 [node name="Tabs" type="Node3D" parent="ControlMenu"]
 
 [node name="MenuDefault" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 
 [node name="Lbl1" type="Label3D" parent="ControlMenu/Tabs/MenuDefault"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)

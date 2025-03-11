@@ -48,16 +48,21 @@ var body_scalar: float:
 var satellite_bodies_will_scale: bool = false
 
 var satellites_visible: bool = false:
+	# Used for hiding moons for performance reasons
 	set(value):
 		satellites_visible = value
 		for satellite in satellites:
 			satellite.visible = satellites_visible
 
+
 var satellite_orbits_visible: bool = true:
+	# Used for hiding suns orbit visuals when a planet is focused and zoomed
+	# (We don't want to use "satellites_visible" here as it would make the focused planet invisible)
 	set(value):
 		satellite_orbits_visible = value
 		for satellite in satellites:
 			satellite.OrbitVisual.visible = value
+
 
 var satellites = []
 var info_nodes: Array[Node3D]

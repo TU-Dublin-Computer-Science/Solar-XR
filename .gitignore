@@ -1,6 +1,7 @@
 # Godot 4+ Specific ignores
 GodotProject/.godot/
 GodotProject/android/
+GodotProject/openxr_action_map.tres
 
 # Tmp Files
 *.tmp

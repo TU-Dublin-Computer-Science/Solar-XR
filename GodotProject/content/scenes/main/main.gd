@@ -25,7 +25,6 @@ const MIN_SIM_SCALE: float = 0.0005
 const MAX_SIM_SCALE: float = 500
 const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
-const SUN_ORBIT_VISIBLE = 0.7
 const BODY_SCALE_UP = 800
 
 const MIN_TIME_SCALAR = -10000000
@@ -57,8 +56,12 @@ var _sim_scale: float:
 		#Inverse scale applied to labels to keep them from being scaled with model
 		%CentralBody.label_scale = 1 / _sim_scale  
 		
-		%CentralBody.satellite_orbits_visible = (_sim_scale <= (focus_zoom_in_target - (focus_zoom_in_target * SUN_ORBIT_VISIBLE)))
-		
+		# Switch from showing planet orbit lines to showing planet moons once specific zoom threshold reached
+		var moon_show_thresh = (focus_zoom_in_target - (focus_zoom_in_target * 0.9))
+		%CentralBody.satellite_orbits_visible = _sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
+		# If not the sun, show/hide satellites:
+		_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (_sim_scale > moon_show_thresh)
+			
 		MainMenu.scale_readout = _model_scalar * value
 
 
@@ -224,9 +227,6 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 	
 	MainMenu.focused_body_ID = _new_focused_body.ID  #Update Menu Readout
 	
-	if _focused_body and _focused_body.ID != Mappings.planet_ID["sun"]:
-		_focused_body.satellites_visible = false  #Hide satellites on old focused body
-	
 	_body_scale_up = false  #Set bodies to true scale if not already
 	
 	
@@ -277,7 +277,6 @@ func _handle_body_focusing(delta: float):
 				_sim_scale = focus_zoom_in_target
 				
 				_focus_state = FocusState.FOCUSED
-				_focused_body.satellites_visible = true
 			else:
 				_sim_scale += _focus_zoom_in_speed * delta
 		FocusState.WAIT:

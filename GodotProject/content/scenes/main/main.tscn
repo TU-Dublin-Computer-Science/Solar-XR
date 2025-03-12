@@ -65,6 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="InfoNodeScreen" parent="MainMenuTracker" instance=ExtResource("11_8ofab")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000708371, -0.133997, -0.453979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947552, -0.133997, -0.454001)
 
 [node name="DisplayScreen" parent="MainMenuTracker/InfoNodeScreen" instance=ExtResource("12_xl8ae")]

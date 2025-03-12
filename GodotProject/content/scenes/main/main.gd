@@ -229,7 +229,6 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 	
 	_body_scale_up = false  #Set bodies to true scale if not already
 	
-	
 	_focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
 	
 	_focus_move_time_remaining = FOCUS_MOVE_TIME
@@ -292,24 +291,23 @@ func _handle_body_focusing(delta: float):
 # End of Focus Logic
 
 func _reset_state():
-	
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
 	_sim_position = DEFAULT_SIM_POS
 
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
-	%Simulation.transform.basis = Basis()
-	
+	# Resets rotation while preserving scale
+	var scale = %Simulation.transform.basis.get_scale()
+	%Simulation.transform.basis = Basis().scaled(scale)
+
 	%Simulation.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
-	
+
 	_focus_body(_get_body(Mappings.planet_ID["sun"]))
-	
+
 	_body_scale_up = false
-	
-	_sim_scale = DEFAULT_SIM_SCALE
 	
 	_initialise_time()
 	

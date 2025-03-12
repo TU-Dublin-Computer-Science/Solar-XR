@@ -57,7 +57,7 @@ var _sim_scale: float:
 		%CentralBody.label_scale = 1 / _sim_scale  
 		
 		# Switch from showing planet orbit lines to showing planet moons once specific zoom threshold reached
-		var moon_show_thresh = (focus_zoom_in_target - (focus_zoom_in_target * 0.9))
+		var moon_show_thresh = (_focus_scale_target - (_focus_scale_target * 0.9))
 		%CentralBody.satellite_orbits_visible = _sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
 		# If not the sun, show/hide satellites:
 		_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (_sim_scale > moon_show_thresh)
@@ -202,10 +202,11 @@ enum FocusState {
 const FOCUS_MOVE_TIME: float = 1
 const FOCUS_ZOOM_TIME: float = 1.2
 const FOCUS_WAIT_TIME: float = 0.2
-const FOCUS_ZOOM_OUT_TARGET = 0.05
+const FOCUS_SCALE_BIRDS_EYE = 0.05
 
+var _focus_scale_target: float
+var _focus_zoom_out_target: float
 var _focus_zoom_out_speed: float
-var focus_zoom_in_target: float
 var _focus_zoom_in_speed: float
 
 var _focus_move_time_remaining: float
@@ -218,37 +219,42 @@ var _new_focused_body: OrbitingBody
 
 
 func _focus_body(p_new_focused_body: OrbitingBody):
-	"""This function sets up the transition to a new focused body, which _handle_body_focusing() finishes"""
-	
-	if p_new_focused_body == _focused_body:
-		return
-
+	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
 	_new_focused_body = p_new_focused_body
 	
 	MainMenu.focused_body_ID = _new_focused_body.ID  #Update Menu Readout
 	
 	_body_scale_up = false  #Set bodies to true scale if not already
 	
+	_focus_scale_target =  0.5 / _new_focused_body.radius 
 	
-	_focus_zoom_out_speed = abs(FOCUS_ZOOM_OUT_TARGET - _sim_scale) / FOCUS_ZOOM_TIME
-	
+	_focus_zoom_in_speed = abs(_focus_scale_target - _sim_scale) / FOCUS_ZOOM_TIME
+
 	_focus_move_time_remaining = FOCUS_MOVE_TIME
 	
-	focus_zoom_in_target =  0.5 / _new_focused_body.radius 
-	_focus_zoom_in_speed = abs(focus_zoom_in_target - FOCUS_ZOOM_OUT_TARGET) / FOCUS_ZOOM_TIME
-	
-	if _sim_scale >= FOCUS_ZOOM_OUT_TARGET:
-		_focus_state = FocusState.ZOOM_OUT  # Zoom out if too close
-	else:
+	if _new_focused_body == _focused_body:  #If same body being focused
 		_focused_body = _new_focused_body
-		_focus_state = FocusState.MOVE  # Else move to new body
+		if _sim_scale >= _focus_scale_target: # If need to zoom out
+			_focus_zoom_out_target = _focus_scale_target  # Zoom out target is the planet view
+			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME
+			_focus_state = FocusState.ZOOM_OUT
+		else: # If need to zoom in
+			_focus_state = FocusState.ZOOM_IN
+	else: # If new body being focused
+		if _sim_scale >= FOCUS_SCALE_BIRDS_EYE: # If need to zoom out
+			_focus_zoom_out_target = FOCUS_SCALE_BIRDS_EYE # Target is the space birds eye veiw
+			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME
+			_focus_state = FocusState.ZOOM_OUT  
+		else:
+			_focused_body = _new_focused_body
+			_focus_state = FocusState.MOVE  # Else move to new body
 
 
 func _handle_body_focusing(delta: float):
 	match(_focus_state):
 		FocusState.ZOOM_OUT:
-			if _sim_scale <= FOCUS_ZOOM_OUT_TARGET:	 # Zoom out if less than target
-				_sim_scale = FOCUS_ZOOM_OUT_TARGET
+			if _sim_scale <= _focus_zoom_out_target:	 # Zoom out if less than target
+				_sim_scale = _focus_zoom_out_target
 				_focused_body = _new_focused_body
 				_focus_action_after_wait = FocusState.MOVE
 				_focus_wait_timer = 0
@@ -273,8 +279,8 @@ func _handle_body_focusing(delta: float):
 			else:
 				%CentralBody.position += step
 		FocusState.ZOOM_IN:
-			if _sim_scale >= focus_zoom_in_target:
-				_sim_scale = focus_zoom_in_target
+			if _sim_scale >= _focus_scale_target:
+				_sim_scale = _focus_scale_target
 				
 				_focus_state = FocusState.FOCUSED
 			else:
@@ -292,24 +298,23 @@ func _handle_body_focusing(delta: float):
 # End of Focus Logic
 
 func _reset_state():
-	
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
 	_sim_position = DEFAULT_SIM_POS
 
 	_to_sim = Vector3(Camera.global_position.x, 0, Camera.global_position.z).direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
-	%Simulation.transform.basis = Basis()
-	
+	# Resets rotation while preserving scale
+	var scale = %Simulation.transform.basis.get_scale()
+	%Simulation.transform.basis = Basis().scaled(scale)
+
 	%Simulation.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
-	
+
 	_focus_body(_get_body(Mappings.planet_ID["sun"]))
-	
+
 	_body_scale_up = false
-	
-	_sim_scale = DEFAULT_SIM_SCALE
 	
 	_initialise_time()
 	

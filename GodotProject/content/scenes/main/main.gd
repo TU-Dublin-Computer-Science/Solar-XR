@@ -165,22 +165,18 @@ func _process(delta):
 
 
 func _setup():
-	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 	%AudBGM.playing = true
 	
-	_init_sim()
-	
-	_reset_state()
-
-
-func _init_sim():
 	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
 	_model_scalar = 0.5 / sun_data["radius"]
+	_focused_body = %CentralBody
 	
 	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
 	%CentralBody.satellites_visible = true
 	%CentralBody.satellite_bodies_will_scale = true
 	%CentralBody.visible = true
+	
+	_reset_state()  
 
 
 func _check_if_player_moved():
@@ -231,7 +227,6 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 	
 	_body_scale_up = false  #Set bodies to true scale if not already
 	
-
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
 	
 	_focus_zoom_in_speed = abs(_focus_scale_body - _sim_scale) / FOCUS_ZOOM_TIME
@@ -306,6 +301,7 @@ func _handle_body_focusing(delta: float):
 # End of Focus Logic
 
 func _reset_state():
+	"""Set state to initial defaults, this is called on program start and when sim is reset"""
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
 	_sim_position = DEFAULT_SIM_POS

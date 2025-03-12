@@ -229,7 +229,7 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 	
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
 	
-	_focus_zoom_in_speed = abs(_focus_scale_body - _sim_scale) / FOCUS_ZOOM_TIME
+	
 
 	_focus_move_time_remaining = FOCUS_MOVE_TIME
 	
@@ -242,8 +242,10 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME
 			_focus_state = FocusState.ZOOM_OUT
 		else: # If need to zoom in
+			_focus_zoom_in_speed = abs(_focus_scale_body - _sim_scale) / FOCUS_ZOOM_TIME
 			_focus_state = FocusState.ZOOM_IN
 	else: # If new body being focused
+		_focus_zoom_in_speed = abs(_focus_scale_body - FOCUS_SCALE_BIRDS_EYE) / FOCUS_ZOOM_TIME
 		if _sim_scale >= FOCUS_SCALE_BIRDS_EYE: # If need to zoom out
 			_focus_zoom_out_target = FOCUS_SCALE_BIRDS_EYE # Target is the space birds eye veiw
 			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME

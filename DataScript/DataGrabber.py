@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup
 
-import json
+import json, os
+
+SATELLITE_DIR = "SatelliteDataFiles"
 
 def create_satellite_list() -> list:
-    satellite_physical_file = open("DataScript/Planetary Satellite Physical Parameters.html", "r")
+    satellite_physical_file = open("Planetary Satellite Physical Parameters.html", "r")
     satellite_phsyical_data = satellite_physical_file.read()
     satellite_physical_file.close()
 
@@ -23,7 +25,7 @@ def create_satellite_list() -> list:
             physical_satellite_data_list.append(data_object)
 
 
-    satellite_orbit_file = open("DataScript/Planetary Satellite Mean Elements.html", 'r')
+    satellite_orbit_file = open("Planetary Satellite Mean Elements.html", 'r')
     satellite_orbit_data = satellite_orbit_file.read()
     satellite_orbit_file.close()
 
@@ -69,10 +71,14 @@ def create_satellite_list() -> list:
 
 def create_satellite_files(satellite_list: list):
 
+    if not os.path.exists(SATELLITE_DIR):
+        os.makedirs(SATELLITE_DIR)
+    
+
     for satellite_data in satellite_list:
         json_string = json.dumps(satellite_data, indent=4)
 
-        file_path = "DataScript/SatelliteDataFiles/" + satellite_data["name"].lower() + ".json"
+        file_path = SATELLITE_DIR + "/" + satellite_data["name"].lower() + ".json"
 
         file = open(file_path, "w")
         file.write(json_string)

@@ -1,6 +1,12 @@
+"""
+This script is for pulling the data from the downloaded html files in this directory and creating data files for each satellites,
+which are added to a "SatelliteDataFiles" subdirectory.
+Note that these won't include the info point data that has been added after.
+"""
+
 from bs4 import BeautifulSoup
 
-import json, os
+import json, os, shutil
 
 SATELLITE_DIR = "SatelliteDataFiles"
 
@@ -69,9 +75,10 @@ def create_satellite_list() -> list:
     return satellite_data_list
             
 
-def create_satellite_files(satellite_list: list):
+def regen_satellite_files(satellite_list: list):
 
-    if not os.path.exists(SATELLITE_DIR):
+    if os.path.exists(SATELLITE_DIR):
+        shutil.rmtree(SATELLITE_DIR)
         os.makedirs(SATELLITE_DIR)
     
 
@@ -96,7 +103,7 @@ def print_planet_satellites(satellite_list: list, planet_name: str):
 def main_menu():
     while True:
         print("\n--- SolarXR Data File Script ---")
-        print("1. Regenerate Satellite Files")
+        print("1. Generate Satellite Files")
         print("2. Print a List of Satellites for a Specified Planet")
         print("3. Exit")
 
@@ -104,11 +111,13 @@ def main_menu():
 
         if choice == "1":
             # Ask for confirmation before regenerating satellite files
-            confirm = input("Are you sure you want to regenerate the satellite files? (Press y to confirm): ").strip().lower()
+            confirm = input(('Are you sure you want to generate the satellite files in a subdirectory "SatelliteDataFiles"?\n'
+                            "Any files in a subdirectory of the same name will be removed!\n"
+                            "(Press y to confirm):")).strip().lower()
             if confirm == "y":
-                print("Regenerating satellite files...")
+                print("Generating satellite files...")
                 satellite_list = create_satellite_list()
-                create_satellite_files(satellite_list)
+                regen_satellite_files(satellite_list)
             else:
                 print("Operation canceled.")
         elif choice == "2":

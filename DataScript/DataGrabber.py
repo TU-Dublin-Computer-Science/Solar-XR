@@ -93,11 +93,36 @@ def print_planet_satellites(satellite_list: list, planet_name: str):
             print('"' + satellite_data["name"].lower() + '",')
             
 
-if __name__ == "__main__":
-    satellite_list = create_satellite_list()
-    
-    create_satellite_files(satellite_list)
-    
-    #print_planet_satellites(satellite_list, "uranus")
+def main_menu():
+    while True:
+        print("\n--- SolarXR Data File Script ---")
+        print("1. Regenerate Satellite Files")
+        print("2. Print a List of Satellites for a Specified Planet")
+        print("3. Exit")
 
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            # Ask for confirmation before regenerating satellite files
+            confirm = input("Are you sure you want to regenerate the satellite files? (Press y to confirm): ").strip().lower()
+            if confirm == "y":
+                print("Regenerating satellite files...")
+                satellite_list = create_satellite_list()
+                create_satellite_files(satellite_list)
+            else:
+                print("Operation canceled.")
+        elif choice == "2":
+            planet = input("Enter the name of the planet: ").strip().lower()
+            # Assuming we want to print the satellites of the given planet
+            satellite_list = create_satellite_list()
+            print_planet_satellites(satellite_list, planet)
+        elif choice == "3":
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid choice, please try again.")
+
+
+if __name__ == "__main__":
+    main_menu()
 

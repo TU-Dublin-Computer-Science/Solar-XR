@@ -12,6 +12,16 @@
     "inclination": 7.00497902,
     "lon_ascending_node": 48.33076593,
     "orbital_period": 87.9090455,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "Hun Kal Crater",
+            "description": "Hun Kal is a small crater on Mercury used as a reference point it's prime meridian. It is defined as being at longitude 20°W of the planet's prime meridian.", 
+            "image_path": "res://content/assets/info_images/HunKal.jpg",
+            "location": {
+                "latitude": -0.46,
+                "longitude": -20.01
+            }
+        }
+    ],
     "satellites": [] 
 }

@@ -19,7 +19,7 @@
             "image_path": "res://content/assets/info_images/HunKal.jpg",
             "location": {
                 "latitude": -0.46,
-                "longitude": -20.01
+                "longitude": 339.99
             }
         },
         {
@@ -28,7 +28,7 @@
             "image_path": "res://content/assets/info_images/Caloris.jpg",
             "location": {
                 "latitude": 31.65,
-                "longitude": -198.02
+                "longitude": 161.98
             }
         }
     ],

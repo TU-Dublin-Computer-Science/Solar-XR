@@ -21,6 +21,15 @@
                 "latitude": -0.46,
                 "longitude": -20.01
             }
+        },
+        {
+            "title": "Caloris Plantia",
+            "description": "Caloris Plantia is a very large impact basin on Mercury. It is one of the largest impact basins in the Solar System.",
+            "image_path": "res://content/assets/info_images/Caloris.jpg",
+            "location": {
+                "latitude": 31.65,
+                "longitude": -198.02
+            }
         }
     ],
     "satellites": [] 

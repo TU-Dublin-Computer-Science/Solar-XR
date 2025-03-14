@@ -12,6 +12,14 @@
     "inclination": 3.39467605,
     "lon_ascending_node": 76.67984255,
     "orbital_period": 224.5469999,
-    "info_points": [],
+    "info_points": [        {
+        "title": "Ariadne",
+        "description": "Ariadne's central peak serves as the prime meridian of the planet. It is named after a princess from Greek mythology.",
+        "image_path": "res://content/assets/info_images/Ariadne.jpg",
+        "location": {
+            "latitude": 43.90,
+            "longitude": 0
+        }
+    }],
     "satellites": [] 
 }

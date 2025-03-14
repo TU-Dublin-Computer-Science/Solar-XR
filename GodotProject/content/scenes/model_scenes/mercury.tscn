@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c01267t2om56h"]
 
-[ext_resource type="Texture2D" uid="uid://bsfeyhkosjjx8" path="res://content/assets/textures/8k_mercury.jpg" id="1_5i1i2"]
+[ext_resource type="Texture2D" uid="uid://d3v8c27r5pxek" path="res://content/assets/textures/MercuryHQ.png" id="1_myeg7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8plv1"]
-albedo_texture = ExtResource("1_5i1i2")
+albedo_texture = ExtResource("1_myeg7")
 
 [sub_resource type="SphereMesh" id="SphereMesh_yjdeo"]
 material = SubResource("StandardMaterial3D_8plv1")
@@ -13,6 +13,7 @@ material = SubResource("StandardMaterial3D_8plv1")
 [node name="Mercury" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("SphereMesh_yjdeo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

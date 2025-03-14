@@ -32,7 +32,9 @@ Follow the documentation for [deploying to Android](https://docs.godotengine.org
 
 ## References
 - Virtual Menu (extracted and modified): [Immersive Home Project](https://github.com/Nitwel/Immersive-Home)
-- [Planet Textures](https://www.solarsystemscope.com/textures/)
+- Planet Textures
+  - https://www.solarsystemscope.com/textures/
+  - geohack.toolforge.org
 - [Solar System Data](https://ssd.jpl.nasa.gov/horizons)
 - [BGM](https://pixabay.com/music/ambient-space-158081/)
 - Models:

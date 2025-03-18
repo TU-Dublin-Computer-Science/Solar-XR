@@ -41,3 +41,4 @@ Follow the documentation for [deploying to Android](https://docs.godotengine.org
     - [Phobos](https://science.nasa.gov/resource/phobos-mars-moon-3d-model/)
     - [Deimos](https://science.nasa.gov/resource/deimos-mars-moon-3d-model/)
     - [Saturn](https://science.nasa.gov/resource/saturn-3d-model/)
+- Some planetary facts used from book: Cosmos by Dr. Becky Smethurst

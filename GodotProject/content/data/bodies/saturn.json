@@ -12,7 +12,26 @@
     "inclination": 2.48599187,
     "lon_ascending_node": 113.66242448,
     "orbital_period": 10748.33677,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "Cicular Storms",
+            "description": "These can frequently be seen on the surface of Saturn",
+            "image_path": "res://content/assets/info_images/SaturnStorm.jpg",
+            "location": {
+                "latitude": -20,
+                "longitude": 300
+            }    
+        },
+        {
+            "title": "Rings of Saturn",
+            "description": "Saturn has the most extensive and complex ring system of any planet in the solar system. They consist of particles in orbit around the planet made almost entirely of water ice, with a trace component of rokcy material.",
+            "image_path": "res://content/assets/info_images/SaturnRings.jpg",
+            "location": {
+                "latitude": 0,
+                "longitude": 60
+            }
+        }
+    ],
     "satellites": [
         "mimas",
         "enceladus",

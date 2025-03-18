@@ -21,6 +21,24 @@
                 "latitude": -17.50,
                 "longitude": 42.5
             }
+        },
+        {
+            "title": "South Equatorial Belt",
+            "description": "This is a dark, cloud-covered band that runs across Jupiter's southern hemisphere.It is known for its periodic fading and revival cycles, with its colour and structure changing over time.",
+            "image_path": "res://content/assets/info_images/SouthEqBelt.jpg",
+            "location": {
+                "latitude": -12.5,
+                "longitude": 280
+            }
+        },
+        {
+            "title": "North Equatorial Belt",
+            "description": "This is a prominant dark band across Jupiter's northern hemisphere. Clouds low in ammonia compared to the rest give them a dark appearance. It has frequent storms, turbulent clouds and complex vortex structures.",
+            "image_path": "res://content/assets/info_images/NorthEqBelt.jpg",
+            "location": {
+                "latitude": 12.5,
+                "longitude": 280
+            }
         }
     ],
     "satellites": [

@@ -39,6 +39,15 @@
                 "latitude": -33.95,
                 "longitude": 12.54
             }
+        },
+        {
+            "title": "Discovery Rupes",
+            "description": "A 650km long cliff, formed by the planet's core as it cooled over time. It was discovered in 1975 by the Mariner 10 probe.",
+            "image_path": "res://content/assets/info_images/DiscoveryRupes.jpg",
+            "location": {
+                "latitude": -54.70,
+                "longitude": 322.76
+            }
         }
     ],
     "satellites": [] 

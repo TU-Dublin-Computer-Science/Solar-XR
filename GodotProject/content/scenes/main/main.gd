@@ -150,6 +150,7 @@ func _ready():
 		input_method = Mappings.InputMethod.POINTER
 	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
+	
 	_setup_menu()
 
 
@@ -175,6 +176,7 @@ func _setup():
 	%CentralBody.satellites_visible = true
 	%CentralBody.satellite_bodies_will_scale = true
 	%CentralBody.visible = true
+	_connect_info_nodes(%CentralBody)
 	
 	_reset_state()  
 
@@ -220,7 +222,9 @@ var _new_focused_body: OrbitingBody
 
 func _focus_body(p_new_focused_body: OrbitingBody):
 	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
-
+	
+	InfoNodeScreen.deactivate()
+	
 	_new_focused_body = p_new_focused_body # Set global var
 	
 	MainMenu.focused_body_ID = _new_focused_body.ID  #Update Menu Readout
@@ -228,8 +232,6 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 	_body_scale_up = false  #Set bodies to true scale if not already
 	
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
-	
-	
 
 	_focus_move_time_remaining = FOCUS_MOVE_TIME
 	
@@ -323,9 +325,6 @@ func _reset_state():
 	_body_scale_up = false
 	
 	_initialise_time()
-	
-	InfoNodeScreen.deactivate()
-	_connect_info_nodes(%CentralBody)
 
 	
 func _connect_info_nodes(orbiting_body: OrbitingBody):

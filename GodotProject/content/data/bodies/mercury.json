@@ -48,6 +48,15 @@
                 "latitude": -54.70,
                 "longitude": 322.76
             }
+        },
+        {
+            "title": "Faulkner Crater",
+            "description": "A large old impact crater that has been partially buried by a smooth plain of solidified lava. Long ago, volcanic flows filled the crater's floor, leaving ony the higher parts of the crater still intact.",
+            "image_path": "res://content/assets/info_images/FaulknerCrater.jpg",
+            "location": {
+                "latitude": 8.08,
+                "longitude": 76.97
+            }
         }
     ],
     "satellites": [] 

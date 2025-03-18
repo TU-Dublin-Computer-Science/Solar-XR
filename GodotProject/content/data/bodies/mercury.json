@@ -30,6 +30,15 @@
                 "latitude": 31.65,
                 "longitude": 161.98
             }
+        },
+        {
+            "title": "Debussy Crater",
+            "description": "A rayed impact crater named after the French composer. Most of Mercury's craters are named after musicians, writers and artists.",
+            "image_path": "res://content/assets/info_images/DebussyCrater.jpg",
+            "location": {
+                "latitude": -33.95,
+                "longitude": 12.54
+            }
         }
     ],
     "satellites": [] 

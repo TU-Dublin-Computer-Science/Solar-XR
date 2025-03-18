@@ -30,6 +30,15 @@
                 "latitude": 0,
                 "longitude": 60
             }
+        },
+        {
+            "title": "Atmosphere",
+            "description": "Saturn is a gas giant, with an atmosphere that is mostly hydrogen and helium. Its yellow colour comes from ammonia-ice crystals in the clouds.",
+            "image_path": "res://content/assets/info_images/SaturnSurface.jpg",
+            "location": {
+                "latitude": 30,
+                "longitude": 150
+            }
         }
     ],
     "satellites": [

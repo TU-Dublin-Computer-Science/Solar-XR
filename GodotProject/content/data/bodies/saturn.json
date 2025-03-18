@@ -39,6 +39,15 @@
                 "latitude": 30,
                 "longitude": 150
             }
+        },
+        {
+            "title": "Clouds",
+            "description": "Horizontal bands of fast-moving clouds encircle the planet",
+            "image_path": "res://content/assets/info_images/SaturnClouds.jpg",
+            "location":{
+                "latitude": -20,
+                "longitude": 180
+            }
         }
     ],
     "satellites": [

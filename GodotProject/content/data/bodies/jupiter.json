@@ -39,6 +39,24 @@
                 "latitude": 12.5,
                 "longitude": 280
             }
+        },
+        {
+            "title": "South Pole",
+            "description": "The south pole was first photographed by the Juno spacecraft is 2017. It is categorised by unique and complex atmosphereic patterns. When it was first photographed, six cyclones where seen on it forming a pentagon shape.",
+            "image_path": "res://content/assets/info_images/JupiterSouthPole.jpg",
+            "location": {
+                "latitude": -90,
+                "longitude": 0
+            }
+        },
+        {
+            "title": "North Pole",
+            "description": "When first imaged in 2016, the North Pole consisted of a large polar cyclone, measuring just over 3,000km in diameter, surrounded by eight smaller cyclones.",
+            "image_path": "res://content/assets/info_images/JupiterNorthPole.jpg",
+            "location": {
+                "latitude": 90,
+                "longitude": 0
+            }
         }
     ],
     "satellites": [

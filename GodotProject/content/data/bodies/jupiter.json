@@ -12,7 +12,17 @@
     "inclination": 1.30439695,
     "lon_ascending_node": 100.47390909,
     "orbital_period": 4329.854475,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "The Great Red Spot",
+            "description": "This is the largest storm in the solar system. It has been on the planet for at least 150 years, possible even since the 1600s. It is 16,350km across, making it wide enough to fit the planet Earth inside.",
+            "image_path": "res://content/assets/info_images/GreatRedSpot.jpg",
+            "location": {
+                "latitude": -17.50,
+                "longitude": 42.5
+            }
+        }
+    ],
     "satellites": [
         "io",
         "europa",

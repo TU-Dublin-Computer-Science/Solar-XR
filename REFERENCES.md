@@ -22,19 +22,27 @@
 - [Satellite Radii](https://ssd.jpl.nasa.gov/sats/phys_par/)
 
 # Images
-## Mars
-- [Olympus Mons](https://www.flickr.com/photos/192271236@N03/52770375578/)
-- [North Polar Ice Cap](https://www.jpl.nasa.gov/images/pia13163-northern-ice-cap-of-mars/)
-- [South Polar Ice Cap](https://photojournal.jpl.nasa.gov/catalog/PIA02393)
-- [Valles Marineris](http://themis.asu.edu/vallesspecial)
-- [Airy-0](https://photojournal.jpl.nasa.gov/catalog/PIA25090)
-
 ## Mercury
 - [Hun Kal Crater](https://www.nasa.gov/history/history-publications-and-resources/)  
 - [Debussy](https://photojournal.jpl.nasa.gov/catalog/PIA11371)  
 - [Discovery Rupes](https://photojournal.jpl.nasa.gov/catalog/PIA02446)
 - [Faulkner](https://pilot.wr.usgs.gov/)  
 - [Caloris Planitia](https://photojournal.jpl.nasa.gov/catalog/PIA19213)  
+
+## Venus
+- [Dali Chasma](https://photojournal.jpl.nasa.gov/catalog/PIA00268)  
+- [Ariadne](http://www.lpi.usra.edu/resources/vc/vcinfo/?refnum=310)  
+- [Sapas Mons](https://photojournal.jpl.nasa.gov/catalog/PIA00203)  
+- [Volcanoes](https://photojournal.jpl.nasa.gov/catalog/pia00254)  
+- [Maxwell Montes](https://photojournal.jpl.nasa.gov/catalog/PIA00149)  
+
+
+## Mars
+- [Olympus Mons](https://www.flickr.com/photos/192271236@N03/52770375578/)
+- [North Polar Ice Cap](https://www.jpl.nasa.gov/images/pia13163-northern-ice-cap-of-mars/)
+- [South Polar Ice Cap](https://photojournal.jpl.nasa.gov/catalog/PIA02393)
+- [Valles Marineris](http://themis.asu.edu/vallesspecial)
+- [Airy-0](https://photojournal.jpl.nasa.gov/catalog/PIA25090)
 
 ## Jupiter
 - [North Pole](https://webbtelescope.org/contents/media/images/2020/38/4719-Image?news=true)  

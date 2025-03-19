@@ -12,7 +12,44 @@
     "inclination": 2.48599187,
     "lon_ascending_node": 113.66242448,
     "orbital_period": 10748.33677,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "Cicular Storms",
+            "description": "These can frequently be seen on the surface of Saturn",
+            "image_path": "res://content/assets/info_images/SaturnStorm.jpg",
+            "location": {
+                "latitude": -20,
+                "longitude": 300
+            }    
+        },
+        {
+            "title": "Rings of Saturn",
+            "description": "Saturn has the most extensive and complex ring system of any planet in the solar system. They consist of particles in orbit around the planet made almost entirely of water ice, with a trace component of rokcy material.",
+            "image_path": "res://content/assets/info_images/SaturnRings.jpg",
+            "location": {
+                "latitude": 0,
+                "longitude": 60
+            }
+        },
+        {
+            "title": "Atmosphere",
+            "description": "Saturn is a gas giant, with an atmosphere that is mostly hydrogen and helium. Its yellow colour comes from ammonia-ice crystals in the clouds.",
+            "image_path": "res://content/assets/info_images/SaturnSurface.jpg",
+            "location": {
+                "latitude": 30,
+                "longitude": 150
+            }
+        },
+        {
+            "title": "Clouds",
+            "description": "Horizontal bands of fast-moving clouds encircle the planet",
+            "image_path": "res://content/assets/info_images/SaturnClouds.jpg",
+            "location":{
+                "latitude": -20,
+                "longitude": 180
+            }
+        }
+    ],
     "satellites": [
         "mimas",
         "enceladus",

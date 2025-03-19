@@ -48,6 +48,15 @@
 				"latitude": -5.1,
 				"longitude": 0
 			}
+		},
+		{
+			"title": "Valles Marineris",
+			"description": "A vast system of canyons that runs along one fifth of the Martian surface. At more than 4000km long and 200km wide, it is the largest canyon in the solar system!",
+			"image_path": "res://content/assets/info_images/VallesMarineris.jpg",
+			"location": {
+				"latitude": -14.01,
+				"longitude": 301.41
+			}
 		}
     ],
     "satellites": [ 

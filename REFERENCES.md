@@ -3,7 +3,7 @@
 
 # Textures
 - https://www.solarsystemscope.com/textures/
-- geohack.toolforge.org
+- https://geohack.toolforge.org
 
 # Audio
 - [BGM](https://pixabay.com/music/ambient-space-158081/)
@@ -22,11 +22,18 @@
 - [Satellite Radii](https://ssd.jpl.nasa.gov/sats/phys_par/)
 
 # Images
+## Mercury
+- [Hun Kal Crater](https://www.nasa.gov/history/history-publications-and-resources/)  
+- [Debussy](https://photojournal.jpl.nasa.gov/catalog/PIA11371)  
+- [Discovery Rupes](https://photojournal.jpl.nasa.gov/catalog/PIA02446)
+- [Faulkner](https://pilot.wr.usgs.gov/)  
+- [Caloris Planitia](https://photojournal.jpl.nasa.gov/catalog/PIA19213)  
+
 ## Jupiter
-- [North Pole](https://www.nasa.gov/sites/default/files/thumbnails/image/stsci-j-p2038b-f-2362x2362.png)  
-- [South Pole]( https://photojournal.jpl.nasa.gov/catalog/PIA21641)  
+- [North Pole](https://webbtelescope.org/contents/media/images/2020/38/4719-Image?news=true)  
+- [South Pole](https://photojournal.jpl.nasa.gov/catalog/PIA21641)  
 - [North Equatorial Belt](https://www.nasa.gov/image-article/jupiters-north-equatorial-belt/)  
-- [South Equatorial Belt - Justin Cowart](https://www.flickr.com/photos/132160802@N06/47115993632/)  
+- [South Equatorial Belt](https://www.flickr.com/photos/132160802@N06/47115993632/)  
 - [Great Red Spot](https://www.flickr.com/photos/kevinmgill/49803032983/)  
 
 ## Saturn

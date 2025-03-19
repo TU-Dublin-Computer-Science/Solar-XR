@@ -12,7 +12,26 @@
     "inclination": 1.77004347,
     "lon_ascending_node": 131.78422574,
     "orbital_period": 60148.8318,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "Great Dark Spot",
+            "description": "The dark spots seen on Neptune are huge spinning storms that can last a few years. The Great Dark spot was observed by NASA's Voyager 2 probe in 1989, and has since dissapeared.",
+            "image_path": "res://content/assets/info_images/GreatDarkSpot.jpg",
+            "location": {
+                "latitude": -15,
+                "longitude": 105
+            }
+        },
+        {
+            "title": "Scooter",
+            "description": "This is a strom that was spotted when Neptune was first photographed in 1989. It was named after its fast speed.",
+            "image_path": "res://content/assets/info_images/scooter.jpg",
+            "location": {
+                "latitude": -40,
+                "longitude": 250
+            }
+        }
+    ],
     "satellites": [
         "triton",
         "naiad",

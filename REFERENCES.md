@@ -62,3 +62,7 @@
 ## Uranus
 - [Atmosphere](https://www.jpl.nasa.gov/news/mining-old-data-from-nasas-voyager-2-solves-several-uranus-mysteries/)
 - [Clouds](https://www.wtamu.edu/~cbaird/sq/2015/04/03/why-doesnt-the-planet-uranus-explode-if-it-contains-so-much-hydrogen-and-methane/)
+
+## Neptune
+- [Great Dark Spot](https://photojournal.jpl.nasa.gov/catalog/PIA00052)
+- [Scooter](https://photojournal.jpl.nasa.gov/catalog/PIA01142)

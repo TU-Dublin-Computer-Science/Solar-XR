@@ -44,39 +44,39 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="ControlMenu" type="Node3D" parent="."]
 
-[node name="MenuButtons" type="Node3D" parent="ControlMenu"]
+[node name="BtnTglMenu" parent="ControlMenu" instance=ExtResource("10_t43g3")]
 
-[node name="BtnMove" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnMove" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.114, 0)
 label = "Move"
 
-[node name="BtnRotate" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnRotate" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114, 0)
 label = "Rotate"
 
-[node name="BtnScale" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnScale" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.114, 0)
 label = "Scale"
 
-[node name="BtnTime" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnTime" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.114, 0)
 label = "Time"
 
-[node name="BtnPlanet" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnPlanet" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.114, 0)
 label = "Planet"
 
-[node name="BtnReset" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnReset" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.114, 0)
 label = "Reset"
 
-[node name="BtnSettings" parent="ControlMenu/MenuButtons" instance=ExtResource("3_f40n8")]
+[node name="BtnSettings" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.114, 0)
 label = "Settings"
@@ -260,53 +260,55 @@ transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999
 visible = false
 script = ExtResource("9_6i5p8")
 
-[node name="BtnScaleUp" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.32831e-10, 0, 0, 1, 0.15226, 0.0543636, 8.02581e-05)
-label = "Scale Up"
+[node name="BtnTglPlanet" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("10_t43g3")]
 
-[node name="BtnScaleTrue" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.45519e-10, 0, 0, 1, 0.153416, -0.00064086, 6.28388e-05)
-label = "True Scale"
-
-[node name="PlanetBtnToggle" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("10_t43g3")]
-
-[node name="BtnMercury" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnMercury" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, -0.0749947, 0.114982, 1.62988e-06)
 font_size = 8
 label = "Mercury"
 
-[node name="BtnVenus" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnVenus" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.87254e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 2.94391e-05, 0.114982, 9.00693e-06)
 label = "Venus"
 
-[node name="BtnEarth" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnEarth" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, 0.0750053, 0.114982, 1.62989e-06)
 label = "Earth"
 
-[node name="BtnMars" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnMars" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, -0.0749947, 0.0399822, 1.62988e-06)
 label = "Mars"
 
-[node name="BtnSun" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnSun" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.63971e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 2.94391e-05, 0.0399822, 9.00696e-06)
 label = "Sun"
 
-[node name="BtnJupiter" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnJupiter" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.63971e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 0.075, 0.04, 9.09495e-13)
 label = "Jupiter"
 
-[node name="BtnSaturn" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnSaturn" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78163e-10, 2.32831e-10, 1.94116e-09, 1.5, 8.73115e-11, -5.82077e-10, -1.45519e-10, 1.5, -0.075, -0.035, 9.09495e-13)
 label = "Saturn"
 
-[node name="BtnUranus" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnUranus" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, 1.81899e-12, -0.035, -1.81899e-12)
 label = "Uranus"
 
-[node name="BtnNeptune" parent="ControlMenu/Tabs/MenuPlanet/PlanetBtnToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnNeptune" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.87254e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 0.075, -0.035, -2.72848e-12)
 font_size = 8
 label = "Neptune"
+
+[node name="BtnTglScale" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("10_t43g3")]
+
+[node name="BtnScaleUp" parent="ControlMenu/Tabs/MenuPlanet/BtnTglScale" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, 0.15226, 0.0543636, 8.02581e-05)
+label = "Scale Up"
+
+[node name="BtnScaleTrue" parent="ControlMenu/Tabs/MenuPlanet/BtnTglScale" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.74623e-10, 0, 0, 1, 0.153416, -0.00064086, 6.28388e-05)
+label = "True Scale"
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
 script = ExtResource("10_ic3tv")

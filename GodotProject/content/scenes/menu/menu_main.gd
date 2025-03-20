@@ -181,40 +181,18 @@ func _setup_control_menu():
 
 
 func _setup_menu_buttons():
-	%BtnMove.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnMove
-		_active_tab = MenuMove
-	)
+	%BtnMove.on_button_down.connect(func(): _active_tab = MenuMove)
 	
-	%BtnRotate.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnRotate
-		_active_tab = MenuRotate
-	)
+	%BtnRotate.on_button_down.connect(func(): _active_tab = MenuRotate)
 	
-	%BtnScale.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnScale
-		_active_tab = MenuScale
-	)
+	%BtnScale.on_button_down.connect(func(): _active_tab = MenuScale)
 	
-	%BtnTime.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnTime
-		_active_tab = MenuTime
-	)
+	%BtnTime.on_button_down.connect(func(): _active_tab = MenuTime)
 	
-	%BtnPlanet.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnPlanet
-		_active_tab = MenuPlanet
-	)
+	%BtnPlanet.on_button_down.connect(func(): _active_tab = MenuPlanet)
 	
-	%BtnReset.on_button_down.connect(func():
-		reset.emit()
-	)
-	
-	"""
-	%BtnSettings.on_button_down.connect(func():
-		
-	)
-	"""
+	%BtnReset.on_button_down.connect(func(): reset.emit())
+
 
 func _setup_tabs():
 	_setup_move_tab()

@@ -29,9 +29,8 @@ func remove_finger(finger_type: Finger.Type):
 
 func _physics_process(_delta):
 	for area in areas_entered.keys():
-		if areas_entered.has(area) == false:
-			return
-		_emit_event("touch_move", area)
+		if areas_entered.has(area) and finger_areas.size() > 0:
+			_emit_event("touch_move", area)
 
 func _on_area_entered(area, finger_type):
 	"""Emit 'touch_enter' event and register to areas_entered, when a finger enters

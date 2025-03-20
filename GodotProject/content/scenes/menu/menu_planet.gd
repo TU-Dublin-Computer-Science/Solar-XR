@@ -3,24 +3,25 @@ extends Node3D
 var selected_planet_ID: int:
 	set(value):
 		selected_planet_ID = value
+
 		if selected_planet_ID == Mappings.planet_ID["mercury"]:
-			_active_planet_btn = $BtnMercury
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnMercury)
 		elif selected_planet_ID == Mappings.planet_ID["venus"]:
-			_active_planet_btn = $BtnVenus
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnVenus)
 		elif selected_planet_ID == Mappings.planet_ID["earth"]:
-			_active_planet_btn = $BtnEarth
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnEarth)
 		elif selected_planet_ID ==Mappings.planet_ID["mars"]:
-			_active_planet_btn = $BtnMars
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnMars)
 		elif selected_planet_ID == Mappings.planet_ID["jupiter"]:
-			_active_planet_btn = $BtnJupiter
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnJupiter)
 		elif selected_planet_ID == Mappings.planet_ID["saturn"]:
-			_active_planet_btn = $BtnSaturn
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnSaturn)
 		elif selected_planet_ID == Mappings.planet_ID["uranus"]:
-			_active_planet_btn = $BtnUranus
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnUranus)
 		elif selected_planet_ID == Mappings.planet_ID["neptune"]:
-			_active_planet_btn = $BtnNeptune
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnNeptune)
 		elif selected_planet_ID == Mappings.planet_ID["sun"]:
-			_active_planet_btn = $BtnSun
+			$PlanetBtnToggle.set_active($PlanetBtnToggle/BtnSun)
 
 var body_scale_up_selected: bool:
 	set(value):
@@ -29,19 +30,6 @@ var body_scale_up_selected: bool:
 			_active_scale_btn = $BtnScaleUp
 		else:
 			_active_scale_btn = $BtnScaleTrue
-
-var _active_planet_btn: Button3D = null:
-	set(value): # Logic for toggling buttons
-		if value == _active_planet_btn: # If button already active do nothing
-			return
-			
-		if _active_planet_btn != null: # If a button is selected
-			_active_planet_btn.active = false
-			_active_planet_btn.disabled = false
-			
-		_active_planet_btn = value
-		_active_planet_btn.active = true
-		_active_planet_btn.disabled = true
 
 var _active_scale_btn: Button3D = null:
 	set(value): # Logic for toggling buttons
@@ -59,14 +47,7 @@ var _active_scale_btn: Button3D = null:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$BtnMercury.on_button_down.connect(func():_active_planet_btn = $BtnMercury)
-	$BtnVenus.on_button_down.connect(func():_active_planet_btn = $BtnVenus)
-	$BtnEarth.on_button_down.connect(func():_active_planet_btn = $BtnEarth)
-	$BtnMars.on_button_down.connect(func():_active_planet_btn = $BtnMars)	
-	$BtnJupiter.on_button_down.connect(func():_active_planet_btn = $BtnJupiter)
-	$BtnSaturn.on_button_down.connect(func():_active_planet_btn = $BtnSaturn)
-	$BtnUranus.on_button_down.connect(func():_active_planet_btn = $BtnUranus)
-	$BtnNeptune.on_button_down.connect(func():_active_planet_btn = $BtnNeptune)
+	pass
 
 	$BtnScaleUp.on_button_down.connect(func(): _active_scale_btn = $BtnScaleUp)
 	$BtnScaleTrue.on_button_down.connect(func(): _active_scale_btn = $BtnScaleTrue)

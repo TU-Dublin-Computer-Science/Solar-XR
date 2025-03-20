@@ -17,3 +17,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Button3D:
 			child.on_button_down.connect(func(): _active_btn = child)
+
+func set_active(button: Button3D):
+	if button in get_children():
+		_active_btn = button

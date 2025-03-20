@@ -209,7 +209,12 @@ func _setup_menu_buttons():
 	%BtnReset.on_button_down.connect(func():
 		reset.emit()
 	)
-
+	
+	"""
+	%BtnSettings.on_button_down.connect(func():
+		
+	)
+	"""
 
 func _setup_tabs():
 	_setup_move_tab()

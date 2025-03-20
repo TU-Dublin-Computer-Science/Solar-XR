@@ -318,11 +318,13 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.105777, 0.105309, 0)
 text = "Interaction Modes
 "
 
-[node name="BtnTouch" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("3_f40n8")]
+[node name="BtnTglInput" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("10_t43g3")]
+
+[node name="BtnTouch" parent="ControlMenu/Tabs/MenuSettings/BtnTglInput" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144753, 0.0549808, 0)
 label = "Touch"
 
-[node name="BtnPointer" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("3_f40n8")]
+[node name="BtnPointer" parent="ControlMenu/Tabs/MenuSettings/BtnTglInput" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0693572, 0.0549808, 0)
 label = "Pointer"
 

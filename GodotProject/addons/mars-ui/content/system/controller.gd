@@ -69,7 +69,6 @@ func _setup_hand():
 		remove_child(raycast)
 	
 	
-	
 		
 	if tracker == "left_hand":
 		hand_mesh = $hand/Armature/Skeleton3D/mesh_Hand_L

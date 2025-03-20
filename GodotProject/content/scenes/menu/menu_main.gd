@@ -66,6 +66,7 @@ signal reset
 @onready var MenuScale = $ControlMenu/Tabs/MenuScale
 @onready var MenuTime = $ControlMenu/Tabs/MenuTime
 @onready var MenuPlanet = $ControlMenu/Tabs/MenuPlanet
+@onready var MenuSettings = $ControlMenu/Tabs/MenuSettings
 
 @onready var ControlMenu = $ControlMenu
 @onready var StartMenu = $StartMenu
@@ -192,6 +193,8 @@ func _setup_menu_buttons():
 	%BtnPlanet.on_button_down.connect(func(): _active_tab = MenuPlanet)
 	
 	%BtnReset.on_button_down.connect(func(): reset.emit())
+	
+	%BtnSettings.on_button_down.connect(func(): _active_tab = MenuSettings)
 
 
 func _setup_tabs():

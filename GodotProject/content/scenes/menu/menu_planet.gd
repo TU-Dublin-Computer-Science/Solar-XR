@@ -22,11 +22,3 @@ var selected_planet_ID: int:
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnNeptune)
 		elif selected_planet_ID == Mappings.planet_ID["sun"]:
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnSun)
-
-var body_scale_up_selected: bool:
-	set(value):
-		body_scale_up_selected = value
-		if body_scale_up_selected:
-			$BtnTglScale.set_active($BtnTglScale/BtnScaleUp)
-		else:
-			$BtnTglScale.set_active($BtnTglScale/BtnScaleTrue)

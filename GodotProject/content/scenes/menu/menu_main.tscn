@@ -46,39 +46,24 @@ shape = SubResource("BoxShape3D_60yw7")
 
 [node name="BtnTglMenu" parent="ControlMenu" instance=ExtResource("10_t43g3")]
 
-[node name="BtnMove" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.114, 0)
-label = "Move"
-
-[node name="BtnRotate" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114, 0)
-label = "Rotate"
-
-[node name="BtnScale" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.114, 0)
-label = "Scale"
-
 [node name="BtnTime" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.114, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.115, 0)
 label = "Time"
 
 [node name="BtnPlanet" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.114, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.115, 0)
 label = "Planet"
 
 [node name="BtnReset" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.114, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, -0.115, 0)
 label = "Reset"
 
 [node name="BtnSettings" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.114, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17068, 0.119607, 0)
 label = "Settings"
 
 [node name="Tabs" type="Node3D" parent="ControlMenu"]
@@ -314,23 +299,46 @@ label = "True Scale"
 script = ExtResource("10_ic3tv")
 
 [node name="Settings" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.105777, 0.105309, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175, 0.1, 0)
 text = "Interaction Modes
 "
+horizontal_alignment = 0
+
+[node name="Settings2" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175, 0, 0)
+text = "Simulation Postion:
+"
+horizontal_alignment = 0
 
 [node name="BtnTglInput" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("10_t43g3")]
 
 [node name="BtnTouch" parent="ControlMenu/Tabs/MenuSettings/BtnTglInput" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144753, 0.0549808, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.06, 0)
 label = "Touch"
 
 [node name="BtnPointer" parent="ControlMenu/Tabs/MenuSettings/BtnTglInput" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0693572, 0.0549808, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.06, 0)
 label = "Pointer"
+
+[node name="BtnMove" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.04, 0)
+label = "Move"
+
+[node name="BtnRotate" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.04, 0)
+label = "Rotate"
+
+[node name="BtnScale" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("3_f40n8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.04, 0)
+label = "Scale"
 
 [node name="FPSCounter" type="Label3D" parent="ControlMenu"]
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.159589, 0.13104, 0)
+visible = false
 text = "FPS: 00"
 
 [node name="StartMenu" type="Node3D" parent="."]

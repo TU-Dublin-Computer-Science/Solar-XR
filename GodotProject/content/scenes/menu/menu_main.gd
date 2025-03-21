@@ -231,9 +231,10 @@ func _setup_move_tab():
 	MenuMove.find_child("BtnForward").on_button_down.connect(func(): move_forward_start.emit())
 	MenuMove.find_child("BtnForward").on_button_up.connect(func(): move_forward_stop.emit())
 
-	MenuMove.find_child("BtnBack").on_button_down.connect(func(): move_back_start.emit())
-	MenuMove.find_child("BtnBack").on_button_up.connect(func(): move_back_stop.emit())
+	MenuMove.find_child("BtnBackward").on_button_down.connect(func(): move_back_start.emit())
+	MenuMove.find_child("BtnBackward").on_button_up.connect(func(): move_back_stop.emit())
 
+	MenuMove.find_child("BtnReturn").on_button_up.connect(func(): _active_tab = MenuSettings)
 
 func _setup_rotate_tab():	
 	MenuRotate.find_child("BtnUp").on_button_down.connect(func(): rotate_decreaseX_start.emit())
@@ -248,6 +249,7 @@ func _setup_rotate_tab():
 	MenuRotate.find_child("BtnRight").on_button_down.connect(func(): rotate_increaseY_start.emit())
 	MenuRotate.find_child("BtnRight").on_button_up.connect(func(): rotate_increaseY_stop.emit())
 
+	MenuRotate.find_child("BtnReturn").on_button_up.connect(func(): _active_tab = MenuSettings)
 
 func _setup_scale_tab():	
 	MenuScale.find_child("BtnDecrease").on_button_down.connect(func(): scale_decrease_start.emit())
@@ -255,7 +257,8 @@ func _setup_scale_tab():
 
 	MenuScale.find_child("BtnIncrease").on_button_down.connect(func(): scale_increase_start.emit())
 	MenuScale.find_child("BtnIncrease").on_button_up.connect(func(): scale_increase_stop.emit())
-
+	
+	MenuScale.find_child("BtnReturn").on_button_up.connect(func(): _active_tab = MenuSettings)
 
 func _setup_time_tab():	
 	MenuTime.find_child("BtnDecrease").on_button_down.connect(func(): time_decrease_start.emit())

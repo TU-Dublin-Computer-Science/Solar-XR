@@ -153,7 +153,14 @@ func _ready():
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
 	
 	_setup_menu()
-
+	
+	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
+	_model_scalar = 0.5 / sun_data["radius"]
+	_focused_body = %CentralBody
+	
+	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
+	
+	_connect_info_nodes(%CentralBody)
 
 func _process(delta):
 	_check_if_player_moved()
@@ -179,18 +186,11 @@ func _input(event):
 
 func _setup():
 	%AudBGM.playing = true
-	
-	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
-	_model_scalar = 0.5 / sun_data["radius"]
-	_focused_body = %CentralBody
-	
-	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
 	%CentralBody.satellites_visible = true
 	%CentralBody.satellite_bodies_will_scale = true
 	%CentralBody.visible = true
-	_connect_info_nodes(%CentralBody)
 	
-	_reset_state()  	
+	_reset_state()
 
 
 func _check_if_player_moved():

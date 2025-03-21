@@ -38,6 +38,7 @@ var input_method: Mappings.InputMethod:
 		input_method = value
 		$XROrigin3D/XRControllerLeft.input_method = value
 		$XROrigin3D/XRControllerRight.input_method = value
+		%MainMenu.input_method = value
 
 # End of Settings Variables
 
@@ -163,6 +164,17 @@ func _process(delta):
 	_handle_body_focusing(delta)
 	
 	_handle_constant_state_changes(delta)
+	
+	if Input.is_action_pressed("forward"):
+		input_method = Mappings.InputMethod.POINTER
+
+
+func _input(event):
+	if event.is_action_pressed("forward"):
+		if input_method == Mappings.InputMethod.POINTER:
+			input_method = Mappings.InputMethod.TOUCH
+		else:
+			input_method = Mappings.InputMethod.POINTER
 
 
 func _setup():
@@ -178,7 +190,7 @@ func _setup():
 	%CentralBody.visible = true
 	_connect_info_nodes(%CentralBody)
 	
-	_reset_state()  
+	_reset_state()  	
 
 
 func _check_if_player_moved():
@@ -363,6 +375,7 @@ func _setup_menu():
 	_setup_scale_signals()
 	_setup_time_signals()
 	_setup_planet_signals()
+	_setup_settings_signals()
 	MainMenu.reset.connect(_reset_state)
 
 
@@ -433,6 +446,10 @@ func _setup_planet_signals():
 		_body_scale_up = false
 	)
 
+func _setup_settings_signals():
+	MainMenu.input_mode_changed.connect(func(p_input_method):
+		input_method = p_input_method
+	)
 
 func _handle_constant_state_changes(delta: float):
 	_handle_constant_movement(delta)

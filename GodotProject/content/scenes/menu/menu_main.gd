@@ -57,8 +57,12 @@ signal planet_change_pressed
 signal planet_scale_up
 signal planet_scale_true
 
+# Settings Signals
+signal input_mode_changed
+
 # Reset Signal
 signal reset
+
 
 @onready var MenuDefault = $ControlMenu/Tabs/MenuDefault
 @onready var MenuMove = $ControlMenu/Tabs/MenuMove
@@ -66,6 +70,7 @@ signal reset
 @onready var MenuScale = $ControlMenu/Tabs/MenuScale
 @onready var MenuTime = $ControlMenu/Tabs/MenuTime
 @onready var MenuPlanet = $ControlMenu/Tabs/MenuPlanet
+@onready var MenuSettings = $ControlMenu/Tabs/MenuSettings
 
 @onready var ControlMenu = $ControlMenu
 @onready var StartMenu = $StartMenu
@@ -122,6 +127,11 @@ var body_scale_up_selected: bool:
 	set(value):
 		body_scale_up_selected = value
 		MenuPlanet.body_scale_up_selected = body_scale_up_selected
+
+var input_method: Mappings.InputMethod:
+	set(value):
+		input_method = value
+		MenuSettings.input_method = value
 
 # ------------
 
@@ -181,34 +191,19 @@ func _setup_control_menu():
 
 
 func _setup_menu_buttons():
-	%BtnMove.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnMove
-		_active_tab = MenuMove
-	)
+	%BtnMove.on_button_down.connect(func(): _active_tab = MenuMove)
 	
-	%BtnRotate.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnRotate
-		_active_tab = MenuRotate
-	)
+	%BtnRotate.on_button_down.connect(func(): _active_tab = MenuRotate)
 	
-	%BtnScale.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnScale
-		_active_tab = MenuScale
-	)
+	%BtnScale.on_button_down.connect(func(): _active_tab = MenuScale)
 	
-	%BtnTime.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnTime
-		_active_tab = MenuTime
-	)
+	%BtnTime.on_button_down.connect(func(): _active_tab = MenuTime)
 	
-	%BtnPlanet.on_button_down.connect(func():
-		_active_btn = $ControlMenu/MenuButtons/BtnPlanet
-		_active_tab = MenuPlanet
-	)
+	%BtnPlanet.on_button_down.connect(func(): _active_tab = MenuPlanet)
 	
-	%BtnReset.on_button_down.connect(func():
-		reset.emit()
-	)
+	%BtnReset.on_button_down.connect(func(): reset.emit())
+	
+	%BtnSettings.on_button_down.connect(func(): _active_tab = MenuSettings)
 
 
 func _setup_tabs():
@@ -217,6 +212,7 @@ func _setup_tabs():
 	_setup_scale_tab()
 	_setup_time_tab()
 	_setup_planet_tab()
+	_setup_settings_tab()
 
 
 func _setup_move_tab():
@@ -287,3 +283,7 @@ func _setup_planet_tab():
 
 	MenuPlanet.find_child("BtnScaleUp").on_button_down.connect(func(): planet_scale_up.emit())
 	MenuPlanet.find_child("BtnScaleTrue").on_button_down.connect(func(): planet_scale_true.emit())
+
+func _setup_settings_tab():
+	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))
+	MenuSettings.find_child("BtnPointer").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.POINTER))

@@ -88,6 +88,7 @@ autowrap_mode = 2
 width = 750.0
 
 [node name="MenuMove" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 script = ExtResource("5_awrke")
 
 [node name="BtnRight" parent="ControlMenu/Tabs/MenuMove" instance=ExtResource("3_f40n8")]
@@ -253,7 +254,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 
 
 [node name="MenuPlanet" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
-visible = false
 script = ExtResource("9_6i5p8")
 
 [node name="BtnTglPlanet" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("10_t43g3")]

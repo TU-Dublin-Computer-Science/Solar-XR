@@ -201,7 +201,11 @@ func _setup_menu_buttons():
 	
 	%BtnPlanet.on_button_down.connect(func(): _active_tab = MenuPlanet)
 	
-	%BtnReset.on_button_down.connect(func(): reset.emit())
+	%BtnReset.on_button_down.connect(func(): 
+		$ControlMenu/BtnTglMenu.clear_active_btn()
+		_active_tab = MenuDefault
+		reset.emit()
+	)
 	
 	%BtnSettings.on_button_down.connect(func(): _active_tab = MenuSettings)
 

@@ -123,11 +123,6 @@ var focused_body_ID: int:
 		focused_body_ID = value
 		MenuPlanet.selected_planet_ID = value
 
-var body_scale_up_selected: bool:
-	set(value):
-		body_scale_up_selected = value
-		MenuPlanet.body_scale_up_selected = body_scale_up_selected
-
 var input_method: Mappings.InputMethod:
 	set(value):
 		input_method = value
@@ -287,9 +282,6 @@ func _setup_planet_tab():
 	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["uranus"]))
 	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["neptune"]))
 	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["sun"]))
-
-	MenuPlanet.find_child("BtnScaleUp").on_button_down.connect(func(): planet_scale_up.emit())
-	MenuPlanet.find_child("BtnScaleTrue").on_button_down.connect(func(): planet_scale_true.emit())
 
 func _setup_settings_tab():
 	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))

@@ -137,7 +137,7 @@ var _model_scalar: float
 var _body_scale_up: bool:
 	set(value):
 		_body_scale_up = value
-		MainMenu.body_scale_up_selected = value
+		#MainMenu.body_scale_up_selected = value
 		
 		if _body_scale_up:
 			%CentralBody.body_scalar = BODY_SCALE_UP

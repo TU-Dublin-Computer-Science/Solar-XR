@@ -296,16 +296,6 @@ transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.87254e-09, 1.5, 8.7311
 font_size = 8
 label = "Neptune"
 
-[node name="BtnTglScale" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("10_t43g3")]
-
-[node name="BtnScaleUp" parent="ControlMenu/Tabs/MenuPlanet/BtnTglScale" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, 0.15226, 0.0543636, 8.02581e-05)
-label = "Scale Up"
-
-[node name="BtnScaleTrue" parent="ControlMenu/Tabs/MenuPlanet/BtnTglScale" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.74623e-10, 0, 0, 1, 0.153416, -0.00064086, 6.28388e-05)
-label = "True Scale"
-
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
 visible = false
 script = ExtResource("10_ic3tv")

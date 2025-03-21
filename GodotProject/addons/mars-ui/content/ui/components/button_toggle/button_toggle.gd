@@ -8,10 +8,12 @@ var _active_btn: Button3D = null:
 		if _active_btn != null:  # If a button is selected, make inactive
 			_active_btn.active = false
 			_active_btn.disabled = false
-	
+		
 		_active_btn = new_active_btn
-		_active_btn.active = true
-		_active_btn.disabled = true  # Button can't be pressed
+		
+		if _active_btn != null:
+			_active_btn.active = true
+			_active_btn.disabled = true  # Button can't be pressed
 
 func _ready() -> void:
 	for child in get_children():
@@ -21,3 +23,6 @@ func _ready() -> void:
 func set_active(button: Button3D):
 	if button in get_children():
 		_active_btn = button
+
+func clear_active_btn():
+	_active_btn = null

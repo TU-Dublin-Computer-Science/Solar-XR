@@ -169,6 +169,14 @@ func _process(delta):
 		input_method = Mappings.InputMethod.POINTER
 
 
+func _input(event):
+	if event.is_action_pressed("forward"):
+		if input_method == Mappings.InputMethod.POINTER:
+			input_method = Mappings.InputMethod.TOUCH
+		else:
+			input_method = Mappings.InputMethod.POINTER
+
+
 func _setup():
 	%AudBGM.playing = true
 	
@@ -182,7 +190,7 @@ func _setup():
 	%CentralBody.visible = true
 	_connect_info_nodes(%CentralBody)
 	
-	_reset_state()  
+	_reset_state()  	
 
 
 func _check_if_player_moved():

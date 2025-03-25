@@ -273,6 +273,7 @@ func _setup_time_tab():
 
 
 func _setup_planet_tab():
+	"""
 	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["mercury"]))
 	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["venus"]))
 	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["earth"]))
@@ -282,7 +283,8 @@ func _setup_planet_tab():
 	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["uranus"]))
 	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["neptune"]))
 	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit(Mappings.planet_ID["sun"]))
-
+	"""
+	
 func _setup_settings_tab():
 	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))
 	MenuSettings.find_child("BtnPointer").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.POINTER))

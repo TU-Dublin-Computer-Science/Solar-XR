@@ -152,8 +152,6 @@ func _ready():
 	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
 	
-	_setup_menu()
-	
 	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
 	_model_scalar = 0.5 / sun_data["radius"]
 	_focused_body = %CentralBody
@@ -161,6 +159,8 @@ func _ready():
 	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
 	
 	_connect_info_nodes(%CentralBody)
+	
+	_setup_menu()
 
 func _process(delta):
 	_check_if_player_moved()
@@ -374,7 +374,7 @@ func _setup_menu():
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
-	_setup_planet_signals()
+	_setup_planet_menu()	
 	_setup_settings_signals()
 	MainMenu.reset.connect(_reset_state)
 
@@ -433,18 +433,15 @@ func _setup_time_signals():
 	MainMenu.time_live_pressed.connect(func(): _initialise_time())
 
 
-func _setup_planet_signals():
+func _setup_planet_menu():
+	for satellite in _focused_body.satellites:
+		MainMenu.add_satellite(satellite)
+	
+	"""
 	MainMenu.planet_change_pressed.connect(func(ID):
 		_focus_body(_get_body(ID))
 	)
-	
-	MainMenu.planet_scale_up.connect(func():
-		_body_scale_up = true
-	)
-	
-	MainMenu.planet_scale_true.connect(func():
-		_body_scale_up = false
-	)
+	"""
 
 func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):

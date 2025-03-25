@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=16 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://cxh11hm5qeoio" path="res://content/scenes/menu/menu_settings.gd" id="10_ic3tv"]
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
-[ext_resource type="PackedScene" uid="uid://uogsamyglyw5" path="res://addons/mars-ui/content/ui/components/entity/entity.tscn" id="12_wfrnf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -259,25 +258,8 @@ transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999
 script = ExtResource("9_6i5p8")
 
 [node name="FlexContainer" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("11_jlhfs")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.74623e-10, 0, 0, 1, -0.0129952, 0.105729, 2.90556e-05)
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
 vertical = true
-
-[node name="Entity" parent="ControlMenu/Tabs/MenuPlanet/FlexContainer" instance=ExtResource("12_wfrnf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, 0)
-icon = "Entity"
-text = "Jupiter"
-gap = 0.0
-
-[node name="Entity2" parent="ControlMenu/Tabs/MenuPlanet/FlexContainer" instance=ExtResource("12_wfrnf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, 0)
-icon = "Entity2"
-text = "Jupiter"
-gap = 0.0
-
-[node name="Entity3" parent="ControlMenu/Tabs/MenuPlanet/FlexContainer" instance=ExtResource("12_wfrnf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 0)
-icon = "entity3"
-gap = 0.0
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
 visible = false

@@ -70,7 +70,7 @@ var info_nodes: Array[Node3D]
 @onready var OrbitVisual = %OrbitVisual
 
 var ID: int
-var _name: String
+var body_name: String
 var radius: float
 var _rotation_factor: float
 var _model_scene: PackedScene
@@ -105,7 +105,7 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	_model_scalar = p_model_scalar
 	
 	ID = body_data["ID"]
-	_name = body_data["name"]
+	body_name = body_data["name"]
 	radius = body_data["radius"] * p_model_scalar
 	
 	if body_data["rotation_factor"] != -1:
@@ -176,7 +176,7 @@ func _setup_body():
 	_model = _model_scene.instantiate()
 	%Body.add_child(_model)	
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
-	%Label/LlbName.text = _name
+	%Label/LlbName.text = body_name
 
 
 func _setup_info_nodes(info_point_array: Array) -> void:

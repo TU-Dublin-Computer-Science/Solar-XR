@@ -164,6 +164,10 @@ func _process(delta: float) -> void:
 		FPSCounter.text = "FPS: %d" % Engine.get_frames_per_second()    
 
 
+func add_satellite(satellite: OrbitingBody):
+	MenuPlanet.add_satellite(satellite)
+
+
 func _setup_start_menu():
 	StartMenu.visible = true
 	StartMenu.find_child("BtnStart").on_button_up.connect(func():

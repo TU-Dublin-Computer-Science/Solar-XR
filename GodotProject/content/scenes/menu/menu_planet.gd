@@ -1,5 +1,7 @@
 extends Node3D
 
+const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/entity.tscn")
+
 var selected_planet_ID: int:
 	set(value):
 		selected_planet_ID = value
@@ -24,3 +26,9 @@ var selected_planet_ID: int:
 		elif selected_planet_ID == Mappings.planet_ID["sun"]:
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnSun)
 		"""
+
+func add_satellite(satellite: OrbitingBody):
+	var entity = EntityScene.instantiate()
+	entity.text = satellite.body_name
+	$FlexContainer.add_child(entity)
+	$FlexContainer._update()

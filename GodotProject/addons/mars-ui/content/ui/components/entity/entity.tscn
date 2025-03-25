@@ -34,7 +34,6 @@ size = Vector3(0.03, 0.03, 0.005)
 
 [node name="Entity" type="Node3D"]
 script = ExtResource("1_d4c6l")
-icon = "?"
 gap = 0.01
 size = Vector3(0.35, 0.03, 1)
 

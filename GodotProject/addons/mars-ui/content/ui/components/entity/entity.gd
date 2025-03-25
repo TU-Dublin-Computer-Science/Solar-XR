@@ -6,11 +6,6 @@ signal on_select()
 @onready var button = $Button
 @onready var label = $LabelContainer
 
-@export var icon: String = "Planet":
-	set(value):
-		icon = value
-		_update()
-
 @export var text: String = "Button":
 	set(value):
 		text = value
@@ -26,6 +21,6 @@ func _ready():
 func _update():
 	if !is_node_ready(): return
 
-	button.label = icon
+	button.label = text
 
 	super._update()

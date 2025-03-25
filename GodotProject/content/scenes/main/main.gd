@@ -302,6 +302,8 @@ func _handle_body_focusing(delta: float):
 				_sim_scale = _focus_scale_body
 				
 				_focus_state = FocusState.FOCUSED
+				
+				_update_body_menu()
 			else:
 				_sim_scale += _focus_zoom_in_speed * delta
 		FocusState.WAIT:
@@ -353,7 +355,7 @@ func _get_body(ID: int):
 	if ID == Mappings.planet_ID["sun"]:
 		focused_body = %CentralBody
 	else:
-		for satellite in %CentralBody.satellites:
+		for satellite in _focused_body.satellites:
 			if ID == satellite.ID:
 				focused_body = satellite
 	
@@ -374,9 +376,20 @@ func _setup_menu():
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
-	_setup_planet_menu()	
+	
+	MainMenu.on_body_select.connect(func(ID):
+		_focus_body(_get_body(ID))
+	)
+	
 	_setup_settings_signals()
 	MainMenu.reset.connect(_reset_state)
+
+
+func _update_body_menu():
+	MainMenu.clear_body_menu()
+	
+	for body in _focused_body.satellites:
+		MainMenu.add_body(body)
 
 
 func _setup_move_signals():
@@ -433,20 +446,11 @@ func _setup_time_signals():
 	MainMenu.time_live_pressed.connect(func(): _initialise_time())
 
 
-func _setup_planet_menu():
-	for satellite in _focused_body.satellites:
-		MainMenu.add_satellite(satellite)
-	
-	"""
-	MainMenu.planet_change_pressed.connect(func(ID):
-		_focus_body(_get_body(ID))
-	)
-	"""
-
 func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):
 		input_method = p_input_method
 	)
+
 
 func _handle_constant_state_changes(delta: float):
 	_handle_constant_movement(delta)

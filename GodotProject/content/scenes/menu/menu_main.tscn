@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://ds52nopaipv6" path="res://content/scenes/menu/menu_rotate.gd" id="6_l1ol1"]
 [ext_resource type="Script" uid="uid://cxmec8j3fxc6j" path="res://content/scenes/menu/menu_scale.gd" id="7_cecho"]
 [ext_resource type="Script" uid="uid://cl57mw17dje3i" path="res://content/scenes/menu/menu_time.gd" id="8_dwy47"]
-[ext_resource type="Script" uid="uid://bfvy16q8fsegk" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
+[ext_resource type="Script" uid="uid://bfvy16q8fsegk" path="res://content/scenes/menu/menu_body.gd" id="9_6i5p8"]
 [ext_resource type="Script" uid="uid://cxh11hm5qeoio" path="res://content/scenes/menu/menu_settings.gd" id="10_ic3tv"]
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
@@ -52,7 +52,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.115, 0)
 label = "Time"
 
-[node name="BtnPlanet" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
+[node name="BtnBody" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.115, 0)
 label = "Planet"
@@ -253,11 +253,11 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0838694
 [node name="LblScalar" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 0)
 
-[node name="MenuPlanet" type="Node3D" parent="ControlMenu/Tabs"]
+[node name="MenuBody" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
 script = ExtResource("9_6i5p8")
 
-[node name="FlexContainer" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("11_jlhfs")]
+[node name="FlexContainer" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("11_jlhfs")]
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
 vertical = true
 

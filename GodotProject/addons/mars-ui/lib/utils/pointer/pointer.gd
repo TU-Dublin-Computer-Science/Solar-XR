@@ -48,8 +48,9 @@ func _handle_enter_leave():
 		return
 	
 	_emit_event("ray_enter", collider)
-
-	_emit_event("ray_leave", last_collided)
+	
+	if last_collided != null:
+		_emit_event("ray_leave", last_collided)
 
 	last_collided = collider	
 

@@ -6,14 +6,14 @@
 [ext_resource type="Script" uid="uid://dmeyijxsdsd45" path="res://addons/mars-ui/content/ui/components/panel/panel.gd" id="4_082wb"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="5_y5owv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eya5l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sal56"]
 resource_local_to_scene = true
 render_priority = 10
 shader = ExtResource("3_n8pt4")
 shader_parameter/color = Color(1, 1, 1, 0.3)
 shader_parameter/border_color = Color(1, 1, 1, 1)
 shader_parameter/edge_color = Color(0, 0, 0, 1)
-shader_parameter/size = Vector2(0.75, 0.75)
+shader_parameter/size = Vector2(2.5, 0.75)
 shader_parameter/border_size = 0.01
 shader_parameter/border_fade_in = 0.05
 shader_parameter/border_fade_out = 0.0
@@ -21,12 +21,12 @@ shader_parameter/corner_radius = 0.2
 shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
-[sub_resource type="QuadMesh" id="QuadMesh_1dgs8"]
+[sub_resource type="QuadMesh" id="QuadMesh_n8pt4"]
 size = Vector2(0.1, 0.03)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yph8f"]
 resource_local_to_scene = true
-size = Vector3(0.1, 0.03, 0.01)
+size = Vector3(0.03, 0.03, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ngfr"]
 resource_local_to_scene = true
@@ -39,7 +39,7 @@ gap = 0.01
 size = Vector3(0.35, 0.03, 1)
 
 [node name="Button" type="Node3D" parent="." groups=["ui_focus"]]
-transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.02, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
 script = ExtResource("2_sal56")
 label = "?"
 icon = true
@@ -52,11 +52,11 @@ collision_mask = 0
 
 [node name="Panel3D" type="MeshInstance3D" parent="Button/Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
-material_override = SubResource("ShaderMaterial_eya5l")
-mesh = SubResource("QuadMesh_1dgs8")
+material_override = SubResource("ShaderMaterial_sal56")
+mesh = SubResource("QuadMesh_n8pt4")
 skeleton = NodePath("../..")
 script = ExtResource("4_082wb")
-size = Vector2(0.03, 0.03)
+size = Vector2(0.1, 0.03)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Body"]
 shape = SubResource("BoxShape3D_yph8f")
@@ -67,9 +67,9 @@ pixel_size = 0.001
 double_sided = false
 render_priority = 30
 text = "?"
-font_size = 36
+font_size = 21
 outline_size = 0
-width = 30.0
+width = 1000.0
 
 [node name="FingerArea" type="Area3D" parent="Button" groups=["ui_focus_skip"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075)
@@ -83,6 +83,3 @@ shape = SubResource("BoxShape3D_0ngfr")
 [node name="ClickSound" type="AudioStreamPlayer" parent="Button"]
 stream = ExtResource("5_y5owv")
 volume_db = -18.0
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.100763)

@@ -266,15 +266,18 @@ vertical = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, 0)
 icon = "Entity"
 text = "Jupiter"
+gap = 0.0
 
 [node name="Entity2" parent="ControlMenu/Tabs/MenuPlanet/FlexContainer" instance=ExtResource("12_wfrnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, 0)
 icon = "Entity2"
 text = "Jupiter"
+gap = 0.0
 
 [node name="Entity3" parent="ControlMenu/Tabs/MenuPlanet/FlexContainer" instance=ExtResource("12_wfrnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 0)
 icon = "entity3"
+gap = 0.0
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
 visible = false

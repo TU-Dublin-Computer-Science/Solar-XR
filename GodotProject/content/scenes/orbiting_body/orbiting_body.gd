@@ -47,7 +47,7 @@ var body_scalar: float:
 
 var satellite_bodies_will_scale: bool = false
 
-var satellites_visible: bool = false:
+var satellites_visible: bool = true:
 	# Used for hiding moons for performance reasons
 	set(value):
 		satellites_visible = value

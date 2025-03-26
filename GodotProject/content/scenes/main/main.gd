@@ -22,7 +22,7 @@ const ROT_CHANGE_SPEED = 1
 const DEFAULT_ROT:Vector3 = Vector3(-20, 0, 0)
 
 const MIN_SIM_SCALE: float = 0.0005
-const MAX_SIM_SCALE: float = 500
+const MAX_SIM_SCALE: float = 100000
 const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
@@ -63,7 +63,7 @@ var _sim_scale: float:
 
 		%CentralBody.satellite_orbits_visible = _sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
 		# If not the sun, show/hide satellites:
-		_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (_sim_scale > moon_show_thresh)
+		#_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (_sim_scale > moon_show_thresh)
 			
 		MainMenu.scale_readout = _model_scalar * value
 
@@ -155,6 +155,7 @@ func _ready():
 	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
 	_model_scalar = 0.5 / sun_data["radius"]
 	_focused_body = %CentralBody
+	_focused_body_central_body = %CentralBody
 	
 	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
 	
@@ -186,7 +187,7 @@ func _input(event):
 
 func _setup():
 	%AudBGM.playing = true
-	%CentralBody.satellites_visible = true
+	#%CentralBody.satellites_visible = true
 	%CentralBody.satellite_bodies_will_scale = true
 	%CentralBody.visible = true
 	
@@ -214,7 +215,7 @@ enum FocusState {
 const FOCUS_MOVE_TIME: float = 1
 const FOCUS_ZOOM_TIME: float = 1.2
 const FOCUS_WAIT_TIME: float = 0.2
-const FOCUS_SCALE_BIRDS_EYE = 0.05
+const FOCUS_SCALE_BIRDS_EYE = 1 # 0.05
 
 
 var _focus_scale_body: float
@@ -230,7 +231,7 @@ var _focus_action_after_wait: FocusState
 var _focus_state: FocusState = FocusState.FOCUSED
 var _focused_body: OrbitingBody
 var _new_focused_body: OrbitingBody
-
+var _focused_body_central_body: OrbitingBody
 
 func _focus_body(p_new_focused_body: OrbitingBody):
 	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
@@ -265,6 +266,7 @@ func _focus_body(p_new_focused_body: OrbitingBody):
 			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME
 			_focus_state = FocusState.ZOOM_OUT  
 		else:
+			_focused_body_central_body = _focused_body
 			_focused_body = _new_focused_body
 			_focus_state = FocusState.MOVE  # Else move to new body
 
@@ -274,6 +276,7 @@ func _handle_body_focusing(delta: float):
 		FocusState.ZOOM_OUT:
 			if _sim_scale <= _focus_zoom_out_target:	 # Zoom out if less than target
 				_sim_scale = _focus_zoom_out_target
+				_focused_body_central_body = _focused_body
 				_focused_body = _new_focused_body
 				_focus_action_after_wait = FocusState.MOVE
 				_focus_wait_timer = 0
@@ -283,20 +286,20 @@ func _handle_body_focusing(delta: float):
 		FocusState.MOVE:
 			_focus_move_time_remaining -= delta
 			var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-			var focus_sim_move_target = %CentralBody.position - body_position  
+			var focus_sim_move_target = _focused_body_central_body.position - body_position  
 			var focus_sim_move_dir = -body_position.normalized()
-			var _focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / _focus_move_time_remaining
+			var _focus_sim_move_speed = (focus_sim_move_target - _focused_body_central_body.position).length() / _focus_move_time_remaining
 		
 			var step = focus_sim_move_dir * _focus_sim_move_speed * delta
 			# Check if at target, accounting for overshooting
-			if step.length() >= %CentralBody.position.distance_to(focus_sim_move_target):
-				%CentralBody.position = focus_sim_move_target
+			if step.length() >= _focused_body_central_body.position.distance_to(focus_sim_move_target):
+				_focused_body_central_body.position = focus_sim_move_target
 				
 				_focus_action_after_wait = FocusState.ZOOM_IN
 				_focus_wait_timer = 0
 				_focus_state = FocusState.WAIT
 			else:
-				%CentralBody.position += step
+				_focused_body_central_body.position += step
 		FocusState.ZOOM_IN:
 			if _sim_scale >= _focus_scale_body:
 				_sim_scale = _focus_scale_body
@@ -314,7 +317,7 @@ func _handle_body_focusing(delta: float):
 	
 	if _focused_body and _focus_state != FocusState.MOVE and _focus_action_after_wait != FocusState.MOVE: # Keep body in focus
 		var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-		%CentralBody.position =  %CentralBody.position - body_position  
+		_focused_body_central_body.position =  _focused_body_central_body.position - body_position  
 
 # End of Focus Logic
 

@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://ds52nopaipv6" path="res://content/scenes/menu/menu_rotate.gd" id="6_l1ol1"]
 [ext_resource type="Script" uid="uid://cxmec8j3fxc6j" path="res://content/scenes/menu/menu_scale.gd" id="7_cecho"]
 [ext_resource type="Script" uid="uid://cl57mw17dje3i" path="res://content/scenes/menu/menu_time.gd" id="8_dwy47"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
+[ext_resource type="Script" uid="uid://bfvy16q8fsegk" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
 [ext_resource type="Script" uid="uid://cxh11hm5qeoio" path="res://content/scenes/menu/menu_settings.gd" id="10_ic3tv"]
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 

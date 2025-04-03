@@ -27,10 +27,9 @@ const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
+const TIME_CHANGE_SPEED = 3000
 const MIN_TIME_SCALAR = -10000000
 const MAX_TIME_SCALAR = 10000000
-const DEFAULT_TIME_SCALAR = 1
-const TIME_CHANGE_SPEED = 3000
 
 # Start of Settings Variables
 var input_method: Mappings.InputMethod:
@@ -65,43 +64,7 @@ var _sim_scale: float:
 		# If not the sun, show/hide satellites:
 		_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (_sim_scale > moon_show_thresh)
 			
-		MainMenu.scale_readout = _model_scalar * value
-
-
-var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
-	set(value):
-		_sim_time_scalar = value
-		MainMenu.sim_time_scalar_readout = value
-		if _sim_time_paused:
-			_sim_time_paused = false
-
-
-var _sim_time: float:
-	set(value):
-		_sim_time = value
-		%CentralBody.time = value
-		MainMenu.sim_time_readout = value
-		
-		var sys_time = Time.get_unix_time_from_system()
-		
-		#When sim time is out of sync it's not live
-		if abs(int(_sim_time) - int(sys_time)) > 5:
-			_sim_time_live = false
-
-
-var _sim_time_paused: bool:
-	set(paused):
-		_sim_time_paused = paused
-		MainMenu.sim_time_paused_readout = paused
-		if paused:
-			_sim_time_live = false
-
-
-var _sim_time_live: bool:
-	set(value):
-		_sim_time_live = value
-		MainMenu.time_live_readout = value
-
+		MainMenu.scale_readout = %Simulation.model_scalar * value
 
 # Move
 var _moving_up: bool = false
@@ -132,8 +95,6 @@ var InfoScreen: Node3D
 var _saved_player_location: Vector3
 var _to_sim: Vector3
 
-var _model_scalar: float
-
 var _body_scale_up: bool:
 	set(value):
 		_body_scale_up = value
@@ -154,20 +115,11 @@ func _ready():
 	
 	_setup_menu()
 	
-	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
-	_model_scalar = 0.5 / sun_data["radius"]
-	_focused_body = %CentralBody
-	
-	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
-	
 	_connect_info_nodes(%CentralBody)
 
 func _process(delta):
 	_check_if_player_moved()
 	
-	if not _sim_time_paused:
-		_sim_time += delta * _sim_time_scalar
-		
 	_handle_body_focusing(delta)
 	
 	_handle_constant_state_changes(delta)
@@ -186,10 +138,8 @@ func _input(event):
 
 func _setup():
 	%AudBGM.playing = true
-	%CentralBody.satellites_visible = true
-	%CentralBody.satellite_bodies_will_scale = true
-	%CentralBody.visible = true
-	
+	%Simulation.setup()
+
 	_reset_state()
 
 
@@ -215,7 +165,6 @@ const FOCUS_MOVE_TIME: float = 1
 const FOCUS_ZOOM_TIME: float = 1.2
 const FOCUS_WAIT_TIME: float = 0.2
 const FOCUS_SCALE_BIRDS_EYE = 0.05
-
 
 var _focus_scale_body: float
 
@@ -333,11 +282,8 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 
 	_focus_body(_get_body(Mappings.planet_ID["sun"]))
-
-	_body_scale_up = false
 	
-	_initialise_time()
-
+	%Simulation.reset_state()
 	
 func _connect_info_nodes(orbiting_body: OrbitingBody):
 	for info_node in orbiting_body.info_nodes:
@@ -358,13 +304,6 @@ func _get_body(ID: int):
 				focused_body = satellite
 	
 	return focused_body
-
-
-func _initialise_time():
-	_sim_time = Time.get_unix_time_from_system()
-	_sim_time_scalar = DEFAULT_TIME_SCALAR
-	_sim_time_paused = false
-	_sim_time_live = true
 
 
 func _setup_menu():
@@ -428,9 +367,21 @@ func _setup_time_signals():
 	MainMenu.time_decrease_start.connect(func(): _time_decreasing = true)
 	MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
 	
-	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
+	MainMenu.time_pause_changed.connect(func(value): %Simulation.sim_time_paused = value)
+	MainMenu.time_live_pressed.connect(func(): %Simulation.init_time())
 	
-	MainMenu.time_live_pressed.connect(func(): _initialise_time())
+	%Simulation.sim_time_changed.connect(func(value):
+		MainMenu.sim_time_readout = value
+	)
+	%Simulation.sim_time_live_changed.connect(func(value):
+		MainMenu.time_live_readout = value
+	)
+	%Simulation.sim_time_paused_changed.connect(func(value):
+		MainMenu.sim_time_paused_readout = value
+	)
+	%Simulation.sim_time_scalar_changed.connect(func(value):
+		MainMenu.sim_time_scalar_readout = value
+	)
 
 
 func _setup_planet_signals():
@@ -523,7 +474,7 @@ func _handle_constant_time_change(delta: float):
 		
 		var increase_time_held = Time.get_unix_time_from_system() - _time_increase_start
 		
-		_sim_time_scalar = clamp(	_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
+		%Simulation.sim_time_scalar = clamp(%Simulation.sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
 			MIN_TIME_SCALAR,
 			MAX_TIME_SCALAR)
 	else:
@@ -535,7 +486,7 @@ func _handle_constant_time_change(delta: float):
 			
 		var decrease_time_held = Time.get_unix_time_from_system() - _time_decrease_start
 		
-		_sim_time_scalar = clamp(	_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
+		%Simulation.sim_time_scalar = clamp(%Simulation.sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
 			MIN_TIME_SCALAR,
 			MAX_TIME_SCALAR)
 	else:

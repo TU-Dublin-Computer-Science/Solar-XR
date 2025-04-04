@@ -99,7 +99,7 @@ func _ready():
 	
 	_setup_menu()
 	
-	_connect_info_nodes(%CentralBody)
+	#_connect_info_nodes(%CentralBody)
 
 func _process(delta):
 	_check_if_player_moved()

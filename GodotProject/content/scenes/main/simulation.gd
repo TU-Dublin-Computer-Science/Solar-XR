@@ -70,7 +70,7 @@ var _sim_time: float:
 	set(value):
 		_sim_time = value
 		sim_time_changed.emit(_sim_time)
-		%CentralBody.time = value
+		focus_scene.time = value
 		
 		var sys_time = Time.get_unix_time_from_system()
 		
@@ -84,24 +84,25 @@ var sim_scale: float:
 		scale = Vector3(value, value, value)
 		
 		#Inverse scale applied to labels to keep them from being scaled with model
-		%CentralBody.label_scale = 1 / sim_scale  
+		focus_scene.label_scale = 1 / sim_scale  
 		
 		# Switch from showing planet orbit lines to showing planet moons once specific zoom threshold reached
 
 		var moon_show_thresh = (_focus_scale_body - (_focus_scale_body * 0.9))
 
-		%CentralBody.satellite_orbits_visible = sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
+		focus_scene.satellite_orbits_visible = sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
 		# If not the sun, show/hide satellites:
 		#_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (sim_scale > moon_show_thresh)
 		
 		sim_scale_changed.emit(_model_scalar * value)
 
+var focus_scene: OrbitingBody
+
 func _ready():
-	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
-	_model_scalar = 0.5 / sun_data["radius"]
-	_focused_body = %CentralBody
+	focus_scene = _create_focus_scene("sun")
+	add_child(focus_scene)
+	#_focused_body = %CentralBody
 	
-	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time, true)
 
 
 func _process(delta: float) -> void:
@@ -112,14 +113,14 @@ func _process(delta: float) -> void:
 
 
 func setup():
-	%CentralBody.satellites_visible = true
-	%CentralBody.satellite_bodies_will_scale = true
-	%CentralBody.visible = true
+	focus_scene.satellites_visible = true
+	focus_scene.satellite_bodies_will_scale = true
+	focus_scene.visible = true
 
 
 func reset_state():
 	init_time()
-	focus_body(Mappings.planet_ID["sun"])
+#	focus_body(Mappings.planet_ID["sun"])
 	
 
 func init_time():
@@ -136,16 +137,12 @@ func focus_body(p_new_focused_body_ID: int):
 	
 	_new_focused_body = _get_body(p_new_focused_body_ID) # Set global var
 	
-	if _new_focused_body != _focused_body:  # If new body being focused
-		var body_data_path = "res://content/data/bodies/%s.json" % _new_focused_body.body_name
-		var body_data = Utils.load_json_file(body_data_path)
-		
-		var orbiting_body = OrbitingBodyScn.instantiate()
-		
-		orbiting_body.init(body_data, Camera, 0.5 / body_data["radius"], _sim_time, true)
-		
-		%CentralBody.visible = false
-		add_child(orbiting_body)		
+#	if _new_focused_body != _focused_body:  # If new body being focused
+	var new_focus_scene = _create_focus_scene(_new_focused_body.body_name)
+	
+	add_child(new_focus_scene)
+	remove_child(focus_scene)
+	focus_scene = new_focus_scene
 	
 	"""
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
@@ -220,13 +217,28 @@ func _handle_body_focusing(delta: float):
 		%CentralBody.position =  %CentralBody.position - body_position  
 
 
+func _create_focus_scene(body_name: String) -> OrbitingBody:
+	"""Creates an orbiting_body node"""
+	
+	var body_data_path = "res://content/data/bodies/%s.json" % body_name
+	var body_data = Utils.load_json_file(body_data_path)
+	
+	var orbiting_body = OrbitingBodyScn.instantiate()
+	
+	_model_scalar = 0.5 / body_data["radius"]
+	
+	orbiting_body.init(body_data, Camera, _model_scalar, _sim_time, true)
+	
+	return orbiting_body
+
+
 func _get_body(ID: int):
 	var focused_body: OrbitingBody
 	
 	if ID == Mappings.planet_ID["sun"]:
-		focused_body = %CentralBody
+		focused_body = focus_scene
 	else:
-		for satellite in %CentralBody.satellites:
+		for satellite in focus_scene.satellites:
 			if ID == satellite.ID:
 				focused_body = satellite
 	

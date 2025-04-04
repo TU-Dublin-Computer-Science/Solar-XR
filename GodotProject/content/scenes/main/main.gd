@@ -243,8 +243,8 @@ func _setup_time_signals():
 
 
 func _setup_planet_signals():
-	MainMenu.planet_change_pressed.connect(func(ID):
-		%Simulation.focus_body(ID)
+	MainMenu.planet_change_pressed.connect(func(body_name):
+		%Simulation.focus_body(body_name)
 	)
 	
 	MainMenu.planet_scale_up.connect(func():
@@ -255,9 +255,9 @@ func _setup_planet_signals():
 		_body_scale_up = false
 	)
 	
-	%Simulation.focus_body_changed.connect(func(ID):
+	%Simulation.focus_body_changed.connect(func(body_name):
 		InfoNodeScreen.deactivate()
-		MainMenu.focused_body_ID = ID
+		MainMenu.focused_body_name = body_name
 	)
 
 func _setup_settings_signals():

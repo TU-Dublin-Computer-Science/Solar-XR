@@ -1,24 +1,24 @@
 extends Node3D
 
-var selected_planet_ID: int:
+var selected_body_name: String:
 	set(value):
-		selected_planet_ID = value
+		selected_body_name = value
 
-		if selected_planet_ID == Mappings.planet_ID["mercury"]:
+		if selected_body_name == "mercury":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnMercury)
-		elif selected_planet_ID == Mappings.planet_ID["venus"]:
+		elif selected_body_name == "venus":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnVenus)
-		elif selected_planet_ID == Mappings.planet_ID["earth"]:
+		elif selected_body_name == "earth":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnEarth)
-		elif selected_planet_ID ==Mappings.planet_ID["mars"]:
+		elif selected_body_name == "mars":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnMars)
-		elif selected_planet_ID == Mappings.planet_ID["jupiter"]:
+		elif selected_body_name == "jupiter":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnJupiter)
-		elif selected_planet_ID == Mappings.planet_ID["saturn"]:
+		elif selected_body_name == "saturn":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnSaturn)
-		elif selected_planet_ID == Mappings.planet_ID["uranus"]:
+		elif selected_body_name == "uranus":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnUranus)
-		elif selected_planet_ID == Mappings.planet_ID["neptune"]:
+		elif selected_body_name == "neptune":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnNeptune)
-		elif selected_planet_ID == Mappings.planet_ID["sun"]:
+		elif selected_body_name == "sun":
 			$BtnTglPlanet.set_active($BtnTglPlanet/BtnSun)

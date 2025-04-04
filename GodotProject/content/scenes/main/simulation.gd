@@ -130,15 +130,15 @@ func init_time():
 	sim_time_live = true
 
 
-func focus_body(p_new_focused_body_ID: int):
+func focus_body(p_new_focused_body_name: String):
 	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
 	
-	focus_body_changed.emit(p_new_focused_body_ID) 
+	focus_body_changed.emit(p_new_focused_body_name) 
 	
-	_new_focused_body = _get_body(p_new_focused_body_ID) # Set global var
+	#_new_focused_body = _get_body(p_new_focused_body_ID) # Set global var
 	
 #	if _new_focused_body != _focused_body:  # If new body being focused
-	var new_focus_scene = _create_focus_scene(_new_focused_body.body_name)
+	var new_focus_scene = _create_focus_scene(p_new_focused_body_name)
 	
 	add_child(new_focus_scene)
 	remove_child(focus_scene)
@@ -230,16 +230,3 @@ func _create_focus_scene(body_name: String) -> OrbitingBody:
 	orbiting_body.init(body_data, Camera, _model_scalar, _sim_time, true)
 	
 	return orbiting_body
-
-
-func _get_body(ID: int):
-	var focused_body: OrbitingBody
-	
-	if ID == Mappings.planet_ID["sun"]:
-		focused_body = focus_scene
-	else:
-		for satellite in focus_scene.satellites:
-			if ID == satellite.ID:
-				focused_body = satellite
-	
-	return focused_body

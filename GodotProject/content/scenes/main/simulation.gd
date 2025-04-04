@@ -1,5 +1,7 @@
 extends Node3D
 
+const OrbitingBodyScn = preload("res://content/scenes/orbiting_body/orbiting_body.tscn")
+
 enum FocusState {
 	ZOOM_OUT,
 	MOVE,
@@ -90,7 +92,7 @@ var sim_scale: float:
 
 		%CentralBody.satellite_orbits_visible = sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
 		# If not the sun, show/hide satellites:
-		_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (sim_scale > moon_show_thresh)
+		#_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (sim_scale > moon_show_thresh)
 		
 		sim_scale_changed.emit(_model_scalar * value)
 
@@ -99,7 +101,7 @@ func _ready():
 	_model_scalar = 0.5 / sun_data["radius"]
 	_focused_body = %CentralBody
 	
-	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
+	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time, true)
 
 
 func _process(delta: float) -> void:
@@ -134,6 +136,18 @@ func focus_body(p_new_focused_body_ID: int):
 	
 	_new_focused_body = _get_body(p_new_focused_body_ID) # Set global var
 	
+	if _new_focused_body != _focused_body:  # If new body being focused
+		var body_data_path = "res://content/data/bodies/%s.json" % _new_focused_body.body_name
+		var body_data = Utils.load_json_file(body_data_path)
+		
+		var orbiting_body = OrbitingBodyScn.instantiate()
+		
+		orbiting_body.init(body_data, Camera, 0.5 / body_data["radius"], _sim_time, true)
+		
+		%CentralBody.visible = false
+		add_child(orbiting_body)		
+	
+	"""
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
 
 	_focus_move_time_remaining = FOCUS_MOVE_TIME
@@ -158,7 +172,7 @@ func focus_body(p_new_focused_body_ID: int):
 		else:
 			_focused_body = _new_focused_body
 			_focus_state = FocusState.MOVE  # Else move to new body
-
+	"""
 
 func _handle_body_focusing(delta: float):
 	match(_focus_state):

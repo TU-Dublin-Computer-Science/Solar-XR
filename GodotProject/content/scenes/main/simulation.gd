@@ -101,7 +101,7 @@ var focus_scene: OrbitingBody
 func _ready():
 	focus_scene = _create_focus_scene("sun")
 	add_child(focus_scene)
-	#_focused_body = %CentralBody
+#	_focused_body = %CentralBody
 	
 
 
@@ -120,7 +120,7 @@ func setup():
 
 func reset_state():
 	init_time()
-#	focus_body(Mappings.planet_ID["sun"])
+	focus_body("sun")
 	
 
 func init_time():
@@ -133,8 +133,6 @@ func init_time():
 func focus_body(p_new_focused_body_name: String):
 	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
 	
-	focus_body_changed.emit(p_new_focused_body_name) 
-	
 	#_new_focused_body = _get_body(p_new_focused_body_ID) # Set global var
 	
 #	if _new_focused_body != _focused_body:  # If new body being focused
@@ -143,6 +141,8 @@ func focus_body(p_new_focused_body_name: String):
 	add_child(new_focus_scene)
 	remove_child(focus_scene)
 	focus_scene = new_focus_scene
+	
+	focus_body_changed.emit(focus_scene)
 	
 	"""
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible

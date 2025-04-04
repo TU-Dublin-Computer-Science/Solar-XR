@@ -98,8 +98,6 @@ func _ready():
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
 	
 	_setup_menu()
-	
-	#_connect_info_nodes(%CentralBody)
 
 func _process(delta):
 	_check_if_player_moved()
@@ -255,9 +253,10 @@ func _setup_planet_signals():
 		_body_scale_up = false
 	)
 	
-	%Simulation.focus_body_changed.connect(func(body_name):
+	%Simulation.focus_body_changed.connect(func(focus_body):
 		InfoNodeScreen.deactivate()
-		MainMenu.focused_body_name = body_name
+		_connect_info_nodes(focus_body)
+		MainMenu.focused_body_name = focus_body.body_name
 	)
 
 func _setup_settings_signals():

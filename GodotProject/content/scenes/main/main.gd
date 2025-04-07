@@ -232,8 +232,11 @@ func _focus_animation_finished():
 		_focus_scene = _child_focus_scene
 		_child_focus_scene = null
 		
-		_parent_focus_scene.visible = false
+		_focus_scene.visible = false
 		%Simulation.add_child(_focus_scene)
+		
+		_focus_scene.visible = true
+		_parent_focus_scene.visible = false
 
 		_connect_info_nodes(_focus_scene.focused_body)
 

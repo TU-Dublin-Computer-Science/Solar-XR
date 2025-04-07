@@ -118,8 +118,8 @@ var time_live_readout: bool:
 
 var focused_body_name: String: 
 	set(value):
-		focused_body_ID = value
-		MenuBody.selected_planet_ID = value
+		focused_body_name = value
+		MenuBody.selected_body_name = value
 
 var input_method: Mappings.InputMethod:
 	set(value):
@@ -216,7 +216,7 @@ func _setup_tabs():
 	_setup_rotate_tab()
 	_setup_scale_tab()
 	_setup_time_tab()
-	_setup_planet_tab()
+	_setup_body_tab()
 	_setup_settings_tab()
 
 
@@ -277,25 +277,11 @@ func _setup_time_tab():
 	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
 	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
 
-
-func _setup_planet_tab():
-<<<<<<< HEAD
-	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit("mercury"))
-	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit("venus"))
-	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit("earth"))
-	MenuPlanet.find_child("BtnMars").on_button_down.connect(func(): planet_change_pressed.emit("mars"))
-	MenuPlanet.find_child("BtnJupiter").on_button_down.connect(func(): planet_change_pressed.emit("jupiter"))
-	MenuPlanet.find_child("BtnSaturn").on_button_down.connect(func(): planet_change_pressed.emit("saturn"))
-	MenuPlanet.find_child("BtnUranus").on_button_down.connect(func(): planet_change_pressed.emit("uranus"))
-	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit("neptune"))
-	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit("sun"))
-
-=======
-	MenuBody.on_body_select.connect(func(body_ID):
-		on_body_select.emit(body_ID)
+func _setup_body_tab():
+	MenuBody.on_body_select.connect(func(body_name):
+		on_body_select.emit(body_name)
 	)
-	
->>>>>>> NewPlanetMenu
+
 func _setup_settings_tab():
 	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))
 	MenuSettings.find_child("BtnPointer").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.POINTER))

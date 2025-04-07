@@ -133,6 +133,7 @@ func _ready():
 	_focus_scene.focus_animation_finished.connect(_focus_animation_finished)
 	_focus_scene.visible = false
 	%Simulation.add_child(_focus_scene)
+	_update_body_menu()
 	
 	_setup_menu()
 
@@ -239,6 +240,7 @@ func _focus_animation_finished():
 		_focus_scene.visible = true
 		
 		_connect_info_nodes(_focus_scene.focused_body)
+		_update_body_menu()
 
 
 func _setup_menu():
@@ -249,8 +251,8 @@ func _setup_menu():
 	_setup_scale_signals()
 	_setup_time_signals()
 	
-	MainMenu.on_body_select.connect(func(ID):
-		_focus_body(_get_body(ID))
+	MainMenu.on_body_select.connect(func(body_name):
+		_focus_body(body_name)
 	)
 	
 	_setup_settings_signals()
@@ -260,7 +262,7 @@ func _setup_menu():
 func _update_body_menu():
 	MainMenu.clear_body_menu()
 	
-	for body in _focused_body.satellites:
+	for body in _focus_scene.focused_body.satellites:
 		MainMenu.add_body(body)
 
 

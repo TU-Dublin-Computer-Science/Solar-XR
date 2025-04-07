@@ -4,9 +4,9 @@ const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/e
 
 signal on_body_select
 
-var selected_planet_ID: int:
+var selected_body_name: String:
 	set(value):
-		selected_planet_ID = value
+		selected_body_name = value
 
 
 func add_body(body: OrbitingBody):
@@ -14,7 +14,7 @@ func add_body(body: OrbitingBody):
 	entity.text = body.body_name
 	
 	entity.on_select.connect(func():
-		on_body_select.emit(body.ID)
+		on_body_select.emit(body.body_name)
 	)
 	
 	$FlexContainer.add_child(entity)

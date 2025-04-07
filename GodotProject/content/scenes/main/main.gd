@@ -24,7 +24,7 @@ const ROT_CHANGE_SPEED = 1
 const DEFAULT_ROT:Vector3 = Vector3(-20, 0, 0)
 
 const MIN_SIM_SCALE: float = 0.0005
-const MAX_SIM_SCALE: float = 500
+const MAX_SIM_SCALE: float = 100000
 const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
@@ -248,9 +248,20 @@ func _setup_menu():
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
-	_setup_planet_signals()
+	
+	MainMenu.on_body_select.connect(func(ID):
+		_focus_body(_get_body(ID))
+	)
+	
 	_setup_settings_signals()
 	MainMenu.reset.connect(_reset_state)
+
+
+func _update_body_menu():
+	MainMenu.clear_body_menu()
+	
+	for body in _focused_body.satellites:
+		MainMenu.add_body(body)
 
 
 func _setup_move_signals():
@@ -320,6 +331,7 @@ func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):
 		input_method = p_input_method
 	)
+
 
 func _handle_constant_state_changes(delta: float):
 	_handle_constant_movement(delta)

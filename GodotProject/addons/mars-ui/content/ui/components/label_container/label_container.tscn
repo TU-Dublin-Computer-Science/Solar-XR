@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://blkfqa3ttk0d2"]
+
+[ext_resource type="Script" uid="uid://dyhirra0lvxok" path="res://addons/mars-ui/content/ui/components/label_container/label_container.gd" id="1_hqtij"]
+
+[node name="LabelContainer" type="Node3D"]
+script = ExtResource("1_hqtij")
+size = Vector3(0, 0, 0.1)
+
+[node name="Label3D" type="Label3D" parent="."]
+pixel_size = 0.001
+render_priority = 15
+outline_render_priority = 14
+text = "Example"
+font_size = 18
+outline_size = 0

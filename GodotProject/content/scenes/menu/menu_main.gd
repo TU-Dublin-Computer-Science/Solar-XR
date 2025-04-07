@@ -52,10 +52,8 @@ signal time_increase_stop
 signal time_pause_changed
 signal time_live_pressed
 
-# Planet Signals
-signal planet_change_pressed
-signal planet_scale_up
-signal planet_scale_true
+# Body Signals
+signal on_body_select
 
 # Settings Signals
 signal input_mode_changed
@@ -69,7 +67,7 @@ signal reset
 @onready var MenuRotate = $ControlMenu/Tabs/MenuRotate
 @onready var MenuScale = $ControlMenu/Tabs/MenuScale
 @onready var MenuTime = $ControlMenu/Tabs/MenuTime
-@onready var MenuPlanet = $ControlMenu/Tabs/MenuPlanet
+@onready var MenuBody = $ControlMenu/Tabs/MenuBody
 @onready var MenuSettings = $ControlMenu/Tabs/MenuSettings
 
 @onready var ControlMenu = $ControlMenu
@@ -120,8 +118,8 @@ var time_live_readout: bool:
 
 var focused_body_name: String: 
 	set(value):
-		focused_body_name = value
-		MenuPlanet.selected_body_name = value
+		focused_body_ID = value
+		MenuBody.selected_planet_ID = value
 
 var input_method: Mappings.InputMethod:
 	set(value):
@@ -164,6 +162,14 @@ func _process(delta: float) -> void:
 		FPSCounter.text = "FPS: %d" % Engine.get_frames_per_second()    
 
 
+func add_body(body: OrbitingBody):
+	MenuBody.add_body(body)
+
+
+func clear_body_menu():
+	MenuBody.clear()
+
+
 func _setup_start_menu():
 	StartMenu.visible = true
 	StartMenu.find_child("BtnStart").on_button_up.connect(func():
@@ -194,7 +200,7 @@ func _setup_menu_buttons():
 	
 	%BtnTime.on_button_down.connect(func(): _active_tab = MenuTime)
 	
-	%BtnPlanet.on_button_down.connect(func(): _active_tab = MenuPlanet)
+	%BtnBody.on_button_down.connect(func(): _active_tab = MenuBody)
 	
 	%BtnReset.on_button_down.connect(func(): 
 		$ControlMenu/BtnTglMenu.clear_active_btn()
@@ -273,6 +279,7 @@ func _setup_time_tab():
 
 
 func _setup_planet_tab():
+<<<<<<< HEAD
 	MenuPlanet.find_child("BtnMercury").on_button_down.connect(func(): planet_change_pressed.emit("mercury"))
 	MenuPlanet.find_child("BtnVenus").on_button_down.connect(func(): planet_change_pressed.emit("venus"))
 	MenuPlanet.find_child("BtnEarth").on_button_down.connect(func(): planet_change_pressed.emit("earth"))
@@ -283,6 +290,12 @@ func _setup_planet_tab():
 	MenuPlanet.find_child("BtnNeptune").on_button_down.connect(func(): planet_change_pressed.emit("neptune"))
 	MenuPlanet.find_child("BtnSun").on_button_down.connect(func(): planet_change_pressed.emit("sun"))
 
+=======
+	MenuBody.on_body_select.connect(func(body_ID):
+		on_body_select.emit(body_ID)
+	)
+	
+>>>>>>> NewPlanetMenu
 func _setup_settings_tab():
 	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))
 	MenuSettings.find_child("BtnPointer").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.POINTER))

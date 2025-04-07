@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bby2dvis6toey"]
+
+[ext_resource type="Script" uid="uid://b27v7xbd2xn8n" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.gd" id="1_kcao1"]
+
+[node name="FlexContainer" type="Node3D"]
+script = ExtResource("1_kcao1")

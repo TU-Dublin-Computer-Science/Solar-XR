@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=16 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" uid="uid://ds52nopaipv6" path="res://content/scenes/menu/menu_rotate.gd" id="6_l1ol1"]
 [ext_resource type="Script" uid="uid://cxmec8j3fxc6j" path="res://content/scenes/menu/menu_scale.gd" id="7_cecho"]
 [ext_resource type="Script" uid="uid://cl57mw17dje3i" path="res://content/scenes/menu/menu_time.gd" id="8_dwy47"]
-[ext_resource type="Script" uid="uid://bfvy16q8fsegk" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
+[ext_resource type="Script" path="res://content/scenes/menu/menu_planet.gd" id="9_6i5p8"]
 [ext_resource type="Script" uid="uid://cxh11hm5qeoio" path="res://content/scenes/menu/menu_settings.gd" id="10_ic3tv"]
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
+[ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -51,7 +52,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.115, 0)
 label = "Time"
 
-[node name="BtnPlanet" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
+[node name="BtnBody" parent="ControlMenu/BtnTglMenu" instance=ExtResource("3_f40n8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, -0.115, 0)
 label = "Planet"
@@ -252,49 +253,13 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0838694
 [node name="LblScalar" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 0)
 
-[node name="MenuPlanet" type="Node3D" parent="ControlMenu/Tabs"]
+[node name="MenuBody" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
 script = ExtResource("9_6i5p8")
 
-[node name="BtnTglPlanet" parent="ControlMenu/Tabs/MenuPlanet" instance=ExtResource("10_t43g3")]
-
-[node name="BtnMercury" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, -0.0749947, 0.114982, 1.62988e-06)
-font_size = 8
-label = "Mercury"
-
-[node name="BtnVenus" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.87254e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 2.94391e-05, 0.114982, 9.00693e-06)
-label = "Venus"
-
-[node name="BtnEarth" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, 0.0750053, 0.114982, 1.62989e-06)
-label = "Earth"
-
-[node name="BtnMars" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, -0.0749947, 0.0399822, 1.62988e-06)
-label = "Mars"
-
-[node name="BtnSun" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.63971e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 2.94391e-05, 0.0399822, 9.00696e-06)
-label = "Sun"
-
-[node name="BtnJupiter" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.63971e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 0.075, 0.04, 9.09495e-13)
-label = "Jupiter"
-
-[node name="BtnSaturn" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78163e-10, 2.32831e-10, 1.94116e-09, 1.5, 8.73115e-11, -5.82077e-10, -1.45519e-10, 1.5, -0.075, -0.035, 9.09495e-13)
-label = "Saturn"
-
-[node name="BtnUranus" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78163e-10, 2.91038e-10, 2.174e-09, 1.5, 8.73115e-11, -6.40284e-10, -1.45519e-10, 1.5, 1.81899e-12, -0.035, -1.81899e-12)
-label = "Uranus"
-
-[node name="BtnNeptune" parent="ControlMenu/Tabs/MenuPlanet/BtnTglPlanet" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, -2.78149e-10, 3.49246e-10, 2.87254e-09, 1.5, 8.73115e-11, -7.567e-10, -1.74623e-10, 1.5, 0.075, -0.035, -2.72848e-12)
-font_size = 8
-label = "Neptune"
+[node name="FlexContainer" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("11_jlhfs")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
+vertical = true
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
 visible = false

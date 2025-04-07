@@ -155,7 +155,7 @@ func _setup_body():
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
 	
 	%LabelParent.transform.origin.y = _model.scale.y/2
-	%Label/LlbName.text = body_name
+	%Label/LlbName.text = body_name.capitalize()
 
 
 func _setup_info_nodes(info_point_array: Array) -> void:

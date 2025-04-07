@@ -190,7 +190,7 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_init_time()
-	#_focus_body("sun") # Need a check to see if sun already focused
+	_focus_body("sun") 
 
 
 func _init_time():
@@ -235,9 +235,9 @@ func _focus_animation_finished():
 		_focus_scene.visible = false
 		%Simulation.add_child(_focus_scene)
 		
-		_focus_scene.visible = true
 		_parent_focus_scene.visible = false
-
+		_focus_scene.visible = true
+		
 		_connect_info_nodes(_focus_scene.focused_body)
 
 

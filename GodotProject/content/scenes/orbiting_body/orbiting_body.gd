@@ -85,6 +85,7 @@ var _orbital_period: float
 
 var _model_scalar: float
 var _camera: XRCamera3D = null
+var _is_central: bool
 
 var _rotation_enabled: bool = false
 var _initialised: bool = false
@@ -100,9 +101,10 @@ func _process(_delta: float) -> void:
 	_billboard_label()
 
 
-func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_time: float, p_center: bool):
+func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_time: float, p_is_central: bool):
 	_camera = p_camera
 	_model_scalar = p_model_scalar
+	_is_central = p_is_central
 	
 	ID = body_data["ID"]
 	body_name = body_data["name"]
@@ -134,7 +136,7 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 				_inclination != -1 and
 				_lon_ascending_node != -1 and
 				_orbital_period != -1 and 
-				p_center != true)
+				p_is_central != true)
 	
 	_setup_body()
 	
@@ -177,6 +179,8 @@ func _setup_body():
 	_model = _model_scene.instantiate()
 	%Body.add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
+	
+	%LabelParent.transform.origin.y = _model.scale.y/2
 	%Label/LlbName.text = body_name
 
 

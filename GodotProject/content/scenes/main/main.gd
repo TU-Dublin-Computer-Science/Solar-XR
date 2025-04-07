@@ -140,6 +140,7 @@ func _ready():
 	_focus_scene = FocusScene.instantiate()
 	_focus_scene.init("sun", Camera)
 	_focus_scene.focus_animation_finished.connect(_focus_animation_finished)
+	_focus_scene.visible = false
 	%Simulation.add_child(_focus_scene)
 	
 	_setup_menu()
@@ -167,11 +168,7 @@ func _input(event):
 
 func _setup():
 	%AudBGM.playing = true
-	"""
-	%CentralBody.satellites_visible = true
-	%CentralBody.satellite_bodies_will_scale = true
-	%CentralBody.visible = true
-	"""
+	_focus_scene.visible = true
 	_reset_state()
 
 
@@ -202,7 +199,7 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_init_time()
-	_focus_body("sun")
+	#_focus_body("sun") # Need a check to see if sun already focused
 
 
 func _init_time():

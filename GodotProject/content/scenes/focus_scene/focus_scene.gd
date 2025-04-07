@@ -35,7 +35,7 @@ var _model_scalar: float
 
 @onready var focused_body = $CentralBody
 
-var sim_scale: float:
+var sim_scale: float = 1:
 	set(value):
 		sim_scale = value
 		scale = Vector3(value, value, value)
@@ -45,10 +45,6 @@ var sim_scale: float:
 		
 		# Switch from showing planet orbit lines to showing planet moons once specific zoom threshold reached
 		var moon_show_thresh = (_focus_scale_body - (_focus_scale_body * 0.9))
-
-		$CentralBody.satellite_orbits_visible = sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
-		# If not the sun, show/hide satellites:
-		#_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (sim_scale > moon_show_thresh)
 		
 		sim_scale_changed.emit(_model_scalar * value)
 
@@ -68,6 +64,8 @@ func init(body_name: String, camera: XRCamera3D):
 	_model_scalar = 0.5 / body_data["radius"]
 	
 	$CentralBody.init(body_data, camera, _model_scalar, time, true)
+	$CentralBody.satellites_visible = true
+	$CentralBody.satellite_bodies_will_scale = true
 
 
 func start_focus_animation(p_new_focused_body_name: String):

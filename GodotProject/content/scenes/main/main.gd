@@ -88,7 +88,8 @@ var _sim_time: float:
 		MainMenu.sim_time_readout = value
 
 var _focus_scene: FocusScene
-var _new_focus_scene: FocusScene
+var _parent_focus_scene: FocusScene
+var _child_focus_scene: FocusScene
 
 # Move
 var _moving_up: bool = false
@@ -208,21 +209,33 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 
 
 func _focus_body(body_name: String):
-	_new_focus_scene = FocusScene.instantiate()
-	_new_focus_scene.init(body_name, Camera)
+	if body_name == _focus_scene.focused_body.body_name:
+		return
 	
+	if body_name == "sun":
+		%Simulation.remove_child(_focus_scene)
+		_focus_scene = _parent_focus_scene
+		_focus_scene.visible = true
+	else:
+		_child_focus_scene = FocusScene.instantiate()
+		_child_focus_scene.init(body_name, Camera)
+
 	InfoNodeScreen.deactivate()
 	_focus_scene.start_focus_animation(body_name)
 
 
 func _focus_animation_finished():
-	%Simulation.remove_child(_focus_scene)
-	%Simulation.add_child(_new_focus_scene)
-	
-	_focus_scene = _new_focus_scene
-	_new_focus_scene = null
-	
-	_connect_info_nodes(_focus_scene.focused_body)
+	if _child_focus_scene == null: # Moving to parent
+		pass
+	else:
+		_parent_focus_scene = _focus_scene
+		_focus_scene = _child_focus_scene
+		_child_focus_scene = null
+		
+		_parent_focus_scene.visible = false
+		%Simulation.add_child(_focus_scene)
+
+		_connect_info_nodes(_focus_scene.focused_body)
 
 
 func _setup_menu():

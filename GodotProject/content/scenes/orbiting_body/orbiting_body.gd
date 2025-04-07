@@ -23,7 +23,6 @@ var time: float:
 				for satellite in satellites:
 					satellite.time = time
 
-
 var label_scale: float:
 	set(value):
 		label_scale = value
@@ -38,7 +37,6 @@ var satellite_orbits_visible: bool = true:
 		satellite_orbits_visible = value
 		for satellite in satellites:
 			satellite.OrbitVisual.visible = value
-
 
 var satellites = []
 var info_nodes: Array[Node3D]
@@ -83,7 +81,7 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	_is_central = p_is_central
 	
 	ID = body_data["ID"]
-	body_name = body_data["name"]
+	body_name = body_data["name"].to_lower()
 	radius = body_data["radius"] * p_model_scalar
 	
 	if body_data["rotation_factor"] != -1:

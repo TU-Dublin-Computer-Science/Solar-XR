@@ -68,11 +68,14 @@ func init(body_name: String, camera: XRCamera3D):
 
 func start_focus_animation(p_new_focused_body_name: String):
 	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
-		
+	
 	# Get body to move to
-	for satellite in $CentralBody.satellites:
-		if satellite.body_name.to_lower() == p_new_focused_body_name.to_lower():
-			_new_focused_body = satellite
+	if p_new_focused_body_name == $CentralBody.body_name:
+		_new_focused_body = $CentralBody
+	else:	
+		for satellite in $CentralBody.satellites:
+			if satellite.body_name.to_lower() == p_new_focused_body_name.to_lower():
+				_new_focused_body = satellite
 	
 	if _new_focused_body == null:
 		return
@@ -130,3 +133,7 @@ func _handle_body_focusing(delta: float):
 				_focus_state = _focus_action_after_wait
 			else:
 				_focus_wait_timer += delta
+	
+	if _focused_body and _focus_state != FocusState.MOVE and _focus_action_after_wait != FocusState.MOVE: # Keep body in focus
+		var body_position: Vector3 = to_local(_focused_body.body.global_position)
+		$CentralBody.position = $CentralBody.position - body_position  

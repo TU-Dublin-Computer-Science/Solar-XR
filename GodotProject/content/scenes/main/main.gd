@@ -14,6 +14,8 @@ enum Mode {
 
 var mode:Mode = Mode.DEFAULT
 
+const FocusScene = preload("res://content/scenes/focus_scene/focus_scene.tscn")
+
 const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
 const MAX_MOVE_DIST = 4
 const MOVE_SPEED = 1
@@ -30,6 +32,7 @@ const BODY_SCALE_UP = 800
 const TIME_CHANGE_SPEED = 3000
 const MIN_TIME_SCALAR = -10000000
 const MAX_TIME_SCALAR = 10000000
+const DEFAULT_TIME_SCALAR = 1
 
 # Start of Settings Variables
 var input_method: Mappings.InputMethod:
@@ -48,7 +51,44 @@ var _sim_position: Vector3:
 		MainMenu.pos_readout = value
 
 
+var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
+	set(value):
+		_sim_time_scalar = value
 
+		if _sim_time_paused:
+			_sim_time_paused = false
+		
+		MainMenu.sim_time_scalar_readout = value
+
+var _sim_time_paused: bool:
+	set(value):
+		_sim_time_paused = value
+
+		if _sim_time_paused:
+			_sim_time_live = false
+		
+		MainMenu.sim_time_paused_readout = value
+
+var _sim_time_live: bool:
+	set(value):
+		_sim_time_live = value
+		MainMenu.time_live_readout = value
+
+var _sim_time: float:
+	set(value):
+		_sim_time = value
+		_focus_scene.time = value
+		
+		var sys_time = Time.get_unix_time_from_system()
+		
+		#When sim time is out of sync it's not live
+		if abs(int(_sim_time) - int(sys_time)) > 5:
+			_sim_time_live = false
+		
+		MainMenu.sim_time_readout = value
+
+var _focus_scene: FocusScene
+var _new_focus_scene: FocusScene
 
 # Move
 var _moving_up: bool = false
@@ -97,9 +137,17 @@ func _ready():
 	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
 	
+	_focus_scene = FocusScene.instantiate()
+	_focus_scene.init("sun", Camera)
+	%Simulation.add_child(_focus_scene)
+	
 	_setup_menu()
 
+
 func _process(delta):
+	if not _sim_time_paused:
+		_sim_time += delta * _sim_time_scalar
+	
 	_check_if_player_moved()
 	
 	_handle_constant_state_changes(delta)
@@ -118,8 +166,11 @@ func _input(event):
 
 func _setup():
 	%AudBGM.playing = true
-	%Simulation.setup()
-
+	"""
+	%CentralBody.satellites_visible = true
+	%CentralBody.satellite_bodies_will_scale = true
+	%CentralBody.visible = true
+	"""
 	_reset_state()
 
 
@@ -149,14 +200,25 @@ func _reset_state():
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
-	%Simulation.reset_state()
-	
+	_init_time()
+	#_focus_body("sun")
+
+func _init_time():
+	_sim_time = Time.get_unix_time_from_system()
+	_sim_time_scalar = DEFAULT_TIME_SCALAR
+	_sim_time_paused = false
+	_sim_time_live = true
+
 func _connect_info_nodes(orbiting_body: OrbitingBody):
 	for info_node in orbiting_body.info_nodes:
 		InfoNodeScreen.connect_info_node(info_node)
 	
 	for satellite in orbiting_body.satellites:
 		_connect_info_nodes(satellite)
+
+
+func _focus_body(body_name: String):
+	pass
 
 
 func _setup_menu():
@@ -212,9 +274,10 @@ func _setup_scale_signals():
 	MainMenu.scale_decrease_start.connect(func(): _scale_decreasing = true)
 	MainMenu.scale_decrease_stop.connect(func(): _scale_decreasing = false)
 
-	%Simulation.sim_scale_changed.connect(func(sim_scale):
+	_focus_scene.sim_scale_changed.connect(func(sim_scale):
 		MainMenu.scale_readout = sim_scale
 	)
+
 
 func _setup_time_signals():
 	MainMenu.time_increase_start.connect(func():_time_increasing = true)
@@ -223,26 +286,13 @@ func _setup_time_signals():
 	MainMenu.time_decrease_start.connect(func(): _time_decreasing = true)
 	MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
 	
-	MainMenu.time_pause_changed.connect(func(value): %Simulation.sim_time_paused = value)
-	MainMenu.time_live_pressed.connect(func(): %Simulation.init_time())
-	
-	%Simulation.sim_time_changed.connect(func(value):
-		MainMenu.sim_time_readout = value
-	)
-	%Simulation.sim_time_live_changed.connect(func(value):
-		MainMenu.time_live_readout = value
-	)
-	%Simulation.sim_time_paused_changed.connect(func(value):
-		MainMenu.sim_time_paused_readout = value
-	)
-	%Simulation.sim_time_scalar_changed.connect(func(value):
-		MainMenu.sim_time_scalar_readout = value
-	)
+	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
+	MainMenu.time_live_pressed.connect(func(): _init_time())
 
 
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(body_name):
-		%Simulation.focus_body(body_name)
+		_focus_body(body_name)
 	)
 	
 	MainMenu.planet_scale_up.connect(func():
@@ -253,12 +303,13 @@ func _setup_planet_signals():
 		_body_scale_up = false
 	)
 	
+	"""
 	%Simulation.focus_body_changed.connect(func(focus_body):
 		InfoNodeScreen.deactivate()
 		_connect_info_nodes(focus_body)
 		MainMenu.focused_body_name = focus_body.body_name
 	)
-
+	"""
 func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):
 		input_method = p_input_method
@@ -319,11 +370,11 @@ func _handle_constant_rotation(delta: float):
 func _handle_constant_scaling(delta: float):
 	if _scale_increasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
-		%Simulation.sim_scale = clamp(%Simulation.sim_scale * (1.0 + base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
+		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 + base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 	
 	if _scale_decreasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
-		%Simulation.sim_scale = clamp(%Simulation.sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
+		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 
 
 var _time_increase_start: float = -1
@@ -336,7 +387,7 @@ func _handle_constant_time_change(delta: float):
 		
 		var increase_time_held = Time.get_unix_time_from_system() - _time_increase_start
 		
-		%Simulation.sim_time_scalar = clamp(%Simulation.sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
+		_sim_time_scalar = clamp(_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
 			MIN_TIME_SCALAR,
 			MAX_TIME_SCALAR)
 	else:
@@ -348,7 +399,7 @@ func _handle_constant_time_change(delta: float):
 			
 		var decrease_time_held = Time.get_unix_time_from_system() - _time_decrease_start
 		
-		%Simulation.sim_time_scalar = clamp(%Simulation.sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
+		_sim_time_scalar = clamp(_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
 			MIN_TIME_SCALAR,
 			MAX_TIME_SCALAR)
 	else:

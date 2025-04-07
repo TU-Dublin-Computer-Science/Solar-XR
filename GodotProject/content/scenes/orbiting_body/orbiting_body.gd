@@ -18,11 +18,11 @@ var time: float:
 		_julian_time = _unix_to_julian(time)
 		
 		if _initialised:
-			if satellites_visible:
+			_update()
+			if _is_central:
 				for satellite in satellites:
 					satellite.time = time
-				
-			_update()
+
 
 var label_scale: float:
 	set(value):
@@ -30,16 +30,6 @@ var label_scale: float:
 		%LabelParent.scale = Vector3(label_scale, label_scale, label_scale)
 		for satellite in satellites:
 			satellite.label_scale = label_scale
-
-var satellite_bodies_will_scale: bool = false
-
-var satellites_visible: bool = true:
-	# Used for hiding moons for performance reasons
-	set(value):
-		satellites_visible = value
-		for satellite in satellites:
-			satellite.visible = satellites_visible
-
 
 var satellite_orbits_visible: bool = true:
 	# Used for hiding suns orbit visuals when a planet is focused and zoomed
@@ -132,19 +122,19 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	
 	if _orbiting:
 		_draw_orbit_visual()
-
-	for satellite_name in body_data["satellites"]:
-		var satellite = OrbitingBodyScn.instantiate()
-		var json_path = "res://content/data/bodies/%s.json" % satellite_name
-		var satellite_data = Utils.load_json_file(json_path)
-		
-		# If not planet, only show satellites within a set distance
-		# This is done as there is a lot of tiny moons we would rather not show		
-		#if Mappings.planet_ID.has(satellite_name) or satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST:
-		satellite.init(satellite_data, _camera, _model_scalar, time, false)
-		satellites.append(satellite)
-		%Body.add_child(satellite)
-		satellite.visible = satellites_visible
+	
+	if _is_central:
+		for satellite_name in body_data["satellites"]:
+			var satellite = OrbitingBodyScn.instantiate()
+			var json_path = "res://content/data/bodies/%s.json" % satellite_name
+			var satellite_data = Utils.load_json_file(json_path)
+			
+			# If not planet, only show satellites within a set distance
+			# This is done as there is a lot of tiny moons we would rather not show		
+			if Mappings.planet_ID.has(satellite_name) or satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST:
+				satellite.init(satellite_data, _camera, _model_scalar, time, false)
+				satellites.append(satellite)
+				%Body.add_child(satellite)
 	
 	_initialised = true
 	

@@ -64,8 +64,6 @@ func init(body_name: String, camera: XRCamera3D):
 	_model_scalar = 0.5 / body_data["radius"]
 	
 	$CentralBody.init(body_data, camera, _model_scalar, time, true)
-	$CentralBody.satellites_visible = true
-	$CentralBody.satellite_bodies_will_scale = true
 
 
 func start_focus_animation(p_new_focused_body_name: String):

@@ -119,16 +119,6 @@ var InfoScreen: Node3D
 var _saved_player_location: Vector3
 var _to_sim: Vector3
 
-var _body_scale_up: bool:
-	set(value):
-		_body_scale_up = value
-		#MainMenu.body_scale_up_selected = value
-		
-		if _body_scale_up:
-			%CentralBody.body_scalar = BODY_SCALE_UP
-		else:
-			%CentralBody.body_scalar = 1
-
 func _ready():	
 	if OS.get_name() == "Android":
 		input_method = Mappings.InputMethod.TOUCH
@@ -309,13 +299,6 @@ func _setup_planet_signals():
 		_focus_body(body_name)
 	)
 	
-	MainMenu.planet_scale_up.connect(func():
-		_body_scale_up = true
-	)
-	
-	MainMenu.planet_scale_true.connect(func():
-		_body_scale_up = false
-	)
 
 func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):

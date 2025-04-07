@@ -31,20 +31,6 @@ var label_scale: float:
 		for satellite in satellites:
 			satellite.label_scale = label_scale
 
-var body_scalar: float:
-	set(value):
-		body_scalar = value
-	
-		var model_scale = clamp(radius/0.5 * body_scalar, 0, MAX_BODY_SCALAR)
-	
-		_model.scale = Vector3(model_scale, model_scale, model_scale)
-	
-		%LabelParent.transform.origin.y = model_scale/2
-		
-		if satellite_bodies_will_scale:
-			for satellite in satellites:
-				satellite.body_scalar = body_scalar
-
 var satellite_bodies_will_scale: bool = false
 
 var satellites_visible: bool = true:

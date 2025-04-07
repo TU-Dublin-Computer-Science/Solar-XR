@@ -2,6 +2,7 @@ extends Node3D
 class_name FocusScene
 
 signal sim_scale_changed
+signal focus_animation_finished
 
 enum FocusState {
 	ZOOM_OUT,
@@ -32,6 +33,7 @@ var _new_focused_body: OrbitingBody
 
 var _model_scalar: float
 
+@onready var focused_body = $CentralBody
 
 var sim_scale: float:
 	set(value):
@@ -68,7 +70,7 @@ func init(body_name: String, camera: XRCamera3D):
 	$CentralBody.init(body_data, camera, _model_scalar, time, true)
 
 
-func focus_body(p_new_focused_body_name: String):
+func start_focus_animation(p_new_focused_body_name: String):
 	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
 		
 	# Get body to move to
@@ -103,7 +105,7 @@ func _handle_body_focusing(delta: float):
 				sim_scale -= _focus_zoom_out_speed * delta	
 		FocusState.MOVE:
 			_focus_move_time_remaining -= delta
-			var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
+			var body_position: Vector3 = to_local(_focused_body.body.global_position)
 			var focus_sim_move_target = $CentralBody.position - body_position  
 			var focus_sim_move_dir = -body_position.normalized()
 			var _focus_sim_move_speed = (focus_sim_move_target - $CentralBody.position).length() / _focus_move_time_remaining
@@ -124,14 +126,7 @@ func _handle_body_focusing(delta: float):
 				
 				_focus_state = FocusState.FOCUSED
 				
-				"""
-				add_child(_new_focus_scene)
-	
-				remove_child(_focus_scene)
-				_focus_scene = _new_focus_scene
-	
-				focus_body_changed.emit(_focus_scene)
-				"""
+				focus_animation_finished.emit()
 			else:
 				sim_scale += _focus_zoom_in_speed * delta
 		FocusState.WAIT:

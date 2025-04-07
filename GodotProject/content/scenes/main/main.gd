@@ -139,6 +139,7 @@ func _ready():
 	
 	_focus_scene = FocusScene.instantiate()
 	_focus_scene.init("sun", Camera)
+	_focus_scene.focus_animation_finished.connect(_focus_animation_finished)
 	%Simulation.add_child(_focus_scene)
 	
 	_setup_menu()
@@ -201,13 +202,15 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_init_time()
-	#_focus_body("sun")
+	_focus_body("sun")
+
 
 func _init_time():
 	_sim_time = Time.get_unix_time_from_system()
 	_sim_time_scalar = DEFAULT_TIME_SCALAR
 	_sim_time_paused = false
 	_sim_time_live = true
+
 
 func _connect_info_nodes(orbiting_body: OrbitingBody):
 	for info_node in orbiting_body.info_nodes:
@@ -218,7 +221,21 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 
 
 func _focus_body(body_name: String):
-	pass
+	_new_focus_scene = FocusScene.instantiate()
+	_new_focus_scene.init(body_name, Camera)
+	
+	InfoNodeScreen.deactivate()
+	_focus_scene.start_focus_animation(body_name)
+
+
+func _focus_animation_finished():
+	%Simulation.remove_child(_focus_scene)
+	%Simulation.add_child(_new_focus_scene)
+	
+	_focus_scene = _new_focus_scene
+	_new_focus_scene = null
+	
+	_connect_info_nodes(_focus_scene.focused_body)
 
 
 func _setup_menu():
@@ -302,14 +319,7 @@ func _setup_planet_signals():
 	MainMenu.planet_scale_true.connect(func():
 		_body_scale_up = false
 	)
-	
-	"""
-	%Simulation.focus_body_changed.connect(func(focus_body):
-		InfoNodeScreen.deactivate()
-		_connect_info_nodes(focus_body)
-		MainMenu.focused_body_name = focus_body.body_name
-	)
-	"""
+
 func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):
 		input_method = p_input_method

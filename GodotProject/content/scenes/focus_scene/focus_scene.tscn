@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyy0n2uvij88k"]
+
+[ext_resource type="PackedScene" uid="uid://dy2tcoqvgf0gl" path="res://content/scenes/orbiting_body/orbiting_body.tscn" id="1_6mllx"]
+[ext_resource type="Script" uid="uid://bkmk1gpjuruh6" path="res://content/scenes/focus_scene/focus_scene.gd" id="1_kmwr2"]
+
+[node name="FocusScene" type="Node3D"]
+script = ExtResource("1_kmwr2")
+
+[node name="CentralBody" parent="." instance=ExtResource("1_6mllx")]

@@ -14,6 +14,8 @@ enum Mode {
 
 var mode:Mode = Mode.DEFAULT
 
+const FocusScene = preload("res://content/scenes/focus_scene/focus_scene.tscn")
+
 const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
 const MAX_MOVE_DIST = 4
 const MOVE_SPEED = 1
@@ -22,15 +24,15 @@ const ROT_CHANGE_SPEED = 1
 const DEFAULT_ROT:Vector3 = Vector3(-20, 0, 0)
 
 const MIN_SIM_SCALE: float = 0.0005
-const MAX_SIM_SCALE: float = 500
+const MAX_SIM_SCALE: float = 100000
 const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
+const TIME_CHANGE_SPEED = 3000
 const MIN_TIME_SCALAR = -10000000
 const MAX_TIME_SCALAR = 10000000
 const DEFAULT_TIME_SCALAR = 1
-const TIME_CHANGE_SPEED = 3000
 
 # Start of Settings Variables
 var input_method: Mappings.InputMethod:
@@ -49,59 +51,45 @@ var _sim_position: Vector3:
 		MainMenu.pos_readout = value
 
 
-var _sim_scale: float:
-	set(value):
-		_sim_scale = value
-		%Simulation.scale = Vector3(value, value, value)
-		
-		#Inverse scale applied to labels to keep them from being scaled with model
-		%CentralBody.label_scale = 1 / _sim_scale  
-		
-		# Switch from showing planet orbit lines to showing planet moons once specific zoom threshold reached
-
-		var moon_show_thresh = (_focus_scale_body - (_focus_scale_body * 0.9))
-
-		%CentralBody.satellite_orbits_visible = _sim_scale <= moon_show_thresh # Hide/Show planet orbit lines
-		# If not the sun, show/hide satellites:
-		_focused_body.satellites_visible = (_focused_body.ID == Mappings.planet_ID["sun"]) or (_sim_scale > moon_show_thresh)
-			
-		MainMenu.scale_readout = _model_scalar * value
-
-
 var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
 	set(value):
 		_sim_time_scalar = value
-		MainMenu.sim_time_scalar_readout = value
+
 		if _sim_time_paused:
 			_sim_time_paused = false
-
-
-var _sim_time: float:
-	set(value):
-		_sim_time = value
-		%CentralBody.time = value
-		MainMenu.sim_time_readout = value
 		
-		var sys_time = Time.get_unix_time_from_system()
-		
-		#When sim time is out of sync it's not live
-		if abs(int(_sim_time) - int(sys_time)) > 5:
-			_sim_time_live = false
-
+		MainMenu.sim_time_scalar_readout = value
 
 var _sim_time_paused: bool:
-	set(paused):
-		_sim_time_paused = paused
-		MainMenu.sim_time_paused_readout = paused
-		if paused:
-			_sim_time_live = false
+	set(value):
+		_sim_time_paused = value
 
+		if _sim_time_paused:
+			_sim_time_live = false
+		
+		MainMenu.sim_time_paused_readout = value
 
 var _sim_time_live: bool:
 	set(value):
 		_sim_time_live = value
 		MainMenu.time_live_readout = value
 
+var _sim_time: float:
+	set(value):
+		_sim_time = value
+		_focus_scene.time = value
+		
+		var sys_time = Time.get_unix_time_from_system()
+		
+		#When sim time is out of sync it's not live
+		if abs(int(_sim_time) - int(sys_time)) > 5:
+			_sim_time_live = false
+		
+		MainMenu.sim_time_readout = value
+
+var _focus_scene: FocusScene
+var _parent_focus_scene: FocusScene
+var _child_focus_scene: FocusScene
 
 # Move
 var _moving_up: bool = false
@@ -132,18 +120,6 @@ var InfoScreen: Node3D
 var _saved_player_location: Vector3
 var _to_sim: Vector3
 
-var _model_scalar: float
-
-var _body_scale_up: bool:
-	set(value):
-		_body_scale_up = value
-		#MainMenu.body_scale_up_selected = value
-		
-		if _body_scale_up:
-			%CentralBody.body_scalar = BODY_SCALE_UP
-		else:
-			%CentralBody.body_scalar = 1
-
 func _ready():	
 	if OS.get_name() == "Android":
 		input_method = Mappings.InputMethod.TOUCH
@@ -152,23 +128,20 @@ func _ready():
 	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D	
 	
+	_focus_scene = FocusScene.instantiate()
+	_focus_scene.init("sun", Camera)
+	_focus_scene.visible = false
+	%Simulation.add_child(_focus_scene)
+	_update_body_menu()
+	
 	_setup_menu()
-	
-	var sun_data = Utils.load_json_file("res://content/data/bodies/sun.json")
-	_model_scalar = 0.5 / sun_data["radius"]
-	_focused_body = %CentralBody
-	
-	%CentralBody.init(sun_data, Camera, _model_scalar, _sim_time)
-	
-	_connect_info_nodes(%CentralBody)
+
 
 func _process(delta):
-	_check_if_player_moved()
-	
 	if not _sim_time_paused:
 		_sim_time += delta * _sim_time_scalar
-		
-	_handle_body_focusing(delta)
+	
+	_check_if_player_moved()
 	
 	_handle_constant_state_changes(delta)
 	
@@ -186,10 +159,7 @@ func _input(event):
 
 func _setup():
 	%AudBGM.playing = true
-	%CentralBody.satellites_visible = true
-	%CentralBody.satellite_bodies_will_scale = true
-	%CentralBody.visible = true
-	
+	_focus_scene.visible = true
 	_reset_state()
 
 
@@ -202,119 +172,6 @@ func _check_if_player_moved():
 		_saved_player_location = current_player_location
 		_to_sim = _saved_player_location.direction_to(Vector3(_sim_position.x, 0, _sim_position.z))
 
-# --- Start of Focus Logic ---
-enum FocusState {
-	ZOOM_OUT,
-	MOVE,
-	ZOOM_IN,
-	WAIT,
-	FOCUSED
-}
-
-const FOCUS_MOVE_TIME: float = 1
-const FOCUS_ZOOM_TIME: float = 1.2
-const FOCUS_WAIT_TIME: float = 0.2
-const FOCUS_SCALE_BIRDS_EYE = 0.05
-
-
-var _focus_scale_body: float
-
-var _focus_zoom_out_target: float
-var _focus_zoom_out_speed: float
-var _focus_zoom_in_speed: float
-
-var _focus_move_time_remaining: float
-var _focus_wait_timer: float = 0
-var _focus_action_after_wait: FocusState
-
-var _focus_state: FocusState = FocusState.FOCUSED
-var _focused_body: OrbitingBody
-var _new_focused_body: OrbitingBody
-
-
-func _focus_body(p_new_focused_body: OrbitingBody):
-	"""This function sets up the transition to a focused body, which _handle_body_focusing() finishes"""
-	
-	InfoNodeScreen.deactivate()
-	
-	_new_focused_body = p_new_focused_body # Set global var
-	
-	MainMenu.focused_body_ID = _new_focused_body.ID  #Update Menu Readout
-	
-	_body_scale_up = false  #Set bodies to true scale if not already
-	
-	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
-
-	_focus_move_time_remaining = FOCUS_MOVE_TIME
-	
-	if _new_focused_body == _focused_body:  #If same body being focused
-		_focused_body = _new_focused_body
-
-		if _sim_scale >= _focus_scale_body: # If need to zoom out
-			_focus_zoom_out_target = _focus_scale_body  # Zoom out target is the planet view
-
-			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME
-			_focus_state = FocusState.ZOOM_OUT
-		else: # If need to zoom in
-			_focus_zoom_in_speed = abs(_focus_scale_body - _sim_scale) / FOCUS_ZOOM_TIME
-			_focus_state = FocusState.ZOOM_IN
-	else: # If new body being focused
-		_focus_zoom_in_speed = abs(_focus_scale_body - FOCUS_SCALE_BIRDS_EYE) / FOCUS_ZOOM_TIME
-		if _sim_scale >= FOCUS_SCALE_BIRDS_EYE: # If need to zoom out
-			_focus_zoom_out_target = FOCUS_SCALE_BIRDS_EYE # Target is the space birds eye veiw
-			_focus_zoom_out_speed = abs(_focus_zoom_out_target - _sim_scale) / FOCUS_ZOOM_TIME
-			_focus_state = FocusState.ZOOM_OUT  
-		else:
-			_focused_body = _new_focused_body
-			_focus_state = FocusState.MOVE  # Else move to new body
-
-
-func _handle_body_focusing(delta: float):
-	match(_focus_state):
-		FocusState.ZOOM_OUT:
-			if _sim_scale <= _focus_zoom_out_target:	 # Zoom out if less than target
-				_sim_scale = _focus_zoom_out_target
-				_focused_body = _new_focused_body
-				_focus_action_after_wait = FocusState.MOVE
-				_focus_wait_timer = 0
-				_focus_state = FocusState.WAIT
-			else:
-				_sim_scale -= _focus_zoom_out_speed * delta	
-		FocusState.MOVE:
-			_focus_move_time_remaining -= delta
-			var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-			var focus_sim_move_target = %CentralBody.position - body_position  
-			var focus_sim_move_dir = -body_position.normalized()
-			var _focus_sim_move_speed = (focus_sim_move_target - %CentralBody.position).length() / _focus_move_time_remaining
-		
-			var step = focus_sim_move_dir * _focus_sim_move_speed * delta
-			# Check if at target, accounting for overshooting
-			if step.length() >= %CentralBody.position.distance_to(focus_sim_move_target):
-				%CentralBody.position = focus_sim_move_target
-				
-				_focus_action_after_wait = FocusState.ZOOM_IN
-				_focus_wait_timer = 0
-				_focus_state = FocusState.WAIT
-			else:
-				%CentralBody.position += step
-		FocusState.ZOOM_IN:
-			if _sim_scale >= _focus_scale_body:
-				_sim_scale = _focus_scale_body
-				
-				_focus_state = FocusState.FOCUSED
-			else:
-				_sim_scale += _focus_zoom_in_speed * delta
-		FocusState.WAIT:
-			if _focus_wait_timer >= FOCUS_WAIT_TIME:
-				_focus_state = _focus_action_after_wait
-			else:
-				_focus_wait_timer += delta
-	
-	if _focused_body and _focus_state != FocusState.MOVE and _focus_action_after_wait != FocusState.MOVE: # Keep body in focus
-		var body_position: Vector3 = %Simulation.to_local(_focused_body.body.global_position)
-		%CentralBody.position =  %CentralBody.position - body_position  
-
-# End of Focus Logic
 
 func _reset_state():
 	"""Set state to initial defaults, this is called on program start and when sim is reset"""
@@ -331,14 +188,20 @@ func _reset_state():
 	%Simulation.rotate(Vector3.LEFT, deg_to_rad(DEFAULT_ROT.x))
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
-
-	_focus_body(_get_body(Mappings.planet_ID["sun"]))
-
-	_body_scale_up = false
 	
-	_initialise_time()
-
+	_init_time()
 	
+	# TODO Will have to change when more than 1 layer is introduced
+	_focus_parent()
+
+
+func _init_time():
+	_sim_time = Time.get_unix_time_from_system()
+	_sim_time_scalar = DEFAULT_TIME_SCALAR
+	_sim_time_paused = false
+	_sim_time_live = true
+
+
 func _connect_info_nodes(orbiting_body: OrbitingBody):
 	for info_node in orbiting_body.info_nodes:
 		InfoNodeScreen.connect_info_node(info_node)
@@ -347,36 +210,63 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 		_connect_info_nodes(satellite)
 
 
-func _get_body(ID: int):
-	var focused_body: OrbitingBody
+func _focus_parent():
+	if _parent_focus_scene == null:
+		return
 	
-	if ID == Mappings.planet_ID["sun"]:
-		focused_body = %CentralBody
-	else:
-		for satellite in %CentralBody.satellites:
-			if ID == satellite.ID:
-				focused_body = satellite
-	
-	return focused_body
+	%Simulation.remove_child(_focus_scene)
+	_focus_scene = _parent_focus_scene
+	_parent_focus_scene = null
+	_focus_scene.visible = true
+	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
+	_connect_info_nodes(_focus_scene.focused_body)
+	_update_body_menu()
 
 
-func _initialise_time():
-	_sim_time = Time.get_unix_time_from_system()
-	_sim_time_scalar = DEFAULT_TIME_SCALAR
-	_sim_time_paused = false
-	_sim_time_live = true
+func _focus_child(body_name: String):
+	"""Create child focus scene, start animation of current scene.
+	focus_animation_finished then swaps the scenes when the animation is finished
+	"""
+	
+	_child_focus_scene = FocusScene.instantiate()
+	_child_focus_scene.init(body_name, Camera)
+	InfoNodeScreen.deactivate()
+	_focus_scene.focus_animation_finished.connect(_focus_child_animation_finished)
+	_focus_scene.start_focus_animation(body_name)
+
+
+func _focus_child_animation_finished():
+	_focus_scene.focus_animation_finished.disconnect(_focus_child_animation_finished)
+	_parent_focus_scene = _focus_scene
+	_focus_scene = _child_focus_scene
+	_child_focus_scene = null
+	
+	_focus_scene.visible = false
+	%Simulation.add_child(_focus_scene)
+	
+	_parent_focus_scene.visible = false
+	_focus_scene.visible = true
+	
+	_connect_info_nodes(_focus_scene.focused_body)
+	_update_body_menu()
 
 
 func _setup_menu():
 	MainMenu.start.connect(_setup)
-	
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
-	_setup_planet_signals()
+	_setup_body_signals()
 	_setup_settings_signals()
 	MainMenu.reset.connect(_reset_state)
+
+
+func _update_body_menu():
+	MainMenu.clear_body_menu()
+	
+	for body in _focus_scene.focused_body.satellites:
+		MainMenu.add_body(body)
 
 
 func _setup_move_signals():
@@ -420,6 +310,10 @@ func _setup_scale_signals():
 	MainMenu.scale_decrease_start.connect(func(): _scale_decreasing = true)
 	MainMenu.scale_decrease_stop.connect(func(): _scale_decreasing = false)
 
+	_focus_scene.sim_scale_changed.connect(func(sim_scale):
+		MainMenu.scale_readout = sim_scale
+	)
+
 
 func _setup_time_signals():
 	MainMenu.time_increase_start.connect(func():_time_increasing = true)
@@ -429,27 +323,20 @@ func _setup_time_signals():
 	MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
 	
 	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
-	
-	MainMenu.time_live_pressed.connect(func(): _initialise_time())
+	MainMenu.time_live_pressed.connect(_init_time)
 
 
-func _setup_planet_signals():
-	MainMenu.planet_change_pressed.connect(func(ID):
-		_focus_body(_get_body(ID))
-	)
+func _setup_body_signals():
+	MainMenu.body_selected.connect(func(body_name): _focus_child(body_name))
 	
-	MainMenu.planet_scale_up.connect(func():
-		_body_scale_up = true
-	)
+	MainMenu.body_back_pressed.connect(_focus_parent)
 	
-	MainMenu.planet_scale_true.connect(func():
-		_body_scale_up = false
-	)
 
 func _setup_settings_signals():
 	MainMenu.input_mode_changed.connect(func(p_input_method):
 		input_method = p_input_method
 	)
+
 
 func _handle_constant_state_changes(delta: float):
 	_handle_constant_movement(delta)
@@ -506,11 +393,11 @@ func _handle_constant_rotation(delta: float):
 func _handle_constant_scaling(delta: float):
 	if _scale_increasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
-		_sim_scale = clamp(_sim_scale * (1.0 + base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
+		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 + base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 	
 	if _scale_decreasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
-		_sim_scale = clamp(_sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
+		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 
 
 var _time_increase_start: float = -1
@@ -523,7 +410,7 @@ func _handle_constant_time_change(delta: float):
 		
 		var increase_time_held = Time.get_unix_time_from_system() - _time_increase_start
 		
-		_sim_time_scalar = clamp(	_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
+		_sim_time_scalar = clamp(_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
 			MIN_TIME_SCALAR,
 			MAX_TIME_SCALAR)
 	else:
@@ -535,7 +422,7 @@ func _handle_constant_time_change(delta: float):
 			
 		var decrease_time_held = Time.get_unix_time_from_system() - _time_decrease_start
 		
-		_sim_time_scalar = clamp(	_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
+		_sim_time_scalar = clamp(_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
 			MIN_TIME_SCALAR,
 			MAX_TIME_SCALAR)
 	else:

@@ -212,7 +212,7 @@ func _touch_change(event: EventTouch):
 func _update():
 	body.position = Vector3(0, 0, size.z / 2)
 
-	panel.size = Vector2(size.x, size.y)
+	#panel.size = Vector2(size.x, size.y)
 	panel.position = Vector3(0, 0, size.z / 2)
 	collision.shape.size = Vector3(size.x, size.y, size.z)
 	label_node.width = size.x / label_node.pixel_size

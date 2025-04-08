@@ -18,11 +18,10 @@ var time: float:
 		_julian_time = _unix_to_julian(time)
 		
 		if _initialised:
-			if satellites_visible:
+			_update()
+			if _is_central:
 				for satellite in satellites:
 					satellite.time = time
-				
-			_update()
 
 var label_scale: float:
 	set(value):
@@ -30,30 +29,6 @@ var label_scale: float:
 		%LabelParent.scale = Vector3(label_scale, label_scale, label_scale)
 		for satellite in satellites:
 			satellite.label_scale = label_scale
-
-var body_scalar: float:
-	set(value):
-		body_scalar = value
-	
-		var model_scale = clamp(radius/0.5 * body_scalar, 0, MAX_BODY_SCALAR)
-	
-		_model.scale = Vector3(model_scale, model_scale, model_scale)
-	
-		%LabelParent.transform.origin.y = model_scale/2
-		
-		if satellite_bodies_will_scale:
-			for satellite in satellites:
-				satellite.body_scalar = body_scalar
-
-var satellite_bodies_will_scale: bool = false
-
-var satellites_visible: bool = false:
-	# Used for hiding moons for performance reasons
-	set(value):
-		satellites_visible = value
-		for satellite in satellites:
-			satellite.visible = satellites_visible
-
 
 var satellite_orbits_visible: bool = true:
 	# Used for hiding suns orbit visuals when a planet is focused and zoomed
@@ -63,14 +38,13 @@ var satellite_orbits_visible: bool = true:
 		for satellite in satellites:
 			satellite.OrbitVisual.visible = value
 
-
 var satellites = []
 var info_nodes: Array[Node3D]
 @onready var body = %Body
 @onready var OrbitVisual = %OrbitVisual
 
 var ID: int
-var _name: String
+var body_name: String
 var radius: float
 var _rotation_factor: float
 var _model_scene: PackedScene
@@ -85,6 +59,7 @@ var _orbital_period: float
 
 var _model_scalar: float
 var _camera: XRCamera3D = null
+var _is_central: bool
 
 var _rotation_enabled: bool = false
 var _initialised: bool = false
@@ -100,12 +75,13 @@ func _process(_delta: float) -> void:
 	_billboard_label()
 
 
-func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_time: float):
+func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_time: float, p_is_central: bool):
 	_camera = p_camera
 	_model_scalar = p_model_scalar
+	_is_central = p_is_central
 	
 	ID = body_data["ID"]
-	_name = body_data["name"]
+	body_name = body_data["name"].to_lower()
 	radius = body_data["radius"] * p_model_scalar
 	
 	if body_data["rotation_factor"] != -1:
@@ -133,7 +109,8 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 				_mean_anomaly != -1 and 
 				_inclination != -1 and
 				_lon_ascending_node != -1 and
-				_orbital_period != -1)
+				_orbital_period != -1 and 
+				p_is_central != true)
 	
 	_setup_body()
 	
@@ -143,19 +120,19 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	
 	if _orbiting:
 		_draw_orbit_visual()
-
-	for satellite_name in body_data["satellites"]:
-		var satellite = OrbitingBodyScn.instantiate()
-		var json_path = "res://content/data/bodies/%s.json" % satellite_name
-		var satellite_data = Utils.load_json_file(json_path)
-		
-		# If not planet, only show satellites within a set distance
-		# This is done as there is a lot of tiny moons we would rather not show		
-		if Mappings.planet_ID.has(satellite_name) or satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST:
-			satellite.init(satellite_data, _camera, _model_scalar, time)
-			satellites.append(satellite)
-			%Body.add_child(satellite)
-			satellite.visible = satellites_visible
+	
+	if _is_central:
+		for satellite_name in body_data["satellites"]:
+			var satellite = OrbitingBodyScn.instantiate()
+			var json_path = "res://content/data/bodies/%s.json" % satellite_name
+			var satellite_data = Utils.load_json_file(json_path)
+			
+			# If not planet, only show satellites within a set distance
+			# This is done as there is a lot of tiny moons we would rather not show		
+			if Mappings.planet_ID.has(satellite_name) or satellite_data["semimajor_axis"] < MAX_SATELLITE_DIST:
+				satellite.init(satellite_data, _camera, _model_scalar, time, false)
+				satellites.append(satellite)
+				%Body.add_child(satellite)
 	
 	_initialised = true
 	
@@ -174,9 +151,11 @@ func _billboard_label():
 
 func _setup_body():
 	_model = _model_scene.instantiate()
-	%Body.add_child(_model)	
+	%Body.add_child(_model)
 	_model.scale *= radius/0.5 # Scale is (desired radius)/(current radius)
-	%Label/LlbName.text = _name
+	
+	%LabelParent.transform.origin.y = _model.scale.y/2
+	%Label/LlbName.text = body_name.capitalize()
 
 
 func _setup_info_nodes(info_point_array: Array) -> void:

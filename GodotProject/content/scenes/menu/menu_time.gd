@@ -17,7 +17,6 @@ var sim_time_readout: int:
 																time_dict.minute,
 																time_dict.second]
 		
-		
 var sim_time_scalar_readout: float: 
 	set(value):
 		sim_time_scalar_readout = value

@@ -130,7 +130,6 @@ func _ready():
 	
 	_focus_scene = FocusScene.instantiate()
 	_focus_scene.init("sun", Camera)
-	_focus_scene.focus_animation_finished.connect(_focus_animation_finished)
 	_focus_scene.visible = false
 	%Simulation.add_child(_focus_scene)
 	_update_body_menu()
@@ -191,7 +190,10 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_init_time()
-	_focus_body("sun") 
+	
+	# TODO Will have to change when more than 1 layer is introduced
+	if _parent_focus_scene != null: 
+		_focus_parent()
 
 
 func _init_time():
@@ -209,38 +211,42 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 		_connect_info_nodes(satellite)
 
 
-func _focus_body(body_name: String):
-	if body_name == _focus_scene.focused_body.body_name:
-		return
-	
-	if body_name == "sun":
-		%Simulation.remove_child(_focus_scene)
-		_focus_scene = _parent_focus_scene
-		_focus_scene.visible = true
-	else:
-		_child_focus_scene = FocusScene.instantiate()
-		_child_focus_scene.init(body_name, Camera)
+func _focus_parent():
+	%Simulation.remove_child(_focus_scene)
+	_focus_scene = _parent_focus_scene
+	_parent_focus_scene = null
+	_focus_scene.visible = true
+	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
+	_connect_info_nodes(_focus_scene.focused_body)
+	_update_body_menu()
 
+
+func _focus_child(body_name: String):
+	"""Create child focus scene, start animation of current scene.
+	focus_animation_finished then swaps the scenes when the animation is finished
+	"""
+	
+	_child_focus_scene = FocusScene.instantiate()
+	_child_focus_scene.init(body_name, Camera)
 	InfoNodeScreen.deactivate()
+	_focus_scene.focus_animation_finished.connect(_focus_child_animation_finished)
 	_focus_scene.start_focus_animation(body_name)
 
 
-func _focus_animation_finished():
-	if _child_focus_scene == null: # Moving to parent
-		pass
-	else:
-		_parent_focus_scene = _focus_scene
-		_focus_scene = _child_focus_scene
-		_child_focus_scene = null
-		
-		_focus_scene.visible = false
-		%Simulation.add_child(_focus_scene)
-		
-		_parent_focus_scene.visible = false
-		_focus_scene.visible = true
-		
-		_connect_info_nodes(_focus_scene.focused_body)
-		_update_body_menu()
+func _focus_child_animation_finished():
+	_focus_scene.focus_animation_finished.disconnect(_focus_child_animation_finished)
+	_parent_focus_scene = _focus_scene
+	_focus_scene = _child_focus_scene
+	_child_focus_scene = null
+	
+	_focus_scene.visible = false
+	%Simulation.add_child(_focus_scene)
+	
+	_parent_focus_scene.visible = false
+	_focus_scene.visible = true
+	
+	_connect_info_nodes(_focus_scene.focused_body)
+	_update_body_menu()
 
 
 func _setup_menu():
@@ -252,7 +258,7 @@ func _setup_menu():
 	_setup_time_signals()
 	
 	MainMenu.on_body_select.connect(func(body_name):
-		_focus_body(body_name)
+		_focus_child(body_name)
 	)
 	
 	_setup_settings_signals()
@@ -325,7 +331,7 @@ func _setup_time_signals():
 
 func _setup_planet_signals():
 	MainMenu.planet_change_pressed.connect(func(body_name):
-		_focus_body(body_name)
+		_focus_child(body_name)
 	)
 	
 

@@ -11,18 +11,18 @@ var selected_body_name: String:
 
 func add_body(body: OrbitingBody):
 	var entity = EntityScene.instantiate()
-	entity.text = body.body_name
+	entity.text = body.body_name.capitalize()
 	
 	entity.on_select.connect(func():
 		on_body_select.emit(body.body_name)
 	)
 	
-	$FlexContainer.add_child(entity)
-	$FlexContainer._update()
+	$CtnBodyList.add_child(entity)
+	$CtnBodyList._update()
 
 
 func clear():
-	for body in $FlexContainer.get_children():
-		$FlexContainer.remove_child(body)
+	for body in $CtnBodyList.get_children():
+		$CtnBodyList.remove_child(body)
 		body.queue_free()
-	$FlexContainer._update()
+	$CtnBodyList._update()

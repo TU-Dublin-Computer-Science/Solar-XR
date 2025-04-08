@@ -82,7 +82,11 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	
 	ID = body_data["ID"]
 	body_name = body_data["name"].to_lower()
-	radius = body_data["radius"] * p_model_scalar
+	
+	if body_data["radius"] != -1:
+		radius = body_data["radius"] * p_model_scalar
+	else:
+		radius = 10 * p_model_scalar
 	
 	if body_data["rotation_factor"] != -1:
 		_rotation_factor = body_data["rotation_factor"]

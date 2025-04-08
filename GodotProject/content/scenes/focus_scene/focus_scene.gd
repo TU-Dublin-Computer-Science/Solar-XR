@@ -34,6 +34,7 @@ var _new_focused_body: OrbitingBody
 var _model_scalar: float
 
 @onready var focused_body = $CentralBody
+var parent_focus_scene: FocusScene = null
 
 var sim_scale: float = 1:
 	set(value):

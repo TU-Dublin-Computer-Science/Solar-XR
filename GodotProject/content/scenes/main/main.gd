@@ -88,8 +88,7 @@ var _sim_time: float:
 		MainMenu.sim_time_readout = value
 
 var _focus_scene: FocusScene
-var _parent_focus_scene: FocusScene
-var _child_focus_scene: FocusScene
+var _new_focus_scene: FocusScene
 
 # Move
 var _moving_up: bool = false
@@ -211,12 +210,13 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 
 
 func _focus_parent():
-	if _parent_focus_scene == null:
+	if _focus_scene.parent_focus_scene == null:
 		return
 	
 	%Simulation.remove_child(_focus_scene)
-	_focus_scene = _parent_focus_scene
-	_parent_focus_scene = null
+	var parent_focus_scene = _focus_scene.parent_focus_scene
+	_focus_scene.parent_focus_scene = null
+	_focus_scene = parent_focus_scene
 	_focus_scene.visible = true
 	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
 	_connect_info_nodes(_focus_scene.focused_body)
@@ -227,24 +227,27 @@ func _focus_child(body_name: String):
 	"""Create child focus scene, start animation of current scene.
 	focus_animation_finished then swaps the scenes when the animation is finished
 	"""
+	_new_focus_scene = FocusScene.instantiate()
+	_new_focus_scene.init(body_name, Camera)
 	
-	_child_focus_scene = FocusScene.instantiate()
-	_child_focus_scene.init(body_name, Camera)
 	InfoNodeScreen.deactivate()
+	
 	_focus_scene.focus_animation_finished.connect(_focus_child_animation_finished)
 	_focus_scene.start_focus_animation(body_name)
 
 
 func _focus_child_animation_finished():
 	_focus_scene.focus_animation_finished.disconnect(_focus_child_animation_finished)
-	_parent_focus_scene = _focus_scene
-	_focus_scene = _child_focus_scene
-	_child_focus_scene = null
+	_new_focus_scene.parent_focus_scene = _focus_scene
+	
+	_new_focus_scene.parent_focus_scene = _focus_scene
+	_focus_scene = _new_focus_scene
+	_new_focus_scene = null
 	
 	_focus_scene.visible = false
 	%Simulation.add_child(_focus_scene)
 	
-	_parent_focus_scene.visible = false
+	_focus_scene.parent_focus_scene.visible = false
 	_focus_scene.visible = true
 	
 	_connect_info_nodes(_focus_scene.focused_body)

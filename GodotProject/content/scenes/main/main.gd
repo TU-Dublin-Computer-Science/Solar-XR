@@ -191,7 +191,9 @@ func _reset_state():
 	_init_time()
 	
 	# TODO Will have to change when more than 1 layer is introduced
-	_focus_parent()
+	if _focus_scene.parent_focus_scene != null:
+		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
+		_focus_parent()
 
 
 func _init_time():
@@ -221,7 +223,7 @@ func _focus_parent():
 	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
 	_connect_info_nodes(_focus_scene.focused_body)
 	_update_body_menu()
-
+	
 
 func _focus_child(body_name: String):
 	"""Create child focus scene, start animation of current scene.
@@ -252,6 +254,16 @@ func _focus_child_animation_finished():
 	
 	_connect_info_nodes(_focus_scene.focused_body)
 	_update_body_menu()
+
+
+func _animation_for_reset_finished():
+	"""When reset is pressed, simulation will transition upwards through layers
+	until the topmost layer is reached"""
+	_focus_scene.focus_animation_finished.disconnect(_animation_for_reset_finished)
+	
+	if _focus_scene.parent_focus_scene != null:
+		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
+		_focus_parent()
 
 
 func _setup_menu():

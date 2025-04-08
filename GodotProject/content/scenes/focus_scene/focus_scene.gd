@@ -15,7 +15,6 @@ enum FocusState {
 const FOCUS_MOVE_TIME: float = 1
 const FOCUS_ZOOM_TIME: float = 1.2
 const FOCUS_WAIT_TIME: float = 0.2
-const FOCUS_SCALE_BIRDS_EYE = 0.05
 
 var _focus_scale_body: float
 
@@ -62,9 +61,13 @@ func init(body_name: String, camera: XRCamera3D):
 	var body_data_path = "res://content/data/bodies/%s.json" % body_name
 	var body_data = Utils.load_json_file(body_data_path)
 	
-	_model_scalar = 0.5 / body_data["radius"]
+	if body_data["radius"] != -1:
+		_model_scalar = 0.5 / body_data["radius"]
+	else:
+		_model_scalar = 0.5 / 10
 	
 	$CentralBody.init(body_data, camera, _model_scalar, time, true)
+	_focused_body = $CentralBody
 
 
 func start_focus_animation(p_new_focused_body_name: String):
@@ -84,9 +87,12 @@ func start_focus_animation(p_new_focused_body_name: String):
 	_focus_scale_body =  0.5 / _new_focused_body.radius # Scale where body is visible
 
 	_focus_move_time_remaining = FOCUS_MOVE_TIME
-	_focus_zoom_in_speed = abs(_focus_scale_body - FOCUS_SCALE_BIRDS_EYE) / FOCUS_ZOOM_TIME
 	
-	_focus_zoom_out_target = FOCUS_SCALE_BIRDS_EYE # Target is the space birds eye veiw
+	_focus_zoom_out_target = clamp(1 / _focused_body.body.position.distance_to(_new_focused_body.body.position), 0.05 , _focus_scale_body)
+	
+	_focus_zoom_in_speed = abs(_focus_scale_body - _focus_zoom_out_target) / FOCUS_ZOOM_TIME
+	
+	#print(_focus_zoom_out_target)
 	_focus_zoom_out_speed = abs(_focus_zoom_out_target - sim_scale) / FOCUS_ZOOM_TIME
 	
 	_focus_state = FocusState.ZOOM_OUT  

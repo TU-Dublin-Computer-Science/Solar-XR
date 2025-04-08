@@ -2,7 +2,7 @@ extends Node3D
 
 const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/entity.tscn")
 
-signal on_body_select
+signal body_selected
 
 var selected_body_name: String:
 	set(value):
@@ -14,7 +14,7 @@ func add_body(body: OrbitingBody):
 	entity.text = body.body_name.capitalize()
 	
 	entity.on_select.connect(func():
-		on_body_select.emit(body.body_name)
+		body_selected.emit(body.body_name)
 	)
 	
 	$CtnBodyList.add_child(entity)

@@ -53,7 +53,8 @@ signal time_pause_changed
 signal time_live_pressed
 
 # Body Signals
-signal on_body_select
+signal body_selected
+signal body_back_pressed
 
 # Settings Signals
 signal input_mode_changed
@@ -278,8 +279,10 @@ func _setup_time_tab():
 	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
 
 func _setup_body_tab():
-	MenuBody.on_body_select.connect(func(body_name):
-		on_body_select.emit(body_name)
+	MenuBody.find_child("BtnBack").on_button_up.connect(func(): body_back_pressed.emit())
+	
+	MenuBody.body_selected.connect(func(body_name):
+		body_selected.emit(body_name)
 	)
 
 func _setup_settings_tab():

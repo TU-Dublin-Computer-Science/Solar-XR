@@ -192,8 +192,7 @@ func _reset_state():
 	_init_time()
 	
 	# TODO Will have to change when more than 1 layer is introduced
-	if _parent_focus_scene != null: 
-		_focus_parent()
+	_focus_parent()
 
 
 func _init_time():
@@ -212,6 +211,9 @@ func _connect_info_nodes(orbiting_body: OrbitingBody):
 
 
 func _focus_parent():
+	if _parent_focus_scene == null:
+		return
+	
 	%Simulation.remove_child(_focus_scene)
 	_focus_scene = _parent_focus_scene
 	_parent_focus_scene = null
@@ -251,16 +253,11 @@ func _focus_child_animation_finished():
 
 func _setup_menu():
 	MainMenu.start.connect(_setup)
-	
 	_setup_move_signals()
 	_setup_rotate_signals()
 	_setup_scale_signals()
 	_setup_time_signals()
-	
-	MainMenu.on_body_select.connect(func(body_name):
-		_focus_child(body_name)
-	)
-	
+	_setup_body_signals()
 	_setup_settings_signals()
 	MainMenu.reset.connect(_reset_state)
 
@@ -326,13 +323,13 @@ func _setup_time_signals():
 	MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
 	
 	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
-	MainMenu.time_live_pressed.connect(func(): _init_time())
+	MainMenu.time_live_pressed.connect(_init_time)
 
 
-func _setup_planet_signals():
-	MainMenu.planet_change_pressed.connect(func(body_name):
-		_focus_child(body_name)
-	)
+func _setup_body_signals():
+	MainMenu.body_selected.connect(func(body_name): _focus_child(body_name))
+	
+	MainMenu.body_back_pressed.connect(_focus_parent)
 	
 
 func _setup_settings_signals():

@@ -175,6 +175,9 @@ func add_body(body: OrbitingBody):
 func clear_body_menu():
 	MenuBody.clear()
 
+func render_body_menu():
+	MenuBody.render_body_menu()
+	
 
 func _setup_start_menu():
 	StartMenu.visible = true

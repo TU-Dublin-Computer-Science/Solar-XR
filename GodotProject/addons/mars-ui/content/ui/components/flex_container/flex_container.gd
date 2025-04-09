@@ -28,25 +28,12 @@ func _ready():
 	_update()
 
 func _update():
-	var width = size.y if vertical else size.x
-	var children_size := Vector2(0, 0)
-	var child_count = 0
-
-	for child in get_children():
-		if child is Container3D == false:
-			continue
-
-		if vertical:
-			children_size.x = max(child.size.x, children_size.x)
-			children_size.y += child.size.y + gap
-		else:
-			children_size.x += child.size.x + gap
-			children_size.y = max(child.size.y, children_size.y)
-
-		child_count += 1
-
+	var child_count = get_children().size()
 	if child_count == 0:
 		return
+	
+	var width = size.y if vertical else size.x
+	var children_size := Vector2(0, 0)
 
 	var children_scale = Vector2(size.x, size.y) / children_size
 	children_size.clamp(Vector2(0, 0), Vector2(size.x, size.y))
@@ -75,8 +62,6 @@ func _update():
 		if child is Container3D == false:
 			continue
 
-		child.scale = Vector3(children_scale.x, children_scale.y, 1)
-
 		if vertical:
 			var child_width = child.size.y * children_scale.y
 			
@@ -97,4 +82,3 @@ func _update():
 				offset += (width - children_width) / child_count
 			Justification.SPACE_EVENLY:
 				offset += (width - children_width) / (child_count + 1)
-			

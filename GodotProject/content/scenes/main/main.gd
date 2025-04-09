@@ -287,6 +287,8 @@ func _update_body_menu():
 	
 	for body in _focus_scene.focused_body.satellites:
 		MainMenu.add_body(body)
+	
+	#MainMenu.render_body_menu()
 
 
 func _setup_move_signals():

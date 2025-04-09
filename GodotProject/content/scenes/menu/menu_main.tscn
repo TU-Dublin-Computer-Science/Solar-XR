@@ -259,7 +259,6 @@ script = ExtResource("10_ly053")
 
 [node name="CtnBodyList" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("11_jlhfs")]
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
-vertical = true
 
 [node name="BtnBack" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -4.94765e-10, 0, 0, 1, -0.16968, 0.134175, -0.000134982)

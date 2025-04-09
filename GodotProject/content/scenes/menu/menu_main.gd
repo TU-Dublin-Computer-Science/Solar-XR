@@ -121,6 +121,11 @@ var focused_body_name: String:
 	set(value):
 		focused_body_name = value
 		MenuBody.selected_body_name = value
+		
+var parent_body_name: String:
+	set(value):
+		parent_body_name = value
+		MenuBody.parent_body_name = value
 
 var input_method: Mappings.InputMethod:
 	set(value):

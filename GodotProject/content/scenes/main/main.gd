@@ -190,7 +190,6 @@ func _reset_state():
 	
 	_init_time()
 	
-	# TODO Will have to change when more than 1 layer is introduced
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
 		_focus_parent()
@@ -221,9 +220,10 @@ func _focus_parent():
 	_focus_scene = parent_focus_scene
 	_focus_scene.visible = true
 	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
+	
 	_connect_info_nodes(_focus_scene.focused_body)
 	_update_body_menu()
-	
+
 
 func _focus_child(body_name: String):
 	"""Create child focus scene, start animation of current scene.
@@ -278,6 +278,11 @@ func _setup_menu():
 
 
 func _update_body_menu():
+	if _focus_scene.parent_focus_scene != null:	
+		MainMenu.parent_body_name = _focus_scene.parent_focus_scene.focused_body.body_name.capitalize()
+	else:
+		MainMenu.parent_body_name = ""
+	
 	MainMenu.clear_body_menu()
 	
 	for body in _focus_scene.focused_body.satellites:

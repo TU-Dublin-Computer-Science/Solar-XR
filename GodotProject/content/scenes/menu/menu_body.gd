@@ -4,10 +4,19 @@ const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/e
 
 signal body_selected
 
+var parent_body_name: String:
+	set(value):
+		parent_body_name = value
+		if parent_body_name != "":
+			$BtnBack.visible = true
+			$BtnBack.label = parent_body_name
+		else:
+			$BtnBack.visible = false
+			$BtnBack.label = ""
+	
 var selected_body_name: String:
 	set(value):
 		selected_body_name = value
-
 
 func add_body(body: OrbitingBody):
 	var entity = EntityScene.instantiate()

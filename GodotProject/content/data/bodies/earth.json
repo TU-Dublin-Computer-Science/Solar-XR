@@ -23,5 +23,5 @@
             }
         }
     ],
-    "satellites": ["moon"] 
+    "satellites": ["moon", "iss"] 
 }

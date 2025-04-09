@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://uogsamyglyw5"]
+[gd_scene load_steps=9 format=3 uid="uid://uogsamyglyw5"]
 
 [ext_resource type="Script" uid="uid://bevp02cxh2u8e" path="res://addons/mars-ui/content/ui/components/entity/entity.gd" id="1_d4c6l"]
-[ext_resource type="Script" uid="uid://bhb2ihlxhv54g" path="res://addons/mars-ui/content/ui/components/button/button.gd" id="2_sal56"]
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="3_n8pt4"]
 [ext_resource type="Script" uid="uid://dmeyijxsdsd45" path="res://addons/mars-ui/content/ui/components/panel/panel.gd" id="4_082wb"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="5_y5owv"]
@@ -30,23 +29,16 @@ size = Vector3(0.1, 0.03, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8pt4"]
 size = Vector3(0.1, 0.03, 0.01)
 
-[node name="Entity" type="Node3D"]
+[node name="Entity" type="Node3D" groups=["ui_focus"]]
 script = ExtResource("1_d4c6l")
-gap = 0.01
-size = Vector3(0.35, 0.03, 1)
+size = Vector3(0.1, 0.03, 0.01)
 
-[node name="Button" type="Node3D" parent="." groups=["ui_focus"]]
-script = ExtResource("2_sal56")
-label = "Button"
-icon = true
-size = Vector3(0.03, 0.03, 0.01)
-
-[node name="Body" type="StaticBody3D" parent="Button" groups=["ui_focus_skip"]]
+[node name="Body" type="StaticBody3D" parent="." groups=["ui_focus_skip"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
 collision_layer = 6
 collision_mask = 0
 
-[node name="Panel3D" type="MeshInstance3D" parent="Button/Body"]
+[node name="Panel3D" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
 material_override = SubResource("ShaderMaterial_sal56")
 mesh = SubResource("QuadMesh_n8pt4")
@@ -54,10 +46,10 @@ skeleton = NodePath("../..")
 script = ExtResource("4_082wb")
 size = Vector2(0.1, 0.03)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Body"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_sal56")
 
-[node name="Label" type="Label3D" parent="Button/Body"]
+[node name="Label" type="Label3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
 pixel_size = 0.001
 double_sided = false
@@ -67,15 +59,15 @@ font_size = 21
 outline_size = 0
 width = 1000.0
 
-[node name="FingerArea" type="Area3D" parent="Button" groups=["ui_focus_skip"]]
+[node name="FingerArea" type="Area3D" parent="." groups=["ui_focus_skip"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075)
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/FingerArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FingerArea"]
 shape = SubResource("BoxShape3D_n8pt4")
 
-[node name="ClickSound" type="AudioStreamPlayer" parent="Button"]
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y5owv")
 volume_db = -18.0

@@ -131,7 +131,6 @@ func _ready():
 	_focus_scene.init("sun", Camera)
 	_focus_scene.visible = false
 	%Simulation.add_child(_focus_scene)
-	_update_body_menu()
 	
 	_setup_menu()
 
@@ -193,6 +192,8 @@ func _reset_state():
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
 		_focus_parent()
+		
+	_update_body_menu()
 
 
 func _init_time():
@@ -288,7 +289,7 @@ func _update_body_menu():
 	for body in _focus_scene.focused_body.satellites:
 		MainMenu.add_body(body)
 	
-	#MainMenu.render_body_menu()
+	MainMenu.render_body_menu()
 
 
 func _setup_move_signals():

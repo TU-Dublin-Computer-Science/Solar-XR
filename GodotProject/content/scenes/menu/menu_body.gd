@@ -22,17 +22,17 @@ var selected_body_name: String:
 
 func add_body(body: OrbitingBody):
 	var entity = EntityScene.instantiate()
-	entity.text = body.body_name.capitalize()
-	entity.on_select.connect(func():
+	entity.label = body.body_name.capitalize()
+	entity.on_button_up.connect(func():
 		body_selected.emit(body.body_name)
 	)
 	
 	_entities.append(entity)
 	
-
+"""
 	$CtnBodyList.add_child(entity)
 	$CtnBodyList._update()
-
+"""
 
 func render_body_menu():
 	"""Called after all bodies are added"""

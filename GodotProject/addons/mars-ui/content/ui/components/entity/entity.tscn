@@ -24,13 +24,11 @@ shader_parameter/grain_amount = 0.02
 [sub_resource type="QuadMesh" id="QuadMesh_n8pt4"]
 size = Vector2(0.1, 0.03)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yph8f"]
-resource_local_to_scene = true
-size = Vector3(0.03, 0.03, 0.01)
+[sub_resource type="BoxShape3D" id="BoxShape3D_sal56"]
+size = Vector3(0.1, 0.03, 0.01)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0ngfr"]
-resource_local_to_scene = true
-size = Vector3(0.03, 0.03, 0.005)
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8pt4"]
+size = Vector3(0.1, 0.03, 0.01)
 
 [node name="Entity" type="Node3D"]
 script = ExtResource("1_d4c6l")
@@ -38,9 +36,8 @@ gap = 0.01
 size = Vector3(0.35, 0.03, 1)
 
 [node name="Button" type="Node3D" parent="." groups=["ui_focus"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015, 0, 0)
 script = ExtResource("2_sal56")
-label = "?"
+label = "Button"
 icon = true
 size = Vector3(0.03, 0.03, 0.01)
 
@@ -58,14 +55,14 @@ script = ExtResource("4_082wb")
 size = Vector2(0.1, 0.03)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Body"]
-shape = SubResource("BoxShape3D_yph8f")
+shape = SubResource("BoxShape3D_sal56")
 
 [node name="Label" type="Label3D" parent="Button/Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
 pixel_size = 0.001
 double_sided = false
 render_priority = 30
-text = "?"
+text = "Button"
 font_size = 21
 outline_size = 0
 width = 1000.0
@@ -77,7 +74,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button/FingerArea"]
-shape = SubResource("BoxShape3D_0ngfr")
+shape = SubResource("BoxShape3D_n8pt4")
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="Button"]
 stream = ExtResource("5_y5owv")

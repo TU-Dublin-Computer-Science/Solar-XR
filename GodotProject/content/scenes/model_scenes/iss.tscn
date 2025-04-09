@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtp8h0srt1ayq"]
+
+[ext_resource type="PackedScene" uid="uid://bt87muytwrpjf" path="res://content/assets/models/ISS/UnitISS.glb" id="1_f3s6m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f3s6m"]
+radius = 0.1
+
+[node name="ISS" type="StaticBody3D"]
+
+[node name="UnitISS" parent="." instance=ExtResource("1_f3s6m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_f3s6m")

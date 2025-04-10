@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=17 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bfvy16q8fsegk" path="res://content/scenes/menu/menu_body.gd" id="10_ly053"]
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
+[ext_resource type="PackedScene" uid="uid://uogsamyglyw5" path="res://addons/mars-ui/content/ui/components/entity/entity.tscn" id="12_jlhfs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -260,12 +261,16 @@ script = ExtResource("10_ly053")
 [node name="CtnBodyList" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("11_jlhfs")]
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
 
+[node name="SampleEntity" parent="ControlMenu/Tabs/MenuBody/CtnBodyList" instance=ExtResource("12_jlhfs")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.21254e-11, 1, -5.82077e-11, 0, 0, 1, -1.98581e-05, -0.0186505, -6.0756e-06)
+label = "Mars"
+
 [node name="BtnBack" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -4.94765e-10, 0, 0, 1, -0.16968, 0.134175, -0.000134982)
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -6.40284e-10, 0, 0, 1, -0.105493, 0.127167, -0.000110884)
 label = "Back"
 
 [node name="BtnScollUp" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.74623e-10, 0, 0, 1, 0.0999957, -0.0149969, -1.30206e-06)
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.03727e-10, 0, 0, 1, 0.1, -0.0109486, 1.67211e-08)
 label = "\\/"
 
 [node name="BtnScrollDown" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]

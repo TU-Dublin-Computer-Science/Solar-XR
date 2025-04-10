@@ -4,7 +4,7 @@ const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/e
 
 signal body_selected
 
-var _entities = []
+var _bodies = []
 
 var parent_body_name: String:
 	set(value):
@@ -21,28 +21,22 @@ var selected_body_name: String:
 		selected_body_name = value
 
 func add_body(body: OrbitingBody):
-	var entity = EntityScene.instantiate()
-	entity.label = body.body_name.capitalize()
-	entity.on_button_up.connect(func():
-		body_selected.emit(body.body_name)
-	)
+	_bodies.append(body)
 	
-	_entities.append(entity)
-	
-"""
-	$CtnBodyList.add_child(entity)
-	$CtnBodyList._update()
-"""
 
 func render_body_menu():
 	"""Called after all bodies are added"""
-	
-	for entity in _entities:
+	for body in _bodies:
+		var entity = EntityScene.instantiate()
+		entity.ent_label = body.body_name.capitalize()
+		entity.on_button_up.connect(func():
+			body_selected.emit(body.body_name)
+		)
 		$CtnBodyList.add_child(entity)
-	
 	$CtnBodyList._update()
 
 func clear():
+	_bodies = []
 	for body in $CtnBodyList.get_children():
 		$CtnBodyList.remove_child(body)
 		body.queue_free()

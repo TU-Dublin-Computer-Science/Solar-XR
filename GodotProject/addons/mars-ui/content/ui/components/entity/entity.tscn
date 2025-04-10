@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dmeyijxsdsd45" path="res://addons/mars-ui/content/ui/components/panel/panel.gd" id="4_082wb"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/mars-ui/assets/sounds/click.wav" id="5_y5owv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sal56"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0fxb"]
 resource_local_to_scene = true
 render_priority = 10
 shader = ExtResource("3_n8pt4")
@@ -20,7 +20,7 @@ shader_parameter/corner_radius = 0.2
 shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
-[sub_resource type="QuadMesh" id="QuadMesh_n8pt4"]
+[sub_resource type="QuadMesh" id="QuadMesh_sal56"]
 size = Vector2(0.1, 0.03)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sal56"]
@@ -40,8 +40,8 @@ collision_mask = 0
 
 [node name="Panel3D" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
-material_override = SubResource("ShaderMaterial_sal56")
-mesh = SubResource("QuadMesh_n8pt4")
+material_override = SubResource("ShaderMaterial_l0fxb")
+mesh = SubResource("QuadMesh_sal56")
 skeleton = NodePath("../..")
 script = ExtResource("4_082wb")
 size = Vector2(0.1, 0.03)

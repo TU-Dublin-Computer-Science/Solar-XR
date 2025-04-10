@@ -54,7 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
 pixel_size = 0.001
 double_sided = false
 render_priority = 30
-text = "Button"
 font_size = 21
 outline_size = 0
 width = 1000.0

@@ -4,7 +4,14 @@ const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/e
 
 signal body_selected
 
+const AMT_PER_PAGE = 7
+
 var _bodies = []
+
+var _page: int = 0
+var _page_amount: int
+
+@onready var MenuScroll: Node3D = $MenuScroll
 
 var parent_body_name: String:
 	set(value):
@@ -20,13 +27,33 @@ var selected_body_name: String:
 	set(value):
 		selected_body_name = value
 
+func _ready() -> void:
+	$MenuScroll/BtnScollUp.on_button_up.connect(func():
+		_page = clamp(_page + 1, 0, _page_amount)
+		_clear()
+		render()
+	)
+	
+	$MenuScroll/BtnScrollDown.on_button_up.connect(func():
+		_page = clamp(_page - 1, 0, _page_amount)
+		_clear()
+		render()
+	)
+	
+	remove_child(MenuScroll)
+
+
 func add_body(body: OrbitingBody):
 	_bodies.append(body)
-	
 
-func render_body_menu():
-	"""Called after all bodies are added"""
-	for body in _bodies:
+
+func render():
+	"""Called after all bodies are added"""	
+	_page_amount = floor(_bodies.size() / AMT_PER_PAGE)
+	var offset = _page * AMT_PER_PAGE
+	
+	for i in range(offset, min(offset + AMT_PER_PAGE, len(_bodies))):
+		var body = _bodies[i]
 		var entity = EntityScene.instantiate()
 		entity.ent_label = body.body_name.capitalize()
 		entity.on_button_up.connect(func():
@@ -34,10 +61,17 @@ func render_body_menu():
 		)
 		$CtnBodyList.add_child(entity)
 	$CtnBodyList._update()
+	
+	add_child(MenuScroll)
 
-func clear():
-	_bodies = []
+
+func _clear():
 	for body in $CtnBodyList.get_children():
 		$CtnBodyList.remove_child(body)
 		body.queue_free()
 	$CtnBodyList._update()
+
+
+func reset():
+	_bodies = []
+	_clear()

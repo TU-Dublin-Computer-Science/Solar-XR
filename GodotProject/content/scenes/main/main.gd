@@ -284,7 +284,7 @@ func _update_body_menu():
 	else:
 		MainMenu.parent_body_name = ""
 	
-	MainMenu.clear_body_menu()
+	MainMenu.reset_body_menu()
 	
 	for body in _focus_scene.focused_body.satellites:
 		MainMenu.add_body(body)

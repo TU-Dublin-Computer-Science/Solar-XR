@@ -172,11 +172,11 @@ func add_body(body: OrbitingBody):
 	MenuBody.add_body(body)
 
 
-func clear_body_menu():
-	MenuBody.clear()
+func reset_body_menu():
+	MenuBody.reset()
 
 func render_body_menu():
-	MenuBody.render_body_menu()
+	MenuBody.render()
 	
 
 func _setup_start_menu():

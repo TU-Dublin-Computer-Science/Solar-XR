@@ -264,6 +264,16 @@ transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -4.94765e-10, 0, 0, 1, -0.16968, 0.134175, -0.000134982)
 label = "Back"
 
+[node name="MenuScroll" type="Node3D" parent="ControlMenu/Tabs/MenuBody"]
+
+[node name="BtnScollUp" parent="ControlMenu/Tabs/MenuBody/MenuScroll" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.45519e-10, 0, 0, 1, 0.0999957, -0.0149969, -1.30205e-06)
+label = "\\/"
+
+[node name="BtnScrollDown" parent="ControlMenu/Tabs/MenuBody/MenuScroll" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -1.74623e-10, 0, 0, 1, 0.100236, 0.0429331, 5.51597e-05)
+label = "/\\"
+
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
 visible = false
 script = ExtResource("10_ic3tv")

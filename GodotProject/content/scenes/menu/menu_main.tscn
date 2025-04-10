@@ -269,12 +269,12 @@ label = "Mars"
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -6.40284e-10, 0, 0, 1, -0.105493, 0.127167, -0.000110884)
 label = "Back"
 
-[node name="BtnScollUp" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.03727e-10, 0, 0, 1, 0.1, -0.0109486, 1.67211e-08)
+[node name="BtnScrollDown" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -5.23869e-10, 0, 0, 1, 0.10384, 0.00265024, 6.01892e-06)
 label = "\\/"
 
-[node name="BtnScrollDown" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.03727e-10, 0, 0, 1, 0.100236, 0.0429331, 5.51597e-05)
+[node name="BtnScrollUp" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -5.52973e-10, 0, 0, 1, 0.104076, 0.0565319, 6.11619e-05)
 focusable = false
 label = "/\\"
 

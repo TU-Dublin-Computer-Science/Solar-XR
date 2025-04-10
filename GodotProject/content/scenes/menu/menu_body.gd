@@ -26,14 +26,14 @@ var selected_body_name: String:
 		selected_body_name = value
 
 func _ready() -> void:
-	$BtnScollUp.on_button_up.connect(func():
-		_page = clamp(_page + 1, 0, _page_amount)
+	$BtnScrollUp.on_button_up.connect(func():
+		_page = clamp(_page - 1, 0, _page_amount - 1)
 		_clear()
 		render()
 	)
 	
 	$BtnScrollDown.on_button_up.connect(func():
-		_page = clamp(_page - 1, 0, _page_amount)
+		_page = clamp(_page + 1, 0, _page_amount - 1)
 		_clear()
 		render()
 	)
@@ -45,7 +45,7 @@ func add_body(body: OrbitingBody):
 
 func render():
 	"""Called after all bodies are added"""	
-	_page_amount = floor(_bodies.size() / AMT_PER_PAGE)
+	_page_amount = ceil(_bodies.size() / float(AMT_PER_PAGE))
 	var offset = _page * AMT_PER_PAGE
 	
 	for i in range(offset, min(offset + AMT_PER_PAGE, len(_bodies))):
@@ -58,8 +58,8 @@ func render():
 		$CtnBodyList.add_child(entity)
 	$CtnBodyList._update()
 	
-	$BtnScollUp.disabled = _page == _page_amount 
-	$BtnScrollDown.disabled = _page == 0
+	$BtnScrollUp.disabled = _page == 0
+	$BtnScrollDown.disabled = _page == _page_amount - 1
 
 func _clear():
 	for body in $CtnBodyList.get_children():
@@ -70,4 +70,5 @@ func _clear():
 
 func reset():
 	_bodies = []
+	_page = 0
 	_clear()

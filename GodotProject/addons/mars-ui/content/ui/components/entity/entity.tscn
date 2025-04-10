@@ -12,7 +12,7 @@ shader = ExtResource("3_n8pt4")
 shader_parameter/color = Color(1, 1, 1, 0.3)
 shader_parameter/border_color = Color(1, 1, 1, 1)
 shader_parameter/edge_color = Color(0, 0, 0, 1)
-shader_parameter/size = Vector2(2.5, 0.75)
+shader_parameter/size = Vector2(3.75, 0.875)
 shader_parameter/border_size = 0.01
 shader_parameter/border_fade_in = 0.05
 shader_parameter/border_fade_out = 0.0
@@ -21,17 +21,18 @@ shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
 [sub_resource type="QuadMesh" id="QuadMesh_sal56"]
-size = Vector2(0.1, 0.03)
+size = Vector2(0.15, 0.035)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sal56"]
-size = Vector3(0.1, 0.03, 0.01)
+size = Vector3(0.15, 0.035, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8pt4"]
-size = Vector3(0.1, 0.03, 0.01)
+size = Vector3(0.15, 0.035, 0.005)
 
 [node name="Entity" type="Node3D" groups=["ui_focus"]]
 script = ExtResource("1_d4c6l")
-size = Vector3(0.1, 0.03, 0.01)
+font_size = 12
+size = Vector3(0.15, 0.035, 0.01)
 
 [node name="Body" type="StaticBody3D" parent="." groups=["ui_focus_skip"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
@@ -44,7 +45,7 @@ material_override = SubResource("ShaderMaterial_l0fxb")
 mesh = SubResource("QuadMesh_sal56")
 skeleton = NodePath("../..")
 script = ExtResource("4_082wb")
-size = Vector2(0.1, 0.03)
+size = Vector2(0.15, 0.035)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_sal56")
@@ -54,9 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
 pixel_size = 0.001
 double_sided = false
 render_priority = 30
-font_size = 21
+font_size = 12
 outline_size = 0
-width = 1000.0
+width = 150.0
 
 [node name="FingerArea" type="Area3D" parent="." groups=["ui_focus_skip"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075)

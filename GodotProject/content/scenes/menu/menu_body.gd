@@ -4,14 +4,12 @@ const EntityScene = preload("res://addons/mars-ui/content/ui/components/entity/e
 
 signal body_selected
 
-const AMT_PER_PAGE = 7
+const AMT_PER_PAGE = 6
 
 var _bodies = []
 
 var _page: int = 0
 var _page_amount: int
-
-@onready var MenuScroll: Node3D = $MenuScroll
 
 var parent_body_name: String:
 	set(value):
@@ -28,19 +26,17 @@ var selected_body_name: String:
 		selected_body_name = value
 
 func _ready() -> void:
-	$MenuScroll/BtnScollUp.on_button_up.connect(func():
+	$BtnScollUp.on_button_up.connect(func():
 		_page = clamp(_page + 1, 0, _page_amount)
 		_clear()
 		render()
 	)
 	
-	$MenuScroll/BtnScrollDown.on_button_up.connect(func():
+	$BtnScrollDown.on_button_up.connect(func():
 		_page = clamp(_page - 1, 0, _page_amount)
 		_clear()
 		render()
 	)
-	
-	remove_child(MenuScroll)
 
 
 func add_body(body: OrbitingBody):
@@ -62,8 +58,8 @@ func render():
 		$CtnBodyList.add_child(entity)
 	$CtnBodyList._update()
 	
-	add_child(MenuScroll)
-
+	$BtnScollUp.disabled = _page == _page_amount 
+	$BtnScrollDown.disabled = _page == 0
 
 func _clear():
 	for body in $CtnBodyList.get_children():

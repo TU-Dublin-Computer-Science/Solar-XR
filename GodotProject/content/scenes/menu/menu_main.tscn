@@ -262,11 +262,11 @@ script = ExtResource("10_ly053")
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
 
 [node name="SampleEntity" parent="ControlMenu/Tabs/MenuBody/CtnBodyList" instance=ExtResource("12_jlhfs")]
-transform = Transform3D(1, 4.73506e-11, 0, 5.21254e-11, 1, -5.82077e-11, 0, 0, 1, -1.98581e-05, -0.0186505, -6.0756e-06)
-label = "Mars"
+transform = Transform3D(1, -5.21254e-11, 2.01948e-28, 5.21254e-11, 1, 0, -2.01948e-28, 1.05266e-38, 1, 0, -0.0175, 0)
 
 [node name="BtnBack" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -6.40284e-10, 0, 0, 1, -0.105493, 0.127167, -0.000110884)
+font_size = 9
 label = "Back"
 
 [node name="BtnScrollDown" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]

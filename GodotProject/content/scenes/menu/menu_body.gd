@@ -59,7 +59,8 @@ func render():
 	$CtnBodyList._update()
 	
 	$BtnScrollUp.disabled = _page == 0
-	$BtnScrollDown.disabled = _page == _page_amount - 1
+	$BtnScrollDown.disabled = _page == _page_amount - 1 or _page_amount == 0
+
 
 func _clear():
 	for body in $CtnBodyList.get_children():

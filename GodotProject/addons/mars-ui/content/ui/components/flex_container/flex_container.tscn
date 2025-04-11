@@ -4,3 +4,5 @@
 
 [node name="FlexContainer" type="Node3D"]
 script = ExtResource("1_kcao1")
+vertical = true
+gap = 0.001

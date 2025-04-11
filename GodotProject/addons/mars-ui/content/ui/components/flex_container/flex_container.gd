@@ -97,4 +97,3 @@ func _update():
 				offset += (width - children_width) / child_count
 			Justification.SPACE_EVENLY:
 				offset += (width - children_width) / (child_count + 1)
-			

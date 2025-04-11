@@ -56,7 +56,11 @@ const ECHO_WAIT_REPEAT = 0.1
 			label_node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 @export var toggleable: bool = false
-@export var disabled: bool = false
+@export var disabled: bool = false:
+	set(value):
+		disabled = value
+		panel.hovering = value
+
 @export var echo: bool = false
 @export var initial_active: bool = false:
 	set(value):
@@ -82,6 +86,8 @@ var echo_timer: Timer = null
 func _ready():
 	if initial_active:
 		active = true
+	if disabled:
+		panel.hovering = true
 
 	_update()
 
@@ -153,6 +159,9 @@ func _on_ray_enter(_event: EventPointer):
 
 
 func _on_ray_leave(_event: EventPointer):
+	if disabled:
+		return
+	
 	panel.hovering = false
 
 

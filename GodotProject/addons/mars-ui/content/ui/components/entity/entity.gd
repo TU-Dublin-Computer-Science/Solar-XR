@@ -1,26 +1,16 @@
 @tool
-extends FlexContainer3D
+extends Button3D
 
 signal on_select()
 
-@onready var button = $Button
-@onready var label = $LabelContainer
-
-@export var text: String = "Button":
-	set(value):
-		text = value
-		_update()
+var ent_label: String
 
 func _ready():
-	super._ready()
-
-	button.on_button_up.connect(func():
+	# Button labels can only be set in ready, hence why this is done
+	label = ent_label 
+	
+	on_button_up.connect(func():
 		on_select.emit()
 	)
-
-func _update():
-	if !is_node_ready(): return
-
-	button.label = text
-
-	super._update()
+	
+	

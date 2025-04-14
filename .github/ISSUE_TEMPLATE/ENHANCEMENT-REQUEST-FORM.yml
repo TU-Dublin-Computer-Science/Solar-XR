@@ -13,7 +13,6 @@ body:
     attributes:
       label: Description
       description: A clear and concise description of the enhancement request.
-      required: true 
     validations:
       required: true
   - type: textarea

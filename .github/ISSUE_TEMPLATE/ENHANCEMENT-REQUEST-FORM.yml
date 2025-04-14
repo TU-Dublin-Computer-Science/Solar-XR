@@ -18,7 +18,7 @@ body:
   - type: textarea
     id: reason
     attributes:
-      label: Resaon
+      label: Reason
       description: A clear and concise description of why you feel this should be included.
     validations:
       required: true
@@ -31,5 +31,11 @@ body:
         - 0.2
         - Release tag not listed here
         - Latest commit on main
+      default: 1
+  - type: textarea
+    id: extra-context
+    attributes:
+      label: Extra Context
+      description: Any extra context you feel necessary
     validations:
       required: true

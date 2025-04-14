@@ -3,16 +3,34 @@
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_iwqns"]
 file = "res://content/assets/videos/TutorialRaycastInfopoint.ogv"
 
-[node name="Video" type="VideoStreamPlayer"]
-anchors_preset = -1
+[node name="Control" type="Control"]
+layout_mode = 3
 anchor_right = 0.937
 anchor_bottom = 1.667
 offset_right = 0.575928
 offset_bottom = -0.216064
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Video" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = SubResource("VideoStreamTheora_iwqns")
 autoplay = true
 expand = true
 loop = true
-metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Video"]
+visible = false
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(534, 934)
+zoom = Vector2(0.525, 0.525)

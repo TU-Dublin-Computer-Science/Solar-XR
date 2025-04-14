@@ -8,12 +8,13 @@ body:
       value: Thanks for helping us improve Solar-XR!
   - type: textarea
     id: description
+    required: true
     attributes:
       label: Description
       description: A clear and concise description of what the bug is.
-      required: true
   - type: textarea
     id: steps-to-reproduce
+    required: true
     attributes:
       label: Steps to Reproduce
       description: Steps to reproduce the behavior
@@ -21,16 +22,13 @@ body:
         1. Go to '..'
         2. Click on '..'
         3. See error
-      required: true
   - type: dropdown
     id: prog-version
+    required: true
     attributes:
       label: What version of the software does the bug appear?
       options:
         - 0.1
         - 0.2
         - Release tag not listed here
-        - Latest commit on main
-      required: true
-      
-        
+        - Latest commit on main     

@@ -1,0 +1,33 @@
+name: Enhancement Request
+description: File an enhancement request to help us improve.
+title: "[Enhancement]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for small scale enhancement suggestions, such as better fonts, larger buttons, a UI change, etc.
+        Thanks for helping us improve Solar-XR!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the enhancement request.
+      required: true 
+  - type: textarea
+    id: reason
+    attributes:
+      label: Resaon
+      description: A clear and concise description of why you feel this should be included.
+      required: true
+  - type: dropdown
+    id: prog-version
+    attributes:
+      label: What version of the software are you using?
+      options:
+        - 0.1
+        - 0.2
+        - Release tag not listed here
+        - Latest commit on main
+      required: true
+        

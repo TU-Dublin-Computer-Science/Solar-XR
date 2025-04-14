@@ -11,15 +11,17 @@ body:
     attributes:
       label: Description
       description: A clear and concise description of what the bug is.
+      requied: true
   - type: textarea
     id: steps-to-reproduce
     attributes:
       label: Steps to Reproduce
-      description: "Steps to reproduce the behavior:"
+      description: Steps to reproduce the behavior
       value: |
         1. Go to '..'
         2. Click on '..'
         3. See error
+      required: true
   - type: dropdown
     id: prog-version
     attributes:
@@ -29,5 +31,6 @@ body:
         - 0.2
         - Release tag not listed here
         - Latest commit on main
+      required: true
       
         

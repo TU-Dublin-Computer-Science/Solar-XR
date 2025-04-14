@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=19 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
 [ext_resource type="PackedScene" uid="uid://uogsamyglyw5" path="res://addons/mars-ui/content/ui/components/entity/entity.tscn" id="12_jlhfs"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="14_wfrnf"]
+[ext_resource type="PackedScene" uid="uid://bjsnke4wee4ju" path="res://content/scenes/video.tscn" id="15_lv3hk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -45,6 +47,7 @@ mesh = SubResource("QuadMesh_q0bqu")
 shape = SubResource("BoxShape3D_60yw7")
 
 [node name="ControlMenu" type="Node3D" parent="."]
+visible = false
 
 [node name="BtnTglMenu" parent="ControlMenu" instance=ExtResource("10_t43g3")]
 
@@ -326,17 +329,23 @@ visible = false
 text = "FPS: 00"
 
 [node name="StartMenu" type="Node3D" parent="."]
-visible = false
 
 [node name="BtnStart" parent="StartMenu" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117151, 0)
 label = "Start"
 
 [node name="Lbl1" type="Label3D" parent="StartMenu"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.08, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.12014, 0)
 text = "Welcome !"
 font = ExtResource("4_8lqmu")
 
 [node name="Lbl2" type="Label3D" parent="StartMenu"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.04, 0)
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.0873285, 0)
 text = "Press the button below to begin:"
 font = ExtResource("4_8lqmu")
+
+[node name="Viewport2Din3D" parent="StartMenu" instance=ExtResource("14_wfrnf")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 5.79357e-05, -0.0121738, 0.0138473)
+scene = ExtResource("15_lv3hk")
+viewport_size = Vector2(1080, 1080)
+scene_properties_keys = PackedStringArray()

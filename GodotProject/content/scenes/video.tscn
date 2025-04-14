@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjsnke4wee4ju"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_iwqns"]
+file = "res://content/assets/videos/TutorialRaycastInfopoint.ogv"
+
+[node name="Video" type="VideoStreamPlayer"]
+anchors_preset = -1
+anchor_right = 0.937
+anchor_bottom = 1.667
+offset_right = 0.575928
+offset_bottom = -0.216064
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_iwqns")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true

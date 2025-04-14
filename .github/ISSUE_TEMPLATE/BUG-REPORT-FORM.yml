@@ -15,7 +15,6 @@ body:
       required: true
   - type: textarea
     id: steps-to-reproduce
-    required: true
     attributes:
       label: Steps to Reproduce
       description: Steps to reproduce the behavior
@@ -23,9 +22,10 @@ body:
         1. Go to '..'
         2. Click on '..'
         3. See error
+    validations:
+      required: true
   - type: dropdown
     id: prog-version
-    required: true
     attributes:
       label: What version of the software does the bug appear?
       options:
@@ -33,3 +33,5 @@ body:
         - 0.2
         - Release tag not listed here
         - Latest commit on main     
+    validations:
+      required: true

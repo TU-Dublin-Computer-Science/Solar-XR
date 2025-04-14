@@ -32,10 +32,10 @@ body:
         - Release tag not listed here
         - Latest commit on main
       default: 1
+    validations:
+      required: true
   - type: textarea
     id: extra-context
     attributes:
       label: Extra Context
       description: Any extra context you feel necessary
-    validations:
-      required: true

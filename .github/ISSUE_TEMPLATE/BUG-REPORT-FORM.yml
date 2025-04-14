@@ -11,7 +11,8 @@ body:
     attributes:
       label: Description
       description: A clear and concise description of what the bug is.
-      requied: true
+    validations:
+      required: true
   - type: textarea
     id: steps-to-reproduce
     attributes:
@@ -21,6 +22,7 @@ body:
         1. Go to '..'
         2. Click on '..'
         3. See error
+    validations:
       required: true
   - type: dropdown
     id: prog-version
@@ -31,6 +33,11 @@ body:
         - 0.2
         - Release tag not listed here
         - Latest commit on main
+      default: 1
+    validations:
       required: true
-      
-        
+  - type: textarea
+    id: extra-context
+    attributes:
+      label: Extra Context
+      description: Any extra context you feel necessary

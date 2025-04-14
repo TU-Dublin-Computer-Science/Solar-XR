@@ -33,6 +33,6 @@ body:
         - 0.2
         - Release tag not listed here
         - Latest commit on main
-      default: 0.2
+      default: 2
     validations:
       required: true

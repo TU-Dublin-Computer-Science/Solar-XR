@@ -1,0 +1,34 @@
+name: Usability Issue
+description: Report a general usability issue to help us improve.
+title: "[Usability Issue]: "
+labels: ["UsabilityIssue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for general usability issues and feedback, such as an unintuitive menu layout, etc.
+        Thanks for helping us improve Solar-XR!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the usability issue.
+    validations:
+      required: true
+  - type: dropdown
+    id: prog-version
+    attributes:
+      label: What version of the software are you using?
+      options:
+        - 0.1
+        - 0.2
+        - Release tag not listed here
+        - Latest commit on main
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: extra-context
+    attributes:
+      label: Extra Context
+      description: Any extra context you feel necessary

@@ -14,9 +14,13 @@ grow_vertical = 2
 
 [node name="Video" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 0.894
+anchor_bottom = 0.602
+offset_left = 1.0
+offset_top = 7.0
+offset_right = 175.48
+offset_bottom = 8.83997
 grow_horizontal = 2
 grow_vertical = 2
 stream = SubResource("VideoStreamTheora_iwqns")
@@ -30,7 +34,3 @@ layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(534, 934)
-zoom = Vector2(0.525, 0.525)

@@ -331,18 +331,19 @@ text = "FPS: 00"
 [node name="StartMenu" type="Node3D" parent="."]
 
 [node name="Lbl2" type="Label3D" parent="StartMenu"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.121127, 0.0279485, 0)
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
 text = "Press the button
 below to begin"
 font = ExtResource("4_8lqmu")
 font_size = 22
 
 [node name="BtnStart" parent="StartMenu" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120429, -0.0347926, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
 label = "Start"
 
 [node name="Viewport2Din3D" parent="StartMenu" instance=ExtResource("14_wfrnf")]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0620638, -0.00521258, 0.0139742)
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
+screen_size = Vector2(1.5, 1.5)
 scene = ExtResource("15_lv3hk")
 viewport_size = Vector2(1080, 1080)
 scene_properties_keys = PackedStringArray()

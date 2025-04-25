@@ -312,7 +312,10 @@ func _setup_start_menu():
 	)
 	
 	MenuInputMode.find_child("BtnTouch").on_button_up.connect(func(): _active_start_tab = MenuTouchBtn)
-	MenuInputMode.find_child("BtnRay").on_button_up.connect(func(): _active_start_tab = MenuRayBtn)
+	MenuInputMode.find_child("BtnRay").on_button_up.connect(func(): 
+		input_mode_changed.emit(Mappings.InputMethod.POINTER)
+		_active_start_tab = MenuRayBtn
+	)
 	
 	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)
 	MenuTouchInfo.find_child("BtnPress").on_button_up.connect(func(): _exit_start_menu())

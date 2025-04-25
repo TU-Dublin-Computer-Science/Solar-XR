@@ -72,7 +72,11 @@ signal reset
 @onready var MenuSettings = $ControlMenu/Tabs/MenuSettings
 
 @onready var ControlMenu = $ControlMenu
+
 @onready var StartMenu = $StartMenu
+
+
+
 
 @onready var FPSCounter = %FPSCounter
 
@@ -177,15 +181,6 @@ func reset_body_menu():
 
 func render_body_menu():
 	MenuBody.render()
-	
-
-func _setup_start_menu():
-	StartMenu.visible = true
-	StartMenu.find_child("BtnStart").on_button_up.connect(func():
-		start.emit()
-		remove_child(StartMenu)
-		add_child(ControlMenu)
-	)
 
 
 func _setup_control_menu():
@@ -296,3 +291,12 @@ func _setup_body_tab():
 func _setup_settings_tab():
 	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))
 	MenuSettings.find_child("BtnPointer").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.POINTER))
+
+
+func _setup_start_menu():
+	%StartMenu.visible = true
+	%MenuStart/BtnStart.on_button_up.connect(func():
+		start.emit()
+		remove_child(StartMenu)
+		add_child(ControlMenu)
+	)

@@ -290,6 +290,7 @@ func _setup_time_tab():
 	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
 	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
 
+
 func _setup_body_tab():
 	MenuBody.find_child("BtnBack").on_button_up.connect(func(): body_back_pressed.emit())
 	

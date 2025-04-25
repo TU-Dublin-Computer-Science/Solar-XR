@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=18 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -13,8 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
 [ext_resource type="PackedScene" uid="uid://uogsamyglyw5" path="res://addons/mars-ui/content/ui/components/entity/entity.tscn" id="12_jlhfs"]
-[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="14_wfrnf"]
-[ext_resource type="PackedScene" uid="uid://bjsnke4wee4ju" path="res://content/scenes/video.tscn" id="15_lv3hk"]
+[ext_resource type="PackedScene" uid="uid://bnhg4ne18x4e3" path="res://addons/mars-ui/content/ui/components/video_player/video_player.tscn" id="16_jbdvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -373,12 +372,8 @@ font_size = 22
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
 label = "Press"
 
-[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("14_wfrnf")]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
-screen_size = Vector2(1.5, 1.5)
-scene = ExtResource("15_lv3hk")
-viewport_size = Vector2(1080, 1080)
-scene_properties_keys = PackedStringArray()
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialTouchButton.ogv"
 
 [node name="MenuTouchInfo" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
@@ -402,12 +397,8 @@ font_size = 22
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
 label = "Press"
 
-[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("14_wfrnf")]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
-screen_size = Vector2(1.5, 1.5)
-scene = ExtResource("15_lv3hk")
-viewport_size = Vector2(1080, 1080)
-scene_properties_keys = PackedStringArray()
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialTouchInfo.ogv"
 
 [node name="MenuRayBtn" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
@@ -431,12 +422,8 @@ font_size = 22
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
 label = "Press"
 
-[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("14_wfrnf")]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
-screen_size = Vector2(1.5, 1.5)
-scene = ExtResource("15_lv3hk")
-viewport_size = Vector2(1080, 1080)
-scene_properties_keys = PackedStringArray()
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialRaycastButton.ogv"
 
 [node name="MenuRayInfo" type="Node3D" parent="StartMenu/Tabs"]
 
@@ -459,12 +446,8 @@ font_size = 22
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
 label = "Press"
 
-[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("14_wfrnf")]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
-screen_size = Vector2(1.5, 1.5)
-scene = ExtResource("15_lv3hk")
-viewport_size = Vector2(1080, 1080)
-scene_properties_keys = PackedStringArray()
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialRaycastInfo.ogv"
 
 [node name="MenuStart" type="Node3D" parent="StartMenu/Tabs"]
 visible = false

@@ -83,6 +83,8 @@ signal reset
 
 @onready var FPSCounter = %FPSCounter
 
+var Camera: XRCamera3D
+
 # Below values just used for information readout on menu 
 var pos_readout: Vector3:
 	set(value):
@@ -317,11 +319,11 @@ func _setup_start_menu():
 		_active_start_tab = MenuRayBtn
 	)
 	
-	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)
-	MenuTouchInfo.find_child("BtnPress").on_button_up.connect(func(): _exit_start_menu())
+	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)	
+	MenuTouchInfo.find_child("InfoNode").on_button_down.connect(func(): _exit_start_menu())
 	
 	MenuRayBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuRayInfo)
-	MenuRayInfo.find_child("BtnPress").on_button_up.connect(func(): _exit_start_menu())
+	MenuRayInfo.find_child("InfoNode").on_button_down.connect(func(): _exit_start_menu())
 	
 	for tab in $StartMenu/Tabs.get_children():
 		tab.visible = true

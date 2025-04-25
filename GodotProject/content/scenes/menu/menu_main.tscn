@@ -47,6 +47,7 @@ mesh = SubResource("QuadMesh_q0bqu")
 shape = SubResource("BoxShape3D_60yw7")
 
 [node name="ControlMenu" type="Node3D" parent="."]
+visible = false
 
 [node name="BtnTglMenu" parent="ControlMenu" instance=ExtResource("10_t43g3")]
 
@@ -257,6 +258,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 
 
 [node name="MenuBody" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
+visible = false
 script = ExtResource("10_ly053")
 
 [node name="CtnBodyList" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("11_jlhfs")]
@@ -328,28 +330,50 @@ text = "FPS: 00"
 
 [node name="StartMenu" type="Node3D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Tabs" type="Node3D" parent="StartMenu"]
 
 [node name="MenuInputMode" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
 
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuInputMode"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -0.000148848, 0.051887, 0)
+text = "Please Select an Input Mode"
+font = ExtResource("4_8lqmu")
+font_size = 30
+
+[node name="BtnTouch" parent="StartMenu/Tabs/MenuInputMode" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0)
+label = "Touch"
+
+[node name="BtnRay" parent="StartMenu/Tabs/MenuInputMode" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0, 0)
+label = "Raycast"
+
 [node name="MenuTouchBtn" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
 
-[node name="Lbl3" type="Label3D" parent="StartMenu/Tabs/MenuTouchBtn"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
-text = "Press the button
-below to begin"
+[node name="LblInstr2" type="Label3D" parent="StartMenu/Tabs/MenuTouchBtn"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0970889, 0)
+text = "TouchBtn
+"
 font = ExtResource("4_8lqmu")
 font_size = 22
 
-[node name="BtnStart2" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
-label = "Start"
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuTouchBtn"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Press the
+button below
+to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
 
-[node name="Viewport2Din3D2" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("14_wfrnf")]
+[node name="BtnPress" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
+label = "Press"
+
+[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("14_wfrnf")]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
 screen_size = Vector2(1.5, 1.5)
 scene = ExtResource("15_lv3hk")
@@ -359,16 +383,24 @@ scene_properties_keys = PackedStringArray()
 [node name="MenuTouchInfo" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
 
-[node name="Lbl4" type="Label3D" parent="StartMenu/Tabs/MenuTouchInfo"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
-text = "Press the button
-below to begin"
+[node name="LblInstr3" type="Label3D" parent="StartMenu/Tabs/MenuTouchInfo"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0970889, 0)
+text = "TouchInfo"
 font = ExtResource("4_8lqmu")
 font_size = 22
 
-[node name="BtnStart3" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("3_f40n8")]
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuTouchInfo"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Press the
+button below
+to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
+
+[node name="BtnPress" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
-label = "Start"
+label = "Press"
 
 [node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("14_wfrnf")]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
@@ -380,18 +412,26 @@ scene_properties_keys = PackedStringArray()
 [node name="MenuRayBtn" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
 
-[node name="Lbl5" type="Label3D" parent="StartMenu/Tabs/MenuRayBtn"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
-text = "Press the button
-below to begin"
+[node name="LblInstr4" type="Label3D" parent="StartMenu/Tabs/MenuRayBtn"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0970889, 0)
+text = "RayBtn"
 font = ExtResource("4_8lqmu")
 font_size = 22
 
-[node name="BtnStart4" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
-label = "Start"
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuRayBtn"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Press the
+button below
+to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
 
-[node name="Viewport2Din3D4" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("14_wfrnf")]
+[node name="BtnPress" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
+label = "Press"
+
+[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("14_wfrnf")]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
 screen_size = Vector2(1.5, 1.5)
 scene = ExtResource("15_lv3hk")
@@ -399,20 +439,27 @@ viewport_size = Vector2(1080, 1080)
 scene_properties_keys = PackedStringArray()
 
 [node name="MenuRayInfo" type="Node3D" parent="StartMenu/Tabs"]
-visible = false
 
-[node name="Lbl6" type="Label3D" parent="StartMenu/Tabs/MenuRayInfo"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
-text = "Press the button
-below to begin"
+[node name="LblInstr5" type="Label3D" parent="StartMenu/Tabs/MenuRayInfo"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0970889, 0)
+text = "RayInfo"
 font = ExtResource("4_8lqmu")
 font_size = 22
 
-[node name="BtnStart5" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
-label = "Start"
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuRayInfo"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Press the
+button below
+to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
 
-[node name="Viewport2Din3D5" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("14_wfrnf")]
+[node name="BtnPress" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
+label = "Press"
+
+[node name="Viewport2Din3D3" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("14_wfrnf")]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
 screen_size = Vector2(1.5, 1.5)
 scene = ExtResource("15_lv3hk")
@@ -420,6 +467,7 @@ viewport_size = Vector2(1080, 1080)
 scene_properties_keys = PackedStringArray()
 
 [node name="MenuStart" type="Node3D" parent="StartMenu/Tabs"]
+visible = false
 
 [node name="LblWelcome" type="Label3D" parent="StartMenu/Tabs/MenuStart"]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 4.14401e-05, 0.0920108, 0)

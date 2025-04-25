@@ -75,6 +75,11 @@ signal reset
 
 @onready var StartMenu = $StartMenu
 @onready var MenuStart = $StartMenu/Tabs/MenuStart
+@onready var MenuInputMode = $StartMenu/Tabs/MenuInputMode
+@onready var MenuTouchBtn = $StartMenu/Tabs/MenuTouchBtn
+@onready var MenuTouchInfo = $StartMenu/Tabs/MenuTouchInfo
+@onready var MenuRayBtn = $StartMenu/Tabs/MenuRayBtn
+@onready var MenuRayInfo = $StartMenu/Tabs/MenuRayInfo
 
 @onready var FPSCounter = %FPSCounter
 
@@ -302,13 +307,26 @@ func _setup_start_menu():
 	%StartMenu.visible = true
 	
 	MenuStart.find_child("BtnStart").on_button_up.connect(func():
-		start.emit()
-		remove_child(StartMenu)
-		add_child(ControlMenu)
+		_exit_start_menu()
 	)
+	
+	MenuInputMode.find_child("BtnTouch").on_button_up.connect(func(): _active_start_tab = MenuTouchBtn)
+	MenuInputMode.find_child("BtnRay").on_button_up.connect(func(): _active_start_tab = MenuRayBtn)
+	
+	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)
+	MenuTouchInfo.find_child("BtnPress").on_button_up.connect(func(): _exit_start_menu())
+	
+	MenuRayBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuRayInfo)
+	MenuRayInfo.find_child("BtnPress").on_button_up.connect(func(): _exit_start_menu())
 	
 	for tab in $StartMenu/Tabs.get_children():
 		tab.visible = true
 		$StartMenu/Tabs.remove_child(tab)
 		
-	_active_start_tab = MenuStart
+	_active_start_tab = MenuInputMode
+
+
+func _exit_start_menu():
+	start.emit()
+	remove_child(StartMenu)
+	add_child(ControlMenu)

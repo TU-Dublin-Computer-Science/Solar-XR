@@ -126,6 +126,7 @@ func _ready():
 		input_method = Mappings.InputMethod.POINTER
 	
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
+	%MainMenu.Camera = $XROrigin3D/XRCamera3D
 	
 	_focus_scene = FocusScene.instantiate()
 	_focus_scene.init("sun", Camera)

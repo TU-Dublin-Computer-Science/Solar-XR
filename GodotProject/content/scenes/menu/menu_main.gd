@@ -72,9 +72,18 @@ signal reset
 @onready var MenuSettings = $ControlMenu/Tabs/MenuSettings
 
 @onready var ControlMenu = $ControlMenu
+
 @onready var StartMenu = $StartMenu
+@onready var MenuStart = $StartMenu/Tabs/MenuStart
+@onready var MenuInputMode = $StartMenu/Tabs/MenuInputMode
+@onready var MenuTouchBtn = $StartMenu/Tabs/MenuTouchBtn
+@onready var MenuTouchInfo = $StartMenu/Tabs/MenuTouchInfo
+@onready var MenuRayBtn = $StartMenu/Tabs/MenuRayBtn
+@onready var MenuRayInfo = $StartMenu/Tabs/MenuRayInfo
 
 @onready var FPSCounter = %FPSCounter
+
+var Camera: XRCamera3D
 
 # Below values just used for information readout on menu 
 var pos_readout: Vector3:
@@ -146,15 +155,21 @@ var _active_btn: Button3D = null:
 			_active_btn.active = true
 			_active_btn.disabled = true
 
-
-var _active_tab: Node3D = null:
+var _active_control_tab: Node3D = null:
 	set(value):
-		if _active_tab != null:
-			$ControlMenu/Tabs.remove_child(_active_tab)
+		if _active_control_tab != null:
+			$ControlMenu/Tabs.remove_child(_active_control_tab)
 		
-		_active_tab = value
-		$ControlMenu/Tabs.add_child(_active_tab)
+		_active_control_tab = value
+		$ControlMenu/Tabs.add_child(_active_control_tab)
 
+var _active_start_tab: Node3D = null:
+	set(value):
+		if _active_start_tab != null:
+			$StartMenu/Tabs.remove_child(_active_start_tab)
+		
+		_active_start_tab = value
+		$StartMenu/Tabs.add_child(_active_start_tab)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
@@ -177,15 +192,6 @@ func reset_body_menu():
 
 func render_body_menu():
 	MenuBody.render()
-	
-
-func _setup_start_menu():
-	StartMenu.visible = true
-	StartMenu.find_child("BtnStart").on_button_up.connect(func():
-		start.emit()
-		remove_child(StartMenu)
-		add_child(ControlMenu)
-	)
 
 
 func _setup_control_menu():
@@ -197,27 +203,27 @@ func _setup_control_menu():
 		tab.visible = true
 		$ControlMenu/Tabs.remove_child(tab)
 	
-	_active_tab = MenuDefault
+	_active_control_tab = MenuDefault
 
 
 func _setup_menu_buttons():
-	%BtnMove.on_button_down.connect(func(): _active_tab = MenuMove)
+	%BtnMove.on_button_down.connect(func(): _active_control_tab = MenuMove)
 	
-	%BtnRotate.on_button_down.connect(func(): _active_tab = MenuRotate)
+	%BtnRotate.on_button_down.connect(func(): _active_control_tab = MenuRotate)
 	
-	%BtnScale.on_button_down.connect(func(): _active_tab = MenuScale)
+	%BtnScale.on_button_down.connect(func(): _active_control_tab = MenuScale)
 	
-	%BtnTime.on_button_down.connect(func(): _active_tab = MenuTime)
+	%BtnTime.on_button_down.connect(func(): _active_control_tab = MenuTime)
 	
-	%BtnBody.on_button_down.connect(func(): _active_tab = MenuBody)
+	%BtnBody.on_button_down.connect(func(): _active_control_tab = MenuBody)
 	
 	%BtnReset.on_button_down.connect(func(): 
 		$ControlMenu/BtnTglMenu.clear_active_btn()
-		_active_tab = MenuDefault
+		_active_control_tab = MenuDefault
 		reset.emit()
 	)
 	
-	%BtnSettings.on_button_down.connect(func(): _active_tab = MenuSettings)
+	%BtnSettings.on_button_down.connect(func(): _active_control_tab = MenuSettings)
 
 
 func _setup_tabs():
@@ -248,7 +254,7 @@ func _setup_move_tab():
 	MenuMove.find_child("BtnBackward").on_button_down.connect(func(): move_back_start.emit())
 	MenuMove.find_child("BtnBackward").on_button_up.connect(func(): move_back_stop.emit())
 
-	MenuMove.find_child("BtnReturn").on_button_up.connect(func(): _active_tab = MenuSettings)
+	MenuMove.find_child("BtnReturn").on_button_up.connect(func(): _active_control_tab = MenuSettings)
 
 func _setup_rotate_tab():	
 	MenuRotate.find_child("BtnUp").on_button_down.connect(func(): rotate_decreaseX_start.emit())
@@ -263,7 +269,7 @@ func _setup_rotate_tab():
 	MenuRotate.find_child("BtnRight").on_button_down.connect(func(): rotate_increaseY_start.emit())
 	MenuRotate.find_child("BtnRight").on_button_up.connect(func(): rotate_increaseY_stop.emit())
 
-	MenuRotate.find_child("BtnReturn").on_button_up.connect(func(): _active_tab = MenuSettings)
+	MenuRotate.find_child("BtnReturn").on_button_up.connect(func(): _active_control_tab = MenuSettings)
 
 func _setup_scale_tab():	
 	MenuScale.find_child("BtnDecrease").on_button_down.connect(func(): scale_decrease_start.emit())
@@ -272,7 +278,7 @@ func _setup_scale_tab():
 	MenuScale.find_child("BtnIncrease").on_button_down.connect(func(): scale_increase_start.emit())
 	MenuScale.find_child("BtnIncrease").on_button_up.connect(func(): scale_increase_stop.emit())
 	
-	MenuScale.find_child("BtnReturn").on_button_up.connect(func(): _active_tab = MenuSettings)
+	MenuScale.find_child("BtnReturn").on_button_up.connect(func(): _active_control_tab = MenuSettings)
 
 func _setup_time_tab():	
 	MenuTime.find_child("BtnDecrease").on_button_down.connect(func(): time_decrease_start.emit())
@@ -286,6 +292,7 @@ func _setup_time_tab():
 	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
 	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
 
+
 func _setup_body_tab():
 	MenuBody.find_child("BtnBack").on_button_up.connect(func(): body_back_pressed.emit())
 	
@@ -293,6 +300,39 @@ func _setup_body_tab():
 		body_selected.emit(body_name)
 	)
 
+
 func _setup_settings_tab():
 	MenuSettings.find_child("BtnTouch").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.TOUCH))
 	MenuSettings.find_child("BtnPointer").on_button_down.connect(func(): input_mode_changed.emit(Mappings.InputMethod.POINTER))
+
+
+func _setup_start_menu():
+	%StartMenu.visible = true
+	
+	MenuStart.find_child("BtnStart").on_button_up.connect(func():
+		_exit_start_menu()
+	)
+	
+	MenuInputMode.find_child("BtnTouch").on_button_up.connect(func(): _active_start_tab = MenuTouchBtn)
+	MenuInputMode.find_child("BtnRay").on_button_up.connect(func(): 
+		input_mode_changed.emit(Mappings.InputMethod.POINTER)
+		_active_start_tab = MenuRayBtn
+	)
+	
+	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)	
+	MenuTouchInfo.find_child("InfoNode").on_button_down.connect(func(): _exit_start_menu())
+	
+	MenuRayBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuRayInfo)
+	MenuRayInfo.find_child("InfoNode").on_button_down.connect(func(): _exit_start_menu())
+	
+	for tab in $StartMenu/Tabs.get_children():
+		tab.visible = true
+		$StartMenu/Tabs.remove_child(tab)
+		
+	_active_start_tab = MenuInputMode
+
+
+func _exit_start_menu():
+	start.emit()
+	remove_child(StartMenu)
+	add_child(ControlMenu)

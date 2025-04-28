@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjsnke4wee4ju"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_lytd2"]
+
+[node name="Video" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_lytd2")
+autoplay = true
+expand = true
+loop = true

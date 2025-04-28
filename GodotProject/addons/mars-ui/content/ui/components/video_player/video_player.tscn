@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnhg4ne18x4e3"]
+
+[ext_resource type="Script" uid="uid://dcr0mbudljsfy" path="res://addons/mars-ui/content/ui/components/video_player/video_player.gd" id="1_h2pw6"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_gnnfc"]
+
+[node name="VideoPlayer" type="Node3D"]
+script = ExtResource("1_h2pw6")
+
+[node name="Viewport" parent="." instance=ExtResource("2_gnnfc")]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -0.0671588, 0.00176826, 0.0139742)
+screen_size = Vector2(1.5, 1.5)
+viewport_size = Vector2(1080, 1080)
+scene_properties_keys = PackedStringArray()

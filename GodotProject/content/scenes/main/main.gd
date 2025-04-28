@@ -29,10 +29,9 @@ const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
-const TIME_CHANGE_SPEED = 3000
-const MIN_TIME_SCALAR = -10000000
-const MAX_TIME_SCALAR = 10000000
-const DEFAULT_TIME_SCALAR = 1
+const TIME_SCALAR_LIVE = 1
+const TIME_SCALAR_FAST = 2000
+const TIME_SCALAR_FASTER = 10000
 
 # Start of Settings Variables
 var input_method: Mappings.InputMethod:
@@ -51,39 +50,16 @@ var _sim_position: Vector3:
 		MainMenu.pos_readout = value
 
 
-var _sim_time_scalar: float = DEFAULT_TIME_SCALAR:
+var _sim_time_scalar: float = TIME_SCALAR_LIVE:
 	set(value):
 		_sim_time_scalar = value
-
-		if _sim_time_paused:
-			_sim_time_paused = false
 		
 		MainMenu.sim_time_scalar_readout = value
-
-var _sim_time_paused: bool:
-	set(value):
-		_sim_time_paused = value
-
-		if _sim_time_paused:
-			_sim_time_live = false
-		
-		MainMenu.sim_time_paused_readout = value
-
-var _sim_time_live: bool:
-	set(value):
-		_sim_time_live = value
-		MainMenu.time_live_readout = value
 
 var _sim_time: float:
 	set(value):
 		_sim_time = value
 		_focus_scene.time = value
-		
-		var sys_time = Time.get_unix_time_from_system()
-		
-		#When sim time is out of sync it's not live
-		if abs(int(_sim_time) - int(sys_time)) > 5:
-			_sim_time_live = false
 		
 		MainMenu.sim_time_readout = value
 
@@ -137,8 +113,7 @@ func _ready():
 
 
 func _process(delta):
-	if not _sim_time_paused:
-		_sim_time += delta * _sim_time_scalar
+	_sim_time += delta * _sim_time_scalar
 	
 	_check_if_player_moved()
 	
@@ -188,20 +163,14 @@ func _reset_state():
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
-	_init_time()
+	_sim_time = Time.get_unix_time_from_system()
+	_sim_time_scalar = TIME_SCALAR_LIVE
 	
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
 		_focus_parent()
 		
 	_update_body_menu()
-
-
-func _init_time():
-	_sim_time = Time.get_unix_time_from_system()
-	_sim_time_scalar = DEFAULT_TIME_SCALAR
-	_sim_time_paused = false
-	_sim_time_live = true
 
 
 func _connect_info_nodes(orbiting_body: OrbitingBody):
@@ -340,14 +309,15 @@ func _setup_scale_signals():
 
 
 func _setup_time_signals():
-	MainMenu.time_increase_start.connect(func():_time_increasing = true)
-	MainMenu.time_increase_stop.connect(func(): _time_increasing = false)
-
-	MainMenu.time_decrease_start.connect(func(): _time_decreasing = true)
-	MainMenu.time_decrease_stop.connect(func(): _time_decreasing = false)
-	
-	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
-	MainMenu.time_live_pressed.connect(_init_time)
+	MainMenu.time_speed_changed.connect(func(time_speed: String):
+		match(time_speed):
+			"live":
+				_sim_time_scalar = TIME_SCALAR_LIVE
+			"fast":
+				_sim_time_scalar = TIME_SCALAR_FAST
+			"faster":
+				_sim_time_scalar = TIME_SCALAR_FASTER
+	)
 
 
 func _setup_body_signals():
@@ -366,7 +336,6 @@ func _handle_constant_state_changes(delta: float):
 	_handle_constant_movement(delta)
 	_handle_constant_rotation(delta)
 	_handle_constant_scaling(delta)
-	_handle_constant_time_change(delta)
 
 
 func _handle_constant_movement(delta: float):
@@ -422,32 +391,3 @@ func _handle_constant_scaling(delta: float):
 	if _scale_decreasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
 		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
-
-
-var _time_increase_start: float = -1
-var _time_decrease_start: float = -1
-func _handle_constant_time_change(delta: float):
-	
-	if _time_increasing:
-		if _time_increase_start == -1: # If not set yet
-			_time_increase_start = Time.get_unix_time_from_system()
-		
-		var increase_time_held = Time.get_unix_time_from_system() - _time_increase_start
-		
-		_sim_time_scalar = clamp(_sim_time_scalar + (increase_time_held * TIME_CHANGE_SPEED * delta) ,
-			MIN_TIME_SCALAR,
-			MAX_TIME_SCALAR)
-	else:
-		_time_increase_start = -1
-
-	if _time_decreasing:
-		if _time_decrease_start == -1:
-			_time_decrease_start = Time.get_unix_time_from_system()
-			
-		var decrease_time_held = Time.get_unix_time_from_system() - _time_decrease_start
-		
-		_sim_time_scalar = clamp(_sim_time_scalar - (decrease_time_held * TIME_CHANGE_SPEED * delta),
-			MIN_TIME_SCALAR,
-			MAX_TIME_SCALAR)
-	else:
-		_time_decrease_start = -1

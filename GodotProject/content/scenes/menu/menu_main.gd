@@ -43,14 +43,7 @@ signal scale_increase_start
 signal scale_increase_stop
 
 # Time Signals
-signal time_decrease_start
-signal time_decrease_stop
-
-signal time_increase_start
-signal time_increase_stop
-
-signal time_pause_changed
-signal time_live_pressed
+signal time_speed_changed
 
 # Body Signals
 signal body_selected
@@ -115,16 +108,6 @@ var sim_time_readout: float:
 	set(value):
 		sim_time_readout = value
 		MenuTime.sim_time_readout = value
-		
-var sim_time_paused_readout: bool:
-	set(value):
-		sim_time_paused_readout = value
-		MenuTime.sim_time_paused_readout = value	
-
-var time_live_readout: bool:
-	set(value):
-		time_live_readout = value
-		MenuTime.time_live_readout = value	
 
 var focused_body_name: String: 
 	set(value):
@@ -256,6 +239,7 @@ func _setup_move_tab():
 
 	MenuMove.find_child("BtnReturn").on_button_up.connect(func(): _active_control_tab = MenuSettings)
 
+
 func _setup_rotate_tab():	
 	MenuRotate.find_child("BtnUp").on_button_down.connect(func(): rotate_decreaseX_start.emit())
 	MenuRotate.find_child("BtnUp").on_button_up.connect(func(): rotate_decreaseX_stop.emit())
@@ -271,6 +255,7 @@ func _setup_rotate_tab():
 
 	MenuRotate.find_child("BtnReturn").on_button_up.connect(func(): _active_control_tab = MenuSettings)
 
+
 func _setup_scale_tab():	
 	MenuScale.find_child("BtnDecrease").on_button_down.connect(func(): scale_decrease_start.emit())
 	MenuScale.find_child("BtnDecrease").on_button_up.connect(func(): scale_decrease_stop.emit())
@@ -280,17 +265,11 @@ func _setup_scale_tab():
 	
 	MenuScale.find_child("BtnReturn").on_button_up.connect(func(): _active_control_tab = MenuSettings)
 
-func _setup_time_tab():	
-	MenuTime.find_child("BtnDecrease").on_button_down.connect(func(): time_decrease_start.emit())
-	MenuTime.find_child("BtnDecrease").on_button_up.connect(func(): time_decrease_stop.emit())
 
-	MenuTime.find_child("BtnIncrease").on_button_down.connect(func(): time_increase_start.emit())
-	MenuTime.find_child("BtnIncrease").on_button_up.connect(func(): time_increase_stop.emit())
-	
-	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_live_pressed.emit())
-	
-	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
-	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
+func _setup_time_tab():	
+	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit("live"))
+	MenuTime.find_child("BtnFast").on_button_down.connect(func(): time_speed_changed.emit("fast"))
+	MenuTime.find_child("BtnFaster").on_button_down.connect(func(): time_speed_changed.emit("faster"))
 
 
 func _setup_body_tab():

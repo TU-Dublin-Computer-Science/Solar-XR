@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=20 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
 [ext_resource type="PackedScene" uid="uid://uogsamyglyw5" path="res://addons/mars-ui/content/ui/components/entity/entity.tscn" id="12_jlhfs"]
+[ext_resource type="Script" uid="uid://cdrseamjklpx2" path="res://content/scenes/menu/menu_touch_info.gd" id="15_jbdvg"]
+[ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node.tscn" id="15_lv3hk"]
+[ext_resource type="PackedScene" uid="uid://bnhg4ne18x4e3" path="res://addons/mars-ui/content/ui/components/video_player/video_player.tscn" id="16_jbdvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -45,6 +48,7 @@ mesh = SubResource("QuadMesh_q0bqu")
 shape = SubResource("BoxShape3D_60yw7")
 
 [node name="ControlMenu" type="Node3D" parent="."]
+visible = false
 
 [node name="BtnTglMenu" parent="ControlMenu" instance=ExtResource("10_t43g3")]
 
@@ -71,11 +75,10 @@ label = "Settings"
 [node name="Tabs" type="Node3D" parent="ControlMenu"]
 
 [node name="MenuDefault" type="Node3D" parent="ControlMenu/Tabs"]
-visible = false
 
 [node name="Lbl1" type="Label3D" parent="ControlMenu/Tabs/MenuDefault"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
-text = "Solar XR"
+text = "Solar-XR"
 font = ExtResource("4_8lqmu")
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -256,6 +259,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 
 
 [node name="MenuBody" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
+visible = false
 script = ExtResource("10_ly053")
 
 [node name="CtnBodyList" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("11_jlhfs")]
@@ -326,17 +330,120 @@ visible = false
 text = "FPS: 00"
 
 [node name="StartMenu" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Tabs" type="Node3D" parent="StartMenu"]
+
+[node name="MenuInputMode" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
 
-[node name="BtnStart" parent="StartMenu" instance=ExtResource("3_f40n8")]
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuInputMode"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -0.000148848, 0.051887, 0)
+text = "Please Select an Input Mode"
+font = ExtResource("4_8lqmu")
+font_size = 30
+
+[node name="BtnTouch" parent="StartMenu/Tabs/MenuInputMode" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0)
+label = "Touch"
+
+[node name="BtnRay" parent="StartMenu/Tabs/MenuInputMode" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, 0, 0)
+label = "Raycast"
+
+[node name="MenuTouchBtn" type="Node3D" parent="StartMenu/Tabs"]
+visible = false
+
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuTouchBtn"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Touch the
+button below
+to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
+
+[node name="BtnPress" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
+label = "Touch"
+
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuTouchBtn" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialTouchButton.ogv"
+
+[node name="MenuTouchInfo" type="Node3D" parent="StartMenu/Tabs"]
+visible = false
+script = ExtResource("15_jbdvg")
+
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuTouchInfo"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Touch the
+information node
+below to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
+
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialTouchInfo.ogv"
+
+[node name="InfoNode" parent="StartMenu/Tabs/MenuTouchInfo" instance=ExtResource("15_lv3hk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.12166, -0.0348104, 0.0123163)
+disabled = true
+billboard = false
+
+[node name="MenuRayBtn" type="Node3D" parent="StartMenu/Tabs"]
+
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuRayBtn"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Press the
+button below
+to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
+
+[node name="BtnPress" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120432, -0.0347926, 0)
+label = "Click"
+
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuRayBtn" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialRaycastButton.ogv"
+
+[node name="MenuRayInfo" type="Node3D" parent="StartMenu/Tabs"]
+visible = false
+
+[node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuRayInfo"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)
+text = "Click the
+information node 
+below to continue:
+"
+font = ExtResource("4_8lqmu")
+font_size = 22
+
+[node name="InfoNode" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("15_lv3hk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.12166, -0.0348104, 0.0123163)
+billboard = false
+
+[node name="VideoPlayer" parent="StartMenu/Tabs/MenuRayInfo" instance=ExtResource("16_jbdvg")]
+video_path = "res://content/assets/videos/TutorialRaycastInfo.ogv"
+
+[node name="MenuStart" type="Node3D" parent="StartMenu/Tabs"]
+visible = false
+
+[node name="LblWelcome" type="Label3D" parent="StartMenu/Tabs/MenuStart"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 4.14401e-05, 0.0920108, 0)
+text = "Welcome to Solar-XR"
+font = ExtResource("4_8lqmu")
+font_size = 40
+
+[node name="LblPress" type="Label3D" parent="StartMenu/Tabs/MenuStart"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 4.14401e-05, 0.0209173, 0)
+text = "Press the button
+below to begin"
+font = ExtResource("4_8lqmu")
+font_size = 22
+
+[node name="BtnStart" parent="StartMenu/Tabs/MenuStart" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36915e-05, -0.0261989, 0)
 label = "Start"
-
-[node name="Lbl1" type="Label3D" parent="StartMenu"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.08, 0)
-text = "Welcome !"
-font = ExtResource("4_8lqmu")
-
-[node name="Lbl2" type="Label3D" parent="StartMenu"]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.04, 0)
-text = "Press the button below to begin:"
-font = ExtResource("4_8lqmu")

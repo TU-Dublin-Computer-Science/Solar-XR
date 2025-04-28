@@ -9,6 +9,7 @@ const IconHover = preload("res://content/assets/sprites/locationGrey.png")
 const IconSelected = preload("res://content/assets/sprites/locationRed.png")
 
 @export var disabled: bool = false
+@export var billboard: bool = true
 @export var hovering: bool = true
 @export var title: String
 @export var description: String
@@ -28,12 +29,8 @@ var active: bool = false:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if billboard:
 		%Icon.look_at(camera.global_transform.origin, Vector3.UP)
-		
-		# Scale up as model gets further away
-		var scale_change = %Icon.global_position.distance_to(camera.global_position)
-		
-		#%Icon.scale = Vector3(scale_change, scale_change, scale_change)
 	
 func _on_press_up(event):
 	

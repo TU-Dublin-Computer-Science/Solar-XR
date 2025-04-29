@@ -4,16 +4,6 @@ extends Node3D
 @onready var MainMenu = %MainMenu
 @onready var InfoNodeScreen = %InfoNodeScreen
 
-enum Mode {
-	DEFAULT,
-	MOVE,
-	ROTATE,
-	SCALE,
-	TIME
-}
-
-var mode:Mode = Mode.DEFAULT
-
 const FocusScene = preload("res://content/scenes/focus_scene/focus_scene.tscn")
 
 const DEFAULT_SIM_POS = Vector3(0, 1.5, -2)
@@ -163,8 +153,9 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_sim_time = Time.get_unix_time_from_system()
-	#_sim_time_scalar = TIME_SCALAR_LIVE
+	
 	MainMenu.time_scalar = Mappings.TimeScalar.LIVE
+	
 	
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)

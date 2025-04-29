@@ -1,5 +1,13 @@
 extends Node3D
 
+signal btn_pause_pressed
+signal btn_play_pressed
+
+const BtnScn = preload("res://addons/mars-ui/content/ui/components/button/button.tscn")
+
+var BtnPause: Button3D
+var BtnPlay: Button3D
+
 var sim_time_readout: int: 
 	set(value):
 		sim_time_readout = value
@@ -12,28 +20,60 @@ var sim_time_readout: int:
 																time_dict.minute,
 																time_dict.second]
 		
-var sim_time_scalar: float: 
+var time_scalar_readout: float: 
 	set(value):
-		sim_time_scalar = value
+		time_scalar_readout = value
 		
-		if sim_time_scalar > 3600:
-			var hours_per_sec = sim_time_scalar / 3600
+		if time_scalar_readout > 3600:
+			var hours_per_sec = time_scalar_readout / 3600
 			$LblScalar.text = "%d hrs/s" % hours_per_sec
-		elif sim_time_scalar == 1:
+		elif time_scalar_readout == 1:
 			$LblScalar.text = "Live"
 		else:
-			var mins_per_sec = sim_time_scalar / 60
+			var mins_per_sec = time_scalar_readout / 60
 			$LblScalar.text = "%d mins/s" % mins_per_sec
-		
-		
 
-var time_scalar: Mappings.TimeScalar:
+var time_scalar_enum: Mappings.TimeScalar:
 	set(value):
-		time_scalar = value
-		match(time_scalar):
+		time_scalar_enum = value
+		match(time_scalar_enum):
 			Mappings.TimeScalar.LIVE:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnLive)
 			Mappings.TimeScalar.FAST:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnFast)
 			Mappings.TimeScalar.FASTER:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnFaster)
+
+var sim_time_paused_readout: bool:
+	set(value):
+		if sim_time_paused_readout != value:
+			if value:
+				remove_child(BtnPause)
+				add_child(BtnPlay)
+			else:
+				remove_child(BtnPlay)
+				add_child(BtnPause)
+		
+			sim_time_paused_readout = value
+
+var time_live_readout: bool:
+	set(value):
+		time_live_readout = value
+		$BtnLive.disabled = value
+		$BtnLive.active = value
+
+func _ready() -> void:
+	BtnPause = BtnScn.instantiate()
+	BtnPause.position = Vector3(-0.07, 0, 0)
+	BtnPause.scale = Vector3(1.5, 1.5, 1.5)
+	BtnPause.label = "||"
+	BtnPause.on_button_up.connect(func(): btn_pause_pressed.emit())
+	
+	BtnPlay = BtnScn.instantiate()
+	BtnPlay.position = Vector3(-0.07, 0, 0)
+	BtnPlay.scale = Vector3(1.5, 1.5, 1.5)
+	BtnPlay.label = "▸"
+	BtnPlay.font_size = 20
+	BtnPlay.on_button_up.connect(func(): btn_play_pressed.emit())
+	
+	add_child(BtnPause)

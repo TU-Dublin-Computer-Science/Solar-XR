@@ -43,6 +43,8 @@ signal scale_increase_start
 signal scale_increase_stop
 
 # Time Signals
+signal time_pause_changed
+signal time_live_pressed
 signal time_speed_changed
 
 # Body Signals
@@ -99,15 +101,30 @@ var scale_readout: float:
 		scale_readout = value
 		MenuScale.scale_readout = value
 
-var sim_time_scalar: int: 
+var time_scalar_enum: Mappings.TimeScalar: 
 	set(value):
-		sim_time_scalar = value
-		MenuTime.sim_time_scalar = value
+		time_scalar_enum = value
+		MenuTime.time_scalar_enum = value
+
+var time_scalar_readout: int:
+	set(value):
+		time_scalar_readout = value
+		MenuTime.time_scalar_readout = value
 
 var sim_time_readout: float:
 	set(value):
 		sim_time_readout = value
 		MenuTime.sim_time_readout = value
+
+var sim_time_paused_readout: bool:
+	set(value):
+		sim_time_paused_readout = value
+		MenuTime.sim_time_paused_readout = value	
+
+var time_live_readout: bool:
+	set(value):
+		time_live_readout = value
+		MenuTime.time_live_readout = value
 
 var focused_body_name: String: 
 	set(value):
@@ -123,11 +140,6 @@ var input_method: Mappings.InputMethod:
 	set(value):
 		input_method = value
 		MenuSettings.input_method = value
-
-var time_scalar: Mappings.TimeScalar:
-	set(value):
-		time_scalar = value
-		MenuTime.time_scalar = value
 
 # ------------
 
@@ -272,10 +284,14 @@ func _setup_scale_tab():
 
 
 func _setup_time_tab():	
-	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.LIVE))
+	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit(func(): time_live_pressed.emit()))
 	MenuTime.find_child("BtnFast").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FAST))
 	MenuTime.find_child("BtnFaster").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FASTER))
 
+	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_live_pressed.emit())
+
+	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
+	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
 
 func _setup_body_tab():
 	MenuBody.find_child("BtnBack").on_button_up.connect(func(): body_back_pressed.emit())

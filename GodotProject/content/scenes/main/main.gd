@@ -40,15 +40,35 @@ var _sim_position: Vector3:
 		MainMenu.pos_readout = value
 
 var _sim_time_scalar: Mappings.TimeScalar:
-	set(value):
+	set(value):		
 		_sim_time_scalar = value
-		
-		MainMenu.sim_time_scalar = value
+		MainMenu.time_scalar_enum = _sim_time_scalar
+		MainMenu.time_scalar_readout = _get_time_scalar(_sim_time_scalar)
+
+var _sim_time_paused: bool:
+	set(value):
+		_sim_time_paused = value
+
+		if _sim_time_paused:
+			_sim_time_live = false
+
+		MainMenu.sim_time_paused_readout = value
+
+var _sim_time_live: bool:
+	set(value):
+		_sim_time_live = value
+		MainMenu.time_live_readout = value
 
 var _sim_time: float:
 	set(value):
 		_sim_time = value
 		_focus_scene.time = value
+		
+		var sys_time = Time.get_unix_time_from_system()
+
+		#When sim time is out of sync it's not live
+		if abs(int(_sim_time) - int(sys_time)) > 5:
+			_sim_time_live = false
 		
 		MainMenu.sim_time_readout = value
 
@@ -102,7 +122,8 @@ func _ready():
 
 
 func _process(delta):
-	_sim_time += delta * _sim_time_scalar
+	if not _sim_time_paused:
+		_sim_time += delta * _get_time_scalar(_sim_time_scalar)
 	
 	_check_if_player_moved()
 	
@@ -124,6 +145,17 @@ func _setup():
 	%AudBGM.playing = true
 	_focus_scene.visible = true
 	_reset_state()
+
+
+func _get_time_scalar(scalar_enum: Mappings.TimeScalar):
+	match(scalar_enum):
+		Mappings.TimeScalar.LIVE:
+			return TIME_SCALAR_LIVE
+		Mappings.TimeScalar.FAST:
+			return TIME_SCALAR_FAST
+		Mappings.TimeScalar.FASTER:
+			return TIME_SCALAR_FASTER
+	
 
 
 func _check_if_player_moved():
@@ -152,16 +184,20 @@ func _reset_state():
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
-	_sim_time = Time.get_unix_time_from_system()
-	
-	MainMenu.time_scalar = Mappings.TimeScalar.LIVE
-	
+	_init_time()	
 	
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
 		_focus_parent()
 		
 	_update_body_menu()
+
+
+func _init_time():
+	_sim_time = Time.get_unix_time_from_system()
+	_sim_time_scalar = Mappings.TimeScalar.LIVE
+	_sim_time_paused = false
+	_sim_time_live = true
 
 
 func _connect_info_nodes(orbiting_body: OrbitingBody):
@@ -300,14 +336,11 @@ func _setup_scale_signals():
 
 
 func _setup_time_signals():
+	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
+	MainMenu.time_live_pressed.connect(_init_time)
+	
 	MainMenu.time_speed_changed.connect(func(time_scalar: Mappings.TimeScalar):
-		match(time_scalar):
-			Mappings.TimeScalar.LIVE:
-				_sim_time_scalar = TIME_SCALAR_LIVE
-			Mappings.TimeScalar.FAST:
-				_sim_time_scalar = TIME_SCALAR_FAST
-			Mappings.TimeScalar.FASTER:
-				_sim_time_scalar = TIME_SCALAR_FASTER
+		_sim_time_scalar = time_scalar
 	)
 
 

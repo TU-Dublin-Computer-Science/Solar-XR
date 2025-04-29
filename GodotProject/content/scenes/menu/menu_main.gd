@@ -124,6 +124,11 @@ var input_method: Mappings.InputMethod:
 		input_method = value
 		MenuSettings.input_method = value
 
+var time_scalar: Mappings.TimeScalar:
+	set(value):
+		time_scalar = value
+		MenuTime.time_scalar = value
+
 # ------------
 
 var _active_btn: Button3D = null:
@@ -267,9 +272,9 @@ func _setup_scale_tab():
 
 
 func _setup_time_tab():	
-	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit("live"))
-	MenuTime.find_child("BtnFast").on_button_down.connect(func(): time_speed_changed.emit("fast"))
-	MenuTime.find_child("BtnFaster").on_button_down.connect(func(): time_speed_changed.emit("faster"))
+	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.LIVE))
+	MenuTime.find_child("BtnFast").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FAST))
+	MenuTime.find_child("BtnFaster").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FASTER))
 
 
 func _setup_body_tab():

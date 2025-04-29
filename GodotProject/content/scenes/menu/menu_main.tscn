@@ -247,17 +247,17 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0545316, 
 text = "1x
 "
 
-[node name="ButtonToggle" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("10_t43g3")]
+[node name="BtnTglScalar" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("10_t43g3")]
 
-[node name="BtnLive" parent="ControlMenu/Tabs/MenuTime/ButtonToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnLive" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.07, -0.001, 0)
 label = "Live"
 
-[node name="BtnFast" parent="ControlMenu/Tabs/MenuTime/ButtonToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnFast" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 label = ">"
 
-[node name="BtnFaster" parent="ControlMenu/Tabs/MenuTime/ButtonToggle" instance=ExtResource("3_f40n8")]
+[node name="BtnFaster" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.07, 0, 0)
 label = ">>"
 

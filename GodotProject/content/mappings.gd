@@ -18,3 +18,9 @@ enum InputMethod {
 	CONTROLLER,
 	ALL
 }
+
+enum TimeScalar {
+	LIVE,
+	FAST,
+	FASTER
+}

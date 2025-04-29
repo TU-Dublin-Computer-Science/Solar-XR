@@ -49,8 +49,7 @@ var _sim_position: Vector3:
 		%Simulation.position = value
 		MainMenu.pos_readout = value
 
-
-var _sim_time_scalar: float = TIME_SCALAR_LIVE:
+var _sim_time_scalar: Mappings.TimeScalar:
 	set(value):
 		_sim_time_scalar = value
 		
@@ -164,7 +163,8 @@ func _reset_state():
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
 	_sim_time = Time.get_unix_time_from_system()
-	_sim_time_scalar = TIME_SCALAR_LIVE
+	#_sim_time_scalar = TIME_SCALAR_LIVE
+	MainMenu.time_scalar = Mappings.TimeScalar.LIVE
 	
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
@@ -309,13 +309,13 @@ func _setup_scale_signals():
 
 
 func _setup_time_signals():
-	MainMenu.time_speed_changed.connect(func(time_speed: String):
-		match(time_speed):
-			"live":
+	MainMenu.time_speed_changed.connect(func(time_scalar: Mappings.TimeScalar):
+		match(time_scalar):
+			Mappings.TimeScalar.LIVE:
 				_sim_time_scalar = TIME_SCALAR_LIVE
-			"fast":
+			Mappings.TimeScalar.FAST:
 				_sim_time_scalar = TIME_SCALAR_FAST
-			"faster":
+			Mappings.TimeScalar.FASTER:
 				_sim_time_scalar = TIME_SCALAR_FASTER
 	)
 

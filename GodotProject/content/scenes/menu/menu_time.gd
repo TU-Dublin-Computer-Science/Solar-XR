@@ -16,3 +16,14 @@ var sim_time_scalar_readout: float:
 	set(value):
 		sim_time_scalar_readout = value
 		$LblScalar.text = "%dx" % value
+
+var time_scalar: Mappings.TimeScalar:
+	set(value):
+		time_scalar = value
+		match(time_scalar):
+			Mappings.TimeScalar.LIVE:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnLive)
+			Mappings.TimeScalar.FAST:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnFast)
+			Mappings.TimeScalar.FASTER:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnFaster)

@@ -12,10 +12,20 @@ var sim_time_readout: int:
 																time_dict.minute,
 																time_dict.second]
 		
-var sim_time_scalar_readout: float: 
+var sim_time_scalar: float: 
 	set(value):
-		sim_time_scalar_readout = value
-		$LblScalar.text = "%dx" % value
+		sim_time_scalar = value
+		
+		if sim_time_scalar > 3600:
+			var hours_per_sec = sim_time_scalar / 3600
+			$LblScalar.text = "%d hrs/s" % hours_per_sec
+		elif sim_time_scalar == 1:
+			$LblScalar.text = "Live"
+		else:
+			var mins_per_sec = sim_time_scalar / 60
+			$LblScalar.text = "%d mins/s" % mins_per_sec
+		
+		
 
 var time_scalar: Mappings.TimeScalar:
 	set(value):

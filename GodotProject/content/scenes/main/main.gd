@@ -20,7 +20,7 @@ const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
 const TIME_SCALAR_LIVE = 1
-const TIME_SCALAR_FAST = 2000
+const TIME_SCALAR_FAST = 1800
 const TIME_SCALAR_FASTER = 10000
 
 # Start of Settings Variables
@@ -43,7 +43,7 @@ var _sim_time_scalar: Mappings.TimeScalar:
 	set(value):
 		_sim_time_scalar = value
 		
-		MainMenu.sim_time_scalar_readout = value
+		MainMenu.sim_time_scalar = value
 
 var _sim_time: float:
 	set(value):

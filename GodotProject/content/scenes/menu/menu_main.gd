@@ -99,10 +99,10 @@ var scale_readout: float:
 		scale_readout = value
 		MenuScale.scale_readout = value
 
-var sim_time_scalar_readout: int: 
+var sim_time_scalar: int: 
 	set(value):
-		sim_time_scalar_readout = value
-		MenuTime.sim_time_scalar_readout = value
+		sim_time_scalar = value
+		MenuTime.sim_time_scalar = value
 
 var sim_time_readout: float:
 	set(value):

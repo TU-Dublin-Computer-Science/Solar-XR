@@ -43,6 +43,8 @@ var time_scalar_enum: Mappings.TimeScalar:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnBackward1)
 			Mappings.TimeScalar.REAL:
 				$BtnTglScalar.clear_active_btn()
+			Mappings.TimeScalar.ZERO:
+				$BtnTglScalar.clear_active_btn()
 			Mappings.TimeScalar.FORWARD1:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnForward1)
 			Mappings.TimeScalar.FORWARD2:
@@ -58,7 +60,6 @@ var sim_time_paused_readout: bool:
 			else:
 				remove_child(BtnPlay)
 				add_child(BtnPause)
-				$LblScalar.text = "1 sec/s"
 			
 			sim_time_paused_readout = value
 

@@ -26,6 +26,7 @@ const TIME_SCALAR_FASTER = 10000
 var time_scalar_dict = {
 	Mappings.TimeScalar.BACKWARD2: -10000,
 	Mappings.TimeScalar.BACKWARD1: -1800,
+	Mappings.TimeScalar.ZERO: 0,
 	Mappings.TimeScalar.REAL: 1,
 	Mappings.TimeScalar.FORWARD1: 1800,
 	Mappings.TimeScalar.FORWARD2: 10000
@@ -48,21 +49,15 @@ var _sim_position: Vector3:
 		MainMenu.pos_readout = value
 
 var _sim_time_scalar: Mappings.TimeScalar:
-	set(value):		
-		_sim_time_scalar = value
-		MainMenu.time_scalar_enum = _sim_time_scalar
-		MainMenu.time_scalar_readout = time_scalar_dict[_sim_time_scalar]
-
-var _sim_time_paused: bool:
 	set(value):
-		_sim_time_paused = value
-
-		_sim_time_scalar = Mappings.TimeScalar.REAL
-
-		if _sim_time_paused:
-			_sim_time_live = false			
-
-		MainMenu.sim_time_paused_readout = value
+		_sim_time_scalar = value
+		MainMenu.time_scalar_enum = value
+		MainMenu.time_scalar_readout = time_scalar_dict[value]
+		
+		if value == Mappings.TimeScalar.ZERO:
+			MainMenu.sim_time_paused_readout = true
+		else:
+			MainMenu.sim_time_paused_readout = false
 
 var _sim_time_live: bool:
 	set(value):
@@ -132,8 +127,8 @@ func _ready():
 
 
 func _process(delta):
-	if not _sim_time_paused:
-		_sim_time += delta * time_scalar_dict[_sim_time_scalar]
+	
+	_sim_time += delta * time_scalar_dict[_sim_time_scalar]
 	
 	_check_if_player_moved()
 	
@@ -196,7 +191,6 @@ func _reset_state():
 func _init_time():
 	_sim_time = Time.get_unix_time_from_system()
 	_sim_time_scalar = Mappings.TimeScalar.REAL
-	_sim_time_paused = false
 	_sim_time_live = true
 
 
@@ -336,7 +330,6 @@ func _setup_scale_signals():
 
 
 func _setup_time_signals():
-	MainMenu.time_pause_changed.connect(func(value): _sim_time_paused = value)
 	MainMenu.time_live_pressed.connect(_init_time)
 	
 	MainMenu.time_speed_changed.connect(func(time_scalar: Mappings.TimeScalar):

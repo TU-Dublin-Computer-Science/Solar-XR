@@ -284,14 +284,15 @@ func _setup_scale_tab():
 
 
 func _setup_time_tab():	
+	MenuTime.find_child("BtnBackward2").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.BACKWARD2))
+	MenuTime.find_child("BtnBackward1").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.BACKWARD1))
 	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit(func(): time_live_pressed.emit()))
-	MenuTime.find_child("BtnFast").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FAST))
-	MenuTime.find_child("BtnFaster").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FASTER))
-
-	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_live_pressed.emit())
+	MenuTime.find_child("BtnForward1").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FORWARD1))
+	MenuTime.find_child("BtnForward2").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FORWARD2))
 
 	MenuTime.btn_pause_pressed.connect(func(): time_pause_changed.emit(true))
 	MenuTime.btn_play_pressed.connect(func(): time_pause_changed.emit(false))
+
 
 func _setup_body_tab():
 	MenuBody.find_child("BtnBack").on_button_up.connect(func(): body_back_pressed.emit())

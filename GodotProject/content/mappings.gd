@@ -20,7 +20,9 @@ enum InputMethod {
 }
 
 enum TimeScalar {
+	BACKWARD2,
+	BACKWARD1,
 	LIVE,
-	FAST,
-	FASTER
+	FORWARD1,
+	FORWARD2
 }

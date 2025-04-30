@@ -23,6 +23,14 @@ const TIME_SCALAR_LIVE = 1
 const TIME_SCALAR_FAST = 1800
 const TIME_SCALAR_FASTER = 10000
 
+var time_scalar_dict = {
+	Mappings.TimeScalar.BACKWARD2: -10000,
+	Mappings.TimeScalar.BACKWARD1: -1800,
+	Mappings.TimeScalar.LIVE: 1,
+	Mappings.TimeScalar.FORWARD1: 1800,
+	Mappings.TimeScalar.FORWARD2: 10000
+}
+
 # Start of Settings Variables
 var input_method: Mappings.InputMethod:
 	set(value):
@@ -43,7 +51,7 @@ var _sim_time_scalar: Mappings.TimeScalar:
 	set(value):		
 		_sim_time_scalar = value
 		MainMenu.time_scalar_enum = _sim_time_scalar
-		MainMenu.time_scalar_readout = _get_time_scalar(_sim_time_scalar)
+		MainMenu.time_scalar_readout = time_scalar_dict[_sim_time_scalar]
 
 var _sim_time_paused: bool:
 	set(value):
@@ -123,7 +131,7 @@ func _ready():
 
 func _process(delta):
 	if not _sim_time_paused:
-		_sim_time += delta * _get_time_scalar(_sim_time_scalar)
+		_sim_time += delta * time_scalar_dict[_sim_time_scalar]
 	
 	_check_if_player_moved()
 	
@@ -146,16 +154,6 @@ func _setup():
 	_focus_scene.visible = true
 	_reset_state()
 
-
-func _get_time_scalar(scalar_enum: Mappings.TimeScalar):
-	match(scalar_enum):
-		Mappings.TimeScalar.LIVE:
-			return TIME_SCALAR_LIVE
-		Mappings.TimeScalar.FAST:
-			return TIME_SCALAR_FAST
-		Mappings.TimeScalar.FASTER:
-			return TIME_SCALAR_FASTER
-	
 
 
 func _check_if_player_moved():

@@ -24,11 +24,12 @@ var time_scalar_readout: float:
 	set(value):
 		time_scalar_readout = value
 		
-		if time_scalar_readout > 3600:
+		
+		if abs(time_scalar_readout) > 3600:
 			var hours_per_sec = time_scalar_readout / 3600
 			$LblScalar.text = "%d hrs/s" % hours_per_sec
 		elif time_scalar_readout == 1:
-			$LblScalar.text = "Live"
+			$LblScalar.text = "1 sec/s"
 		else:
 			var mins_per_sec = time_scalar_readout / 60
 			$LblScalar.text = "%d mins/s" % mins_per_sec
@@ -37,12 +38,16 @@ var time_scalar_enum: Mappings.TimeScalar:
 	set(value):
 		time_scalar_enum = value
 		match(time_scalar_enum):
+			Mappings.TimeScalar.BACKWARD2:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnBackward2)
+			Mappings.TimeScalar.BACKWARD1:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnBackward1)
 			Mappings.TimeScalar.LIVE:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnLive)
-			Mappings.TimeScalar.FAST:
-				$BtnTglScalar.set_active($BtnTglScalar/BtnFast)
-			Mappings.TimeScalar.FASTER:
-				$BtnTglScalar.set_active($BtnTglScalar/BtnFaster)
+			Mappings.TimeScalar.FORWARD1:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnForward1)
+			Mappings.TimeScalar.FORWARD2:
+				$BtnTglScalar.set_active($BtnTglScalar/BtnForward2)
 
 var sim_time_paused_readout: bool:
 	set(value):
@@ -53,8 +58,9 @@ var sim_time_paused_readout: bool:
 			else:
 				remove_child(BtnPlay)
 				add_child(BtnPause)
-		
+			
 			sim_time_paused_readout = value
+			$LblScalar.text = "PAUSED"
 
 var time_live_readout: bool:
 	set(value):
@@ -64,13 +70,13 @@ var time_live_readout: bool:
 
 func _ready() -> void:
 	BtnPause = BtnScn.instantiate()
-	BtnPause.position = Vector3(-0.07, 0, 0)
+	BtnPause.position = Vector3(0, 0, 0)
 	BtnPause.scale = Vector3(1.5, 1.5, 1.5)
 	BtnPause.label = "||"
 	BtnPause.on_button_up.connect(func(): btn_pause_pressed.emit())
 	
 	BtnPlay = BtnScn.instantiate()
-	BtnPlay.position = Vector3(-0.07, 0, 0)
+	BtnPlay.position = Vector3(0, 0, 0)
 	BtnPlay.scale = Vector3(1.5, 1.5, 1.5)
 	BtnPlay.label = "▸"
 	BtnPlay.font_size = 20

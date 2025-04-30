@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bg4wkgaqqs4ps" path="res://addons/mars-ui/content/ui/components/button_toggle/button_toggle.tscn" id="10_t43g3"]
 [ext_resource type="PackedScene" uid="uid://bby2dvis6toey" path="res://addons/mars-ui/content/ui/components/flex_container/flex_container.tscn" id="11_jlhfs"]
 [ext_resource type="PackedScene" uid="uid://uogsamyglyw5" path="res://addons/mars-ui/content/ui/components/entity/entity.tscn" id="12_jlhfs"]
-[ext_resource type="Script" path="res://content/scenes/menu/menu_touch_info.gd" id="15_jbdvg"]
+[ext_resource type="Script" uid="uid://cdrseamjklpx2" path="res://content/scenes/menu/menu_touch_info.gd" id="15_jbdvg"]
 [ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node.tscn" id="15_lv3hk"]
 [ext_resource type="PackedScene" uid="uid://bnhg4ne18x4e3" path="res://addons/mars-ui/content/ui/components/video_player/video_player.tscn" id="16_jbdvg"]
 
@@ -253,12 +253,20 @@ label = "Live"
 
 [node name="BtnTglScalar" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("10_t43g3")]
 
-[node name="BtnFast" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+[node name="BtnBackward2" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.14, 0, 0)
+label = "<<"
+
+[node name="BtnBackward1" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.07, 0, 0)
+label = "<"
+
+[node name="BtnForward1" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.07, 0, 0)
 label = ">"
 
-[node name="BtnFaster" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.07, 0, 0)
+[node name="BtnForward2" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.14, 0, 0)
 label = ">>"
 
 [node name="MenuBody" type="Node3D" parent="ControlMenu/Tabs"]

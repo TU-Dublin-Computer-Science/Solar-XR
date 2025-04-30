@@ -24,7 +24,6 @@ var time_scalar_readout: float:
 	set(value):
 		time_scalar_readout = value
 		
-		
 		if abs(time_scalar_readout) > 3600:
 			var hours_per_sec = time_scalar_readout / 3600
 			$LblScalar.text = "%d hrs/s" % hours_per_sec
@@ -42,8 +41,8 @@ var time_scalar_enum: Mappings.TimeScalar:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnBackward2)
 			Mappings.TimeScalar.BACKWARD1:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnBackward1)
-			Mappings.TimeScalar.LIVE:
-				$BtnTglScalar.set_active($BtnTglScalar/BtnLive)
+			Mappings.TimeScalar.REAL:
+				$BtnTglScalar.clear_active_btn()
 			Mappings.TimeScalar.FORWARD1:
 				$BtnTglScalar.set_active($BtnTglScalar/BtnForward1)
 			Mappings.TimeScalar.FORWARD2:
@@ -55,12 +54,13 @@ var sim_time_paused_readout: bool:
 			if value:
 				remove_child(BtnPause)
 				add_child(BtnPlay)
+				$LblScalar.text = "PAUSED"
 			else:
 				remove_child(BtnPlay)
 				add_child(BtnPause)
+				$LblScalar.text = "1 sec/s"
 			
 			sim_time_paused_readout = value
-			$LblScalar.text = "PAUSED"
 
 var time_live_readout: bool:
 	set(value):

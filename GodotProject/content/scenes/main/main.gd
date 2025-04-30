@@ -26,7 +26,7 @@ const TIME_SCALAR_FASTER = 10000
 var time_scalar_dict = {
 	Mappings.TimeScalar.BACKWARD2: -10000,
 	Mappings.TimeScalar.BACKWARD1: -1800,
-	Mappings.TimeScalar.LIVE: 1,
+	Mappings.TimeScalar.REAL: 1,
 	Mappings.TimeScalar.FORWARD1: 1800,
 	Mappings.TimeScalar.FORWARD2: 10000
 }
@@ -57,8 +57,10 @@ var _sim_time_paused: bool:
 	set(value):
 		_sim_time_paused = value
 
+		_sim_time_scalar = Mappings.TimeScalar.REAL
+
 		if _sim_time_paused:
-			_sim_time_live = false
+			_sim_time_live = false			
 
 		MainMenu.sim_time_paused_readout = value
 
@@ -193,7 +195,7 @@ func _reset_state():
 
 func _init_time():
 	_sim_time = Time.get_unix_time_from_system()
-	_sim_time_scalar = Mappings.TimeScalar.LIVE
+	_sim_time_scalar = Mappings.TimeScalar.REAL
 	_sim_time_paused = false
 	_sim_time_live = true
 

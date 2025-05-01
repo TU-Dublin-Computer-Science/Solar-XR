@@ -56,6 +56,7 @@ var _sim_time_scalar: Mappings.TimeScalar:
 		
 		if value == Mappings.TimeScalar.ZERO:
 			MainMenu.sim_time_paused_readout = true
+			_sim_time_live = false
 		else:
 			MainMenu.sim_time_paused_readout = false
 

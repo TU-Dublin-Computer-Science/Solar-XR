@@ -72,9 +72,9 @@ var _sim_time: float:
 		var sys_time = Time.get_unix_time_from_system()
 
 		#When sim time is out of sync it's not live
-		if abs(int(_sim_time) - int(sys_time)) > 5:
+		if _sim_time_live and abs(int(_sim_time) - int(sys_time)) > 5:
 			_sim_time_live = false
-		
+
 		MainMenu.sim_time_readout = value
 
 var _focus_scene: FocusScene
@@ -150,7 +150,6 @@ func _setup():
 	%AudBGM.playing = true
 	_focus_scene.visible = true
 	_reset_state()
-
 
 
 func _check_if_player_moved():

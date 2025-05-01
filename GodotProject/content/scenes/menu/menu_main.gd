@@ -286,7 +286,7 @@ func _setup_scale_tab():
 func _setup_time_tab():	
 	MenuTime.find_child("BtnBackward2").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.BACKWARD2))
 	MenuTime.find_child("BtnBackward1").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.BACKWARD1))
-	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_speed_changed.emit(func(): time_live_pressed.emit()))
+	MenuTime.find_child("BtnLive").on_button_down.connect(func(): time_live_pressed.emit())
 	MenuTime.find_child("BtnForward1").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FORWARD1))
 	MenuTime.find_child("BtnForward2").on_button_down.connect(func(): time_speed_changed.emit(Mappings.TimeScalar.FORWARD2))
 

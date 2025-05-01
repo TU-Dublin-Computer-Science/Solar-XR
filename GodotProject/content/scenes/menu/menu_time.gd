@@ -33,13 +33,13 @@ var sim_time_readout: int:
 		var month_name = months[time_dict.month - 1]  # Month is 1-based
 		
 		$LblDateTime.text = "%02d:%02d:%02d - %d%s %s %d" % [	time_dict.hour,
-															time_dict.minute,
-															time_dict.second,
-															time_dict.day, 
-															suffix,
-															month_name,
-															time_dict.year,
-														   ]
+																time_dict.minute,
+																time_dict.second,
+																time_dict.day, 
+																suffix,
+																month_name,
+																time_dict.year,
+															]
 
 var time_scalar_readout: float: 
 	set(value):

@@ -11,8 +11,13 @@ var BtnPlay: Button3D
 var sim_time_readout: int: 
 	set(value):
 		sim_time_readout = value
+	
 		var time_dict = Time.get_datetime_dict_from_unix_time(value)
 		
+		var system_time = Time.get_datetime_dict_from_system()
+		if system_time.dst:
+			time_dict.hour += 1
+
 		$LblDateTime.text = "%04d-%02d-%02d %02d:%02d:%02d" % [	time_dict.year, 
 																time_dict.month, 
 																time_dict.day,

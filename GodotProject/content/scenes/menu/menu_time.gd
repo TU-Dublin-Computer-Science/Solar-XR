@@ -18,13 +18,29 @@ var sim_time_readout: int:
 		if system_time.dst:
 			time_dict.hour += 1
 
-		$LblDateTime.text = "%04d-%02d-%02d %02d:%02d:%02d" % [	time_dict.year, 
-																time_dict.month, 
-																time_dict.day,
-																time_dict.hour,
-																time_dict.minute,
-																time_dict.second]
+		var suffix = "th"
+		if time_dict.day not in [11, 12, 13]: #Exceptions
+			match time_dict.day % 10:
+				1: suffix = "st"
+				2: suffix = "nd"
+				3: suffix = "rd"
+
+		var months := [
+			"January", "February", "March", "April", "May", "June",
+			"July", "August", "September", "October", "November", "December"
+		]
 		
+		var month_name = months[time_dict.month - 1]  # Month is 1-based
+		
+		$LblDateTime.text = "%02d:%02d:%02d - %d%s %s %d" % [	time_dict.hour,
+															time_dict.minute,
+															time_dict.second,
+															time_dict.day, 
+															suffix,
+															month_name,
+															time_dict.year,
+														   ]
+
 var time_scalar_readout: float: 
 	set(value):
 		time_scalar_readout = value

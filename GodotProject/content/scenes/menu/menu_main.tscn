@@ -239,16 +239,17 @@ vertical_alignment = 0
 script = ExtResource("8_dwy47")
 
 [node name="LblDateTime" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0838694, 0)
-text = "1970-01-01 00:00:00"
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0939403, 0)
+text = "1st September 1975 - 00:00:00
+"
 
 [node name="LblScalar" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0545316, 0)
-text = "1x
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0606055, 0)
+text = "1 min/s
 "
 
 [node name="BtnLive" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.115943, 0.0706408, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.067, 0.006)
 label = "Live"
 
 [node name="BtnTglScalar" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("10_t43g3")]

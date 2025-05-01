@@ -48,7 +48,6 @@ mesh = SubResource("QuadMesh_q0bqu")
 shape = SubResource("BoxShape3D_60yw7")
 
 [node name="ControlMenu" type="Node3D" parent="."]
-visible = false
 
 [node name="BtnTglMenu" parent="ControlMenu" instance=ExtResource("10_t43g3")]
 
@@ -75,6 +74,7 @@ label = "Settings"
 [node name="Tabs" type="Node3D" parent="ControlMenu"]
 
 [node name="MenuDefault" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 
 [node name="Lbl1" type="Label3D" parent="ControlMenu/Tabs/MenuDefault"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.179305, 0.117984, 0)
@@ -239,23 +239,37 @@ vertical_alignment = 0
 visible = false
 script = ExtResource("8_dwy47")
 
-[node name="BtnDecrease" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0826867, -0.015, 0)
-label = "<<"
-
-[node name="BtnIncrease" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0812186, -0.015, 0)
-label = ">>"
-
-[node name="BtnLive" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.120586, 0.0557469, 0)
-label = "Live"
-
 [node name="LblDateTime" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0838694, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.000570595, 0.0939403, 0)
+text = "1st September 1975 - 00:00:00
+"
 
 [node name="LblScalar" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0314462, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00134677, 0.0606055, 0)
+text = "1 min/s
+"
+
+[node name="BtnLive" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.067, 0.006)
+label = "Live"
+
+[node name="BtnTglScalar" parent="ControlMenu/Tabs/MenuTime" instance=ExtResource("10_t43g3")]
+
+[node name="BtnBackward2" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.14, 0, 0)
+label = "<<"
+
+[node name="BtnBackward1" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.07, 0, 0)
+label = "<"
+
+[node name="BtnForward1" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.07, 0, 0)
+label = ">"
+
+[node name="BtnForward2" parent="ControlMenu/Tabs/MenuTime/BtnTglScalar" instance=ExtResource("3_f40n8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.14, 0, 0)
+label = ">>"
 
 [node name="MenuBody" type="Node3D" parent="ControlMenu/Tabs"]
 transform = Transform3D(0.999999, -0.00106488, 0.000410604, 0.00106475, 0.999999, 0.000325769, -0.000410956, -0.000325324, 1, 0, -0.015306, 0)
@@ -283,19 +297,17 @@ focusable = false
 label = "/\\"
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
-visible = false
 script = ExtResource("10_ic3tv")
 
 [node name="Settings" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175, 0.1, 0)
-text = "Interaction Modes
+text = "Interaction Modes:
 "
 horizontal_alignment = 0
 
 [node name="Settings2" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175, 0, 0)
-text = "Simulation Postion:
-"
+text = "Advanced:"
 horizontal_alignment = 0
 
 [node name="BtnTglInput" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("10_t43g3")]
@@ -392,6 +404,7 @@ disabled = true
 billboard = false
 
 [node name="MenuRayBtn" type="Node3D" parent="StartMenu/Tabs"]
+visible = false
 
 [node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuRayBtn"]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)

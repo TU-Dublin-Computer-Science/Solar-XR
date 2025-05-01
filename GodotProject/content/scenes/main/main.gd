@@ -19,10 +19,6 @@ const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
-const TIME_SCALAR_LIVE = 1
-const TIME_SCALAR_FAST = 1800
-const TIME_SCALAR_FASTER = 10000
-
 var time_scalar_dict = {
 	Mappings.TimeScalar.BACKWARD2: -10000,
 	Mappings.TimeScalar.BACKWARD1: -1800,
@@ -179,7 +175,7 @@ func _reset_state():
 	%Simulation.rotate(Vector3.UP, deg_to_rad(DEFAULT_ROT.y))
 	%Simulation.rotate(Vector3.FORWARD, deg_to_rad(DEFAULT_ROT.z))
 	
-	_init_time()	
+	_init_time()
 	
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)

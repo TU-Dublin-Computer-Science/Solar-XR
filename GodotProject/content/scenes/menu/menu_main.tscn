@@ -236,6 +236,7 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="MenuTime" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 script = ExtResource("8_dwy47")
 
 [node name="LblDateTime" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
@@ -296,18 +297,17 @@ focusable = false
 label = "/\\"
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
-visible = false
 script = ExtResource("10_ic3tv")
 
 [node name="Settings" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175, 0.1, 0)
-text = "Interaction Modes
+text = "Interaction Modes:
 "
 horizontal_alignment = 0
 
 [node name="Settings2" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.175, 0, 0)
-text = "Advanced"
+text = "Advanced:"
 horizontal_alignment = 0
 
 [node name="BtnTglInput" parent="ControlMenu/Tabs/MenuSettings" instance=ExtResource("10_t43g3")]

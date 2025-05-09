@@ -19,6 +19,13 @@ const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
+# Puts system in mode for running experiment
+var _experiment_mode = false:
+	set(value):
+		_experiment_mode = value
+		MainMenu.exit_start_menu()
+		
+
 var time_scalar_dict = {
 	Mappings.TimeScalar.BACKWARD2: -10000,
 	Mappings.TimeScalar.BACKWARD1: -1800,
@@ -129,18 +136,7 @@ func _process(delta):
 	
 	_check_if_player_moved()
 	
-	_handle_constant_state_changes(delta)
-	
-	if Input.is_action_pressed("forward"):
-		input_method = Mappings.InputMethod.POINTER
-
-
-func _input(event):
-	if event.is_action_pressed("forward"):
-		if input_method == Mappings.InputMethod.POINTER:
-			input_method = Mappings.InputMethod.TOUCH
-		else:
-			input_method = Mappings.InputMethod.POINTER
+	_handle_constant_state_changes(delta)	
 
 
 func _setup():
@@ -404,3 +400,12 @@ func _handle_constant_scaling(delta: float):
 	if _scale_decreasing:
 		var base_change = SCALE_CHANGE_SPEED * delta
 		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
+
+
+func _on_xr_controller_right_button_pressed(name: String) -> void:
+	if name == "select_button":
+		_experiment_mode = true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("toggle_exp_mode"):
+		_experiment_mode = true

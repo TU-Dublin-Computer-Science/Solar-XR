@@ -311,7 +311,7 @@ func _setup_start_menu():
 	%StartMenu.visible = true
 	
 	MenuStart.find_child("BtnStart").on_button_up.connect(func():
-		_exit_start_menu()
+		exit_start_menu()
 	)
 	
 	MenuInputMode.find_child("BtnTouch").on_button_up.connect(func(): _active_start_tab = MenuTouchBtn)
@@ -321,10 +321,10 @@ func _setup_start_menu():
 	)
 	
 	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)	
-	MenuTouchInfo.find_child("InfoNode").on_button_down.connect(func(): _exit_start_menu())
+	MenuTouchInfo.find_child("InfoNode").on_button_down.connect(func(): exit_start_menu())
 	
 	MenuRayBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuRayInfo)
-	MenuRayInfo.find_child("InfoNode").on_button_down.connect(func(): _exit_start_menu())
+	MenuRayInfo.find_child("InfoNode").on_button_down.connect(func(): exit_start_menu())
 	
 	for tab in $StartMenu/Tabs.get_children():
 		tab.visible = true
@@ -333,7 +333,7 @@ func _setup_start_menu():
 	_active_start_tab = MenuInputMode
 
 
-func _exit_start_menu():
+func exit_start_menu():
 	start.emit()
 	remove_child(StartMenu)
 	add_child(ControlMenu)

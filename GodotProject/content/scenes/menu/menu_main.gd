@@ -67,8 +67,12 @@ signal reset
 @onready var MenuSettings = $ControlMenu/Tabs/MenuSettings
 
 @onready var ControlMenu = $ControlMenu
+@onready var BtnSettings = %BtnSettings
+@onready var BtnTglMenu = $ControlMenu/BtnTglMenu
+@onready var LblMode = $ControlMenu/Tabs/MenuDefault/LblMode
 
 @onready var StartMenu = $StartMenu
+@onready var StartMenuTabs = $StartMenu/Tabs
 @onready var MenuStart = $StartMenu/Tabs/MenuStart
 @onready var MenuInputMode = $StartMenu/Tabs/MenuInputMode
 @onready var MenuTouchBtn = $StartMenu/Tabs/MenuTouchBtn
@@ -166,16 +170,17 @@ var _active_control_tab: Node3D = null:
 var _active_start_tab: Node3D = null:
 	set(value):
 		if _active_start_tab != null:
-			$StartMenu/Tabs.remove_child(_active_start_tab)
+			StartMenuTabs.remove_child(_active_start_tab)
 		
 		_active_start_tab = value
-		$StartMenu/Tabs.add_child(_active_start_tab)
+		StartMenuTabs.add_child(_active_start_tab)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
 	_setup_start_menu()
 	_setup_control_menu()
-	remove_child(StartMenu)
+	_active_start_tab = MenuStart
+	remove_child(ControlMenu)
 
 
 func _process(delta: float) -> void:
@@ -184,13 +189,21 @@ func _process(delta: float) -> void:
 
 
 func toggle_exp_mode(exp_mode: bool):
+	"""Experiment Specific Configuration"""
+	"""Current Confirguration: Gesture Input Usability Comparison"""
+	
 	if exp_mode:
-		remove_child(ControlMenu)
-		add_child(StartMenu)
+		LblMode.text = "Experiment Mode"
+		BtnTglMenu.remove_child(BtnSettings)	
 		_active_start_tab = MenuInputMode
 	else:
-		remove_child(StartMenu)
-		add_child(ControlMenu)
+		LblMode.text = ""
+		BtnTglMenu.add_child(BtnSettings)
+		_active_start_tab = MenuStart
+		
+	if not StartMenu.is_inside_tree():
+		remove_child(ControlMenu)
+		add_child(StartMenu)
 
 
 func add_body(body: OrbitingBody):
@@ -340,8 +353,6 @@ func _setup_start_menu():
 	for tab in $StartMenu/Tabs.get_children():
 		tab.visible = true
 		$StartMenu/Tabs.remove_child(tab)
-		
-	_active_start_tab = MenuInputMode
 
 
 func exit_start_menu():

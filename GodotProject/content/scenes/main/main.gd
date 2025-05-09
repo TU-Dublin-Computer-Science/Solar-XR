@@ -24,7 +24,8 @@ var _experiment_mode = false:
 	set(value):
 		_experiment_mode = value
 		MainMenu.toggle_exp_mode(value)
-		
+		_reset_state()
+		_focus_scene.visible = false
 
 var time_scalar_dict = {
 	Mappings.TimeScalar.BACKWARD2: -10000,

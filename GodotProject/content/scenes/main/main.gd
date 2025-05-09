@@ -23,7 +23,7 @@ const BODY_SCALE_UP = 800
 var _experiment_mode = false:
 	set(value):
 		_experiment_mode = value
-		MainMenu.exit_start_menu()
+		MainMenu.toggle_exp_mode(value)
 		
 
 var time_scalar_dict = {
@@ -404,8 +404,9 @@ func _handle_constant_scaling(delta: float):
 
 func _on_xr_controller_right_button_pressed(name: String) -> void:
 	if name == "select_button":
-		_experiment_mode = true
+		_experiment_mode = not _experiment_mode
+
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("toggle_exp_mode"):
-		_experiment_mode = true
+	if event.is_action_released("toggle_exp_mode"):
+		_experiment_mode = not _experiment_mode

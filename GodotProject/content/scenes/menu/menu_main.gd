@@ -175,12 +175,22 @@ var _active_start_tab: Node3D = null:
 func _ready() -> void:	
 	_setup_start_menu()
 	_setup_control_menu()
-	remove_child(ControlMenu)
+	remove_child(StartMenu)
 
 
 func _process(delta: float) -> void:
 	if FPSCounter != null and FPSCounter.visible:
 		FPSCounter.text = "FPS: %d" % Engine.get_frames_per_second()    
+
+
+func toggle_exp_mode(exp_mode: bool):
+	if exp_mode:
+		remove_child(ControlMenu)
+		add_child(StartMenu)
+		_active_start_tab = MenuInputMode
+	else:
+		remove_child(StartMenu)
+		add_child(ControlMenu)
 
 
 func add_body(body: OrbitingBody):
@@ -189,6 +199,7 @@ func add_body(body: OrbitingBody):
 
 func reset_body_menu():
 	MenuBody.reset()
+
 
 func render_body_menu():
 	MenuBody.render()

@@ -188,24 +188,6 @@ func _process(delta: float) -> void:
 		FPSCounter.text = "FPS: %d" % Engine.get_frames_per_second()    
 
 
-func toggle_exp_mode(exp_mode: bool):
-	"""Experiment Specific Configuration"""
-	"""Current Confirguration: Gesture Input Usability Comparison"""
-	
-	if exp_mode:
-		LblMode.text = "Experiment Mode"
-		BtnTglMenu.remove_child(BtnSettings)	
-		_active_start_tab = MenuInputMode
-	else:
-		LblMode.text = ""
-		BtnTglMenu.add_child(BtnSettings)
-		_active_start_tab = MenuStart
-		
-	if not StartMenu.is_inside_tree():
-		remove_child(ControlMenu)
-		add_child(StartMenu)
-
-
 func add_body(body: OrbitingBody):
 	MenuBody.add_body(body)
 

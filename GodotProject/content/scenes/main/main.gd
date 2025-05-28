@@ -19,14 +19,6 @@ const DEFAULT_SIM_SCALE: float = 0.01
 const SCALE_CHANGE_SPEED = 2
 const BODY_SCALE_UP = 800
 
-# Puts system in mode for running experiment
-var _experiment_mode = false:
-	set(value):
-		_experiment_mode = value
-		MainMenu.toggle_exp_mode(value)
-		_reset_state()
-		_focus_scene.visible = false
-
 var time_scalar_dict = {
 	Mappings.TimeScalar.BACKWARD2: -10000,
 	Mappings.TimeScalar.BACKWARD1: -1800,
@@ -403,11 +395,23 @@ func _handle_constant_scaling(delta: float):
 		_focus_scene.sim_scale = clamp(_focus_scene.sim_scale * (1.0 - base_change), MIN_SIM_SCALE, MAX_SIM_SCALE)
 
 
-func _on_xr_controller_right_button_pressed(name: String) -> void:
-	if name == "select_button":
-		_experiment_mode = not _experiment_mode
+func _on_xr_controller_right_button_released(name: String) -> void:	
+	if name == "select_button": # Toggle Input Mode
+		if input_method == Mappings.InputMethod.TOUCH:
+			input_method = Mappings.InputMethod.POINTER
+		elif input_method == Mappings.InputMethod.POINTER:
+			input_method = Mappings.InputMethod.TOUCH
+		
+		_reset_state()
+		_focus_scene.visible = false
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("toggle_exp_mode"):
-		_experiment_mode = not _experiment_mode
+	if event.is_action_released("toggle_input_mode"): # Toggle Input Mode
+		if input_method == Mappings.InputMethod.TOUCH:
+			input_method = Mappings.InputMethod.POINTER
+		elif input_method == Mappings.InputMethod.POINTER:
+			input_method = Mappings.InputMethod.TOUCH
+		
+		_reset_state()
+		_focus_scene.visible = false

@@ -65,4 +65,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0947552, -0.133997, -0.4540
 
 [node name="DisplayScreen" parent="MainMenuTracker/InfoNodeScreen" instance=ExtResource("12_xl8ae")]
 
-[connection signal="button_pressed" from="XROrigin3D/XRControllerRight" to="." method="_on_xr_controller_right_button_pressed"]
+[connection signal="button_released" from="XROrigin3D/XRControllerRight" to="." method="_on_xr_controller_right_button_released"]

@@ -54,10 +54,6 @@ signal body_back_pressed
 # Settings Signals
 signal input_mode_changed
 
-# Reset Signal
-signal reset
-
-
 @onready var MenuDefault = $ControlMenu/Tabs/MenuDefault
 @onready var MenuMove = $ControlMenu/Tabs/MenuMove
 @onready var MenuRotate = $ControlMenu/Tabs/MenuRotate
@@ -200,6 +196,12 @@ func add_body(body: OrbitingBody):
 	MenuBody.add_body(body)
 
 
+func reset():
+	if ControlMenu.is_inside_tree():
+		$ControlMenu/BtnTglMenu.clear_active_btn()
+		_active_control_tab = MenuDefault
+
+
 func reset_body_menu():
 	MenuBody.reset()
 
@@ -230,14 +232,6 @@ func _setup_menu_buttons():
 	%BtnTime.on_button_down.connect(func(): _active_control_tab = MenuTime)
 	
 	%BtnBody.on_button_down.connect(func(): _active_control_tab = MenuBody)
-	
-	%BtnReset.on_button_down.connect(func(): 
-		$ControlMenu/BtnTglMenu.clear_active_btn()
-		_active_control_tab = MenuDefault
-		reset.emit()
-	)
-	
-	%BtnSettings.on_button_down.connect(func(): _active_control_tab = MenuSettings)
 
 
 func _setup_tabs():

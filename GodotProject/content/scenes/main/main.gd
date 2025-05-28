@@ -172,7 +172,8 @@ func _reset_state():
 	if _focus_scene.parent_focus_scene != null:
 		_focus_scene.parent_focus_scene.focus_animation_finished.connect(_animation_for_reset_finished)
 		_focus_parent()
-		
+	
+	MainMenu.reset()
 	_update_body_menu()
 
 
@@ -254,7 +255,6 @@ func _setup_menu():
 	_setup_time_signals()
 	_setup_body_signals()
 	_setup_settings_signals()
-	MainMenu.reset.connect(_reset_state)
 
 
 func _update_body_menu():
@@ -404,6 +404,9 @@ func _on_xr_controller_right_button_released(name: String) -> void:
 			input_method = Mappings.InputMethod.POINTER
 		elif input_method == Mappings.InputMethod.POINTER:
 			input_method = Mappings.InputMethod.TOUCH
+	elif name == "menu_button": # Reset Simulation State
+		_reset_state()
+		
 
 
 func _input(event: InputEvent) -> void:
@@ -412,3 +415,5 @@ func _input(event: InputEvent) -> void:
 			input_method = Mappings.InputMethod.POINTER
 		elif input_method == Mappings.InputMethod.POINTER:
 			input_method = Mappings.InputMethod.TOUCH
+	elif event.is_action_released("reset"):
+		_reset_state()

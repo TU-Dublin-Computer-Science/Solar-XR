@@ -74,7 +74,6 @@ signal reset
 @onready var StartMenu = $StartMenu
 @onready var StartMenuTabs = $StartMenu/Tabs
 @onready var MenuStart = $StartMenu/Tabs/MenuStart
-@onready var MenuInputMode = $StartMenu/Tabs/MenuInputMode
 @onready var MenuTouchBtn = $StartMenu/Tabs/MenuTouchBtn
 @onready var MenuTouchInfo = $StartMenu/Tabs/MenuTouchInfo
 @onready var MenuRayBtn = $StartMenu/Tabs/MenuRayBtn
@@ -144,6 +143,15 @@ var input_method: Mappings.InputMethod:
 	set(value):
 		input_method = value
 		MenuSettings.input_method = value
+		
+		if input_method == Mappings.InputMethod.TOUCH:
+			_active_start_tab = MenuTouchBtn
+		elif input_method == Mappings.InputMethod.POINTER:
+			_active_start_tab = MenuRayBtn
+		
+		if not StartMenu.is_inside_tree():
+			remove_child(ControlMenu)
+			add_child(StartMenu)
 
 # ------------
 
@@ -318,12 +326,6 @@ func _setup_start_menu():
 	
 	MenuStart.find_child("BtnStart").on_button_up.connect(func():
 		exit_start_menu()
-	)
-	
-	MenuInputMode.find_child("BtnTouch").on_button_up.connect(func(): _active_start_tab = MenuTouchBtn)
-	MenuInputMode.find_child("BtnRay").on_button_up.connect(func(): 
-		input_mode_changed.emit(Mappings.InputMethod.POINTER)
-		_active_start_tab = MenuRayBtn
 	)
 	
 	MenuTouchBtn.find_child("BtnPress").on_button_up.connect(func(): _active_start_tab = MenuTouchInfo)	

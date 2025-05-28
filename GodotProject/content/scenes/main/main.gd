@@ -35,6 +35,9 @@ var input_method: Mappings.InputMethod:
 		$XROrigin3D/XRControllerLeft.input_method = value
 		$XROrigin3D/XRControllerRight.input_method = value
 		%MainMenu.input_method = value
+		
+		_reset_state()
+		_focus_scene.visible = false
 
 # End of Settings Variables
 
@@ -106,12 +109,7 @@ var InfoScreen: Node3D
 var _saved_player_location: Vector3
 var _to_sim: Vector3
 
-func _ready():	
-	if OS.get_name() == "Android":
-		input_method = Mappings.InputMethod.TOUCH
-	else:
-		input_method = Mappings.InputMethod.POINTER
-	
+func _ready():		
 	$MainMenuTracker.Camera =  $XROrigin3D/XRCamera3D
 	%MainMenu.Camera = $XROrigin3D/XRCamera3D
 	
@@ -121,6 +119,11 @@ func _ready():
 	%Simulation.add_child(_focus_scene)
 	
 	_setup_menu()
+	
+	if OS.get_name() == "Android":
+		input_method = Mappings.InputMethod.TOUCH
+	else:
+		input_method = Mappings.InputMethod.POINTER
 
 
 func _process(delta):
@@ -401,9 +404,6 @@ func _on_xr_controller_right_button_released(name: String) -> void:
 			input_method = Mappings.InputMethod.POINTER
 		elif input_method == Mappings.InputMethod.POINTER:
 			input_method = Mappings.InputMethod.TOUCH
-		
-		_reset_state()
-		_focus_scene.visible = false
 
 
 func _input(event: InputEvent) -> void:
@@ -412,6 +412,3 @@ func _input(event: InputEvent) -> void:
 			input_method = Mappings.InputMethod.POINTER
 		elif input_method == Mappings.InputMethod.POINTER:
 			input_method = Mappings.InputMethod.TOUCH
-		
-		_reset_state()
-		_focus_scene.visible = false

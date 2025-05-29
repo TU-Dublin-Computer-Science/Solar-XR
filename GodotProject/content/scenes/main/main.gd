@@ -399,12 +399,12 @@ func _handle_constant_scaling(delta: float):
 
 
 func _on_xr_controller_right_button_released(name: String) -> void:	
-	if name == "select_button": # Toggle Input Mode
+	if name == "menu_button": # Toggle Input Mode
 		if input_method == Mappings.InputMethod.TOUCH:
 			input_method = Mappings.InputMethod.POINTER
 		elif input_method == Mappings.InputMethod.POINTER:
 			input_method = Mappings.InputMethod.TOUCH
-	elif name == "menu_button": # Reset Simulation State
+	elif name == "select_button": # Reset Simulation State
 		_reset_state()
 		
 

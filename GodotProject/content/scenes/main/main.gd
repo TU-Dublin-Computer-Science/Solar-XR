@@ -204,6 +204,7 @@ func _focus_parent():
 	
 	_connect_info_nodes(_focus_scene.focused_body)
 	_update_body_menu()
+	%InfoNodeScreen.deactivate()
 
 
 func _focus_child(body_name: String):
@@ -217,7 +218,8 @@ func _focus_child(body_name: String):
 	
 	_focus_scene.focus_animation_finished.connect(_focus_child_animation_finished)
 	_focus_scene.start_focus_animation(body_name)
-
+	
+	%InfoNodeScreen.deactivate()
 
 func _focus_child_animation_finished():
 	_focus_scene.focus_animation_finished.disconnect(_focus_child_animation_finished)

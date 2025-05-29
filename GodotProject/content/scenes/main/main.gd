@@ -199,7 +199,9 @@ func _focus_parent():
 	var parent_focus_scene = _focus_scene.parent_focus_scene
 	_focus_scene.parent_focus_scene = null
 	_focus_scene = parent_focus_scene
+	_focus_scene.visible = false  # Turn invisible to make seamless
 	%Simulation.add_child(_focus_scene)
+	_focus_scene.visible = true
 	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
 	
 	_connect_info_nodes(_focus_scene.focused_body)

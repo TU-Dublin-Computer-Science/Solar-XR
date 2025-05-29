@@ -49,8 +49,7 @@ func _on_press_up(event):
 		on_button_up.emit()
 	
 func _on_ray_enter(_event: EventPointer):
-	if !disabled and hovering:
-		%Icon.texture = IconHover
+	%Icon.texture = IconHover
 
 
 func _on_ray_leave(_event: EventPointer):
@@ -59,7 +58,6 @@ func _on_ray_leave(_event: EventPointer):
 
 
 func _on_touch_enter(event: EventTouch):
-	print("Touched")
 	if event.target != $FingerArea:
 		return
 

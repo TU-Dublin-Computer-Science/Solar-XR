@@ -62,6 +62,7 @@ func _ready():
 func _physics_process(_delta):
 	_handle_cursor()
 	_handle_grid()
+	_handle_ray()
 
 func _process(delta):
 	if grid.visible:
@@ -92,7 +93,6 @@ func _handle_cursor():
 		return
 
 	cursor.visible = true
-	decal.visible = false
 	
 	cursor.global_transform.origin = get_collision_point() + get_collision_normal() * 0.001 # offset to avoid z-fighting
 
@@ -105,3 +105,25 @@ func _handle_cursor():
 	var cursor_scale = clamp(distance * 1.5, 1.0, 10.0)
 
 	cursor.scale = Vector3(cursor_scale, cursor_scale, cursor_scale)
+
+
+func _handle_ray():
+	# Create new ray mesh
+	var material = StandardMaterial3D.new()
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.albedo_color = Color(1.0, 1.0, 1.0, 0.427)
+	
+	var ray_mesh = CylinderMesh.new()
+	ray_mesh.top_radius = 0.005
+	ray_mesh.bottom_radius = 0.01
+	ray_mesh.material = material
+	
+	var length = 4.0
+	if is_colliding():
+		var collision_point = get_collision_point() + get_collision_normal() * 0.001		
+		length = (collision_point - global_transform.origin).length()
+	
+	ray_mesh.height = length
+		
+	$Ray.mesh = ray_mesh
+	$Ray.position.z = length/2 * -1

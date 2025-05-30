@@ -34,10 +34,19 @@ var input_method: Mappings.InputMethod:
 		input_method = value
 		$XROrigin3D/XRControllerLeft.input_method = value
 		$XROrigin3D/XRControllerRight.input_method = value
+		
 		%MainMenu.input_method = value
 		
 		_reset_state()
 		_focus_scene.visible = false
+
+		if input_method == Mappings.InputMethod.TOUCH:
+			%MainMenu.position = Vector3(0, -0.4, -0.35)
+			%InfoNodeScreen.position = Vector3(0.095, -0.134, -0.454)	
+		if input_method == Mappings.InputMethod.POINTER:
+			%MainMenu.position = Vector3(0, -0.669, -0.571)
+			%InfoNodeScreen.position = Vector3(0.095, -0.395, -0.679)
+			
 
 # End of Settings Variables
 

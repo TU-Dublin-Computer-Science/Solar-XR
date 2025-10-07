@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://31h07126r0qd"]
+[gd_scene load_steps=21 format=3 uid="uid://31h07126r0qd"]
 
 [ext_resource type="Shader" uid="uid://d1xj0rfd2vgxq" path="res://addons/mars-ui/assets/materials/glass.gdshader" id="1_cyyat"]
 [ext_resource type="Script" uid="uid://dg0jg7w6ckwcr" path="res://content/scenes/menu/menu_main.gd" id="1_sm88u"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cdrseamjklpx2" path="res://content/scenes/menu/menu_touch_info.gd" id="15_jbdvg"]
 [ext_resource type="PackedScene" uid="uid://hl7flstb3lmw" path="res://addons/mars-ui/content/ui/components/info_nodes/info_node/info_node.tscn" id="15_lv3hk"]
 [ext_resource type="PackedScene" uid="uid://bnhg4ne18x4e3" path="res://addons/mars-ui/content/ui/components/video_player/video_player.tscn" id="16_jbdvg"]
+[ext_resource type="Script" uid="uid://c22njg4n7vl0l" path="res://content/scenes/menu/menu_ray_info.gd" id="17_se0lk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw4vq"]
 render_priority = 0
@@ -424,6 +425,7 @@ video_path = "res://content/assets/videos/TutorialRaycastButton.ogv"
 
 [node name="MenuRayInfo" type="Node3D" parent="StartMenu/Tabs"]
 visible = false
+script = ExtResource("17_se0lk")
 
 [node name="LblInstr" type="Label3D" parent="StartMenu/Tabs/MenuRayInfo"]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.125692, 0.0279485, 0)

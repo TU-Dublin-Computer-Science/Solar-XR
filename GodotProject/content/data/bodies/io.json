@@ -12,6 +12,16 @@
     "inclination": 0.0,
     "lon_ascending_node": 0.0,
     "orbital_period": 1.762732,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "Io",
+            "description": "Jupiter's moon Io has over 400 active volcanoes, making it the most volcanically active body in the solar system. These volcanoes erupt lava that can reach temperatures exceeding 1,000 degrees Celsius.",
+            "image_path": "res://content/assets/info_images/PlaceholderImage.png",
+            "location": {
+                "latitude": 18.65,
+                "longitude": 226.2
+            }
+        }
+    ],
     "satellites": []
 }

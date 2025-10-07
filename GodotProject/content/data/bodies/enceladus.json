@@ -12,6 +12,16 @@
     "inclination": 0.0,
     "lon_ascending_node": 0.0,
     "orbital_period": 1.370218,
-    "info_points": [],
+    "info_points": [
+        {
+            "title": "Enceladus",
+            "description": "Enceladus is one of the brightest moons in the solar system. It's icy surface contains geyser-like plumes that erupt into space.",
+            "image_path": "res://content/assets/info_images/PlaceholderImage.png",
+            "location": {
+                "latitude": 18.65,
+                "longitude": 226.2
+            }
+        }
+    ],
     "satellites": []
 }

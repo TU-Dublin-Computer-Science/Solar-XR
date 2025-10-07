@@ -206,7 +206,7 @@ func _focus_parent():
 	var parent_focus_scene = _focus_scene.parent_focus_scene
 	_focus_scene.parent_focus_scene = null
 	_focus_scene = parent_focus_scene
-	_focus_scene.visible = true
+	%Simulation.add_child(_focus_scene)
 	_focus_scene.start_focus_animation(_focus_scene.focused_body.body_name)
 	
 	_connect_info_nodes(_focus_scene.focused_body)
@@ -215,7 +215,7 @@ func _focus_parent():
 
 func _focus_child(body_name: String):
 	"""Create child focus scene, start animation of current scene.
-	focus_animation_finished then swaps the scenes when the animation is finished
+	_focus_child_animation_finished then swaps the scenes when the animation is finished
 	"""
 	_new_focus_scene = FocusScene.instantiate()
 	_new_focus_scene.init(body_name, Camera)
@@ -238,6 +238,7 @@ func _focus_child_animation_finished():
 	%Simulation.add_child(_focus_scene)
 	
 	_focus_scene.parent_focus_scene.visible = false
+	%Simulation.remove_child(_focus_scene.parent_focus_scene)
 	_focus_scene.visible = true
 	
 	_connect_info_nodes(_focus_scene.focused_body)

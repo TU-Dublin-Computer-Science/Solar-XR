@@ -395,7 +395,7 @@ func _handle_constant_rotation(delta: float):
 	if _rot_decreasing_y:
 		%Simulation.rotate_y(-ROT_CHANGE_SPEED*delta)
 
-	
+
 func _handle_constant_scaling(delta: float):
 	if _scale_increasing:
 		var base_change = SCALE_CHANGE_SPEED * delta

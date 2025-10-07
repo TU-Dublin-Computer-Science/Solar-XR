@@ -237,7 +237,6 @@ func _focus_child_animation_finished():
 	_focus_scene.visible = false
 	%Simulation.add_child(_focus_scene)
 	
-	_focus_scene.parent_focus_scene.visible = false
 	%Simulation.remove_child(_focus_scene.parent_focus_scene)
 	_focus_scene.visible = true
 	

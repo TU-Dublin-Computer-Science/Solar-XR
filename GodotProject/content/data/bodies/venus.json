@@ -51,7 +51,7 @@
         },
         {
             "title": "Maxwell Montes",
-            "description": "A bright mountain range containing Skadi Mons, the tallest mountain on Venus.",
+            "description": "The brightest mountain range on Venus. It contains Skadi Mons, it's tallest mountain.",
             "image_path": "res://content/assets/info_images/MaxwellMontes.jpg",
             "location": {
                 "latitude": 65.20,

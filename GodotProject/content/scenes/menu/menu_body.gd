@@ -16,7 +16,7 @@ var parent_body_name: String:
 		parent_body_name = value
 		if parent_body_name != "":
 			$BtnBack.visible = true
-			$BtnBack.label = parent_body_name
+			$BtnBack.label = parent_body_name + "\n(Back)"
 		else:
 			$BtnBack.visible = false
 			$BtnBack.label = ""

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xxxhocwl642k" path="res://content/assets/info_images/OlympusMons.png" id="3_gevwr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adhjk"]
-size = Vector3(0.3, 0.525, 0.01)
+size = Vector3(0.2, 0.3, 0.01)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nn5wx"]
 render_priority = 0

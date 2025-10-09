@@ -239,17 +239,14 @@ func _focus_child(body_name: String):
 
 func _focus_child_animation_finished():
 	_focus_scene.focus_animation_finished.disconnect(_focus_child_animation_finished)
-	_new_focus_scene.parent_focus_scene = _focus_scene
 	
-	_new_focus_scene.parent_focus_scene = _focus_scene
-	_focus_scene = _new_focus_scene
+	_new_focus_scene.parent_focus_scene = _focus_scene  # Set the current scene to be a parent of the new scene
+	_focus_scene = _new_focus_scene  # Make the new scene the main scene
 	_new_focus_scene = null
 	
-	_focus_scene.visible = false
+	_focus_scene.time = _sim_time  # Update the new scene to the current system state
 	%Simulation.add_child(_focus_scene)
-	
 	%Simulation.remove_child(_focus_scene.parent_focus_scene)
-	_focus_scene.visible = true
 	
 	_connect_info_nodes(_focus_scene.focused_body)
 	_update_body_menu()

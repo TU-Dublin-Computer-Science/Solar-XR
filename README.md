@@ -20,7 +20,7 @@ An augmented reality model of the solar system written in Godot and designed for
 
 After cloning the repository, the following addons must be installed from the asset library:
 
-| Name                         Installation Path          |
+| Name                        |  Installation Path          |
 | ----------------------------| -------------------------- |
 | Godot OpenXR Vendors plugin | addons/godotopenxrvendors  |
 

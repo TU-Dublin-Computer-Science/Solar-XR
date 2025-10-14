@@ -1,5 +1,5 @@
 # Solar XR
-An augmented reality model of the solar system written in Godot and designed for education.
+An extended reality model of the solar system written in Godot and designed for education.
 
 **Note: This project is in a pre-alpha state, with more features and bug-fixes to come.**
 

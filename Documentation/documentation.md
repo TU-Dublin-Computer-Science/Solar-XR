@@ -66,13 +66,13 @@ Displays a menu showing controls allowing the scale of the simulation to be chan
 # Technical Implementation
 The program takes the following structure while running, with |- denoting a child node:
 
-Main(main.gd)
-    |-MainMenuTracker(main\_menu\_tracker.gd)
-    |   |-InfoNodeScreen(info\_node\_screen.gd) - MainMenu(main\_menu.gd)
-    |-Simulation
-        |-FocusScene(focus\_scene.gd)
-            |-CentralBody(orbiting\_body.gd) 
-                |-OrbitingBody - OrbitingBody
+Main(main.gd)\n
+    |-MainMenuTracker(main\_menu\_tracker.gd)\n
+    |   |-InfoNodeScreen(info\_node\_screen.gd) - MainMenu(main\_menu.gd)\n
+    |-Simulation\n
+        |-FocusScene(focus\_scene.gd)\n
+            |-CentralBody(orbiting\_body.gd)\n
+                |-OrbitingBody - OrbitingBody\n
 
 ## Main Node (main.gd)
 This is the program entrypoint, and the root node of the program.
@@ -93,6 +93,7 @@ When this animation finishes, the current focus scene will be removed, displayin
 # Data Sources
 
 # Simulation
+
 
 
 

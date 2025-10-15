@@ -19,6 +19,8 @@ When the "Body" button is pressed, a menu is displayed listing the bodies that a
 When one of these is selected, it becomes the focused body, and the menu is updated to display a new list of bodies in direct orbit around the focused body.
 When a body other than the Sun is focused, a back button is shown which will focus the "parent" body, the body which the currently focused body directly orbits.
 
+![Body Menu](BodyMenu.png "Body Menu")
+
 ### Example: 
 - Focused body is the Sun, clicking the Body button shows a list of all 8 planets.
 - Earth is clicked, and an animation plays enlarging the Earth and moving the simulation so that Earth is in the position of where the Sun used to be.
@@ -37,6 +39,8 @@ The controls do as follows:
 - **>>:** Set speed of simulation time to 2 simulation hours per real life second.
 - **<:** Set simulation time to reverse at 30 simulation minutes per real life second.
 - **<<:** Set simulation time to reverse at 2 simulation hours per real life second.
+
+![Time Menu](TimeMenu.png "Time Menu")
 
 ## Reset
 This resets the focused body to the sun, sets the time to live, and resets any position, rotation or scaling modifications.
@@ -59,13 +63,17 @@ Displays a menu showing controls allowing the rotation of the simulation to be c
 ## Scale
 Displays a menu showing controls allowing the scale of the simulation to be changed.
 
-# Folder Structure
-
 # Program Structure
+
+![Project Nodes](Nodes.png "Project Nodes")
+
+
+# Folder Structure
 
 # Data Sources
 
 # Simulation
+
 
 
 

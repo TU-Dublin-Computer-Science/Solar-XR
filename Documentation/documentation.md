@@ -39,16 +39,25 @@ The controls do as follows:
 - **<<:** Set simulation time to reverse at 2 simulation hours per real life second.
 
 ## Reset
+This resets the focused body to the sun, sets the time to live, and resets any position, rotation or scaling modifications.
 
 ## Info Nodes
-
-
-
+Bodies can info nodes at specific location on them, that when touched/clicked display an information box containing an image, title and text description of that location.
 
 # Other Features
 These features are currently found in the settings menu.
 
+## Change Interaction Mode
+The 'Touch' and 'Pointer' buttons can be pressed to switch to that respective input mode.
 
+## Move
+Displays a menu showing controls which allow the position of the simulation to be changed.
+
+## Rotate
+Displays a menu showing controls allowing the rotation of the simulation to be changed.
+
+## Scale
+Displays a menu showing controls allowing the scale of the simulation to be changed.
 
 # Folder Structure
 
@@ -57,6 +66,7 @@ These features are currently found in the settings menu.
 # Data Sources
 
 # Simulation
+
 
 
 

@@ -68,11 +68,11 @@ The program takes the following structure while running, with |- denoting a chil
 
 ```
 Main(main.gd)
-    |-MainMenuTracker(main\_menu\_tracker.gd)
-    |   |-InfoNodeScreen(info\_node\_screen.gd) - MainMenu(main\_menu.gd)
+    |-MainMenuTracker(main_menu_tracker.gd)
+    |   |-InfoNodeScreen(info_node_screen.gd) - MainMenu(main_menu.gd)
     |-Simulation
-        |-FocusScene(focus\_scene.gd)
-            |-CentralBody(orbiting\_body.gd)
+        |-FocusScene(focus_scene.gd)
+            |-CentralBody(orbiting_body.gd)
                 |-OrbitingBody - OrbitingBody
 ```
 
@@ -95,6 +95,7 @@ When this animation finishes, the current focus scene will be removed, displayin
 # Data Sources
 
 # Simulation
+
 
 
 

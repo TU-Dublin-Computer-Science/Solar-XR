@@ -5,18 +5,40 @@ Solar-XR is an extended reality, interactable model of the solar system. It allo
 **Development Platform:** Godot Game Engine (Currently version 4.5)
 **Open-Source Licence:** GNU AFFERO GENERAL PUBLIC LICENSE
 
-# Main Features
-## Body Selection
+# Interaction
 
+
+
+# Main Features
+These features are accessed through three buttons at the bottom of the menu.
+
+## Body Selection
+When the application starts, the sun is the "focused" body, meaning that it appears directly in fron of the user, and at a set size ensuring that it is visible.
+The body menu allows the focused body to be changed, playing an animation to transition between the two bodies.
+When the "Body" button is pressed, a menu is displayed listing the bodies that are in direct orbit around the currently focused body.
+When one of these is selected, it becomes the focused body, and the menu is updated to display a new list of bodies in direct orbit around the focused body.
+When a body other than the Sun is focused, a back button is shown which will focus the "parent" body, the body which the currently focused body directly orbits.
+
+### Example: 
+- Focused body is the Sun, clicking the Body button shows a list of all 8 planets.
+- Earth is clicked, and an animation plays enlarging the Earth and moving the simulation so that Earth is in the position of where the Sun used to be.
+- The menu then updates to show the bodies orbiting the Earth, the moon and the ISS, and a back button appears.
+- The back button is pressed, which bring the focus back to the Sun.
 
 ## Time
 
+
 ## Reset
+
+## Info Nodes
+
+
+
 
 # Other Features
 These features are currently found in the settings menu.
 
-# Interaction
+
 
 # Folder Structure
 
@@ -25,4 +47,5 @@ These features are currently found in the settings menu.
 # Data Sources
 
 # Simulation
+
 

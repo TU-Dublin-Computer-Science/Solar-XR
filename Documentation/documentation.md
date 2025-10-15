@@ -55,7 +55,7 @@ These features are currently found in the settings menu.
 The 'Touch' and 'Pointer' buttons can be pressed to switch to that respective input mode.
 
 ## Move
-Displays a menu showing controls which allow the position of the simulation to be changed.
+Displays a menu showing controls which allow the position of the simulation to be changedi.
 
 ## Rotate
 Displays a menu showing controls allowing the rotation of the simulation to be changed.
@@ -63,9 +63,29 @@ Displays a menu showing controls allowing the rotation of the simulation to be c
 ## Scale
 Displays a menu showing controls allowing the scale of the simulation to be changed.
 
-# Program Structure
+# Technical Implementation
+The program takes the following structure while running, with |- denoting a child node:
 
-![Project Nodes](Nodes.png "Project Nodes")
+Main(main.gd)
+    |-MainMenuTracker(main\_menu\_tracker.gd)
+    |   |-InfoNodeScreen(info\_node\_screen.gd) - MainMenu(main\_menu.gd)
+    |-Simulation
+        |-FocusScene(focus\_scene.gd)
+            |-CentralBody(orbiting\_body.gd) 
+                |-OrbitingBody - OrbitingBody
+
+## Main Node (main.gd)
+This is the program entrypoint, and the root node of the program.
+
+Performs various setup functions on start, including creating a FocusScene node of the sun and adding it as a child to the Simlation node.
+
+It bridges all communications between the MainMenu node and the Simulation node.
+
+### Focus Scene Swapping
+This node handles the focus scene swapping when a new body is focused.
+When a child orbiting body is selected, the \_focus\_child() function will be called. This will create a new FocusScene node, with the selected body as the focused body.
+The current FocusScene will then be told to start its animation moving to the newly focused body.
+When this animation finishes, the current focus scene will be removed, displaying the new scene focusing on the child orbiting body, creating a seamless transition to a new scene with the new body focused.
 
 
 # Folder Structure

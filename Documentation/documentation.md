@@ -26,7 +26,17 @@ When a body other than the Sun is focused, a back button is shown which will foc
 - The back button is pressed, which bring the focus back to the Sun.
 
 ## Time
+Pressing the time button displays the time control menu. 
 
+The simulation can display the state of the solar system at any timestamp. To achieve this, the time menu allows the direction and speed of time to be manipulated to observe how the system changes.
+
+The controls do as follows:
+**Live:** Set the simulation time to the current time (determined from system clock), and set the speed to 1 simulation second per real life second.
+**Pause/Play:** Stop/Start time.
+**>:** Set speed of simulation time to 30 simulation minutes per real life second.
+**>>:** Set speed of simulation time to 2 simulation hours per real life second.
+**<:** Set simulation time to reverse at 30 simulation minutes per real life second.
+**<<:** Set simulation time to reverse at 2 simulation hours per real life second.
 
 ## Reset
 
@@ -47,5 +57,6 @@ These features are currently found in the settings menu.
 # Data Sources
 
 # Simulation
+
 
 

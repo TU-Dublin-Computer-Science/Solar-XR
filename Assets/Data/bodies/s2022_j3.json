@@ -1,0 +1,17 @@
+{
+    "ID": 55523,
+    "name": "S2022_J3",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 21047700,
+    "eccentricity": 0.249,
+    "argument_periapsis": 350.2,
+    "mean_anomaly": 186.4,
+    "inclination": 148.2,
+    "lon_ascending_node": 227.4,
+    "orbital_period": 630.673027,
+    "info_points": [],
+    "satellites": []
+}

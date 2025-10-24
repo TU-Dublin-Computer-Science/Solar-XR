@@ -1,0 +1,17 @@
+{
+    "ID": 529,
+    "name": "Thyone",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 20978000,
+    "eccentricity": 0.233,
+    "argument_periapsis": 343.5,
+    "mean_anomaly": 244.4,
+    "inclination": 147.5,
+    "lon_ascending_node": 235.0,
+    "orbital_period": 627.175794,
+    "info_points": [],
+    "satellites": []
+}

@@ -1,0 +1,17 @@
+{
+    "ID": 502,
+    "name": "Europa",
+    "radius": 1560.8,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 671100,
+    "eccentricity": 0.009,
+    "argument_periapsis": 45.0,
+    "mean_anomaly": 345.4,
+    "inclination": 0.5,
+    "lon_ascending_node": 184.0,
+    "orbital_period": 3.525463,
+    "info_points": [],
+    "satellites": []
+}

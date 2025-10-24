@@ -1,0 +1,17 @@
+{
+    "ID": 65147,
+    "name": "S2019_S19",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 23044700,
+    "eccentricity": 0.458,
+    "argument_periapsis": 301.0,
+    "mean_anomaly": 218.8,
+    "inclination": 151.8,
+    "lon_ascending_node": 231.9,
+    "orbital_period": 1317.829992,
+    "info_points": [],
+    "satellites": []
+}

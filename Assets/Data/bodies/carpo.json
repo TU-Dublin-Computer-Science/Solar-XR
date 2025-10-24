@@ -1,0 +1,17 @@
+{
+    "ID": 546,
+    "name": "Carpo",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 17042300,
+    "eccentricity": 0.416,
+    "argument_periapsis": 86.6,
+    "mean_anomaly": 339.8,
+    "inclination": 53.2,
+    "lon_ascending_node": 54.0,
+    "orbital_period": 456.286617,
+    "info_points": [],
+    "satellites": []
+}

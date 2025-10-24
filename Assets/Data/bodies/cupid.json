@@ -1,0 +1,17 @@
+{
+    "ID": 727,
+    "name": "Cupid",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "semimajor_axis": 74400,
+    "eccentricity": 0.005,
+    "argument_periapsis": 13.5,
+    "mean_anomaly": 160.6,
+    "inclination": 0.1,
+    "lon_ascending_node": 206.6,
+    "orbital_period": 0.613168,
+    "info_points": [],
+    "satellites": []
+}

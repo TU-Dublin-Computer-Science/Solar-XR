@@ -1,0 +1,17 @@
+{
+    "ID": 802,
+    "name": "Nereid",
+    "radius": 170.0,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Neptune",
+    "semimajor_axis": 5513900,
+    "eccentricity": 0.751,
+    "argument_periapsis": 296.8,
+    "mean_anomaly": 318.5,
+    "inclination": 5.1,
+    "lon_ascending_node": 319.5,
+    "orbital_period": 360.133039,
+    "info_points": [],
+    "satellites": []
+}

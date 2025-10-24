@@ -1,0 +1,17 @@
+{
+    "ID": 55512,
+    "name": "S2021_J1",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 20954700,
+    "eccentricity": 0.228,
+    "argument_periapsis": 18.9,
+    "mean_anomaly": 4.0,
+    "inclination": 150.5,
+    "lon_ascending_node": 240.6,
+    "orbital_period": 627.143382,
+    "info_points": [],
+    "satellites": []
+}

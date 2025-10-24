@@ -1,0 +1,17 @@
+{
+    "ID": 65086,
+    "name": "S2004_S12",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 19801200,
+    "eccentricity": 0.337,
+    "argument_periapsis": 86.7,
+    "mean_anomaly": 118.7,
+    "inclination": 164.7,
+    "lon_ascending_node": 305.4,
+    "orbital_period": 1048.568818,
+    "info_points": [],
+    "satellites": []
+}

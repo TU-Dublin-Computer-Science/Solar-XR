@@ -1,0 +1,27 @@
+{
+    "ID": 602,
+    "name": "Enceladus",
+    "radius": 252.1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 238400,
+    "eccentricity": 0.005,
+    "argument_periapsis": 119.5,
+    "mean_anomaly": 57.0,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 1.370218,
+    "info_points": [
+        {
+            "title": "Enceladus",
+            "description": "Enceladus is one of the brightest moons in the solar system. It's icy surface contains geyser-like plumes that erupt into space.",
+            "image_path": "res://content/assets/info_images/PlaceholderImage.png",
+            "location": {
+                "latitude": 18.65,
+                "longitude": 226.2
+            }
+        }
+    ],
+    "satellites": []
+}

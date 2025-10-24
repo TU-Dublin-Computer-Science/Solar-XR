@@ -1,0 +1,17 @@
+{
+    "ID": 631,
+    "name": "Narvi",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 19285600,
+    "eccentricity": 0.441,
+    "argument_periapsis": 177.9,
+    "mean_anomaly": 109.3,
+    "inclination": 142.2,
+    "lon_ascending_node": 179.0,
+    "orbital_period": 1003.946106,
+    "info_points": [],
+    "satellites": []
+}

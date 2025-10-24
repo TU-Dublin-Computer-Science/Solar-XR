@@ -1,0 +1,17 @@
+{
+    "ID": 724,
+    "name": "Ferdinand",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "semimajor_axis": 20421400,
+    "eccentricity": 0.395,
+    "argument_periapsis": 166.9,
+    "mean_anomaly": 172.3,
+    "inclination": 169.2,
+    "lon_ascending_node": 223.9,
+    "orbital_period": 2788.0,
+    "info_points": [],
+    "satellites": []
+}

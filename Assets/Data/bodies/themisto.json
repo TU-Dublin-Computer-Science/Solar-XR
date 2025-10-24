@@ -1,0 +1,17 @@
+{
+    "ID": 518,
+    "name": "Themisto",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 7398500,
+    "eccentricity": 0.34,
+    "argument_periapsis": 236.2,
+    "mean_anomaly": 284.7,
+    "inclination": 43.8,
+    "lon_ascending_node": 209.5,
+    "orbital_period": 130.028096,
+    "info_points": [],
+    "satellites": []
+}

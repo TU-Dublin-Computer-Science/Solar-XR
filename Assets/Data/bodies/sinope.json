@@ -1,0 +1,17 @@
+{
+    "ID": 509,
+    "name": "Sinope",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 23683900,
+    "eccentricity": 0.264,
+    "argument_periapsis": 96.6,
+    "mean_anomaly": 167.5,
+    "inclination": 157.3,
+    "lon_ascending_node": 304.6,
+    "orbital_period": 758.849903,
+    "info_points": [],
+    "satellites": []
+}

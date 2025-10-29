@@ -237,7 +237,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OpenXRFeature__ctor_m120460E34ECC22ED2DB
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 88913
+// Method Definition Index: 89225
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t43A5F7D0A2DEBD6989F287FB9EBB93116E0C1939 UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mA6C08ED6DC318DD3A8E6454728AD08B818197F58 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -280,7 +280,7 @@ IL_0057:
 		return L_7;
 	}
 }
-// Method Definition Index: 88914
+// Method Definition Index: 89226
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mC59A944338EC4FB4DE91E7F383E0F66EF4CF100C (UnitySourceGeneratedAssemblyMonoScriptTypes_v1_tE9026CF1E86D87DDCF6F0A6D3247DB611A1A7778* __this, const RuntimeMethod* method) 
 {
 	{
@@ -366,7 +366,7 @@ IL2CPP_EXTERN_C void MonoScriptData_t43A5F7D0A2DEBD6989F287FB9EBB93116E0C1939_ma
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 88915
+// Method Definition Index: 89227
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OculusQuestFeature__ctor_mF38393F1A5FA04C3AF781D82EC58A4CBB9D85AA2 (OculusQuestFeature_tF5FA7128BB36F546D5CF7094A93B812DAC667810* __this, const RuntimeMethod* method) 
 {
 	{

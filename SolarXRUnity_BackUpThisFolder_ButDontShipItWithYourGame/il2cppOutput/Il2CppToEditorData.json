@@ -1,0 +1,93 @@
+{
+  "Messages": [
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - Method was given it\u0027s own cpp file because it is large and costly to compile"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - Method was given it\u0027s own cpp file because it is large and costly to compile"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - Method was given it\u0027s own cpp file because it is large and costly to compile"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - High Variable Count of 492"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - High Instruction Count of 13837"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - High CodeSize of 37861"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - High Variable Count of 501"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - High Instruction Count of 13994"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - High CodeSize of 38265"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Boolean TMPro.TMP_Text::ValidateHtmlTag(TMPro.TMP_Text/TextProcessingElement[],System.Int32,System.Int32\u0026) - High Variable Count of 226"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Boolean TMPro.TMP_Text::ValidateHtmlTag(TMPro.TMP_Text/TextProcessingElement[],System.Int32,System.Int32\u0026) - High Instruction Count of 5731"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Boolean TMPro.TMP_Text::ValidateHtmlTag(TMPro.TMP_Text/TextProcessingElement[],System.Int32,System.Int32\u0026) - High CodeSize of 16716"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - High Instruction Count of 10580"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - High CodeSize of 31712"
+    },
+    {
+      "Type": 0,
+      "Text": "[Unity.InputSystem] - System.Void UnityEngine.InputSystem.FastTouchscreen::.ctor() - High Variable Count of 315"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - System.Boolean UnityEngine.TextCore.Text.TextGenerator::ValidateHtmlTag(UnityEngine.TextCore.Text.TextProcessingElement[],System.Int32,System.Int32\u0026,UnityEngine.TextCore.Text.TextGenerationSettings,UnityEngine.TextCore.Text.TextInfo,System.Boolean\u0026) - High Variable Count of 250"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - System.Boolean UnityEngine.TextCore.Text.TextGenerator::ValidateHtmlTag(UnityEngine.TextCore.Text.TextProcessingElement[],System.Int32,System.Int32\u0026,UnityEngine.TextCore.Text.TextGenerationSettings,UnityEngine.TextCore.Text.TextInfo,System.Boolean\u0026) - High Instruction Count of 6305"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - System.Boolean UnityEngine.TextCore.Text.TextGenerator::ValidateHtmlTag(UnityEngine.TextCore.Text.TextProcessingElement[],System.Int32,System.Int32\u0026,UnityEngine.TextCore.Text.TextGenerationSettings,UnityEngine.TextCore.Text.TextInfo,System.Boolean\u0026) - High CodeSize of 17778"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - System.Void UnityEngine.TextCore.Text.TextGenerator::ParsingPhase(UnityEngine.TextCore.Text.TextInfo,UnityEngine.TextCore.Text.TextGenerationSettings,System.UInt32\u0026,System.Single\u0026) - High Variable Count of 305"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - System.Void UnityEngine.TextCore.Text.TextGenerator::ParsingPhase(UnityEngine.TextCore.Text.TextInfo,UnityEngine.TextCore.Text.TextGenerationSettings,System.UInt32\u0026,System.Single\u0026) - High Instruction Count of 5866"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - System.Void UnityEngine.TextCore.Text.TextGenerator::ParsingPhase(UnityEngine.TextCore.Text.TextInfo,UnityEngine.TextCore.Text.TextGenerationSettings,System.UInt32\u0026,System.Single\u0026) - High CodeSize of 15252"
+    },
+    {
+      "Type": 0,
+      "Text": "[UnityEngine.TextCoreTextEngineModule] - UnityEngine.Vector2 UnityEngine.TextCore.Text.TextGenerator::CalculatePreferredValues(System.Single\u0026,UnityEngine.Vector2,System.Boolean,UnityEngine.TextCore.Text.TextGenerationSettings,UnityEngine.TextCore.Text.TextInfo) - High Variable Count of 212"
+    }
+  ],
+  "CommandLine": "@Library\\Bee\\artifacts\\rsp\\16048211763392958813.rsp"
+}

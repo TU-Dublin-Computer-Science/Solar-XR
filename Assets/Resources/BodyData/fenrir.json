@@ -1,0 +1,17 @@
+{
+    "ID": 641,
+    "name": "Fenrir",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 22330000,
+    "eccentricity": 0.137,
+    "argument_periapsis": 119.7,
+    "mean_anomaly": 41.1,
+    "inclination": 164.5,
+    "lon_ascending_node": 225.5,
+    "orbital_period": 1260.193443,
+    "info_points": [],
+    "satellites": []
+}

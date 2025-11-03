@@ -1,0 +1,17 @@
+{
+    "ID": 55507,
+    "name": "S2003_J23",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 23829300,
+    "eccentricity": 0.313,
+    "argument_periapsis": 163.2,
+    "mean_anomaly": 168.5,
+    "inclination": 144.7,
+    "lon_ascending_node": 45.0,
+    "orbital_period": 760.000608,
+    "info_points": [],
+    "satellites": []
+}

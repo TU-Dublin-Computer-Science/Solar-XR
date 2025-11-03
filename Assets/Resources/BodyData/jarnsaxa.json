@@ -1,0 +1,17 @@
+{
+    "ID": 650,
+    "name": "Jarnsaxa",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 19273200,
+    "eccentricity": 0.218,
+    "argument_periapsis": 236.0,
+    "mean_anomaly": 156.2,
+    "inclination": 163.0,
+    "lon_ascending_node": 21.1,
+    "orbital_period": 1006.46334,
+    "info_points": [],
+    "satellites": []
+}

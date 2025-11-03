@@ -1,0 +1,67 @@
+{
+    "ID": 799,
+    "name": "Uranus",
+    "radius": 25362,
+    "rotation_factor": 501.1600928,
+    "model_path": "res://content/scenes/model_scenes/uranus.tscn",
+    "central_body": "Sun",
+    "semimajor_axis": 2870658170.6557,
+    "eccentricity": 0.04725744,
+    "argument_periapsis": 96.93735127,
+    "mean_anomaly": 142.28382821,
+    "inclination": 0.77263783,
+    "lon_ascending_node": 74.01692503,
+    "orbital_period": 30666.14879,
+    "info_points": [
+        {
+            "title": "Pale Blue Colour",
+            "description": "The methane in the planet's atmosphere absorbs red and reflects blue light, giving the planet it's colour.",
+            "image_path": "res://content/assets/info_images/UranusSurface.jpg",
+            "location": {
+                "latitude": 50,
+                "longitude": 50
+            }
+        },
+        {
+            "title": "Clouds",
+            "description": "Uranus hosts clouds at four layers: methane clouds, hydrogen sulfide and ammonia clouds, ammonium hydrosulfide clouds, and water clouds. Only the top two layers have been observed and the rest remain speculative.",
+            "image_path": "res://content/assets/info_images/UranusClouds.jpg",
+            "location": {
+                "latitude": -50,
+                "longitude": 150
+            }
+        }
+
+    ],
+    "satellites": [
+        "ariel",
+        "umbriel",
+        "titania",
+        "oberon",
+        "miranda",
+        "puck",
+        "cordelia",
+        "ophelia",
+        "bianca",
+        "cressida",
+        "desdemona",
+        "juliet",
+        "portia",
+        "rosalind",
+        "belinda",
+        "puck",
+        "perdita",
+        "mab",
+        "cupid",
+        "caliban",
+        "sycorax",
+        "prospero",
+        "setebos",
+        "stephano",
+        "trinculo",
+        "francisco",
+        "margaret",
+        "ferdinand",
+        "s2023_u1"
+    ] 
+}

@@ -1,0 +1,17 @@
+{
+    "ID": 65089,
+    "name": "S2006_S01",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 18746200,
+    "eccentricity": 0.105,
+    "argument_periapsis": 161.0,
+    "mean_anomaly": 134.3,
+    "inclination": 156.0,
+    "lon_ascending_node": 336.6,
+    "orbital_period": 964.238364,
+    "info_points": [],
+    "satellites": []
+}

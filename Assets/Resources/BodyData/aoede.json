@@ -1,0 +1,17 @@
+{
+    "ID": 541,
+    "name": "Aoede",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 23778200,
+    "eccentricity": 0.436,
+    "argument_periapsis": 72.9,
+    "mean_anomaly": 198.8,
+    "inclination": 155.7,
+    "lon_ascending_node": 174.5,
+    "orbital_period": 761.464554,
+    "info_points": [],
+    "satellites": []
+}

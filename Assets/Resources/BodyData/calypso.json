@@ -1,0 +1,17 @@
+{
+    "ID": 614,
+    "name": "Calypso",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 295000,
+    "eccentricity": 0.001,
+    "argument_periapsis": 221.6,
+    "mean_anomaly": -0.0,
+    "inclination": 1.5,
+    "lon_ascending_node": 326.6,
+    "orbital_period": 1.887803,
+    "info_points": [],
+    "satellites": []
+}

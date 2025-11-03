@@ -1,0 +1,63 @@
+{
+    "ID": 199,
+    "name": "Mercury",
+    "radius": 2439.4,
+    "rotation_factor": 6.1385108,
+    "model_path": "res://content/scenes/model_scenes/mercury.tscn",
+    "central_body": "Sun",
+    "semimajor_axis": 57909226.54152,
+    "eccentricity": 0.20563593,
+    "argument_periapsis": 29.12703035,
+    "mean_anomaly": 174.79252722,
+    "inclination": 7.00497902,
+    "lon_ascending_node": 48.33076593,
+    "orbital_period": 87.9090455,
+    "info_points": [
+        {
+            "title": "Hun Kal Crater",
+            "description": "Hun Kal is a small crater on Mercury used as a reference point it's prime meridian. It is defined as being at longitude 20°W of the planet's prime meridian.", 
+            "image_path": "res://content/assets/info_images/HunKal.jpg",
+            "location": {
+                "latitude": -0.46,
+                "longitude": 339.99
+            }
+        },
+        {
+            "title": "Caloris Plantia",
+            "description": "Caloris Plantia is the largest impact crater on Mercury. It is one of the largest impact basins in the Solar System.",
+            "image_path": "res://content/assets/info_images/Caloris.jpg",
+            "location": {
+                "latitude": 31.65,
+                "longitude": 161.98
+            }
+        },
+        {
+            "title": "Debussy Crater",
+            "description": "A rayed impact crater named after the French composer. Most of Mercury's craters are named after musicians, writers and artists.",
+            "image_path": "res://content/assets/info_images/DebussyCrater.jpg",
+            "location": {
+                "latitude": -33.95,
+                "longitude": 12.54
+            }
+        },
+        {
+            "title": "Discovery Rupes",
+            "description": "A 650km long cliff, formed by the planet's core as it cooled over time. It was discovered in 1975 by the Mariner 10 probe.",
+            "image_path": "res://content/assets/info_images/DiscoveryRupes.jpg",
+            "location": {
+                "latitude": -54.70,
+                "longitude": 322.76
+            }
+        },
+        {
+            "title": "Faulkner Crater",
+            "description": "A large old impact crater that has been partially buried by a smooth plain of solidified lava. Long ago, volcanic flows filled the crater's floor, leaving ony the higher parts of the crater still intact.",
+            "image_path": "res://content/assets/info_images/FaulknerCrater.jpg",
+            "location": {
+                "latitude": 8.08,
+                "longitude": 76.97
+            }
+        }
+    ],
+    "satellites": [] 
+}

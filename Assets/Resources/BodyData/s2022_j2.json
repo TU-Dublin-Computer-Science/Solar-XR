@@ -1,0 +1,17 @@
+{
+    "ID": 55522,
+    "name": "S2022_J2",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 23013800,
+    "eccentricity": 0.265,
+    "argument_periapsis": 20.1,
+    "mean_anomaly": 343.8,
+    "inclination": 164.7,
+    "lon_ascending_node": 218.6,
+    "orbital_period": 781.562507,
+    "info_points": [],
+    "satellites": []
+}

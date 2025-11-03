@@ -1,0 +1,17 @@
+{
+    "ID": 568,
+    "name": "S2017_J7",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 20964800,
+    "eccentricity": 0.233,
+    "argument_periapsis": 119.4,
+    "mean_anomaly": 359.1,
+    "inclination": 147.3,
+    "lon_ascending_node": 258.1,
+    "orbital_period": 626.562241,
+    "info_points": [],
+    "satellites": []
+}

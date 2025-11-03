@@ -1,0 +1,17 @@
+{
+    "ID": 664,
+    "name": "S2004_S34",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 24144900,
+    "eccentricity": 0.28,
+    "argument_periapsis": 353.0,
+    "mean_anomaly": 165.2,
+    "inclination": 168.3,
+    "lon_ascending_node": 287.8,
+    "orbital_period": 1420.795938,
+    "info_points": [],
+    "satellites": []
+}

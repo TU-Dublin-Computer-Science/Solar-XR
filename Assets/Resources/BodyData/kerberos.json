@@ -1,0 +1,17 @@
+{
+    "ID": 904,
+    "name": "Kerberos",
+    "radius": 6.0,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Pluto",
+    "semimajor_axis": 58300,
+    "eccentricity": 0.01,
+    "argument_periapsis": 32.1,
+    "mean_anomaly": 276.1,
+    "inclination": 0.4,
+    "lon_ascending_node": 314.3,
+    "orbital_period": 32.17,
+    "info_points": [],
+    "satellites": []
+}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,77 +9,72 @@ using UnityEngine.Networking;
 using static TreeEditor.TextureAtlas;
 
 
-[System.Serializable]
-public class OrbitingBodyData
+public class OrbitingBody : MonoBehaviour
 {
-    // Serialized (Come from json)
+    // Fields that come from json
     public int ID;
     public string name;
     public double radius;
-    public double rotationFactor;
-    public string modelPath;
-    public string centralBody;
-    public double semimajorAxis;
+    public double rotation_factor;
+    public string model_path;
+    public string central_body;
+    public double semimajor_axis;
     public double eccentricity;
-    public double argumentPeriapsis;
-    public double meanAnomaly;
+    public double argument_periapsis;
+    public double mean_anomaly;
     public double inclination;
-    public double lonAscendingNode;
-    public double orbitalPeriod;
-    public List<string> infoPoints;
+    public double lon_ascending_node;
+    public double orbital_period;
+    public List<string> info_points;
     public List<string> satellites;
 
-    //Non-serialized (Don't come from json)
-    public bool rotationEnabled;
-    public bool central;
+    // Other fields
+    private float modelScalar;
+    private bool rotationEnabled;
+    private bool central = false;
 
-    public void PostProcess(double modelScalar)
-    {
-        name = name.ToLower();
+    private bool initialised = false;
+    private double totalRotation = 0;
 
-        rotationEnabled = rotationFactor != -1;
+    private float unixTime;
+    private double julianTime;
 
-        if (radius != -1)
-        {
-            radius *= modelScalar;
-        } else
-        {
-            radius = modelScalar * 10;
-        }
-
-
-        argumentPeriapsis = Mathf.Deg2Rad * argumentPeriapsis;
-        meanAnomaly = Mathf.Deg2Rad * meanAnomaly;
-        inclination = Mathf.Deg2Rad * inclination;
-        lonAscendingNode = Mathf.Deg2Rad * lonAscendingNode;
-}  
-
-}
-
-public class OrbitingBody : MonoBehaviour
-{
-    Transform body;
-    public OrbitingBodyData bodyData;
+    private Transform body;
     
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Public Accessors
+    public float UnixTime
     {
+        get { return unixTime; }
+        set
+        {
+            unixTime = value;
+            julianTime = UnixToJulian(unixTime);
+
+            if (initialised && rotationEnabled)
+            {
+                double newRotation = (rotation_factor * julianTime);
+                double rotAngle = newRotation - totalRotation;
+                transform.Rotate(Vector3.up * -(float)rotAngle);
+                totalRotation = newRotation;
+            }
+        }
+    }        
         
-        return;
+    public void Init(string bodyName, float modelScalar, bool central)
+    {      
+        LoadFromJSON(bodyName);
+
+        InitFields(modelScalar, central);
+
+        SetupGameObject();
+
+        SpawnSatellites();
+
+        initialised = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LoadFromJSON(string bodyName)
     {
-
-    }
-
-
-    public void Init(string bodyName, double modelScalar, bool central)
-    {
-        body = transform.GetChild(0);
-
         TextAsset jsonFile = Resources.Load<TextAsset>("BodyData/" + bodyName);
 
         if (jsonFile == null)
@@ -87,20 +83,47 @@ public class OrbitingBody : MonoBehaviour
             return;
         }
 
-        string json = jsonFile.text;      
-        bodyData = JsonUtility.FromJson<OrbitingBodyData>(json);
-        bodyData.PostProcess(modelScalar);
+        string json = jsonFile.text;
 
+        JsonUtility.FromJsonOverwrite(json, this);
+    }
+
+    void InitFields(float modelScalar, bool central)
+    {        
+        this.modelScalar = modelScalar;
+        this.central = central;
+        body = transform.GetChild(0);
+
+        name = name.ToLower();
+        rotationEnabled = rotation_factor != -1;
+
+        if (radius != -1)
+        {
+            radius *= modelScalar;
+        }
+        else
+        {
+            radius = modelScalar * 10;
+        }
+
+        argument_periapsis = Mathf.Deg2Rad * argument_periapsis;
+        mean_anomaly = Mathf.Deg2Rad * mean_anomaly;
+        inclination = Mathf.Deg2Rad * inclination;
+        lon_ascending_node = Mathf.Deg2Rad * lon_ascending_node;
+    }
+
+    void SetupGameObject()
+    {
         // Scale body to radius (desired radius)/(current radius (1))
-        body.localScale = Vector3.one * (float)(bodyData.radius/0.5);
+        body.localScale = Vector3.one * (float)(radius / 0.5);
 
         // Apply surface texture
         // Load the material from Resources
-        Material mat = Resources.Load<Material>("Materials/" + bodyName);
+        Material mat = Resources.Load<Material>("Materials/" + name);
 
         if (mat == null)
         {
-            Debug.LogError("Failed to load material: " + bodyName);
+            Debug.LogError("Failed to load material: " + name);
             return;
         }
 
@@ -110,10 +133,13 @@ public class OrbitingBody : MonoBehaviour
         {
             renderer.material = mat;
         }
+    }
 
+    void SpawnSatellites()
+    {
         if (central)
         {
-            foreach (string satelliteName in bodyData.satellites)
+            foreach (string satelliteName in satellites)
             {
                 GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
                 GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
@@ -122,7 +148,38 @@ public class OrbitingBody : MonoBehaviour
                 satellite.Init(satelliteName, modelScalar, false);
             }
         }
+    }
 
+    double UnixToJulian(float unixTime)
+    {
+        // Convert Unix timestamp to UTC DateTime
+        DateTime dateTime = DateTimeOffset.FromUnixTimeSeconds((long)unixTime).UtcDateTime;
+
+        int year = dateTime.Year;
+        int month = dateTime.Month;
+        int day = dateTime.Day;
+        int hour = dateTime.Hour;
+        int minute = dateTime.Minute;
+        int second = dateTime.Second;
+
+        if (month <= 2)
+        {
+            year -= 1;
+            month += 12;
+        }
+
+        int A = year / 100;
+        int B = 2 - A + (A / 4);
+        double JD = Math.Floor(365.25 * (year + 4716))
+                    + Math.Floor(30.6001 * (month + 1))
+                    + day + B - 1524.5;
+
+        JD += (hour + (minute + second / 60.0) / 60.0) / 24.0;
+
+        return JD;
     }
 
 }
+
+
+

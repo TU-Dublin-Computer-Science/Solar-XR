@@ -1,18 +1,25 @@
 using Oculus.Interaction;
+using System;
 using UnityEngine;
 
 public class Simulation : MonoBehaviour
 {
+    float unixTime;
+    float simTimeScalar = 50000;
+    OrbitingBody centralBody;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        unixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        
         GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
         GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
-        OrbitingBody centralBody = orbitingBodyGO.GetComponent<OrbitingBody>();
+        centralBody = orbitingBodyGO.GetComponent<OrbitingBody>();
 
         int sunRadius = 696340;
 
-        double modelScalar = 0.5 / sunRadius;
+        float modelScalar = 0.5f / sunRadius;
 
         centralBody.Init("sun", modelScalar, true);
     }
@@ -20,6 +27,7 @@ public class Simulation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        unixTime += Time.deltaTime * simTimeScalar;
+        centralBody.UnixTime = unixTime;   
     }
 }

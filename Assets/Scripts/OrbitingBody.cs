@@ -1,13 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using Unity.Android.Gradle.Manifest;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Networking;
-using static TreeEditor.TextureAtlas;
-
 
 public class OrbitingBody : MonoBehaviour
 {
@@ -89,22 +82,29 @@ public class OrbitingBody : MonoBehaviour
     }
 
     void InitFields(float modelScalar, bool central)
-    {        
-        this.modelScalar = modelScalar;
+    {
         this.central = central;
+
+        if (central)
+        {  // If central body it's diameter is 1
+            radius = 0.5;
+            modelScalar = 0.5f / (float)radius;            
+        } else
+        {                                      
+            if (radius != -1)  //If anything else it's diameter is scaled
+            {
+                radius *= modelScalar;
+            }
+            else  //if the radius isn't defined set a minimum radius
+            {
+                radius = modelScalar * 10;
+            }            
+        }
+
         body = transform.GetChild(0);
 
         name = name.ToLower();
         rotationEnabled = rotation_factor != -1;
-
-        if (radius != -1)
-        {
-            radius *= modelScalar;
-        }
-        else
-        {
-            radius = modelScalar * 10;
-        }
 
         argument_periapsis = Mathf.Deg2Rad * argument_periapsis;
         mean_anomaly = Mathf.Deg2Rad * mean_anomaly;
@@ -123,8 +123,7 @@ public class OrbitingBody : MonoBehaviour
 
         if (mat == null)
         {
-            Debug.LogError("Failed to load material: " + name);
-            return;
+            mat = Resources.Load<Material>("Martials/moon");
         }
 
         // Apply material to the body's MeshRenderer
@@ -142,7 +141,7 @@ public class OrbitingBody : MonoBehaviour
             foreach (string satelliteName in satellites)
             {
                 GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
-                GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
+                GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, body);
                 OrbitingBody satellite = orbitingBodyGO.GetComponent<OrbitingBody>();
 
                 satellite.Init(satelliteName, modelScalar, false);

@@ -484,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &164857008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,8 +615,9 @@ GameObject:
   - component: {fileID: 166701421}
   - component: {fileID: 166701420}
   - component: {fileID: 166701419}
+  - component: {fileID: 166701422}
   m_Layer: 5
-  m_Name: BtnFoward
+  m_Name: BtnNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,9 +687,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rotation, Assembly-CSharp
-        m_MethodName: RotateForward
+      - m_Target: {fileID: 166701422}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: NextOrbitingBody
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -697,7 +698,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &166701420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +737,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166701417}
   m_CullTransparentMesh: 1
+--- !u!114 &166701422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166701417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4b6d978a13baa41a8994cb54d6cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHandler
+  simulation: {fileID: 983380674}
 --- !u!1 &267074296
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &603578318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,7 +1450,7 @@ Transform:
   m_GameObject: {fileID: 983380672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.953, z: 1.522}
+  m_LocalPosition: {x: 0, y: 3, z: 1.522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1784,7 +1798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 3.714}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 480, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1172863805
@@ -1958,8 +1972,9 @@ GameObject:
   - component: {fileID: 1358490543}
   - component: {fileID: 1358490542}
   - component: {fileID: 1358490541}
+  - component: {fileID: 1358490544}
   m_Layer: 5
-  m_Name: BtnBackward
+  m_Name: BtnPrev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2029,9 +2044,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Rotation, Assembly-CSharp
-        m_MethodName: RotateBackward
+      - m_Target: {fileID: 1358490544}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PreviousOrbitingBody
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2040,7 +2055,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1358490542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,6 +2094,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358490539}
   m_CullTransparentMesh: 1
+--- !u!114 &1358490544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358490539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4b6d978a13baa41a8994cb54d6cd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHandler
+  simulation: {fileID: 983380674}
 --- !u!1 &1386443598
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ IL2CPP_EXTERN_C RuntimeClass* Marshal_tD976A56A90263C3CE2B780D4B1CADADE2E70B4A7_
 IL2CPP_EXTERN_C RuntimeClass* RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_1_tE32574C71B51DFED36AB235C69E2777243DCB5D2_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeField* U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____983DA34312F4634EB374D028366086C3F1ADF53D7A018F29CD910187826F4DBB_FieldInfo_var;
-IL2CPP_EXTERN_C RuntimeField* U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____EB128D965C128CF59B79C2F0BC20A12BCBA0DDF68169BF731E98029600753F91_FieldInfo_var;
+IL2CPP_EXTERN_C RuntimeField* U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____D0A25A3CCBA6F441DD4BEBE82EA1B4062B82A8C277062391222301DB379DFF10_FieldInfo_var;
 IL2CPP_EXTERN_C String_t* _stringLiteral0C4D8B78C38556768ABD90B69B3BB93D7DFF216A;
 IL2CPP_EXTERN_C String_t* _stringLiteral2053E64587E878DEE03C6909450B26302F145C7D;
 IL2CPP_EXTERN_C const RuntimeMethod* RuntimeDebuggerOpenXRFeature_RecvMsg_m537C6529B33C9B9FFE3149ADE159E9F043597461_RuntimeMethod_var;
@@ -268,9 +268,7 @@ struct OpenXRFeature_tC2F8F480D62C277B2ECDD605F64E45053CD85143  : public Scripta
 	String_t* ___openxrExtensionStrings;
 	String_t* ___company;
 	int32_t ___priority;
-	String_t* ___targetOpenXRApiVersion;
 	bool ___required;
-	String_t* ___customRuntimeLoaderName;
 	bool ___internalFieldsUpdated;
 };
 struct PlayerConnection_tE21E6206D6FC40F07B3842D83BCB0732C9244E53  : public ScriptableObject_tB3BFDB921A1B1795B38A5417D3B97A89A140436A
@@ -288,7 +286,7 @@ struct RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA  :
 struct U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134_StaticFields
 {
 	__StaticArrayInitTypeSizeU3D80_t23F9505B42AEA788CC1837FBD05A102DE6B6FE3C ___983DA34312F4634EB374D028366086C3F1ADF53D7A018F29CD910187826F4DBB;
-	__StaticArrayInitTypeSizeU3D118_tB01E437BFE02C3DEF6394BBD319FC401FCA05122 ___EB128D965C128CF59B79C2F0BC20A12BCBA0DDF68169BF731E98029600753F91;
+	__StaticArrayInitTypeSizeU3D118_tB01E437BFE02C3DEF6394BBD319FC401FCA05122 ___D0A25A3CCBA6F441DD4BEBE82EA1B4062B82A8C277062391222301DB379DFF10;
 };
 struct String_t_StaticFields
 {
@@ -405,7 +403,7 @@ IL2CPP_EXTERN_C void DEFAULT_CALL EndDataAccess();
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 89168
+// Method Definition Index: 112343
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t624CE2987FB4FB2CB9331AB8ED8FB697E43A9833 UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_m2AF942E5223E25C46511E20FB5F0F8DA731B6CA6 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -413,7 +411,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t624CE2987FB4FB2CB9331AB8ED8FB
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____983DA34312F4634EB374D028366086C3F1ADF53D7A018F29CD910187826F4DBB_FieldInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____EB128D965C128CF59B79C2F0BC20A12BCBA0DDF68169BF731E98029600753F91_FieldInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____D0A25A3CCBA6F441DD4BEBE82EA1B4062B82A8C277062391222301DB379DFF10_FieldInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	MonoScriptData_t624CE2987FB4FB2CB9331AB8ED8FB697E43A9833 V_0;
@@ -424,7 +422,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t624CE2987FB4FB2CB9331AB8ED8FB
 		il2cpp_codegen_initobj((&V_0), sizeof(MonoScriptData_t624CE2987FB4FB2CB9331AB8ED8FB697E43A9833));
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_0 = (ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)SZArrayNew(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var, (uint32_t)((int32_t)118));
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_1 = L_0;
-		RuntimeFieldHandle_t6E4C45B6D2EA12FC99185805A7E77527899B25C5 L_2 = { reinterpret_cast<intptr_t> (U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____EB128D965C128CF59B79C2F0BC20A12BCBA0DDF68169BF731E98029600753F91_FieldInfo_var) };
+		RuntimeFieldHandle_t6E4C45B6D2EA12FC99185805A7E77527899B25C5 L_2 = { reinterpret_cast<intptr_t> (U3CPrivateImplementationDetailsU3E_t62C86ACC7446FCCDC8BC1972C9BE0ECD1F347134____D0A25A3CCBA6F441DD4BEBE82EA1B4062B82A8C277062391222301DB379DFF10_FieldInfo_var) };
 		RuntimeHelpers_InitializeArray_m751372AA3F24FBF6DA9B9D687CBFA2DE436CAB9B((RuntimeArray*)L_1, L_2, NULL);
 		(&V_0)->___FilePathsData = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&(&V_0)->___FilePathsData), (void*)L_1);
@@ -448,7 +446,7 @@ IL_0057:
 		return L_7;
 	}
 }
-// Method Definition Index: 89169
+// Method Definition Index: 112344
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_m30D350C93CBFB9E648BD8825C8F0834394FD629D (UnitySourceGeneratedAssemblyMonoScriptTypes_v1_tAC8D30BFAA776DF02BB4BEB7E32B85E560D4EA71* __this, const RuntimeMethod* method) 
 {
 	{
@@ -534,7 +532,7 @@ IL2CPP_EXTERN_C void MonoScriptData_t624CE2987FB4FB2CB9331AB8ED8FB697E43A9833_ma
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 89170
+// Method Definition Index: 112345
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t RuntimeDebuggerOpenXRFeature_HookGetInstanceProcAddr_m07B1D4EC990E11D9C93C633FA0AC92376B89C069 (RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA* __this, intptr_t ___0_func, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -548,7 +546,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t RuntimeDebuggerOpenXRFeature_HookGet
 	intptr_t V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:47>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:47>
 		PlayerConnection_tE21E6206D6FC40F07B3842D83BCB0732C9244E53* L_0;
 		L_0 = PlayerConnection_get_instance_mF08ABE514910AD8B105D42561CF97CBF135ABD3B(NULL);
 		il2cpp_codegen_runtime_class_init_inline(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var);
@@ -557,13 +555,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t RuntimeDebuggerOpenXRFeature_HookGet
 		UnityAction_1__ctor_m0D542CD6AC9BF19A26926782F3B43A5E71BDB1AB(L_2, __this, (intptr_t)((void*)RuntimeDebuggerOpenXRFeature_RecvMsg_m537C6529B33C9B9FFE3149ADE159E9F043597461_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		PlayerConnection_Register_m8760D786583FD5793A2FCE5EEB8DDA17C649CF86(L_0, L_1, L_2, NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:51>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:51>
 		RuntimeDebuggerOpenXRFeature_Native_StartDataAccess_mCD9F234636475B86203DAE251DD3B60268EAB0BA(NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:52>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:52>
 		RuntimeDebuggerOpenXRFeature_Native_EndDataAccess_m8B9B950ACB83A084E1A149A6391C1BF6DD08704D(NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:53>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:53>
 		__this->___lutOffset = 0;
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:55>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:55>
 		intptr_t L_3 = ___0_func;
 		uint32_t L_4 = __this->___cacheSize;
 		uint32_t L_5 = __this->___perThreadCacheSize;
@@ -575,12 +573,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t RuntimeDebuggerOpenXRFeature_HookGet
 
 IL_0045:
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:56>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:56>
 		intptr_t L_7 = V_0;
 		return L_7;
 	}
 }
-// Method Definition Index: 89171
+// Method Definition Index: 112346
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_RecvMsg_m537C6529B33C9B9FFE3149ADE159E9F043597461 (RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA* __this, MessageEventArgs_t34F726E6463615C0A460FB5CBCCB92F84D83D4F9* ___0_args, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -606,17 +604,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_RecvMsg_m53
 	bool V_9 = false;
 	bool V_10 = false;
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:60>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:60>
 		il2cpp_codegen_runtime_class_init_inline(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var);
 		RuntimeDebuggerOpenXRFeature_Native_StartDataAccess_mCD9F234636475B86203DAE251DD3B60268EAB0BA(NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:63>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:63>
 		uint32_t L_0 = __this->___lutOffset;
 		RuntimeDebuggerOpenXRFeature_Native_GetLUTData_m94F902315D914E2DED4071F1B385558EA0DA5CF7((&V_0), (&V_1), L_0, NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:64>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:64>
 		uint32_t L_1 = V_1;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_2 = (ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)SZArrayNew(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var, (uint32_t)L_1);
 		V_2 = L_2;
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:65>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:65>
 		uint32_t L_3 = V_1;
 		V_8 = (bool)((!(((uint32_t)L_3) <= ((uint32_t)0)))? 1 : 0);
 		bool L_4 = V_8;
@@ -626,10 +624,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_RecvMsg_m53
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:67>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:67>
 		uint32_t L_5 = V_1;
 		__this->___lutOffset = L_5;
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:68>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:68>
 		intptr_t L_6 = V_0;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_7 = V_2;
 		uint32_t L_8 = V_1;
@@ -639,19 +637,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_RecvMsg_m53
 
 IL_003b:
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:72>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:72>
 		il2cpp_codegen_runtime_class_init_inline(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var);
 		bool L_9;
 		L_9 = RuntimeDebuggerOpenXRFeature_Native_GetDataForRead_m1D950D9D6FA25CFCD6321BB58E1690B42A054B44((&V_3), (&V_4), NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:73>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:73>
 		bool L_10;
 		L_10 = RuntimeDebuggerOpenXRFeature_Native_GetDataForRead_m1D950D9D6FA25CFCD6321BB58E1690B42A054B44((&V_5), (&V_6), NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:75>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:75>
 		uint32_t L_11 = V_4;
 		uint32_t L_12 = V_6;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_13 = (ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)SZArrayNew(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var, (uint32_t)((int32_t)il2cpp_codegen_add((int32_t)L_11, (int32_t)L_12)));
 		V_7 = L_13;
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:76>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:76>
 		uint32_t L_14 = V_4;
 		V_9 = (bool)((!(((uint32_t)L_14) <= ((uint32_t)0)))? 1 : 0);
 		bool L_15 = V_9;
@@ -661,7 +659,7 @@ IL_003b:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:77>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:77>
 		intptr_t L_16 = V_3;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_17 = V_7;
 		uint32_t L_18 = V_4;
@@ -671,7 +669,7 @@ IL_003b:
 
 IL_0072:
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:78>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:78>
 		uint32_t L_19 = V_6;
 		V_10 = (bool)((!(((uint32_t)L_19) <= ((uint32_t)0)))? 1 : 0);
 		bool L_20 = V_10;
@@ -681,7 +679,7 @@ IL_0072:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:79>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:79>
 		intptr_t L_21 = V_5;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_22 = V_7;
 		uint32_t L_23 = V_4;
@@ -692,28 +690,28 @@ IL_0072:
 
 IL_008b:
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:81>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:81>
 		il2cpp_codegen_runtime_class_init_inline(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var);
 		RuntimeDebuggerOpenXRFeature_Native_EndDataAccess_m8B9B950ACB83A084E1A149A6391C1BF6DD08704D(NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:84>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:84>
 		PlayerConnection_tE21E6206D6FC40F07B3842D83BCB0732C9244E53* L_25;
 		L_25 = PlayerConnection_get_instance_mF08ABE514910AD8B105D42561CF97CBF135ABD3B(NULL);
 		Guid_t L_26 = ((RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_StaticFields*)il2cpp_codegen_static_fields_for(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var))->___kPlayerToEditorSendDebuggerOutput;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_27 = V_2;
 		NullCheck(L_25);
 		PlayerConnection_Send_mBFE41D75C28DF0885455CE809D40C489818F91B7(L_25, L_26, L_27, NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:85>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:85>
 		PlayerConnection_tE21E6206D6FC40F07B3842D83BCB0732C9244E53* L_28;
 		L_28 = PlayerConnection_get_instance_mF08ABE514910AD8B105D42561CF97CBF135ABD3B(NULL);
 		Guid_t L_29 = ((RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_StaticFields*)il2cpp_codegen_static_fields_for(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var))->___kPlayerToEditorSendDebuggerOutput;
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_30 = V_7;
 		NullCheck(L_28);
 		PlayerConnection_Send_mBFE41D75C28DF0885455CE809D40C489818F91B7(L_28, L_29, L_30, NULL);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:90>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:90>
 		return;
 	}
 }
-// Method Definition Index: 89172
+// Method Definition Index: 112347
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t RuntimeDebuggerOpenXRFeature_Native_HookGetInstanceProcAddr_m63034518FDB23935595C17400494BF5120A3EDA4 (intptr_t ___0_func, uint32_t ___1_cacheSize, uint32_t ___2_perThreadCacheSize, const RuntimeMethod* method) 
 {
 	typedef intptr_t (DEFAULT_CALL *PInvokeFunc) (intptr_t, uint32_t, uint32_t);
@@ -735,7 +733,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t RuntimeDebuggerOpenXRFeature_Native_
 
 	return returnValue;
 }
-// Method Definition Index: 89173
+// Method Definition Index: 112348
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool RuntimeDebuggerOpenXRFeature_Native_GetDataForRead_m1D950D9D6FA25CFCD6321BB58E1690B42A054B44 (intptr_t* ___0_ptr, uint32_t* ___1_size, const RuntimeMethod* method) 
 {
 	typedef uint8_t (DEFAULT_CALL *PInvokeFunc) (intptr_t*, uint32_t*);
@@ -757,7 +755,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool RuntimeDebuggerOpenXRFeature_Native_GetD
 
 	return static_cast<bool>(returnValue);
 }
-// Method Definition Index: 89174
+// Method Definition Index: 112349
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_Native_GetLUTData_m94F902315D914E2DED4071F1B385558EA0DA5CF7 (intptr_t* ___0_ptr, uint32_t* ___1_size, uint32_t ___2_offset, const RuntimeMethod* method) 
 {
 	typedef void (DEFAULT_CALL *PInvokeFunc) (intptr_t*, uint32_t*, uint32_t);
@@ -778,7 +776,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_Native_GetL
 	#endif
 
 }
-// Method Definition Index: 89175
+// Method Definition Index: 112350
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_Native_StartDataAccess_mCD9F234636475B86203DAE251DD3B60268EAB0BA (const RuntimeMethod* method) 
 {
 	typedef void (DEFAULT_CALL *PInvokeFunc) ();
@@ -799,7 +797,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_Native_Star
 	#endif
 
 }
-// Method Definition Index: 89176
+// Method Definition Index: 112351
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_Native_EndDataAccess_m8B9B950ACB83A084E1A149A6391C1BF6DD08704D (const RuntimeMethod* method) 
 {
 	typedef void (DEFAULT_CALL *PInvokeFunc) ();
@@ -820,21 +818,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature_Native_EndD
 	#endif
 
 }
-// Method Definition Index: 89177
+// Method Definition Index: 112352
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature__ctor_m2DC84C4F7091238BD265B1B96D5719203C46C393 (RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:34>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:34>
 		__this->___cacheSize = ((int32_t)1048576);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:39>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:39>
 		__this->___perThreadCacheSize = ((int32_t)51200);
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:41>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:41>
 		__this->___lutOffset = 0;
 		OpenXRFeature__ctor_m120460E34ECC22ED2DB96797A6DCB5C870E78852(__this, NULL);
 		return;
 	}
 }
-// Method Definition Index: 89178
+// Method Definition Index: 112353
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature__cctor_m9062996D2DCC73AA119173F300D1FE7A74180B42 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -846,12 +844,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeDebuggerOpenXRFeature__cctor_m906
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:28>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:28>
 		Guid_t L_0;
 		memset((&L_0), 0, sizeof(L_0));
 		Guid__ctor_mAE66BA1C43B4194F4F7991E2E30370E36CBBF830((&L_0), _stringLiteral2053E64587E878DEE03C6909450B26302F145C7D, NULL);
 		((RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_StaticFields*)il2cpp_codegen_static_fields_for(RuntimeDebuggerOpenXRFeature_t1E3C60D2636DEC25D95E63BB3300DBFC5E9057BA_il2cpp_TypeInfo_var))->___kEditorToPlayerRequestDebuggerOutput = L_0;
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:29>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/RuntimeDebugger/RuntimeDebuggerOpenXRFeature.cs:29>
 		Guid_t L_1;
 		memset((&L_1), 0, sizeof(L_1));
 		Guid__ctor_mAE66BA1C43B4194F4F7991E2E30370E36CBBF830((&L_1), _stringLiteral0C4D8B78C38556768ABD90B69B3BB93D7DFF216A, NULL);

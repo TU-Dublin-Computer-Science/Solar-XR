@@ -799,7 +799,7 @@ struct U3CPrivateImplementationDetailsU3E_t004D4AFA27FA0452CA11C0682B9F9C6931C56
 	__StaticArrayInitTypeSizeU3D24_t73E649C6B0D9C674CFD1AB424E0CD9C3FEE8A732 ___753D5E1ADA77B20B9959A1030B8E0BA5CF925F2881D3635C3F791E5A0AE0EEB1;
 	__StaticArrayInitTypeSizeU3D7021_t9431E95D9F28AC89AE206CCF8AF079280E4B5C00 ___A7F2E7C96E5A732CC7528ABDECA7F2CF43EC92D9AB47AFF14B8F64B8A16FA3E6;
 	__StaticArrayInitTypeSizeU3D5_t7669CAF0F18364A7A29EC8B987BE83E7B0CDEF4F ___B05E2187E81ED5FCA02CC5CBA7178A0572071ABF078B962520EE22AF9DBE6C75;
-	__StaticArrayInitTypeSizeU3D12142_t883D0ED417C24DC307E0CB92FDCB3BB01597DBDB ___F970DA0AEBDB92B07F1B3984CEA75FE018FBB2F11DD7031992253E3E0C4D8F15;
+	__StaticArrayInitTypeSizeU3D12142_t883D0ED417C24DC307E0CB92FDCB3BB01597DBDB ___CAD8CC79BDD5089BE2957E1836B2FE1948188FF66DBDA7846D581C1ABEAEB394;
 };
 struct GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_StaticFields
 {
@@ -1525,7 +1525,7 @@ inline void List_1_AddWithResize_m79A9BF770BEF9C06BE40D5401E55E375F2726CC4 (List
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82427
+// Method Definition Index: 99789
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_Init_mBAEC6DCB1409900EDBC461DA36F8B4E762E1B637 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1535,23 +1535,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_Init_mBAEC6DCB1409900EDBC461
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:52>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:52>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root = (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root), (void*)(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731*)NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:53>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:53>
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____renderSinglePass = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:54>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:54>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:55>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:55>
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___LineWidth = (0.100000001f);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:56>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:56>
 		return;
 	}
 }
-// Method Definition Index: 82428
+// Method Definition Index: 99790
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* DebugGizmos_get_Root_m688B760E82C635D04BE4372D86926821F3784029 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1576,7 +1576,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DebugGizmos_tA5F66987724B46BC3F774F1452B083C8
 	bool V_7 = false;
 	DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* V_8 = NULL;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:64>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:64>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_0 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -1590,11 +1590,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DebugGizmos_tA5F66987724B46BC3F774F1452B083C8
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:68>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:68>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3;
 		L_3 = GameObject_Find_m7A669B4EEC2617AB82F6E3FF007CDCD9F21DB300(_stringLiteral619878BF84306B9BCF64F7438040A32C2D8F602C, NULL);
 		V_1 = L_3;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:69>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:69>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_5;
@@ -1607,13 +1607,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DebugGizmos_tA5F66987724B46BC3F774F1452B083C8
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:71>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:71>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_7 = V_1;
 		NullCheck(L_7);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_8;
 		L_8 = GameObject_GetComponent_TisDebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_m14B6C7A772DB13F7B0AB1D943B593A1677F1C1BB(L_7, GameObject_GetComponent_TisDebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_m14B6C7A772DB13F7B0AB1D943B593A1677F1C1BB_RuntimeMethod_var);
 		V_3 = L_8;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:72>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:72>
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_9 = V_3;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_10;
@@ -1626,7 +1626,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DebugGizmos_tA5F66987724B46BC3F774F1452B083C8
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:74>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:74>
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_12 = V_3;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root = L_12;
@@ -1643,7 +1643,7 @@ IL_0045:
 
 IL_0046:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:85>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:85>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_13 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -1657,11 +1657,11 @@ IL_0046:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:87>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:87>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_16 = (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)il2cpp_codegen_object_new(GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
 		GameObject__ctor_m37D512B05D292F954792225E6C6EEE95293A9B88(L_16, _stringLiteral619878BF84306B9BCF64F7438040A32C2D8F602C, NULL);
 		V_6 = L_16;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:88>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:88>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = V_6;
 		NullCheck(L_17);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_18;
@@ -1669,7 +1669,7 @@ IL_0046:
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root = L_18;
 		Il2CppCodeGenWriteBarrier((void**)(&((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root), (void*)L_18);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:90>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:90>
 		il2cpp_codegen_runtime_class_init_inline(Application_tDB03BE91CDF0ACA614A5E0B67CFB77C44EB19B21_il2cpp_TypeInfo_var);
 		bool L_19;
 		L_19 = Application_get_isPlaying_m25B0ABDFEF54F5370CD3F263A813540843D00F34(NULL);
@@ -1681,7 +1681,7 @@ IL_0046:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:92>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:92>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_21 = V_6;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_DontDestroyOnLoad_m4B70C3AEF886C176543D1295507B6455C9DCAEA7(L_21, NULL);
@@ -1693,7 +1693,7 @@ IL_0085:
 
 IL_0086:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:104>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:104>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_22 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root;
 		V_8 = L_22;
@@ -1702,12 +1702,12 @@ IL_0086:
 
 IL_008f:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:105>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:105>
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_23 = V_8;
 		return L_23;
 	}
 }
-// Method Definition Index: 82429
+// Method Definition Index: 99791
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_OnEnable_m24AD08443DE0A8ED7E7C06481DE2D1EEA4AEF547 (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1720,7 +1720,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_OnEnable_m24AD08443DE0A8ED7E
 	bool V_0 = false;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:110>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:110>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_0 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -1734,13 +1734,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_OnEnable_m24AD08443DE0A8ED7E
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:112>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:112>
 		goto IL_002b;
 	}
 
 IL_0013:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:116>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:116>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_3 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____root;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -1754,18 +1754,18 @@ IL_0013:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:118>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:118>
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(__this, NULL);
 	}
 
 IL_002b:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:141>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:141>
 		return;
 	}
 }
-// Method Definition Index: 82430
+// Method Definition Index: 99792
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* DebugGizmos_get_Renderer_m6ABA2FDBDF7DFF82EBD10CF7E79C1D544A7E1A2A (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1778,7 +1778,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR PolylineRenderer_t7EE4C8A295E0A2581F11558F589
 	bool V_0 = false;
 	PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* V_1 = NULL;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:209>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:209>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_0 = __this->____polylineRenderer;
 		V_0 = (bool)((((RuntimeObject*)(PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9*)L_0) == ((RuntimeObject*)(RuntimeObject*)NULL))? 1 : 0);
 		bool L_1 = V_0;
@@ -1788,7 +1788,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR PolylineRenderer_t7EE4C8A295E0A2581F11558F589
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:211>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:211>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		bool L_2 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____renderSinglePass;
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_3 = (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9*)il2cpp_codegen_object_new(PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9_il2cpp_TypeInfo_var);
@@ -1799,7 +1799,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR PolylineRenderer_t7EE4C8A295E0A2581F11558F589
 
 IL_0021:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:214>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:214>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_4 = __this->____polylineRenderer;
 		V_1 = L_4;
 		goto IL_002a;
@@ -1807,12 +1807,12 @@ IL_0021:
 
 IL_002a:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:215>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:215>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_5 = V_1;
 		return L_5;
 	}
 }
-// Method Definition Index: 82431
+// Method Definition Index: 99793
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_OnDisable_mE805F4894BF3C718FAC1DBD05B06B96721CCBB5D (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1824,7 +1824,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_OnDisable_mE805F4894BF3C718F
 	bool V_0 = false;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:220>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:220>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_0 = __this->____polylineRenderer;
 		V_0 = (bool)((!(((RuntimeObject*)(PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9*)L_0) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
 		bool L_1 = V_0;
@@ -1834,18 +1834,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_OnDisable_mE805F4894BF3C718F
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:222>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:222>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_2 = __this->____polylineRenderer;
 		NullCheck(L_2);
 		PolylineRenderer_Cleanup_m8A239C8195137DB4EAA0738356CFE2A398F16950(L_2, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:223>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:223>
 		__this->____polylineRenderer = (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____polylineRenderer), (void*)(PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9*)NULL);
 	}
 
 IL_0023:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:226>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:226>
 		il2cpp_codegen_runtime_class_init_inline(Application_tDB03BE91CDF0ACA614A5E0B67CFB77C44EB19B21_il2cpp_TypeInfo_var);
 		bool L_3;
 		L_3 = Application_get_isPlaying_m25B0ABDFEF54F5370CD3F263A813540843D00F34(NULL);
@@ -1857,31 +1857,31 @@ IL_0023:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:228>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:228>
 		goto IL_002f;
 	}
 
 IL_002f:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:238>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:238>
 		return;
 	}
 }
-// Method Definition Index: 82432
+// Method Definition Index: 99794
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_ClearSegments_mF9C5CD3571D7FA4968031369282269A17D65459C (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:242>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:242>
 		__this->____index = 0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:243>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:243>
 		return;
 	}
 }
-// Method Definition Index: 82433
+// Method Definition Index: 99795
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_RenderSegments_mE66D9EE0FECF77F227FA9B50F119B362D5E39284 (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:247>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:247>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_0;
 		L_0 = DebugGizmos_get_Renderer_m6ABA2FDBDF7DFF82EBD10CF7E79C1D544A7E1A2A(__this, NULL);
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_1 = __this->____points;
@@ -1889,16 +1889,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_RenderSegments_mE66D9EE0FECF
 		int32_t L_3 = __this->____index;
 		NullCheck(L_0);
 		PolylineRenderer_SetLines_m4138B2EA3E0914ADB30CC2EDC31E486549A32C3A(L_0, L_1, L_2, L_3, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:248>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:248>
 		PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* L_4;
 		L_4 = DebugGizmos_get_Renderer_m6ABA2FDBDF7DFF82EBD10CF7E79C1D544A7E1A2A(__this, NULL);
 		NullCheck(L_4);
 		PolylineRenderer_RenderLines_m710F6C83037166422DED97C89B5078328030E79E(L_4, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:249>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:249>
 		return;
 	}
 }
-// Method Definition Index: 82434
+// Method Definition Index: 99796
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_LateUpdate_m8C8EE70BC5CCF50EE7BA238B13EE78BCF6C02D4D (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1909,7 +1909,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_LateUpdate_m8C8EE70BC5CCF50E
 	}
 	bool V_0 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:253>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:253>
 		il2cpp_codegen_runtime_class_init_inline(Application_tDB03BE91CDF0ACA614A5E0B67CFB77C44EB19B21_il2cpp_TypeInfo_var);
 		bool L_0;
 		L_0 = Application_get_isPlaying_m25B0ABDFEF54F5370CD3F263A813540843D00F34(NULL);
@@ -1921,25 +1921,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_LateUpdate_m8C8EE70BC5CCF50E
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:255>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:255>
 		goto IL_001e;
 	}
 
 IL_0010:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:258>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:258>
 		DebugGizmos_RenderSegments_mE66D9EE0FECF77F227FA9B50F119B362D5E39284(__this, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:259>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:259>
 		DebugGizmos_ClearSegments_mF9C5CD3571D7FA4968031369282269A17D65459C(__this, NULL);
 	}
 
 IL_001e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:260>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:260>
 		return;
 	}
 }
-// Method Definition Index: 82435
+// Method Definition Index: 99797
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_AddSegment_m1F54D87417EC89DBA0242B41DA77181E9B59E7DD (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_p0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_p1, float ___2_width, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___3_color0, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___4_color1, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1959,7 +1959,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_AddSegment_m1F54D87417EC89DB
 	memset((&V_2), 0, sizeof(V_2));
 	bool V_3 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:264>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:264>
 		bool L_0 = __this->____addedSegmentSinceLastUpdate;
 		V_0 = (bool)((((int32_t)L_0) == ((int32_t)0))? 1 : 0);
 		bool L_1 = V_0;
@@ -1969,9 +1969,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_AddSegment_m1F54D87417EC89DB
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:266>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:266>
 		DebugGizmos_ClearSegments_mF9C5CD3571D7FA4968031369282269A17D65459C(__this, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:267>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:267>
 		__this->____addedSegmentSinceLastUpdate = (bool)1;
 	}
 
@@ -1982,13 +1982,13 @@ IL_001e:
 
 IL_0020:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:272>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:272>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_2 = __this->____points;
 		il2cpp_codegen_initobj((&V_1), sizeof(Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3));
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_3 = V_1;
 		NullCheck(L_2);
 		List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_inline(L_2, L_3, List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:273>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:273>
 		List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* L_4 = __this->____colors;
 		il2cpp_codegen_initobj((&V_2), sizeof(Color_tD001788D726C3A7F1379BEED0260B9591F440C1F));
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_5 = V_2;
@@ -1998,7 +1998,7 @@ IL_0020:
 
 IL_004c:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:270>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:270>
 		int32_t L_6 = __this->____index;
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_7 = __this->____points;
 		NullCheck(L_7);
@@ -2012,7 +2012,7 @@ IL_004c:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:276>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:276>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_10 = __this->____points;
 		int32_t L_11 = __this->____index;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12 = ___0_p0;
@@ -2027,7 +2027,7 @@ IL_004c:
 		Vector4__ctor_m96B2CD8B862B271F513AF0BDC2EABD58E4DBC813_inline((&L_19), L_13, L_15, L_17, L_18, NULL);
 		NullCheck(L_10);
 		List_1_set_Item_m9CE045A3C18BAFF826CE4686A0F2D3D00930416F(L_10, L_11, L_19, List_1_set_Item_m9CE045A3C18BAFF826CE4686A0F2D3D00930416F_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:277>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:277>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_20 = __this->____points;
 		int32_t L_21 = __this->____index;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22 = ___1_p1;
@@ -2042,26 +2042,26 @@ IL_004c:
 		Vector4__ctor_m96B2CD8B862B271F513AF0BDC2EABD58E4DBC813_inline((&L_29), L_23, L_25, L_27, L_28, NULL);
 		NullCheck(L_20);
 		List_1_set_Item_m9CE045A3C18BAFF826CE4686A0F2D3D00930416F(L_20, ((int32_t)il2cpp_codegen_add(L_21, 1)), L_29, List_1_set_Item_m9CE045A3C18BAFF826CE4686A0F2D3D00930416F_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:278>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:278>
 		List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* L_30 = __this->____colors;
 		int32_t L_31 = __this->____index;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_32 = ___3_color0;
 		NullCheck(L_30);
 		List_1_set_Item_m7AF5498D3F093516B936D0E214DC6F7382DA6860(L_30, L_31, L_32, List_1_set_Item_m7AF5498D3F093516B936D0E214DC6F7382DA6860_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:279>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:279>
 		List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* L_33 = __this->____colors;
 		int32_t L_34 = __this->____index;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_35 = ___4_color1;
 		NullCheck(L_33);
 		List_1_set_Item_m7AF5498D3F093516B936D0E214DC6F7382DA6860(L_33, ((int32_t)il2cpp_codegen_add(L_34, 1)), L_35, List_1_set_Item_m7AF5498D3F093516B936D0E214DC6F7382DA6860_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:281>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:281>
 		int32_t L_36 = __this->____index;
 		__this->____index = ((int32_t)il2cpp_codegen_add(L_36, 2));
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:282>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:282>
 		return;
 	}
 }
-// Method Definition Index: 82436
+// Method Definition Index: 99798
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DebugGizmos_get_RenderSinglePass_mD561F44EDCB8443A7E9A7CFE249CC02B5387E0C8 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2072,7 +2072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DebugGizmos_get_RenderSinglePass_mD561F4
 	}
 	bool V_0 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:293>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:293>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		bool L_0 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____renderSinglePass;
 		V_0 = L_0;
@@ -2081,12 +2081,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool DebugGizmos_get_RenderSinglePass_mD561F4
 
 IL_0009:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:294>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:294>
 		bool L_1 = V_0;
 		return L_1;
 	}
 }
-// Method Definition Index: 82437
+// Method Definition Index: 99799
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_set_RenderSinglePass_mD5EB1449FA39C23C14064CCF3701E58275C41620 (bool ___0_value, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2099,7 +2099,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_set_RenderSinglePass_mD5EB14
 	bool V_0 = false;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:298>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:298>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		bool L_0 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____renderSinglePass;
 		bool L_1 = ___0_value;
@@ -2111,17 +2111,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_set_RenderSinglePass_mD5EB14
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:300>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:300>
 		goto IL_0032;
 	}
 
 IL_0010:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:302>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:302>
 		bool L_3 = ___0_value;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____renderSinglePass = L_3;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:303>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:303>
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_4;
 		L_4 = DebugGizmos_get_Root_m688B760E82C635D04BE4372D86926821F3784029(NULL);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -2135,7 +2135,7 @@ IL_0010:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:305>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:305>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_7;
 		L_7 = DebugGizmos_get_Root_m688B760E82C635D04BE4372D86926821F3784029(NULL);
@@ -2145,11 +2145,11 @@ IL_0010:
 
 IL_0032:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:307>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:307>
 		return;
 	}
 }
-// Method Definition Index: 82438
+// Method Definition Index: 99800
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPoint_m42425751321CF229B68C82460615B60C3B17BE34 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_p0, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___1_t, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2161,7 +2161,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPoint_m42425751321CF229B
 	}
 	bool V_0 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:343>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:343>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = ___1_t;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -2174,7 +2174,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPoint_m42425751321CF229B
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:345>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:345>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = ___1_t;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4 = ___0_p0;
 		NullCheck(L_3);
@@ -2185,7 +2185,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPoint_m42425751321CF229B
 
 IL_0017:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:348>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:348>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_6;
 		L_6 = DebugGizmos_get_Root_m688B760E82C635D04BE4372D86926821F3784029(NULL);
@@ -2196,11 +2196,11 @@ IL_0017:
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_11 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color;
 		NullCheck(L_6);
 		DebugGizmos_AddSegment_m1F54D87417EC89DBA0242B41DA77181E9B59E7DD(L_6, L_7, L_8, L_9, L_10, L_11, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:349>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:349>
 		return;
 	}
 }
-// Method Definition Index: 82439
+// Method Definition Index: 99801
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_p0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_p1, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___2_t, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2212,7 +2212,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawLine_m5922B2068FBADC7261
 	}
 	bool V_0 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:359>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:359>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = ___2_t;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -2225,14 +2225,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawLine_m5922B2068FBADC7261
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:361>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:361>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = ___2_t;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4 = ___0_p0;
 		NullCheck(L_3);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5;
 		L_5 = Transform_TransformPoint_m05BFF013DB830D7BFE44A007703694AE1062EE44(L_3, L_4, NULL);
 		___0_p0 = L_5;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:362>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:362>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_6 = ___2_t;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7 = ___1_p1;
 		NullCheck(L_6);
@@ -2243,7 +2243,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawLine_m5922B2068FBADC7261
 
 IL_0020:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:365>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:365>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* L_9;
 		L_9 = DebugGizmos_get_Root_m688B760E82C635D04BE4372D86926821F3784029(NULL);
@@ -2254,11 +2254,11 @@ IL_0020:
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_14 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color;
 		NullCheck(L_9);
 		DebugGizmos_AddSegment_m1F54D87417EC89DBA0242B41DA77181E9B59E7DD(L_9, L_10, L_11, L_12, L_13, L_14, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:366>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:366>
 		return;
 	}
 }
-// Method Definition Index: 82440
+// Method Definition Index: 99802
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawWireCube_mF722970829361123E4E3DCA06ABA032CB106617B (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, float ___1_size, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___2_t, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2277,14 +2277,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawWireCube_mF7229708293611
 	memset((&V_2), 0, sizeof(V_2));
 	bool V_3 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:376>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:376>
 		V_0 = 0;
 		goto IL_005a;
 	}
 
 IL_0005:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:378>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:378>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		RuntimeObject* L_0 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_POINTS;
 		RuntimeObject* L_1 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_SEGMENTS;
@@ -2302,7 +2302,7 @@ IL_0005:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
 		L_8 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_6, L_7, NULL);
 		V_1 = L_8;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:379>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:379>
 		RuntimeObject* L_9 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_POINTS;
 		RuntimeObject* L_10 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_SEGMENTS;
 		int32_t L_11 = V_0;
@@ -2319,19 +2319,19 @@ IL_0005:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
 		L_17 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_15, L_16, NULL);
 		V_2 = L_17;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:380>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:380>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18 = V_1;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19 = V_2;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_20 = ___2_t;
 		DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_18, L_19, L_20, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:376>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:376>
 		int32_t L_21 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_21, 2));
 	}
 
 IL_005a:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:376>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:376>
 		int32_t L_22 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		RuntimeObject* L_23 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_SEGMENTS;
@@ -2346,11 +2346,11 @@ IL_005a:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:382>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:382>
 		return;
 	}
 }
-// Method Definition Index: 82441
+// Method Definition Index: 99803
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mDBFCC148365F6780187D0D71ED1985295D973681 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_position, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___1_rotation, float ___2_size, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2362,7 +2362,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mDBFCC148365F678018
 	ColorScope_t450D75678AC01DDE67B66555413DCE9839B9CB47 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:386>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:386>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
 		ColorScope__ctor_m50294F3C35981EA0BE2075362AB5903930A402A8((&V_0), L_0, NULL);
@@ -2379,12 +2379,12 @@ FINALLY_008a:
 		});
 		try
 		{
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:387>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:387>
 			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_1;
 			L_1 = Color_get_red_mA2E53E7173FDC97E68E335049AB0FAAEE43A844D_inline(NULL);
 			il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 			((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_1;
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:388>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:388>
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2 = ___0_position;
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3 = ___0_position;
 			Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_4 = ___1_rotation;
@@ -2398,11 +2398,11 @@ FINALLY_008a:
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9;
 			L_9 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_3, L_8, NULL);
 			DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_2, L_9, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:389>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:389>
 			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10;
 			L_10 = Color_get_green_mEB001F2CD8C68C6BBAEF9101990B779D3AA2A6EF_inline(NULL);
 			((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_10;
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:390>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:390>
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11 = ___0_position;
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12 = ___0_position;
 			Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_13 = ___1_rotation;
@@ -2416,11 +2416,11 @@ FINALLY_008a:
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18;
 			L_18 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_12, L_17, NULL);
 			DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_11, L_18, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:391>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:391>
 			Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_19;
 			L_19 = Color_get_blue_mF04A26CE61D6DA3C0D8B1C4720901B1028C7AB87_inline(NULL);
 			((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_19;
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:392>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:392>
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20 = ___0_position;
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_21 = ___0_position;
 			Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_22 = ___1_rotation;
@@ -2434,7 +2434,7 @@ FINALLY_008a:
 			Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_27;
 			L_27 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_21, L_26, NULL);
 			DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_20, L_27, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:393>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:393>
 			goto IL_0099;
 		}
 		catch(Il2CppExceptionWrapper& e)
@@ -2445,11 +2445,11 @@ FINALLY_008a:
 
 IL_0099:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:393>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:393>
 		return;
 	}
 }
-// Method Definition Index: 82442
+// Method Definition Index: 99804
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mA12A67ABDEBEA31BB2A0BCF515A86F2D212F2FB9 (Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 ___0_pose, float ___1_size, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2459,7 +2459,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mA12A67ABDEBEA31BB2
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:402>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:402>
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_0 = ___0_pose;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = L_0.___position;
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_2 = ___0_pose;
@@ -2467,11 +2467,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mA12A67ABDEBEA31BB2
 		float L_4 = ___1_size;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawAxis_mDBFCC148365F6780187D0D71ED1985295D973681(L_1, L_3, L_4, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:403>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:403>
 		return;
 	}
 }
-// Method Definition Index: 82443
+// Method Definition Index: 99805
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mFFE29BAFA149A9832BF70F14F28A131999019264 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___0_t, float ___1_size, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2481,7 +2481,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mFFE29BAFA149A9832B
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:412>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:412>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = ___0_t;
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
@@ -2496,11 +2496,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawAxis_mFFE29BAFA149A9832B
 		float L_5 = ___1_size;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawAxis_mA12A67ABDEBEA31BB2A0BCF515A86F2D212F2FB9(L_4, L_5, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:413>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:413>
 		return;
 	}
 }
-// Method Definition Index: 82444
+// Method Definition Index: 99806
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPlane_m3A0A671588D6102EBDFEB8A9A36053D711847D11 (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_position, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___1_rotation, float ___2_width, float ___3_height, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2521,12 +2521,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPlane_m3A0A671588D6102EB
 	memset((&V_3), 0, sizeof(V_3));
 	bool V_4 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:417>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:417>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0 = ___0_position;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_1 = ___1_rotation;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawAxis_mDBFCC148365F6780187D0D71ED1985295D973681(L_0, L_1, (0.100000001f), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:418>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:418>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_2 = ___0_position;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_3 = ___1_rotation;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
@@ -2534,14 +2534,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPlane_m3A0A671588D6102EB
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_5;
 		L_5 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3(L_2, L_3, L_4, NULL);
 		V_0 = L_5;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:419>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:419>
 		V_1 = 0;
 		goto IL_00cb;
 	}
 
 IL_0022:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:421>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:421>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		RuntimeObject* L_6 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_POINTS;
 		RuntimeObject* L_7 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_SEGMENTS;
@@ -2566,7 +2566,7 @@ IL_0022:
 		float L_18 = L_17.___y;
 		float L_19 = ___3_height;
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&V_2), ((float)il2cpp_codegen_multiply(L_11, L_12)), ((float)il2cpp_codegen_multiply(L_18, L_19)), (0.0f), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:422>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:422>
 		RuntimeObject* L_20 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_POINTS;
 		RuntimeObject* L_21 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_SEGMENTS;
 		int32_t L_22 = V_1;
@@ -2590,7 +2590,7 @@ IL_0022:
 		float L_32 = L_31.___y;
 		float L_33 = ___3_height;
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&V_3), ((float)il2cpp_codegen_multiply(L_25, L_26)), ((float)il2cpp_codegen_multiply(L_32, L_33)), (0.0f), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:423>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:423>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_34 = V_2;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_35;
 		L_35 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814((&V_0), L_34, NULL);
@@ -2598,14 +2598,14 @@ IL_0022:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_37;
 		L_37 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814((&V_0), L_36, NULL);
 		DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_35, L_37, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:419>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:419>
 		int32_t L_38 = V_1;
 		V_1 = ((int32_t)il2cpp_codegen_add(L_38, 2));
 	}
 
 IL_00cb:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:419>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:419>
 		int32_t L_39 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		RuntimeObject* L_40 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_SEGMENTS;
@@ -2620,11 +2620,11 @@ IL_00cb:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:425>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:425>
 		return;
 	}
 }
-// Method Definition Index: 82445
+// Method Definition Index: 99807
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPlane_mBA0982CEE197833C65D90AD2DE0A65C5FBFDCC03 (Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 ___0_pose, float ___1_width, float ___2_height, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2634,7 +2634,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPlane_mBA0982CEE197833C6
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:435>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:435>
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_0 = ___0_pose;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = L_0.___position;
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_2 = ___0_pose;
@@ -2643,11 +2643,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawPlane_mBA0982CEE197833C6
 		float L_5 = ___2_height;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawPlane_m3A0A671588D6102EBDFEB8A9A36053D711847D11(L_1, L_3, L_4, L_5, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:436>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:436>
 		return;
 	}
 }
-// Method Definition Index: 82446
+// Method Definition Index: 99808
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mDF7354B7A94742D820FF123BBF91EA7157146ADD (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_position, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___1_rotation, float ___2_width, float ___3_height, float ___4_depth, bool ___5_isPivotTopSurface, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2671,12 +2671,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mDF7354B7A94742D820F
 	memset((&V_5), 0, sizeof(V_5));
 	bool V_6 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:440>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:440>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0 = ___0_position;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_1 = ___1_rotation;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawAxis_mDBFCC148365F6780187D0D71ED1985295D973681(L_0, L_1, (0.100000001f), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:441>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:441>
 		bool L_2 = ___5_isPivotTopSurface;
 		V_1 = L_2;
 		bool L_3 = V_1;
@@ -2686,10 +2686,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mDF7354B7A94742D820F
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:444>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:444>
 		float L_4 = ___4_depth;
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&V_2), (0.0f), ((float)(L_4/(2.0f))), (0.0f), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:445>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:445>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5 = ___0_position;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6 = V_2;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
@@ -2699,7 +2699,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mDF7354B7A94742D820F
 
 IL_0038:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:447>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:447>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8 = ___0_position;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_9 = ___1_rotation;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
@@ -2707,14 +2707,14 @@ IL_0038:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_11;
 		L_11 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3(L_8, L_9, L_10, NULL);
 		V_0 = L_11;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:448>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:448>
 		V_3 = 0;
 		goto IL_0129;
 	}
 
 IL_004c:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:450>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:450>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		RuntimeObject* L_12 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_POINTS;
 		RuntimeObject* L_13 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_SEGMENTS;
@@ -2750,7 +2750,7 @@ IL_004c:
 		float L_31 = L_30.___z;
 		float L_32 = ___4_depth;
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&V_4), ((float)il2cpp_codegen_multiply(L_17, L_18)), ((float)il2cpp_codegen_multiply(L_24, L_25)), ((float)il2cpp_codegen_multiply(L_31, L_32)), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:451>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:451>
 		RuntimeObject* L_33 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_POINTS;
 		RuntimeObject* L_34 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_SEGMENTS;
 		int32_t L_35 = V_3;
@@ -2785,7 +2785,7 @@ IL_004c:
 		float L_52 = L_51.___z;
 		float L_53 = ___4_depth;
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&V_5), ((float)il2cpp_codegen_multiply(L_38, L_39)), ((float)il2cpp_codegen_multiply(L_45, L_46)), ((float)il2cpp_codegen_multiply(L_52, L_53)), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:452>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:452>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_54 = V_4;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_55;
 		L_55 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814((&V_0), L_54, NULL);
@@ -2793,14 +2793,14 @@ IL_004c:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_57;
 		L_57 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814((&V_0), L_56, NULL);
 		DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_55, L_57, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:448>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:448>
 		int32_t L_58 = V_3;
 		V_3 = ((int32_t)il2cpp_codegen_add(L_58, 2));
 	}
 
 IL_0129:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:448>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:448>
 		int32_t L_59 = V_3;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		RuntimeObject* L_60 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_SEGMENTS;
@@ -2815,11 +2815,11 @@ IL_0129:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:454>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:454>
 		return;
 	}
 }
-// Method Definition Index: 82447
+// Method Definition Index: 99809
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mA60ECE08C66FB4EB482E9C1C340DC81EF3AEB22F (Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 ___0_pose, float ___1_width, float ___2_height, float ___3_depth, bool ___4_isPivotTopSurface, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2829,7 +2829,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mA60ECE08C66FB4EB482
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:467>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:467>
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_0 = ___0_pose;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1 = L_0.___position;
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_2 = ___0_pose;
@@ -2840,11 +2840,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos_DrawBox_mA60ECE08C66FB4EB482
 		bool L_7 = ___4_isPivotTopSurface;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawBox_mDF7354B7A94742D820FF123BBF91EA7157146ADD(L_1, L_3, L_4, L_5, L_6, L_7, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:468>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:468>
 		return;
 	}
 }
-// Method Definition Index: 82448
+// Method Definition Index: 99810
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__ctor_m690BBF1F356B239C61F85E77228294C436FCB8AA (DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2857,12 +2857,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__ctor_m690BBF1F356B239C61F85
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:39>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:39>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_0 = (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317*)il2cpp_codegen_object_new(List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317_il2cpp_TypeInfo_var);
 		List_1__ctor_m7A5FFB71CC0B9A11A8FF0FC535B7D700EF76ED20(L_0, List_1__ctor_m7A5FFB71CC0B9A11A8FF0FC535B7D700EF76ED20_RuntimeMethod_var);
 		__this->____points = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____points), (void*)L_0);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:40>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:40>
 		List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* L_1 = (List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF*)il2cpp_codegen_object_new(List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF_il2cpp_TypeInfo_var);
 		List_1__ctor_mE1298EFE02E4CF09A9513D04C6D0FE12C4A5A96D(L_1, List_1__ctor_mE1298EFE02E4CF09A9513D04C6D0FE12C4A5A96D_RuntimeMethod_var);
 		__this->____colors = L_1;
@@ -2871,7 +2871,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__ctor_m690BBF1F356B239C61F85
 		return;
 	}
 }
-// Method Definition Index: 82449
+// Method Definition Index: 99811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__cctor_m8CF1A84806AEDD594F2F056FC8AC7CBE40B14D5E (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2890,21 +2890,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__cctor_m8CF1A84806AEDD594F2F
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:284>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:284>
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->____renderSinglePass = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:314>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:314>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0;
 		L_0 = Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline(NULL);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:319>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:319>
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___LineWidth = (0.100000001f);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:470>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:471>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:472>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:473>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:474>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:475>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:476>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:470>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:471>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:472>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:473>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:474>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:475>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:476>
 		List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* L_1 = (List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B*)il2cpp_codegen_object_new(List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B_il2cpp_TypeInfo_var);
 		List_1__ctor_m88C4BD8AC607DB3585552068F4DC437406358D5F(L_1, List_1__ctor_m88C4BD8AC607DB3585552068F4DC437406358D5F_RuntimeMethod_var);
 		List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* L_2 = L_1;
@@ -2933,17 +2933,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__cctor_m8CF1A84806AEDD594F2F
 		List_1_Add_mB5FDF069171C4CB1778BFAC3B9015A22EA7DFBCD_inline(L_8, L_9, List_1_Add_mB5FDF069171C4CB1778BFAC3B9015A22EA7DFBCD_RuntimeMethod_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_POINTS = L_8;
 		Il2CppCodeGenWriteBarrier((void**)(&((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_POINTS), (void*)L_8);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:478>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:479>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:480>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:481>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:482>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:483>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:484>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:485>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:486>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:487>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:488>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:478>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:479>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:480>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:481>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:482>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:483>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:484>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:485>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:486>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:487>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:488>
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_10 = (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73*)il2cpp_codegen_object_new(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73_il2cpp_TypeInfo_var);
 		List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8(L_10, List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8_RuntimeMethod_var);
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_11 = L_10;
@@ -2972,17 +2972,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__cctor_m8CF1A84806AEDD594F2F
 		List_1_Add_m0248A96C5334E9A93E6994B7780478BCD994EA3D_inline(L_18, 0, List_1_Add_m0248A96C5334E9A93E6994B7780478BCD994EA3D_RuntimeMethod_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_SEGMENTS = L_18;
 		Il2CppCodeGenWriteBarrier((void**)(&((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___PLANE_SEGMENTS), (void*)L_18);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:490>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:491>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:492>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:493>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:494>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:495>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:496>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:497>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:498>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:499>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:500>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:490>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:491>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:492>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:493>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:494>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:495>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:496>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:497>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:498>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:499>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:500>
 		List_1_t77B94703E05C519A9010DD0614F757F974E1CD8B* L_19 = (List_1_t77B94703E05C519A9010DD0614F757F974E1CD8B*)il2cpp_codegen_object_new(List_1_t77B94703E05C519A9010DD0614F757F974E1CD8B_il2cpp_TypeInfo_var);
 		List_1__ctor_mC54E2BCBE43279A96FC082F5CDE2D76388BD8F9C(L_19, List_1__ctor_mC54E2BCBE43279A96FC082F5CDE2D76388BD8F9C_RuntimeMethod_var);
 		List_1_t77B94703E05C519A9010DD0614F757F974E1CD8B* L_20 = L_19;
@@ -3035,33 +3035,33 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__cctor_m8CF1A84806AEDD594F2F
 		List_1_Add_m79E50C4F592B1703F4B76A8BE7B4855515460CA1_inline(L_34, L_35, List_1_Add_m79E50C4F592B1703F4B76A8BE7B4855515460CA1_RuntimeMethod_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_POINTS = L_34;
 		Il2CppCodeGenWriteBarrier((void**)(&((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___CUBE_POINTS), (void*)L_34);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:502>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:503>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:504>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:505>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:506>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:507>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:508>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:509>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:510>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:511>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:512>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:513>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:514>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:515>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:516>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:517>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:518>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:519>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:520>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:521>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:522>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:523>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:524>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:525>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:526>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:527>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:528>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:502>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:503>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:504>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:505>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:506>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:507>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:508>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:509>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:510>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:511>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:512>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:513>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:514>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:515>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:516>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:517>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:518>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:519>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:520>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:521>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:522>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:523>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:524>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:525>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:526>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:527>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:528>
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_36 = (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73*)il2cpp_codegen_object_new(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73_il2cpp_TypeInfo_var);
 		List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8(L_36, List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8_RuntimeMethod_var);
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_37 = L_36;
@@ -3149,7 +3149,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugGizmos__cctor_m8CF1A84806AEDD594F2F
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82450
+// Method Definition Index: 99812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorScope__ctor_m50294F3C35981EA0BE2075362AB5903930A402A8 (ColorScope_t450D75678AC01DDE67B66555413DCE9839B9CB47* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_color, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3159,14 +3159,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorScope__ctor_m50294F3C35981EA0BE2075
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:326>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:326>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0 = ((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color;
 		__this->____savedColor = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:327>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:327>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_1 = ___0_color;
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:328>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:328>
 		return;
 	}
 }
@@ -3177,7 +3177,7 @@ IL2CPP_EXTERN_C  void ColorScope__ctor_m50294F3C35981EA0BE2075362AB5903930A402A8
 	_thisAdjusted = reinterpret_cast<ColorScope_t450D75678AC01DDE67B66555413DCE9839B9CB47*>(__this + _offset);
 	ColorScope__ctor_m50294F3C35981EA0BE2075362AB5903930A402A8(_thisAdjusted, ___0_color, method);
 }
-// Method Definition Index: 82451
+// Method Definition Index: 99813
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorScope_Dispose_m54A600D3061677F695AFB472FB3013DED8BCCCD1 (ColorScope_t450D75678AC01DDE67B66555413DCE9839B9CB47* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3187,11 +3187,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ColorScope_Dispose_m54A600D3061677F695AF
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:332>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:332>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0 = __this->____savedColor;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___Color = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:333>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/DebugGizmos.cs:333>
 		return;
 	}
 }
@@ -3210,12 +3210,12 @@ IL2CPP_EXTERN_C  void ColorScope_Dispose_m54A600D3061677F695AFB472FB3013DED8BCCC
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82452
+// Method Definition Index: 99814
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, const RuntimeMethod* method) 
 {
 	int32_t G_B3_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:44>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:44>
 		bool L_0 = __this->____renderSinglePass;
 		if (L_0)
 		{
@@ -3237,23 +3237,23 @@ IL_000c:
 		return G_B3_0;
 	}
 }
-// Method Definition Index: 82453
+// Method Definition Index: 99815
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:47>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:47>
 		int32_t L_0 = __this->____maxLineCount;
 		int32_t L_1;
 		L_1 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
 		return ((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_multiply(L_0, 2)), L_1));
 	}
 }
-// Method Definition Index: 82454
+// Method Definition Index: 99816
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PolylineRenderer_get_LineScaleFactor_mD07ECDA10B6C42E54B76D3C47EC213D23C7E8170 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:67>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:67>
 		float L_0 = __this->____lineScaleFactor;
 		V_0 = L_0;
 		goto IL_000a;
@@ -3261,23 +3261,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PolylineRenderer_get_LineScaleFactor_mD
 
 IL_000a:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:68>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:68>
 		float L_1 = V_0;
 		return L_1;
 	}
 }
-// Method Definition Index: 82455
+// Method Definition Index: 99817
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_set_LineScaleFactor_mAB147A65252546843CC201CC2A839AF2298CBBB5 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, float ___0_value, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:71>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:71>
 		float L_0 = ___0_value;
 		__this->____lineScaleFactor = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:72>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:72>
 		return;
 	}
 }
-// Method Definition Index: 82456
+// Method Definition Index: 99818
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer__ctor_m0157E1A3A7D5961255774A9DF654CC4A2265BEF8 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___0_material, bool ___1_renderSinglePass, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3300,46 +3300,46 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer__ctor_m0157E1A3A7D59612
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:29>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:29>
 		__this->____positions = (Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____positions), (void*)(Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD*)NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:30>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:30>
 		__this->____positionsNeedUpdate = (bool)0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:32>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:32>
 		__this->____colors = (ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____colors), (void*)(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:33>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:33>
 		__this->____colorsNeedUpdate = (bool)0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:54>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:54>
 		int32_t L_0;
 		L_0 = Shader_PropertyToID_mE98523D50F5656CAE89B30695C458253EB8956CA(_stringLiteral23126431E34FBD706C600DA5B55BA28BF4CC5988, NULL);
 		__this->____positionBufferShaderID = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:55>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:55>
 		int32_t L_1;
 		L_1 = Shader_PropertyToID_mE98523D50F5656CAE89B30695C458253EB8956CA(_stringLiteral3F42ED00D84DBC7A3B4658065DEA62873778201F, NULL);
 		__this->____colorBufferShaderID = L_1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:56>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:56>
 		int32_t L_2;
 		L_2 = Shader_PropertyToID_mE98523D50F5656CAE89B30695C458253EB8956CA(_stringLiteralE9E6A6B1BF11DDD1F857D81F43373B3FF279FF59, NULL);
 		__this->____localToWorldShaderID = L_2;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:57>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:57>
 		int32_t L_3;
 		L_3 = Shader_PropertyToID_mE98523D50F5656CAE89B30695C458253EB8956CA(_stringLiteralB2A2A23C0F95CC4BF23BDB0980D559F59E054C4B, NULL);
 		__this->____scaleShaderID = L_3;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:59>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:59>
 		__this->____maxLineCount = 1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:60>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:60>
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_4;
 		L_4 = Matrix4x4_get_identity_m6568A73831F3E2D587420D20FF423959D7D8AB56_inline(NULL);
 		__this->____matrix = L_4;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:61>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:61>
 		__this->____lineScaleFactor = (1.0f);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:75>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:75>
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:77>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:77>
 		bool L_5 = ___1_renderSinglePass;
 		__this->____renderSinglePass = L_5;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:79>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:79>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6 = ___0_material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_7;
@@ -3352,7 +3352,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer__ctor_m0157E1A3A7D59612
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:81>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:81>
 		Shader_tADC867D36B7876EE22427FAA2CE485105F4EE692* L_9;
 		L_9 = Shader_Find_m183AA54F78320212DDEC811592F98456898A41C5(_stringLiteral27F9686B56E281CB7C36165C55F88ECD7FB62114, NULL);
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_10 = (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3*)il2cpp_codegen_object_new(Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3_il2cpp_TypeInfo_var);
@@ -3362,17 +3362,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer__ctor_m0157E1A3A7D59612
 
 IL_00a6:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:84>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:84>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = ___0_material;
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_12 = (Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3*)il2cpp_codegen_object_new(Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3_il2cpp_TypeInfo_var);
 		Material__ctor_mFCC42FB90257F1E8F7516A8640A79C465A39961C(L_12, L_11, NULL);
 		__this->____material = L_12;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____material), (void*)L_12);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:86>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:86>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_13;
 		L_13 = GameObject_CreatePrimitive_m13C0A691E679A83DD595913200A1DD9A906EB47B(3, NULL);
 		V_0 = L_13;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:87>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:87>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_14 = V_0;
 		NullCheck(L_14);
 		MeshFilter_t6D1CE2473A1E45AC73013400585A1163BF66B2F5* L_15;
@@ -3382,63 +3382,63 @@ IL_00a6:
 		L_16 = MeshFilter_get_sharedMesh_mE4ED3E7E31C1DE5097E4980DA996E620F7D7CB8C(L_15, NULL);
 		__this->____baseMesh = L_16;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____baseMesh), (void*)L_16);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:88>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:88>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_DestroyImmediate_m6336EBC83591A5DB64EC70C92132824C6E258705(L_17, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:91>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:91>
 		int32_t L_18;
 		L_18 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_19 = (Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD*)(Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD*)SZArrayNew(Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD_il2cpp_TypeInfo_var, (uint32_t)L_18);
 		__this->____positions = L_19;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____positions), (void*)L_19);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:92>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:92>
 		int32_t L_20;
 		L_20 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_21 = (ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)SZArrayNew(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389_il2cpp_TypeInfo_var, (uint32_t)L_20);
 		__this->____colors = L_21;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____colors), (void*)L_21);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:96>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:96>
 		int32_t L_22;
 		L_22 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_23 = (ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233*)il2cpp_codegen_object_new(ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233_il2cpp_TypeInfo_var);
 		ComputeBuffer__ctor_mE40DE5EF5ADAC29B6B4DECBD1EE33E8526202617(L_23, L_22, ((int32_t)16), NULL);
 		__this->____positionBuffer = L_23;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____positionBuffer), (void*)L_23);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:97>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:97>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_24 = __this->____positionBuffer;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_25 = __this->____positions;
 		NullCheck(L_24);
 		ComputeBuffer_SetData_m9F845E6B347CE028FA9A987D740FC642D828013A(L_24, (RuntimeArray*)L_25, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:98>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:98>
 		int32_t L_26;
 		L_26 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_27 = (ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233*)il2cpp_codegen_object_new(ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233_il2cpp_TypeInfo_var);
 		ComputeBuffer__ctor_mE40DE5EF5ADAC29B6B4DECBD1EE33E8526202617(L_27, L_26, ((int32_t)16), NULL);
 		__this->____colorBuffer = L_27;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____colorBuffer), (void*)L_27);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:99>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:99>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_28 = __this->____colorBuffer;
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_29 = __this->____colors;
 		NullCheck(L_28);
 		ComputeBuffer_SetData_m9F845E6B347CE028FA9A987D740FC642D828013A(L_28, (RuntimeArray*)L_29, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:101>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:101>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_30 = __this->____material;
 		int32_t L_31 = __this->____positionBufferShaderID;
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_32 = __this->____positionBuffer;
 		NullCheck(L_30);
 		Material_SetBuffer_m85D31F941861E2657863EACB32AC62170D4B7F0B(L_30, L_31, L_32, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:102>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:102>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_33 = __this->____material;
 		int32_t L_34 = __this->____colorBufferShaderID;
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_35 = __this->____colorBuffer;
 		NullCheck(L_33);
 		Material_SetBuffer_m85D31F941861E2657863EACB32AC62170D4B7F0B(L_33, L_34, L_35, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:104>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:104>
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_36 = (UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA*)(UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA*)SZArrayNew(UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA_il2cpp_TypeInfo_var, (uint32_t)5);
 		__this->____argsData = L_36;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____argsData), (void*)L_36);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:105>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:105>
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_37 = __this->____argsData;
 		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_38 = __this->____baseMesh;
 		NullCheck(L_38);
@@ -3446,35 +3446,35 @@ IL_00a6:
 		L_39 = Mesh_GetIndexCount_m8F6E3C336023DFD649715A2F9DAAFD83E25ED366(L_38, 0, NULL);
 		NullCheck(L_37);
 		(L_37)->SetAt(static_cast<il2cpp_array_size_t>(0), (uint32_t)L_39);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:106>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:106>
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_40 = __this->____argsData;
 		int32_t L_41 = __this->____maxLineCount;
 		int32_t L_42;
 		L_42 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
 		NullCheck(L_40);
 		(L_40)->SetAt(static_cast<il2cpp_array_size_t>(1), (uint32_t)((int32_t)il2cpp_codegen_multiply(L_41, L_42)));
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:108>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:109>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:108>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:109>
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_43 = __this->____argsData;
 		NullCheck(L_43);
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_44 = (ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233*)il2cpp_codegen_object_new(ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233_il2cpp_TypeInfo_var);
 		ComputeBuffer__ctor_m10899F96063EF384E8F25E2D61242CCF5F327D08(L_44, 1, ((int32_t)il2cpp_codegen_multiply(((int32_t)(((RuntimeArray*)L_43)->max_length)), 4)), ((int32_t)256), NULL);
 		__this->____argsBuffer = L_44;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____argsBuffer), (void*)L_44);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:110>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:110>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_45 = __this->____argsBuffer;
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_46 = __this->____argsData;
 		NullCheck(L_45);
 		ComputeBuffer_SetData_m9F845E6B347CE028FA9A987D740FC642D828013A(L_45, (RuntimeArray*)L_46, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:112>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:112>
 		__this->____positionsNeedUpdate = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:113>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:113>
 		__this->____colorsNeedUpdate = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:114>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:114>
 		return;
 	}
 }
-// Method Definition Index: 82457
+// Method Definition Index: 99819
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_Cleanup_m8A239C8195137DB4EAA0738356CFE2A398F16950 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3486,19 +3486,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_Cleanup_m8A239C8195137D
 	}
 	bool V_0 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:118>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:118>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_0 = __this->____positionBuffer;
 		NullCheck(L_0);
 		ComputeBuffer_Release_mF1F157C929A0A5B2FDCD703A286EE09723450B72(L_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:119>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:119>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_1 = __this->____colorBuffer;
 		NullCheck(L_1);
 		ComputeBuffer_Release_mF1F157C929A0A5B2FDCD703A286EE09723450B72(L_1, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:120>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:120>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_2 = __this->____argsBuffer;
 		NullCheck(L_2);
 		ComputeBuffer_Release_mF1F157C929A0A5B2FDCD703A286EE09723450B72(L_2, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:121>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:121>
 		il2cpp_codegen_runtime_class_init_inline(Application_tDB03BE91CDF0ACA614A5E0B67CFB77C44EB19B21_il2cpp_TypeInfo_var);
 		bool L_3;
 		L_3 = Application_get_isPlaying_m25B0ABDFEF54F5370CD3F263A813540843D00F34(NULL);
@@ -3510,7 +3510,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_Cleanup_m8A239C8195137D
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:123>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:123>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_5 = __this->____material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_5, NULL);
@@ -3519,7 +3519,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_Cleanup_m8A239C8195137D
 
 IL_003e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:127>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:127>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_6 = __this->____material;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_DestroyImmediate_m6336EBC83591A5DB64EC70C92132824C6E258705(L_6, NULL);
@@ -3527,11 +3527,11 @@ IL_003e:
 
 IL_004c:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:129>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:129>
 		return;
 	}
 }
-// Method Definition Index: 82458
+// Method Definition Index: 99820
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetLines_m74FF9A43A40C6AD4B44B0E0226D7C545174C264A (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* ___0_positions, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___1_color, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3541,31 +3541,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetLines_m74FF9A43A40C6
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:133>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:133>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_0 = ___0_positions;
 		NullCheck(L_0);
 		int32_t L_1;
 		L_1 = List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_inline(L_0, List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_RuntimeMethod_var);
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_2 = ___0_positions;
 		PolylineRenderer_SetPositions_m10EEFB136184738C601D1D996916E6E5CF6C15D3(__this, L_1, L_2, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:134>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:134>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_3 = ___0_positions;
 		NullCheck(L_3);
 		int32_t L_4;
 		L_4 = List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_inline(L_3, List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_RuntimeMethod_var);
 		PolylineRenderer_SetDrawCount_m3A5C04BFBC170AFCF7A295AF39F7E24DE2A1E935(__this, ((int32_t)(L_4/2)), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:135>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:135>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_5 = ___0_positions;
 		NullCheck(L_5);
 		int32_t L_6;
 		L_6 = List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_inline(L_5, List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_RuntimeMethod_var);
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = ___1_color;
 		PolylineRenderer_SetColor_m8E40EA85894BC30E6EECD851C13531BF65068925(__this, L_6, L_7, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:136>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:136>
 		return;
 	}
 }
-// Method Definition Index: 82459
+// Method Definition Index: 99821
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetLines_m4138B2EA3E0914ADB30CC2EDC31E486549A32C3A (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* ___0_positions, List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* ___1_colors, int32_t ___2_maxCount, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3577,7 +3577,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetLines_m4138B2EA3E091
 	int32_t V_0 = 0;
 	int32_t G_B3_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:140>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:140>
 		int32_t L_0 = ___2_maxCount;
 		if ((((int32_t)L_0) < ((int32_t)0)))
 		{
@@ -3602,22 +3602,22 @@ IL_0008:
 IL_000e:
 	{
 		V_0 = G_B3_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:141>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:141>
 		int32_t L_4 = V_0;
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_5 = ___0_positions;
 		PolylineRenderer_SetPositions_m10EEFB136184738C601D1D996916E6E5CF6C15D3(__this, L_4, L_5, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:142>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:142>
 		int32_t L_6 = V_0;
 		PolylineRenderer_SetDrawCount_m3A5C04BFBC170AFCF7A295AF39F7E24DE2A1E935(__this, ((int32_t)(L_6/2)), NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:143>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:143>
 		int32_t L_7 = V_0;
 		List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* L_8 = ___1_colors;
 		PolylineRenderer_SetColors_m27AF7E4B4A9F93D94D5C702D448E72F451C90A0A(__this, L_7, L_8, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:145>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:145>
 		return;
 	}
 }
-// Method Definition Index: 82460
+// Method Definition Index: 99822
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetPositions_m10EEFB136184738C601D1D996916E6E5CF6C15D3 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, int32_t ___0_count, List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* ___1_positions, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3651,7 +3651,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetPositions_m10EEFB136
 	bool V_13 = false;
 	bool V_14 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:149>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:149>
 		int32_t L_0 = ___0_count;
 		int32_t L_1;
 		L_1 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
@@ -3665,27 +3665,27 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetPositions_m10EEFB136
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:151>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:151>
 		int32_t L_4 = ___0_count;
 		__this->____maxLineCount = ((int32_t)(L_4/2));
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:152>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:152>
 		int32_t L_5;
 		L_5 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_6 = (Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD*)(Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD*)SZArrayNew(Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD_il2cpp_TypeInfo_var, (uint32_t)L_5);
 		__this->____positions = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____positions), (void*)L_6);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:153>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:153>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_7 = __this->____positionBuffer;
 		NullCheck(L_7);
 		ComputeBuffer_Release_mF1F157C929A0A5B2FDCD703A286EE09723450B72(L_7, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:154>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:154>
 		int32_t L_8;
 		L_8 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_9 = (ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233*)il2cpp_codegen_object_new(ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233_il2cpp_TypeInfo_var);
 		ComputeBuffer__ctor_mE40DE5EF5ADAC29B6B4DECBD1EE33E8526202617(L_9, L_8, ((int32_t)16), NULL);
 		__this->____positionBuffer = L_9;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____positionBuffer), (void*)L_9);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:155>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:155>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_10 = __this->____positionBuffer;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_11 = __this->____positions;
 		NullCheck(L_10);
@@ -3694,32 +3694,32 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetPositions_m10EEFB136
 
 IL_0064:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:158>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:158>
 		Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* L_12 = (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3*)(&__this->____bounds);
 		il2cpp_codegen_initobj(L_12, sizeof(Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3));
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:159>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:159>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
 		L_13 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
 		V_0 = L_13;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:160>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:160>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14;
 		L_14 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
 		V_1 = L_14;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:165>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:165>
 		V_3 = 0;
 		goto IL_01e0;
 	}
 
 IL_0083:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:167>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:167>
 		V_4 = 0;
 		goto IL_01cd;
 	}
 
 IL_008c:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:169>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:169>
 		List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* L_15 = ___1_positions;
 		int32_t L_16 = V_3;
 		int32_t L_17 = V_4;
@@ -3727,14 +3727,14 @@ IL_008c:
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_18;
 		L_18 = List_1_get_Item_mF5D504FB09F98DB07ABEF3D064237C0BCBD8EDC4(L_15, ((int32_t)il2cpp_codegen_add(L_16, L_17)), List_1_get_Item_mF5D504FB09F98DB07ABEF3D064237C0BCBD8EDC4_RuntimeMethod_var);
 		V_5 = L_18;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:170>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:170>
 		V_10 = 0;
 		goto IL_00c1;
 	}
 
 IL_009e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:172>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:172>
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_19 = __this->____positions;
 		int32_t L_20 = V_3;
 		int32_t L_21 = V_10;
@@ -3744,14 +3744,14 @@ IL_009e:
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_24 = V_5;
 		NullCheck(L_19);
 		(L_19)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_add(L_20, L_21)), L_22)), L_23))), (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3)L_24);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:170>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:170>
 		int32_t L_25 = V_10;
 		V_10 = ((int32_t)il2cpp_codegen_add(L_25, 1));
 	}
 
 IL_00c1:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:170>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:170>
 		int32_t L_26 = V_10;
 		int32_t L_27;
 		L_27 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
@@ -3763,7 +3763,7 @@ IL_00c1:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:175>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:175>
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_29 = V_5;
 		float L_30 = L_29.___w;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_31;
@@ -3771,12 +3771,12 @@ IL_00c1:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_32;
 		L_32 = Vector3_op_Multiply_m7F3B0FA9256CE368D7636558EFEFC4AB0E1A0F41_inline(L_30, L_31, NULL);
 		V_6 = L_32;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:176>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:176>
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_33 = V_5;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_34;
 		L_34 = Vector4_op_Implicit_m0217ADDC8CADDB93ACBABB17A50207698DAB0071_inline(L_33, NULL);
 		V_7 = L_34;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:177>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:177>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_35 = V_7;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_36 = V_6;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_37;
@@ -3784,7 +3784,7 @@ IL_00c1:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_38;
 		L_38 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_35, L_37, NULL);
 		V_8 = L_38;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:178>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:178>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_39 = V_7;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_40 = V_6;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_41;
@@ -3792,7 +3792,7 @@ IL_00c1:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_42;
 		L_42 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_39, L_41, NULL);
 		V_9 = L_42;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:179>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:179>
 		int32_t L_43 = V_3;
 		V_12 = (bool)((((int32_t)L_43) == ((int32_t)0))? 1 : 0);
 		bool L_44 = V_12;
@@ -3802,10 +3802,10 @@ IL_00c1:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:181>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:181>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_45 = V_8;
 		V_0 = L_45;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:182>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:182>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_46 = V_9;
 		V_1 = L_46;
 		goto IL_01c6;
@@ -3813,7 +3813,7 @@ IL_00c1:
 
 IL_012e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:186>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:186>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_47 = V_8;
 		float L_48 = L_47.___x;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_49 = V_0;
@@ -3821,7 +3821,7 @@ IL_012e:
 		float L_51;
 		L_51 = Mathf_Min_m747CA71A9483CDB394B13BD0AD048EE17E48FFE4_inline(L_48, L_50, NULL);
 		(&V_0)->___x = L_51;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:187>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:187>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_52 = V_8;
 		float L_53 = L_52.___y;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_54 = V_0;
@@ -3829,7 +3829,7 @@ IL_012e:
 		float L_56;
 		L_56 = Mathf_Min_m747CA71A9483CDB394B13BD0AD048EE17E48FFE4_inline(L_53, L_55, NULL);
 		(&V_0)->___y = L_56;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:188>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:188>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_57 = V_8;
 		float L_58 = L_57.___z;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_59 = V_0;
@@ -3837,7 +3837,7 @@ IL_012e:
 		float L_61;
 		L_61 = Mathf_Min_m747CA71A9483CDB394B13BD0AD048EE17E48FFE4_inline(L_58, L_60, NULL);
 		(&V_0)->___z = L_61;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:189>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:189>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_62 = V_9;
 		float L_63 = L_62.___x;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_64 = V_1;
@@ -3845,7 +3845,7 @@ IL_012e:
 		float L_66;
 		L_66 = Mathf_Max_mF5379E63D2BBAC76D090748695D833934F8AD051_inline(L_63, L_65, NULL);
 		(&V_1)->___x = L_66;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:190>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:190>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_67 = V_9;
 		float L_68 = L_67.___y;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_69 = V_1;
@@ -3853,7 +3853,7 @@ IL_012e:
 		float L_71;
 		L_71 = Mathf_Max_mF5379E63D2BBAC76D090748695D833934F8AD051_inline(L_68, L_70, NULL);
 		(&V_1)->___y = L_71;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:191>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:191>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_72 = V_9;
 		float L_73 = L_72.___z;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_74 = V_1;
@@ -3865,14 +3865,14 @@ IL_012e:
 
 IL_01c6:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:167>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:167>
 		int32_t L_77 = V_4;
 		V_4 = ((int32_t)il2cpp_codegen_add(L_77, 1));
 	}
 
 IL_01cd:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:167>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:167>
 		int32_t L_78 = V_4;
 		V_13 = (bool)((((int32_t)L_78) < ((int32_t)2))? 1 : 0);
 		bool L_79 = V_13;
@@ -3882,14 +3882,14 @@ IL_01cd:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:165>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:165>
 		int32_t L_80 = V_3;
 		V_3 = ((int32_t)il2cpp_codegen_add(L_80, 2));
 	}
 
 IL_01e0:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:165>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:165>
 		int32_t L_81 = V_3;
 		int32_t L_82 = ___0_count;
 		V_14 = (bool)((((int32_t)L_81) < ((int32_t)L_82))? 1 : 0);
@@ -3900,18 +3900,18 @@ IL_01e0:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:195>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:195>
 		Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* L_84 = (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3*)(&__this->____bounds);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_85 = V_0;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_86 = V_1;
 		Bounds_SetMinMax_mB5F7DDF18EDB7F3F25FA6D2B36824F28978C540F_inline(L_84, L_85, L_86, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:196>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:196>
 		__this->____positionsNeedUpdate = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:197>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:197>
 		return;
 	}
 }
-// Method Definition Index: 82461
+// Method Definition Index: 99823
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetColors_m27AF7E4B4A9F93D94D5C702D448E72F451C90A0A (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, int32_t ___0_count, List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* ___1_colors, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3927,31 +3927,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetColors_m27AF7E4B4A9F
 	bool V_4 = false;
 	bool V_5 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:201>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:201>
 		int32_t L_0 = ___0_count;
 		PolylineRenderer_PrepareColorBuffer_m97B62E3BD22D0AB445E71C248EEBAF87DD1FE094(__this, L_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:205>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:205>
 		V_0 = 0;
 		goto IL_005e;
 	}
 
 IL_000d:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:207>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:207>
 		V_1 = 0;
 		goto IL_004f;
 	}
 
 IL_0012:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:209>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:209>
 		V_2 = 0;
 		goto IL_003d;
 	}
 
 IL_0017:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:211>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:211>
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_1 = __this->____colors;
 		int32_t L_2 = V_0;
 		int32_t L_3 = V_2;
@@ -3966,14 +3966,14 @@ IL_0017:
 		L_9 = List_1_get_Item_mE616D49F5F6197745A12A06084EEE9E6FFCF017F(L_6, ((int32_t)il2cpp_codegen_add(L_7, L_8)), List_1_get_Item_mE616D49F5F6197745A12A06084EEE9E6FFCF017F_RuntimeMethod_var);
 		NullCheck(L_1);
 		(L_1)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_add(L_2, L_3)), L_4)), L_5))), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_9);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:209>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:209>
 		int32_t L_10 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add(L_10, 1));
 	}
 
 IL_003d:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:209>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:209>
 		int32_t L_11 = V_2;
 		int32_t L_12;
 		L_12 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
@@ -3985,14 +3985,14 @@ IL_003d:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:207>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:207>
 		int32_t L_14 = V_1;
 		V_1 = ((int32_t)il2cpp_codegen_add(L_14, 1));
 	}
 
 IL_004f:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:207>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:207>
 		int32_t L_15 = V_1;
 		V_4 = (bool)((((int32_t)L_15) < ((int32_t)2))? 1 : 0);
 		bool L_16 = V_4;
@@ -4002,14 +4002,14 @@ IL_004f:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:205>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:205>
 		int32_t L_17 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_17, 2));
 	}
 
 IL_005e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:205>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:205>
 		int32_t L_18 = V_0;
 		int32_t L_19 = ___0_count;
 		V_5 = (bool)((((int32_t)L_18) < ((int32_t)L_19))? 1 : 0);
@@ -4020,13 +4020,13 @@ IL_005e:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:215>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:215>
 		__this->____colorsNeedUpdate = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:216>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:216>
 		return;
 	}
 }
-// Method Definition Index: 82462
+// Method Definition Index: 99824
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetColor_m8E40EA85894BC30E6EECD851C13531BF65068925 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, int32_t ___0_count, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___1_color, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -4036,31 +4036,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetColor_m8E40EA85894BC
 	bool V_4 = false;
 	bool V_5 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:220>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:220>
 		int32_t L_0 = ___0_count;
 		PolylineRenderer_PrepareColorBuffer_m97B62E3BD22D0AB445E71C248EEBAF87DD1FE094(__this, L_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:224>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:224>
 		V_0 = 0;
 		goto IL_0056;
 	}
 
 IL_000d:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:226>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:226>
 		V_1 = 0;
 		goto IL_0047;
 	}
 
 IL_0012:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:228>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:228>
 		V_2 = 0;
 		goto IL_0035;
 	}
 
 IL_0017:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:230>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:230>
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_1 = __this->____colors;
 		int32_t L_2 = V_0;
 		int32_t L_3 = V_2;
@@ -4070,14 +4070,14 @@ IL_0017:
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6 = ___1_color;
 		NullCheck(L_1);
 		(L_1)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_add(L_2, L_3)), L_4)), L_5))), (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F)L_6);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:228>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:228>
 		int32_t L_7 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add(L_7, 1));
 	}
 
 IL_0035:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:228>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:228>
 		int32_t L_8 = V_2;
 		int32_t L_9;
 		L_9 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
@@ -4089,14 +4089,14 @@ IL_0035:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:226>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:226>
 		int32_t L_11 = V_1;
 		V_1 = ((int32_t)il2cpp_codegen_add(L_11, 1));
 	}
 
 IL_0047:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:226>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:226>
 		int32_t L_12 = V_1;
 		V_4 = (bool)((((int32_t)L_12) < ((int32_t)2))? 1 : 0);
 		bool L_13 = V_4;
@@ -4106,14 +4106,14 @@ IL_0047:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:224>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:224>
 		int32_t L_14 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_14, 2));
 	}
 
 IL_0056:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:224>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:224>
 		int32_t L_15 = V_0;
 		int32_t L_16 = ___0_count;
 		V_5 = (bool)((((int32_t)L_15) < ((int32_t)L_16))? 1 : 0);
@@ -4124,37 +4124,37 @@ IL_0056:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:234>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:234>
 		__this->____colorsNeedUpdate = (bool)1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:235>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:235>
 		return;
 	}
 }
-// Method Definition Index: 82463
+// Method Definition Index: 99825
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetDrawCount_m3A5C04BFBC170AFCF7A295AF39F7E24DE2A1E935 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, int32_t ___0_c, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:239>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:239>
 		int32_t L_0 = ___0_c;
 		V_0 = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:240>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:240>
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_1 = __this->____argsData;
 		int32_t L_2 = V_0;
 		int32_t L_3;
 		L_3 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
 		NullCheck(L_1);
 		(L_1)->SetAt(static_cast<il2cpp_array_size_t>(1), (uint32_t)((int32_t)il2cpp_codegen_multiply(L_2, L_3)));
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:241>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:241>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_4 = __this->____argsBuffer;
 		UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA* L_5 = __this->____argsData;
 		NullCheck(L_4);
 		ComputeBuffer_SetData_m9F845E6B347CE028FA9A987D740FC642D828013A(L_4, (RuntimeArray*)L_5, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:242>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:242>
 		return;
 	}
 }
-// Method Definition Index: 82464
+// Method Definition Index: 99826
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_PrepareColorBuffer_m97B62E3BD22D0AB445E71C248EEBAF87DD1FE094 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, int32_t ___0_count, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4166,7 +4166,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_PrepareColorBuffer_m97B
 	}
 	bool V_0 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:246>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:246>
 		int32_t L_0 = ___0_count;
 		int32_t L_1;
 		L_1 = PolylineRenderer_get_Copies_m4CCB107C62EC75DB330378A5978C1670979208EB(__this, NULL);
@@ -4180,33 +4180,33 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_PrepareColorBuffer_m97B
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:248>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:248>
 		goto IL_0068;
 	}
 
 IL_001d:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:250>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:250>
 		int32_t L_4 = ___0_count;
 		__this->____maxLineCount = ((int32_t)(L_4/2));
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:251>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:251>
 		int32_t L_5;
 		L_5 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_6 = (ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389*)SZArrayNew(ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389_il2cpp_TypeInfo_var, (uint32_t)L_5);
 		__this->____colors = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____colors), (void*)L_6);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:252>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:252>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_7 = __this->____colorBuffer;
 		NullCheck(L_7);
 		ComputeBuffer_Release_mF1F157C929A0A5B2FDCD703A286EE09723450B72(L_7, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:253>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:253>
 		int32_t L_8;
 		L_8 = PolylineRenderer_get_BufferSize_mA2B4EDC41E262EAEFCD1D32491BB80D545DEF332(__this, NULL);
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_9 = (ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233*)il2cpp_codegen_object_new(ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233_il2cpp_TypeInfo_var);
 		ComputeBuffer__ctor_mE40DE5EF5ADAC29B6B4DECBD1EE33E8526202617(L_9, L_8, ((int32_t)16), NULL);
 		__this->____colorBuffer = L_9;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____colorBuffer), (void*)L_9);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:254>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:254>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_10 = __this->____colorBuffer;
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_11 = __this->____colors;
 		NullCheck(L_10);
@@ -4215,11 +4215,11 @@ IL_001d:
 
 IL_0068:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:255>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:255>
 		return;
 	}
 }
-// Method Definition Index: 82465
+// Method Definition Index: 99827
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_RenderLines_m710F6C83037166422DED97C89B5078328030E79E (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4233,7 +4233,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_RenderLines_m710F6C8303
 	bool V_1 = false;
 	bool V_2 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:259>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:259>
 		bool L_0 = __this->____positionsNeedUpdate;
 		V_1 = L_0;
 		bool L_1 = V_1;
@@ -4243,24 +4243,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_RenderLines_m710F6C8303
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:261>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:261>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_2 = __this->____positionBuffer;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_3 = __this->____positions;
 		NullCheck(L_2);
 		ComputeBuffer_SetData_m9F845E6B347CE028FA9A987D740FC642D828013A(L_2, (RuntimeArray*)L_3, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:262>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:262>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_4 = __this->____material;
 		int32_t L_5 = __this->____positionBufferShaderID;
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_6 = __this->____positionBuffer;
 		NullCheck(L_4);
 		Material_SetBuffer_m85D31F941861E2657863EACB32AC62170D4B7F0B(L_4, L_5, L_6, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:263>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:263>
 		__this->____positionsNeedUpdate = (bool)0;
 	}
 
 IL_003e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:266>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:266>
 		bool L_7 = __this->____colorsNeedUpdate;
 		V_2 = L_7;
 		bool L_8 = V_2;
@@ -4270,38 +4270,38 @@ IL_003e:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:268>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:268>
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_9 = __this->____colorBuffer;
 		ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* L_10 = __this->____colors;
 		NullCheck(L_9);
 		ComputeBuffer_SetData_m9F845E6B347CE028FA9A987D740FC642D828013A(L_9, (RuntimeArray*)L_10, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:269>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:269>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_11 = __this->____material;
 		int32_t L_12 = __this->____colorBufferShaderID;
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_13 = __this->____colorBuffer;
 		NullCheck(L_11);
 		Material_SetBuffer_m85D31F941861E2657863EACB32AC62170D4B7F0B(L_11, L_12, L_13, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:270>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:270>
 		__this->____colorsNeedUpdate = (bool)0;
 	}
 
 IL_007b:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:273>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:273>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_14 = __this->____material;
 		int32_t L_15 = __this->____scaleShaderID;
 		float L_16 = __this->____lineScaleFactor;
 		NullCheck(L_14);
 		Material_SetFloat_m3ECFD92072347A8620254F014865984FA68211A8(L_14, L_15, L_16, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:274>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:274>
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_17 = __this->____material;
 		int32_t L_18 = __this->____localToWorldShaderID;
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_19 = __this->____matrix;
 		NullCheck(L_17);
 		Material_SetMatrix_m668579C6402F88BFEF769D39E484BAD4CE6B0067(L_17, L_18, L_19, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:276>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:277>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:278>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:276>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:277>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:278>
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6* L_20 = (Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6*)(&__this->____matrix);
 		Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* L_21 = (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3*)(&__this->____bounds);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22;
@@ -4315,28 +4315,28 @@ IL_007b:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_27;
 		L_27 = Matrix4x4_MultiplyVector_mFD12F86A473E90BBB0002149ABA3917B2A518937(L_24, L_26, NULL);
 		Bounds__ctor_mAF7B238B9FBF90C495E5D7951760085A93119C5A_inline((&V_0), L_23, L_27, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:280>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:280>
 		Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4* L_28 = __this->____baseMesh;
 		Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* L_29 = __this->____material;
 		Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3 L_30 = V_0;
 		ComputeBuffer_t51EADA9015EBCC1B982C5584E9AB2734415A8233* L_31 = __this->____argsBuffer;
 		il2cpp_codegen_runtime_class_init_inline(Graphics_t99CD970FFEA58171C70F54DF0C06D315BD452F2C_il2cpp_TypeInfo_var);
 		Graphics_DrawMeshInstancedIndirect_m8BB08E5CC5F71F4C0651CF88BE8B0739DB4A7EE1(L_28, 0, L_29, L_30, L_31, 0, (MaterialPropertyBlock_t2308669579033A857EFE6E4831909F638B27411D*)NULL, 1, (bool)1, 0, (Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184*)NULL, 1, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:281>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:281>
 		return;
 	}
 }
-// Method Definition Index: 82466
+// Method Definition Index: 99828
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetTransform_m9C7BA82F3F1FB6FB9B5C6A2D3C802582D1E2AB85 (PolylineRenderer_t7EE4C8A295E0A2581F11558F58959FF8E427B6C9* __this, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___0_transform, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:285>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:285>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = ___0_transform;
 		NullCheck(L_0);
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_1;
 		L_1 = Transform_get_localToWorldMatrix_m5D35188766856338DD21DE756F42277C21719E6D(L_0, NULL);
 		__this->____matrix = L_1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:286>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/DebugGizmos/PolylineRenderer.cs:286>
 		return;
 	}
 }
@@ -4348,33 +4348,33 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolylineRenderer_SetTransform_m9C7BA82F3
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82467
+// Method Definition Index: 99829
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer_SetUpGizmo_m33F560751ABC69F9C062424DCD040C28F3CD1AC3 (GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* __this, int32_t ___0_gizmoType, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___1_gizmoColor, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:34>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:34>
 		int32_t L_0 = ___0_gizmoType;
 		__this->____gizmoType = L_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:35>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:35>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_1 = ___1_gizmoColor;
 		__this->____gizmoColor = L_1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:36>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:36>
 		return;
 	}
 }
-// Method Definition Index: 82468
+// Method Definition Index: 99830
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer_UpdateDataSource_m55A70CA361FECCEE1F4938CF6A966A86D3E92C88 (GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:40>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:40>
 		RuntimeObject* L_0 = ___0_dataSource;
 		__this->____dataSource = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dataSource), (void*)L_0);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:41>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:41>
 		return;
 	}
 }
-// Method Definition Index: 82469
+// Method Definition Index: 99831
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer_Start_m4115C95413FB33ACC2EEDB2517E46C8CF6A416C4 (GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4384,14 +4384,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer_Start_m4115C95413FB33ACC2E
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:45>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:45>
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		((DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_StaticFields*)il2cpp_codegen_static_fields_for(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var))->___LineWidth = (0.00999999978f);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:46>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:46>
 		return;
 	}
 }
-// Method Definition Index: 82470
+// Method Definition Index: 99832
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer_Update_mEE6314521B02EDF3CBCF657C1DECCF84209C9D98 (GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4403,7 +4403,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer_Update_mEE6314521B02EDF3CB
 	ColorScope_t450D75678AC01DDE67B66555413DCE9839B9CB47 V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:50>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:50>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_0 = __this->____gizmoColor;
 		ColorScope__ctor_m50294F3C35981EA0BE2075362AB5903930A402A8((&V_0), L_0, NULL);
 	}
@@ -4419,12 +4419,12 @@ FINALLY_0022:
 		});
 		try
 		{
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:51>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:51>
 			int32_t L_1 = __this->____gizmoType;
 			RuntimeObject* L_2 = __this->____dataSource;
 			il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 			GizmoTypesRegistry_RenderGizmo_m4B75AE0635D9A3F0B1CD58055B3CB6D592614717(L_1, L_2, NULL);
-			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:52>
+			//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:52>
 			goto IL_0031;
 		}
 		catch(Il2CppExceptionWrapper& e)
@@ -4435,11 +4435,11 @@ FINALLY_0022:
 
 IL_0031:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:52>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRenderer.cs:52>
 		return;
 	}
 }
-// Method Definition Index: 82471
+// Method Definition Index: 99833
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer__ctor_m8C3D3BDCEE610949CB50045DFD5F5465F6BBE59A (GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4455,48 +4455,48 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRenderer__ctor_m8C3D3BDCEE610949CB5
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82472
+// Method Definition Index: 99834
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_Setup_m6BF66A30B7B29E17EFD103697123B315D0B25308 (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, Type_t* ___0_classType, MemberInfo_t* ___1_memberInfo, int32_t ___2_gizmoType, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___3_gizmoColor, InstanceCache_t4BE74F0905EC3B9F43DA75C026AFE64CF80DCD98* ___4_instanceCache, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:51>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:51>
 		Type_t* L_0 = ___0_classType;
 		__this->____classType = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____classType), (void*)L_0);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:52>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:52>
 		MemberInfo_t* L_1 = ___1_memberInfo;
 		__this->____memberInfo = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____memberInfo), (void*)L_1);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:53>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:53>
 		MemberInfo_t* L_2 = ___1_memberInfo;
 		bool L_3;
 		L_3 = MemberInfoExtensions_IsStatic_mC76B1E8AC9341C5A4BF96AB5D34A815861E928E2(L_2, NULL);
 		__this->____isStatic = L_3;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:54>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:54>
 		InstanceCache_t4BE74F0905EC3B9F43DA75C026AFE64CF80DCD98* L_4 = ___4_instanceCache;
 		__this->____instanceCache = L_4;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____instanceCache), (void*)L_4);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:55>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:55>
 		int32_t L_5 = ___2_gizmoType;
 		__this->____gizmoType = L_5;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:56>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:56>
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_6 = ___3_gizmoColor;
 		__this->____gizmoColor = L_6;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:57>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:57>
 		return;
 	}
 }
-// Method Definition Index: 82473
+// Method Definition Index: 99835
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_Start_mD1B5AD0ED708D567C98B2BE1EACB33C9C10770FF (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:62>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:62>
 		GizmoRendererManager_AddGizmoRenderer_m53A88150FC2BDA2676053BCFF16C8D166B629AA1(__this, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:63>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:63>
 		return;
 	}
 }
-// Method Definition Index: 82474
+// Method Definition Index: 99836
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_Update_m4B3F67CD4A48555BD21DDC913184C67A6428DBBC (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4522,7 +4522,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_Update_m4B3F67CD4A4
 	int32_t G_B3_0 = 0;
 	int32_t G_B21_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:67>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:67>
 		bool L_0 = __this->____isStatic;
 		if (!L_0)
 		{
@@ -4553,7 +4553,7 @@ IL_001a:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:69>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:69>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_4 = __this->____renderers;
 		NullCheck(L_4);
 		GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* L_5;
@@ -4563,7 +4563,7 @@ IL_001a:
 		L_7 = MemberInfoExtensions_GetValue_mDDED0AF8107DDCAC71525FA3496DA464D5919139(L_6, NULL, NULL);
 		NullCheck(L_5);
 		GizmoRenderer_UpdateDataSource_m55A70CA361FECCEE1F4938CF6A966A86D3E92C88(L_5, L_7, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:70>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:70>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_8 = __this->____renderers;
 		NullCheck(L_8);
 		GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* L_9;
@@ -4579,14 +4579,14 @@ IL_001a:
 
 IL_0061:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:74>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:74>
 		InstanceCache_t4BE74F0905EC3B9F43DA75C026AFE64CF80DCD98* L_12 = __this->____instanceCache;
 		Type_t* L_13 = __this->____classType;
 		NullCheck(L_12);
 		List_1_t1169F3672387C4139E9A5951CD3EB62796562E7D* L_14;
 		L_14 = InstanceCache_GetCacheDataForClass_mE5F595AB0BD4C342656C4B17061CD4099CEEA0DB(L_12, L_13, NULL);
 		V_1 = L_14;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:75>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:75>
 		List_1_t1169F3672387C4139E9A5951CD3EB62796562E7D* L_15 = V_1;
 		NullCheck(L_15);
 		int32_t L_16;
@@ -4599,7 +4599,7 @@ IL_0061:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:77>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:77>
 		goto IL_0182;
 	}
 
@@ -4610,13 +4610,13 @@ IL_0087:
 
 IL_0089:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:82>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:82>
 		GizmoRendererManager_AddGizmoRenderer_m53A88150FC2BDA2676053BCFF16C8D166B629AA1(__this, NULL);
 	}
 
 IL_0092:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:80>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:80>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_18 = __this->____renderers;
 		NullCheck(L_18);
 		int32_t L_19;
@@ -4633,21 +4633,21 @@ IL_0092:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:84>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:84>
 		V_2 = 0;
 		goto IL_012c;
 	}
 
 IL_00af:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:87>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:87>
 		List_1_t1169F3672387C4139E9A5951CD3EB62796562E7D* L_23 = V_1;
 		int32_t L_24 = V_2;
 		NullCheck(L_23);
 		InstanceHandle_tE6B8E29890FB27E3E1824A634157E596584E0CFA L_25;
 		L_25 = List_1_get_Item_m24EFE1240327CF01F0E454868C4C07CDF0228A5B(L_23, L_24, List_1_get_Item_m24EFE1240327CF01F0E454868C4C07CDF0228A5B_RuntimeMethod_var);
 		V_5 = L_25;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:88>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:88>
 		bool L_26;
 		L_26 = InstanceHandle_get_Valid_mDCB132A6E0E85CA8D2406F30B8E4DAA7D719C8AB((&V_5), NULL);
 		V_6 = L_26;
@@ -4658,7 +4658,7 @@ IL_00af:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:90>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:90>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_28 = __this->____renderers;
 		int32_t L_29 = V_2;
 		NullCheck(L_28);
@@ -4671,7 +4671,7 @@ IL_00af:
 		L_33 = MemberInfoExtensions_GetValue_mDDED0AF8107DDCAC71525FA3496DA464D5919139(L_31, L_32, NULL);
 		NullCheck(L_30);
 		GizmoRenderer_UpdateDataSource_m55A70CA361FECCEE1F4938CF6A966A86D3E92C88(L_30, L_33, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:91>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:91>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_34 = __this->____renderers;
 		int32_t L_35 = V_2;
 		NullCheck(L_34);
@@ -4690,7 +4690,7 @@ IL_00af:
 
 IL_0112:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:95>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:95>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_40 = __this->____renderers;
 		int32_t L_41 = V_2;
 		NullCheck(L_40);
@@ -4702,14 +4702,14 @@ IL_0112:
 
 IL_0127:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:85>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:85>
 		int32_t L_43 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add(L_43, 1));
 	}
 
 IL_012c:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:85>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:85>
 		int32_t L_44 = V_2;
 		List_1_t1169F3672387C4139E9A5951CD3EB62796562E7D* L_45 = V_1;
 		NullCheck(L_45);
@@ -4728,7 +4728,7 @@ IL_012c:
 
 IL_0140:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:101>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:101>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_48 = __this->____renderers;
 		int32_t L_49 = V_2;
 		NullCheck(L_48);
@@ -4736,14 +4736,14 @@ IL_0140:
 		L_50 = List_1_get_Item_m1214FA9B0FEBD9DDFCCDF61271FA53D63B18789A(L_48, L_49, List_1_get_Item_m1214FA9B0FEBD9DDFCCDF61271FA53D63B18789A_RuntimeMethod_var);
 		NullCheck(L_50);
 		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_50, (bool)0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:102>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:102>
 		int32_t L_51 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add(L_51, 1));
 	}
 
 IL_0159:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:99>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:99>
 		int32_t L_52 = V_2;
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_53 = __this->____renderers;
 		NullCheck(L_53);
@@ -4786,11 +4786,11 @@ IL_017b:
 
 IL_0182:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:106>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:106>
 		return;
 	}
 }
-// Method Definition Index: 82475
+// Method Definition Index: 99837
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_AddGizmoRenderer_m53A88150FC2BDA2676053BCFF16C8D166B629AA1 (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4802,33 +4802,33 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_AddGizmoRenderer_m5
 	}
 	GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* V_0 = NULL;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:110>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:110>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0;
 		L_0 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_0);
 		GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* L_1;
 		L_1 = GameObject_AddComponent_TisGizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF_m6371E61CB2400F8523DA3E529E4A49408E08B89E(L_0, GameObject_AddComponent_TisGizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF_m6371E61CB2400F8523DA3E529E4A49408E08B89E_RuntimeMethod_var);
 		V_0 = L_1;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:111>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:111>
 		GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* L_2 = V_0;
 		int32_t L_3 = __this->____gizmoType;
 		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_4 = __this->____gizmoColor;
 		NullCheck(L_2);
 		GizmoRenderer_SetUpGizmo_m33F560751ABC69F9C062424DCD040C28F3CD1AC3(L_2, L_3, L_4, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:112>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:112>
 		GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* L_5 = V_0;
 		NullCheck(L_5);
 		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_5, (bool)0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:113>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:113>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_6 = __this->____renderers;
 		GizmoRenderer_tBFF2B0189EDE4C44C3A0E8DE21D540A5C92A89CF* L_7 = V_0;
 		NullCheck(L_6);
 		List_1_Add_m411CAF4FA646629C698E2E65AAB6805B7B0C19AE_inline(L_6, L_7, List_1_Add_m411CAF4FA646629C698E2E65AAB6805B7B0C19AE_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:114>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:114>
 		return;
 	}
 }
-// Method Definition Index: 82476
+// Method Definition Index: 99838
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GizmoRendererManager_GetState_mF946F9EC18A8982E196AA0ED365A6A83DFC48E46 (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_instance, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4842,7 +4842,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GizmoRendererManager_GetState_mF946F9EC1
 	bool V_1 = false;
 	int32_t G_B3_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:118>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:118>
 		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_0 = ___0_instance;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -4869,7 +4869,7 @@ IL_000d:
 IL_0013:
 	{
 		V_0 = G_B3_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:119>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:119>
 		HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2* L_4 = __this->____enabledInstances;
 		int32_t L_5 = V_0;
 		NullCheck(L_4);
@@ -4881,12 +4881,12 @@ IL_0013:
 
 IL_0023:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:120>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:120>
 		bool L_7 = V_1;
 		return L_7;
 	}
 }
-// Method Definition Index: 82477
+// Method Definition Index: 99839
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_SetState_m9D50CA1146F8F8ED2029DBD43E61E77832C9D2D2 (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_instance, bool ___1_state, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4901,7 +4901,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager_SetState_m9D50CA114
 	bool V_1 = false;
 	int32_t G_B3_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:124>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:124>
 		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_0 = ___0_instance;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -4928,7 +4928,7 @@ IL_000d:
 IL_0013:
 	{
 		V_0 = G_B3_0;
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:125>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:125>
 		bool L_4 = ___1_state;
 		V_1 = L_4;
 		bool L_5 = V_1;
@@ -4938,7 +4938,7 @@ IL_0013:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:127>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:127>
 		HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2* L_6 = __this->____enabledInstances;
 		int32_t L_7 = V_0;
 		NullCheck(L_6);
@@ -4949,7 +4949,7 @@ IL_0013:
 
 IL_002a:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:131>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:131>
 		HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2* L_9 = __this->____enabledInstances;
 		int32_t L_10 = V_0;
 		NullCheck(L_9);
@@ -4959,11 +4959,11 @@ IL_002a:
 
 IL_0039:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:133>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:133>
 		return;
 	}
 }
-// Method Definition Index: 82478
+// Method Definition Index: 99840
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager__ctor_mD8C6B7D91846475A4C8131AB4445762C168BC44C (GizmoRendererManager_tAEB486895D740280B446585A1AAE521A9F79F37D* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4976,12 +4976,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoRendererManager__ctor_mD8C6B7D91846
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:46>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:46>
 		List_1_tE800063F2507498C8C473AEAE41B66EED060E584* L_0 = (List_1_tE800063F2507498C8C473AEAE41B66EED060E584*)il2cpp_codegen_object_new(List_1_tE800063F2507498C8C473AEAE41B66EED060E584_il2cpp_TypeInfo_var);
 		List_1__ctor_m45628145A6B22A44D348DA483A42D5AB938C7397(L_0, List_1__ctor_m45628145A6B22A44D348DA483A42D5AB938C7397_RuntimeMethod_var);
 		__this->____renderers = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____renderers), (void*)L_0);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:47>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoRendererManager.cs:47>
 		HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2* L_1 = (HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2*)il2cpp_codegen_object_new(HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2_il2cpp_TypeInfo_var);
 		HashSet_1__ctor_m90EA29D74B137C5317CDC485AA1D799F0B6726FF(L_1, HashSet_1__ctor_m90EA29D74B137C5317CDC485AA1D799F0B6726FF_RuntimeMethod_var);
 		__this->____enabledInstances = L_1;
@@ -5034,15 +5034,15 @@ IL2CPP_EXTERN_C void GizmoTypeInfo_t93D18342D531CD0DF986A1D22C7EE972069C8A25_mar
 IL2CPP_EXTERN_C void GizmoTypeInfo_t93D18342D531CD0DF986A1D22C7EE972069C8A25_marshal_com_cleanup(GizmoTypeInfo_t93D18342D531CD0DF986A1D22C7EE972069C8A25_marshaled_com& marshaled)
 {
 }
-// Method Definition Index: 82479
+// Method Definition Index: 99841
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypeInfo__ctor_m555B2EB4C93CE481EC5A9DFCF8DABC80458C9C3C (GizmoTypeInfo_t93D18342D531CD0DF986A1D22C7EE972069C8A25* __this, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___0_renderDelegate, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:33>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:33>
 		Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* L_0 = ___0_renderDelegate;
 		__this->___RenderDelegate = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___RenderDelegate), (void*)L_0);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:34>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:34>
 		return;
 	}
 }
@@ -5061,7 +5061,7 @@ IL2CPP_EXTERN_C  void GizmoTypeInfo__ctor_m555B2EB4C93CE481EC5A9DFCF8DABC80458C9
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82480
+// Method Definition Index: 99842
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_Init_m7D5ADD821AD717FA76A29F50481D1334D0AFB96B (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5074,7 +5074,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_Init_m7D5ADD821AD717F
 	Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* G_B2_0 = NULL;
 	Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* G_B1_0 = NULL;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:42>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:42>
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* L_0 = ((GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_StaticFields*)il2cpp_codegen_static_fields_for(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var))->___GizmoTypeInfos;
 		Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* L_1 = L_0;
@@ -5097,11 +5097,11 @@ IL_000c:
 
 IL_0012:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:43>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:43>
 		return;
 	}
 }
-// Method Definition Index: 82481
+// Method Definition Index: 99843
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841 (int32_t ___0_gizmoType, Type_t* ___1_dataSourceType, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___2_renderDelegate, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5113,7 +5113,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_RegisterGizmoType_mA6
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:49>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:49>
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* L_0 = ((GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_StaticFields*)il2cpp_codegen_static_fields_for(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var))->___GizmoTypeInfos;
 		int32_t L_1 = ___0_gizmoType;
@@ -5127,11 +5127,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_RegisterGizmoType_mA6
 		GizmoTypeInfo__ctor_m555B2EB4C93CE481EC5A9DFCF8DABC80458C9C3C((&L_5), L_4, NULL);
 		NullCheck(L_0);
 		Dictionary_2_Add_m13E976DC184061254F3B8E69173E4A5895A2CC76(L_0, L_3, L_5, Dictionary_2_Add_m13E976DC184061254F3B8E69173E4A5895A2CC76_RuntimeMethod_var);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:50>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:50>
 		return;
 	}
 }
-// Method Definition Index: 82482
+// Method Definition Index: 99844
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_InitGizmos_m4F9436ABF76F1115FDA5A70A10EC13461C8031C6 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5221,13 +5221,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_InitGizmos_m4F9436ABF
 	Type_t* G_B19_1 = NULL;
 	int32_t G_B19_2 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:54>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:55>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:56>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:57>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:58>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:59>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:60>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:54>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:55>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:56>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:57>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:58>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:59>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:60>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_0 = { reinterpret_cast<intptr_t> (Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_1;
@@ -5263,13 +5263,13 @@ IL_002b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B2_2, G_B2_1, G_B2_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:61>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:62>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:63>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:64>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:65>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:66>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:67>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:61>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:62>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:63>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:64>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:65>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:66>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:67>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_7 = { reinterpret_cast<intptr_t> (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_8;
@@ -5305,13 +5305,13 @@ IL_005b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B4_2, G_B4_1, G_B4_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:68>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:69>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:70>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:71>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:72>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:73>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:74>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:68>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:69>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:70>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:71>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:72>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:73>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:74>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_14 = { reinterpret_cast<intptr_t> (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_15;
@@ -5347,13 +5347,13 @@ IL_008b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B6_2, G_B6_1, G_B6_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:75>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:76>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:77>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:78>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:79>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:80>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:81>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:75>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:76>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:77>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:78>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:79>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:80>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:81>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_21 = { reinterpret_cast<intptr_t> (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_22;
@@ -5389,13 +5389,13 @@ IL_00bb:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B8_2, G_B8_1, G_B8_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:82>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:83>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:84>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:85>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:86>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:87>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:88>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:82>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:83>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:84>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:85>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:86>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:87>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:88>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_28 = { reinterpret_cast<intptr_t> (Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_29;
@@ -5431,16 +5431,16 @@ IL_00eb:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B10_2, G_B10_1, G_B10_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:89>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:90>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:91>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:92>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:94>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:95>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:96>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:97>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:98>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:89>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:90>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:91>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:92>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:94>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:95>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:96>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:97>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:98>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_35 = { reinterpret_cast<intptr_t> (Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_36;
@@ -5476,13 +5476,13 @@ IL_011b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B12_2, G_B12_1, G_B12_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:99>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:100>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:101>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:102>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:103>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:104>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:105>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:99>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:100>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:101>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:102>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:103>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:104>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:105>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_42 = { reinterpret_cast<intptr_t> (Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_43;
@@ -5518,13 +5518,13 @@ IL_014b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B14_2, G_B14_1, G_B14_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:106>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:107>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:108>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:109>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:110>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:111>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:112>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:106>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:107>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:108>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:109>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:110>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:111>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:112>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_49 = { reinterpret_cast<intptr_t> (Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_50;
@@ -5560,13 +5560,13 @@ IL_017b:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B16_2, G_B16_1, G_B16_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:113>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:114>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:115>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:116>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:117>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:118>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:119>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:113>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:114>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:115>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:116>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:117>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:118>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:119>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_56 = { reinterpret_cast<intptr_t> (Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_57;
@@ -5602,13 +5602,13 @@ IL_01ab:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B18_2, G_B18_1, G_B18_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:120>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:121>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:122>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:123>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:124>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:125>
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:126>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:120>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:121>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:122>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:123>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:124>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:125>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:126>
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_63 = { reinterpret_cast<intptr_t> (Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_64;
@@ -5644,11 +5644,11 @@ IL_01db:
 	{
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		GizmoTypesRegistry_RegisterGizmoType_mA6B9F12F78F59E5D194EC263D66D96383F3AC841(G_B20_2, G_B20_1, G_B20_0, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:127>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:127>
 		return;
 	}
 }
-// Method Definition Index: 82483
+// Method Definition Index: 99845
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GizmoTypesRegistry_IsValidDataTypeForGizmoType_mE67AA30AC824A7B621F4BCCAAFF5EF4ECC9028A5 (Type_t* ___0_type, int32_t ___1_gizmoType, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5667,7 +5667,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GizmoTypesRegistry_IsValidDataTypeForGiz
 	memset((&V_1), 0, sizeof(V_1));
 	bool V_2 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:131>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:131>
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* L_0 = ((GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_StaticFields*)il2cpp_codegen_static_fields_for(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var))->___GizmoTypeInfos;
 		int32_t L_1 = ___1_gizmoType;
@@ -5686,14 +5686,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GizmoTypesRegistry_IsValidDataTypeForGiz
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:133>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:133>
 		V_2 = (bool)1;
 		goto IL_0037;
 	}
 
 IL_001d:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:135>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:135>
 		int32_t L_6 = ___1_gizmoType;
 		int32_t L_7 = L_6;
 		RuntimeObject* L_8 = Box(DebugGizmoType_tB18946982B1E6CA3D84DA2DB7E5AB84C28E787AF_il2cpp_TypeInfo_var, &L_7);
@@ -5701,19 +5701,19 @@ IL_001d:
 		L_9 = String_Format_mA8DBB4C2516B9723C5A41E6CB1E2FAF4BBE96DD8(_stringLiteralC80CA7FA543DCBC7CF2049E5164BCFBFAB537AE6, L_8, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_9, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:136>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:136>
 		V_2 = (bool)0;
 		goto IL_0037;
 	}
 
 IL_0037:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:137>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:137>
 		bool L_10 = V_2;
 		return L_10;
 	}
 }
-// Method Definition Index: 82484
+// Method Definition Index: 99846
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_RenderGizmo_m4B75AE0635D9A3F0B1CD58055B3CB6D592614717 (int32_t ___0_type, RuntimeObject* ___1_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5729,7 +5729,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_RenderGizmo_m4B75AE06
 	bool V_1 = false;
 	bool V_2 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:141>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:141>
 		RuntimeObject* L_0 = ___1_dataSource;
 		V_1 = (bool)((((RuntimeObject*)(RuntimeObject*)L_0) == ((RuntimeObject*)(RuntimeObject*)NULL))? 1 : 0);
 		bool L_1 = V_1;
@@ -5739,13 +5739,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry_RenderGizmo_m4B75AE06
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:143>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:143>
 		goto IL_0037;
 	}
 
 IL_000c:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:146>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:146>
 		il2cpp_codegen_runtime_class_init_inline(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var);
 		Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* L_2 = ((GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_StaticFields*)il2cpp_codegen_static_fields_for(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var))->___GizmoTypeInfos;
 		int32_t L_3 = ___0_type;
@@ -5767,7 +5767,7 @@ IL_000c:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:148>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:148>
 		GizmoTypeInfo_t93D18342D531CD0DF986A1D22C7EE972069C8A25 L_9 = V_0;
 		Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* L_10 = L_9.___RenderDelegate;
 		RuntimeObject* L_11 = ___1_dataSource;
@@ -5777,11 +5777,11 @@ IL_000c:
 
 IL_0037:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:150>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:150>
 		return;
 	}
 }
-// Method Definition Index: 82485
+// Method Definition Index: 99847
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry__cctor_m8F57B59BFD5EE3AB99109175B5E7B350E3B532E6 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5793,7 +5793,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry__cctor_m8F57B59BFD5EE
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:45>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:45>
 		Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424* L_0 = (Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424*)il2cpp_codegen_object_new(Dictionary_2_t641DA8DE076FF1F9D0562684D7515657CE65F424_il2cpp_TypeInfo_var);
 		Dictionary_2__ctor_mA54CC94C7A024E36193B80B5A6F345B3AD5EBE35(L_0, Dictionary_2__ctor_mA54CC94C7A024E36193B80B5A6F345B3AD5EBE35_RuntimeMethod_var);
 		((GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_StaticFields*)il2cpp_codegen_static_fields_for(GizmoTypesRegistry_t948A23C1AA6FAA72AEDD312D08616E1BC8E721D1_il2cpp_TypeInfo_var))->___GizmoTypeInfos = L_0;
@@ -5809,7 +5809,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GizmoTypesRegistry__cctor_m8F57B59BFD5EE
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 82486
+// Method Definition Index: 99848
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__cctor_m619C000E4EBE48C71ED38EB1D5D2A90917565843 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5826,7 +5826,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__cctor_m619C000E4EBE48C71ED38EB1
 		return;
 	}
 }
-// Method Definition Index: 82487
+// Method Definition Index: 99849
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__ctor_mB3F00F19EDFE144FFD3E09CC96D3860ABB3A684C (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5834,7 +5834,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__ctor_mB3F00F19EDFE144FFD3E09CC9
 		return;
 	}
 }
-// Method Definition Index: 82488
+// Method Definition Index: 99850
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_0_m3C729B3FDA608BEB78A3BEBAFE107C19DD62D146 (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5849,7 +5849,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_0_m3C729B3F
 	bool V_1 = false;
 	int32_t G_B3_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:56>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:56>
 		RuntimeObject* L_0 = ___0_dataSource;
 		if (!((RuntimeObject*)IsInstSealed((RuntimeObject*)L_0, Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971_il2cpp_TypeInfo_var)))
 		{
@@ -5878,7 +5878,7 @@ IL_0014:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:58>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:58>
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_3 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawAxis_mA12A67ABDEBEA31BB2A0BCF515A86F2D212F2FB9(L_3, (0.100000001f), NULL);
@@ -5886,11 +5886,11 @@ IL_0014:
 
 IL_0026:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:60>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:60>
 		return;
 	}
 }
-// Method Definition Index: 82489
+// Method Definition Index: 99851
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_1_m21B53BCC8360F83D89907ED06D2D21250923E5FF (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5903,7 +5903,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_1_m21B53BCC
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:63>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:63>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)IsInstClass((RuntimeObject*)L_0, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1_il2cpp_TypeInfo_var));
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1 = V_0;
@@ -5915,7 +5915,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_1_m21B53BCC
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:65>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:65>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawAxis_mFFE29BAFA149A9832BF70F14F28A131999019264(L_3, (0.100000001f), NULL);
@@ -5923,11 +5923,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_1_m21B53BCC
 
 IL_001e:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:67>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:67>
 		return;
 	}
 }
-// Method Definition Index: 82490
+// Method Definition Index: 99852
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_2_m6DE9D96EFBD7CEDD80328BC1DDCF243A717FDF45 (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5942,7 +5942,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_2_m6DE9D96E
 	bool V_1 = false;
 	int32_t G_B3_0 = 0;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:70>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:70>
 		RuntimeObject* L_0 = ___0_dataSource;
 		if (!((RuntimeObject*)IsInstSealed((RuntimeObject*)L_0, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_il2cpp_TypeInfo_var)))
 		{
@@ -5971,7 +5971,7 @@ IL_0014:
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:72>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:72>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawPoint_m42425751321CF229B68C82460615B60C3B17BE34(L_3, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
@@ -5979,11 +5979,11 @@ IL_0014:
 
 IL_0022:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:74>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:74>
 		return;
 	}
 }
-// Method Definition Index: 82491
+// Method Definition Index: 99853
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_3_m95AF5DAB2B0CBE9D35A8672F0AC8A28F3549460F (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5996,7 +5996,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_3_m95AF5DAB
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:77>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:77>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)IsInstClass((RuntimeObject*)L_0, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1_il2cpp_TypeInfo_var));
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_1 = V_0;
@@ -6008,7 +6008,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_3_m95AF5DAB
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:79>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:79>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = V_0;
 		NullCheck(L_3);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
@@ -6019,11 +6019,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_3_m95AF5DAB
 
 IL_001f:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:81>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:81>
 		return;
 	}
 }
-// Method Definition Index: 82492
+// Method Definition Index: 99854
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_4_m62989732170AAF83BF2D6CB91B7B05D25A3FCBEF (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6038,7 +6038,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_4_m62989732
 	Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:84>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:84>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F*)IsInstClass((RuntimeObject*)L_0, Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F_il2cpp_TypeInfo_var));
 		Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F* L_1 = V_0;
@@ -6050,7 +6050,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_4_m62989732
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:86>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:86>
 		Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F* L_3 = V_0;
 		NullCheck(L_3);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
@@ -6065,11 +6065,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_4_m62989732
 
 IL_0025:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:88>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:88>
 		return;
 	}
 }
-// Method Definition Index: 82493
+// Method Definition Index: 99855
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_5_m43695FB5C87A861A45A8E9237714EC1E34ED44F3 (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6084,7 +6084,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_5_m43695FB5
 	int32_t V_2 = 0;
 	bool V_3 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:91>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:91>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)IsInst((RuntimeObject*)L_0, Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C_il2cpp_TypeInfo_var));
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_1 = V_0;
@@ -6096,14 +6096,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_5_m43695FB5
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
 		V_2 = 1;
 		goto IL_0032;
 	}
 
 IL_0015:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:95>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:95>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_3 = V_0;
 		int32_t L_4 = V_2;
 		NullCheck(L_3);
@@ -6116,14 +6116,14 @@ IL_0015:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10 = (L_7)->GetAt(static_cast<il2cpp_array_size_t>(L_9));
 		il2cpp_codegen_runtime_class_init_inline(DebugGizmos_tA5F66987724B46BC3F774F1452B083C80CA9F731_il2cpp_TypeInfo_var);
 		DebugGizmos_DrawLine_m5922B2068FBADC72614FA661F5180C55D0096BD5(L_6, L_10, (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL, NULL);
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
 		int32_t L_11 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add(L_11, 1));
 	}
 
 IL_0032:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:93>
 		int32_t L_12 = V_2;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_13 = V_0;
 		NullCheck(L_13);
@@ -6139,11 +6139,11 @@ IL_0032:
 
 IL_003d:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:98>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:98>
 		return;
 	}
 }
-// Method Definition Index: 82494
+// Method Definition Index: 99856
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_6_mFDCF0D9150757F63C57A0BC932B238689436F98B (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6159,7 +6159,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_6_mFDCF0D91
 	Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:101>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:101>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25*)IsInstClass((RuntimeObject*)L_0, Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25_il2cpp_TypeInfo_var));
 		Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25* L_1 = V_0;
@@ -6171,7 +6171,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_6_mFDCF0D91
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:103>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:103>
 		Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25* L_3 = V_0;
 		NullCheck(L_3);
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_4;
@@ -6190,11 +6190,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_6_mFDCF0D91
 
 IL_002a:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:105>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:105>
 		return;
 	}
 }
-// Method Definition Index: 82495
+// Method Definition Index: 99857
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_7_mC573BA6CB0A36A9FBE8BDD3592B5EC5D3855B5D6 (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6209,7 +6209,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_7_mC573BA6C
 	Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:108>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:108>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32*)IsInstClass((RuntimeObject*)L_0, Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32_il2cpp_TypeInfo_var));
 		Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32* L_1 = V_0;
@@ -6221,7 +6221,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_7_mC573BA6C
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:110>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:110>
 		Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32* L_3 = V_0;
 		NullCheck(L_3);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
@@ -6236,11 +6236,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_7_mC573BA6C
 
 IL_0025:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:112>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:112>
 		return;
 	}
 }
-// Method Definition Index: 82496
+// Method Definition Index: 99858
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_8_mDE66FE362CD0D3B737FB2B0B0B140D3AC1891701 (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6257,7 +6257,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_8_mDE66FE36
 	Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:115>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:115>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF*)IsInstClass((RuntimeObject*)L_0, Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF_il2cpp_TypeInfo_var));
 		Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* L_1 = V_0;
@@ -6269,7 +6269,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_8_mDE66FE36
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:117>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:117>
 		Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* L_3 = V_0;
 		NullCheck(L_3);
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_4;
@@ -6292,11 +6292,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_8_mDE66FE36
 
 IL_0031:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:119>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:119>
 		return;
 	}
 }
-// Method Definition Index: 82497
+// Method Definition Index: 99859
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_9_m0783DD7A9BBB49BC5C859235FAC033A97A46531B (U3CU3Ec_t5F5D5F7E00C1C12204D0252B5E0B1025BC5F3619* __this, RuntimeObject* ___0_dataSource, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6313,7 +6313,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_9_m0783DD7A
 	Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* V_0 = NULL;
 	bool V_1 = false;
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:122>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:122>
 		RuntimeObject* L_0 = ___0_dataSource;
 		V_0 = ((Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF*)IsInstClass((RuntimeObject*)L_0, Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF_il2cpp_TypeInfo_var));
 		Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* L_1 = V_0;
@@ -6325,7 +6325,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_9_m0783DD7A
 		}
 	}
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:124>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:124>
 		Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* L_3 = V_0;
 		NullCheck(L_3);
 		Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 L_4;
@@ -6348,7 +6348,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CInitGizmosU3Eb__3_9_m0783DD7A
 
 IL_0031:
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:126>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Gizmos/GizmoTypesRegistry.cs:126>
 		return;
 	}
 }
@@ -6395,7 +6395,7 @@ IL_0031:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-// Method Definition Index: 61991
+// Method Definition Index: 61054
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_black_mB50217951591A045844C61E7FF31EEE3FEF16737_inline (const RuntimeMethod* method) 
 {
 	{
@@ -6405,7 +6405,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 62351
+// Method Definition Index: 61422
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector4__ctor_m96B2CD8B862B271F513AF0BDC2EABD58E4DBC813_inline (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3* __this, float ___0_x, float ___1_y, float ___2_z, float ___3_w, const RuntimeMethod* method) 
 {
 	{
@@ -6420,7 +6420,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector4__ctor_m96B2CD8B862B2
 		return;
 	}
 }
-// Method Definition Index: 62147
+// Method Definition Index: 61214
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, float ___1_d, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6448,7 +6448,7 @@ IL_0021:
 		return L_10;
 	}
 }
-// Method Definition Index: 62144
+// Method Definition Index: 61211
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_b, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6479,7 +6479,7 @@ IL_0030:
 		return L_13;
 	}
 }
-// Method Definition Index: 61999
+// Method Definition Index: 61063
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_red_mA2E53E7173FDC97E68E335049AB0FAAEE43A844D_inline (const RuntimeMethod* method) 
 {
 	{
@@ -6489,7 +6489,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 62143
+// Method Definition Index: 61210
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_right_mFF573AFBBB2186E7AFA1BA7CA271A78DF67E4EA0_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6512,7 +6512,7 @@ IL_0009:
 		return L_1;
 	}
 }
-// Method Definition Index: 61997
+// Method Definition Index: 61061
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_green_mEB001F2CD8C68C6BBAEF9101990B779D3AA2A6EF_inline (const RuntimeMethod* method) 
 {
 	{
@@ -6522,7 +6522,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 62140
+// Method Definition Index: 61207
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6545,7 +6545,7 @@ IL_0009:
 		return L_1;
 	}
 }
-// Method Definition Index: 61992
+// Method Definition Index: 61055
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color_get_blue_mF04A26CE61D6DA3C0D8B1C4720901B1028C7AB87_inline (const RuntimeMethod* method) 
 {
 	{
@@ -6555,7 +6555,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 62138
+// Method Definition Index: 61205
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_forward_mAA55A7034304DF8B2152EAD49AE779FC4CA2EB4A_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6578,7 +6578,7 @@ IL_0009:
 		return L_1;
 	}
 }
-// Method Definition Index: 62137
+// Method Definition Index: 61204
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6601,7 +6601,7 @@ IL_0009:
 		return L_1;
 	}
 }
-// Method Definition Index: 62111
+// Method Definition Index: 61178
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* __this, float ___0_x, float ___1_y, float ___2_z, const RuntimeMethod* method) 
 {
 	{
@@ -6614,7 +6614,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999E
 		return;
 	}
 }
-// Method Definition Index: 62145
+// Method Definition Index: 61212
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_b, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6645,7 +6645,7 @@ IL_0030:
 		return L_13;
 	}
 }
-// Method Definition Index: 62261
+// Method Definition Index: 61331
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* __this, float ___0_x, float ___1_y, const RuntimeMethod* method) 
 {
 	{
@@ -6656,7 +6656,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector2__ctor_m9525B79969AFF
 		return;
 	}
 }
-// Method Definition Index: 62088
+// Method Definition Index: 61155
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 Matrix4x4_get_identity_m6568A73831F3E2D587420D20FF423959D7D8AB56_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6679,7 +6679,7 @@ IL_0009:
 		return L_1;
 	}
 }
-// Method Definition Index: 62136
+// Method Definition Index: 61203
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6702,7 +6702,7 @@ IL_0009:
 		return L_1;
 	}
 }
-// Method Definition Index: 62148
+// Method Definition Index: 61215
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Multiply_m7F3B0FA9256CE368D7636558EFEFC4AB0E1A0F41_inline (float ___0_d, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_a, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6730,7 +6730,7 @@ IL_0021:
 		return L_10;
 	}
 }
-// Method Definition Index: 62375
+// Method Definition Index: 61452
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector4_op_Implicit_m0217ADDC8CADDB93ACBABB17A50207698DAB0071_inline (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___0_v, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6755,7 +6755,7 @@ IL_001b:
 		return L_7;
 	}
 }
-// Method Definition Index: 62149
+// Method Definition Index: 61216
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Division_mCC6BB24E372AB96B8380D1678446EF6A8BAE13BB_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, float ___1_d, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6783,7 +6783,7 @@ IL_0021:
 		return L_10;
 	}
 }
-// Method Definition Index: 62218
+// Method Definition Index: 61287
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Mathf_Min_m747CA71A9483CDB394B13BD0AD048EE17E48FFE4_inline (float ___0_a, float ___1_b, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -6820,7 +6820,7 @@ IL_000c:
 		return L_4;
 	}
 }
-// Method Definition Index: 62220
+// Method Definition Index: 61290
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Mathf_Max_mF5379E63D2BBAC76D090748695D833934F8AD051_inline (float ___0_a, float ___1_b, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -6857,7 +6857,7 @@ IL_000c:
 		return L_4;
 	}
 }
-// Method Definition Index: 60471
+// Method Definition Index: 59380
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds_SetMinMax_mB5F7DDF18EDB7F3F25FA6D2B36824F28978C540F_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_min, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_max, const RuntimeMethod* method) 
 {
 	{
@@ -6877,7 +6877,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds_SetMinMax_mB5F7DDF18E
 		return;
 	}
 }
-// Method Definition Index: 60459
+// Method Definition Index: 59368
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Bounds_get_center_m5B05F81CB835EB6DD8628FDA24B638F477984DC3_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6894,7 +6894,7 @@ IL_000a:
 		return L_1;
 	}
 }
-// Method Definition Index: 60461
+// Method Definition Index: 59370
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Bounds_get_size_m0699A53A55A78B3201D7270D6F338DFA91B6FAD4_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -6913,7 +6913,7 @@ IL_0014:
 		return L_2;
 	}
 }
-// Method Definition Index: 60455
+// Method Definition Index: 59364
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds__ctor_mAF7B238B9FBF90C495E5D7951760085A93119C5A_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_center, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_size, const RuntimeMethod* method) 
 {
 	{
@@ -6926,25 +6926,25 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds__ctor_mAF7B238B9FBF90
 		return;
 	}
 }
-// Method Definition Index: 81509
+// Method Definition Index: 98871
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* InstanceHandle_get_Instance_m8A9F8A48236D9A54EBF86EEA3F130773109AE743_inline (InstanceHandle_tE6B8E29890FB27E3E1824A634157E596584E0CFA* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Utils/InstanceHandle.cs:30>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Utils/InstanceHandle.cs:30>
 		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_0 = __this->___U3CInstanceU3Ek__BackingField;
 		return L_0;
 	}
 }
-// Method Definition Index: 81511
+// Method Definition Index: 98873
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t InstanceHandle_get_InstanceId_mD2882880685AFD24D2C2BC3D9BB462EB07AB6754_inline (InstanceHandle_tE6B8E29890FB27E3E1824A634157E596584E0CFA* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@503a72ca5496/Scripts/ImmersiveDebugger/Utils/InstanceHandle.cs:32>
+		//<source_info:./Library/PackageCache/com.meta.xr.sdk.core@d6da9ab40659/Scripts/ImmersiveDebugger/Utils/InstanceHandle.cs:32>
 		int32_t L_0 = __this->___U3CInstanceIdU3Ek__BackingField;
 		return L_0;
 	}
 }
-// Method Definition Index: 9612
+// Method Definition Index: 11075
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_m65F0731FF2C839C25530522F74BE029D34851222_gshared_inline (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* __this, Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 ___0_item, const RuntimeMethod* method) 
 {
 	Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* V_0 = NULL;
@@ -6982,7 +6982,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 9612
+// Method Definition Index: 11075
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_m4EA3769821DBDED34CA0EBACD784AC6C1A536C1A_gshared_inline (List_1_t242CDEAEC9C92000DA96982CDB9D592DDE2AADAF* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_item, const RuntimeMethod* method) 
 {
 	ColorU5BU5D_t612261CF293F6FFC3D80AB52259FF0DC2B2CC389* V_0 = NULL;
@@ -7020,7 +7020,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 9602
+// Method Definition Index: 11064
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m970BE5CCB1F05BAF033736206A0C3142930127B0_gshared_inline (List_1_tF42FEB6C3B18B7E7C8F2DE1FEBA00D2491736317* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7028,7 +7028,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m970BE5C
 		return L_0;
 	}
 }
-// Method Definition Index: 9612
+// Method Definition Index: 11075
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_mB5FDF069171C4CB1778BFAC3B9015A22EA7DFBCD_gshared_inline (List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_item, const RuntimeMethod* method) 
 {
 	Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA* V_0 = NULL;
@@ -7066,7 +7066,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 9612
+// Method Definition Index: 11075
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_m0248A96C5334E9A93E6994B7780478BCD994EA3D_gshared_inline (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* __this, int32_t ___0_item, const RuntimeMethod* method) 
 {
 	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* V_0 = NULL;
@@ -7104,7 +7104,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 9612
+// Method Definition Index: 11075
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_m79E50C4F592B1703F4B76A8BE7B4855515460CA1_gshared_inline (List_1_t77B94703E05C519A9010DD0614F757F974E1CD8B* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_item, const RuntimeMethod* method) 
 {
 	Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* V_0 = NULL;
@@ -7142,7 +7142,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 9602
+// Method Definition Index: 11064
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7150,7 +7150,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C
 		return L_0;
 	}
 }
-// Method Definition Index: 9602
+// Method Definition Index: 11064
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4193780F67D704C719C5A45797817C97DB24604C_gshared_inline (List_1_t1169F3672387C4139E9A5951CD3EB62796562E7D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7158,7 +7158,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4193780
 		return L_0;
 	}
 }
-// Method Definition Index: 9612
+// Method Definition Index: 11075
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_mEBCF994CC3814631017F46A387B1A192ED6C85C7_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___0_item, const RuntimeMethod* method) 
 {
 	ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* V_0 = NULL;
@@ -7196,13 +7196,13 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 607
+// Method Definition Index: 870
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_1_Invoke_mF2422B2DD29F74CE66F791C3F68E288EC7C3DB9E_gshared_inline (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* __this, RuntimeObject* ___0_obj, const RuntimeMethod* method) 
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_obj, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 2207
+// Method Definition Index: 2560
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Tuple_2_get_Item1_mDC92A4A0F24802B0D0327E22EC63F29B6AD12015_gshared_inline (Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7210,7 +7210,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D
 		return L_0;
 	}
 }
-// Method Definition Index: 2208
+// Method Definition Index: 2561
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Tuple_2_get_Item2_m70C64A09699FE750B648C50EA49D5594EFF1F84A_gshared_inline (Tuple_2_t1031294228C6EDBE7C73F19D2C7E9C5CEB82B29F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7218,7 +7218,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D
 		return L_0;
 	}
 }
-// Method Definition Index: 2219
+// Method Definition Index: 2572
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 Tuple_3_get_Item1_m4F4334EC810E0FF5BF87B98F25922428C7BE92BB_gshared_inline (Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7226,7 +7226,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Pose_t06BA69EAA6E9FAF60056D519A87
 		return L_0;
 	}
 }
-// Method Definition Index: 2220
+// Method Definition Index: 2573
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_3_get_Item2_m65F4F239A00C1CFE58AFDE6524B96591C8AC3B6E_gshared_inline (Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7234,7 +7234,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_3_get_Item2_m65F4F239
 		return L_0;
 	}
 }
-// Method Definition Index: 2221
+// Method Definition Index: 2574
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_3_get_Item3_mD6C3873024C659CB2623E81E6973D4B84D17D657_gshared_inline (Tuple_3_t4F66A5E98AEAE37DCDB7C4409998C7D74F649A25* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7242,7 +7242,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_3_get_Item3_mD6C38730
 		return L_0;
 	}
 }
-// Method Definition Index: 2207
+// Method Definition Index: 2560
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Tuple_2_get_Item1_m34FAB77702E3F2E8CAAC6C04C0E5C1FCCA2C661F_gshared_inline (Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7250,7 +7250,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D
 		return L_0;
 	}
 }
-// Method Definition Index: 2208
+// Method Definition Index: 2561
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_2_get_Item2_m7B46B78BACEC06553F2CA1626EE0DDCE7ACF97E8_gshared_inline (Tuple_2_tA7C2516BCF161E7460ECB96A4AA0F32EE68F1D32* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7258,7 +7258,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_2_get_Item2_m7B46B78B
 		return L_0;
 	}
 }
-// Method Definition Index: 2232
+// Method Definition Index: 2585
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Pose_t06BA69EAA6E9FAF60056D519A87D25F54AFE7971 Tuple_4_get_Item1_m6C30838321A9A3135944093061D832958BEDC8C6_gshared_inline (Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7266,7 +7266,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Pose_t06BA69EAA6E9FAF60056D519A87
 		return L_0;
 	}
 }
-// Method Definition Index: 2233
+// Method Definition Index: 2586
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_4_get_Item2_m9347150438824D981DBB9C8162B4E4FD5D2EEF03_gshared_inline (Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7274,7 +7274,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_4_get_Item2_m93471504
 		return L_0;
 	}
 }
-// Method Definition Index: 2234
+// Method Definition Index: 2587
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_4_get_Item3_m4BD5956C9DAAEA0E385BA95EE2F934C620B1A903_gshared_inline (Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7282,7 +7282,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_4_get_Item3_m4BD5956C
 		return L_0;
 	}
 }
-// Method Definition Index: 2235
+// Method Definition Index: 2588
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_4_get_Item4_mDE53CA7267D19F14D242FB63AD50AD4AF0234947_gshared_inline (Tuple_4_tE8C10AEA6C8B176681F8DF9607B42D5E43310CAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7290,7 +7290,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Tuple_4_get_Item4_mDE53CA72
 		return L_0;
 	}
 }
-// Method Definition Index: 61969
+// Method Definition Index: 61028
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Color__ctor_m3786F0D6E510D9CFA544523A955870BD2A514C8C_inline (Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* __this, float ___0_r, float ___1_g, float ___2_b, float ___3_a, const RuntimeMethod* method) 
 {
 	{
@@ -7305,7 +7305,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Color__ctor_m3786F0D6E510D9C
 		return;
 	}
 }
-// Method Definition Index: 60464
+// Method Definition Index: 59373
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds_set_extents_m09496358547B86A93EFE7BE6371E7A6FE937C46F_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -7314,7 +7314,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds_set_extents_m09496358
 		return;
 	}
 }
-// Method Definition Index: 60463
+// Method Definition Index: 59372
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Bounds_get_extents_mFE6DC407FCE2341BE2C750CB554055D211281D25_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, const RuntimeMethod* method) 
 {
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -7331,7 +7331,7 @@ IL_000a:
 		return L_1;
 	}
 }
-// Method Definition Index: 60460
+// Method Definition Index: 59369
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Bounds_set_center_m891869DD5B1BEEE2D17907BBFB7EB79AAE44884B_inline (Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) 
 {
 	{

@@ -5,6 +5,12 @@
         "name": "AI",
         "dependencies": [
           {
+            "name": "NavMeshAgent",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "NavMeshProjectSettings",
             "scenes": [],
             "dependencyType": 1,
@@ -27,6 +33,12 @@
       {
         "name": "Animation",
         "dependencies": [
+          {
+            "name": "Animation",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
           {
             "name": "AnimationClip",
             "scenes": [
@@ -59,28 +71,14 @@
           },
           {
             "name": "Avatar",
-            "scenes": [
-              "Assets/Scenes/MainScene.unity"
-            ],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
-            "name": "IConstraint",
             "scenes": [],
-            "dependencyType": 1,
+            "dependencyType": 0,
             "icon": null
           },
           {
             "name": "Motion",
             "scenes": [],
             "dependencyType": 1,
-            "icon": null
-          },
-          {
-            "name": "PositionConstraint",
-            "scenes": [],
-            "dependencyType": 0,
             "icon": null
           },
           {
@@ -304,7 +302,9 @@
           },
           {
             "name": "LineRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/MainScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -484,9 +484,7 @@
           },
           {
             "name": "SortingGroup",
-            "scenes": [
-              "Assets/Scenes/MainScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -506,9 +504,7 @@
           },
           {
             "name": "SpriteRenderer",
-            "scenes": [
-              "Assets/Scenes/MainScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -1027,15 +1023,15 @@
         "dependencies": [
           {
             "name": "BoxCollider",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/MainScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CapsuleCollider",
-            "scenes": [
-              "Assets/Scenes/MainScene.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -1047,24 +1043,6 @@
           },
           {
             "name": "Collider",
-            "scenes": [],
-            "dependencyType": 1,
-            "icon": null
-          },
-          {
-            "name": "ConfigurableJoint",
-            "scenes": [],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
-            "name": "FixedJoint",
-            "scenes": [],
-            "dependencyType": 0,
-            "icon": null
-          },
-          {
-            "name": "Joint",
             "scenes": [],
             "dependencyType": 1,
             "icon": null
@@ -1121,9 +1099,27 @@
         "name": "Physics2D",
         "dependencies": [
           {
+            "name": "Collider2D",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "Joint2D",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "Physics2DSettings",
             "scenes": [],
             "dependencyType": 1,
+            "icon": null
+          },
+          {
+            "name": "Rigidbody2D",
+            "scenes": [],
+            "dependencyType": 0,
             "icon": null
           }
         ]

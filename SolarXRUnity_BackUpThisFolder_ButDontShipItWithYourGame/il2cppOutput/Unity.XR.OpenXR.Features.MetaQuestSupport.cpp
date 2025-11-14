@@ -13,8 +13,8 @@ struct UnitySourceGeneratedAssemblyMonoScriptTypes_v1_t72555D947101325108B723AB5
 struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915;
 
 IL2CPP_EXTERN_C RuntimeClass* ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeField* U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____5D51E69A44E4BF0B3F1177A63D6D5F5D539424037088BD3B7D252866132520E0_FieldInfo_var;
 IL2CPP_EXTERN_C RuntimeField* U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____6680EF7C996EBE8B078F112B7F99E86B5365893EB69E158B378DB5CA24F42F85_FieldInfo_var;
-IL2CPP_EXTERN_C RuntimeField* U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____E4E7BBC0754E629EC189DD3BA3D54558F750C17C6635A2FBA84328C5FB883ADF_FieldInfo_var;
 
 struct ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031;
 
@@ -185,9 +185,7 @@ struct OpenXRFeature_tC2F8F480D62C277B2ECDD605F64E45053CD85143  : public Scripta
 	String_t* ___openxrExtensionStrings;
 	String_t* ___company;
 	int32_t ___priority;
-	String_t* ___targetOpenXRApiVersion;
 	bool ___required;
-	String_t* ___customRuntimeLoaderName;
 	bool ___internalFieldsUpdated;
 };
 struct MetaQuestFeature_t8E2B25DD2DCD3C6B43B6AA0B69C4504566363C62  : public OpenXRFeature_tC2F8F480D62C277B2ECDD605F64E45053CD85143
@@ -195,8 +193,8 @@ struct MetaQuestFeature_t8E2B25DD2DCD3C6B43B6AA0B69C4504566363C62  : public Open
 };
 struct U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24_StaticFields
 {
+	__StaticArrayInitTypeSizeU3D100_tD61429E41FC32DABCD8B0827279BF30792435628 ___5D51E69A44E4BF0B3F1177A63D6D5F5D539424037088BD3B7D252866132520E0;
 	__StaticArrayInitTypeSizeU3D151_tDB730661DA52447C1EF6D0E10FFE7E797EE95EA0 ___6680EF7C996EBE8B078F112B7F99E86B5365893EB69E158B378DB5CA24F42F85;
-	__StaticArrayInitTypeSizeU3D100_tD61429E41FC32DABCD8B0827279BF30792435628 ___E4E7BBC0754E629EC189DD3BA3D54558F750C17C6635A2FBA84328C5FB883ADF;
 };
 struct String_t_StaticFields
 {
@@ -265,15 +263,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OpenXRFeature__ctor_m120460E34ECC22ED2DB
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 89219
+// Method Definition Index: 112394
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t0A7F5C974900B27D10C1135E5156C84A39B35F16 UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_m99A7B3AC25F4C76D58D4951F44D7103BB35150BF (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____5D51E69A44E4BF0B3F1177A63D6D5F5D539424037088BD3B7D252866132520E0_FieldInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____6680EF7C996EBE8B078F112B7F99E86B5365893EB69E158B378DB5CA24F42F85_FieldInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____E4E7BBC0754E629EC189DD3BA3D54558F750C17C6635A2FBA84328C5FB883ADF_FieldInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	MonoScriptData_t0A7F5C974900B27D10C1135E5156C84A39B35F16 V_0;
@@ -284,7 +282,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t0A7F5C974900B27D10C1135E5156C
 		il2cpp_codegen_initobj((&V_0), sizeof(MonoScriptData_t0A7F5C974900B27D10C1135E5156C84A39B35F16));
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_0 = (ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)SZArrayNew(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031_il2cpp_TypeInfo_var, (uint32_t)((int32_t)100));
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_1 = L_0;
-		RuntimeFieldHandle_t6E4C45B6D2EA12FC99185805A7E77527899B25C5 L_2 = { reinterpret_cast<intptr_t> (U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____E4E7BBC0754E629EC189DD3BA3D54558F750C17C6635A2FBA84328C5FB883ADF_FieldInfo_var) };
+		RuntimeFieldHandle_t6E4C45B6D2EA12FC99185805A7E77527899B25C5 L_2 = { reinterpret_cast<intptr_t> (U3CPrivateImplementationDetailsU3E_t1CC1ABD1377201814445181795EEE6F51BD6CE24____5D51E69A44E4BF0B3F1177A63D6D5F5D539424037088BD3B7D252866132520E0_FieldInfo_var) };
 		RuntimeHelpers_InitializeArray_m751372AA3F24FBF6DA9B9D687CBFA2DE436CAB9B((RuntimeArray*)L_1, L_2, NULL);
 		(&V_0)->___FilePathsData = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&(&V_0)->___FilePathsData), (void*)L_1);
@@ -308,7 +306,7 @@ IL_005a:
 		return L_7;
 	}
 }
-// Method Definition Index: 89220
+// Method Definition Index: 112395
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_m45473328113F62598D5D0C90F91FCCAAC0963EDB (UnitySourceGeneratedAssemblyMonoScriptTypes_v1_t72555D947101325108B723AB539C899AC4B80002* __this, const RuntimeMethod* method) 
 {
 	{
@@ -394,23 +392,23 @@ IL2CPP_EXTERN_C void MonoScriptData_t0A7F5C974900B27D10C1135E5156C84A39B35F16_ma
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 89221
+// Method Definition Index: 112396
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MetaQuestFeature_OnBeforeSerialize_mBDBD9B1831B675B51E313203F4085B9E323F986D (MetaQuestFeature_t8E2B25DD2DCD3C6B43B6AA0B69C4504566363C62* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/MetaQuest/MetaQuestFeature.cs:64>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/MetaQuest/MetaQuestFeature.cs:63>
 		return;
 	}
 }
-// Method Definition Index: 89222
+// Method Definition Index: 112397
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MetaQuestFeature_OnAfterDeserialize_m6CEC9A834FF816944D60749296CF1E826441718E (MetaQuestFeature_t8E2B25DD2DCD3C6B43B6AA0B69C4504566363C62* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:./Library/PackageCache/com.unity.xr.openxr@68fc1ed67a95/Runtime/MetaQuest/MetaQuestFeature.cs:81>
+		//<source_info:./Library/PackageCache/com.unity.xr.openxr@05fb1a7d75d1/Runtime/MetaQuest/MetaQuestFeature.cs:80>
 		return;
 	}
 }
-// Method Definition Index: 89223
+// Method Definition Index: 112398
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MetaQuestFeature__ctor_m5252F2B3583ED0398B5E04ECE2892C240D4F4E63 (MetaQuestFeature_t8E2B25DD2DCD3C6B43B6AA0B69C4504566363C62* __this, const RuntimeMethod* method) 
 {
 	{

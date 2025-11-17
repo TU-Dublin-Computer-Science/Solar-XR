@@ -33,8 +33,13 @@ public class OrbitingBody : MonoBehaviour
     private double julianTime;
 
     private Transform body;
-    
-    // Public Accessors
+    private GameObject[] satelliteObjects;
+
+    public GameObject[] SatelliteObjects
+    {
+        get { return satelliteObjects; }
+    }
+
     public float UnixTime
     {
         get { return unixTime; }
@@ -43,12 +48,17 @@ public class OrbitingBody : MonoBehaviour
             unixTime = value;
             julianTime = UnixToJulian(unixTime);
 
-            if (initialised && rotationEnabled)
+            if (initialised)
             {
-                double newRotation = (rotation_factor * julianTime);
-                double rotAngle = newRotation - totalRotation;
-                transform.Rotate(Vector3.up * -(float)rotAngle);
-                totalRotation = newRotation;
+                UpdateBody();
+                if (central)
+                {
+                    foreach (GameObject satelliteGO in satelliteObjects)
+                    {
+                        OrbitingBody satellite = satelliteGO.GetComponent<OrbitingBody>();
+                        satellite.UnixTime = unixTime;
+                    }
+                }
             }
         }
     }        
@@ -101,7 +111,7 @@ public class OrbitingBody : MonoBehaviour
             }            
         }
 
-        body = transform.GetChild(0);
+        body = transform.Find("OrbitalPlane/Body");
 
         name = name.ToLower();
         rotationEnabled = rotation_factor != -1;
@@ -125,7 +135,7 @@ public class OrbitingBody : MonoBehaviour
         {
             mat = Resources.Load<Material>("Martials/moon");
         }
-
+        
         // Apply material to the body's MeshRenderer
         MeshRenderer renderer = body.GetComponent<MeshRenderer>();
         if (renderer != null)
@@ -136,18 +146,55 @@ public class OrbitingBody : MonoBehaviour
 
     void SpawnSatellites()
     {
-        if (central)
-        {
-            foreach (string satelliteName in satellites)
-            {
-                GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
-                GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, body);
-                OrbitingBody satellite = orbitingBodyGO.GetComponent<OrbitingBody>();
+        if (!central) return;
 
-                satellite.Init(satelliteName, modelScalar, false);
+        // If there are no satellites, initialize an empty array and return
+        if (satellites == null || satellites.Count == 0)
+        {
+            satelliteObjects = new GameObject[0];
+            return;
+        }
+
+        satelliteObjects = new GameObject[satellites.Count];
+
+        for (int i = 0; i < satellites.Count; i++)
+        {
+            string satelliteName = satellites[i];
+
+            GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
+            if (orbitingBodyPrefab == null)
+            {
+                Debug.LogError("OrbitingBody prefab not found in Resources/Prefabs.");
+                continue;
             }
+
+            GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, body);
+            OrbitingBody satellite = orbitingBodyGO.GetComponent<OrbitingBody>();
+
+            if (satellite == null)
+            {
+                Debug.LogError("Instantiated prefab does not contain an OrbitingBody component.");
+                Destroy(orbitingBodyGO);
+                continue;
+            }
+
+            satellite.Init(satelliteName, this.modelScalar, false);
+
+            satelliteObjects[i] = orbitingBodyGO;  // append global array
         }
     }
+
+    void UpdateBody()
+    {
+        if (initialised && rotationEnabled)
+        {
+            double newRotation = (rotation_factor * julianTime);
+            double rotAngle = newRotation - totalRotation;
+            transform.Rotate(Vector3.up * -(float)rotAngle);
+            totalRotation = newRotation;
+        }
+    }
+
 
     double UnixToJulian(float unixTime)
     {

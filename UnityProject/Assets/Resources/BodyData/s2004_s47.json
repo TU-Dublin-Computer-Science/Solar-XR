@@ -1,0 +1,17 @@
+{
+    "ID": 65123,
+    "name": "S2004_S47",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 16050700,
+    "eccentricity": 0.291,
+    "argument_periapsis": 288.5,
+    "mean_anomaly": 167.1,
+    "inclination": 160.9,
+    "lon_ascending_node": 290.2,
+    "orbital_period": 762.493185,
+    "info_points": [],
+    "satellites": []
+}

@@ -1,0 +1,116 @@
+﻿#include "pch-c.h"
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mADC772862F562035DFA9797014361F1F494C93AC (void);
+extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mB8D37EBA5643F54561CD111CA6664DF4A9064A5C (void);
+extern void CustomIntegrationConfig_add_GetCameraHandler_m2CB915911752F24CE3A0DD370DBBF04BF4153C46 (void);
+extern void CustomIntegrationConfig_remove_GetCameraHandler_m3819BC074331701ED3D3EC09BCCC1A5468D2F2EA (void);
+extern void CustomIntegrationConfig_SetupAllConfig_m44E2A1766C87194074F81B59D3835F8F38194993 (void);
+extern void CustomIntegrationConfig_ClearAllConfig_mD56C62AD1DD7E8DD0FE78F7100C238E851888F9C (void);
+extern void CustomIntegrationConfig_GetCamera_mEDE04EC5F6A566321B919F4A733F84D6F10A3454 (void);
+extern void GetCameraDelegate__ctor_mBE95805D1E07B8515BB1A1BEC6E722FA6048140D (void);
+extern void GetCameraDelegate_Invoke_mF0C2BD16291F0805BBD5D813330332389CF75824 (void);
+extern void GetCameraDelegate_BeginInvoke_mE9E25AA56311EF957EBC18156E9A5135AB26CDF9 (void);
+extern void GetCameraDelegate_EndInvoke_mD131D65511047387210FB3C809F61257AA6A947F (void);
+extern void GetLeftControllerTransformDelegate__ctor_m47B5A3B60F77255EE4ED73F869D0505B86FB3649 (void);
+extern void GetLeftControllerTransformDelegate_Invoke_mBDD7372DA04E645773D618511F3EA0BD4F84DA6C (void);
+extern void GetLeftControllerTransformDelegate_BeginInvoke_mDD3FC86531E7771FB1C1665165728A94C12EBC6A (void);
+extern void GetLeftControllerTransformDelegate_EndInvoke_m837CB988C9C82D71C7BB6F02170CAC63B22D3838 (void);
+extern void GetRightControllerTransformDelegate__ctor_mA50C965B2E8F5E1CDE853B7947B870191C52ECB7 (void);
+extern void GetRightControllerTransformDelegate_Invoke_mA3E03A6AC793BBE9DC6B974E93429F6F70635CA9 (void);
+extern void GetRightControllerTransformDelegate_BeginInvoke_mEAC2B78E3E654314CBCA928BD7258629930C6729 (void);
+extern void GetRightControllerTransformDelegate_EndInvoke_m3C9814263CB05AD4AF37D9E0735334EDB9CBCBC7 (void);
+extern void CustomIntegrationConfigBase_Awake_mE343DD448130865AD3706C93DFBB62E0D5F4CD78 (void);
+extern void CustomIntegrationConfigBase_OnDestroy_mB07679E1AA9B42D79B1E3D30192010B56F0640CC (void);
+extern void CustomIntegrationConfigBase_GetCamera_m00168AB60C2B28A6286AF3D29FA7ED81F24E4EAB (void);
+extern void CustomIntegrationConfigBase__ctor_mE96705B31E26A03C2FEDA28BCE42594BA3E59993 (void);
+extern void DebugMember__ctor_m23524BF378E4EA831123889D02C9A659855D65EA (void);
+extern void DebugMember__ctor_m48F4B79CA4CCA8D15EAC6BE1D5903E2D3AF636D2 (void);
+extern void DebugMember__cctor_mCDE94112D1AD0353A21B35FC7D2A1DD84FA62566 (void);
+static Il2CppMethodPointer s_methodPointers[27] = 
+{
+	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mADC772862F562035DFA9797014361F1F494C93AC,
+	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mB8D37EBA5643F54561CD111CA6664DF4A9064A5C,
+	CustomIntegrationConfig_add_GetCameraHandler_m2CB915911752F24CE3A0DD370DBBF04BF4153C46,
+	CustomIntegrationConfig_remove_GetCameraHandler_m3819BC074331701ED3D3EC09BCCC1A5468D2F2EA,
+	CustomIntegrationConfig_SetupAllConfig_m44E2A1766C87194074F81B59D3835F8F38194993,
+	CustomIntegrationConfig_ClearAllConfig_mD56C62AD1DD7E8DD0FE78F7100C238E851888F9C,
+	CustomIntegrationConfig_GetCamera_mEDE04EC5F6A566321B919F4A733F84D6F10A3454,
+	GetCameraDelegate__ctor_mBE95805D1E07B8515BB1A1BEC6E722FA6048140D,
+	GetCameraDelegate_Invoke_mF0C2BD16291F0805BBD5D813330332389CF75824,
+	GetCameraDelegate_BeginInvoke_mE9E25AA56311EF957EBC18156E9A5135AB26CDF9,
+	GetCameraDelegate_EndInvoke_mD131D65511047387210FB3C809F61257AA6A947F,
+	GetLeftControllerTransformDelegate__ctor_m47B5A3B60F77255EE4ED73F869D0505B86FB3649,
+	GetLeftControllerTransformDelegate_Invoke_mBDD7372DA04E645773D618511F3EA0BD4F84DA6C,
+	GetLeftControllerTransformDelegate_BeginInvoke_mDD3FC86531E7771FB1C1665165728A94C12EBC6A,
+	GetLeftControllerTransformDelegate_EndInvoke_m837CB988C9C82D71C7BB6F02170CAC63B22D3838,
+	GetRightControllerTransformDelegate__ctor_mA50C965B2E8F5E1CDE853B7947B870191C52ECB7,
+	GetRightControllerTransformDelegate_Invoke_mA3E03A6AC793BBE9DC6B974E93429F6F70635CA9,
+	GetRightControllerTransformDelegate_BeginInvoke_mEAC2B78E3E654314CBCA928BD7258629930C6729,
+	GetRightControllerTransformDelegate_EndInvoke_m3C9814263CB05AD4AF37D9E0735334EDB9CBCBC7,
+	NULL,
+	CustomIntegrationConfigBase_Awake_mE343DD448130865AD3706C93DFBB62E0D5F4CD78,
+	CustomIntegrationConfigBase_OnDestroy_mB07679E1AA9B42D79B1E3D30192010B56F0640CC,
+	CustomIntegrationConfigBase_GetCamera_m00168AB60C2B28A6286AF3D29FA7ED81F24E4EAB,
+	CustomIntegrationConfigBase__ctor_mE96705B31E26A03C2FEDA28BCE42594BA3E59993,
+	DebugMember__ctor_m23524BF378E4EA831123889D02C9A659855D65EA,
+	DebugMember__ctor_m48F4B79CA4CCA8D15EAC6BE1D5903E2D3AF636D2,
+	DebugMember__cctor_mCDE94112D1AD0353A21B35FC7D2A1DD84FA62566,
+};
+static const int32_t s_InvokerIndices[27] = 
+{
+	36199,
+	21666,
+	34329,
+	34329,
+	34329,
+	34329,
+	36057,
+	8154,
+	21451,
+	6185,
+	13802,
+	8154,
+	21451,
+	6185,
+	13802,
+	8154,
+	21451,
+	6185,
+	13802,
+	-1,
+	21666,
+	21666,
+	21451,
+	21666,
+	16202,
+	16288,
+	36150,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Meta_XR_ImmersiveDebugger_Interface_CodeGenModule;
+const Il2CppCodeGenModule g_Meta_XR_ImmersiveDebugger_Interface_CodeGenModule = 
+{
+	"Meta.XR.ImmersiveDebugger.Interface.dll",
+	27,
+	s_methodPointers,
+	0,
+	NULL,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+};

@@ -1,0 +1,17 @@
+{
+    "ID": 55505,
+    "name": "S2003_J12",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 20963100,
+    "eccentricity": 0.235,
+    "argument_periapsis": 277.9,
+    "mean_anomaly": 201.3,
+    "inclination": 150.0,
+    "lon_ascending_node": 58.7,
+    "orbital_period": 627.243242,
+    "info_points": [],
+    "satellites": []
+}

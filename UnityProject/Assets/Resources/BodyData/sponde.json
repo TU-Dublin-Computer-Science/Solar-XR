@@ -1,0 +1,17 @@
+{
+    "ID": 536,
+    "name": "Sponde",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 23543300,
+    "eccentricity": 0.322,
+    "argument_periapsis": 184.9,
+    "mean_anomaly": 173.8,
+    "inclination": 149.3,
+    "lon_ascending_node": 120.5,
+    "orbital_period": 748.294484,
+    "info_points": [],
+    "satellites": []
+}

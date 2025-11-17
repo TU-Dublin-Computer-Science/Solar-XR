@@ -1,0 +1,17 @@
+{
+    "ID": 808,
+    "name": "Proteus",
+    "radius": 208.0,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Neptune",
+    "semimajor_axis": 117600,
+    "eccentricity": 0.0,
+    "argument_periapsis": 0.0,
+    "mean_anomaly": 276.8,
+    "inclination": 0.0,
+    "lon_ascending_node": 0.0,
+    "orbital_period": 1.122315,
+    "info_points": [],
+    "satellites": []
+}

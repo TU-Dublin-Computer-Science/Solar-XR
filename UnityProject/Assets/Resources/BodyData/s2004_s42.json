@@ -1,0 +1,17 @@
+{
+    "ID": 65108,
+    "name": "S2004_S42",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 18240800,
+    "eccentricity": 0.157,
+    "argument_periapsis": 118.2,
+    "mean_anomaly": 299.1,
+    "inclination": 165.7,
+    "lon_ascending_node": 11.0,
+    "orbital_period": 925.912112,
+    "info_points": [],
+    "satellites": []
+}

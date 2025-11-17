@@ -1,0 +1,17 @@
+{
+    "ID": 65102,
+    "name": "S2020_S03",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 18057200,
+    "eccentricity": 0.142,
+    "argument_periapsis": 5.1,
+    "mean_anomaly": 87.0,
+    "inclination": 46.0,
+    "lon_ascending_node": 218.7,
+    "orbital_period": 908.186488,
+    "info_points": [],
+    "satellites": []
+}

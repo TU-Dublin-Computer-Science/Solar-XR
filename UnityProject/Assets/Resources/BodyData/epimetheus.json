@@ -1,0 +1,17 @@
+{
+    "ID": 611,
+    "name": "Epimetheus",
+    "radius": 58.2,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 151400,
+    "eccentricity": 0.02,
+    "argument_periapsis": 96.3,
+    "mean_anomaly": 197.2,
+    "inclination": 0.3,
+    "lon_ascending_node": 189.8,
+    "orbital_period": 0.697012,
+    "info_points": [],
+    "satellites": []
+}

@@ -1,0 +1,17 @@
+{
+    "ID": 65141,
+    "name": "S2004_S49",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 22399800,
+    "eccentricity": 0.453,
+    "argument_periapsis": 189.3,
+    "mean_anomaly": 309.8,
+    "inclination": 159.7,
+    "lon_ascending_node": 217.2,
+    "orbital_period": 1264.250853,
+    "info_points": [],
+    "satellites": []
+}

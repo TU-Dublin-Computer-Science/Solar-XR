@@ -1,0 +1,17 @@
+{
+    "ID": 607,
+    "name": "Hyperion",
+    "radius": 135.0,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 1481500,
+    "eccentricity": 0.105,
+    "argument_periapsis": 214.0,
+    "mean_anomaly": 122.9,
+    "inclination": 0.6,
+    "lon_ascending_node": 87.1,
+    "orbital_period": 21.276658,
+    "info_points": [],
+    "satellites": []
+}

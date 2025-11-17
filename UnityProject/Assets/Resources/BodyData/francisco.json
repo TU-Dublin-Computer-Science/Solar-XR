@@ -1,0 +1,17 @@
+{
+    "ID": 722,
+    "name": "Francisco",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "semimajor_axis": 4275700,
+    "eccentricity": 0.144,
+    "argument_periapsis": 137.6,
+    "mean_anomaly": 288.4,
+    "inclination": 146.8,
+    "lon_ascending_node": 101.9,
+    "orbital_period": 267.0,
+    "info_points": [],
+    "satellites": []
+}

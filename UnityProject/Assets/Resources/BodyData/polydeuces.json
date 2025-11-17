@@ -1,0 +1,17 @@
+{
+    "ID": 634,
+    "name": "Polydeuces",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 377600,
+    "eccentricity": 0.019,
+    "argument_periapsis": 94.1,
+    "mean_anomaly": 359.0,
+    "inclination": 0.2,
+    "lon_ascending_node": 167.5,
+    "orbital_period": 2.736916,
+    "info_points": [],
+    "satellites": []
+}

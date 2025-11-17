@@ -1,0 +1,17 @@
+{
+    "ID": 65144,
+    "name": "S2019_S16",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 23264100,
+    "eccentricity": 0.25,
+    "argument_periapsis": 280.9,
+    "mean_anomaly": 304.5,
+    "inclination": 162.0,
+    "lon_ascending_node": 199.8,
+    "orbital_period": 1340.931763,
+    "info_points": [],
+    "satellites": []
+}

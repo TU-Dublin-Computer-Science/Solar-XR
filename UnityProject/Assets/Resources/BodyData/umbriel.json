@@ -1,0 +1,17 @@
+{
+    "ID": 702,
+    "name": "Umbriel",
+    "radius": 584.7,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Uranus",
+    "semimajor_axis": 266000,
+    "eccentricity": 0.004,
+    "argument_periapsis": 157.5,
+    "mean_anomaly": 258.3,
+    "inclination": 0.1,
+    "lon_ascending_node": 195.5,
+    "orbital_period": 4.144548,
+    "info_points": [],
+    "satellites": []
+}

@@ -1,0 +1,17 @@
+{
+    "ID": 612,
+    "name": "Helene",
+    "radius": 18.0,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 377600,
+    "eccentricity": 0.007,
+    "argument_periapsis": 194.3,
+    "mean_anomaly": -64.5,
+    "inclination": 0.2,
+    "lon_ascending_node": 260.8,
+    "orbital_period": 2.736916,
+    "info_points": [],
+    "satellites": []
+}

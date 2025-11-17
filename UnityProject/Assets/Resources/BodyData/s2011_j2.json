@@ -1,0 +1,17 @@
+{
+    "ID": 556,
+    "name": "S2011_J2",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Jupiter",
+    "semimajor_axis": 22909200,
+    "eccentricity": 0.355,
+    "argument_periapsis": 218.7,
+    "mean_anomaly": 284.0,
+    "inclination": 151.9,
+    "lon_ascending_node": 28.5,
+    "orbital_period": 718.316562,
+    "info_points": [],
+    "satellites": []
+}

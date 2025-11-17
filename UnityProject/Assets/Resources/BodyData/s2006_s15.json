@@ -1,0 +1,17 @@
+{
+    "ID": 65136,
+    "name": "S2006_S15",
+    "radius": -1,
+    "rotation_factor": -1,
+    "model_path": "",
+    "central_body": "Saturn",
+    "semimajor_axis": 21799400,
+    "eccentricity": 0.117,
+    "argument_periapsis": 237.2,
+    "mean_anomaly": 267.8,
+    "inclination": 161.1,
+    "lon_ascending_node": 22.0,
+    "orbital_period": 1213.963208,
+    "info_points": [],
+    "satellites": []
+}

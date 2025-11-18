@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class OrbitingBody : MonoBehaviour
 {
@@ -139,20 +138,10 @@ public class OrbitingBody : MonoBehaviour
     }
 
     private void SetupGameObject()
-    {
-        // Scale body to radius (desired radius)/(current radius (1))
-        //if (central)
-        //{
+    {         
         body.localScale = Vector3.one * (float)(radius / 0.5);
-        //}
-        
-        /*else
-        {
-            body.localScale = Vector3.one;  
-        }
-        */
-
-
+       
+       
         // Apply surface texture
         // Load the material from Resources
         Material mat = Resources.Load<Material>("Materials/" + name);
@@ -216,11 +205,6 @@ public class OrbitingBody : MonoBehaviour
         {
             double trueAnomaly = GetTrueAnomaly();         
             body.localPosition = GetOrbitPoint(trueAnomaly);
-
-            if (name == "earth")
-            {
-                Debug.Log($"Position: {body.localPosition}, scale: {body.localScale}, semimajor: {semimajor_axis}");
-            }
         }
 
         if (rotationEnabled)

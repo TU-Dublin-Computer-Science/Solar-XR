@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 [Serializable]
 public class OrbitingBodyData
@@ -11,8 +11,20 @@ public class OrbitingBodyData
 
 public class Simulation : MonoBehaviour
 {
-    float unixTime;
-    float simTimeScalar = 50000;
+    public TimeScalar timeScalar = TimeScalar.REAL;
+
+    // Dictionary mapping TimeScalar enum to integer values
+    Dictionary<TimeScalar, int> timeScalarDict = new Dictionary<TimeScalar, int>
+    {
+        { TimeScalar.BACKWARD2, -10000 },
+        { TimeScalar.BACKWARD1, -8000},
+        { TimeScalar.ZERO, 0 },
+        { TimeScalar.REAL, 1 },
+        { TimeScalar.FORWARD1, 8000 },
+        { TimeScalar.FORWARD2, 10000 }
+    };
+
+    float unixTime;    
     string[] bodyNames = { "sun", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"};
     int currentBody = 0;
 
@@ -33,16 +45,11 @@ public class Simulation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        unixTime += Time.deltaTime * simTimeScalar;
-        centralBody.UnixTime = unixTime;   
+        unixTime += Time.deltaTime * timeScalarDict[timeScalar];
+   
+        Debug.Log("Time Scalar: " + timeScalarDict[timeScalar]);
 
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
-        {
-            NextOrbitingBody();
-        } else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
-        {
-            PreviousOrbitingBody();
-        }
+        centralBody.UnixTime = unixTime;   
     }
 
     void InstantiateOrbitingBody()

@@ -16,6 +16,7 @@ public class OrbitingBodyData
 public class Simulation : MonoBehaviour
 {
     public TMP_Text TxtDateTime;  // Set in editor
+    public TMP_Text TxtScalar;    // Set in editor  
 
     public float UnixTime
     {
@@ -24,13 +25,36 @@ public class Simulation : MonoBehaviour
         {
             unixTime = value;
             centralBody.UnixTime = unixTime;
-
-            string formattedTime = FormatUnixTime((long)unixTime);
-            TxtDateTime.text = formattedTime;
+            
+            TxtDateTime.text = FormatUnixTime((long)unixTime);
         }   
     }
 
-    public TimeScalar timeScalar = TimeScalar.REAL;
+    public TimeScalar TimeScalar
+    {
+        get { return timeScalar; }
+        set
+        { 
+            timeScalar = value;             
+            int timeScalarValue = timeScalarDict[timeScalar];
+
+            if (Math.Abs(timeScalarValue) > 3600)
+            {
+                int hoursPerSec = timeScalarValue / 3600;
+                TxtScalar.text = $"{hoursPerSec} hrs/s";
+            }
+            else if (timeScalarValue == 1)
+            {
+                TxtScalar.text = "1 sec/s";
+            }
+            else
+            {
+                int minsPerSec = timeScalarValue / 60;
+                TxtScalar.text = $"{minsPerSec} mins/s";
+            }
+        }
+    }
+    
 
     // Dictionary mapping TimeScalar enum to integer values
     Dictionary<TimeScalar, int> timeScalarDict = new Dictionary<TimeScalar, int>
@@ -44,6 +68,7 @@ public class Simulation : MonoBehaviour
     };
 
     private float unixTime;
+    private TimeScalar timeScalar;
     string[] bodyNames = { "sun", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"};
     int currentBody = 0;
 
@@ -54,11 +79,12 @@ public class Simulation : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        unixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        
         orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
 
         InstantiateOrbitingBody();
+
+        TimeScalar = TimeScalar.REAL;
+        UnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();        
     }
 
     // Update is called once per frame

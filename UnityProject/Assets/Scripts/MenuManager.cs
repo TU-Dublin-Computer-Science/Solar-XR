@@ -16,26 +16,26 @@ public class MenuManager : MonoBehaviour
 
     public void TimeBackward1()
     {
-        simulation.timeScalar = TimeScalar.BACKWARD1;
+        simulation.TimeScalar = TimeScalar.BACKWARD1;
     }
 
     public void TimeBackward2()
     {
-        simulation.timeScalar = TimeScalar.BACKWARD2;
+        simulation.TimeScalar = TimeScalar.BACKWARD2;
     }
 
     public void TimeForward1()
     {
-        simulation.timeScalar = TimeScalar.FORWARD1;
+        simulation.TimeScalar = TimeScalar.FORWARD1;
     }
 
     public void TimeForward2()
     {
-        simulation.timeScalar = TimeScalar.FORWARD2;
+        simulation.TimeScalar = TimeScalar.FORWARD2;
     }
 
     public void TimeReal()
     {
-        simulation.timeScalar = TimeScalar.REAL;
+        simulation.TimeScalar = TimeScalar.REAL;
     }
 }

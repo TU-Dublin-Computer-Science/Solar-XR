@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
+
 
 [Serializable]
 public class OrbitingBodyData
@@ -11,6 +15,21 @@ public class OrbitingBodyData
 
 public class Simulation : MonoBehaviour
 {
+    public TMP_Text TxtDateTime;  // Set in editor
+
+    public float UnixTime
+    {
+        get { return unixTime; }
+        set 
+        {
+            unixTime = value;
+            centralBody.UnixTime = unixTime;
+
+            string formattedTime = FormatUnixTime((long)unixTime);
+            TxtDateTime.text = formattedTime;
+        }   
+    }
+
     public TimeScalar timeScalar = TimeScalar.REAL;
 
     // Dictionary mapping TimeScalar enum to integer values
@@ -24,7 +43,7 @@ public class Simulation : MonoBehaviour
         { TimeScalar.FORWARD2, 10000 }
     };
 
-    float unixTime;    
+    private float unixTime;
     string[] bodyNames = { "sun", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"};
     int currentBody = 0;
 
@@ -45,11 +64,7 @@ public class Simulation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        unixTime += Time.deltaTime * timeScalarDict[timeScalar];
-   
-        Debug.Log("Time Scalar: " + timeScalarDict[timeScalar]);
-
-        centralBody.UnixTime = unixTime;   
+        UnixTime += Time.deltaTime * timeScalarDict[timeScalar];              
     }
 
     void InstantiateOrbitingBody()
@@ -85,5 +100,42 @@ public class Simulation : MonoBehaviour
         currentBody = (currentBody - 1 + bodyNames.Length) % bodyNames.Length;
         Destroy(orbitingBodyGO);
         InstantiateOrbitingBody();
+    }
+
+    private static string FormatUnixTime(long value)
+    {
+        // Convert Unix time to UTC DateTime
+        DateTimeOffset dateTime = DateTimeOffset.FromUnixTimeSeconds(value).ToLocalTime();
+
+        // Handle DST (Daylight Saving Time)
+        if (TimeZoneInfo.Local.IsDaylightSavingTime(dateTime))
+        {
+            dateTime = dateTime.AddHours(1);
+        }
+
+        int day = dateTime.Day;
+        string suffix = "th";
+        if (day != 11 && day != 12 && day != 13)
+        {
+            switch (day % 10)
+            {
+                case 1: suffix = "st"; break;
+                case 2: suffix = "nd"; break;
+                case 3: suffix = "rd"; break;
+            }
+        }
+
+        string[] months = {
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    };
+        string monthName = months[dateTime.Month - 1];
+
+        // Format: HH:MM:SS - Dth Month YYYY
+        string formatted = string.Format("{0:00}:{1:00}:{2:00} - {3}{4} {5} {6}",
+            dateTime.Hour, dateTime.Minute, dateTime.Second,
+            day, suffix, monthName, dateTime.Year);
+
+        return formatted;
     }
 }

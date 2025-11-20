@@ -9,7 +9,6 @@ public class MenuManager : MonoBehaviour
         simulation.NextOrbitingBody();
        
     }
-
     public void PreviousOrbitingBody()
     {        
         simulation.PreviousOrbitingBody();

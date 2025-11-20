@@ -3,6 +3,7 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     public Simulation simulation;  //Set in editor
+    private bool isPaused = false;
     
     public void NextOrbitingBody()
     {     
@@ -37,5 +38,19 @@ public class MenuManager : MonoBehaviour
     public void TimeReal()
     {
         simulation.TimeScalar = TimeScalar.REAL;
+    }
+
+    public void TimePlayPause()
+    {         
+        if (isPaused)
+        {
+            simulation.TimeScalar = TimeScalar.REAL;
+            isPaused = false;
+        }
+        else
+        {
+            simulation.TimeScalar = TimeScalar.ZERO;
+            isPaused = true;
+        }        
     }
 }

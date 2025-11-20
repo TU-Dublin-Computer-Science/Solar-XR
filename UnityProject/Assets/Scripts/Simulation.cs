@@ -17,6 +17,7 @@ public class Simulation : MonoBehaviour
 {
     public TMP_Text TxtDateTime;  // Set in editor
     public TMP_Text TxtScalar;    // Set in editor  
+    public TMP_Text TxtPlayPause;  // Set in editor
 
     public double UnixTime
     {
@@ -38,6 +39,9 @@ public class Simulation : MonoBehaviour
             timeScalar = value;             
             int timeScalarValue = timeScalarDict[timeScalar];
 
+
+
+
             if (Math.Abs(timeScalarValue) > 3600)
             {
                 int hoursPerSec = timeScalarValue / 3600;
@@ -47,10 +51,16 @@ public class Simulation : MonoBehaviour
             {
                 TxtScalar.text = "1 sec/s";
             }
+            else if (timeScalarValue == 0)
+            {
+                TxtScalar.text = "Paused";
+                TxtPlayPause.text = "Play";
+            }
             else
             {
                 int minsPerSec = timeScalarValue / 60;
                 TxtScalar.text = $"{minsPerSec} mins/s";
+                TxtPlayPause.text = "Pause";
             }
         }
     }

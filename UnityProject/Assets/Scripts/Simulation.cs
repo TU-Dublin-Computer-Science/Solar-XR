@@ -18,7 +18,7 @@ public class Simulation : MonoBehaviour
     public TMP_Text TxtDateTime;  // Set in editor
     public TMP_Text TxtScalar;    // Set in editor  
 
-    public float UnixTime
+    public double UnixTime
     {
         get { return unixTime; }
         set 
@@ -60,14 +60,14 @@ public class Simulation : MonoBehaviour
     Dictionary<TimeScalar, int> timeScalarDict = new Dictionary<TimeScalar, int>
     {
         { TimeScalar.BACKWARD2, -10000 },
-        { TimeScalar.BACKWARD1, -8000},
+        { TimeScalar.BACKWARD1, -1800},
         { TimeScalar.ZERO, 0 },
         { TimeScalar.REAL, 1 },
-        { TimeScalar.FORWARD1, 8000 },
+        { TimeScalar.FORWARD1, 1800 },
         { TimeScalar.FORWARD2, 10000 }
     };
 
-    private float unixTime;
+    private double unixTime;
     private TimeScalar timeScalar;
     string[] bodyNames = { "sun", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"};
     int currentBody = 0;

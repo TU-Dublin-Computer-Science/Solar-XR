@@ -237,7 +237,6 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="MenuTime" type="Node3D" parent="ControlMenu/Tabs"]
-visible = false
 script = ExtResource("8_dwy47")
 
 [node name="LblDateTime" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
@@ -298,6 +297,7 @@ focusable = false
 label = "/\\"
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 script = ExtResource("10_ic3tv")
 
 [node name="Settings" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]

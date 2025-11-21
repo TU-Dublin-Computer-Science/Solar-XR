@@ -1,17 +1,22 @@
+using Meta.XR.ImmersiveDebugger.UserInterface;
+using MixedReality.Toolkit.UX;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
     public Simulation simulation;  //Set in editor
+    public PressableButton timeLiveBtn; // Set in editor
+
     private bool isPaused = false;
-    
+    private bool timeLive = false;
+
     public void NextOrbitingBody()
-    {     
+    {
         simulation.NextOrbitingBody();
-       
+
     }
     public void PreviousOrbitingBody()
-    {        
+    {
         simulation.PreviousOrbitingBody();
     }
 
@@ -41,7 +46,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void TimePlayPause()
-    {         
+    {
         if (isPaused)
         {
             simulation.TimeScalar = TimeScalar.REAL;
@@ -51,6 +56,17 @@ public class MenuManager : MonoBehaviour
         {
             simulation.TimeScalar = TimeScalar.ZERO;
             isPaused = true;
-        }        
+        }
     }
+
+    public void SetTimeLiveBtn(bool value)
+    {
+        timeLiveBtn.ForceSetToggled(value);
+    }
+
+    public void LiveButtonPressed()
+    {
+        simulation.SetTimeLive();
+    }
+
 }

@@ -15,6 +15,7 @@ public class OrbitingBodyData
 
 public class Simulation : MonoBehaviour
 {
+    public MenuManager menuManager; // Set in editor
     public TMP_Text TxtDateTime;  // Set in editor
     public TMP_Text TxtScalar;    // Set in editor  
     public TMP_Text TxtPlayPause;  // Set in editor
@@ -27,6 +28,14 @@ public class Simulation : MonoBehaviour
             unixTime = value;
             centralBody.UnixTime = unixTime;
             
+            var systemTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            // When simulation time is out of sync, it's not live
+            if (timeLive && Math.Abs((int)unixTime - (int)systemTime) > 5)
+            {
+                TimeLive = false;                
+            }
+
             TxtDateTime.text = FormatUnixTime((long)unixTime);
         }   
     }
@@ -38,9 +47,6 @@ public class Simulation : MonoBehaviour
         { 
             timeScalar = value;             
             int timeScalarValue = timeScalarDict[timeScalar];
-
-
-
 
             if (Math.Abs(timeScalarValue) > 3600)
             {
@@ -64,7 +70,16 @@ public class Simulation : MonoBehaviour
             }
         }
     }
-    
+
+    public bool TimeLive
+    {
+        get { return timeLive; }
+        set
+        {
+            timeLive = value;
+            menuManager.SetTimeLiveBtn(value);
+        }
+    }
 
     // Dictionary mapping TimeScalar enum to integer values
     Dictionary<TimeScalar, int> timeScalarDict = new Dictionary<TimeScalar, int>
@@ -79,6 +94,7 @@ public class Simulation : MonoBehaviour
 
     private double unixTime;
     private TimeScalar timeScalar;
+    private bool timeLive;
     string[] bodyNames = { "sun", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"};
     int currentBody = 0;
 
@@ -93,8 +109,7 @@ public class Simulation : MonoBehaviour
 
         InstantiateOrbitingBody();
 
-        TimeScalar = TimeScalar.REAL;
-        UnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();        
+        SetTimeLive();
     }
 
     // Update is called once per frame
@@ -103,24 +118,6 @@ public class Simulation : MonoBehaviour
         UnixTime += Time.deltaTime * timeScalarDict[timeScalar];              
     }
 
-    void InstantiateOrbitingBody()
-    {
-        double modelScalar;
-        TextAsset jsonFile = Resources.Load<TextAsset>("BodyData/earth"); // path without .json
-        OrbitingBodyData orbitingBodyData = JsonUtility.FromJson <OrbitingBodyData>(jsonFile.text);
-        if (orbitingBodyData.radius != 0)
-        {
-            modelScalar = 0.5 / orbitingBodyData.radius; 
-            
-        } else
-        {
-            modelScalar = 0.5 / 10;
-        }   
-
-        orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
-        centralBody = orbitingBodyGO.GetComponent<OrbitingBody>();   
-        centralBody.Init(bodyNames[currentBody], modelScalar, true);
-    }
 
     public void NextOrbitingBody()
     {
@@ -136,6 +133,32 @@ public class Simulation : MonoBehaviour
         currentBody = (currentBody - 1 + bodyNames.Length) % bodyNames.Length;
         Destroy(orbitingBodyGO);
         InstantiateOrbitingBody();
+    }
+    public void SetTimeLive()
+    {
+        TimeScalar = TimeScalar.REAL;
+        UnixTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        TimeLive = true;
+    }
+
+    private void InstantiateOrbitingBody()
+    {
+        double modelScalar;
+        TextAsset jsonFile = Resources.Load<TextAsset>("BodyData/earth"); // path without .json
+        OrbitingBodyData orbitingBodyData = JsonUtility.FromJson<OrbitingBodyData>(jsonFile.text);
+        if (orbitingBodyData.radius != 0)
+        {
+            modelScalar = 0.5 / orbitingBodyData.radius;
+
+        }
+        else
+        {
+            modelScalar = 0.5 / 10;
+        }
+
+        orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
+        centralBody = orbitingBodyGO.GetComponent<OrbitingBody>();
+        centralBody.Init(bodyNames[currentBody], modelScalar, true);
     }
 
     private static string FormatUnixTime(long value)

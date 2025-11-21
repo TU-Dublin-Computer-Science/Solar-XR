@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class OrbitingBody : MonoBehaviour
@@ -37,6 +38,8 @@ public class OrbitingBody : MonoBehaviour
     private double julianTime;    
 
     private Transform body;
+    private Transform LabelParent;
+    private TextMeshPro label;    
     private GameObject[] satelliteObjects;
 
     public GameObject[] SatelliteObjects
@@ -117,7 +120,9 @@ public class OrbitingBody : MonoBehaviour
         }
 
         body = transform.Find("OrbitalPlane/Body");
-
+        LabelParent = transform.Find("OrbitalPlane/Body/LabelParent");
+        label = transform.Find("OrbitalPlane/Body/LabelParent/Label").GetComponent<TextMeshPro>();
+        
         name = name.ToLower();
         rotationEnabled = rotation_factor != -1;
 
@@ -140,8 +145,7 @@ public class OrbitingBody : MonoBehaviour
     private void SetupGameObject()
     {         
         body.localScale = Vector3.one * (float)(radius / 0.5);
-       
-       
+              
         // Apply surface texture
         // Load the material from Resources
         Material mat = Resources.Load<Material>("Materials/" + name);
@@ -157,7 +161,15 @@ public class OrbitingBody : MonoBehaviour
         {
             renderer.material = mat;
         }
-    }
+
+        // Set the label's local Y position to half the model's Y scale
+        LabelParent.localPosition = new Vector3(
+            LabelParent.localPosition.x,
+            body.localScale.y / 2f,
+            LabelParent.localPosition.z);
+
+        label.text = char.ToUpper(name[0]) + name.Substring(1);
+    }             
 
     private void SpawnSatellites()
     {

@@ -35,10 +35,11 @@ public class OrbitingBody : MonoBehaviour
     private double totalRotation = 0;
 
     private double unixTime;
-    private double julianTime;    
+    private double julianTime;
 
+    private Transform bodyParent;
     private Transform body;
-    private Transform LabelParent;
+    private Transform labelParent;
     private TextMeshPro label;    
     private GameObject[] satelliteObjects;
 
@@ -78,8 +79,8 @@ public class OrbitingBody : MonoBehaviour
             // Make the label face the camera
             label.transform.rotation = Quaternion.LookRotation(label.transform.position - Camera.main.transform.position);
 
-            float newScale = Vector3.Distance(Camera.main.transform.position, label.transform.position);
-            label.transform.localScale = new Vector3(newScale, newScale, newScale);
+            float newScale = Vector3.Distance(Camera.main.transform.position, label.transform.position) * 0.5f;
+            labelParent.transform.localScale = new Vector3(newScale, newScale, newScale);
         }
     }
 
@@ -132,9 +133,10 @@ public class OrbitingBody : MonoBehaviour
             }            
         }
 
-        body = transform.Find("OrbitalPlane/Body");
-        LabelParent = transform.Find("OrbitalPlane/Body/LabelParent");
-        label = transform.Find("OrbitalPlane/Body/LabelParent/Label").GetComponent<TextMeshPro>();
+        bodyParent = transform.Find("OrbitalPlane/BodyParent");
+        body = transform.Find("OrbitalPlane/BodyParent/Body");
+        labelParent = transform.Find("OrbitalPlane/BodyParent/LabelParent");
+        label = transform.Find("OrbitalPlane/BodyParent/LabelParent/Label").GetComponent<TextMeshPro>();
         
         name = name.ToLower();
         rotationEnabled = rotation_factor != -1;
@@ -176,10 +178,10 @@ public class OrbitingBody : MonoBehaviour
         }
 
         // Set the label's local Y position to half the model's Y scale
-        LabelParent.localPosition = new Vector3(
-            LabelParent.localPosition.x,
+        labelParent.localPosition = new Vector3(
+            labelParent.localPosition.x,
             body.localScale.y / 2f,
-            LabelParent.localPosition.z);
+            labelParent.localPosition.z);
 
         label.text = char.ToUpper(name[0]) + name.Substring(1);
     }             
@@ -229,7 +231,7 @@ public class OrbitingBody : MonoBehaviour
         if (orbiting)
         {
             double trueAnomaly = GetTrueAnomaly();         
-            body.localPosition = GetOrbitPoint(trueAnomaly);
+            bodyParent.localPosition = GetOrbitPoint(trueAnomaly);
         }
 
         if (rotationEnabled)

@@ -237,7 +237,6 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="MenuTime" type="Node3D" parent="ControlMenu/Tabs"]
-visible = false
 script = ExtResource("8_dwy47")
 
 [node name="LblDateTime" type="Label3D" parent="ControlMenu/Tabs/MenuTime"]
@@ -281,7 +280,7 @@ script = ExtResource("10_ly053")
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -2.61934e-10, 0, 0, 1, -0.000640114, 0.145099, 4.69409e-05)
 
 [node name="SampleEntity" parent="ControlMenu/Tabs/MenuBody/CtnBodyList" instance=ExtResource("12_jlhfs")]
-transform = Transform3D(1, -5.21254e-11, 2.01948e-28, 5.21254e-11, 1, 1.96182e-44, -2.01948e-28, 1.05266e-38, 1, 0, -0.0175, 0)
+transform = Transform3D(1, -5.21254e-11, 2.01948e-28, 5.21254e-11, 1, 2e-44, -2.01948e-28, 1.05266e-38, 1, 0, -0.0175, 0)
 
 [node name="BtnBack" parent="ControlMenu/Tabs/MenuBody" instance=ExtResource("3_f40n8")]
 transform = Transform3D(1, 4.73506e-11, 0, 5.22249e-11, 1, -6.40284e-10, 0, 0, 1, -0.105493, 0.127167, -0.000110884)
@@ -298,6 +297,7 @@ focusable = false
 label = "/\\"
 
 [node name="MenuSettings" type="Node3D" parent="ControlMenu/Tabs"]
+visible = false
 script = ExtResource("10_ic3tv")
 
 [node name="Settings" type="Label3D" parent="ControlMenu/Tabs/MenuSettings"]

@@ -33,7 +33,7 @@ public class OrbitingBody : MonoBehaviour
     private bool initialised = false;
     private double totalRotation = 0;
 
-    private float unixTime;
+    private double unixTime;
     private double julianTime;    
 
     private Transform body;
@@ -44,7 +44,7 @@ public class OrbitingBody : MonoBehaviour
         get { return satelliteObjects; }
     }
 
-    public float UnixTime
+    public double UnixTime
     {
         get { return unixTime; }
         set
@@ -282,7 +282,7 @@ public class OrbitingBody : MonoBehaviour
     }
 
 
-    double UnixToJulian(float unixTime)
+    double UnixToJulian(double unixTime)
     {
         // Convert Unix timestamp to UTC DateTime
         DateTime dateTime = DateTimeOffset.FromUnixTimeSeconds((long)unixTime).UtcDateTime;

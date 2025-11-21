@@ -68,8 +68,21 @@ public class OrbitingBody : MonoBehaviour
                 }
             }
         }
-    }        
-        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (label != null && Camera.main != null)
+        {
+            // Make the label face the camera
+            label.transform.rotation = Quaternion.LookRotation(label.transform.position - Camera.main.transform.position);
+
+            float newScale = Vector3.Distance(Camera.main.transform.position, label.transform.position);
+            label.transform.localScale = new Vector3(newScale, newScale, newScale);
+        }
+    }
+
     public void Init(string bodyName, double modelScalar, bool central)
     {      
         LoadFromJSON(bodyName);

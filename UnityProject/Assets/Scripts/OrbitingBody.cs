@@ -77,9 +77,9 @@ public class OrbitingBody : MonoBehaviour
         if (label != null && Camera.main != null)
         {
             // Make the label face the camera
-            label.transform.rotation = Quaternion.LookRotation(label.transform.position - Camera.main.transform.position);
+            labelParent.transform.rotation = Quaternion.LookRotation(label.transform.position - Camera.main.transform.position);
 
-            float newScale = Vector3.Distance(Camera.main.transform.position, label.transform.position) * 0.5f;
+            float newScale = Vector3.Distance(Camera.main.transform.position, label.transform.position) * 0.3f;
             labelParent.transform.localScale = new Vector3(newScale, newScale, newScale);
         }
     }

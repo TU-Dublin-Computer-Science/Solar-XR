@@ -8,7 +8,6 @@ public class MenuManager : MonoBehaviour
     public PressableButton timeLiveBtn; // Set in editor
 
     private bool isPaused = false;
-    private bool timeLive = false;
 
     public void NextOrbitingBody()
     {

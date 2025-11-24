@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -26,6 +27,18 @@ public class OrbitingBody : MonoBehaviour
     const double EPOCH_JULIAN_DATE = 2451545.0; // 2000-01-01.5
     const double TAU = Math.PI * 2;
     const int ORBIT_POINTS = 1024;  //The greater the number to more accurate the orbit line
+    const int MAX_SATELLITE_DIST = 1000000; // Max distance for non-planet satellites
+    readonly string[] PlanetNames = new string[]
+    {
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune"
+    };
 
     public LineRenderer orbitVisual; // Assign in inspector
 
@@ -44,12 +57,7 @@ public class OrbitingBody : MonoBehaviour
     private Transform body;
     private Transform labelParent;
     private TextMeshPro label;    
-    private GameObject[] satelliteObjects;
-
-    public GameObject[] SatelliteObjects
-    {
-        get { return satelliteObjects; }
-    }
+    private List<OrbitingBody> satelliteObjects;
 
     public double UnixTime
     {
@@ -59,17 +67,15 @@ public class OrbitingBody : MonoBehaviour
             unixTime = value;
             julianTime = UnixToJulian(unixTime);
 
-            if (initialised)
-            {
-                UpdateBody();
-                if (central)
-                {
-                    foreach (GameObject satelliteGO in satelliteObjects)
-                    {
-                        OrbitingBody satellite = satelliteGO.GetComponent<OrbitingBody>();
-                        satellite.UnixTime = unixTime;
-                    }
-                }
+            if (!initialised) { return; }
+            
+            UpdateBody();
+
+            if (!central) { return; }
+                        
+            foreach (OrbitingBody satellite in satelliteObjects)
+            {                
+                satellite.UnixTime = unixTime;
             }
         }
     }
@@ -97,7 +103,8 @@ public class OrbitingBody : MonoBehaviour
 
         SpawnSatellites();
 
-        if (orbiting) {
+        if (orbiting) 
+        {
             orbitVisual.enabled = true;
             DrawOrbitVisual();            
         } else
@@ -108,7 +115,8 @@ public class OrbitingBody : MonoBehaviour
         initialised = true;
     }
 
-    private void LoadFromJSON(string bodyName)
+    // This function can be used externally to just load the data of a body without generating the model
+    public void LoadFromJSON(string bodyName)
     {
         TextAsset jsonFile = Resources.Load<TextAsset>("BodyData/" + bodyName);
 
@@ -216,39 +224,28 @@ public class OrbitingBody : MonoBehaviour
     {
         if (!central) return;
 
-        // If there are no satellites, initialize an empty array and return
-        if (satellites == null || satellites.Count == 0)
-        {
-            satelliteObjects = new GameObject[0];
-            return;
-        }
-
-        satelliteObjects = new GameObject[satellites.Count];
+        satelliteObjects = new List<OrbitingBody>();
 
         for (int i = 0; i < satellites.Count; i++)
         {
             string satelliteName = satellites[i];
 
             GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
-            if (orbitingBodyPrefab == null)
+            GameObject satelliteGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, body);
+            OrbitingBody satellite = satelliteGO.GetComponent<OrbitingBody>();
+
+            satellite.LoadFromJSON(satelliteName);
+                        
+            // Skip satellites that are too far away (non-planetary)
+            if (!PlanetNames.Contains(satellite.name) && satellite.semimajor_axis > MAX_SATELLITE_DIST)
             {
-                Debug.LogError("OrbitingBody prefab not found in Resources/Prefabs.");
+                Destroy(satelliteGO);
                 continue;
             }
-
-            GameObject orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, body);
-            OrbitingBody satellite = orbitingBodyGO.GetComponent<OrbitingBody>();
-
-            if (satellite == null)
-            {
-                Debug.LogError("Instantiated prefab does not contain an OrbitingBody component.");
-                Destroy(orbitingBodyGO);
-                continue;
-            }
-
+           
             satellite.Init(satelliteName, modelScalar, false);
 
-            satelliteObjects[i] = orbitingBodyGO;  // append global array
+            satelliteObjects.Add(satellite);
         }
     }
 

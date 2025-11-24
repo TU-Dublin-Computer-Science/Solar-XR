@@ -2,16 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-
-
-[Serializable]
-public class OrbitingBodyData
-{
-    public double radius;
-}
 
 public class Simulation : MonoBehaviour
 {
@@ -144,20 +135,21 @@ public class Simulation : MonoBehaviour
     private void InstantiateOrbitingBody()
     {
         double modelScalar;
-        TextAsset jsonFile = Resources.Load<TextAsset>("BodyData/earth"); // path without .json
-        OrbitingBodyData orbitingBodyData = JsonUtility.FromJson<OrbitingBodyData>(jsonFile.text);
-        if (orbitingBodyData.radius != 0)
-        {
-            modelScalar = 0.5 / orbitingBodyData.radius;
 
+        orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
+        centralBody = orbitingBodyGO.GetComponent<OrbitingBody>();
+
+        centralBody.LoadFromJSON(bodyNames[currentBody]);
+       
+        if (centralBody.radius != 0)
+        {
+            modelScalar = 0.5 / centralBody.radius;
         }
         else
         {
             modelScalar = 0.5 / 10;
         }
-
-        orbitingBodyGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity);
-        centralBody = orbitingBodyGO.GetComponent<OrbitingBody>();
+        
         centralBody.Init(bodyNames[currentBody], modelScalar, true);
     }
 

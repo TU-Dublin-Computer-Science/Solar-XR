@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class OrbitingBody : MonoBehaviour
@@ -34,9 +35,12 @@ public class OrbitingBody : MonoBehaviour
     private double totalRotation = 0;
 
     private double unixTime;
-    private double julianTime;    
+    private double julianTime;
 
+    private Transform bodyParent;
     private Transform body;
+    private Transform labelParent;
+    private TextMeshPro label;    
     private GameObject[] satelliteObjects;
 
     public GameObject[] SatelliteObjects
@@ -65,8 +69,21 @@ public class OrbitingBody : MonoBehaviour
                 }
             }
         }
-    }        
-        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (label != null && Camera.main != null)
+        {
+            // Make the label face the camera
+            labelParent.transform.rotation = Quaternion.LookRotation(label.transform.position - Camera.main.transform.position);
+
+            float newScale = Vector3.Distance(Camera.main.transform.position, label.transform.position) * 0.3f;
+            labelParent.transform.localScale = new Vector3(newScale, newScale, newScale);
+        }
+    }
+
     public void Init(string bodyName, double modelScalar, bool central)
     {      
         LoadFromJSON(bodyName);
@@ -116,8 +133,11 @@ public class OrbitingBody : MonoBehaviour
             }            
         }
 
-        body = transform.Find("OrbitalPlane/Body");
-
+        bodyParent = transform.Find("OrbitalPlane/BodyParent");
+        body = transform.Find("OrbitalPlane/BodyParent/Body");
+        labelParent = transform.Find("OrbitalPlane/BodyParent/LabelParent");
+        label = transform.Find("OrbitalPlane/BodyParent/LabelParent/Label").GetComponent<TextMeshPro>();
+        
         name = name.ToLower();
         rotationEnabled = rotation_factor != -1;
 
@@ -140,8 +160,7 @@ public class OrbitingBody : MonoBehaviour
     private void SetupGameObject()
     {         
         body.localScale = Vector3.one * (float)(radius / 0.5);
-       
-       
+              
         // Apply surface texture
         // Load the material from Resources
         Material mat = Resources.Load<Material>("Materials/" + name);
@@ -157,7 +176,15 @@ public class OrbitingBody : MonoBehaviour
         {
             renderer.material = mat;
         }
-    }
+
+        // Set the label's local Y position to half the model's Y scale
+        labelParent.localPosition = new Vector3(
+            labelParent.localPosition.x,
+            body.localScale.y / 2f,
+            labelParent.localPosition.z);
+
+        label.text = char.ToUpper(name[0]) + name.Substring(1);
+    }             
 
     private void SpawnSatellites()
     {
@@ -204,7 +231,7 @@ public class OrbitingBody : MonoBehaviour
         if (orbiting)
         {
             double trueAnomaly = GetTrueAnomaly();         
-            body.localPosition = GetOrbitPoint(trueAnomaly);
+            bodyParent.localPosition = GetOrbitPoint(trueAnomaly);
         }
 
         if (rotationEnabled)

@@ -25,6 +25,9 @@ public class OrbitingBody : MonoBehaviour
     // Other fields
     const double EPOCH_JULIAN_DATE = 2451545.0; // 2000-01-01.5
     const double TAU = Math.PI * 2;
+    const int ORBIT_POINTS = 1024;  //The greater the number to more accurate the orbit line
+
+    public LineRenderer orbitVisual; // Assign in inspector
 
     private double modelScalar;
     private bool rotationEnabled;
@@ -85,7 +88,7 @@ public class OrbitingBody : MonoBehaviour
     }
 
     public void Init(string bodyName, double modelScalar, bool central)
-    {      
+    {
         LoadFromJSON(bodyName);
 
         InitFields(modelScalar, central);
@@ -93,6 +96,14 @@ public class OrbitingBody : MonoBehaviour
         SetupGameObject();
 
         SpawnSatellites();
+
+        if (orbiting) {
+            orbitVisual.enabled = true;
+            DrawOrbitVisual();            
+        } else
+        {
+            orbitVisual.enabled = false;
+        }
 
         initialised = true;
     }
@@ -184,7 +195,22 @@ public class OrbitingBody : MonoBehaviour
             labelParent.localPosition.z);
 
         label.text = char.ToUpper(name[0]) + name.Substring(1);
-    }             
+    }
+
+    private void DrawOrbitVisual()
+    {
+        orbitVisual.positionCount = ORBIT_POINTS + 1; // +1 to close the loop
+
+        for (int i = 0; i < ORBIT_POINTS; i++)
+        {
+            float angle = (i / (float)ORBIT_POINTS) * (float)TAU;
+            orbitVisual.SetPosition(i, GetOrbitPoint(angle));
+        }
+       
+        // Add first point again to close the loop
+        orbitVisual.SetPosition(ORBIT_POINTS, GetOrbitPoint(0));
+    }
+
 
     private void SpawnSatellites()
     {

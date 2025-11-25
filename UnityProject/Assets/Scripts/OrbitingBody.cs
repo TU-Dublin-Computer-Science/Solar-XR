@@ -231,7 +231,7 @@ public class OrbitingBody : MonoBehaviour
             string satelliteName = satellites[i];
 
             GameObject orbitingBodyPrefab = Resources.Load<GameObject>("Prefabs/OrbitingBody");
-            GameObject satelliteGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, body);
+            GameObject satelliteGO = Instantiate(orbitingBodyPrefab, transform.position, Quaternion.identity, bodyParent);
             OrbitingBody satellite = satelliteGO.GetComponent<OrbitingBody>();
 
             satellite.LoadFromJSON(satelliteName);
@@ -261,7 +261,7 @@ public class OrbitingBody : MonoBehaviour
         {
             double newRotation = (rotation_factor * julianTime);
             double rotAngle = newRotation - totalRotation;
-            transform.Rotate(Vector3.up * -(float)rotAngle);
+            body.Rotate(Vector3.up * -(float)rotAngle);
             totalRotation = newRotation;
         }
     }

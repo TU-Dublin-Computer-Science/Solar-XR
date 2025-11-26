@@ -53,6 +53,7 @@ public class OrbitingBody : MonoBehaviour
     private double unixTime;
     private double julianTime;
 
+    private Transform orbitalPlane;
     private Transform bodyParent;
     private Transform body;
     private Transform labelParent;
@@ -99,7 +100,9 @@ public class OrbitingBody : MonoBehaviour
 
         InitFields(modelScalar, central);
 
-        SetupGameObject();
+        SetupBody();
+
+        OrientOrbitalPlane();
 
         SpawnSatellites();
 
@@ -133,6 +136,7 @@ public class OrbitingBody : MonoBehaviour
 
     private void InitFields(double modelScalar, bool central)
     {
+        gameObject.name = "OrbitingBody_" + name;
         this.central = central;
         this.modelScalar = modelScalar;
 
@@ -152,19 +156,14 @@ public class OrbitingBody : MonoBehaviour
             }            
         }
 
-        bodyParent = transform.Find("OrbitalPlane/BodyParent");
+        orbitalPlane = transform.Find("OrbitalPlane");
+        bodyParent = orbitalPlane.Find("BodyParent");
         body = bodyParent.Find("Body");
         labelParent = bodyParent.Find("LabelParent");
         label = labelParent.Find("Label").GetComponent<TextMeshPro>();
-        
-        name = name.ToLower();
-        rotationEnabled = rotation_factor != -1;
 
-        argument_periapsis = Mathf.Deg2Rad * argument_periapsis;
-        mean_anomaly = Mathf.Deg2Rad * mean_anomaly;
-        inclination = Mathf.Deg2Rad * inclination;
-        lon_ascending_node = Mathf.Deg2Rad * lon_ascending_node;
-        semimajor_axis = semimajor_axis * modelScalar;
+        name = name.ToLower();        
+        rotationEnabled = rotation_factor != -1;
 
         orbiting = (semimajor_axis != -1 &&
                     eccentricity != -1 &&
@@ -174,9 +173,11 @@ public class OrbitingBody : MonoBehaviour
                     lon_ascending_node != -1 &&
                     orbital_period != -1 &&
                     !central);
+
+        semimajor_axis = semimajor_axis * modelScalar;
     }
 
-    private void SetupGameObject()
+    private void SetupBody()
     {         
         body.localScale = Vector3.one * (float)(radius / 0.5);
               
@@ -203,6 +204,21 @@ public class OrbitingBody : MonoBehaviour
             labelParent.localPosition.z);
 
         label.text = char.ToUpper(name[0]) + name.Substring(1);
+    }
+
+    private void OrientOrbitalPlane()
+    {
+        // Reset to initial orientation
+        orbitalPlane.localRotation = Quaternion.identity;
+
+        // Rotate orbital plane around the equatorial plane y axis (The Polar Axis)
+        orbitalPlane.Rotate(Vector3.up, (float)lon_ascending_node, Space.World);
+
+        // Rotate orbital plane around the orbital plane x-axis (Line of Ascending Node)
+        orbitalPlane.Rotate(Vector3.right, (float)inclination, Space.Self);
+
+        // Rotate orbital plane around the orbital plane y-axis
+        orbitalPlane.Rotate(Vector3.up, (float)argument_periapsis, Space.Self);
     }
 
     private void DrawOrbitVisual()
@@ -289,7 +305,8 @@ public class OrbitingBody : MonoBehaviour
         double t = julianTime - EPOCH_JULIAN_DATE;
         
         t *= 86400.0; // #Convert days to seconds, as mean motion is rad/s
-        double currentMeanAnomaly = mean_anomaly + (meanMotion * t);
+        double meanAnomalyRad = Mathf.Deg2Rad * mean_anomaly;
+        double currentMeanAnomaly = meanAnomalyRad + (meanMotion * t);
         currentMeanAnomaly = NormalizeAngle(currentMeanAnomaly);  // Wrap to [0, TAU]
 
         // 2. Solve Kepler's equation for the eccentric anomaly

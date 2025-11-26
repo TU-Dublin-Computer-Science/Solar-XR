@@ -153,9 +153,9 @@ public class OrbitingBody : MonoBehaviour
         }
 
         bodyParent = transform.Find("OrbitalPlane/BodyParent");
-        body = transform.Find("OrbitalPlane/BodyParent/Body");
-        labelParent = transform.Find("OrbitalPlane/BodyParent/LabelParent");
-        label = transform.Find("OrbitalPlane/BodyParent/LabelParent/Label").GetComponent<TextMeshPro>();
+        body = bodyParent.Find("Body");
+        labelParent = bodyParent.Find("LabelParent");
+        label = labelParent.Find("Label").GetComponent<TextMeshPro>();
         
         name = name.ToLower();
         rotationEnabled = rotation_factor != -1;

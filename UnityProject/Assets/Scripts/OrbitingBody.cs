@@ -290,7 +290,7 @@ public class OrbitingBody : MonoBehaviour
         double focalOffset = semimajor_axis * eccentricity;
 
         double x = Math.Cos(angle) * semiminorAxis - focalOffset;
-        double z = -Math.Sin(angle) * semiminorAxis;
+        double z = Math.Sin(angle) * semiminorAxis;
         
         return new Vector3((float)x, 0, (float)z);
     }

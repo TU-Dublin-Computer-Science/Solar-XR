@@ -12,6 +12,18 @@ GodotProject/openxr_action_map.tres
 GodotProject/addons/godotopenxrvendors
 GodotProject/addons/debug_draw_3d
 
+# GODOT IGNORES (GodotOrbitSimulation Directory)
+# Godot 4+ Specific ignores
+GodotOrbitSimulation/.godot/
+
+GodotOrbitSimulation/openxr_action_map.tres
+
+# Tmp Files
+GodotOrbitSimulation/*.tmp
+
+# Project Specific Ignores
+GodotOrbitSimulation/addons/debug_draw_3d
+
 # UNITY IGNORES (UnityProject Directory)
 
 # Unity project folders

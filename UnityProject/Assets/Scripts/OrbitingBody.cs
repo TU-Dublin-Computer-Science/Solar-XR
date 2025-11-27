@@ -212,13 +212,13 @@ public class OrbitingBody : MonoBehaviour
         orbitalPlane.localRotation = Quaternion.identity;
 
         // Rotate orbital plane around the equatorial plane y axis (The Polar Axis)
-        orbitalPlane.Rotate(Vector3.up, (float)lon_ascending_node, Space.World);
+        orbitalPlane.Rotate(Vector3.up, -(float)lon_ascending_node, Space.World);
 
         // Rotate orbital plane around the orbital plane x-axis (Line of Ascending Node)
-        orbitalPlane.Rotate(Vector3.right, (float)inclination, Space.Self);
+        orbitalPlane.Rotate(Vector3.right, -(float)inclination, Space.Self);
 
         // Rotate orbital plane around the orbital plane y-axis
-        orbitalPlane.Rotate(Vector3.up, (float)argument_periapsis, Space.Self);
+        orbitalPlane.Rotate(Vector3.up, -(float)argument_periapsis, Space.Self);
     }
 
     private void DrawOrbitVisual()

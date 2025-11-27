@@ -99,6 +99,15 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	
 	_central_body_name = body_data["central_body"]
 	
+	_orbiting = (body_data["semimajor_axis"] != -1 and 
+				body_data["eccentricity"] != -1 and 
+				body_data["argument_periapsis"] != -1 and 
+				body_data["mean_anomaly"] != -1 and 
+				body_data["inclination"] != -1 and
+				body_data["lon_ascending_node"] != -1 and
+				body_data["orbital_period"] != -1 and 
+				p_is_central != true)	
+	
 	_semimajor_axis = body_data["semimajor_axis"] * p_model_scalar
 	_eccentricity = body_data["eccentricity"]
 	_arg_periapsis = deg_to_rad(body_data["argument_periapsis"])
@@ -106,15 +115,6 @@ func init(body_data: Dictionary, p_camera: XRCamera3D, p_model_scalar: float, p_
 	_inclination = deg_to_rad(body_data["inclination"])
 	_lon_ascending_node = deg_to_rad(body_data["lon_ascending_node"])
 	_orbital_period = body_data["orbital_period"]
-	
-	_orbiting = (_semimajor_axis != -1 and 
-				_eccentricity != -1 and 
-				_arg_periapsis != -1 and 
-				_mean_anomaly != -1 and 
-				_inclination != -1 and
-				_lon_ascending_node != -1 and
-				_orbital_period != -1 and 
-				p_is_central != true)
 	
 	_setup_body()
 	

@@ -57,7 +57,7 @@ public class OrbitingBody : MonoBehaviour
     private Transform bodyParent;
     private Transform body;
     private Transform labelParent;
-    private TextMeshPro label;    
+    private TextMeshPro label;
     private List<OrbitingBody> satelliteObjects;
 
     public double UnixTime
@@ -69,13 +69,13 @@ public class OrbitingBody : MonoBehaviour
             julianTime = UnixToJulian(unixTime);
 
             if (!initialised) { return; }
-            
+
             UpdateBody();
 
             if (!central) { return; }
-                        
+
             foreach (OrbitingBody satellite in satelliteObjects)
-            {                
+            {
                 satellite.UnixTime = unixTime;
             }
         }
@@ -106,11 +106,12 @@ public class OrbitingBody : MonoBehaviour
 
         SpawnSatellites();
 
-        if (orbiting) 
+        if (orbiting)
         {
             orbitVisual.enabled = true;
-            DrawOrbitVisual();            
-        } else
+            DrawOrbitVisual();
+        }
+        else
         {
             orbitVisual.enabled = false;
         }
@@ -143,9 +144,10 @@ public class OrbitingBody : MonoBehaviour
         if (central)
         {  // If central body it's diameter is 1
             radius = 0.5;
-            modelScalar = 0.5f / (float)radius;            
-        } else
-        {                                      
+            modelScalar = 0.5f / (float)radius;
+        }
+        else
+        {
             if (radius != -1)  //If anything else it's diameter is scaled
             {
                 radius *= modelScalar;
@@ -153,7 +155,7 @@ public class OrbitingBody : MonoBehaviour
             else  //if the radius isn't defined set a minimum radius
             {
                 radius = modelScalar * 10;
-            }            
+            }
         }
 
         orbitalPlane = transform.Find("OrbitalPlane");
@@ -162,7 +164,7 @@ public class OrbitingBody : MonoBehaviour
         labelParent = bodyParent.Find("LabelParent");
         label = labelParent.Find("Label").GetComponent<TextMeshPro>();
 
-        name = name.ToLower();        
+        name = name.ToLower();
         rotationEnabled = rotation_factor != -1;
 
         orbiting = (semimajor_axis != -1 &&
@@ -178,24 +180,28 @@ public class OrbitingBody : MonoBehaviour
     }
 
     private void SetupBody()
-    {         
-        body.localScale = Vector3.one * (float)(radius / 0.5);
-              
-        // Apply surface texture
-        // Load the material from Resources
-        Material mat = Resources.Load<Material>("Materials/" + name);
+    {
+        // Destroy the previous model if it exists
+        if (body != null)
+        {
+            Destroy(body.gameObject);
+        }
 
-        if (mat == null)
+        string prefabPath = "Prefabs/BodyPrefabs/" + name;
+        GameObject bodyPrefab = Resources.Load<GameObject>("Prefabs/BodyPrefabs/" + name);
+
+        if (bodyPrefab == null)
         {
-            mat = Resources.Load<Material>("Materials/moon");
+            Debug.LogWarning($"Could not find prefab at '{prefabPath}', using fallback.");
+            bodyPrefab = Resources.Load<GameObject>("Prefabs/BodyPrefabs/mars");
         }
-        
-        // Apply material to the body's MeshRenderer
-        MeshRenderer renderer = body.GetComponent<MeshRenderer>();
-        if (renderer != null)
-        {
-            renderer.material = mat;
-        }
+
+        GameObject newBody = Instantiate(bodyPrefab, bodyParent);
+        newBody.transform.localPosition = Vector3.zero;
+        newBody.transform.localRotation = Quaternion.identity;
+        newBody.transform.localScale = Vector3.one * (float)(radius / 0.5);
+
+        body = newBody.transform;
 
         // Set the label's local Y position to half the model's Y scale
         labelParent.localPosition = new Vector3(
@@ -230,7 +236,7 @@ public class OrbitingBody : MonoBehaviour
             float angle = (i / (float)ORBIT_POINTS) * (float)TAU;
             orbitVisual.SetPosition(i, GetOrbitPoint(angle));
         }
-       
+
         // Add first point again to close the loop
         orbitVisual.SetPosition(ORBIT_POINTS, GetOrbitPoint(0));
     }
@@ -251,14 +257,14 @@ public class OrbitingBody : MonoBehaviour
             OrbitingBody satellite = satelliteGO.GetComponent<OrbitingBody>();
 
             satellite.LoadFromJSON(satelliteName);
-                        
+
             // Skip satellites that are too far away (non-planetary)
             if (!PlanetNames.Contains(satellite.name) && satellite.semimajor_axis > MAX_SATELLITE_DIST)
             {
                 Destroy(satelliteGO);
                 continue;
             }
-           
+
             satellite.Init(satelliteName, modelScalar, false);
 
             satelliteObjects.Add(satellite);
@@ -269,10 +275,10 @@ public class OrbitingBody : MonoBehaviour
     {
         if (orbiting)
         {
-            double trueAnomaly = GetTrueAnomaly();         
+            double trueAnomaly = GetTrueAnomaly();
             bodyParent.localPosition = GetOrbitPoint(trueAnomaly);
         }
-
+      
         if (rotationEnabled)
         {
             double newRotation = (rotation_factor * julianTime);
@@ -282,16 +288,16 @@ public class OrbitingBody : MonoBehaviour
         }
     }
 
-    private Vector3 GetOrbitPoint(double angle) 
-    {       
+    private Vector3 GetOrbitPoint(double angle)
+    {
         // Calculate the semi-minor axis based on eccentricity
         double semiminorAxis = semimajor_axis * Math.Sqrt(1 - eccentricity * eccentricity);
-        
+
         double focalOffset = semimajor_axis * eccentricity;
 
         double x = Math.Cos(angle) * semimajor_axis - focalOffset;
         double z = Math.Sin(angle) * semiminorAxis;
-        
+
         return new Vector3((float)x, 0, (float)z);
     }
 
@@ -303,7 +309,7 @@ public class OrbitingBody : MonoBehaviour
         // 1. Get Current Mean anomaly 
         // This is angle of body from periapsis (closest point to body) at the current time
         double t = julianTime - EPOCH_JULIAN_DATE;
-        
+
         t *= 86400.0; // #Convert days to seconds, as mean motion is rad/s
         double meanAnomalyRad = Mathf.Deg2Rad * mean_anomaly;
         double currentMeanAnomaly = meanAnomalyRad + (meanMotion * t);

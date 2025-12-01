@@ -235,10 +235,13 @@ func _update():
 	
 	if _rotation_enabled:
 		var new_rotation = deg_to_rad(_rotation_factor * _julian_time)
-		var rot_angle = new_rotation - _total_rotation
-		_model.rotate_y(rot_angle)
+		
+		# Keep the angle within [0, TAU) for precision
+		new_rotation = fmod(new_rotation, TAU)
+		if new_rotation < 0:
+			new_rotation += TAU
 
-		_total_rotation = new_rotation
+		_model.rotation.y = new_rotation		
 
 
 func _get_true_anomaly():

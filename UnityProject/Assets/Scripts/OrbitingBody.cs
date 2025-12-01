@@ -48,7 +48,6 @@ public class OrbitingBody : MonoBehaviour
     private bool orbiting = false;
 
     private bool initialised = false;
-    private double totalRotation = 0;
 
     private double unixTime;
     private double julianTime;
@@ -278,13 +277,13 @@ public class OrbitingBody : MonoBehaviour
             double trueAnomaly = GetTrueAnomaly();
             bodyParent.localPosition = GetOrbitPoint(trueAnomaly);
         }
-      
+              
         if (rotationEnabled)
         {
             double newRotation = (rotation_factor * julianTime);
-            double rotAngle = newRotation - totalRotation;
-            body.Rotate(Vector3.up * -(float)rotAngle);
-            totalRotation = newRotation;
+            float rotationFloat = (float)(newRotation % 360.0);  // Wrap to [0, 360]
+
+            body.localRotation = Quaternion.Euler(0, -rotationFloat, 0);
         }
     }
 

@@ -191,7 +191,7 @@ public class OrbitingBody : MonoBehaviour
         if (bodyPrefab == null)
         {
             Debug.LogWarning($"Could not find prefab at '{prefabPath}', using fallback.");
-            bodyPrefab = Resources.Load<GameObject>("Prefabs/BodyPrefabs/mars");
+            bodyPrefab = Resources.Load<GameObject>("Prefabs/BodyPrefabs/moon");
         }
 
         GameObject newBody = Instantiate(bodyPrefab, bodyParent);

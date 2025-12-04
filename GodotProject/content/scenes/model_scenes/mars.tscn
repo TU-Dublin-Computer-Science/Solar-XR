@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba48yfaoyc187"]
+[gd_scene load_steps=7 format=3 uid="uid://ba48yfaoyc187"]
 
 [ext_resource type="Texture2D" uid="uid://dstnbw482ykwk" path="res://content/assets/textures/8k_mars.jpg" id="1_6l5v8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5f0v"]
+albedo_texture = ExtResource("1_6l5v8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvvgk"]
 albedo_texture = ExtResource("1_6l5v8")
@@ -17,6 +20,7 @@ size = Vector3(0.5, 1, 0.001)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_r5f0v")
 mesh = SubResource("SphereMesh_yp3wd")
 skeleton = NodePath("")
 

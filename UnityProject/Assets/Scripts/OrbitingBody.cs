@@ -99,14 +99,13 @@ public class OrbitingBody : MonoBehaviour
 
         InitFields(modelScalar, central);
 
-        SetupBody();
-
-        OrientOrbitalPlane();
+        SetupBody();        
 
         SpawnSatellites();
 
         if (orbiting)
         {
+            OrientOrbitalPlane();
             orbitVisual.enabled = true;
             DrawOrbitVisual();
         }

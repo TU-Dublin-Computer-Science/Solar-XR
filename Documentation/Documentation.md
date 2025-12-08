@@ -33,6 +33,9 @@ The IAU Working Group on Cartographic Coordinates and Rotational Elements create
 
 The 2015 publication is the most recent that could be found:
 https://astropedia.astrogeology.usgs.gov/download/Docs/WGCCRE/WGCCRE2015reprint.pdf
+
+If link doesn't work, the file is in the [repository](WGCCRE2015reprint.pdf).
+
 This publication only contains equations for the 8 planets in the solar system and some of the major moons.
 
 These equations can be long, so this is how they were simplified to the one data field used by the application:

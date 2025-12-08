@@ -2,8 +2,6 @@
 
 Each celestial body stored as a separate JSON file will the fields listed below.
 
-
-
 To ensure scientific accuracy of the model, all data should be gathered from reputable sources that can be referenced in the documentation.
 
 | Name                   | Units              | Description                                                                                                                                                                                                                                                                                 |
@@ -23,10 +21,36 @@ To ensure scientific accuracy of the model, all data should be gathered from rep
 | **info_points**        | Array              | Points of interest of the surface of the planet, each one must include a title, description, image, and lon/lat coords                                                                                                                                                                      |
 | **satellites**         | Array              | List of satellites (natural & manmade) that we currently have data for orbiting the object.                                                                                                                                                                                                 |
 | **model**              |                    | A model representing the object. For spherical planets & moons a texture is applied to a perfect spherical object. For non-spherical bodies and manmade satellites, the simulation supports models in the GLB/GLTF format. This is currently only used by the Godot version of the project. |
-## Further Description of Fields
-### Kepler Elements
+## NAIF Codes
+These are the NAF (NASA Identifiers) for the planets:
+
+| Body    | Code |
+|---------|------|
+| Mercury | 199  |
+| Venus   | 299  |
+| Earth   | 399  |
+| Mars    | 499  |
+| Jupiter | 599  |
+| Saturn  | 699  |
+| Uranus  | 799  |
+| Neptune | 899  |
+| Sun     | 10   |
+## Kepler Elements
 The simulation has been designed to create the orbits from the 6 Keplerian elements that define an orbit, which are included in the list above, see [here](https://en.wikipedia.org/wiki/Orbital_elements)
-### Rotation
+## Rotation
+This is defined by rotation_factor.
+
+| Body    | Original Formula (W)                                                                                                                                                                                                                                                                                         | Simplified for Model                                                                                                                                                                                |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sun     | W = 84°.176 + 14°.1844000 d                                                                                                                                                                                                                                                                                  | 14.1844000                                                                                                                                                                                          |
+| Mercury | W = 329.5988 ± 0.0037 + 6.1385108 d                                                                                                                                                                                                                                                                          | 6.1385108                                                                                                                                                                                           |
+| Venus   | W = 160.20 − 1.4813688 d                                                                                                                                                                                                                                                                                     | 1.4813688                                                                                                                                                                                           |
+| Mars    | W = 176.049863 + 350.891982443297 d + 0.000145 sin(129.071773 + 19140.0328244 T) + 0.000157 sin(36.352167 + 38281.0473591 T) + 0.000040 sin(56.668646 + 57420.9295360 T) + 0.000001 sin(67.364003 + 76560.2552215 T) + 0.000001 sin(104.792680 + 95700.4387578 T) + 0.584542 sin(95.391654 + 0.5042615 T)(d) | 350.891982443297                                                                                                                                                                                    |
+| Jupiter | W = 284.95 + 870.5360000 d                                                                                                                                                                                                                                                                                   | 870.5360000                                                                                                                                                                                         |
+| Saturn  | W = 38.90 + 810.7939024 d                                                                                                                                                                                                                                                                                    | 810.7939024                                                                                                                                                                                         |
+| Uranus  | W = 203.81 − 501.1600928 d                                                                                                                                                                                                                                                                                   | 501.1600928                                                                                                                                                                                         |
+| Neptune | W = 249.978 + 541.1397757 d                                                                                                                                                                                                                                                                                  | 541.1397757                                                                                                                                                                                         |
+| Earth   | 360.9856235                                                                                                                                                                                                                                                                                                  | 360.9856235 (Need to find a better source for this figure, I know it's IAU, found [here](https://naif.jpl.nasa.gov/pub/naif/pds/data/mer2-m-spice-6-v1.0/mer2sp_1000/data/pck/mars_iau2000_v0.tpc)) |
 The best way found so far to get the current rotation of an object at a specified epoch is the following. It would be good to incorporate a more standardised way of doing this if one is found.
 
 The IAU Working Group on Cartographic Coordinates and Rotational Elements creates publications with equations that specify celestial body's rotations with respect to time.
@@ -68,11 +92,13 @@ The above is the rate at which Mars has rotated with respect to the current date
 d is the date in **Julian Time**, which is the number of days since a certain date
 
 The constant in this equation is what the "rotation_factor" data field is, which is 350.891982443297 in the case of Mars.
-
 ## "DataGrabber" Python Script
-The DataGrabber.py python script in the DataScript folder of the repository allows the **satellite** files to be regenerated from downloaded webpages. This script could be modified to change the data file format. The data is extracted from the following webpage:
-https://ssd.jpl.nasa.gov/sats/elem/
+The DataGrabber.py python script in the DataScript folder of the repository allows the **satellite** files to be regenerated from downloaded webpages. This script could be modified to change the data file format. The data is extracted from the following webpages:
+[Satellite Orbital Params](https://ssd.jpl.nasa.gov/sats/elem/)
+[Satellite Radii](https://ssd.jpl.nasa.gov/sats/phys_par/)
+
+Note that this does not generate the planet files, these are created manually, using data from the following webpages: 
+[Planet Orbital Params](https://ssd.jpl.nasa.gov/planets/approx_pos.html)
+[Planet Radii](https://ssd.jpl.nasa.gov/planets/phys_par.html)
 
 
-Note that this does not generate the planet files, these are created manually, using data from the following webpage: 
-https://ssd.jpl.nasa.gov/planets/approx_pos.html

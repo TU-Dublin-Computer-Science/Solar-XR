@@ -16,7 +16,7 @@ If you imagined the sun rotated around the Earth, the Vernal Equinox would be th
 In both the Godot and Unity versions of the simulation, the Global Positive X vector of the scene is treated as the vernal equinox in calculations.
 
 In the Godot Coordinate system, the vectors are as follows:
-![GodotCoords](GodotCoords.jpg)
+![GodotCoords](Attachments/GodotCoords.jpg)
 
 In the Unity coordinate system, the vectors are as follows:
 ![UnityCoords](Attachments/UnityCoords.png)

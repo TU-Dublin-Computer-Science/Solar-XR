@@ -2,9 +2,7 @@
 
 Each celestial body stored as a separate JSON file will the fields listed below.
 
-All data used in the system is extracted from the following two pages:
-https://ssd.jpl.nasa.gov/planets/approx_pos.html
-https://ssd.jpl.nasa.gov/sats/elem/
+
 
 To ensure scientific accuracy of the model, all data should be gathered from reputable sources that can be referenced in the documentation.
 
@@ -67,3 +65,11 @@ The above is the rate at which Mars has rotated with respect to the current date
 d is the date in **Julian Time**, which is the number of days since a certain date
 
 The constant in this equation is what the "rotation_factor" data field is, which is 350.891982443297 in the case of Mars.
+
+## "DataGrabber" Python Script
+The DataGrabber.py python script in the DataScript folder of the repository allows the **satellite** files to be regenerated from downloaded webpages. This script could be modified to change the data file format. The data is extracted from the following webpage:
+https://ssd.jpl.nasa.gov/sats/elem/
+
+
+Note that this does not generate the planet files, these are created manually, using data from the following webpage: 
+https://ssd.jpl.nasa.gov/planets/approx_pos.html

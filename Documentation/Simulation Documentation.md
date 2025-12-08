@@ -9,17 +9,17 @@ In a typical xyz coordinate system where x is right, y is forward and z is up:
 **X Axis:** Vernal Equinox
 **Z:** Polar Axis
 **Y:** The other direction
-![[Pasted image 20250113115334.png]]
+![ECIFrame.png](Attachments/ECIFrame.png)
 ### Vernal Equinox
 If you imagined the sun rotated around the Earth, the Vernal Equinox would be the line between the two points where the sun ascends up through the equatorial plane and descends through the equatorial plane. 
 
 In both the Godot and Unity versions of the simulation, the Global Positive X vector of the scene is treated as the vernal equinox in calculations.
 
 In the Godot Coordinate system, the vectors are as follows:
-![[Untitled 1.jpg]]
+![GodotCoords](GodotCoords.jpg)
 
 In the Unity coordinate system, the vectors are as follows:
-![[Pasted image 20251208152722.png]]
+![UnityCoords](Attachments/UnityCoords.png)
 ### Orbital Plane
 The orbit lies on an orbital plane, separate to the Earth Centred Inertial Frame mentioned above.
 This plane is oriented based on parameters before the orbit is drawn onto it.
@@ -115,7 +115,7 @@ $$
 var focal_offset = _semimajor_axis * _eccentricity
 ```
 ### Get Point
-![[2 2.jpg]]
+![ElipseOrbit.jpg](Attachments/ElipseOrbit.jpg)
 Point on ellipse is found using trigonometric methods as seen above.
 ```gdscript
 var x = cos(angle) *  _semimajor_axis - focal_offset

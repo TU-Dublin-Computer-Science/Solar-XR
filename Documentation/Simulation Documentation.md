@@ -1,6 +1,7 @@
 This file documents the core simulation of the project. It can be assumed that implementation is the same across both Godot and Unity versions unless stated otherwise. The differences between the Unity and Godot versions is documented [here](Godot%20vs%20Unity%20Implementations).
 # Orbiting Body Hierarchy
 The core of the simulation is the "OrbitingBody" class (scene in Godot and prefab in Unity, essentially a class by OOP terms).  This is designed to recursively create the solar system. The example below visualises this, with both the "central body" and the satellites all being of the orbiting body class. 
+
 ![](Attachments/OrbitalHierarchy.png)
 
 So for example, in the Godot project, the sun is initialised, this then loads the data and initialises the 8 planets of the solar system. When each planet is initialised, they load the data of their moons, for example Mars loading and initialising Phobos and Deimos. The hierarchy is determined by the "satellites" array in each body's JSON file.
@@ -19,9 +20,11 @@ The hierarchy of the elements are as follows (Godot screenshot), where "Sun" in 
 ![](Attachments/OrbtingBodyHierarchy.png)
 
 The central body, such as the sun in the Godot simulation, is set so that it doesn't orbit and  instead stays at the centre point. The orbital plane is not oriented nor is an orbit visual shown in this case:
+
 ![](Attachments/OrbtingBodyCentral.png)
 
 Satellites are added as children to the body element. A simulation with satellites looks as follows:
+
 ![](Attachments/OrbitingBodySatellite.png)
 
 # Time

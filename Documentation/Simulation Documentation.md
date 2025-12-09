@@ -1,4 +1,36 @@
-# Calculating Orbtis
+This file documents the core simulation of the project. It can be assumed that implementation is the same across both Godot and Unity versions unless stated otherwise. The differences between the Unity and Godot versions is documented [here](Godot%20vs%20Unity%20Implementations).
+# Orbiting Body Hierarchy
+The core of the simulation is the "OrbitingBody" class (scene in Godot and prefab in Unity, essentially a class by OOP terms).  This is designed to recursively create the solar system. The example below visualises this, with both the "central body" and the satellites all being of the orbiting body class. 
+
+![OrbitalHierarchy](OrbitalHierarchy.png)
+
+So for example, in the Godot project, the sun is initialised, this then loads the data and initialises the 8 planets of the solar system. When each planet is initialised, they load the data of their moons, for example Mars loading and initialising Phobos and Deimos. The hierarchy is determined by the "satellites" array in each body's JSON file.
+
+The orbiting body class is contains the following elements, visualised in the diagram below:
+![](OrbitingBody.png)
+
+**Origin:** This is not an element, just showing where the origin of the object is.
+**Orbital Plane:** This is oriented to achieve orbits in the third dimension, more details [here](#1.%20Orienting%20the%20Orbital%20Plane).
+**Orbit Visual**: This is a visualisation of the orbital path of the body.
+**Body:** This contains the model and the label of the body. Satellites are added as children of this element.
+**Label:** This shows the name of the body, being populated with the "name" value in the data JSON. Every frame it is updated so that it always faces the player camera, and is resized based on the camera distance so that it always appears the same size to the user.
+**Model:** This is visualisation of the body itself. This is what is rotated. See the [rotation section](#Rotation) for more information.
+
+The hierarchy of the elements are as follows (Godot screenshot), where "Sun" in this example is the "model" element.
+![](OrbtingBodyHierarchy.png)
+
+The central body, such as the sun in the Godot simulation, is set so that it doesn't orbit and  instead stays at the centre point. The orbital plane is not oriented nor is an orbit visual shown in this case:
+![](OrbtingBodyCentral.png)
+
+Satellites are added as children to the body element. A simulation with satellites looks as follows:
+![](OrbitingBodySatellite.png)
+
+# Time
+
+
+
+
+# Calculating Orbits
 Great video covering the orbital elements:
 https://youtu.be/AReKBoiph6g?si=trhB5TMWy28KLwfz
 
@@ -65,7 +97,7 @@ Inclination is the measure of the angle of the anti-clockwise angle between the 
 
 Godot Implementation:
 ```gdscript
-%OrbitPlane.rotate_object_local(Vector3(1, 0, 0), deg_to_rad(inclination))
+OrbitPlane.rotate_object_local(Vector3(1, 0, 0), deg_to_rad(inclination))
 ```
 
 Unity Implementation:
@@ -131,8 +163,9 @@ Implemented by finding a point as seen in section above using true anomaly as th
 ```gdscript
 object_instance.position = get_orbit_point(deg_to_rad(true_anomaly))
 ```
-
 ### Finding True anomaly
+This uses a Julian Time value, explained in the [time](#Time) section.
+
 (Godot Implementation)
 ```gdscript
 func _get_true_anomaly():
@@ -156,3 +189,4 @@ func _get_true_anomaly():
 	return true_anomaly
 ```
 
+# Body Rotation

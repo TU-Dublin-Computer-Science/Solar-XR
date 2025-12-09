@@ -26,12 +26,12 @@ The central body, such as the sun in the Godot simulation, is set so that it doe
 Satellites are added as children to the body element. A simulation with satellites looks as follows:
 
 ![](Attachments/OrbitingBodySatellite.png)
-
 # Time
+Time is measured by Unix timestamp. At program start it is set to the system time, and time then increases at regular rate. The application allows the user to speed up, stop, slow down or reset this value back to live time.
 
+This value is used to set the time field of the ObitingBody object. When this is done, the value is propagated down to all of it's children. When an OrbitingBody's time value is changed, it's [position in orbit](#Calculating%20Orbits) and [rotation](#Rotation) will be recalculated to the correct positions for that time.
 
-
-
+The rotation and orbital position of the planet is calculated with a Julian Day value, which is a count of days from a specific epoch. This value is calculated from the unix timestamp in the OrbitingBody object.
 # Calculating Orbits
 Great video covering the orbital elements:
 https://youtu.be/AReKBoiph6g?si=trhB5TMWy28KLwfz

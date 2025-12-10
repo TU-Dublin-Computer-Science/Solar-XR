@@ -33,10 +33,9 @@ This value is used to set the time field of the ObitingBody object. When this is
 
 The rotation and orbital position of the planet is calculated with a Julian Day value, which is a count of days from a specific epoch. This value is calculated from the unix timestamp in the OrbitingBody object.
 # Calculating Orbits
-Great video covering the orbital elements:
-https://youtu.be/AReKBoiph6g?si=trhB5TMWy28KLwfz
+When an OrbitingBody object is initialised, it's orbit is calculated.
 
-A separate test application of the orbital elements can be found in the repository in the folder GodotOrbitSimulation, which demonstrates how the orbits are calculated.
+Whenever the time is updated on an OrbitingBody, a new position is calculated for the body along this orbit with respect to this new time.
 ## Key Terms
 ### Earth Centred Inertial (ECI) Frame (referred to as equatorial plane)
 In a typical xyz coordinate system where x is right, y is forward and z is up:
@@ -73,6 +72,11 @@ A orbit is typically defined mathematically by the following 6 parameters:
 - Longitude of Ascending Node
 - Argument of Periapsis
 - True Anomaly
+
+Below is a good video covering the orbital elements:
+https://youtu.be/AReKBoiph6g?si=trhB5TMWy28KLwfz
+
+A separate test application of the orbital elements can be found in the repository in the folder GodotOrbitSimulation, which demonstrates how the orbits are calculated.
 
 These will be explained in further details later.
 ## 1. Orienting the Orbital Plane
@@ -158,6 +162,7 @@ var z = -sin(angle) * semiminor_axis
 ### Draw Orbit
 The orbit can then be drawn by creating multiple points at drawing lines between them.
 ## Get Orbiting Object Position
+This is updated whenever the time value is updated.
 ### True Anomaly
 Angle in range of 0-360, it denotes where the object is in the orbital path.
 
@@ -192,3 +197,22 @@ func _get_true_anomaly():
 ```
 
 # Body Rotation
+When the time of the OrbitingBody is updated a new rotation with respect to this time value is calculated.
+
+This is calculated by multiplying the time value (in the format of Julian Days) by the rotation factor in the data and applying this to the model. How this rotation factor was calculated is specified in the [Data Documentation](Data%20Documentation.md##Rotation). 
+## Prime Meridian Orientation
+Importantly, for the rotation to be applied correctly, the planet's initial orientation (before the time is set), must be with it's prime meridian on the X axis. This is in the Godot application, this hasn't been implemented in the Unity application as of yet. In the Godot application, each model scene has it's prime meridian on the x axis. This is because rotation factor calculated considers the prime meridian to be at the vernal equinox before rotation is applied.
+
+The prime meridians are as follows:
+
+| Planet   | Prime Meridian                                                                                                                           |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Earth    | Grenwich, England                                                                                                                        |
+| Mars     | The Airy-0 crater                                                                                                                        |
+| Mercury  | 20 degrees west of Hun Kal crater                                                                                                        |
+| Venus    | Central Peak of crater Ariadne                                                                                                           |
+| The Moon | Center of near-side disk as observed from Earth, with the crater **Mösting A** used as a reference point. (This hasn't been implemented) |
+For Gas Giants, the prime meridian is based on rotational and magnetic reference systems. The initial position for these has not been accurately set.
+
+
+

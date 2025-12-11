@@ -200,8 +200,8 @@ func _get_true_anomaly():
 When the time of the OrbitingBody is updated a new rotation with respect to this time value is calculated.
 
 This is calculated by multiplying the time value (in the format of Julian Days) by the rotation factor in the data and applying this to the model. How this rotation factor was calculated is specified in the [Data Documentation](Data%20Documentation.md##Rotation). 
-## Prime Meridian Orientation
-Importantly, for the rotation to be applied correctly, the planet's initial orientation (before the time is set), must be with it's prime meridian on the X axis. This is in the Godot application, this hasn't been implemented in the Unity application as of yet. In the Godot application, each model scene has it's prime meridian on the x axis. This is because rotation factor calculated considers the prime meridian to be at the vernal equinox before rotation is applied.
+# Prime Meridian Orientation
+For the rotation and info points to be applied correctly, the planet's initial orientation (before the time is set), must be with it's prime meridian on the X axis. This is in the Godot application, this hasn't been implemented in the Unity application as of yet. In the Godot application, each model scene has it's prime meridian on the x axis. This is because rotation factor calculated considers the prime meridian to be at the vernal equinox before rotation is applied.
 
 The prime meridians are as follows:
 
@@ -213,6 +213,10 @@ The prime meridians are as follows:
 | Venus    | Central Peak of crater Ariadne                                                                                                           |
 | The Moon | Center of near-side disk as observed from Earth, with the crater **Mösting A** used as a reference point. (This hasn't been implemented) |
 For Gas Giants, the prime meridian is based on rotational and magnetic reference systems. The initial position for these has not been accurately set.
-
+# Information Points (Godot Version)
+Information points for each body are stored in an array in the body's respective data file. Each entry includes a title, description, image path and location in lat/long coords.
+When an OrbitingBody object is initialised, an "InfoNode" object is generated for each of the datapoints in the data file. The longitude and latitude coordinates are converted to cartesian (xyz) coordinates and placed on the body. This is why correct initial orientation of the planet model (with respect to the Prime Meridian, see [here](#Prime%20Meridian%20Orientation). 
+When a node is selected the program then displays information corresponding to that node in an information box.
+# Body Transition (Godot Version)
 
 

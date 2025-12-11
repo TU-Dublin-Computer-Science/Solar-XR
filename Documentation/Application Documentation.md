@@ -228,3 +228,8 @@ The individual speeds for scaling up, translating and scaling down are calculate
 When animation finishes, the original FocusScene is removed from the simulation, and the new FocusScene is made visible, with the new focused body at the center. The original FocusScene isn't removed from memory and a reference to it is added to the current focus scene.
 
 When switching back to the parent body, the parent focus scene is switched back, and the animation is played to the new body.
+# UI
+## Godot
+The Godot version of the UI extracted from the open source project [Immersive Home](https://github.com/Nitwel/Immersive-Home_), which was originally heavily coupled to the original project. All UI elements have been placed in the directory addons/mars-ui in the Godot project respository.
+## Unity
+The Unity version uses Microsoft's [Mixed Reality Toolkit 3](https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk3-overview/).

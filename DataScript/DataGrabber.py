@@ -79,8 +79,8 @@ def regen_satellite_files(satellite_list: list):
 
     if os.path.exists(SATELLITE_DIR):
         shutil.rmtree(SATELLITE_DIR)
-        os.makedirs(SATELLITE_DIR)
     
+    os.makedirs(SATELLITE_DIR)
 
     for satellite_data in satellite_list:
         json_string = json.dumps(satellite_data, indent=4)

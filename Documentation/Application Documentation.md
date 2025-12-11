@@ -1,4 +1,4 @@
-This file documents the core simulation of the project. It can be assumed that implementation is the same across both Godot and Unity versions unless stated otherwise. The differences between the Unity and Godot versions is documented [here](Godot%20vs%20Unity%20Implementations).
+This file documents the project. It can be assumed that implementation is the same across both Godot and Unity versions unless stated otherwise. The differences between the Unity and Godot versions is documented [here](Godot%20vs%20Unity%20Implementations).
 # Orbiting Body Hierarchy
 The core of the simulation is the "OrbitingBody" class (scene in Godot and prefab in Unity, essentially a class by OOP terms).  This is designed to recursively create the solar system. The example below visualises this, with both the "central body" and the satellites all being of the orbiting body class. 
 
@@ -218,5 +218,13 @@ Information points for each body are stored in an array in the body's respective
 When an OrbitingBody object is initialised, an "InfoNode" object is generated for each of the datapoints in the data file. The longitude and latitude coordinates are converted to cartesian (xyz) coordinates and placed on the body. This is why correct initial orientation of the planet model (with respect to the Prime Meridian, see [here](#Prime%20Meridian%20Orientation). 
 When a node is selected the program then displays information corresponding to that node in an information box.
 # Body Transition (Godot Version)
+The transition between bodies in the Godot version of the application works as follows. The logic for the transition if contained in a "FocusScene" object for abstraction reasons. This scene just contains a central "OrbitingBody" object.
 
+When a child of the currently focused body is selected to be the newly focused body, a new FocusScene is created and initialised. This creates a new scene "in the background" with the selected body at the center. An animation then begins playing in the current FocusScene.
 
+The animation appears to the user as if the simulation is "zooming out", translating to the new body, then "zooming back in" so that the new body is in focus. However what is actually happening is the simulation node is being scaled down, translated, then scaled back up.
+The individual speeds for scaling up, translating and scaling down are calculated to ensure the same amount of time is taken every time.
+
+When animation finishes, the original FocusScene is removed from the simulation, and the new FocusScene is made visible, with the new focused body at the center. The original FocusScene isn't removed from memory and a reference to it is added to the current focus scene.
+
+When switching back to the parent body, the parent focus scene is switched back, and the animation is played to the new body.
